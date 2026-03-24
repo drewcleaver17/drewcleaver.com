@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Digital Legacy Vault',
+    price: '$1,000',
+    description:
+      'A sovereign personal website, family wiki, and digital CV — hosted on GitHub and Cloudflare. Own your presence completely, forever.',
+    deliverables: [
+      'Custom-built static site on your own domain',
+      'Private family wiki (Obsidian or GitHub-based)',
+      'Digital CV and portfolio setup',
+      'GitHub + Cloudflare Pages deploy pipeline',
+      'DNS, SSL, and performance configuration',
+      '30-day async support post-launch',
+    ],
+  },
+  {
+    title: 'Cyber Sovereignty Reboot',
+    price: '$400',
+    description:
+      'Audit your current digital exposure. Move to ProtonMail, lock down passwords with Bitwarden, and build a personal ops playbook you actually follow.',
+    deliverables: [
+      'Full privacy audit of your current setup',
+      'ProtonMail migration and architecture',
+      'Bitwarden password vault configuration',
+      'Personal ops playbook (written for you)',
+      'Account hygiene and 2FA setup',
+      '1-hour strategy call included',
+    ],
+  },
+  {
+    title: 'Full Sovereignty Bundle',
+    price: '$1,200',
+    priceNote: 'Save $200',
+    description:
+      'Everything in both packages combined. Own your identity online — your site, your data, your communications. Built once, yours forever.',
+    deliverables: [
+      'Everything in Digital Legacy Vault',
+      'Everything in Cyber Sovereignty Reboot',
+      'Priority scheduling and turnaround',
+      '60-day async support post-launch',
+      'Sovereignty audit 3 months out',
+      'Best value for a complete rebuild',
+    ],
+    featured: true,
+  },
+];
+---
+
+<Base
+  title="Home"
+  description="Drew Cleaver — You don't need more tools. You need to own your stack. Digital sovereignty consulting for people who are done renting their online life."
+>
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-20 pb-16">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-4">
+      Digital Sovereignty Consulting
+    </p>
+    <h1 class="text-4xl sm:text-5xl font-bold text-[var(--color-ink)] leading-tight mb-6">
+      You don't need more tools.<br />
+      You need to own your stack.
+    </h1>
+    <p class="text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed mb-10">
+      I help founders, professionals, and families stop renting their digital lives
+      from platforms they don't control — and build something that actually belongs to them.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a
+        href="https://cal.com/drewcleaver"
+        class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+      >
+        Book a discovery call
+      </a>
+      <a
+        href="/services"
+        class="inline-block border border-[var(--color-border)] text-[var(--color-ink)] font-semibold text-sm px-6 py-3 rounded-lg hover:border-[var(--color-teal)] transition-colors"
+      >
+        See all services
+      </a>
+    </div>
+  </section>
+
+  <!-- About snippet -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <div class="grid sm:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-4">
+          Built for people who think in systems
+        </h2>
+        <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+          I've spent years working across physical product startups, AI automation, digital strategy,
+          and e-commerce. The through-line: every founder I've worked with who struggles online
+          has the same problem. They're building on rented land.
+        </p>
+        <p class="text-[var(--color-muted)] leading-relaxed">
+          The fix isn't another SaaS subscription. It's owning the infrastructure — your domain,
+          your email, your site, your data. Simple, durable, and yours.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4">
+        {[
+          { icon: '⚙️', label: 'Physical product startups' },
+          { icon: '🤖', label: 'AI workflows & automation' },
+          { icon: '📐', label: 'Digital strategy' },
+          { icon: '🛒', label: 'E-commerce & Shopify' },
+        ].map(({ icon, label }) => (
+          <div class="flex items-center gap-3 text-sm text-[var(--color-ink)] font-medium">
+            <span class="text-xl">{icon}</span>
+            {label}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-2">Services</h2>
+    <p class="text-[var(--color-muted)] mb-8">
+      One-time engagements. No retainers, no lock-in, no upsells.
+    </p>
+    <div class="grid sm:grid-cols-3 gap-5">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
+    <div class="bg-[var(--color-ink)] text-white rounded-2xl p-10 text-center">
+      <h2 class="text-2xl font-bold mb-3">Ready to take back control?</h2>
+      <p class="text-gray-400 mb-7 max-w-xl mx-auto">
+        Book a free 30-minute discovery call. We'll map your current setup, identify the gaps,
+        and figure out which package (if any) makes sense for you.
+      </p>
+      <a
+        href="https://cal.com/drewcleaver"
+        class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+      >
+        Book a free discovery call
+      </a>
+    </div>
+  </section>
+</Base>

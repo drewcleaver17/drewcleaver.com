@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Digital Legacy Vault',
+    price: '$1,000',
+    priceNote: 'one-time',
+    description:
+      'A permanent, sovereign online presence — built on infrastructure you own and control. Your website, your family wiki, and your digital CV, hosted on GitHub and served through Cloudflare.',
+    deliverables: [
+      'Custom static site built on Astro (fast, no lock-in)',
+      'Your own domain, fully configured with DNS + SSL',
+      'Private family wiki (Obsidian Publish or GitHub-based)',
+      'Digital CV: structured work history, portfolio, and links',
+      'GitHub repository + Cloudflare Pages deployment pipeline',
+      'Performance and security baseline (HTTPS, headers, caching)',
+      '30 days of async support after launch',
+    ],
+  },
+  {
+    title: 'Cyber Sovereignty Reboot',
+    price: '$400',
+    priceNote: 'one-time',
+    description:
+      'A privacy-first overhaul of your communications and credentials. Move off Gmail, lock down your passwords, audit your digital footprint, and walk away with a written ops playbook you can actually follow.',
+    deliverables: [
+      'Comprehensive privacy audit: accounts, data brokers, exposure',
+      'ProtonMail setup: domain aliases, folder structure, migration',
+      'Bitwarden vault configuration with strong password policy',
+      'Two-factor authentication across all critical accounts',
+      'Personal ops playbook: written, tailored to your setup',
+      '1-hour video strategy call (recorded for your reference)',
+    ],
+  },
+  {
+    title: 'Full Sovereignty Bundle',
+    price: '$1,200',
+    priceNote: 'Save $200 — best value',
+    description:
+      'The complete rebuild. Own your site, your communications, your credentials, and your narrative. Everything from both packages combined, with priority scheduling and extended support.',
+    deliverables: [
+      'Everything in Digital Legacy Vault',
+      'Everything in Cyber Sovereignty Reboot',
+      'Priority booking and faster turnaround',
+      '60 days of async support after launch',
+      'Sovereignty check-in call at 90 days',
+      'Best value for a full digital overhaul',
+    ],
+    featured: true,
+  },
+];
+
+const faqs = [
+  {
+    q: 'Do I need to be technical to work with you?',
+    a: 'No. My job is to handle the technical complexity so you don\'t have to. You\'ll understand what\'s been built and why, but you won\'t need to touch a terminal or manage infrastructure yourself.',
+  },
+  {
+    q: 'How long does each engagement take?',
+    a: 'The Digital Legacy Vault typically takes 1–2 weeks from kickoff to launch. The Cyber Sovereignty Reboot runs about 1 week. The Full Bundle takes 2–3 weeks. Timelines depend on how quickly you can provide content and access.',
+  },
+  {
+    q: 'What do you need from me?',
+    a: 'For the Vault: domain name (or I\'ll help you pick one), bio, CV content, and any writing or portfolio work you want featured. For the Reboot: access credentials for your existing accounts and about 2 hours of your time across the engagement.',
+  },
+  {
+    q: 'What does "sovereign" actually mean here?',
+    a: 'It means you own the infrastructure and data outright — no subscription required to keep it live, no platform that can delete your account, no algorithm that can bury your content. GitHub Pages and Cloudflare are free tiers with long-term stability and you control the source.',
+  },
+  {
+    q: 'Do you offer ongoing maintenance or support?',
+    a: 'My packages are one-time engagements by design. After your support window closes, your site is just a folder of text files that any developer can edit. You\'re never dependent on me. If you want to add features or content later, I\'m available for ad-hoc work.',
+  },
+];
+---
+
+<Base
+  title="Services"
+  description="One-time digital sovereignty packages: Digital Legacy Vault ($1,000), Cyber Sovereignty Reboot ($400), Full Bundle ($1,200). Own your stack."
+>
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
+      Services & Pricing
+    </p>
+    <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-4">
+      Own your stack. Once.
+    </h1>
+    <p class="text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed">
+      No retainers. No monthly fees. No lock-in. You pay once for a
+      finished product that's entirely yours — and I make sure you can
+      maintain it without me.
+    </p>
+  </section>
+
+  <!-- Pricing cards -->
+  <section class="max-w-4xl mx-auto px-6 py-10">
+    <div class="grid sm:grid-cols-3 gap-5">
+      {services.map((service) => (
+        <ServiceCard {...service} ctaLabel="Get started" ctaHref="/contact" />
+      ))}
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">How it works</h2>
+    <ol class="grid sm:grid-cols-4 gap-6">
+      {[
+        { step: '01', title: 'Discovery call', body: 'A free 30-minute call to understand your setup, your goals, and which package fits. No pitch, no pressure.' },
+        { step: '02', title: 'Intake & access', body: 'I send a simple intake form. You provide content, credentials, and domain access. Takes about an hour.' },
+        { step: '03', title: 'Build & configure', body: 'I build everything, configure the infrastructure, and walk you through it before we go live.' },
+        { step: '04', title: 'Handoff & support', body: 'You get the keys. I document everything. You have async support for 30–60 days to ask questions.' },
+      ].map(({ step, title, body }) => (
+        <li class="flex flex-col gap-2">
+          <span class="text-3xl font-bold text-[var(--color-teal)] opacity-40">{step}</span>
+          <h3 class="font-semibold text-[var(--color-ink)]">{title}</h3>
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{body}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- FAQs -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">Frequently asked questions</h2>
+    <dl class="flex flex-col gap-8">
+      {faqs.map(({ q, a }) => (
+        <div>
+          <dt class="font-semibold text-[var(--color-ink)] mb-1">{q}</dt>
+          <dd class="text-[var(--color-muted)] leading-relaxed text-sm">{a}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-6 py-14 border-t border-[var(--color-border)]">
+    <div class="text-center">
+      <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-3">Not sure which package is right?</h2>
+      <p class="text-[var(--color-muted)] mb-7">
+        Book a free 30-minute call. We'll figure it out together.
+      </p>
+      <a
+        href="https://cal.com/drewcleaver"
+        class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+      >
+        Book a free discovery call
+      </a>
+    </div>
+  </section>
+</Base>

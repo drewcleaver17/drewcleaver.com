@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+
+const experience = [
+  {
+    role: 'Independent Consultant',
+    org: 'Self-employed',
+    period: '2022 — Present',
+    notes: 'Digital sovereignty, AI workflow automation, and digital strategy for founders and professionals. Clients across physical product, e-commerce, and B2B SaaS.',
+  },
+  {
+    role: 'E-commerce & Digital Strategy',
+    org: 'Various Shopify Merchants',
+    period: '2019 — 2022',
+    notes: 'CRO, tech stack audits, and ops systems for DTC brands. Helped teams move from spreadsheet chaos to structured, scalable operations.',
+  },
+  {
+    role: 'Product & Growth',
+    org: 'Physical Product Startup',
+    period: '2017 — 2019',
+    notes: 'Early-stage product development and go-to-market strategy. First-hand experience with the operational complexity of hardware + software.',
+  },
+];
+
+const focuses = [
+  'Physical product startups',
+  'AI workflows & automation',
+  'Digital strategy',
+  'E-commerce / Shopify',
+  'Privacy & digital sovereignty',
+  'Founder ops systems',
+];
+---
+
+<Base
+  title="About"
+  description="Drew Cleaver — consultant helping founders and professionals own their digital infrastructure. Background in physical products, AI automation, and e-commerce."
+>
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
+      About
+    </p>
+    <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-6">
+      I help people stop renting their digital lives.
+    </h1>
+    <div class="prose max-w-2xl">
+      <p>
+        Most professionals and founders I talk to have the same invisible problem: everything
+        they've built online is sitting on infrastructure they don't control. Their email is
+        on Google. Their site is on Squarespace. Their content is on platforms that can change
+        the terms or disappear the account without notice.
+      </p>
+      <p>
+        That's not a minor inconvenience — it's a structural fragility. And it's surprisingly
+        cheap to fix.
+      </p>
+      <p>
+        I've spent years working across physical product startups, AI automation, digital strategy,
+        and e-commerce. The through-line is always the same: the most resilient operators own
+        their stack. They're not dependent on any one platform, any one vendor, or any one
+        monthly subscription to keep their presence alive.
+      </p>
+      <p>
+        My work is about transferring that resilience to you — through a small number of
+        well-scoped, one-time engagements that leave you with infrastructure you can maintain
+        indefinitely, without me.
+      </p>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Consulting philosophy</h2>
+    <div class="grid sm:grid-cols-2 gap-8">
+      {[
+        {
+          title: 'One-time over recurring',
+          body: 'Retainers create dependency. I prefer engagements with a clear end state: you own the output, you understand how it works, and you can maintain it yourself.',
+        },
+        {
+          title: 'Own don\'t rent',
+          body: 'Whenever there\'s a choice between a SaaS subscription and a self-hosted or open alternative, I default to the one you control. Speed of setup is not worth long-term fragility.',
+        },
+        {
+          title: 'Simple and durable beats clever',
+          body: 'A static site on GitHub Pages that works in 10 years is better than a complex CMS that requires constant updates. I build for longevity, not impressiveness.',
+        },
+        {
+          title: 'Document everything',
+          body: 'Handoffs only work if there\'s documentation. Every engagement ends with written instructions, so you\'re never blocked by not knowing how something was set up.',
+        },
+      ].map(({ title, body }) => (
+        <div>
+          <h3 class="font-semibold text-[var(--color-ink)] mb-2">{title}</h3>
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Focus areas -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Focus areas</h2>
+    <ul class="flex flex-wrap gap-3">
+      {focuses.map((focus) => (
+        <li class="bg-white border border-[var(--color-border)] text-sm text-[var(--color-ink)] font-medium px-4 py-2 rounded-full">
+          {focus}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Digital CV -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">Digital CV</h2>
+    <ol class="flex flex-col gap-8 relative border-l-2 border-[var(--color-border)] pl-8 ml-2">
+      {experience.map(({ role, org, period, notes }) => (
+        <li class="relative">
+          <span class="absolute -left-[calc(2rem+1px)] top-1 w-3 h-3 rounded-full bg-[var(--color-teal)]"></span>
+          <p class="text-xs text-[var(--color-muted)] font-medium mb-1">{period}</p>
+          <h3 class="font-semibold text-[var(--color-ink)]">{role}</h3>
+          <p class="text-sm text-[var(--color-teal)] font-medium mb-2">{org}</p>
+          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{notes}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+      <div>
+        <h2 class="text-xl font-bold text-[var(--color-ink)]">Want to work together?</h2>
+        <p class="text-sm text-[var(--color-muted)] mt-1">Book a free 30-minute call — no pitch, no pressure.</p>
+      </div>
+      <a
+        href="https://cal.com/drewcleaver"
+        class="shrink-0 inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+      >
+        Book a call
+      </a>
+    </div>
+  </section>
+</Base>

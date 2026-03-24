@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Drew Cleaver — Digital sovereignty consultant. Physical product startups, AI workflows, and owning your digital stack.' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} — Drew Cleaver</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Inter font via Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Nav -->
+    <header class="border-b border-[var(--color-border)] bg-[var(--color-bg)]">
+      <nav class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+        <a
+          href="/"
+          class="font-semibold text-[var(--color-ink)] tracking-tight hover:text-[var(--color-teal)] transition-colors"
+        >
+          Drew Cleaver
+        </a>
+        <ul class="flex gap-6 text-sm font-medium">
+          {navLinks.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                class={`transition-colors ${
+                  currentPath === href || (href !== '/' && currentPath.startsWith(href))
+                    ? 'text-[var(--color-teal)]'
+                    : 'text-[var(--color-muted)] hover:text-[var(--color-ink)]'
+                }`}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-[var(--color-border)] mt-20">
+      <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-[var(--color-muted)]">
+        <span>&copy; {new Date().getFullYear()} Drew Cleaver. All rights reserved.</span>
+        <span>built sovereign on <a href="https://pages.github.com" class="hover:text-[var(--color-teal)] transition-colors">GitHub Pages</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

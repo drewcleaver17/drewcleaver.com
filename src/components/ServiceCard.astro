@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  priceNote?: string;
+  description: string;
+  deliverables: string[];
+  featured?: boolean;
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+const {
+  title,
+  price,
+  priceNote = 'one-time',
+  description,
+  deliverables,
+  featured = false,
+  ctaHref = '/contact',
+  ctaLabel = 'Get started',
+} = Astro.props;
+---
+
+<div
+  class={`rounded-xl border p-7 flex flex-col gap-5 ${
+    featured
+      ? 'border-[var(--color-teal)] bg-[var(--color-teal)] text-white'
+      : 'border-[var(--color-border)] bg-white hover:border-[var(--color-teal)] transition-colors'
+  }`}
+>
+  <div>
+    <p class={`text-xs font-semibold uppercase tracking-widest mb-2 ${featured ? 'text-teal-200' : 'text-[var(--color-teal)]'}`}>
+      {priceNote}
+    </p>
+    <h3 class={`text-xl font-bold mb-1 ${featured ? 'text-white' : 'text-[var(--color-ink)]'}`}>
+      {title}
+    </h3>
+    <p class={`text-3xl font-bold ${featured ? 'text-white' : 'text-[var(--color-ink)]'}`}>
+      {price}
+    </p>
+  </div>
+
+  <p class={`text-sm leading-relaxed ${featured ? 'text-teal-100' : 'text-[var(--color-muted)]'}`}>
+    {description}
+  </p>
+
+  <ul class="flex flex-col gap-2 flex-1">
+    {deliverables.map((item) => (
+      <li class={`flex items-start gap-2 text-sm ${featured ? 'text-teal-50' : 'text-[var(--color-ink)]'}`}>
+        <span class={`mt-0.5 shrink-0 ${featured ? 'text-teal-200' : 'text-[var(--color-teal)]'}`}>✓</span>
+        {item}
+      </li>
+    ))}
+  </ul>
+
+  <a
+    href={ctaHref}
+    class={`mt-2 inline-block text-center text-sm font-semibold py-3 px-5 rounded-lg transition-colors ${
+      featured
+        ? 'bg-white text-[var(--color-teal)] hover:bg-teal-50'
+        : 'bg-[var(--color-teal)] text-white hover:bg-[var(--color-teal-dark)]'
+    }`}
+  >
+    {ctaLabel}
+  </a>
+</div>

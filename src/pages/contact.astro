@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contact"
+  description="Get in touch with Drew Cleaver. Book a free 30-minute discovery call or send a message."
+>
+  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
+      Contact
+    </p>
+    <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-4">
+      Let's talk.
+    </h1>
+    <p class="text-xl text-[var(--color-muted)] max-w-xl leading-relaxed">
+      The fastest way to get started is a 30-minute discovery call — free, no commitment.
+      We'll look at your current setup and figure out what makes sense.
+    </p>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-6 py-10">
+    <div class="grid sm:grid-cols-2 gap-12">
+
+      <!-- Book a call -->
+      <div>
+        <h2 class="text-xl font-bold text-[var(--color-ink)] mb-3">Book a discovery call</h2>
+        <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-6">
+          30 minutes. Free. We'll cover your current digital setup, what's working,
+          what's fragile, and whether one of my packages is a good fit.
+        </p>
+        <a
+          href="https://cal.com/drewcleaver"
+          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open booking calendar →
+        </a>
+      </div>
+
+      <!-- Contact form -->
+      <div>
+        <h2 class="text-xl font-bold text-[var(--color-ink)] mb-3">Send a message</h2>
+        <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-6">
+          Prefer to write first? Fill out the form below and I'll get back to you within one business day.
+        </p>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/contact/success"
+          class="flex flex-col gap-4"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="flex flex-col gap-1">
+            <label for="name" class="text-sm font-medium text-[var(--color-ink)]">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Your name"
+              class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="email" class="text-sm font-medium text-[var(--color-ink)]">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="you@example.com"
+              class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="message" class="text-sm font-medium text-[var(--color-ink)]">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Tell me a bit about your situation and what you're hoping to accomplish..."
+              class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors text-left w-fit"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

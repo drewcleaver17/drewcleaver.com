@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <article class="max-w-4xl mx-auto px-6 pt-14 pb-20">
+    <!-- Back link -->
+    <a
+      href="/writing"
+      class="inline-flex items-center gap-1 text-sm text-[var(--color-muted)] hover:text-[var(--color-teal)] transition-colors mb-10"
+    >
+      ← All writing
+    </a>
+
+    <!-- Header -->
+    <header class="mb-10 max-w-2xl">
+      <time
+        datetime={post.data.pubDate.toISOString()}
+        class="text-sm text-[var(--color-muted)] font-medium"
+      >
+        {formatDate(post.data.pubDate)}
+      </time>
+      <h1 class="text-3xl sm:text-4xl font-bold text-[var(--color-ink)] mt-3 mb-4 leading-tight">
+        {post.data.title}
+      </h1>
+      <p class="text-xl text-[var(--color-muted)] leading-relaxed">
+        {post.data.description}
+      </p>
+    </header>
+
+    <!-- Divider -->
+    <hr class="border-[var(--color-border)] mb-10 max-w-2xl" />
+
+    <!-- Content -->
+    <div class="prose">
+      <Content />
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="mt-16 pt-10 border-t border-[var(--color-border)] max-w-2xl">
+      <p class="text-sm text-[var(--color-muted)] mb-4">
+        Questions or want to work together?
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+      >
+        Get in touch
+      </a>
+    </div>
+  </article>
+</Base>
