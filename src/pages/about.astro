@@ -3,69 +3,84 @@ import Base from '../layouts/Base.astro';
 
 const experience = [
   {
-    role: 'Independent Consultant',
-    org: 'Self-employed',
-    period: '2022 — Present',
-    notes: 'Digital sovereignty, AI workflow automation, and digital strategy for founders and professionals. Clients across physical product, e-commerce, and B2B SaaS.',
+    role: 'Founder & Inventor',
+    org: 'Higher Hangers',
+    orgUrl: 'https://higherhangers.com',
+    period: '2015 — 2026',
+    notes: 'Built a patented seven-figure D2C housewares brand from scratch — 30,000+ customers across 40+ countries via Shopify, Amazon FBA/FBM, and wholesale. Top 1% all-time Kickstarter campaign. Owned full P&L, GTM strategy, and a fractional ops network of 10+ experts delivering enterprise-grade execution at startup cost. Consulted early-stage founders on GTM, positioning, and sales motion.',
   },
   {
-    role: 'E-commerce & Digital Strategy',
-    org: 'Various Shopify Merchants',
-    period: '2019 — 2022',
-    notes: 'CRO, tech stack audits, and ops systems for DTC brands. Helped teams move from spreadsheet chaos to structured, scalable operations.',
+    role: 'Account Manager, Enterprise Energy Services',
+    org: 'Weatherford International',
+    period: '2012 — 2015',
+    notes: 'Opened Rocky Mountain territory from zero. Closed $75M+ in long-term service contracts. Grew territory net profit from <$1M to >$10M in one year. Won global Salesforce utilization competition.',
   },
   {
-    role: 'Product & Growth',
-    org: 'Physical Product Startup',
-    period: '2017 — 2019',
-    notes: 'Early-stage product development and go-to-market strategy. First-hand experience with the operational complexity of hardware + software.',
+    role: 'Account Manager, Enterprise Energy Services',
+    org: 'Baker Hughes',
+    period: '2011 — 2012',
+    notes: 'Managed $200M+ annual revenue across 20+ enterprise accounts. Closed $25M+ in new multi-product projects. Built most profitable cementing customer in Texas from $0. Graduate of Baker Hughes Sales Academy.',
+  },
+  {
+    role: 'Technical Sales Representative',
+    org: 'Stewart Tubular Products',
+    period: '2010 — 2011',
+    notes: 'Custom CNC Oil Country Tubular Goods (OCTG).',
+  },
+  {
+    role: 'SMB Account Executive',
+    org: 'Fastenal Company',
+    period: '2008 — 2010',
+    notes: 'Energy and industrial OEMs, Houston TX and Northwest Arkansas.',
   },
 ];
 
 const focuses = [
-  'Physical product startups',
+  'Physical product & D2C',
+  'Enterprise sales',
   'AI workflows & automation',
+  'Shopify / e-commerce',
   'Digital strategy',
-  'E-commerce / Shopify',
-  'Privacy & digital sovereignty',
   'Founder ops systems',
+];
+
+const notable = [
+  'US Utility Patent: Compact Clothes Hanger (US7404503B1)',
+  'Winner, 2010 Bed Bath & Beyond Innovative Dorm Room Product search',
+  'Winner, 2009 D.W. Reynolds Governor\'s Cup Business Plan Competition ($40,000)',
+  'Press: Washington Post, NBC, Wall Street Journal, Designboom',
+  'Called for ABC Shark Tank casting',
 ];
 ---
 
 <Base
   title="About"
-  description="Drew Cleaver — operator and digital strategy consultant with a background in physical product startups, AI automation, and e-commerce. Open to full-time roles and consulting."
+  description="Drew Cleaver — founder, operator, and sales leader based in Austin, TX. Built Higher Hangers into a seven-figure global brand. Background in enterprise sales, physical product, and AI workflows. Open to full-time roles and consulting."
 >
   <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
     <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
       About
     </p>
     <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-6">
-      Operator. Builder. Problem solver.
+      Founder. Operator. Sales leader.
     </h1>
     <div class="prose max-w-2xl">
       <p>
-        I'm Drew Cleaver — a digital strategy consultant and operator with a background spanning
-        physical product startups, AI workflow automation, Shopify e-commerce, and digital
-        infrastructure. I've spent my career at the intersection of operations, technology, and
-        growth — helping teams move faster, build smarter systems, and own their stack.
+        I'm Drew Cleaver — founder, operator, and sales leader based in Austin, TX. I built
+        Higher Hangers from a patented dorm-room idea into a seven-figure global brand, sold
+        direct to 30,000+ customers across 40+ countries, and managed enterprise energy accounts
+        with $200M+ in annual revenue at Baker Hughes and Weatherford.
       </p>
       <p>
-        My work in physical product taught me how to manage real complexity: supply chains,
-        manufacturing timelines, multi-channel distribution, and the ops discipline that separates
-        companies that scale from ones that stall. In e-commerce, I worked closely with Shopify
-        merchants on conversion, systems, and the stack decisions that compound over time.
+        My background sits at the intersection of physical product, enterprise sales, and digital
+        operations. I understand how to build things from zero, how to sell into complex
+        organizations, and how to architect the systems that make both sustainable.
       </p>
       <p>
-        More recently, I've focused on AI workflows and automation — helping teams identify where
-        intelligent tooling creates genuine leverage, and where it's just noise. I'm fluent in
-        the current AI landscape and opinionated about where it's actually useful.
-      </p>
-      <p>
-        I'm currently open to the right full-time role — particularly at companies where
-        operations, digital strategy, and technical product thinking intersect. I'm also available
-        for select consulting engagements. If either description fits what you're working on,
-        I'd like to hear about it.
+        More recently I've focused on AI workflows, digital strategy, and helping founders own
+        their stack rather than rent it. I'm open to the right full-time role — particularly
+        where operations, sales, and technical product thinking intersect — and available for
+        select consulting engagements.
       </p>
     </div>
   </section>
@@ -114,18 +129,45 @@ const focuses = [
 
   <!-- Digital CV -->
   <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">Digital CV</h2>
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">Experience</h2>
     <ol class="flex flex-col gap-8 relative border-l-2 border-[var(--color-border)] pl-8 ml-2">
-      {experience.map(({ role, org, period, notes }) => (
+      {experience.map(({ role, org, orgUrl, period, notes }) => (
         <li class="relative">
           <span class="absolute -left-[calc(2rem+1px)] top-1 w-3 h-3 rounded-full bg-[var(--color-teal)]"></span>
           <p class="text-xs text-[var(--color-muted)] font-medium mb-1">{period}</p>
           <h3 class="font-semibold text-[var(--color-ink)]">{role}</h3>
-          <p class="text-sm text-[var(--color-teal)] font-medium mb-2">{org}</p>
+          {orgUrl ? (
+            <a href={orgUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-[var(--color-teal)] font-medium mb-2 hover:underline inline-block">{org} ↗</a>
+          ) : (
+            <p class="text-sm text-[var(--color-teal)] font-medium mb-2">{org}</p>
+          )}
           <p class="text-sm text-[var(--color-muted)] leading-relaxed">{notes}</p>
         </li>
       ))}
     </ol>
+  </section>
+
+  <!-- Education -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Education</h2>
+    <div class="flex flex-col gap-1">
+      <h3 class="font-semibold text-[var(--color-ink)]">BS Business Management</h3>
+      <p class="text-sm text-[var(--color-teal)] font-medium">John Brown University, 2009</p>
+      <p class="text-sm text-[var(--color-muted)] mt-1">Winner, 2009 D.W. Reynolds Governor's Cup Business Plan Competition ($40,000)</p>
+    </div>
+  </section>
+
+  <!-- Notable -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Notable</h2>
+    <ul class="flex flex-col gap-3">
+      {notable.map((item) => (
+        <li class="flex items-start gap-3 text-sm text-[var(--color-ink)]">
+          <span class="text-[var(--color-teal)] mt-0.5 shrink-0">—</span>
+          {item}
+        </li>
+      ))}
+    </ul>
   </section>
 
   <!-- CTA -->
