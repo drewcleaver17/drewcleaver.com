@@ -6,8 +6,8 @@ const experience = [
     role: 'Founder & Inventor',
     org: 'Higher Hangers',
     orgUrl: 'https://higherhangers.com',
-    period: '2015 — 2026',
-    notes: 'Built a patented seven-figure D2C housewares brand from scratch — 30,000+ customers across 40+ countries via Shopify, Amazon FBA/FBM, and wholesale. Top 1% all-time Kickstarter campaign. Owned full P&L, GTM strategy, and a fractional ops network of 10+ experts delivering enterprise-grade execution at startup cost. Consulted early-stage founders on GTM, positioning, and sales motion.',
+    period: '2015 — present',
+    notes: 'Built a patented seven-figure D2C housewares brand from scratch — 30,000+ customers across 40+ countries via Shopify, Amazon FBA/FBM, and wholesale. Top 1% all-time Kickstarter campaign. Owned full P&L, GTM strategy, and a fractional ops network of 10+ experts delivering enterprise-grade execution at startup cost.',
   },
   {
     role: 'Account Manager, Enterprise Energy Services',
@@ -35,15 +35,6 @@ const experience = [
   },
 ];
 
-const focuses = [
-  'Physical product & D2C',
-  'Enterprise sales',
-  'AI workflows & automation',
-  'Shopify / e-commerce',
-  'Digital strategy',
-  'Founder ops systems',
-];
-
 const notable = [
   'US Utility Patent: Compact Clothes Hanger (US7404503B1)',
   'Winner, 2010 Bed Bath & Beyond Innovative Dorm Room Product search',
@@ -55,76 +46,33 @@ const notable = [
 
 <Base
   title="About"
-  description="Drew Cleaver — founder, operator, and sales leader based in Austin, TX. Built Higher Hangers into a seven-figure global brand. Background in enterprise sales, physical product, and AI workflows. Open to full-time roles and consulting."
+  description="Drew Cleaver — inventor, entrepreneur, racing driver, and futurist based in Austin, TX. Built Higher Hangers into a seven-figure global brand. Background in physical product, enterprise sales, and AI workflows."
 >
   <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
     <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
       About
     </p>
     <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-6">
-      Founder. Operator. Sales leader.
+      Inventor. Entrepreneur.<br />
+      Racing driver. Futurist.
     </h1>
     <div class="prose max-w-2xl">
       <p>
-        I'm Drew Cleaver — founder, operator, and sales leader based in Austin, TX. I built
-        Higher Hangers from a patented dorm-room idea into a seven-figure global brand, sold
-        direct to 30,000+ customers across 40+ countries, and managed enterprise energy accounts
-        with $200M+ in annual revenue at Baker Hughes and Weatherford.
+        I'm Drew Cleaver — based in Austin, TX. I built Higher Hangers from a patented
+        dorm-room idea into a seven-figure global brand, sold direct to 30,000+ customers
+        across 40+ countries, and managed enterprise energy accounts with $200M+ in annual
+        revenue at Baker Hughes and Weatherford.
       </p>
       <p>
-        My background sits at the intersection of physical product, enterprise sales, and digital
-        operations. I understand how to build things from zero, how to sell into complex
-        organizations, and how to architect the systems that make both sustainable.
+        My background sits at the intersection of physical product, enterprise sales, and
+        digital operations. I understand how to build things from zero, how to sell into
+        complex organizations, and how to architect the systems that make both sustainable.
       </p>
       <p>
-        More recently I've focused on AI workflows, digital strategy, and helping founders own
-        their stack rather than rent it. I'm open to the right full-time role — particularly
-        where operations, sales, and technical product thinking intersect — and available for
-        select consulting engagements.
+        These days I help people own their corner of the internet — domain, email, privacy
+        stack, and the hardware that runs it all. Boring, durable, yours.
       </p>
     </div>
-  </section>
-
-  <!-- Philosophy -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Consulting philosophy</h2>
-    <div class="grid sm:grid-cols-2 gap-8">
-      {[
-        {
-          title: 'One-time over recurring',
-          body: 'Retainers create dependency. I prefer engagements with a clear end state: you own the output, you understand how it works, and you can maintain it yourself.',
-        },
-        {
-          title: 'Own don\'t rent',
-          body: 'Whenever there\'s a choice between a SaaS subscription and a self-hosted or open alternative, I default to the one you control. Speed of setup is not worth long-term fragility.',
-        },
-        {
-          title: 'Simple and durable beats clever',
-          body: 'A static site on GitHub Pages that works in 10 years is better than a complex CMS that requires constant updates. I build for longevity, not impressiveness.',
-        },
-        {
-          title: 'Document everything',
-          body: 'Handoffs only work if there\'s documentation. Every engagement ends with written instructions, so you\'re never blocked by not knowing how something was set up.',
-        },
-      ].map(({ title, body }) => (
-        <div>
-          <h3 class="font-semibold text-[var(--color-ink)] mb-2">{title}</h3>
-          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{body}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Focus areas -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Focus areas</h2>
-    <ul class="flex flex-wrap gap-3">
-      {focuses.map((focus) => (
-        <li class="bg-white border border-[var(--color-border)] text-sm text-[var(--color-ink)] font-medium px-4 py-2 rounded-full">
-          {focus}
-        </li>
-      ))}
-    </ul>
   </section>
 
   <!-- Digital CV -->
@@ -171,18 +119,27 @@ const notable = [
   </section>
 
   <!-- CTA -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--color-ink)]">Open to the right opportunity.</h2>
-        <p class="text-sm text-[var(--color-muted)] mt-1">Full-time roles and select consulting engagements. 30 minutes, no pressure.</p>
+  <section class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
+    <div class="bg-[var(--color-ink)] text-white rounded-2xl p-10 text-center">
+      <h2 class="text-2xl font-bold mb-3">Want to work together?</h2>
+      <p class="text-gray-400 mb-7 max-w-xl mx-auto">
+        Tell me what you need and what it's worth to you. Two sentences is plenty. I read
+        every inquiry and reply within a day or two.
+      </p>
+      <div class="flex flex-col items-center gap-3">
+        <a
+          href="/contact"
+          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+        >
+          Send an inquiry
+        </a>
+        <a
+          href="https://calendly.com/drewcleaver"
+          class="text-sm text-gray-400 hover:text-white transition-colors"
+        >
+          Prefer a call first? Schedule one →
+        </a>
       </div>
-      <a
-        href="https://calendly.com/drewcleaver"
-        class="shrink-0 inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-      >
-        Schedule a call
-      </a>
     </div>
   </section>
 </Base>

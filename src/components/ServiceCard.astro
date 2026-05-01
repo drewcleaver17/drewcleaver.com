@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  price: string;
+  price?: string;
   priceNote?: string;
   description: string;
   deliverables: string[];
@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   price,
-  priceNote = 'one-time',
+  priceNote,
   description,
   deliverables,
   featured = false,
@@ -30,15 +30,19 @@ const {
   }`}
 >
   <div>
-    <p class={`text-xs font-semibold uppercase tracking-widest mb-2 ${featured ? 'text-teal-200' : 'text-[var(--color-teal)]'}`}>
-      {priceNote}
-    </p>
+    {priceNote && (
+      <p class={`text-xs font-semibold uppercase tracking-widest mb-2 ${featured ? 'text-teal-200' : 'text-[var(--color-teal)]'}`}>
+        {priceNote}
+      </p>
+    )}
     <h3 class={`text-xl font-bold mb-1 ${featured ? 'text-white' : 'text-[var(--color-ink)]'}`}>
       {title}
     </h3>
-    <p class={`text-3xl font-bold ${featured ? 'text-white' : 'text-[var(--color-ink)]'}`}>
-      {price}
-    </p>
+    {price && (
+      <p class={`text-3xl font-bold ${featured ? 'text-white' : 'text-[var(--color-ink)]'}`}>
+        {price}
+      </p>
+    )}
   </div>
 
   <p class={`text-sm leading-relaxed ${featured ? 'text-teal-100' : 'text-[var(--color-muted)]'}`}>
