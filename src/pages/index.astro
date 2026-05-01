@@ -4,108 +4,106 @@ import ServiceCard from '../components/ServiceCard.astro';
 
 const services = [
   {
-    title: 'Digital Legacy Vault',
-    price: '$1,000',
+    title: 'Starter',
     description:
-      'A sovereign personal website, family wiki, and digital CV — hosted on GitHub and Cloudflare. Own your presence completely, forever.',
+      'A real email address on your own domain. firstname@firstnamelastname.com on ProtonMail. The smallest sovereign step — fast, clean, and a foundation you can build on.',
     deliverables: [
-      'Custom-built static site on your own domain',
-      'Private family wiki (Obsidian or GitHub-based)',
-      'Digital CV and portfolio setup',
-      'GitHub + Cloudflare Pages deploy pipeline',
-      'DNS, SSL, and performance configuration',
-      '30-day async support post-launch',
+      'Domain registered in your name',
+      'ProtonMail mailbox on your domain',
+      'DNS, SPF, DKIM, DMARC configured',
+      'Working inbox you control',
+      '30-min handoff call',
     ],
   },
   {
-    title: 'Cyber Sovereignty Reboot',
-    price: '$400',
+    title: 'Standard',
     description:
-      'Audit your current digital exposure. Move to ProtonMail, lock down passwords with Bitwarden, and build a personal ops playbook you actually follow.',
+      'A full privacy stack you actually use. Everything in Starter, plus VPN, password vault, hardened accounts, and the onboarding to make it stick.',
     deliverables: [
-      'Full privacy audit of your current setup',
-      'ProtonMail migration and architecture',
-      'Bitwarden password vault configuration',
-      'Personal ops playbook (written for you)',
-      'Account hygiene and 2FA setup',
-      '1-hour strategy call included',
-    ],
-  },
-  {
-    title: 'Full Sovereignty Bundle',
-    price: '$1,200',
-    priceNote: 'Save $200',
-    description:
-      'Everything in both packages combined. Own your identity online — your site, your data, your communications. Built once, yours forever.',
-    deliverables: [
-      'Everything in Digital Legacy Vault',
-      'Everything in Cyber Sovereignty Reboot',
-      'Priority scheduling and turnaround',
-      '60-day async support post-launch',
-      'Sovereignty audit 3 months out',
-      'Best value for a complete rebuild',
+      'Everything in Starter',
+      'ProtonVPN configured across your devices',
+      'Password vault (Bitwarden or Proton Pass)',
+      '2FA across critical accounts',
+      'Onboarding guide written for you',
+      '60-min training session',
+      '30 days of async support',
     ],
     featured: true,
+  },
+  {
+    title: 'Concierge',
+    description:
+      'Your stack, in your house. Everything in Standard, plus hardware-level sovereignty — your own router, your own DNS-level ad blocking, installed and configured on-site.',
+    deliverables: [
+      'Everything in Standard',
+      'UniFi router (UDR7 or equivalent) at your home',
+      'Pi-hole on Raspberry Pi 5 — network ad/tracker blocking',
+      'Hardware included',
+      'On-site installation (Austin metro)',
+      'Network documentation written for you',
+      '90 days of async support + 6-month check-in',
+    ],
   },
 ];
 ---
 
 <Base
   title="Home"
-  description="Drew Cleaver — operator, builder, and digital strategy consultant. Open to the right full-time role and select consulting engagements."
+  description="Drew Cleaver — helping people own their corner of the internet. Domain, email, privacy, and home network sovereignty."
 >
   <!-- Hero -->
   <section class="max-w-4xl mx-auto px-6 pt-20 pb-16">
     <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-4">
-      Operator · Builder · Consultant
+      Inventor · Entrepreneur · Racing Driver · Futurist
     </p>
     <h1 class="text-4xl sm:text-5xl font-bold text-[var(--color-ink)] leading-tight mb-6">
-      You don't need more tools.<br />
-      You need to own your stack.
+      Tell me what you need.<br />
+      Pay what it's worth to you.
     </h1>
     <p class="text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed mb-10">
-      I'm Drew Cleaver — operator, builder, and digital strategy consultant with a background
-      in physical product startups, AI workflows, and e-commerce. Open to the right full-time
-      role and select consulting engagements.
+      I'm Drew Cleaver. I help people own their corner of the internet — your domain, your
+      email, your privacy stack, and if you want to go all the way, the hardware that runs
+      it all. No retainers, no lock-in, no subscription creep.
     </p>
     <div class="flex flex-wrap gap-4">
       <a
-        href="https://calendly.com/drewcleaver"
+        href="/contact"
         class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
       >
-        Schedule a call
+        Send an inquiry
       </a>
       <a
-        href="/about"
+        href="/services"
         class="inline-block border border-[var(--color-border)] text-[var(--color-ink)] font-semibold text-sm px-6 py-3 rounded-lg hover:border-[var(--color-teal)] transition-colors"
       >
-        About me
+        See the menu
       </a>
     </div>
   </section>
 
-  <!-- About snippet -->
+  <!-- The pitch -->
   <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
     <div class="grid sm:grid-cols-2 gap-10 items-center">
       <div>
         <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-4">
-          Built for people who think in systems
+          The internet used to be something you owned.
         </h2>
         <p class="text-[var(--color-muted)] leading-relaxed mb-4">
-          I've spent years working across physical product startups, AI automation, digital strategy,
-          and e-commerce. The through-line: every founder I've worked with who struggles online
-          has the same problem. They're building on rented land.
+          Now most people rent it. They rent their email from Google, their identity from
+          LinkedIn, their writing from Substack. One policy change away from being
+          deplatformed. One acquisition away from being migrated.
         </p>
         <p class="text-[var(--color-muted)] leading-relaxed">
-          The fix isn't another SaaS subscription. It's owning the infrastructure — your domain,
-          your email, your site, your data. Simple, durable, and yours.
+          I build the other thing. Boring, durable, yours. A real email address. A privacy
+          stack that actually works. Hardware in your house if you want to go all the way.
+          Infrastructure that outlives whatever app is hot this year.
         </p>
       </div>
       <div class="flex flex-col gap-4">
         {[
           { icon: '⚙️', label: 'Physical product startups' },
           { icon: '🤖', label: 'AI workflows & automation' },
-          { icon: '📐', label: 'Digital strategy' },
+          { icon: '📐', label: 'Digital sovereignty' },
           { icon: '🛒', label: 'E-commerce & Shopify' },
         ].map(({ icon, label }) => (
           <div class="flex items-center gap-3 text-sm text-[var(--color-ink)] font-medium">
@@ -117,39 +115,59 @@ const services = [
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Three lanes -->
   <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-2">Services</h2>
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-2">Three lanes</h2>
     <p class="text-[var(--color-muted)] mb-8">
-      One-time engagements. No retainers, no lock-in, no upsells.
+      Email, privacy stack, or full hardware. Pay what it's worth to you.
     </p>
     <div class="grid sm:grid-cols-3 gap-5">
       {services.map((service) => (
         <ServiceCard {...service} />
       ))}
     </div>
+    <p class="text-sm text-[var(--color-muted)] mt-6">
+      Need something custom? <a href="/contact" class="text-[var(--color-teal)] hover:underline">Tell me about it →</a>
+    </p>
+  </section>
+
+  <!-- How pricing works -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-4">
+      How pricing works
+    </h2>
+    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      There's no price list. You read something I wrote, or someone sent you, or you're
+      building the same kind of life I am. By the time you're filling out the form you've
+      already done most of the qualifying.
+    </p>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      Tell me what you need and what it's worth to you. If you're early and lean, pay less.
+      If you're flush and want to support the work, pay more. The work and the standard
+      don't change. I'd rather have you on the roster than not.
+    </p>
   </section>
 
   <!-- CTA -->
   <section class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
     <div class="bg-[var(--color-ink)] text-white rounded-2xl p-10 text-center">
-      <h2 class="text-2xl font-bold mb-3">Let's talk.</h2>
+      <h2 class="text-2xl font-bold mb-3">Ready to start?</h2>
       <p class="text-gray-400 mb-7 max-w-xl mx-auto">
-        Whether you're hiring or exploring a consulting engagement — a 30-minute call is the
-        fastest way to figure out if there's a fit. No pitch, no pressure.
+        Tell me what you need and what it's worth to you. Two sentences is plenty. I read
+        every inquiry and reply within a day or two.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="https://calendly.com/drewcleaver"
-          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-        >
-          Schedule a call
-        </a>
+      <div class="flex flex-col items-center gap-3">
         <a
           href="/contact"
-          class="inline-block border border-gray-600 text-gray-300 font-semibold text-sm px-7 py-3 rounded-lg hover:border-gray-400 hover:text-white transition-colors"
+          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
         >
-          Send a message
+          Send an inquiry
+        </a>
+        <a
+          href="https://calendly.com/drewcleaver"
+          class="text-sm text-gray-400 hover:text-white transition-colors"
+        >
+          Prefer a call first? Schedule one →
         </a>
       </div>
     </div>

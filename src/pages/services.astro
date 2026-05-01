@@ -4,103 +4,124 @@ import ServiceCard from '../components/ServiceCard.astro';
 
 const services = [
   {
-    title: 'Digital Legacy Vault',
-    price: '$1,000',
-    priceNote: 'one-time',
+    title: 'Starter',
     description:
-      'A permanent, sovereign online presence — built on infrastructure you own and control. Your website, your family wiki, and your digital CV, hosted on GitHub and served through Cloudflare.',
+      'A real email address on your own domain. firstname@firstnamelastname.com on ProtonMail. The smallest sovereign step — fast, clean, and a foundation you can build on.',
     deliverables: [
-      'Custom static site built on Astro (fast, no lock-in)',
-      'Your own domain, fully configured with DNS + SSL',
-      'Private family wiki (Obsidian Publish or GitHub-based)',
-      'Digital CV: structured work history, portfolio, and links',
-      'GitHub repository + Cloudflare Pages deployment pipeline',
-      'Performance and security baseline (HTTPS, headers, caching)',
-      '30 days of async support after launch',
+      'Domain registered in your name (Hover or Cloudflare)',
+      'ProtonMail mailbox on your domain',
+      'DNS, SPF, DKIM, DMARC configured and tested',
+      'Working inbox you control end-to-end',
+      '30-min handoff call so you understand what you own',
     ],
   },
   {
-    title: 'Cyber Sovereignty Reboot',
-    price: '$400',
-    priceNote: 'one-time',
+    title: 'Standard',
     description:
-      'A privacy-first overhaul of your communications and credentials. Move off Gmail, lock down your passwords, audit your digital footprint, and walk away with a written ops playbook you can actually follow.',
+      'A full privacy stack you actually use. Everything in Starter, plus VPN, password vault, hardened accounts, and the onboarding to make it stick.',
     deliverables: [
-      'Comprehensive privacy audit: accounts, data brokers, exposure',
-      'ProtonMail setup: domain aliases, folder structure, migration',
-      'Bitwarden vault configuration with strong password policy',
-      'Two-factor authentication across all critical accounts',
-      'Personal ops playbook: written, tailored to your setup',
-      '1-hour video strategy call (recorded for your reference)',
-    ],
-  },
-  {
-    title: 'Full Sovereignty Bundle',
-    price: '$1,200',
-    priceNote: 'Save $200 — best value',
-    description:
-      'The complete rebuild. Own your site, your communications, your credentials, and your narrative. Everything from both packages combined, with priority scheduling and extended support.',
-    deliverables: [
-      'Everything in Digital Legacy Vault',
-      'Everything in Cyber Sovereignty Reboot',
-      'Priority booking and faster turnaround',
-      '60 days of async support after launch',
-      'Sovereignty check-in call at 90 days',
-      'Best value for a full digital overhaul',
+      'Everything in Starter',
+      'ProtonVPN configured across phone, laptop, and desktop',
+      'Password vault setup (Bitwarden or Proton Pass)',
+      '2FA across all critical accounts',
+      'Account hygiene and exposure cleanup',
+      'Onboarding guide written for you, not boilerplate',
+      '60-min training session, recorded for your reference',
+      '30 days of async support',
     ],
     featured: true,
+  },
+  {
+    title: 'Concierge',
+    description:
+      'Your stack, in your house. Everything in Standard, plus hardware-level sovereignty — your own router, your own DNS-level ad blocking, installed and configured on-site.',
+    deliverables: [
+      'Everything in Standard',
+      'UniFi router (UDR7 or equivalent) at your home',
+      'Pi-hole on Raspberry Pi 5 — network-wide ad and tracker blocking',
+      'Hardware included',
+      'On-site installation and tuning (Austin metro)',
+      'Network documentation written specifically for your setup',
+      '90 days of async support',
+      '6-month sovereignty check-in',
+    ],
   },
 ];
 
 const faqs = [
   {
+    q: 'How does "pay what you want" actually work?',
+    a: 'There\'s no price list. The inquiry form lets you name your own number. If you\'re early and lean, pay less. If you want to support the work, pay more. The work and the standard don\'t change either way.',
+  },
+  {
+    q: 'Is there a floor?',
+    a: 'Not officially, but I do reserve the right to decline. If you genuinely can\'t pay much and still want the work done, say so on the form. I take on a few engagements at cost each quarter.',
+  },
+  {
+    q: 'What\'s included in "hardware" for Concierge?',
+    a: 'Typically a UniFi router and a Raspberry Pi 5 kit running Pi-hole, plus cables and accessories. If you want higher-end UniFi gear, additional Pi nodes, or more capacity, we discuss that as part of the inquiry — no surprises and no markup on hardware.',
+  },
+  {
+    q: 'I\'m not in Austin. Can I still get Concierge?',
+    a: 'Yes. The Concierge tier assumes Austin metro on-site work. For elsewhere in Texas or the US, travel and lodging are quoted on top — usually a flat add-on. Tell me where you are on the form and we\'ll work it out.',
+  },
+  {
     q: 'Do I need to be technical to work with you?',
-    a: 'No. My job is to handle the technical complexity so you don\'t have to. You\'ll understand what\'s been built and why, but you won\'t need to touch a terminal or manage infrastructure yourself.',
+    a: 'No. Handling the technical complexity is the whole point. You\'ll understand what was built and why, but you won\'t need to touch a terminal or manage infrastructure.',
   },
   {
-    q: 'How long does each engagement take?',
-    a: 'The Digital Legacy Vault typically takes 1–2 weeks from kickoff to launch. The Cyber Sovereignty Reboot runs about 1 week. The Full Bundle takes 2–3 weeks. Timelines depend on how quickly you can provide content and access.',
+    q: 'How long does each tier take?',
+    a: 'Starter is a few days, mostly waiting on DNS. Standard runs about 1–2 weeks from kickoff to launch. Concierge takes 2–3 weeks plus a half-day on-site for the install. Timelines depend on how quickly you can get me content and access.',
   },
   {
-    q: 'What do you need from me?',
-    a: 'For the Vault: domain name (or I\'ll help you pick one), bio, CV content, and any writing or portfolio work you want featured. For the Reboot: access credentials for your existing accounts and about 2 hours of your time across the engagement.',
+    q: 'What does "sovereign" actually mean?',
+    a: 'You own the infrastructure outright. No subscription required to keep it live. No platform that can delete your account. No algorithm that can bury your work. If I disappeared tomorrow, your stack keeps running.',
   },
   {
-    q: 'What does "sovereign" actually mean here?',
-    a: 'It means you own the infrastructure and data outright — no subscription required to keep it live, no platform that can delete your account, no algorithm that can bury your content. GitHub Pages and Cloudflare are free tiers with long-term stability and you control the source.',
-  },
-  {
-    q: 'Do you offer ongoing maintenance or support?',
-    a: 'My packages are one-time engagements by design. After your support window closes, your site is just a folder of text files that any developer can edit. You\'re never dependent on me. If you want to add features or content later, I\'m available for ad-hoc work.',
+    q: 'Do you offer ongoing maintenance?',
+    a: 'Engagements are one-time by design. After your support window closes, you\'re running on tools any IT person can pick up. You\'re never dependent on me. If you want to add features later, I\'m available for ad-hoc work.',
   },
 ];
 ---
 
 <Base
   title="Services"
-  description="One-time digital sovereignty packages: Digital Legacy Vault ($1,000), Cyber Sovereignty Reboot ($400), Full Bundle ($1,200). Own your stack."
+  description="Three tiers — Starter (email), Standard (privacy stack), Concierge (hardware-level sovereignty, Austin local). Pay what it's worth to you."
 >
   <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
     <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
-      Services & Pricing
+      The menu
     </p>
     <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-4">
-      Own your stack. Once.
+      Pick a lane. Name your price.
     </h1>
     <p class="text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed">
-      No retainers. No monthly fees. No lock-in. You pay once for a
-      finished product that's entirely yours — and I make sure you can
-      maintain it without me.
+      Three tiers — email, privacy stack, full hardware. All one-time. No retainers, no
+      subscriptions, no lock-in. Pay what it's worth to you.
     </p>
   </section>
 
-  <!-- Pricing cards -->
+  <!-- Tier cards -->
   <section class="max-w-4xl mx-auto px-6 py-10">
     <div class="grid sm:grid-cols-3 gap-5">
       {services.map((service) => (
-        <ServiceCard {...service} ctaLabel="Get started" ctaHref="/contact" />
+        <ServiceCard {...service} ctaLabel="Inquire" ctaHref="/contact" />
       ))}
     </div>
+  </section>
+
+  <!-- How pricing works -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
+    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-4">How pricing works</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      There's no price list. You read something I wrote, or someone sent you, or you're
+      building the same kind of life I am. By the time you're filling out the form you've
+      already done most of the qualifying.
+    </p>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      Need something that doesn't fit the three tiers? Tell me on the form. If I can help,
+      I'll quote it. If I can't, I probably know who can.
+    </p>
   </section>
 
   <!-- How it works -->
@@ -108,10 +129,10 @@ const faqs = [
     <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">How it works</h2>
     <ol class="grid sm:grid-cols-4 gap-6">
       {[
-        { step: '01', title: 'Discovery call', body: 'A free 30-minute call to understand your setup, your goals, and which package fits. No pitch, no pressure.' },
-        { step: '02', title: 'Intake & access', body: 'I send a simple intake form. You provide content, credentials, and domain access. Takes about an hour.' },
-        { step: '03', title: 'Build & configure', body: 'I build everything, configure the infrastructure, and walk you through it before we go live.' },
-        { step: '04', title: 'Handoff & support', body: 'You get the keys. I document everything. You have async support for 30–60 days to ask questions.' },
+        { step: '01', title: 'Inquiry', body: 'Pick a tier (or describe a custom project) on the form. Name your price. Two sentences about what you\'re after.' },
+        { step: '02', title: 'Reply', body: 'I read every inquiry and reply within a day or two. If we\'re a fit, we set up a short call.' },
+        { step: '03', title: 'Build', body: 'I do the work, configure everything, and walk you through it before we go live. Concierge includes an on-site visit.' },
+        { step: '04', title: 'Handoff', body: 'You get the keys. I document everything. Async support window kicks in. You own it from there.' },
       ].map(({ step, title, body }) => (
         <li class="flex flex-col gap-2">
           <span class="text-3xl font-bold text-[var(--color-teal)] opacity-40">{step}</span>
@@ -138,16 +159,24 @@ const faqs = [
   <!-- CTA -->
   <section class="max-w-4xl mx-auto px-6 py-14 border-t border-[var(--color-border)]">
     <div class="text-center">
-      <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-3">Not sure which package is right?</h2>
+      <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-3">Ready to start?</h2>
       <p class="text-[var(--color-muted)] mb-7">
-        Schedule a free 30-minute call. We'll figure it out together.
+        Tell me what you need and what it's worth to you.
       </p>
-      <a
-        href="https://calendly.com/drewcleaver"
-        class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-      >
-        Schedule a call
-      </a>
+      <div class="flex flex-col items-center gap-3">
+        <a
+          href="/contact"
+          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
+        >
+          Send an inquiry
+        </a>
+        <a
+          href="https://calendly.com/drewcleaver"
+          class="text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
+        >
+          Prefer a call first? Schedule one →
+        </a>
+      </div>
     </div>
   </section>
 </Base>

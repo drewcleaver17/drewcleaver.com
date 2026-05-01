@@ -1,103 +1,217 @@
 ---
 import Base from '../layouts/Base.astro';
+
+// Formspree endpoint for inquiries.
+// Form ID is configured at https://formspree.io
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqabokqn';
+
+const offers = [
+  {
+    id: 'starter',
+    label: 'Starter',
+    blurb: 'Real email on your domain. ProtonMail, DNS, the works.',
+  },
+  {
+    id: 'standard',
+    label: 'Standard',
+    blurb: 'Full privacy stack — VPN, password vault, hardened accounts, training.',
+  },
+  {
+    id: 'concierge',
+    label: 'Concierge',
+    blurb: 'Standard plus hardware — UniFi router, Pi-hole, on-site install (Austin metro).',
+  },
+  {
+    id: 'custom',
+    label: 'Something else',
+    blurb: 'Custom project. Describe it in the message field.',
+  },
+];
 ---
 
 <Base
   title="Contact"
-  description="Get in touch with Drew Cleaver. Book a free 30-minute discovery call or send a message."
+  description="Send Drew Cleaver an inquiry. Pick a tier, name your price, tell him about your project."
 >
-  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
+  <section class="max-w-3xl mx-auto px-6 pt-16 pb-8">
     <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
-      Contact
+      Send a message
     </p>
     <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-4">
-      Let's talk.
+      Tell me what you need.
     </h1>
-    <p class="text-xl text-[var(--color-muted)] max-w-xl leading-relaxed">
-      The fastest way to get started is a 30-minute discovery call — free, no commitment.
-      We'll look at your current setup and figure out what makes sense.
+    <p class="text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed">
+      Pick a tier from the menu. Name a price you're comfortable with. Add a sentence
+      or two about your project. I read every inquiry and reply within a day or two.
     </p>
   </section>
 
-  <section class="max-w-4xl mx-auto px-6 py-10">
-    <div class="grid sm:grid-cols-2 gap-12">
+  <section class="max-w-3xl mx-auto px-6 py-10">
+    <form
+      action={FORMSPREE_ENDPOINT}
+      method="POST"
+      class="flex flex-col gap-10"
+    >
+      <!-- Honeypot field (hidden from real users, catches bots) -->
+      <input
+        type="text"
+        name="_gotcha"
+        tabindex="-1"
+        autocomplete="off"
+        class="hidden"
+        aria-hidden="true"
+      />
 
-      <!-- Book a call -->
-      <div>
-        <h2 class="text-xl font-bold text-[var(--color-ink)] mb-3">Schedule a call</h2>
-        <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-6">
-          30 minutes. Free. Whether you're hiring or exploring a consulting engagement —
-          this is the fastest way to figure out if there's a fit.
+      <!-- Email subject for the notification -->
+      <input
+        type="hidden"
+        name="_subject"
+        value="New inquiry from drewcleaver.com"
+      />
+
+      <!-- Who you are -->
+      <fieldset class="flex flex-col gap-4 border-0 p-0 m-0">
+        <legend class="text-sm font-semibold uppercase tracking-widest text-[var(--color-ink)] mb-2">
+          Who you are
+        </legend>
+
+        <div class="flex flex-col gap-1">
+          <label for="name" class="text-sm font-medium text-[var(--color-ink)]">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Your name"
+            autocomplete="name"
+            class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="email" class="text-sm font-medium text-[var(--color-ink)]">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="you@example.com"
+            autocomplete="email"
+            class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="phone" class="text-sm font-medium text-[var(--color-ink)]">
+            Phone <span class="text-[var(--color-muted)] font-normal">(optional)</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="location" class="text-sm font-medium text-[var(--color-ink)]">
+            Location <span class="text-[var(--color-muted)] font-normal">(only needed for Concierge)</span>
+          </label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="e.g. Austin, TX or 'remote'"
+            autocomplete="address-level2"
+            class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
+          />
+        </div>
+      </fieldset>
+
+      <!-- Tier selection -->
+      <fieldset class="flex flex-col gap-3 border-0 p-0 m-0">
+        <legend class="text-sm font-semibold uppercase tracking-widest text-[var(--color-ink)] mb-2">
+          What you're after
+        </legend>
+        <p class="text-sm text-[var(--color-muted)] -mt-1 mb-2">Check all that apply.</p>
+
+        {offers.map((o) => (
+          <label class="flex items-start gap-3 p-4 border border-[var(--color-border)] rounded-lg cursor-pointer hover:border-[var(--color-teal)] transition-colors">
+            <input
+              type="checkbox"
+              name="offers"
+              value={o.label}
+              class="mt-1 w-4 h-4 accent-[var(--color-teal)] flex-shrink-0"
+            />
+            <span class="flex flex-col gap-1 flex-1">
+              <span class="font-semibold text-[var(--color-ink)]">{o.label}</span>
+              <span class="text-sm text-[var(--color-muted)] leading-relaxed">{o.blurb}</span>
+            </span>
+          </label>
+        ))}
+      </fieldset>
+
+      <!-- Name your price -->
+      <fieldset class="flex flex-col gap-3 border-0 p-0 m-0">
+        <legend class="text-sm font-semibold uppercase tracking-widest text-[var(--color-ink)] mb-2">
+          Name your price
+        </legend>
+        <p class="text-sm text-[var(--color-muted)] -mt-1 mb-2 leading-relaxed">
+          Pay what's worth it to you. Leave blank if you'd like me to quote it.
         </p>
-        <a
-          href="https://calendly.com/drewcleaver"
-          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div class="flex flex-col gap-1">
+          <label for="price" class="text-sm font-medium text-[var(--color-ink)]">Your offer</label>
+          <input
+            type="text"
+            id="price"
+            name="price"
+            placeholder="e.g. 'whatever you think is fair'"
+            class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
+          />
+        </div>
+      </fieldset>
+
+      <!-- The details -->
+      <fieldset class="flex flex-col gap-3 border-0 p-0 m-0">
+        <legend class="text-sm font-semibold uppercase tracking-widest text-[var(--color-ink)] mb-2">
+          The details
+        </legend>
+        <div class="flex flex-col gap-1">
+          <label for="message" class="text-sm font-medium text-[var(--color-ink)]">
+            Tell me a little about your project
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="5"
+            placeholder="Two sentences is plenty. What are you trying to do, and what's blocking you?"
+            class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors resize-none"
+          ></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Submit -->
+      <div class="flex flex-col gap-3">
+        <button
+          type="submit"
+          class="bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors w-fit"
         >
-          Open booking calendar →
-        </a>
+          Send inquiry →
+        </button>
+        <p class="text-sm text-[var(--color-muted)]">
+          Goes straight to my inbox. No newsletter, no autoresponder, no CRM follow-up sequence.
+        </p>
       </div>
 
-      <!-- Contact form -->
-      <div>
-        <h2 class="text-xl font-bold text-[var(--color-ink)] mb-3">Send a message</h2>
-        <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-6">
-          Prefer to write first? Fill out the form below or email me directly at <a href="mailto:hi@drewcleaver.com" class="text-[var(--color-teal)] hover:underline">hi@drewcleaver.com</a>. I'll get back to you within one business day.
+      <!-- Calendly fallback (de-emphasized) -->
+      <div class="border-t border-[var(--color-border)] pt-6">
+        <p class="text-sm text-[var(--color-muted)]">
+          Prefer a call first? <a href="https://calendly.com/drewcleaver" class="text-[var(--color-teal)] hover:underline">Schedule one →</a>
+          &nbsp;·&nbsp; Or email <a href="mailto:hi@drewcleaver.com" class="text-[var(--color-teal)] hover:underline">hi@drewcleaver.com</a> directly.
         </p>
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          action="/contact/success"
-          class="flex flex-col gap-4"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-
-          <div class="flex flex-col gap-1">
-            <label for="name" class="text-sm font-medium text-[var(--color-ink)]">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              placeholder="Your name"
-              class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
-            />
-          </div>
-
-          <div class="flex flex-col gap-1">
-            <label for="email" class="text-sm font-medium text-[var(--color-ink)]">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="you@example.com"
-              class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors"
-            />
-          </div>
-
-          <div class="flex flex-col gap-1">
-            <label for="message" class="text-sm font-medium text-[var(--color-ink)]">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows="5"
-              placeholder="Tell me a bit about your situation and what you're hoping to accomplish..."
-              class="border border-[var(--color-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--color-ink)] bg-white placeholder-[var(--color-muted)] focus:outline-none focus:border-[var(--color-teal)] transition-colors resize-none"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors text-left w-fit"
-          >
-            Send message
-          </button>
-        </form>
       </div>
-    </div>
+    </form>
   </section>
 </Base>
