@@ -65,3 +65,11 @@ Drew approved replacing the mixed buttons/text links with one stack of matching 
 ## Free analytics and search visibility
 
 Drew requested Google Analytics and useful free additions, and clarified that the earlier Cloudflare connection attempt encountered approval errors. Use GA4 standard and Google Search Console, with the existing host and DNS. Keep analytics optional and exclude private builder inputs and shared drafts. Add a public sitemap, privacy information, and an owner-supplied Search Console verification tag. Do not invent property IDs, activate a paid plan, or claim data collection before a real Google property is connected. Account setup and verification status are recorded in `docs/ANALYTICS_SETUP.md`.
+
+## Unlisted motorsport story pilot
+
+Drew requested a personal motorsport page based on his supplied history, from his family's 1995 IMSA outing at Texas World Speedway through karting, amateur endurance racing, time attack, sponsorship, and hospitality. Publish the directly accessible pilot at `/motorsport/` without inbound site links or a sitemap entry, and with noindex/nofollow metadata. Unlisted is not password protected. This is an explicitly requested biographical page, not a launch of the disabled writing section.
+
+Use a first-person narrative, the existing green/ivory palette, and a readable mobile layout. No photography or empty image placeholders in the pilot. Keep independent chapters so real photos and captions can be inserted later. Treat Drew's account as the source; avoid inventing dates, results, team names, car models, sponsorship terms, or driver roles. Approximate 2001 dates stay approximate. Publication does not claim independent archival verification of the supplied racing results or historic-first claim. See `docs/MOTORSPORT_PILOT.md` for source and photo-expansion notes.
+
+Google Analytics setup is paused at Drew's request; leave the inactive integration intact for him to resume from his computer later.

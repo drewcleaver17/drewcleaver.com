@@ -104,3 +104,15 @@ Supersedes the manual submission behavior documented above.
 - [ ] Actual GA4 Realtime event receipt, key-event designation, and Search Console sitemap submission.
 
 Browser secure sign-in did not complete. A deployed scaffold, local test ID, or public sitemap must not be described as an activated analytics property or verified Search Console account.
+
+## Unlisted motorsport story pilot
+
+- [x] Seven-chapter first-person page at `/motorsport/` follows Drew's supplied account, with approximate dates retained and driving, sponsorship, and hospitality roles distinguished.
+- [x] No photography, empty media placeholders, or invented race imagery. Chapters accept inline real photos later without reserving blank space.
+- [x] Route has noindex/nofollow metadata, no inbound site links, no sitemap entry, and no analytics initialization. Unlisted does not mean access-controlled.
+- [x] Production build and release checks pass. Generated page has one H1, seven working chapter anchors, unique IDs, valid local contact/asset links, and no media or tracking scripts.
+- [x] Scoped styling uses fluid heading sizes, a single-column narrow layout, 44px navigation targets, and wider chapter grids from 800px. Existing shared layouts and identity are unchanged.
+- [x] Google account setup paused by owner; public IDs remain blank and Analytics inactive.
+- [ ] Post-deployment browser render and live route verification.
+- [ ] Actual rendering at 320, 390, 768, and 1440px. Current browser surface has no viewport-resize control; source-level responsive inspection is not physical device testing.
+- [ ] Archival evidence for newspaper feature, dated results, and historic-first claim before a broader launch. Pilot copy is based on the owner's account, not independent results verification.
