@@ -47,3 +47,9 @@ Drew asked for automatic previews, optional questions, shareable pages, and an e
 Only the reviewed public site schema enters a share URL at `/preview/#...` or a standalone HTML export. Preview links carry immutable snapshots, are not authenticated, can be forwarded, cannot be individually revoked, and have a length limit; inputs and full exports have no application text cap. Private answers and original files are not sent to Formspree or committed. Contact details are explicitly added in the public editor. The homepage stays unlinked to the pilot, writing remains disabled, and `/hello` stays permanent.
 
 This is the connected-capability pilot, not the complete requested hosted AI service. Permanent named paths, accounts/ownership, AI generation, custom-domain routing/TLS, payment verification, and ongoing hosting need a separately connected backend and product decisions. No provider, billing plan, price, or payment account is activated.
+
+## Social links and saved contact update
+
+Drew explicitly approved building and publishing LinkedIn and Instagram links on `/hello`, using `https://www.linkedin.com/in/drewcleaver` and `https://www.instagram.com/drew.cleaver/`. Place them together below the main contact actions, using the existing site styling. Display Austin, Texas, USA on this calling card.
+
+The saved contact must retain the public email and include the website, both social profiles, scheduling, and other useful `/hello` links. Use vCard 4.0 for a July 17 birthday with no year (`BDAY:--0717`). Store city/state/country without inventing a street or postal code. The birthday belongs in the downloadable card, not the visible page. Keep the permanent QR/contact URLs intact. Native Apple/Google contact import remains a device check; successful file validation is not proof of native import behavior.

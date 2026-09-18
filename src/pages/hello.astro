@@ -13,14 +13,18 @@ import { profile } from '../data/profile';
         <a class="button" href={profile.contactFile} download="Drew-Cleaver.vcf">Save my contact <span aria-hidden="true">↓</span></a>
         <a class="button button-outline" href={`mailto:${profile.email}`}>Send me an email <span aria-hidden="true">↗</span></a>
       </div>
-      <p class="hello-note">My name, email, and website. Yours to keep.</p>
+      <p class="hello-note">My email, links, location, and birthday. Yours to keep.</p>
+      <nav class="hello-links" aria-label="Connect with Drew">
+        <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href={profile.instagramUrl} target="_blank" rel="noopener noreferrer">Follow on Instagram <span aria-hidden="true">↗</span></a>
+      </nav>
       <nav class="hello-links" aria-label="Get to know Drew">
         <a href={profile.bookingUrl}>Schedule a conversation <span aria-hidden="true">↗</span></a>
         <a href="/contact/">Send an inquiry <span aria-hidden="true">↗</span></a>
         <a href="/about/">A little about me <span aria-hidden="true">↗</span></a>
         <a href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Download my résumé (PDF) <span aria-hidden="true">↓</span></a>
       </nav>
-      <p class="hello-location">{profile.location} · {profile.email}</p>
+      <p class="hello-location">{profile.contactLocation} · {profile.email}</p>
     </section>
   </div>
 </Base>
