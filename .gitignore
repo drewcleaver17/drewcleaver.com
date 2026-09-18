@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Unpublished writing must not enter this public repository.
+# Keep working drafts in private storage. Force-add only approved final posts.
+src/content/writing/*.md
+src/content/writing/*.mdx
+src/content/writing/**/*.md
+src/content/writing/**/*.mdx

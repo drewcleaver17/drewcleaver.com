@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { profile } from '../data/profile';
+---
+<Base title="Good to meet you" description="Stay in touch with Drew Cleaver. Save his contact, send an email, or get to know his work." compact>
+  <div class="hello-wrap">
+    <section class="hello-card" aria-labelledby="hello-title">
+      <div class="initials" aria-hidden="true">{profile.initials}</div>
+      <p class="eyebrow">{profile.name}</p>
+      <h1 id="hello-title" class="serif">Good to<br /><em>meet you.</em></h1>
+      <p class="intro">I'm Drew—a founder, inventor, racing driver, and a curious person. Here's how to stay in touch.</p>
+      <div class="hello-actions">
+        <a class="button" href={profile.contactFile} download="Drew-Cleaver.vcf">Save my contact <span aria-hidden="true">↓</span></a>
+        <a class="button button-outline" href={`mailto:${profile.email}`}>Send me an email <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="hello-note">My name, email, and website. Yours to keep.</p>
+      <nav class="hello-links" aria-label="Get to know Drew">
+        <a href={profile.bookingUrl}>Schedule a conversation <span aria-hidden="true">↗</span></a>
+        <a href="/contact/">Send an inquiry <span aria-hidden="true">↗</span></a>
+        <a href="/about/">A little about me <span aria-hidden="true">↗</span></a>
+      </nav>
+      <p class="hello-location">{profile.location} · {profile.email}</p>
+    </section>
+  </div>
+</Base>

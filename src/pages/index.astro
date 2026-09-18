@@ -1,175 +1,69 @@
 ---
 import Base from '../layouts/Base.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-
-const services = [
-  {
-    title: 'Starter',
-    description:
-      'A real email address on your own domain. firstname@firstnamelastname.com on ProtonMail. The smallest sovereign step — fast, clean, and a foundation you can build on.',
-    deliverables: [
-      'Domain registered in your name',
-      'ProtonMail mailbox on your domain',
-      'DNS, SPF, DKIM, DMARC configured',
-      'Working inbox you control',
-      '30-min handoff call',
-    ],
-  },
-  {
-    title: 'Standard',
-    description:
-      'A full privacy stack you actually use. Everything in Starter, plus VPN, password vault, hardened accounts, and the onboarding to make it stick.',
-    deliverables: [
-      'Everything in Starter',
-      'ProtonVPN configured across your devices',
-      'Password vault (Bitwarden or Proton Pass)',
-      '2FA across critical accounts',
-      'Onboarding guide written for you',
-      '60-min training session',
-      '30 days of async support',
-    ],
-    featured: true,
-  },
-  {
-    title: 'Concierge',
-    description:
-      'Your stack, in your house. Everything in Standard, plus hardware-level sovereignty — your own router, your own DNS-level ad blocking, installed and configured on-site.',
-    deliverables: [
-      'Everything in Standard',
-      'UniFi router (UDR7 or equivalent) at your home',
-      'Pi-hole on Raspberry Pi 5 — network ad/tracker blocking',
-      'Hardware included',
-      'On-site installation (Austin metro)',
-      'Network documentation written for you',
-      '90 days of async support + 6-month check-in',
-    ],
-  },
-];
+import { profile } from '../data/profile';
 ---
-
-<Base
-  title="Home"
-  description="Drew Cleaver — helping people own their corner of the internet. Domain, email, privacy, and home network sovereignty."
->
-  <!-- Hero -->
-  <section class="max-w-4xl mx-auto px-6 pt-20 pb-16">
-    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-4">
-      Inventor · Entrepreneur · Racing Driver · Futurist
-    </p>
-    <h1 class="text-4xl sm:text-5xl font-bold text-[var(--color-ink)] leading-tight mb-6">
-      Tell me what you need.<br />
-      Pay what it's worth to you.
-    </h1>
-    <p class="text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed mb-10">
-      I'm Drew Cleaver. I help people own their corner of the internet — your domain, your
-      email, your privacy stack, and if you want to go all the way, the hardware that runs
-      it all. No retainers, no lock-in, no subscription creep.
-    </p>
-    <div class="flex flex-wrap gap-4">
-      <a
-        href="/contact"
-        class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-      >
-        Send an inquiry
-      </a>
-      <a
-        href="/services"
-        class="inline-block border border-[var(--color-border)] text-[var(--color-ink)] font-semibold text-sm px-6 py-3 rounded-lg hover:border-[var(--color-teal)] transition-colors"
-      >
-        See the menu
-      </a>
-    </div>
-  </section>
-
-  <!-- The pitch -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <div class="grid sm:grid-cols-2 gap-10 items-center">
+<Base title="Home">
+  <div class="shell">
+    <section class="hero" aria-labelledby="intro-title">
       <div>
-        <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-4">
-          The internet used to be something you owned.
-        </h2>
-        <p class="text-[var(--color-muted)] leading-relaxed mb-4">
-          Now most people rent it. They rent their email from Google, their identity from
-          LinkedIn, their writing from Substack. One policy change away from being
-          deplatformed. One acquisition away from being migrated.
-        </p>
-        <p class="text-[var(--color-muted)] leading-relaxed">
-          I build the other thing. Boring, durable, yours. A real email address. A privacy
-          stack that actually works. Hardware in your house if you want to go all the way.
-          Infrastructure that outlives whatever app is hot this year.
-        </p>
+        <p class="eyebrow">{profile.roles}</p>
+        <h1 id="intro-title" class="serif">I'm Drew<br /><em>Cleaver.</em></h1>
+        <p class="hero-location">{profile.location} · Glad you found your way here.</p>
       </div>
-      <div class="flex flex-col gap-4">
-        {[
-          { icon: '⚙️', label: 'Physical product startups' },
-          { icon: '🤖', label: 'AI workflows & automation' },
-          { icon: '📐', label: 'Digital sovereignty' },
-          { icon: '🛒', label: 'E-commerce & Shopify' },
-        ].map(({ icon, label }) => (
-          <div class="flex items-center gap-3 text-sm text-[var(--color-ink)] font-medium">
-            <span class="text-xl">{icon}</span>
-            {label}
-          </div>
-        ))}
+      <div class="hero-intro">
+        <p>I like figuring out how things work—and helping people think through what to do next.</p>
+        <p class="muted">I've built a physical-product business, worked in enterprise sales, and spent a fair amount of time at racetracks. These days, I'm also exploring how AI can help us put good ideas to work.</p>
+        <div class="actions">
+          <a class="button" href="/contact/">Have something on your mind? <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href={profile.bookingUrl}>Schedule a conversation <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Three lanes -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-2">Three lanes</h2>
-    <p class="text-[var(--color-muted)] mb-8">
-      Email, privacy stack, or full hardware. Pay what it's worth to you.
-    </p>
-    <div class="grid sm:grid-cols-3 gap-5">
-      {services.map((service) => (
-        <ServiceCard {...service} />
-      ))}
-    </div>
-    <p class="text-sm text-[var(--color-muted)] mt-6">
-      Need something custom? <a href="/contact" class="text-[var(--color-teal)] hover:underline">Tell me about it →</a>
-    </p>
-  </section>
-
-  <!-- How pricing works -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-4">
-      How pricing works
-    </h2>
-    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
-      There's no price list. You read something I wrote, or someone sent you, or you're
-      building the same kind of life I am. By the time you're filling out the form you've
-      already done most of the qualifying.
-    </p>
-    <p class="text-[var(--color-muted)] leading-relaxed">
-      Tell me what you need and what it's worth to you. If you're early and lean, pay less.
-      If you're flush and want to support the work, pay more. The work and the standard
-      don't change. I'd rather have you on the roster than not.
-    </p>
-  </section>
-
-  <!-- CTA -->
-  <section class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
-    <div class="bg-[var(--color-ink)] text-white rounded-2xl p-10 text-center">
-      <h2 class="text-2xl font-bold mb-3">Ready to start?</h2>
-      <p class="text-gray-400 mb-7 max-w-xl mx-auto">
-        Tell me what you need and what it's worth to you. Two sentences is plenty. I read
-        every inquiry and reply within a day or two.
-      </p>
-      <div class="flex flex-col items-center gap-3">
-        <a
-          href="/contact"
-          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-        >
-          Send an inquiry
-        </a>
-        <a
-          href="https://calendly.com/drewcleaver"
-          class="text-sm text-gray-400 hover:text-white transition-colors"
-        >
-          Prefer a call first? Schedule one →
-        </a>
+    </section>
+    <section class="background-section" aria-label="A little context">
+      <p class="eyebrow muted">A little context</p>
+      <div class="background-grid">
+        <div class="background-item">
+          <h2>Built from an idea.</h2>
+          <p>I founded Higher Hangers, taking a patented product from an idea to customers around the world.</p>
+          <a class="text-link" href="https://higherhangers.com">Higher Hangers <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="background-item">
+          <h2>Learned in the field.</h2>
+          <p>Before that: technical sales and enterprise accounts at Baker Hughes and Weatherford. Complex problems, real relationships.</p>
+          <a class="text-link" href="/about/">My background <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="background-item">
+          <h2>Let's talk it through.</h2>
+          <p>A fresh idea, a business decision, or a problem that needs another perspective. Tell me what you're working on.</p>
+          <a class="text-link" href="/contact/">Start a conversation <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="advisory" aria-labelledby="advisory-title">
+      <div class="advisory-grid">
+        <div>
+          <p class="eyebrow">Founder advisory</p>
+          <h2 id="advisory-title" class="serif">What are you trying to figure out?</h2>
+          <p>Sometimes it helps to have someone look at the whole situation with you. Bring me the idea, the decision, or the problem you keep coming back to.</p>
+        </div>
+        <div class="advisory-list">
+          <div class="advisory-item"><h3>An idea worth testing</h3><p>What needs to be true? What's the smallest useful way to find out?</p></div>
+          <div class="advisory-item"><h3>A business decision</h3><p>Product, e-commerce, partnerships, or growth. Make sense of the options and decide what comes next.</p></div>
+          <div class="advisory-item"><h3>A better way to work</h3><p>Find where AI and simpler systems could help with the work you actually do.</p></div>
+        </div>
+      </div>
+      <div class="advisory-footer">
+        <p>You don't need a polished brief. A few sentences will do.</p>
+        <a class="button button-light" href="/contact/?reason=advisory">Tell me about it <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <section class="open-door" style="padding-top: 3rem" aria-labelledby="open-title">
+      <h2 id="open-title" class="serif">The door is open.</h2>
+      <p>A question, a collaboration, or something that doesn't fit a category: you're welcome to reach out. For advisory and project work, I welcome pay-what-you-want proposals. Tell me what would be useful and what it's worth to you. We'll agree on scope and price before starting.</p>
+      <div class="actions">
+        <a class="button" href="/contact/">Send me a message <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href={profile.bookingUrl}>Find a time to talk <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </div>
 </Base>
