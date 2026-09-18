@@ -35,3 +35,7 @@ Do not commit unpublished drafts to this public repository. The AI sample is rem
 Publish a downloadable résumé and align the experience page with the September 2026 source. Keep the phone number private by removing it from the public PDF copy; preserve the original outside the public repository. Download links belong on About, `/hello`, and the shared footer. Preserve the contact/advisory focus.
 
 Only implement SMS verification if it requires no paid service. Twilio Verify charges for production use and Firebase SMS requires a billing-enabled plan, so the phone exchange is skipped for this release.
+
+## Build mine pilot
+
+Drew requested a directly accessible `/buildmine` pilot without a homepage link: seven open-ended questions, résumé input, individual creative direction with an easy option to start from Drew’s style, a domain discussion, and optional scheduling. Answers have no application word/character cap. Use the existing Formspree inquiry endpoint, local PDF/TXT-to-text import, and a complete text export instead of adding paid file storage. Explain that Drew reviews submissions and creates previews using his AI workflow; this version does not promise instant automatic generation. Request participant approval before public launch. Keep the route out of navigation and add noindex metadata. Keep all submitted personal information out of this public repository.

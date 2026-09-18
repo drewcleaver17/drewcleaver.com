@@ -14,8 +14,13 @@ const files = directory => readdirSync(directory).flatMap(name => {
 for (const file of files(root).filter(file => file.endsWith('.html'))) {
   const html = readFileSync(file, 'utf8');
   assert(!/href=["'][^"']*\/writing(?:[\/?#"'])/i.test(html), 'Public writing link in ' + file);
+  assert(!/<a\b[^>]*href=["'][^"']*\/buildmine(?:[\/?#"'])/i.test(html), 'The buildmine pilot must stay out of public navigation: ' + file);
 }
-for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'drew-cleaver.vcf']) {
+for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'buildmine/index.html', 'drew-cleaver.vcf']) {
   assert(existsSync(join(root, page)), 'Missing required output: ' + page);
 }
-console.log('Release check passed: contact routes present; writing is absent from output and navigation.');
+const pilot = readFileSync(join(root, 'buildmine/index.html'), 'utf8');
+assert(/name="robots" content="noindex, nofollow"/.test(pilot), 'The buildmine pilot must ask search engines not to index it.');
+assert.equal((pilot.match(/class="buildmine-question"/g) || []).length, 7, 'Expected seven pilot questions.');
+assert(!pilot.includes('maxlength='), 'Pilot answers must not have a character cap.');
+console.log('Release check passed: contact routes present; writing absent; seven-question pilot unlisted and noindex.');

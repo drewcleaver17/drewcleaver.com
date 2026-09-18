@@ -6,7 +6,7 @@ Astro 6, Tailwind CSS 4, and MDX. Hosted on GitHub Pages using the existing GitH
 
 ## Develop and review
 
-Use Node.js 22.12 or later.
+Use Node.js 22.13 or later.
 
 ```sh
 npm ci
@@ -27,6 +27,9 @@ The build generates static files in `dist/`. Work on a feature branch and review
 - `src/pages/drew-cleaver.vcf.ts`: generated contact download from the shared profile.
 - `src/pages/contact.astro`: inquiry form and submission states. Category and budget are optional.
 - `src/pages/services.astro`: work-with-me page; the existing URL is retained.
+- `src/pages/buildmine.astro`: unlisted seven-question website pilot, optional scheduling link, and local résumé text import.
+- `src/data/buildmine.ts` and `src/scripts/buildmine.ts`: shared prompts, complete brief export, validation, and submission handling.
+- `docs/BUILDMINE_PILOT.md`: operating procedure from intake to a reviewed client preview and approved launch.
 - `src/layouts/Base.astro` and `src/styles/global.css`: shared navigation, metadata, responsive layout, and design.
 - `src/features/writing/`: retained writing index and article templates.
 - `src/pages/writing/[...path].astro`: optional writing routes, disabled through `src/config/features.ts`.
@@ -58,3 +61,7 @@ When Drew explicitly approves publishing his own writing: copy only approved fin
 Use the latest file supplied by Drew as the source for role titles, dates, employers, and figures. Keep the original in private storage. Prepare and inspect a public PDF copy that removes the phone number from visible text, embedded text, and contact links while retaining the résumé's career content. Replace the stable public PDF, update the shared experience data, build, and check every download link. The current public résumé reflects the September 2026 source; its contact header uses `drew@drewcleaver.com`.
 
 SMS contact exchange is deferred: Drew requested free-only implementation, and the checked SMS verification services require paid usage or a billing-enabled plan. Do not add a paid service without authorization.
+
+## Build mine pilot
+
+`/buildmine` is available by direct link and excluded from navigation and search indexing requests. It is publicly reachable, not password protected. It sends answers and reviewed résumé text through the existing Formspree endpoint; it does not upload the original PDF/TXT file or generate a website automatically. Drew handles review and preview creation with his existing AI workflow. The form’s saved brief provides a complete fallback for long submissions or provider failures. See the pilot procedure for privacy, consent, service limits, and launch handoff. Never commit participant data to this repository.
