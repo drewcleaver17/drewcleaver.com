@@ -21,7 +21,7 @@ export const profile = {
   description: 'Drew Cleaver is a founder, inventor, and racing driver. Explore his background, ask about founder advisory, send an inquiry, or schedule a conversation.',
 } as const;
 
-// Keep the useful links from /hello in the downloaded contact too.
+// Saved contact links. The résumé remains on the website, outside this card.
 export const contactLinks = [
   { label: 'Website', url: profile.website },
   { label: 'LinkedIn', url: profile.linkedinUrl },
@@ -29,5 +29,4 @@ export const contactLinks = [
   { label: 'Schedule a conversation', url: profile.bookingUrl },
   { label: 'Send an inquiry', url: new URL('/contact/', profile.website).href },
   { label: 'About Drew', url: new URL('/about/', profile.website).href },
-  { label: 'Résumé (PDF)', url: new URL(profile.resumeFile, profile.website).href },
 ] as const;
