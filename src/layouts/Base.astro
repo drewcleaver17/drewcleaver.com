@@ -4,7 +4,7 @@ import { profile } from '../data/profile';
 interface Props { title: string; description?: string; compact?: boolean; }
 const { title, description = profile.description, compact = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, profile.website);
-const links = [{ href: '/about/', label: 'About' }, { href: '/writing/', label: 'Writing' }, { href: '/services/', label: 'Work with me' }];
+const links = [{ href: '/about/', label: 'About' }, { href: '/services/', label: 'Work with me' }, { href: profile.bookingUrl, label: 'Schedule a conversation' }];
 const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
 ---
 <!doctype html>

@@ -1,6 +1,6 @@
 # drewcleaver.com
 
-Drew Cleaver's personal homepage, writing, founder advisory, and digital calling card.
+Drew Cleaver's personal homepage, founder advisory, scheduling, and digital calling card.
 
 Astro 6, Tailwind CSS 4, and MDX. Hosted on GitHub Pages using the existing GitHub Actions workflow.
 
@@ -20,13 +20,16 @@ The build generates static files in `dist/`. Work on a feature branch and review
 ## Where to edit
 
 - `src/data/profile.ts`: public identity, contact email, booking URL, and inquiry endpoint.
-- `src/pages/index.astro`: personal introduction, background, founder advisory, writing, open inquiry.
+- `src/pages/index.astro`: personal introduction, background, founder advisory, contact, scheduling, and open inquiry.
 - `src/pages/hello.astro`: mobile calling card for the permanent QR destination.
 - `src/pages/drew-cleaver.vcf.ts`: generated contact download from the shared profile.
 - `src/pages/contact.astro`: inquiry form and submission states. Category and budget are optional.
 - `src/pages/services.astro`: work-with-me page; the existing URL is retained.
 - `src/layouts/Base.astro` and `src/styles/global.css`: shared navigation, metadata, responsive layout, and design.
-- `src/content/writing/`: MDX posts. A post's filename becomes its URL; `draft: true` excludes it from the index and generated routes.
+- `src/features/writing/`: retained writing index and article templates.
+- `src/pages/writing/[...path].astro`: optional writing routes, disabled through `src/config/features.ts`.
+- `src/content/writing/`: approved posts only. New posts default to drafts. Working `.md` and `.mdx` files are ignored by Git.
+- `scripts/check-release.mjs`: runs during every build and rejects public writing output or links for this release.
 
 The public email, Calendly URL, and Formspree endpoint are retained from the existing site. There is no account system, payment collection, custom backend, or newsletter signup. The form sends directly to Formspree and works without JavaScript through its normal submission page. Confirm actual delivery with the owner before release.
 
@@ -41,3 +44,9 @@ The public email, Calendly URL, and Formspree endpoint are retained from the exi
 7. Print cards only after scanning a test QR to `https://drewcleaver.com/hello` and saving the contact on a real phone.
 
 See `AGENTS.md` for implementation constraints and `RELEASE_CHECKLIST.md` for current verification status.
+
+## Private writing and later publication
+
+Writing is disabled at build time: neither `/writing` nor article URLs are generated. The AI sample has been removed from current source. This repository is public; a draft flag or hidden navigation does not make committed text private. Keep work in progress in private storage outside this repository. Previous public commits may still contain the removed sample; this release does not rewrite history.
+
+When Drew explicitly approves publishing his own writing: copy only approved final posts into `src/content/writing/`, set their `draft` fields to `false`, intentionally add those files to Git, enable the writing flag, update the release check, and restore the desired navigation. Review the generated output before deployment. Do not change the flag just to preview private drafts on a public host.
