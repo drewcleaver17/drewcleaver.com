@@ -4,8 +4,7 @@ export const experience = [
   {
     role: 'Co-Founder & Operator',
     specialty: 'DTC consumer products & e-commerce',
-    org: 'Higher Hangers',
-    orgUrl: 'https://higherhangers.com',
+    org: 'HigherHangers.com',
     period: 'March 2015 – June 2026',
     location: 'Austin, Texas',
     highlights: [
