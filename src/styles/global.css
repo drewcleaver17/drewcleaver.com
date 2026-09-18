@@ -228,3 +228,58 @@ button, input, textarea, select { font: inherit; }
   .buildmine-question { padding-block: 2.5rem; }
   .buildmine-send { padding: 2rem; }
 }
+
+/* Instant starter: compact intake, optional prompts, and a review workspace. */
+.buildmine-heading { padding-block: 2.3rem 1.5rem; }
+.buildmine-heading h1 { font-size: clamp(2.5rem,6vw,4.2rem); }
+.buildmine-heading .field-help { font-size: .875rem; }
+.buildmine-start { display:grid; gap:1.25rem; padding-block: .5rem 2.3rem; }
+.buildmine-start h2 { margin-top:.5rem; }
+.resume-text-details summary { cursor:pointer; min-height:44px; padding-block:.7rem; }
+.resume-text-details .field { margin-top:.6rem; }
+.buildmine-question { padding-block:0; }
+.buildmine-question:last-child { border-bottom:1px solid var(--color-border); }
+.buildmine-question summary { display:flex; gap:1rem; align-items:baseline; padding:1.15rem 0; list-style:none; font-size:1rem; cursor:pointer; min-height:60px; }
+.buildmine-question summary::-webkit-details-marker { display:none; }
+.buildmine-question .question-number { margin:0; font: .875rem/1.5 ui-monospace,monospace; }
+.question-plus { margin-left:auto; flex-shrink:0; }
+.buildmine-question[open] .question-plus { transform:rotate(45deg); }
+.buildmine-question .question-help { margin-top:0; font-size:.9375rem; }
+.buildmine-question .field { margin-bottom:1.2rem; }
+.optional-label { display:block; color:var(--color-muted); font:1rem/1.6 var(--font-sans); letter-spacing:0; margin-top:.5rem; }
+.builder-result { padding-block:0 3rem; scroll-margin-top:1rem; }
+.builder-result>h2 { font-size:clamp(2.3rem,5vw,3.3rem); margin-top:.7rem; }
+.site-editor { min-width:0; }
+.theme-picker { border:0; padding:0; display:grid; gap:.7rem; margin:1.5rem 0; }
+.theme-picker legend { font-weight:600; font-size:.875rem; margin-bottom:.7rem; }
+.theme-choice { display:flex; align-items:center; gap:.75rem; padding:1.1rem; border:2px solid transparent; cursor:pointer; min-height:80px; }
+.theme-choice input { width:20px; height:20px; accent-color:#b16a1e; flex-shrink:0; }
+.theme-choice strong { display:block; }
+.theme-choice small { display:block; font-size:.875rem; margin-top:.15rem; }
+.theme-choice:has(input:checked) { outline:3px solid #b16a1e; outline-offset:2px; }
+.editorial-swatch { background:#eeeade; color:#173e35; }
+.editorial-swatch strong { font-family:Georgia,serif; font-size:1.35rem; }
+.studio-swatch { background:#1433b5; color:#fff; }.studio-swatch strong{color:#e6ff70;font-size:1.2rem}
+.technical-swatch { background:#131820; color:#e9edf5; }.technical-swatch strong{color:#8bddcb;font-family:ui-monospace,monospace}
+.editor-layout { display:grid; gap:1.5rem; min-width:0; }
+.editor-fields { display:grid; gap:1rem; min-width:0; }
+.editor-fields textarea { min-height:100px; }
+.preview-panel { min-width:0; align-self:start; border:1px solid #aebcae; background:#e0e4dd; }
+.preview-toolbar { padding:.65rem .75rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.4rem; font-size:.875rem; }
+.preview-toolbar select { border:1px solid #aebcae; border-radius:3px; padding:.45rem; min-height:44px; font-size:1rem; max-width:100%; }
+#site-frame { display:block; width:100%; height:650px; border:0; margin:auto; background:#fff; }
+#site-frame.phone-preview { max-width:390px; }
+#share-output { margin-top:1rem; }#share-output .text-link{margin-right:1.3rem}
+#share-url { font-size:1rem; }
+.shared-preview-page { height:100dvh; display:flex; flex-direction:column; margin:0; }
+.shared-preview-bar { padding:.8rem 1rem; display:flex; gap:.7rem; flex-wrap:wrap; align-items:center; justify-content:space-between; background:#173e35; color:#f7f5ee; font-size:.875rem; }
+.shared-preview-bar>span>span { display:block; font-size:.8125rem; color:#d2dfd5; }
+.shared-preview-bar a { display:inline-flex; align-items:center; min-height:44px; text-decoration:underline; }
+#shared-site-frame { display:block; width:100%; flex:1; min-height:0; border:0; background:#f7f5ee; }
+.preview-error { padding-block:2rem; }
+@media(min-width:640px){.theme-picker{grid-template-columns:repeat(3,minmax(0,1fr))}.theme-choice{padding:.8rem}.theme-choice small{font-size:.8rem}}
+@media(min-width:1050px){.buildmine-shell:has(.builder-result:not([hidden])){max-width:1200px}.editor-layout{grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr)}.preview-panel{position:sticky;top:1rem}#site-frame{height:750px}}
+
+.shared-preview-bar h1 { font-size: .875rem; font-weight: 600; line-height:1.6; margin:0; }
+
+#builder-inputs { border:0; margin:0; padding:0; min-width:0; }

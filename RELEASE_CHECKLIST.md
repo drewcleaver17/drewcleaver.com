@@ -49,3 +49,19 @@ Writing privacy: the repository is public. Current source no longer includes the
 - [ ] Browser rendering at 320, 390, 768, and 1440 px; current browser API has no viewport-resize control. Source uses a single-column form, fluid widths, 16px inputs, wrapping actions, and mobile breakpoints.
 - [ ] An authorized participant submission received in the intended inbox; provider acceptance alone is not delivery verification.
 - [ ] Confirm live deployment, direct route, noindex, and loaded client/worker assets after merging.
+
+## Instant starter revision — September 18, 2026
+
+Supersedes the manual submission behavior documented above.
+
+- [x] All seven questions optional; name and résumé alone create an editable starter.
+- [x] Three distinct preset layouts; no claims of live AI generation or arbitrary aesthetic interpretation.
+- [x] No automatic submission to Drew; original résumé import remains local and unchanged.
+- [x] Explicit public-content review gates share/export. Edits invalidate approval and the displayed share link.
+- [x] Public-only snapshot links round-trip Unicode; malformed/oversize links fail without truncation. Input and full exports preserve a 240,018-character answer.
+- [x] Escaped text, validated contact URLs, script-free output, sandboxed frames, and no external submissions checked.
+- [x] Standalone HTML export includes styling, local section navigation, and indexing enabled only for reviewed export.
+- [x] Full build and retained contact/vCard checks pass; seven routes, no writing, no homepage pilot link.
+- [ ] Live browser generation, style switching, shared preview, and embedded anchor navigation after deployment.
+- [ ] Outer-page rendering at 320, 390, 768, and 1440 px. Browser viewport resize is unavailable; do not claim physical mobile testing.
+- [ ] Permanent named hosted pages, AI generation, owned accounts, custom-domain routing, payments, and managed customer hosting. These require a connected backend and product setup; they are not live in this pilot.

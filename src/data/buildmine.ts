@@ -34,13 +34,13 @@ export const buildmineQuestions = [
   {
     id: 'connection',
     title: 'How should people connect with you?',
-    help: 'Tell me which email, social links, or other contact details you want public. Would you like a contact form, a QR-friendly /hello page, or a scheduling link? “Help me decide” is fine.',
+    help: 'Which email, social links, or other contact details would you like to make public? Add the actual contact email and scheduling link in the preview editor. Would you like a contact form, a QR-friendly /hello page, or a scheduling link? “Help me decide” is fine.',
     placeholder: 'The main way to reach me should be…',
   },
   {
     id: 'boundaries',
     title: 'What should we plan around before building?',
-    help: 'Do you own a domain or have a name in mind? Any timing or budget preferences? What should stay private, be left out, or wait until later? Nothing is purchased or published through this form.',
+    help: 'Do you own a domain or have a name in mind? Any timing or budget preferences? What should stay private, be left out, or wait until later? These planning notes stay in your brief; they are not automatically interpreted. Review the public text before sharing your preview.',
     placeholder: 'My domain is… / I need help choosing one. Please keep… private.',
   },
 ] as const;

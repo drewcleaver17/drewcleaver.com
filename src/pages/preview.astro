@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="robots" content="noindex, nofollow" /><meta name="referrer" content="no-referrer" /><link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="canonical" href="https://drewcleaver.com/preview/" /><title>Shared website draft — Build mine</title><meta name="description" content="A website draft shared by its creator. Content and identity are not verified by Drew Cleaver." /></head>
+  <body class="shared-preview-page">
+    <header class="shared-preview-bar"><span><h1>Shared website draft</h1><span>Visitor-supplied content · Identity not verified</span></span><a href="/buildmine/">Make your own</a></header>
+    <p id="preview-error" role="status" class="shell preview-error">Loading the draft from this link…</p>
+    <iframe id="shared-site-frame" title="Shared website draft" sandbox="allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer" hidden></iframe>
+    <noscript><p class="shell">JavaScript is needed to read this preview link.</p></noscript>
+  </body>
+</html>
+<script>
+  import { decodeDraft, renderSite } from '../lib/site-preview';
+  const frame = document.querySelector<HTMLIFrameElement>('#shared-site-frame')!;
+  const status = document.querySelector<HTMLElement>('#preview-error')!;
+  const load = () => {
+    try {
+      const site = decodeDraft(window.location.hash.slice(1));
+      frame.srcdoc = renderSite(site, true); frame.hidden = false; status.hidden = true;
+      document.title = `${site.name} — Shared website draft`;
+    } catch {
+      frame.hidden = true; frame.removeAttribute('srcdoc'); status.hidden = false;
+      status.textContent = 'This preview link is missing or incomplete. Ask its creator to copy the entire share link, including everything after #.';
+      document.title = 'Shared website draft — Build mine';
+    }
+  };
+  window.addEventListener('hashchange', load); load();
+</script>

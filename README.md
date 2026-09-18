@@ -27,8 +27,9 @@ The build generates static files in `dist/`. Work on a feature branch and review
 - `src/pages/drew-cleaver.vcf.ts`: generated contact download from the shared profile.
 - `src/pages/contact.astro`: inquiry form and submission states. Category and budget are optional.
 - `src/pages/services.astro`: work-with-me page; the existing URL is retained.
-- `src/pages/buildmine.astro`: unlisted seven-question website pilot, optional scheduling link, and local résumé text import.
-- `src/data/buildmine.ts` and `src/scripts/buildmine.ts`: shared prompts, complete brief export, validation, and submission handling.
+- `src/pages/buildmine.astro`: unlisted instant website starter, seven optional questions, local résumé import, and a public-content editor.
+- `src/data/buildmine.ts` and `src/scripts/buildmine.ts`: shared prompts, private brief export, instant generation, review, sharing, and HTML export.
+- `src/lib/site-preview.ts` and `src/pages/preview.astro`: controlled public schema, three escaped renderers, snapshot links, and the shared viewer.
 - `docs/BUILDMINE_PILOT.md`: operating procedure from intake to a reviewed client preview and approved launch.
 - `src/layouts/Base.astro` and `src/styles/global.css`: shared navigation, metadata, responsive layout, and design.
 - `src/features/writing/`: retained writing index and article templates.
@@ -36,7 +37,7 @@ The build generates static files in `dist/`. Work on a feature branch and review
 - `src/content/writing/`: approved posts only. New posts default to drafts. Working `.md` and `.mdx` files are ignored by Git.
 - `scripts/check-release.mjs`: runs during every build and rejects public writing output or links for this release.
 
-The public email, Calendly URL, and Formspree endpoint are retained from the existing site. There is no account system, payment collection, custom backend, or newsletter signup. The form sends directly to Formspree and works without JavaScript through its normal submission page. Confirm actual delivery with the owner before release.
+The public email, Calendly URL, and Formspree endpoint are retained from the existing site. There is no account system, payment collection, custom backend, or newsletter signup. The contact form sends directly to Formspree and works without JavaScript through its normal submission page. Confirm actual delivery with the owner before release.
 
 ## Repeatable release process
 
@@ -64,4 +65,8 @@ SMS contact exchange is deferred: Drew requested free-only implementation, and t
 
 ## Build mine pilot
 
-`/buildmine` is available by direct link and excluded from navigation and search indexing requests. It is publicly reachable, not password protected. It sends answers and reviewed résumé text through the existing Formspree endpoint; it does not upload the original PDF/TXT file or generate a website automatically. Drew handles review and preview creation with his existing AI workflow. The form’s saved brief provides a complete fallback for long submissions or provider failures. See the pilot procedure for privacy, consent, service limits, and launch handoff. Never commit participant data to this repository.
+`/buildmine` is available by direct link and excluded from public navigation. It creates an instant, editable, browser-local starter from résumé section matching and three layouts. All seven questions are optional. It does not use an AI model, interpret arbitrary directions, or submit to Drew automatically. The original file stays local.
+
+After review, visitors can create a snapshot link at `/preview/#...` or download a complete single-page `index.html`. Snapshot data is in the URL fragment, not a server database; anyone with the entire link can read or forward it, edits require a new link, and individual links cannot be revoked. A 9,000-byte public JSON budget limits share links only; input and HTML/brief exports are not truncated. Neither noindex nor an unlisted route is authentication.
+
+The downloaded site contains no external dependencies or tracking and has public indexing enabled after the explicit review step. Preview pages remain noindex. The free pilot has no payments, account ownership, saved named URLs, custom domains, or managed customer hosting. See the procedure for the next product stage. Never commit participant data to this repository.

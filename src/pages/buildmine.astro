@@ -2,83 +2,93 @@
 import Base from '../layouts/Base.astro';
 import { profile } from '../data/profile';
 import { buildmineQuestions } from '../data/buildmine';
+const editorFields = [
+  { id: 'name', label: 'Your public name', rows: 0 },
+  { id: 'headline', label: 'A short introduction', rows: 2 },
+  { id: 'bio', label: 'About you', rows: 5 },
+  { id: 'experience', label: 'Experience', rows: 8 },
+  { id: 'highlights', label: 'Selected work', rows: 5 },
+];
 ---
-<Base title="Build mine" description="Seven questions and your résumé. Start a personal website preview with Drew Cleaver." compact noindex>
+<Base title="Build mine" description="Turn your résumé into an editable personal website starter. Seven optional questions. Preview it instantly." compact noindex>
   <div class="shell buildmine-shell">
     <section class="page-heading buildmine-heading">
-      <p class="eyebrow">Build mine · A small pilot with Drew</p>
-      <h1 class="serif">A little about you.<br /><em>A site that feels like you.</em></h1>
-      <p class="lead">Seven questions and your résumé. I’ll use your answers to shape a personal website preview around who you are and what you want to do next.</p>
-      <p class="buildmine-intro">A few words or a whole story—either is welcome. There’s no word or character cap. You don’t need a finished brand, a domain, or all the answers.</p>
-      <ol class="buildmine-process" aria-label="How the pilot works">
-        <li><span aria-hidden="true">01</span><strong>Tell me about you.</strong><p>Share your direction and background.</p></li>
-        <li><span aria-hidden="true">02</span><strong>I build your preview.</strong><p>I review your brief and use AI tools to help build it.</p></li>
-        <li><span aria-hidden="true">03</span><strong>We make it yours.</strong><p>You review it before we discuss taking it live.</p></li>
-      </ol>
-      <p class="field-help">This is a hands-on pilot. I’ll follow up by email with a preview or any questions. We’ll agree on scope and any costs before launch.</p>
+      <p class="eyebrow">Build mine · Free experimental pilot</p>
+      <h1 class="serif">Your background.<br /><em>Your own little corner.</em></h1>
+      <p class="lead">Bring your résumé. Answer as much or as little as you like. See an editable website starter right here, without waiting for an email.</p>
+      <p class="field-help">This version matches résumé sections to three ready-made layouts. It preserves your words; it doesn’t use AI to write or interpret every answer. Your answers stay on this device unless you choose to share them.</p>
     </section>
-
-    <form class="buildmine-form" id="buildmine-form" action={profile.inquiryEndpoint} method="POST">
-      <input type="hidden" name="_subject" value="Build mine — new website brief" />
-      <input type="hidden" name="source" value="buildmine-v1" />
-      <div class="honeypot" aria-hidden="true"><label for="build-website-check">Leave this empty</label><input id="build-website-check" type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></div>
-
-      <section class="buildmine-basics" aria-labelledby="basics-title">
-        <h2 class="serif" id="basics-title">First, an introduction.</h2>
-        <div class="form-pair">
-          <div class="field"><label for="build-name">Your name</label><input id="build-name" name="name" autocomplete="name" required /></div>
-          <div class="field"><label for="build-email">Where should I send your preview?</label><input id="build-email" name="email" type="email" autocomplete="email" required aria-describedby="email-note" /><p class="field-help" id="email-note">For our conversation. It won’t go on your website unless you ask.</p></div>
-        </div>
-      </section>
-
-      <div class="buildmine-questions">
-        {buildmineQuestions.map((question, index) => (
-          <section class="buildmine-question" aria-labelledby={`${question.id}-title`}>
-            <p class="eyebrow question-number">Question {String(index + 1).padStart(2, '0')} / 07</p>
-            <h2 class="serif" id={`${question.id}-title`}><label for={`answer-${question.id}`}>{question.title}</label></h2>
-            <p class="question-help" id={`${question.id}-help`}>{question.help}</p>
-            {question.id === 'aesthetic' && <label class="buildmine-choice style-choice" for="drew-style">
-              <input type="checkbox" id="drew-style" name="drew_style" value="Use Drew's green-and-ivory visual style, with my own content" />
-              <span><strong>Use Drew’s visual style as my starting point.</strong><span>Green and ivory, serif headlines, a calm layout. Add any changes below, or leave the style answer blank.</span></span>
-            </label>}
-            <div class="field"><textarea id={`answer-${question.id}`} name={`answer_${question.id}`} rows="4" required={question.id !== 'aesthetic'} aria-describedby={`${question.id}-help`} placeholder={question.placeholder}></textarea></div>
-            {question.id === 'aesthetic' && <p class="field-help">Choose the checkbox, write your own direction, or do both.</p>}
-            {question.id === 'connection' && <div class="field booking-field"><label for="build-booking">Your Calendly or other scheduling link <span>Optional</span></label><input id="build-booking" name="booking_url" type="url" inputmode="url" placeholder="https://calendly.com/your-name" /><p class="field-help">Leave this blank if you don’t want scheduling or need help setting it up.</p></div>}
-          </section>
-        ))}
-      </div>
-
-      <section class="buildmine-resume" aria-labelledby="resume-title">
-        <p class="eyebrow">Your background</p>
-        <h2 class="serif" id="resume-title">Bring your résumé.</h2>
-        <p class="question-help">Import a PDF or text file, or paste your résumé below. Review the text and remove anything you don’t want to share.</p>
+    <form class="buildmine-form" id="buildmine-form">
+      <fieldset id="builder-inputs" disabled>
+      <section aria-labelledby="resume-title" class="buildmine-start">
+        <div class="field"><label for="build-name">Your name <span>Required</span></label><input id="build-name" name="name" autocomplete="name" required /></div>
+        <h2 class="serif" id="resume-title">Start with your résumé.</h2>
         <div class="field resume-import" id="resume-import" hidden>
           <label for="resume-file">Import your résumé</label>
           <input id="resume-file" type="file" accept=".pdf,.txt,application/pdf,text/plain" aria-describedby="resume-import-help resume-import-status" />
-          <p class="field-help" id="resume-import-help">PDF or TXT, up to 10 MB. Your browser reads the file; only the text you review below is submitted. For Word documents or scanned PDFs, paste the text instead.</p>
+          <p class="field-help" id="resume-import-help">PDF or TXT, up to 10 MB. Your browser reads the file; nothing is uploaded. For Word documents or scanned PDFs, paste the text below.</p>
           <p class="field-help" id="resume-import-status" role="status" aria-live="polite"></p>
           <button type="button" class="text-link import-button" id="import-resume-button" hidden>Read this file into the text below</button>
         </div>
-        <div class="field"><label for="resume-text">Résumé text <span>Required · editable before sending</span></label><textarea id="resume-text" name="resume_text" rows="10" required placeholder="Paste your résumé here, or import a file above." aria-describedby="resume-privacy"></textarea></div>
-        <p class="field-help" id="resume-privacy">Your résumé is background for the preview. It won’t become a public download automatically. Home addresses and private phone numbers should stay off the website.</p>
+        <details class="resume-text-details" open>
+          <summary>Paste or review your résumé text</summary>
+          <div class="field"><label for="resume-text">Résumé text <span>Required · editable</span></label><textarea id="resume-text" name="resume_text" rows="7" required placeholder="Paste your résumé here, or import a file above."></textarea></div>
+        </details>
       </section>
-
-      <section class="buildmine-send" aria-labelledby="send-title">
-        <h2 class="serif" id="send-title">Let’s see what we can make.</h2>
-        <label class="buildmine-choice" for="build-consent"><input id="build-consent" name="consent" type="checkbox" required value="I agree to share this brief with Drew for an AI-assisted website preview. Publication requires my approval." /><span>I’m sharing these answers and résumé text with Drew to prepare a website preview using AI-assisted tools. I’ll review it before anything is published.</span></label>
-        <p class="field-help">Submitted through Formspree to Drew’s existing inquiry inbox. No mailing-list signup. This form requests a preview; it doesn’t generate one instantly or purchase a domain.</p>
-        <p class="form-status" id="build-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
-        <div class="actions buildmine-submit">
-          <button class="button" type="submit" id="build-send">Send my website brief <span aria-hidden="true">↗</span></button>
-          <button class="text-link" type="button" id="build-download" hidden>Save my brief (.txt) <span aria-hidden="true">↓</span></button>
+      <section aria-labelledby="questions-title">
+        <h2 class="serif" id="questions-title">A little more you. <span class="optional-label">All optional.</span></h2>
+        <p class="question-help">Skip every question if you like. There’s no word or character cap. These answers help choose a starting style and preserve your direction for a more tailored build later.</p>
+        <div class="buildmine-questions">
+          {buildmineQuestions.map((question, index) => (
+            <details class="buildmine-question">
+              <summary><span class="question-number">0{index + 1}</span><span>{question.title}</span><span class="question-plus" aria-hidden="true">+</span></summary>
+              <p class="question-help" id={`${question.id}-help`}>{question.help}</p>
+              {question.id === 'aesthetic' && <label class="buildmine-choice style-choice" for="drew-style"><input type="checkbox" id="drew-style" name="drew_style" /><span><strong>Use Drew’s visual style as my starting point.</strong><span>Green and ivory, serif headlines, a calm layout.</span></span></label>}
+              <div class="field"><label class="sr-only" for={`answer-${question.id}`}>{question.title}</label><textarea id={`answer-${question.id}`} name={`answer_${question.id}`} rows="4" aria-describedby={`${question.id}-help`} placeholder={question.placeholder}></textarea></div>
+              {question.id === 'aesthetic' && <p class="field-help">Words such as “bold,” “dark,” or “editorial” suggest a preset. You can switch layouts after creating your draft. Specific references stay in your brief for later refinement.</p>}
+            </details>
+          ))}
         </div>
-        <p class="field-help" id="build-saving-note">Keep this page open while you write. Your answers aren’t saved automatically.</p>
-        <p class="field-help">Prefer email, or need to send the original file? <a class="inline-link" href={`mailto:${profile.email}?subject=Build%20mine%20%E2%80%94%20website%20brief`}>{profile.email}</a></p>
-        <noscript><p class="field-help">JavaScript is off, so paste your résumé as text. Submitting opens Formspree’s confirmation page. You can also email your answers to Drew.</p></noscript>
       </section>
+      <div class="actions buildmine-submit">
+        <button class="button" type="submit" id="build-send" hidden>Create my preview <span aria-hidden="true">↗</span></button>
+        <button class="text-link" type="button" id="build-download" hidden>Save my brief (.txt)</button>
+      </div>
+      <p class="form-status" id="build-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+      <p class="field-help" id="build-saving-note">Keep this page open while you work. Nothing is saved automatically. Save your brief before leaving.</p>
+      </fieldset>
+      <noscript><p>JavaScript is needed to create a preview on your device. You can also contact <a class="inline-link" href={`mailto:${profile.email}`}>{profile.email}</a>.</p></noscript>
     </form>
+    <section class="builder-result" id="builder-result" hidden aria-labelledby="result-title">
+      <p class="eyebrow">Your starting point</p>
+      <h2 class="serif" id="result-title" tabindex="-1">Make it feel like you.</h2>
+      <p class="question-help">Check the details, change the wording, and try another layout. Only the public fields below appear in your site. Résumé formatting varies; unrecognized sections may need pasting in.</p>
+      <form id="site-editor" class="site-editor">
+        <fieldset class="theme-picker"><legend>Choose a visual direction</legend>
+          <label class="theme-choice editorial-swatch"><input type="radio" name="theme" value="editorial" checked /><span><strong>Editorial</strong><small>Calm serif · Drew’s style</small></span></label>
+          <label class="theme-choice studio-swatch"><input type="radio" name="theme" value="studio" /><span><strong>Studio</strong><small>Bold type · Electric blue</small></span></label>
+          <label class="theme-choice technical-swatch"><input type="radio" name="theme" value="technical" /><span><strong>Technical</strong><small>Dark canvas · Structured</small></span></label>
+        </fieldset>
+        <div class="editor-layout">
+          <div class="editor-fields">
+            {editorFields.map(({ id, label, rows }) => <div class="field"><label for={`site-${id}`}>{label}</label>{rows ? <textarea id={`site-${id}`} name={id} rows={rows}></textarea> : <input id={`site-${id}`} name={id} required />}</div>)}
+            <div class="field"><label for="site-email">Public contact email <span>Optional</span></label><input id="site-email" name="email" type="email" /><p class="field-help">Add it here only if it should be visible. Contact details are never copied from your résumé automatically.</p></div>
+            <div class="field"><label for="site-booking">Scheduling link <span>Optional</span></label><input id="site-booking" name="booking" type="url" inputmode="url" placeholder="https://calendly.com/your-name" /></div>
+          </div>
+          <div class="preview-panel"><div class="preview-toolbar"><span>Live preview</span><label for="preview-width" class="sr-only">Preview width</label><select id="preview-width"><option value="full">Fit screen</option><option value="mobile">Phone width</option></select></div><iframe id="site-frame" title="Your website preview" sandbox="allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe></div>
+        </div>
+        <section class="buildmine-send" aria-labelledby="next-title">
+          <h2 class="serif" id="next-title">Like where this is going?</h2>
+          <label class="buildmine-choice" for="review-approved"><input id="review-approved" type="checkbox" /><span>I’ve reviewed the public text and contact details. This is what I want included in a shared preview or website download.</span></label>
+          <div class="actions"><button type="button" class="button" id="site-share">Create a share link</button><button type="button" class="button button-outline" id="site-export">Download my website</button></div>
+          <p class="field-help">The share link carries a snapshot of your approved site. Anyone with the link can read and forward it. It isn’t a private vault or a permanent named address; links cannot be revoked, and edits need a new link. Very long sites can be downloaded instead.</p>
+          <div class="field" id="share-output" hidden><label for="share-url">Your preview link</label><input id="share-url" type="text" readonly /><button id="share-copy" class="text-link" type="button">Copy link</button><a id="share-open" class="text-link" target="_blank" rel="noopener noreferrer">Open preview</a></div>
+          <p class="form-status" id="editor-status" role="status" aria-live="polite" hidden></p>
+          <p class="field-help">The download is a complete single-page website with its styling included. It works on static hosting. A custom domain needs a hosting setup; buying a domain alone doesn’t point it at a page within Drew’s site.</p>
+          <p class="question-help">Want a more tailored design or help going live? <a class="inline-link" href={`mailto:${profile.email}?subject=Help%20launching%20my%20website`}>Talk to Drew about the next step.</a> Nothing is purchased here. We’ll agree on the work and price first.</p>
+        </section>
+      </form>
+    </section>
   </div>
 </Base>
-<script>
-  import '../scripts/buildmine';
-</script>
+<script>import '../scripts/buildmine';</script>
