@@ -35,3 +35,17 @@ Cloud browser access to the local build was blocked by its URL policy. No visual
 Rollback: revert the release commit on `main` and let the same deployment workflow rebuild. Do not change DNS for this release.
 
 Writing privacy: the repository is public. Current source no longer includes the AI sample, but old commits can still contain it. Future private drafts stay outside the public repository until approved for publication.
+
+## Build mine pilot — September 18, 2026
+
+- [x] `/buildmine/` has exactly seven open-ended prompts, a bespoke aesthetic answer and optional Drew-style checkbox, optional scheduling URL, domain/privacy question, name and private reply email.
+- [x] No application character/word caps on answers or résumé text. A 240,018-character answer remains complete in simulated submission and downloaded exports, including during an in-flight request.
+- [x] PDF/TXT import reads locally and fills editable résumé text; the file control has no submission name and no original file is sent. Actual PDF extraction and empty, corrupt, unsupported, oversize, blank, and locked-document fallbacks checked.
+- [x] Required fields, whitespace, consent, visual-style alternatives, scheduling URL, pending/duplicate prevention, successful retention, and server/network/abort failure retention checked with simulated requests. No external messages sent.
+- [x] Existing inquiry form, vCard, and all six HTML pages / 83 local links and assets pass structural checks.
+- [x] Production build passes. Release checks keep writing absent and the pilot out of navigation with noindex metadata.
+- [x] Hands-on preview workflow and original-file handling are accurately described. No automatic site generation, account creation, domain purchase, or paid upload integration is claimed.
+- [x] Repeatable intake-to-preview and approval-to-launch process recorded in `docs/BUILDMINE_PILOT.md` without client data.
+- [ ] Browser rendering at 320, 390, 768, and 1440 px; current browser API has no viewport-resize control. Source uses a single-column form, fluid widths, 16px inputs, wrapping actions, and mobile breakpoints.
+- [ ] An authorized participant submission received in the intended inbox; provider acceptance alone is not delivery verification.
+- [ ] Confirm live deployment, direct route, noindex, and loaded client/worker assets after merging.

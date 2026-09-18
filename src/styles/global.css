@@ -181,3 +181,50 @@ button, input, textarea, select { font: inherit; }
 @media (min-width: 850px) {
   .experience-entry { grid-template-columns: 220px minmax(0, 1fr); gap: 3rem; }
 }
+
+/* The unlisted website pilot. All inputs stay in a single reading column. */
+.buildmine-shell { max-width: 880px; }
+.buildmine-heading { padding-bottom: 2.5rem; }
+.buildmine-heading h1 { font-size: clamp(2.55rem, 6.8vw, 4.75rem); }
+.buildmine-heading .lead { max-width: 42rem; }
+.buildmine-intro { max-width: 42rem; color: var(--color-muted); margin-top: 1rem; }
+.buildmine-process { display: grid; gap: 1.25rem; list-style: none; padding: 1.5rem 0; margin-top: 1.6rem; border-block: 1px solid var(--color-border); }
+.buildmine-process li > span { display: block; font-size: .75rem; color: #98622e; letter-spacing: .08em; margin-bottom: .45rem; }
+.buildmine-process strong { font-weight: 600; }
+.buildmine-process p { font-size: .875rem; color: var(--color-muted); margin-top: .3rem; }
+.buildmine-heading > .field-help { margin-top: 1rem; max-width: 43rem; }
+.buildmine-form { max-width: 46rem; padding-bottom: 4rem; }
+.buildmine-basics { padding: 1.6rem 0 2.25rem; }
+.buildmine-form h2 { font-size: clamp(1.8rem, 4.5vw, 2.35rem); line-height: 1.15; }
+.buildmine-basics h2 { margin-bottom: 1.3rem; }
+.buildmine-question { padding-block: 2rem; border-top: 1px solid var(--color-border); scroll-margin-top: 1rem; }
+.question-number { color: #98622e; margin-bottom: .8rem; }
+.question-help { color: var(--color-muted); margin: .85rem 0 1.3rem; max-width: 43rem; }
+.buildmine-question textarea { min-height: 150px; }
+.buildmine-choice { display: flex; align-items: flex-start; gap: .85rem; cursor: pointer; padding: .8rem 0; min-height: 44px; line-height: 1.6; }
+.buildmine-choice input { flex: 0 0 21px; width: 21px; height: 21px; margin-top: .2rem; accent-color: var(--green); }
+.buildmine-choice strong { font-size: .9375rem; display: block; }
+.buildmine-choice span span { display: block; color: var(--color-muted); font-size: .875rem; margin-top: .2rem; }
+.style-choice { padding: 1rem; border: 1px solid var(--color-border); border-radius: 3px; margin-bottom: 1rem; background: #eaf0df65; }
+.booking-field { margin-top: 1.25rem; }
+.buildmine-resume { border-top: 1px solid var(--color-border); padding-block: 2rem; }
+.buildmine-resume .eyebrow { margin-bottom: .8rem; }
+.resume-import { border: 1px dashed #8b9e8a; border-radius: 3px; padding: 1rem; margin-bottom: 1.5rem; }
+.resume-import input[type='file'] { padding: .5rem 0; border: 0; background: transparent; font-size: .875rem; max-width: 100%; }
+.resume-import input::file-selector-button { min-height: 44px; border: 1px solid #8b9e8a; border-radius: 3px; background: var(--paper); color: var(--green); padding: .5rem .7rem; margin-right: .7rem; font: inherit; cursor: pointer; }
+.import-button { margin-top: .5rem; text-align: left; cursor: pointer; }
+.buildmine-form textarea[readonly] { opacity: .7; }
+.buildmine-send { padding: 1.6rem 1.2rem; background: #eaf0df85; border: 1px solid var(--color-border); border-radius: 3px; }
+.buildmine-send h2 { margin-bottom: 1rem; }
+.buildmine-send .form-status { margin-top: 1.25rem; background: #fffefa; }
+.buildmine-send .form-status.error { background: #fff0e7; }
+.buildmine-submit { align-items: center; gap: .75rem 1.5rem; margin-top: 1.3rem; }
+.buildmine-submit button { cursor: pointer; }
+.buildmine-submit button:disabled { cursor: default; }
+.buildmine-send .inline-link { text-decoration: underline; overflow-wrap: anywhere; }
+@media (min-width: 640px) {
+  .buildmine-process { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  .buildmine-heading { padding-top: 4rem; }
+  .buildmine-question { padding-block: 2.5rem; }
+  .buildmine-send { padding: 2rem; }
+}
