@@ -1,11 +1,14 @@
 ---
 import '../styles/global.css';
 import { profile } from '../data/profile';
+import Analytics from '../components/Analytics.astro';
+import { analyticsEnabled, integrations, publicPages } from '../config/integrations';
 interface Props { title: string; description?: string; compact?: boolean; noindex?: boolean; }
 const { title, description = profile.description, compact = false, noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, profile.website);
 const links = [{ href: '/about/', label: 'About' }, { href: '/services/', label: 'Work with me' }, { href: profile.bookingUrl, label: 'Schedule a conversation' }];
 const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+const measurePage = analyticsEnabled && !noindex && publicPages.includes(Astro.url.pathname);
 ---
 <!doctype html>
 <html lang="en">
@@ -15,6 +18,7 @@ const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.
     <meta name="theme-color" content="#173e35" />
     <title>{title === 'Home' ? `${profile.name} — Founder, inventor & curious person` : `${title} — ${profile.name}`}</title>
     <meta name="description" content={description} />
+    {integrations.googleSiteVerification && Astro.url.pathname === '/' && <meta name="google-site-verification" content={integrations.googleSiteVerification} />}
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -50,8 +54,9 @@ const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.
     <footer class="site-footer">
       <div class="shell footer-inner">
         <p>© {new Date().getFullYear()} {profile.name}<span class="footer-location">{profile.location}</span></p>
-        <div><a href="/hello/">Save my contact</a><a href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Résumé (PDF)</a><a href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a></div>
+        <div><a href="/hello/">Save my contact</a><a href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Résumé (PDF)</a><a href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a><a href="/privacy/">Privacy</a>{measurePage && <button type="button" id="analytics-settings" hidden>Analytics preferences</button>}</div>
       </div>
     </footer>
+    {measurePage && <Analytics />}
   </body>
 </html>

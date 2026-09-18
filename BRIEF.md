@@ -61,3 +61,7 @@ Drew requested four revisions after reviewing the live page and imported contact
 ## Uniform /hello buttons
 
 Drew approved replacing the mixed buttons/text links with one stack of matching green buttons. Priority: Save My Contact Card, Schedule a conversation, Send an inquiry, Send me an email, Connect on LinkedIn, Follow on Instagram, A little about me, Download my résumé (PDF). Keep the established green button appearance, consistent spacing and full-width touch targets. This changes the page presentation only; the downloaded contact continues to exclude the résumé. Publish live.
+
+## Free analytics and search visibility
+
+Drew requested Google Analytics and useful free additions, and clarified that the earlier Cloudflare connection attempt encountered approval errors. Use GA4 standard and Google Search Console, with the existing host and DNS. Keep analytics optional and exclude private builder inputs and shared drafts. Add a public sitemap, privacy information, and an owner-supplied Search Console verification tag. Do not invent property IDs, activate a paid plan, or claim data collection before a real Google property is connected. Account setup and verification status are recorded in `docs/ANALYTICS_SETUP.md`.
