@@ -2,6 +2,8 @@
 
 ## Current activation state
 
+Paused at Drew's request on September 18, 2026. He plans to resume Google sign-in from his computer. Do not retry account setup until asked.
+
 The site integration is implemented. Google account setup is still pending: the secure browser sign-in attempt did not complete. No Google Analytics measurement ID or Search Console ownership token has been supplied. Empty settings intentionally keep analytics and its consent prompt inactive. Do not describe the property as connected or collecting data until the steps below are complete.
 
 The public sitemap and robots.txt work independently of Google account access. The privacy page describes the actual activation state.
