@@ -65,3 +65,13 @@ Supersedes the manual submission behavior documented above.
 - [ ] Live browser generation, style switching, shared preview, and embedded anchor navigation after deployment.
 - [ ] Outer-page rendering at 320, 390, 768, and 1440 px. Browser viewport resize is unavailable; do not claim physical mobile testing.
 - [ ] Permanent named hosted pages, AI generation, owned accounts, custom-domain routing, payments, and managed customer hosting. These require a connected backend and product setup; they are not live in this pilot.
+
+## /hello social links and contact details
+
+- [x] Owner explicitly approved the supplied LinkedIn/Instagram URLs and live publication.
+- [x] Social links grouped below main contact actions with existing mobile-friendly styles.
+- [x] Saved contact includes all seven website/social/scheduling/background/inquiry/résumé links and the existing email.
+- [x] vCard 4.0 birthday contains month/day only; city/state/country is Austin, Texas, USA, without street or postal code.
+- [x] Production build and generated contact validation: vCard 4.0, exact yearless birthday, structured location, all seven links, UTF-8/CRLF/line lengths, and agreement with /hello. Existing page/link/inquiry checks pass.
+- [ ] Successful deployment and live page/contact-file checks.
+- [ ] Actual import into Apple and Google Contacts, including yearless birthday and URL labels.
