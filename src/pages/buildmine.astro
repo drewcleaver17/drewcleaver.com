@@ -38,15 +38,16 @@ const editorFields = [
       <section aria-labelledby="questions-title">
         <h2 class="serif" id="questions-title">A little more you. <span class="optional-label">All optional.</span></h2>
         <p class="question-help">Skip every question if you like. There’s no word or character cap. These answers help choose a starting style and preserve your direction for a more tailored build later.</p>
+        <p class="question-help"><strong>Want help putting your thoughts into words?</strong> Copy any question into your AI of choice and talk it through. An assistant that already knows your background can help you make the answers more personal. Review the wording so it feels true to you, then copy and paste each answer into the matching field below.</p>
         <div class="buildmine-questions">
           {buildmineQuestions.map((question, index) => (
-            <details class="buildmine-question">
-              <summary><span class="question-number">0{index + 1}</span><span>{question.title}</span><span class="question-plus" aria-hidden="true">+</span></summary>
+            <section class="buildmine-question" aria-labelledby={`${question.id}-title`}>
+              <h3 class="question-heading" id={`${question.id}-title`}><span class="question-number" aria-hidden="true">0{index + 1}</span><span>{question.title}</span></h3>
               <p class="question-help" id={`${question.id}-help`}>{question.help}</p>
               {question.id === 'aesthetic' && <label class="buildmine-choice style-choice" for="drew-style"><input type="checkbox" id="drew-style" name="drew_style" /><span><strong>Use Drew’s visual style as my starting point.</strong><span>Green and ivory, serif headlines, a calm layout.</span></span></label>}
               <div class="field"><label class="sr-only" for={`answer-${question.id}`}>{question.title}</label><textarea id={`answer-${question.id}`} name={`answer_${question.id}`} rows="4" aria-describedby={`${question.id}-help`} placeholder={question.placeholder}></textarea></div>
               {question.id === 'aesthetic' && <p class="field-help">Words such as “bold,” “dark,” or “editorial” suggest a preset. You can switch layouts after creating your draft. Specific references stay in your brief for later refinement.</p>}
-            </details>
+            </section>
           ))}
         </div>
       </section>

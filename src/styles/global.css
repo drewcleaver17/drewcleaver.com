@@ -239,11 +239,8 @@ button, input, textarea, select { font: inherit; }
 .resume-text-details .field { margin-top:.6rem; }
 .buildmine-question { padding-block:0; }
 .buildmine-question:last-child { border-bottom:1px solid var(--color-border); }
-.buildmine-question summary { display:flex; gap:1rem; align-items:baseline; padding:1.15rem 0; list-style:none; font-size:1rem; cursor:pointer; min-height:60px; }
-.buildmine-question summary::-webkit-details-marker { display:none; }
-.buildmine-question .question-number { margin:0; font: .875rem/1.5 ui-monospace,monospace; }
-.question-plus { margin-left:auto; flex-shrink:0; }
-.buildmine-question[open] .question-plus { transform:rotate(45deg); }
+.buildmine-question .question-heading { display:flex; gap:1rem; align-items:baseline; padding:1.15rem 0; font-size:1rem; font-weight:500; }
+.buildmine-question .question-number { margin:0; flex-shrink:0; font: .875rem/1.5 ui-monospace,monospace; }
 .buildmine-question .question-help { margin-top:0; font-size:.9375rem; }
 .buildmine-question .field { margin-bottom:1.2rem; }
 .optional-label { display:block; color:var(--color-muted); font:1rem/1.6 var(--font-sans); letter-spacing:0; margin-top:.5rem; }
