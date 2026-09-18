@@ -57,3 +57,7 @@ The saved contact must retain the public email and include the website, both soc
 ## Contact card polish
 
 Drew requested four revisions after reviewing the live page and imported contact: label the green button exactly “Save My Contact Card”; remove the explanatory text under the email button; make Instagram and scheduling part of one continuously spaced link list; and remove the résumé from the downloadable contact. Keep the résumé available on the website and preserve the card's birthday, location, email, and other links. Publish these revisions through the existing release process.
+
+## Uniform /hello buttons
+
+Drew approved replacing the mixed buttons/text links with one stack of matching green buttons. Priority: Save My Contact Card, Schedule a conversation, Send an inquiry, Send me an email, Connect on LinkedIn, Follow on Instagram, A little about me, Download my résumé (PDF). Keep the established green button appearance, consistent spacing and full-width touch targets. This changes the page presentation only; the downloaded contact continues to exclude the résumé. Publish live.

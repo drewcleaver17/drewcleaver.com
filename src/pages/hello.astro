@@ -9,17 +9,15 @@ import { profile } from '../data/profile';
       <p class="eyebrow">{profile.name}</p>
       <h1 id="hello-title" class="serif">Good to<br /><em>meet you.</em></h1>
       <p class="intro">I'm Drew—a founder, inventor, racing driver, and a curious person. Here's how to stay in touch.</p>
-      <div class="hello-actions">
+      <nav class="hello-actions" aria-label="Stay in touch with Drew">
         <a class="button" href={profile.contactFile} download="Drew-Cleaver.vcf">Save My Contact Card <span aria-hidden="true">↓</span></a>
-        <a class="button button-outline" href={`mailto:${profile.email}`}>Send me an email <span aria-hidden="true">↗</span></a>
-      </div>
-      <nav class="hello-links" aria-label="Stay in touch with Drew">
-        <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
-        <a href={profile.instagramUrl} target="_blank" rel="noopener noreferrer">Follow on Instagram <span aria-hidden="true">↗</span></a>
-        <a href={profile.bookingUrl}>Schedule a conversation <span aria-hidden="true">↗</span></a>
-        <a href="/contact/">Send an inquiry <span aria-hidden="true">↗</span></a>
-        <a href="/about/">A little about me <span aria-hidden="true">↗</span></a>
-        <a href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Download my résumé (PDF) <span aria-hidden="true">↓</span></a>
+        <a class="button" href={profile.bookingUrl}>Schedule a conversation <span aria-hidden="true">↗</span></a>
+        <a class="button" href="/contact/">Send an inquiry <span aria-hidden="true">↗</span></a>
+        <a class="button" href={`mailto:${profile.email}`}>Send me an email <span aria-hidden="true">↗</span></a>
+        <a class="button" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="button" href={profile.instagramUrl} target="_blank" rel="noopener noreferrer">Follow on Instagram <span aria-hidden="true">↗</span></a>
+        <a class="button" href="/about/">A little about me <span aria-hidden="true">↗</span></a>
+        <a class="button" href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Download my résumé (PDF) <span aria-hidden="true">↓</span></a>
       </nav>
       <p class="hello-location">{profile.contactLocation} · {profile.email}</p>
     </section>

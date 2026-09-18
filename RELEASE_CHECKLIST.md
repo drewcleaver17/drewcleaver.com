@@ -83,3 +83,11 @@ Supersedes the manual submission behavior documented above.
 - [x] Downloaded contact omits the résumé URL and label; website résumé access is retained.
 - [x] Production build and focused page/contact inspection: exact button text, no subtext, one continuous six-link list, six saved contact URLs with no résumé, birthday/location preserved.
 - [ ] Successful deployment and live spacing/contact-file checks.
+
+## Uniform /hello button stack
+
+- [x] All eight actions use the same existing green button style in one responsive column.
+- [x] Priority is contact download, scheduling, inquiry, email, LinkedIn, Instagram, about, résumé.
+- [x] Existing destinations, download behavior, social-link handling, and saved contact content retained.
+- [x] Production build and generated-page inspection: eight matching button classes, requested order, original destinations/download attributes, and résumé still excluded from saved contact.
+- [ ] Live order, shared styling, touch targets, and deployment verification.
