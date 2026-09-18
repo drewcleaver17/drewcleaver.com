@@ -22,7 +22,7 @@ import { experience } from '../data/experience';
     <section class="experience-section" aria-labelledby="experience-title">
       <div class="section-heading"><h2 id="experience-title" class="serif">Experience</h2></div>
       <ol class="experience-list">
-        {experience.map(({ role, specialty, org, orgUrl, period, location, highlights }) => (
+        {experience.map(({ role, specialty, org, period, location, highlights }) => (
           <li class="experience-entry">
             <div class="experience-meta">
               <p>{period}</p>
@@ -30,9 +30,7 @@ import { experience } from '../data/experience';
             </div>
             <div>
               <h3 class="serif">{role}</h3>
-              <p class="experience-org">
-                {orgUrl ? <a href={orgUrl}>{org} <span aria-hidden="true">↗</span></a> : org}
-              </p>
+              <p class="experience-org">{org}</p>
               <p class="experience-specialty">{specialty}</p>
               <ul class="experience-highlights">
                 {highlights.map(highlight => <li>{highlight}</li>)}
