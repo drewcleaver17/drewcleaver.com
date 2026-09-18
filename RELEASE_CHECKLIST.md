@@ -75,3 +75,11 @@ Supersedes the manual submission behavior documented above.
 - [x] Production build and generated contact validation: vCard 4.0, exact yearless birthday, structured location, all seven links, UTF-8/CRLF/line lengths, and agreement with /hello. Existing page/link/inquiry checks pass.
 - [ ] Successful deployment and live page/contact-file checks.
 - [ ] Actual import into Apple and Google Contacts, including yearless birthday and URL labels.
+
+## Contact card polish after device screenshots
+
+- [x] Green action reads “Save My Contact Card”; explanatory subtext removed.
+- [x] One navigation list eliminates the extra margin and duplicate divider between Instagram and scheduling.
+- [x] Downloaded contact omits the résumé URL and label; website résumé access is retained.
+- [x] Production build and focused page/contact inspection: exact button text, no subtext, one continuous six-link list, six saved contact URLs with no résumé, birthday/location preserved.
+- [ ] Successful deployment and live spacing/contact-file checks.

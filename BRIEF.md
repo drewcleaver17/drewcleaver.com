@@ -53,3 +53,7 @@ This is the connected-capability pilot, not the complete requested hosted AI ser
 Drew explicitly approved building and publishing LinkedIn and Instagram links on `/hello`, using `https://www.linkedin.com/in/drewcleaver` and `https://www.instagram.com/drew.cleaver/`. Place them together below the main contact actions, using the existing site styling. Display Austin, Texas, USA on this calling card.
 
 The saved contact must retain the public email and include the website, both social profiles, scheduling, and other useful `/hello` links. Use vCard 4.0 for a July 17 birthday with no year (`BDAY:--0717`). Store city/state/country without inventing a street or postal code. The birthday belongs in the downloadable card, not the visible page. Keep the permanent QR/contact URLs intact. Native Apple/Google contact import remains a device check; successful file validation is not proof of native import behavior.
+
+## Contact card polish
+
+Drew requested four revisions after reviewing the live page and imported contact: label the green button exactly “Save My Contact Card”; remove the explanatory text under the email button; make Instagram and scheduling part of one continuously spaced link list; and remove the résumé from the downloadable contact. Keep the résumé available on the website and preserve the card's birthday, location, email, and other links. Publish these revisions through the existing release process.
