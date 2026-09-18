@@ -47,7 +47,7 @@ const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.
     <footer class="site-footer">
       <div class="shell footer-inner">
         <p>© {new Date().getFullYear()} {profile.name}<span class="footer-location">{profile.location}</span></p>
-        <div><a href="/hello/">Save my contact</a><a href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a></div>
+        <div><a href="/hello/">Save my contact</a><a href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Résumé (PDF)</a><a href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a></div>
       </div>
     </footer>
   </body>

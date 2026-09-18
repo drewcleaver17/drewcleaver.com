@@ -11,5 +11,6 @@ export const profile = {
   bookingUrl: 'https://calendly.com/drewcleaver',
   inquiryEndpoint: 'https://formspree.io/f/xqabokqn',
   contactFile: '/drew-cleaver.vcf',
+  resumeFile: '/Drew-Cleaver-Resume.pdf',
   description: 'Drew Cleaver is a founder, inventor, and racing driver. Explore his background, ask about founder advisory, send an inquiry, or schedule a conversation.',
 } as const;

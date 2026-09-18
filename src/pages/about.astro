@@ -1,147 +1,66 @@
 ---
 import Base from '../layouts/Base.astro';
 import { profile } from '../data/profile';
-
-const experience = [
-  {
-    role: 'Founder & Inventor',
-    org: 'Higher Hangers',
-    orgUrl: 'https://higherhangers.com',
-    period: '2015 — present',
-    notes: 'Built a patented seven-figure D2C housewares brand from scratch — 30,000+ customers across 40+ countries via Shopify, Amazon FBA/FBM, and wholesale. Top 1% all-time Kickstarter campaign. Owned full P&L, GTM strategy, and a fractional ops network of 10+ experts delivering enterprise-grade execution at startup cost.',
-  },
-  {
-    role: 'Account Manager, Enterprise Energy Services',
-    org: 'Weatherford International',
-    period: '2012 — 2015',
-    notes: 'Opened Rocky Mountain territory from zero. Closed $75M+ in long-term service contracts. Grew territory net profit from <$1M to >$10M in one year. Won global Salesforce utilization competition.',
-  },
-  {
-    role: 'Account Manager, Enterprise Energy Services',
-    org: 'Baker Hughes',
-    period: '2011 — 2012',
-    notes: 'Managed $200M+ annual revenue across 20+ enterprise accounts. Closed $25M+ in new multi-product projects. Built most profitable cementing customer in Texas from $0. Graduate of Baker Hughes Sales Academy.',
-  },
-  {
-    role: 'Technical Sales Representative',
-    org: 'Stewart Tubular Products',
-    period: '2010 — 2011',
-    notes: 'Custom CNC Oil Country Tubular Goods (OCTG).',
-  },
-  {
-    role: 'SMB Account Executive',
-    org: 'Fastenal Company',
-    period: '2008 — 2010',
-    notes: 'Energy and industrial OEMs, Houston TX and Northwest Arkansas.',
-  },
-];
-
-const notable = [
-  'US Utility Patent: Compact Clothes Hanger (US7404503B1)',
-  'Winner, 2010 Bed Bath & Beyond Innovative Dorm Room Product search',
-  'Winner, 2009 D.W. Reynolds Governor\'s Cup Business Plan Competition ($40,000)',
-  'Press: Washington Post, NBC, Wall Street Journal, Designboom',
-  'Called for ABC Shark Tank casting',
-];
+import { experience } from '../data/experience';
 ---
-
-<Base
-  title="About"
-  description="Drew Cleaver — inventor, entrepreneur, racing driver, and futurist based in Austin, TX. Built Higher Hangers into a seven-figure global brand. Background in physical product, enterprise sales, and AI workflows."
->
-  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
-    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
-      About
-    </p>
-    <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-6">
-      Inventor. Entrepreneur.<br />
-      Racing driver. Futurist.
-    </h1>
-    <div class="prose max-w-2xl">
-      <p>
-        I'm Drew Cleaver — based in Austin, TX. I built Higher Hangers from a patented
-        dorm-room idea into a seven-figure global brand, sold direct to 30,000+ customers
-        across 40+ countries, and managed enterprise energy accounts with $200M+ in annual
-        revenue at Baker Hughes and Weatherford.
-      </p>
-      <p>
-        My background sits at the intersection of physical product, enterprise sales, and
-        digital operations. I understand how to build things from zero, how to sell into
-        complex organizations, and how to architect the systems that make both sustainable.
-      </p>
-      <p>
-        I like helping people think through business decisions and put useful ideas to
-        work. I'm also exploring practical AI workflows and the questions that
-        catch my curiosity beyond business.
-      </p>
-    </div>
-  </section>
-
-  <!-- Digital CV -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">Experience</h2>
-    <ol class="flex flex-col gap-8 relative border-l-2 border-[var(--color-border)] pl-8 ml-2">
-      {experience.map(({ role, org, orgUrl, period, notes }) => (
-        <li class="relative">
-          <span class="absolute -left-[calc(2rem+1px)] top-1 w-3 h-3 rounded-full bg-[var(--color-teal)]"></span>
-          <p class="text-xs text-[var(--color-muted)] font-medium mb-1">{period}</p>
-          <h3 class="font-semibold text-[var(--color-ink)]">{role}</h3>
-          {orgUrl ? (
-            <a href={orgUrl} target="_blank" rel="noopener noreferrer" class="text-sm text-[var(--color-teal)] font-medium mb-2 hover:underline inline-block">{org} ↗</a>
-          ) : (
-            <p class="text-sm text-[var(--color-teal)] font-medium mb-2">{org}</p>
-          )}
-          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{notes}</p>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <!-- Education -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Education</h2>
-    <div class="flex flex-col gap-1">
-      <h3 class="font-semibold text-[var(--color-ink)]">BS Business Management</h3>
-      <p class="text-sm text-[var(--color-teal)] font-medium">John Brown University, 2009</p>
-      <p class="text-sm text-[var(--color-muted)] mt-1">Winner, 2009 D.W. Reynolds Governor's Cup Business Plan Competition ($40,000)</p>
-    </div>
-  </section>
-
-  <!-- Notable -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-6">Notable</h2>
-    <ul class="flex flex-col gap-3">
-      {notable.map((item) => (
-        <li class="flex items-start gap-3 text-sm text-[var(--color-ink)]">
-          <span class="text-[var(--color-teal)] mt-0.5 shrink-0">—</span>
-          {item}
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <!-- CTA -->
-  <section class="max-w-4xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
-    <div class="bg-[var(--color-ink)] text-white rounded-2xl p-10 text-center">
-      <h2 class="text-2xl font-bold mb-3">Want to work together?</h2>
-      <p class="text-gray-400 mb-7 max-w-xl mx-auto">
-        Tell me what you're thinking about or trying to figure out. A few sentences is
-        plenty. Open-ended questions and introductions are welcome.
-      </p>
-      <div class="flex flex-col items-center gap-3">
-        <a
-          href="/contact"
-          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-        >
-          Send an inquiry
-        </a>
-        <a
-          href={profile.bookingUrl}
-          class="text-sm text-gray-400 hover:text-white transition-colors"
-        >
-          Prefer a call first? Schedule one →
-        </a>
+<Base title="About" description="Drew Cleaver's background in founder operations, e-commerce, enterprise sales, and technical manufacturing. Explore his experience or download his résumé.">
+  <div class="shell">
+    <section class="page-heading">
+      <p class="eyebrow">A little background</p>
+      <h1 class="serif">Founder, operator,<br /><em>curious person.</em></h1>
+      <div class="prose about-intro">
+        <p>I'm Drew Cleaver, based in Austin, Texas. My work has taken me from technical sales in oil and gas to co-founding and operating Higher Hangers.</p>
+        <p>I've built new markets, worked with technical buyers, and turned a patented physical product into a business serving customers around the world. Along the way, I've learned how much good execution depends on both the systems you build and the relationships you earn.</p>
+        <p>That experience shapes my advisory work today: helping people think through business decisions, make sense of their options, and put useful ideas to work.</p>
       </div>
-    </div>
-  </section>
+      <div class="actions">
+        <a class="button" href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Download my résumé (PDF) <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="/contact/">Start a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="experience-section" aria-labelledby="experience-title">
+      <div class="section-heading"><h2 id="experience-title" class="serif">Experience</h2></div>
+      <ol class="experience-list">
+        {experience.map(({ role, specialty, org, orgUrl, period, location, highlights }) => (
+          <li class="experience-entry">
+            <div class="experience-meta">
+              <p>{period}</p>
+              <p>{location}</p>
+            </div>
+            <div>
+              <h3 class="serif">{role}</h3>
+              <p class="experience-org">
+                {orgUrl ? <a href={orgUrl}>{org} <span aria-hidden="true">↗</span></a> : org}
+              </p>
+              <p class="experience-specialty">{specialty}</p>
+              <ul class="experience-highlights">
+                {highlights.map(highlight => <li>{highlight}</li>)}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="experience-section education-section" aria-labelledby="education-title">
+      <div class="section-heading"><h2 id="education-title" class="serif">Education</h2></div>
+      <h3 class="serif">Bachelor of Science, Business Management</h3>
+      <p class="experience-org">John Brown University</p>
+      <p class="experience-specialty">Siloam Springs, Arkansas</p>
+      <ul class="experience-highlights">
+        <li>Completed the degree in six semesters while working 20–60 hours per week; served as Club Baseball President.</li>
+        <li>Grand Prize Winner of the $40,000 D.W. Reynolds Business Plan Competition with Higher Hangers.</li>
+      </ul>
+    </section>
+
+    <section class="open-door" aria-labelledby="about-contact-title">
+      <h2 id="about-contact-title" class="serif">Want to talk?</h2>
+      <p>A question, a collaboration, or a business decision you're working through—you're welcome to reach out.</p>
+      <div class="actions">
+        <a class="button" href="/contact/">Send an inquiry <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href={profile.bookingUrl}>Schedule a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </div>
 </Base>

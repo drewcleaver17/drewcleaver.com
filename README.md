@@ -20,6 +20,8 @@ The build generates static files in `dist/`. Work on a feature branch and review
 ## Where to edit
 
 - `src/data/profile.ts`: public identity, contact email, booking URL, and inquiry endpoint.
+- `src/data/experience.ts`: career highlights and dates, aligned with Drew's latest supplied résumé.
+- `public/Drew-Cleaver-Resume.pdf`: public résumé download. The original supplied file contains a private phone number; only the public copy belongs in this repository.
 - `src/pages/index.astro`: personal introduction, background, founder advisory, contact, scheduling, and open inquiry.
 - `src/pages/hello.astro`: mobile calling card for the permanent QR destination.
 - `src/pages/drew-cleaver.vcf.ts`: generated contact download from the shared profile.
@@ -50,3 +52,9 @@ See `AGENTS.md` for implementation constraints and `RELEASE_CHECKLIST.md` for cu
 Writing is disabled at build time: neither `/writing` nor article URLs are generated. The AI sample has been removed from current source. This repository is public; a draft flag or hidden navigation does not make committed text private. Keep work in progress in private storage outside this repository. Previous public commits may still contain the removed sample; this release does not rewrite history.
 
 When Drew explicitly approves publishing his own writing: copy only approved final posts into `src/content/writing/`, set their `draft` fields to `false`, intentionally add those files to Git, enable the writing flag, update the release check, and restore the desired navigation. Review the generated output before deployment. Do not change the flag just to preview private drafts on a public host.
+
+## Updating the résumé
+
+Use the latest file supplied by Drew as the source for role titles, dates, employers, and figures. Keep the original in private storage. Prepare and inspect a public PDF copy that removes the phone number from visible text, embedded text, and contact links while retaining the résumé's career content. Replace the stable public PDF, update the shared experience data, build, and check every download link. The current public résumé reflects the September 2026 source; its contact header uses `drew@drewcleaver.com`.
+
+SMS contact exchange is deferred: Drew requested free-only implementation, and the checked SMS verification services require paid usage or a billing-enabled plan. Do not add a paid service without authorization.
