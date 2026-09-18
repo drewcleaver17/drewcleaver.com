@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { profile } from '../data/profile';
 
 const experience = [
   {
@@ -69,8 +70,9 @@ const notable = [
         complex organizations, and how to architect the systems that make both sustainable.
       </p>
       <p>
-        These days I help people own their corner of the internet — domain, email, privacy
-        stack, and the hardware that runs it all. Boring, durable, yours.
+        I like helping people think through business decisions and put useful ideas to
+        work. I'm also exploring practical AI workflows, writing, and the questions that
+        catch my curiosity beyond business.
       </p>
     </div>
   </section>
@@ -123,8 +125,8 @@ const notable = [
     <div class="bg-[var(--color-ink)] text-white rounded-2xl p-10 text-center">
       <h2 class="text-2xl font-bold mb-3">Want to work together?</h2>
       <p class="text-gray-400 mb-7 max-w-xl mx-auto">
-        Tell me what you need and what it's worth to you. Two sentences is plenty. I read
-        every inquiry and reply within a day or two.
+        Tell me what you're thinking about or trying to figure out. A few sentences is
+        plenty. Open-ended questions and introductions are welcome.
       </p>
       <div class="flex flex-col items-center gap-3">
         <a
@@ -134,7 +136,7 @@ const notable = [
           Send an inquiry
         </a>
         <a
-          href="https://calendly.com/drewcleaver"
+          href={profile.bookingUrl}
           class="text-sm text-gray-400 hover:text-white transition-colors"
         >
           Prefer a call first? Schedule one →

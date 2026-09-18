@@ -1,151 +1,43 @@
 # drewcleaver.com
 
-Personal site for Drew Cleaver — digital sovereignty consultant.
+Drew Cleaver's personal homepage, writing, founder advisory, and digital calling card.
 
-**Stack:** Astro 6 + Tailwind CSS 4 + MDX
-**Hosting:** GitHub Pages via GitHub Actions
-**DNS:** Cloudflare (recommended)
+Astro 6, Tailwind CSS 4, and MDX. Hosted on GitHub Pages using the existing GitHub Actions workflow.
 
----
+## Develop and review
 
-## Local development
+Use Node.js 22.12 or later.
 
-**Prerequisites:** Node.js 22+
-
-```bash
-# Install dependencies
-npm install
-
-# Start dev server (http://localhost:4321)
+```sh
+npm ci
 npm run dev
-
-# Build for production
 npm run build
-
-# Preview production build locally
 npm run preview
 ```
 
----
+The build generates static files in `dist/`. Work on a feature branch and review before merging. **A push to `main` deploys the public website automatically.** Do not manually run the deployment workflow for a preview.
 
-## Project structure
+## Where to edit
 
-```
-drewcleaver.com/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Actions → GitHub Pages
-├── public/
-│   └── CNAME                   # Custom domain for GitHub Pages
-├── src/
-│   ├── components/
-│   │   └── ServiceCard.astro   # Reusable service/pricing card
-│   ├── content/
-│   │   └── writing/            # MDX blog posts (.mdx files)
-│   ├── layouts/
-│   │   └── Base.astro          # Shared HTML shell, nav, footer
-│   ├── pages/
-│   │   ├── index.astro         # Home: hero, services, CTA
-│   │   ├── services.astro      # Full pricing page
-│   │   ├── about.astro         # Bio, CV, philosophy
-│   │   ├── contact.astro       # Contact form + Cal.com link
-│   │   └── writing/
-│   │       ├── index.astro     # Blog post index
-│   │       └── [slug].astro    # Individual post template
-│   ├── styles/
-│   │   └── global.css          # Tailwind + @theme tokens + prose
-│   └── content.config.ts       # Content collection schema
-├── astro.config.mjs
-├── tailwind.config.mjs
-└── package.json
-```
+- `src/data/profile.ts`: public identity, contact email, booking URL, and inquiry endpoint.
+- `src/pages/index.astro`: personal introduction, background, founder advisory, writing, open inquiry.
+- `src/pages/hello.astro`: mobile calling card for the permanent QR destination.
+- `src/pages/drew-cleaver.vcf.ts`: generated contact download from the shared profile.
+- `src/pages/contact.astro`: inquiry form and submission states. Category and budget are optional.
+- `src/pages/services.astro`: work-with-me page; the existing URL is retained.
+- `src/layouts/Base.astro` and `src/styles/global.css`: shared navigation, metadata, responsive layout, and design.
+- `src/content/writing/`: MDX posts. A post's filename becomes its URL; `draft: true` excludes it from the index and generated routes.
 
----
+The public email, Calendly URL, and Formspree endpoint are retained from the existing site. There is no account system, payment collection, custom backend, or newsletter signup. The form sends directly to Formspree and works without JavaScript through its normal submission page. Confirm actual delivery with the owner before release.
 
-## Adding a blog post
+## Repeatable release process
 
-Create a new `.mdx` file in `src/content/writing/`:
+1. Record audience, outcomes, and verified content in `BRIEF.md`.
+2. Update the public profile and copy. Never invent testimonials, metrics, photos, phone numbers, or social links.
+3. Build on a feature branch; retain working routes and deployment configuration.
+4. Check the build, routes, accessibility, narrow layouts, inquiry states, and contact file.
+5. Present a preview and record the owner's feedback in the release checklist.
+6. Obtain approval to publish, merge to `main`, check deployment, and verify the public site.
+7. Print cards only after scanning a test QR to `https://drewcleaver.com/hello` and saving the contact on a real phone.
 
-```mdx
----
-title: "Your Post Title"
-description: "One-sentence summary shown in the post list."
-pubDate: 2024-06-01
-draft: false
----
-
-Your content here. Full Markdown + JSX supported.
-```
-
-The filename becomes the URL slug: `my-post-title.mdx` → `/writing/my-post-title`
-
-Set `draft: true` to hide a post from the index without deleting it.
-
----
-
-## Deploying to GitHub Pages
-
-### First-time setup
-
-1. **Create a GitHub repository** named `drewcleaver.com` (or any name).
-
-2. **Push this repo:**
-   ```bash
-   git remote add origin git@github.com:USERNAME/drewcleaver.com.git
-   git push -u origin main
-   ```
-
-3. **Enable GitHub Pages** in the repo settings:
-   - Go to Settings → Pages
-   - Source: **GitHub Actions**
-
-4. **Configure your custom domain** in Settings → Pages → Custom domain:
-   - Enter `drewcleaver.com`
-   - Check "Enforce HTTPS" once DNS propagates
-
-### DNS configuration (Cloudflare)
-
-Add these DNS records in Cloudflare (proxy OFF — set to DNS only):
-
-| Type  | Name | Value                  |
-|-------|------|------------------------|
-| A     | @    | 185.199.108.153        |
-| A     | @    | 185.199.109.153        |
-| A     | @    | 185.199.110.153        |
-| A     | @    | 185.199.111.153        |
-| CNAME | www  | USERNAME.github.io     |
-
-DNS propagation typically takes 5–30 minutes.
-
-### Subsequent deploys
-
-Every push to `main` triggers an automatic rebuild and deploy via GitHub Actions. No manual steps required.
-
----
-
-## Design tokens
-
-Configured in `src/styles/global.css` via Tailwind v4 `@theme`:
-
-| Token               | Value     | Usage          |
-|---------------------|-----------|----------------|
-| `--color-teal`      | `#0f6e56` | Primary accent |
-| `--color-teal-dark` | `#0a4f3e` | Hover states   |
-| `--color-bg`        | `#faf9f7` | Background     |
-| `--color-ink`       | `#1a1a1a` | Body text      |
-| `--color-muted`     | `#6b7280` | Secondary text |
-| `--color-border`    | `#e5e2de` | Borders        |
-
----
-
-## Cal.com booking link
-
-The discovery call link (`https://cal.com/drewcleaver`) appears in:
-- `src/pages/index.astro` — hero and CTA section
-- `src/pages/services.astro` — bottom CTA
-- `src/pages/about.astro` — bottom CTA
-- `src/pages/contact.astro` — booking section
-
----
-
-Built sovereign on GitHub Pages.
+See `AGENTS.md` for implementation constraints and `RELEASE_CHECKLIST.md` for current verification status.

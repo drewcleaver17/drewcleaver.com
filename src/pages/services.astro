@@ -1,182 +1,35 @@
 ---
 import Base from '../layouts/Base.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-
-const services = [
-  {
-    title: 'Starter',
-    description:
-      'A real email address on your own domain. firstname@firstnamelastname.com on ProtonMail. The smallest sovereign step — fast, clean, and a foundation you can build on.',
-    deliverables: [
-      'Domain registered in your name (Hover or Cloudflare)',
-      'ProtonMail mailbox on your domain',
-      'DNS, SPF, DKIM, DMARC configured and tested',
-      'Working inbox you control end-to-end',
-      '30-min handoff call so you understand what you own',
-    ],
-  },
-  {
-    title: 'Standard',
-    description:
-      'A full privacy stack you actually use. Everything in Starter, plus VPN, password vault, hardened accounts, and the onboarding to make it stick.',
-    deliverables: [
-      'Everything in Starter',
-      'ProtonVPN configured across phone, laptop, and desktop',
-      'Password vault setup (Bitwarden or Proton Pass)',
-      '2FA across all critical accounts',
-      'Account hygiene and exposure cleanup',
-      'Onboarding guide written for you, not boilerplate',
-      '60-min training session, recorded for your reference',
-      '30 days of async support',
-    ],
-    featured: true,
-  },
-  {
-    title: 'Concierge',
-    description:
-      'Your stack, in your house. Everything in Standard, plus hardware-level sovereignty — your own router, your own DNS-level ad blocking, installed and configured on-site.',
-    deliverables: [
-      'Everything in Standard',
-      'UniFi router (UDR7 or equivalent) at your home',
-      'Pi-hole on Raspberry Pi 5 — network-wide ad and tracker blocking',
-      'Hardware included',
-      'On-site installation and tuning (Austin metro)',
-      'Network documentation written specifically for your setup',
-      '90 days of async support',
-      '6-month sovereignty check-in',
-    ],
-  },
-];
-
-const faqs = [
-  {
-    q: 'How does "pay what you want" actually work?',
-    a: 'There\'s no price list. The inquiry form lets you name your own number. If you\'re early and lean, pay less. If you want to support the work, pay more. The work and the standard don\'t change either way.',
-  },
-  {
-    q: 'Is there a floor?',
-    a: 'Not officially, but I do reserve the right to decline. If you genuinely can\'t pay much and still want the work done, say so on the form. I take on a few engagements at cost each quarter.',
-  },
-  {
-    q: 'What\'s included in "hardware" for Concierge?',
-    a: 'Typically a UniFi router and a Raspberry Pi 5 kit running Pi-hole, plus cables and accessories. If you want higher-end UniFi gear, additional Pi nodes, or more capacity, we discuss that as part of the inquiry — no surprises and no markup on hardware.',
-  },
-  {
-    q: 'I\'m not in Austin. Can I still get Concierge?',
-    a: 'Yes. The Concierge tier assumes Austin metro on-site work. For elsewhere in Texas or the US, travel and lodging are quoted on top — usually a flat add-on. Tell me where you are on the form and we\'ll work it out.',
-  },
-  {
-    q: 'Do I need to be technical to work with you?',
-    a: 'No. Handling the technical complexity is the whole point. You\'ll understand what was built and why, but you won\'t need to touch a terminal or manage infrastructure.',
-  },
-  {
-    q: 'How long does each tier take?',
-    a: 'Starter is a few days, mostly waiting on DNS. Standard runs about 1–2 weeks from kickoff to launch. Concierge takes 2–3 weeks plus a half-day on-site for the install. Timelines depend on how quickly you can get me content and access.',
-  },
-  {
-    q: 'What does "sovereign" actually mean?',
-    a: 'You own the infrastructure outright. No subscription required to keep it live. No platform that can delete your account. No algorithm that can bury your work. If I disappeared tomorrow, your stack keeps running.',
-  },
-  {
-    q: 'Do you offer ongoing maintenance?',
-    a: 'Engagements are one-time by design. After your support window closes, you\'re running on tools any IT person can pick up. You\'re never dependent on me. If you want to add features later, I\'m available for ad-hoc work.',
-  },
-];
 ---
-
-<Base
-  title="Services"
-  description="Three tiers — Starter (email), Standard (privacy stack), Concierge (hardware-level sovereignty, Austin local). Pay what it's worth to you."
->
-  <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
-    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-teal)] mb-3">
-      The menu
-    </p>
-    <h1 class="text-4xl font-bold text-[var(--color-ink)] mb-4">
-      Pick a lane. Name your price.
-    </h1>
-    <p class="text-xl text-[var(--color-muted)] max-w-2xl leading-relaxed">
-      Three tiers — email, privacy stack, full hardware. All one-time. No retainers, no
-      subscriptions, no lock-in. Pay what it's worth to you.
-    </p>
-  </section>
-
-  <!-- Tier cards -->
-  <section class="max-w-4xl mx-auto px-6 py-10">
-    <div class="grid sm:grid-cols-3 gap-5">
-      {services.map((service) => (
-        <ServiceCard {...service} ctaLabel="Inquire" ctaHref="/contact" />
-      ))}
+<Base title="Work with me" description="Bring Drew a business decision, an idea, or a problem to think through. Founder advisory, practical AI, and open-ended projects.">
+  <div class="shell">
+    <section class="page-heading">
+      <p class="eyebrow">Work with me</p>
+      <h1 class="serif">Bring me what you're<br />trying to figure out.</h1>
+      <p class="lead">You can start with an idea, a messy situation, or a question. Tell me enough to understand it, and we'll work out whether I can help.</p>
+      <div class="actions"><a class="button" href="/contact/?reason=advisory">Start a conversation <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <div class="service-sections">
+      <section class="service-section">
+        <h2 class="serif">Founder advisory</h2>
+        <p>A second perspective on a business you are building or a decision in front of you. My background is in physical products, enterprise sales, e-commerce, and doing the work of running a business.</p>
+        <ul><li>Testing an idea before committing more to it.</li><li>Thinking through product, sales, and channel decisions.</li><li>Making sense of a problem and choosing the next step.</li></ul>
+      </section>
+      <section class="service-section">
+        <h2 class="serif">Practical projects</h2>
+        <p>Some conversations lead to something we can build: a useful AI workflow, a clearer e-commerce experience, or a personal website you can maintain and make your own.</p>
+        <p style="margin-top: 1rem">Describe the outcome you're after. If the work is a fit, we'll define a manageable scope together.</p>
+      </section>
+      <section class="service-section">
+        <h2 class="serif">Name your offer.</h2>
+        <p>I welcome pay-what-you-want proposals for advisory and project work. Share what a useful outcome would be worth to you, or leave the amount open and we'll discuss it. We agree on scope and price before work begins.</p>
+        <p style="margin-top: 1rem">Any software, domain, hardware, or ongoing support costs are discussed separately. Sending an inquiry doesn't commit either of us to an engagement.</p>
+      </section>
+      <section class="service-section">
+        <h2 class="serif">Something else?</h2>
+        <p>Partnerships, roles, media conversations, and questions that don't fit a menu are welcome too. There is no required budget or paid service to select.</p>
+        <a class="text-link" href="/contact/">Tell me what's on your mind <span aria-hidden="true">↗</span></a>
+      </section>
     </div>
-  </section>
-
-  <!-- How pricing works -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-4">How pricing works</h2>
-    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
-      There's no price list. You read something I wrote, or someone sent you, or you're
-      building the same kind of life I am. By the time you're filling out the form you've
-      already done most of the qualifying.
-    </p>
-    <p class="text-[var(--color-muted)] leading-relaxed">
-      Need something that doesn't fit the three tiers? Tell me on the form. If I can help,
-      I'll quote it. If I can't, I probably know who can.
-    </p>
-  </section>
-
-  <!-- How it works -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">How it works</h2>
-    <ol class="grid sm:grid-cols-4 gap-6">
-      {[
-        { step: '01', title: 'Inquiry', body: 'Pick a tier (or describe a custom project) on the form. Name your price. Two sentences about what you\'re after.' },
-        { step: '02', title: 'Reply', body: 'I read every inquiry and reply within a day or two. If we\'re a fit, we set up a short call.' },
-        { step: '03', title: 'Build', body: 'I do the work, configure everything, and walk you through it before we go live. Concierge includes an on-site visit.' },
-        { step: '04', title: 'Handoff', body: 'You get the keys. I document everything. Async support window kicks in. You own it from there.' },
-      ].map(({ step, title, body }) => (
-        <li class="flex flex-col gap-2">
-          <span class="text-3xl font-bold text-[var(--color-teal)] opacity-40">{step}</span>
-          <h3 class="font-semibold text-[var(--color-ink)]">{title}</h3>
-          <p class="text-sm text-[var(--color-muted)] leading-relaxed">{body}</p>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <!-- FAQs -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-t border-[var(--color-border)]">
-    <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-8">Frequently asked questions</h2>
-    <dl class="flex flex-col gap-8">
-      {faqs.map(({ q, a }) => (
-        <div>
-          <dt class="font-semibold text-[var(--color-ink)] mb-1">{q}</dt>
-          <dd class="text-[var(--color-muted)] leading-relaxed text-sm">{a}</dd>
-        </div>
-      ))}
-    </dl>
-  </section>
-
-  <!-- CTA -->
-  <section class="max-w-4xl mx-auto px-6 py-14 border-t border-[var(--color-border)]">
-    <div class="text-center">
-      <h2 class="text-2xl font-bold text-[var(--color-ink)] mb-3">Ready to start?</h2>
-      <p class="text-[var(--color-muted)] mb-7">
-        Tell me what you need and what it's worth to you.
-      </p>
-      <div class="flex flex-col items-center gap-3">
-        <a
-          href="/contact"
-          class="inline-block bg-[var(--color-teal)] text-white font-semibold text-sm px-7 py-3 rounded-lg hover:bg-[var(--color-teal-dark)] transition-colors"
-        >
-          Send an inquiry
-        </a>
-        <a
-          href="https://calendly.com/drewcleaver"
-          class="text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
-        >
-          Prefer a call first? Schedule one →
-        </a>
-      </div>
-    </div>
-  </section>
+  </div>
 </Base>
