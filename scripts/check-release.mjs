@@ -14,9 +14,9 @@ const files = directory => readdirSync(directory).flatMap(name => {
 for (const file of files(root).filter(file => file.endsWith('.html'))) {
   const html = readFileSync(file, 'utf8');
   assert(!/href=["'][^"']*\/writing(?:[\/?#"'])/i.test(html), 'Public writing link in ' + file);
-  assert(!/<a\b[^>]*href=["'][^"']*\/buildmine(?:[\/?#"'])/i.test(html), 'The buildmine pilot must stay out of public navigation: ' + file);
+  assert(file.endsWith('/preview/index.html') || !/<a\b[^>]*href=["'][^"']*\/buildmine(?:[\/?#"'])/i.test(html), 'The buildmine pilot must stay out of public navigation: ' + file);
 }
-for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'buildmine/index.html', 'drew-cleaver.vcf']) {
+for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'buildmine/index.html', 'preview/index.html', 'drew-cleaver.vcf']) {
   assert(existsSync(join(root, page)), 'Missing required output: ' + page);
 }
 const pilot = readFileSync(join(root, 'buildmine/index.html'), 'utf8');

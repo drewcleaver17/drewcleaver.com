@@ -39,3 +39,11 @@ Only implement SMS verification if it requires no paid service. Twilio Verify ch
 ## Build mine pilot
 
 Drew requested a directly accessible `/buildmine` pilot without a homepage link: seven open-ended questions, résumé input, individual creative direction with an easy option to start from Drew’s style, a domain discussion, and optional scheduling. Answers have no application word/character cap. Use the existing Formspree inquiry endpoint, local PDF/TXT-to-text import, and a complete text export instead of adding paid file storage. Explain that Drew reviews submissions and creates previews using his AI workflow; this version does not promise instant automatic generation. Request participant approval before public launch. Keep the route out of navigation and add noindex metadata. Keep all submitted personal information out of this public repository.
+
+## Instant starter revision
+
+Drew asked for automatic previews, optional questions, shareable pages, and an eventual domain/export purchase flow. Cloudflare installation was declined; continue with connected capabilities. The current GitHub Pages pilot therefore creates an instant browser-local starter using conservative résumé section extraction and three distinct preset layouts. It does not call an AI model or interpret arbitrary directions. All seven questions are optional and preserved in the private downloadable brief.
+
+Only the reviewed public site schema enters a share URL at `/preview/#...` or a standalone HTML export. Preview links carry immutable snapshots, are not authenticated, can be forwarded, cannot be individually revoked, and have a length limit; inputs and full exports have no application text cap. Private answers and original files are not sent to Formspree or committed. Contact details are explicitly added in the public editor. The homepage stays unlinked to the pilot, writing remains disabled, and `/hello` stays permanent.
+
+This is the connected-capability pilot, not the complete requested hosted AI service. Permanent named paths, accounts/ownership, AI generation, custom-domain routing/TLS, payment verification, and ongoing hosting need a separately connected backend and product decisions. No provider, billing plan, price, or payment account is activated.
