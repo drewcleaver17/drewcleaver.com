@@ -165,3 +165,19 @@ button, input, textarea, select { font: inherit; }
   .compact-page .quiet-link { font-size: .8125rem; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
+
+.about-intro { max-width: 43rem; }
+.experience-section { padding-block: 2rem 3rem; }
+.experience-list { list-style: none; padding: 0; }
+.experience-entry { display: grid; gap: 1rem; padding-block: 1.75rem; border-top: 1px solid var(--color-border); }
+.experience-meta { color: var(--color-muted); font-size: .875rem; line-height: 1.7; }
+.experience-entry h3, .education-section h3 { font-size: 1.75rem; line-height: 1.2; letter-spacing: -.025em; }
+.experience-org { margin-top: .45rem; font-size: 1rem; font-weight: 600; }
+.experience-org a { display: inline-flex; align-items: center; min-height: 44px; gap: .5rem; text-decoration: underline; }
+.experience-specialty { color: var(--color-muted); font-size: .875rem; margin-top: .15rem; }
+.experience-highlights { list-style: disc; padding-left: 1.2rem; margin-top: 1.2rem; color: var(--color-muted); max-width: 48rem; }
+.experience-highlights li + li { margin-top: .75rem; }
+.education-section { border-top: 1px solid var(--color-border); }
+@media (min-width: 850px) {
+  .experience-entry { grid-template-columns: 220px minmax(0, 1fr); gap: 3rem; }
+}

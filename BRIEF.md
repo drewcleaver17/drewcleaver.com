@@ -20,7 +20,7 @@ Communicate curiosity, experience building Higher Hangers, enterprise sales back
 
 The preview was approved; publication is authorized after removing public writing and focusing on contact and scheduling. No DNS changes, card printing, marketplace, ProofPath platform, hiring platform, login, payments, or custom backend in this release.
 
-Use the existing email, Formspree endpoint, and Calendly link. Actual inbox delivery, calendar availability, and device contact import need owner verification before release. Existing About-page career figures were retained and have not been independently audited; the new homepage avoids numerical claims.
+Use `drew@drewcleaver.com`, the existing Formspree endpoint, and the existing Calendly link. Actual inbox delivery, calendar availability, and device contact import remain checks for the owner. Experience facts now follow Drew's supplied September 2026 résumé; the homepage keeps its personal introduction and avoids numerical claims.
 
 ## Stable printed link
 
@@ -29,3 +29,9 @@ QR payload: `https://drewcleaver.com/hello`. Keep this address working permanent
 ## Writing privacy
 
 Do not commit unpublished drafts to this public repository. The AI sample is removed from current source, but past public commits are not erased. Writing publication requires a later explicit instruction; the site launch approval does not authorize publishing samples or drafts.
+
+## Résumé and contact exchange update
+
+Publish a downloadable résumé and align the experience page with the September 2026 source. Keep the phone number private by removing it from the public PDF copy; preserve the original outside the public repository. Download links belong on About, `/hello`, and the shared footer. Preserve the contact/advisory focus.
+
+Only implement SMS verification if it requires no paid service. Twilio Verify charges for production use and Firebase SMS requires a billing-enabled plan, so the phone exchange is skipped for this release.
