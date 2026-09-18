@@ -33,12 +33,14 @@ const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.
           <nav class="desktop-nav" aria-label="Main navigation">
             {links.map(({ href, label }) => <a href={href} aria-current={active(href) ? 'page' : undefined}>{label}</a>)}
             <a class="nav-contact" href="/contact/" aria-current={active('/contact/') ? 'page' : undefined}>Say hello</a>
+            <a href="/hello/" aria-current={active('/hello/') ? 'page' : undefined}>Linktree</a>
           </nav>
           <details class="mobile-menu">
             <summary>Menu <span aria-hidden="true">+</span></summary>
             <nav aria-label="Mobile navigation">
               {links.map(({ href, label }) => <a href={href} aria-current={active(href) ? 'page' : undefined}>{label}</a>)}
               <a href="/contact/" aria-current={active('/contact/') ? 'page' : undefined}>Say hello</a>
+              <a href="/hello/" aria-current={active('/hello/') ? 'page' : undefined}>Linktree</a>
             </nav>
           </details>
         </>}
