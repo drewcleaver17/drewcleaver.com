@@ -67,6 +67,7 @@ import { profile } from '../data/profile';
       try {
         const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }, signal: controller.signal });
         if (!response.ok) throw new Error('Submission was not accepted');
+        if (!(form.elements.namedItem('_gotcha') as HTMLInputElement).value) document.dispatchEvent(new Event('site:inquiry-accepted'));
         status.textContent = 'Thanks—your message was submitted. I look forward to reading it.';
         form.reset();
       } catch {

@@ -91,3 +91,16 @@ Supersedes the manual submission behavior documented above.
 - [x] Existing destinations, download behavior, social-link handling, and saved contact content retained.
 - [x] Production build and generated-page inspection: eight matching button classes, requested order, original destinations/download attributes, and résumé still excluded from saved contact.
 - [ ] Live order, shared styling, touch targets, and deployment verification.
+
+## Google Analytics and search foundation
+
+- [x] GA4 integration prepared with blank public identifiers until Drew's properties are connected.
+- [x] Consent defaults to no Google loading or collection; equal accept/decline controls, preference expiry, withdrawal, and privacy-signal handling implemented.
+- [x] Public-page action events contain no inquiry values, résumé text, draft data, or arbitrary query strings. Accepted inquiry event occurs only after a successful provider response.
+- [x] Builder and shared-preview routes cannot initialize analytics, including with previously saved consent.
+- [x] Public sitemap, robots.txt, homepage verification-token support, privacy page, and repeatable account setup procedure added.
+- [x] Production builds checked with inactive settings and simulated public test identifiers. Focused DOM checks pass for consent, attribution sanitization, event classification, privacy exclusions, failed/successful inquiry handling, and token placement. No Google requests or real test inquiries sent.
+- [ ] Owner Google account access, actual GA4 web stream ID, enhanced-measurement settings, and Search Console ownership verification.
+- [ ] Actual GA4 Realtime event receipt, key-event designation, and Search Console sitemap submission.
+
+Browser secure sign-in did not complete. A deployed scaffold, local test ID, or public sitemap must not be described as an activated analytics property or verified Search Console account.
