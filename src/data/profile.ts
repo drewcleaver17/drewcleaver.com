@@ -7,7 +7,7 @@ export const profile = {
   location: 'Austin, Texas',
   roles: 'Founder · Inventor · Racing driver',
   website: 'https://drewcleaver.com',
-  email: 'hi@drewcleaver.com',
+  email: 'drew@drewcleaver.com',
   bookingUrl: 'https://calendly.com/drewcleaver',
   inquiryEndpoint: 'https://formspree.io/f/xqabokqn',
   contactFile: '/drew-cleaver.vcf',
