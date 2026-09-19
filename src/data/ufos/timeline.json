@@ -9,7 +9,14 @@
     "updateDescription": "Weekly monitoring continues. The historical expansion and maintenance repair await a fresh publishing test from the scheduled task. Automatic publication is not yet confirmed for this edition.",
     "cadence": "Weekly",
     "edition": "2026-09-19-historical-expansion",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-09-19-historical-expansion",
+      "verifiedAt": "2026-09-19T20:10:09Z",
+      "revision": "2f7ba699a28e79daffa0d0391a6b7d5b139dbd74",
+      "contentDigest": "45748d4d3ab8d32182f70bd56e8d4eb7bb2167c8f08e3dfa7d8e8a3f12ed89e1",
+      "url": "https://drewcleaver.com/ufos/?view=history",
+      "workflowRun": 35466466704
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
