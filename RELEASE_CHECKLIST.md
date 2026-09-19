@@ -157,6 +157,14 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [x] Production build, release checks, obsolete-price scan, anchors, and contact verification pass. Original ProofPath source is unchanged.
 - [ ] Live publication and browser verification. Exact mobile viewport checks remain subject to browser capabilities.
 
+## Unlisted UFO timeline
+
+- `/ufos/` must remain direct-link only, noindex, excluded from the sitemap and site navigation/search. No analytics initialization.
+- Run `npm test` and `npm run build`; inspect `docs/ufos-research-audit.md` and the source-ledger limits.
+- Test search, combined filters, date precision, oldest/newest, recently revised, clear/reset, anchors and restored URL state.
+- Verify a successful Pages deployment and the actual live route separately from any automation claim.
+- Scheduled publication must follow `docs/ufos-updates.md`; no automatic writes outside the dataset.
+
 ## YouTube library — September 19, 2026
 
 - [x] `/youtube/` uses the existing visual design and an honest empty state; no saved-video source has been supplied or favorites inferred.

@@ -1,0 +1,35 @@
+name: Validate UFO timeline
+on:
+  pull_request:
+    paths:
+      - 'src/data/ufos/**'
+      - 'src/lib/ufos.mjs'
+      - 'src/pages/ufos.astro'
+      - 'src/components/UfoEvent.astro'
+      - 'src/scripts/ufos-client.mjs'
+      - 'src/styles/ufos.css'
+      - 'scripts/ufos*'
+      - 'scripts/check-release.mjs'
+      - '.github/workflows/ufos-validate.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Restrict automatic update scope
+        if: startsWith(github.head_ref, 'ufos-update/')
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/ufos-scope.mjs
+      - run: npm ci
+      - run: npm test
+      - run: npm run build

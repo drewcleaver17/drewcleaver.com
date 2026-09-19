@@ -7,7 +7,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/check-release.mjs",
+    "build": "node scripts/ufos-update.mjs --validate && astro build && node scripts/check-release.mjs",
+    "test": "node --test scripts/ufos.test.mjs",
+    "ufos:validate": "node scripts/ufos-update.mjs --validate",
     "preview": "astro preview",
     "astro": "astro"
   },
