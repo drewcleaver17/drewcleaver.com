@@ -35,7 +35,7 @@ Do Not Track and Global Privacy Control keep analytics off. Google advertising c
 
 Only the allowlisted public pages load Google Analytics. The builder and shared-preview page never initialize it, even with a previously saved opt-in. No uploaded résumé, draft URL fragment, form value, contact email, message, budget, or private answer enters an analytics event. Search Console ownership tokens are rendered only on the homepage.
 
-The script sends sanitized page locations and origin-only referrers. Only known UTM values are retained: sources reddit/linkedin/instagram/business_card/email, media social/organic_social/qr/email/referral, and campaigns profile/business_card/introduction. Extend these allowlists deliberately when adding campaigns; never put personal details in tags. Arbitrary query parameters and fragments are excluded from the configured page location.
+The script sends sanitized page locations and origin-only referrers. Only known UTM values are retained: sources reddit/linkedin/instagram/github/business_card/email, media social/organic_social/qr/email/referral, campaigns profile/business_card/introduction, and content labels website/linkedin/instagram. Extend these allowlists deliberately when adding campaigns; never put personal details in tags. Arbitrary query parameters and fragments are excluded from the configured page location.
 
 | Event | Meaning |
 | --- | --- |
@@ -53,7 +53,10 @@ The script sends sanitized page locations and origin-only referrers. Only known 
 - Reddit: `https://drewcleaver.com/?utm_source=reddit&utm_medium=social&utm_campaign=profile`
 - LinkedIn: `https://drewcleaver.com/?utm_source=linkedin&utm_medium=social&utm_campaign=profile`
 - Instagram: `https://drewcleaver.com/hello/?utm_source=instagram&utm_medium=social&utm_campaign=profile`
+- GitHub profile: `https://drewcleaver.com/hello/?utm_source=github&utm_medium=referral&utm_campaign=profile&utm_content=website`
 - Printed QR: retain `https://drewcleaver.com/hello` as already agreed. Untagged visits to this page cannot all be identified as card scans.
+
+GitHub attribution is supported by the integration, but reporting still requires the paused GA4 setup to be completed and visitor consent. UTM parameters on direct links to LinkedIn or Instagram do not create a click report in Drew's website analytics. Visits through `/hello/` and subsequent social-link clicks can be measured there after activation.
 
 ## Sources
 
