@@ -1,6 +1,8 @@
 ---
-import { eventDateLabel, formatDate } from '../lib/ufos.mjs';
-const { event: e, sources, events } = Astro.props;
+import { eventDateLabel, formatDate, sourceKindLabels } from '../lib/ufos.mjs';
+const { event: e, sources, events, entities = [], relationships = [] } = Astro.props;
+const names=entities.filter(n=>e.entityIds?.includes(n.id));
+const connections=relationships.filter(r=>r.eventIds.includes(e.id));
 ---
 <article class="ufo-event" id={e.slug} data-event-id={e.id} tabindex="-1">
   <div class="event-date"><time datetime={e.date.start}>{eventDateLabel(e)}</time><span>{e.date.role === 'milestone' ? 'Milestone' : e.date.role === 'incident' ? 'Reported incident' : e.date.role === 'reporting' ? 'Reporting date' : 'Publication'}</span>{e.date.precision === 'month' && <span>Month known; day unverified</span>}</div>
@@ -12,13 +14,18 @@ const { event: e, sources, events } = Astro.props;
     <div class="event-tools"><a href={`#${e.slug}`} class="permalink" aria-label={`Direct link: ${e.title}`}>Link ↗</a><button type="button" data-copy={e.id} hidden>Copy link</button><span class="recent-label" hidden>Added {formatDate(e.addedAt.slice(0,10))} · Revised {formatDate(e.revisedAt.slice(0,10))}</span></div>
     <details class="event-detail"><summary>Evidence, limitations & sources <span aria-hidden="true">+</span></summary>
       <div class="detail-content">
+        {e.topics?.length>0 && <p class="strand-label">Historical strand: {e.topics.join(' · ')}</p>}
+        {e.claimDate && <p class="claim-date"><strong>Claimed earlier date: {formatDate(e.claimDate.start)}.</strong> {e.claimDate.attribution}. {e.claimDate.note}</p>}
         <h4>What this establishes</h4>{e.established.map(text => <p>{text}</p>)}
         <h4>What it does not establish</h4>{e.limitations.map(text => <p>{text}</p>)}
         {e.openQuestions.length > 0 && <><h4>Open questions</h4>{e.openQuestions.map(text => <p>{text}</p>)}</>}
         <p class="evidence-tags">{e.evidenceTypes.map(type => <a href="#evidence-key">{type}</a>)}</p>
         <h4>Read the supporting sources</h4>
-        <ol class="source-list">{e.sources.map(ref => { const source=sources[ref.sourceId]; return <li><a href={source.url} rel="noreferrer">{source.title} ↗</a><p>{source.publisher} · {source.kind === 'primary' ? 'Primary record' : source.kind === 'reprint' ? 'Reproduced announcement' : source.kind === 'original-reporting' ? 'Original reporting' : 'Reporting'}{source.publicationDate && ` · ${formatDate(source.publicationDate)}`}</p><p>{source.locator}. Supports: {ref.supports.join(', ')}.</p>{source.note && <p>{source.note}</p>}<p>Supporting text read · accessed {formatDate(source.accessedDate)}</p></li> })}</ol>
+        <ol class="source-list">{e.sources.map(ref => { const source=sources[ref.sourceId]; return <li><a href={source.url} rel="noreferrer">{source.title} ↗</a><p>{source.publisher} · {sourceKindLabels[source.kind]}{source.publicationDate && ` · ${formatDate(source.publicationDate)}`}</p>{source.author && <p>Author: {source.author}{source.custodian && source.custodian!==source.author && ` · Host / custodian: ${source.custodian}`}</p>}<p>{source.locator}. Supports: {ref.supports.join(', ')}.</p>{source.note && <p>{source.note}</p>}<p>Supporting text read · accessed {formatDate(source.accessedDate)}</p></li> })}</ol>
         <dl class="date-ledger"><div><dt>Incident</dt><dd>{formatDate(e.incidentDate)}</dd></div><div><dt>Disclosure</dt><dd>{formatDate(e.disclosureDate)}</dd></div><div><dt>Source publication</dt><dd>{formatDate(e.publicationDate)}</dd></div><div><dt>Added / revised</dt><dd>{formatDate(e.addedAt.slice(0,10))} / {formatDate(e.revisedAt.slice(0,10))}</dd></div><div><dt>Last verified</dt><dd>{formatDate(e.lastVerifiedAt.slice(0,10))}</dd></div></dl>
+        {e.dateNotes && <p class="date-note"><strong>Date note:</strong> {e.dateNotes}</p>}
+        {names.length>0 && <p class="index-links">Explore names: {names.map(n=><a href={`?view=history&entity=${encodeURIComponent(n.id)}#timeline`}>{n.name}</a>)}</p>}
+        {connections.length>0 && <><h4>Source-scoped relationships</h4>{connections.map(r=><p><strong>{r.status}:</strong> {r.description} {r.limitations} <a href="#relationships">View relationship sources →</a></p>)}</>}
         {e.relatedEventIds.length > 0 && <p class="related-events">Related records: {e.relatedEventIds.map(id => {const related=events.find(item=>item.id===id); return <a href={`#${id}`}>{related.title}</a>;})}</p>}
         {e.correctionHistory.length > 0 && <><h4>Revision history</h4>{e.correctionHistory.map(c=><p>{formatDate(c.at.slice(0,10))}: {c.reason} Previous summary: {c.previousSummary}</p>)}</>}
       </div>

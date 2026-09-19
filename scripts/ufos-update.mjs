@@ -6,18 +6,33 @@ import { validateDataset } from '../src/lib/ufos.mjs';
 
 export const datasetPath = fileURLToPath(new URL('../src/data/ufos/timeline.json', import.meta.url));
 export const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-export const contentDigest = data => digest({ sources: data.sources, events: data.events, changeLog: data.changeLog });
+export const contentDigest = data => digest({ sources: data.sources, events: data.events, entities: data.entities || [], relationships: data.relationships || [], changeLog: data.changeLog });
 const fail = text => { throw new Error(text); };
 const equal = (a,b) => JSON.stringify(a) === JSON.stringify(b);
 export function assertPermittedPaths(paths) {
   if (!paths.length || paths.some(p => p !== 'src/data/ufos/timeline.json')) fail('Automated publication is restricted to the timeline dataset.');
 }
 export function prepareUpdate(current, batch, { reviewed = false, now = new Date() } = {}) {
-  if (batch?.schemaVersion !== 1 || !Array.isArray(batch.changes) || !batch.changes.length) fail('Malformed update envelope');
+  if (batch?.schemaVersion !== 1 || !Array.isArray(batch.changes) || (!batch.changes.length && batch.checkOnly !== true)) fail('Malformed update envelope');
+  if (!reviewed && current.meta.updateStatus === 'paused') fail('Publication paused: reporting only');
+  const envelopeKeys = ['schemaVersion','id','baseDigest','title','sources','changes','riskReview','sourceChecks','checkOnly'];
+  if (Object.keys(batch).some(k => !envelopeKeys.includes(k))) fail('Unsupported envelope field: entity, relationship and schema changes require an editorial release');
   if (!batch.id || !/^[a-z0-9-]+$/.test(batch.id)) fail('Missing stable batch ID');
   if (current.meta.appliedBatchIds?.includes(batch.id)) return { data: current, changed: false, reason: 'Batch already applied' };
   if (batch.baseDigest !== digest(current)) fail('Stale base: refresh the dataset before retrying');
   if (!Array.isArray(batch.sourceChecks)) fail('Source-reading attestations are required');
+  if (batch.checkOnly === true) {
+    if (batch.changes.length || batch.sources?.length || !batch.sourceChecks.length) fail('Check-only batches require fresh source reads and no content changes');
+    for (const check of batch.sourceChecks) {
+      if (!current.sources[check.sourceId] || check.url !== current.sources[check.sourceId].url || check.result !== 'supporting-text-read' || !check.supportedStatement?.trim() || !check.location?.trim()) fail('Unsupported claim or failed source check');
+      if (!Number.isFinite(Date.parse(check.checkedAt)) || Date.parse(check.checkedAt) > +now || +now-Date.parse(check.checkedAt)>7*86400000) fail('Stale source check');
+    }
+    const checkedAt = new Date(Math.max(...batch.sourceChecks.map(s=>Date.parse(s.checkedAt)))).toISOString();
+    if (Date.parse(checkedAt) <= Date.parse(current.meta.lastCheckedAt)) return { data:current, changed:false, reason:'Source check already recorded' };
+    const next=structuredClone(current); next.meta.lastCheckedAt=checkedAt;
+    const errors=validateDataset(next,now); if(errors.length) fail(errors.join('\n'));
+    return { data:next, changed:true, changedIds:[], checkOnly:true };
+  }
   const next = structuredClone(current);
   const timestamp = now.toISOString();
   const changedIds = [];
@@ -41,9 +56,12 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     if (collision) fail('Possible duplicate milestone: review instead of adding');
     if (change.op === 'revise' && (e.id !== existing.id || e.slug !== existing.slug)) fail('Stable IDs cannot change');
     if (!reviewed) {
+      if (e.claimDate) fail('Hold for review: retrospective allegation provenance');
+      if (existing && !equal(existing.entityIds || [],e.entityIds || [])) fail('Hold for review: changes to indexed relationships');
+      if (!existing && (e.entityIds || []).some(id => !current.entities?.some(n => n.id === id))) fail('Hold for review: new entity requires editorial sourcing');
       if (e.automationClass !== 'institutional' || !['editor-reviewed','bounded-reviewed'].includes(e.reviewStatus)) fail('Hold for review: not a bounded institutional update');
       if (!e.sources?.length || e.sources.some(s => next.sources[s.sourceId]?.kind !== 'primary')) fail('Hold for review: automatic entries require inspected primary sources');
-      if (e.evidenceTypes?.some(t => ['Firsthand account','Secondhand allegation','Sensor material','Original reporting','Reporting inspected'].includes(t))) fail('Hold for review: testimony, sensor claims or reporting-only support');
+      if (e.evidenceTypes?.some(t => ['Firsthand account','Secondhand allegation','Sensor material','Original reporting','Reporting inspected','Attributed claim','Organizational account'].includes(t))) fail('Hold for review: testimony, sensor claims or reporting-only support');
       if (e.categories?.includes('Legislation and executive actions')) fail('Hold legal and executive scope interpretations for editorial review');
       if (!batch.riskReview || batch.riskReview.consequentialAllegation !== false || batch.riskReview.uncertainInterpretation !== false || batch.riskReview.physicalProofClaim !== false) fail('Hold for review: explicit risk review required');
     }
@@ -57,6 +75,9 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     record.correctionHistory = existing ? [...existing.correctionHistory, { at: timestamp, reason: change.reason, previousSummary: existing.summary, previousRecordDigest: digest(existing) }] : [];
     record.reviewStatus = reviewed ? 'editor-reviewed' : 'bounded-reviewed';
     if (existing) next.events[next.events.indexOf(existing)] = record; else next.events.push(record);
+    // Membership in an already sourced index is derived navigation metadata,
+    // not permission to create or reinterpret an entity or relationship.
+    for (const entity of next.entities || []) if (record.entityIds?.includes(entity.id) && !entity.eventIds.includes(record.id)) entity.eventIds.push(record.id);
     changedIds.push(record.id);
   }
   if (!changedIds.length) return { data: current, changed: false, reason: 'No content change' };
