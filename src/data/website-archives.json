@@ -10,7 +10,7 @@
     "source": "https://tesloco.wordpress.com/",
     "raw_sha256": "76c48068cbf7e427eb406bfd366bdaeb1de7dce6e6696583fd5de449d49c4eee",
     "path": "/archives/tesloco/2026-09-19/index.html",
-    "preserved_sha256": "cea10196ccd2edff80e899d541ab271a3df9906dffc8d8432b2873312a72e3f6"
+    "preserved_sha256": "741a7e7061401fb3354c34f778d48d31b48a9ff906fce50fd0fd99f766287040"
   },
   {
     "file": "wp-services.html",
@@ -23,7 +23,7 @@
     "source": "https://tesloco.wordpress.com/our-services/",
     "raw_sha256": "93c79b1bf181aa27ccc265af396916d936821c6cf941508331ccd249ba38d1d6",
     "path": "/archives/tesloco/2026-09-19/our-services/index.html",
-    "preserved_sha256": "b37e61fe2bb85cefc3a1ac0e56ac03f107f132722aa6b9a434e18656ecd87a56"
+    "preserved_sha256": "4700ee0adb812c68c50daa74add941bcaac8d0f828210f53f8973abbf1a71191"
   },
   {
     "file": "wp-about.html",
@@ -36,7 +36,7 @@
     "source": "https://tesloco.wordpress.com/about-2/",
     "raw_sha256": "905b645fded1dd657f3aa41c095dffcb48fd96f37b61d070b44bfb9b95408225",
     "path": "/archives/tesloco/2026-09-19/about-2/index.html",
-    "preserved_sha256": "90c50607aacb5aab76a1c5dd43a439733d55e882d873f9c8cc19e54c563eebb8"
+    "preserved_sha256": "1a9b69c4c4b9394df8440704e1d7021b9cd9f87292a365114654e0302891dcc4"
   },
   {
     "file": "wp-quote.html",
@@ -49,7 +49,7 @@
     "source": "https://tesloco.wordpress.com/get-a-quote/",
     "raw_sha256": "a0e92013f94f0b1c928d2baa7f703d271bcf151d0a6ba986b0e6f80a3afe832c",
     "path": "/archives/tesloco/2026-09-19/get-a-quote/index.html",
-    "preserved_sha256": "ac1872cd55c8aabdfa813867c84e5b4b84dc7d2ef513884dce9c20f1a0675036"
+    "preserved_sha256": "5e73110a3e4dc50e1c0367788691f30436ba814584887128c8d6ec5a61fc40b6"
   },
   {
     "file": "cup-latest.html",
@@ -63,7 +63,7 @@
     "source": "https://web.archive.org/web/20260208081150/https://specteslacup.com/",
     "raw_sha256": "390b13ddfd3b6cf43fb2527c2e3eff2f07e137887f99b0258d0cc2023c1f2e14",
     "path": "/archives/specteslacup/2026-02-08/index.html",
-    "preserved_sha256": "5aa65effae8b6e22715d2971c7dc63387700b78ecbb08d458b4b949d0c422457"
+    "preserved_sha256": "c1046a90f8fe3c0e38cc5ad22f35d133a0f558be2d391cc409459b4d0d4e6a1c"
   },
   {
     "file": "cup-first.html",
@@ -77,7 +77,7 @@
     "source": "https://web.archive.org/web/20221017031946/https://specteslacup.com/",
     "raw_sha256": "ba4ff662af65055bc0146958c192774634e239ed4c0ba1f1a458c9aab2215975",
     "path": "/archives/specteslacup/2022-10-17/index.html",
-    "preserved_sha256": "20ef519fd660a369d3c413fd8f61bf2cc38ea1b04f091ec58fae55f3d78eee39"
+    "preserved_sha256": "0e7a4bca44b512d673cebdefddba8b9611ef93ebda428d4348fb58a03bcf9aa3"
   },
   {
     "file": "recovery/source/blogs--news.html",
@@ -92,7 +92,7 @@
     "source": "https://web.archive.org/web/20240914114943/https://specteslacup.com/blogs/news",
     "raw_sha256": "ddf4add3ea94c0835291913ade9e3519fc5442b4ed27f1ae561c055ac6813e1b",
     "path": "/archives/specteslacup/2024-09-14/blogs/news/index.html",
-    "preserved_sha256": "5b2b5a37fdb62cabc8e37d323c73f2b331364bd10036c00f8148ab5b7ec3a0f9"
+    "preserved_sha256": "e3d5773b52692885b24842ddab69b78808e71be5280d5e95942ffa9f80e26dd9"
   },
   {
     "file": "recovery/source/blogs--news--2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota.html",
@@ -107,7 +107,7 @@
     "source": "https://web.archive.org/web/20240914111309/https://specteslacup.com/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota",
     "raw_sha256": "0415b01c14dd2018a1f7c0a038ec1d738df773b6d36d9ce1f6369cfe45b33e9e",
     "path": "/archives/specteslacup/2024-09-14/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota/index.html",
-    "preserved_sha256": "8124782ca187777825583b1055050064a520266bd3d6b08e28030166205a6207"
+    "preserved_sha256": "07e6497aaf7dd5046457a4a1c29eec2d295626100631744f6e95af0babe056bc"
   },
   {
     "file": "recovery/source/blogs--news--gridlife-heartlands-park-tbd.html",
@@ -122,7 +122,7 @@
     "source": "https://web.archive.org/web/20250122142316/https://specteslacup.com/blogs/news/gridlife-heartlands-park-tbd",
     "raw_sha256": "afccf7a7b3cac2dc69714209cde91b5785d20a8c94aec41177b97a15cedef418",
     "path": "/archives/specteslacup/2025-01-22/blogs/news/gridlife-heartlands-park-tbd/index.html",
-    "preserved_sha256": "568f823bb14f08647e332a6ab475765e55433dd19624d2ca3d606e32a2d85dbf"
+    "preserved_sha256": "57042a6b4cf9e9c4932388d6b8b5e22b2496c0bb2fdabd442aafa5b912eddbdb"
   },
   {
     "file": "recovery/source/blogs--news--gridlife-nola-motorsports-park-2020-3rd-place-trackmod.html",
@@ -137,7 +137,7 @@
     "source": "https://web.archive.org/web/20240914101320/https://specteslacup.com/blogs/news/gridlife-nola-motorsports-park-2020-3rd-place-trackmod",
     "raw_sha256": "910c4d5c4ada85f7fa8ab36bde44c753886cf62fdeaa07b99200ee4d9529e6ad",
     "path": "/archives/specteslacup/2024-09-14/blogs/news/gridlife-nola-motorsports-park-2020-3rd-place-trackmod/index.html",
-    "preserved_sha256": "ffa3643260f1ad8839026cfe97d868acd46155c7c1317dd20a2f2e98cd1a613f"
+    "preserved_sha256": "5d724f72edd330eba7242886a3e4b64b5809fe7c8689687cf04a4619d6181f1a"
   },
   {
     "file": "recovery/source/blogs--news--gridlife-road-america-5th-place-street-gt.html",
@@ -152,7 +152,7 @@
     "source": "https://web.archive.org/web/20241208224006/https://specteslacup.com/blogs/news/gridlife-road-america-5th-place-street-gt",
     "raw_sha256": "5119fad8985fa1b381c26bc40546eb5c1f5cb698cc4a40eb6c0ebca9cc11441e",
     "path": "/archives/specteslacup/2024-12-08/blogs/news/gridlife-road-america-5th-place-street-gt/index.html",
-    "preserved_sha256": "c545c8125dcbf247a2f3948133b2abea31b248400c7f6c4ab19f1d8d38c492e3"
+    "preserved_sha256": "67abdca61efecf7ce4de1682d04a0622ae69da739a18334f7373bbe07704b2ca"
   },
   {
     "file": "recovery/source/blogs--news--hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr.html",
@@ -167,7 +167,7 @@
     "source": "https://web.archive.org/web/20250122131321/https://specteslacup.com/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr",
     "raw_sha256": "687b153c65a6b0112a8564c443a8ab925026d51975d812b7401418c25b3e8613",
     "path": "/archives/specteslacup/2025-01-22/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr/index.html",
-    "preserved_sha256": "f5b4d84adfbb0c5e0c74933ff02c8233af0a87beb4bf1e1a5e407dec2efbedec"
+    "preserved_sha256": "af6a20144979df323d9ecb7ee53fe05e5c7b6372facda30632381188302fbc40"
   },
   {
     "file": "recovery/source/blogs--news--october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo.html",
@@ -182,7 +182,7 @@
     "source": "https://web.archive.org/web/20241208213927/https://specteslacup.com/blogs/news/october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo",
     "raw_sha256": "03f7a6449fa84659847c09122e8767362e3e76bd0a4edbdb972cf29d24106e27",
     "path": "/archives/specteslacup/2024-12-08/blogs/news/october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo/index.html",
-    "preserved_sha256": "264797d87f1f4c5c3274e34107eef74ebdc9133f8c2e7db0512a5a9aa81beb77"
+    "preserved_sha256": "3b048d92c26bd4ccb0195593d6f0a88493ceb821d5a5f9f2263fb3005a0d7d55"
   },
   {
     "file": "recovery/source/blogs--news--raceseng-tow-hooks-now-available-for-tesla.html",
@@ -197,7 +197,7 @@
     "source": "https://web.archive.org/web/20241208222215/https://specteslacup.com/blogs/news/raceseng-tow-hooks-now-available-for-tesla",
     "raw_sha256": "062710308aee1bf6d1aa22bfb13c3abd19e266c0ce24aa45bf13974d1f40ab1b",
     "path": "/archives/specteslacup/2024-12-08/blogs/news/raceseng-tow-hooks-now-available-for-tesla/index.html",
-    "preserved_sha256": "0d2d4d5fd9e470497f7628090c90fe981f2ea05204847a7b6fe4332e1b474511"
+    "preserved_sha256": "cd6b4bb6131932671232b6054acd5dfea8c98dc969f2d2dc939f0f80d04a2034"
   },
   {
     "file": "recovery/source/blogs--news--the-tesla-that-broke-the-gridlife-rulebook-2.html",
@@ -212,7 +212,7 @@
     "source": "https://web.archive.org/web/20240914102106/https://specteslacup.com/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2",
     "raw_sha256": "4528987ef41830b6f980d325a0717038c8300da59e8166ed128064e82488ee1f",
     "path": "/archives/specteslacup/2024-09-14/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2/index.html",
-    "preserved_sha256": "a5506f954e3df6b3eb799dc4da3ef15b86eabc021241dc882a590520d6654d00"
+    "preserved_sha256": "9159923f51547ad0d1ec84cf2708c3b535b6f7268f9137a9dff54a2c59ff3540"
   },
   {
     "file": "recovery/source/collections--all-products.html",
@@ -227,7 +227,7 @@
     "source": "https://web.archive.org/web/20241208224044/https://specteslacup.com/collections/all-products",
     "raw_sha256": "e81b61ae1d6def7a2c6e68b5e17bbdb0773c349fb8d9b1fbf71c76d6012ab9f9",
     "path": "/archives/specteslacup/2024-12-08/collections/all-products/index.html",
-    "preserved_sha256": "adc4b14a0bf00b0765c68902361e7bca643532a9fdee712c22158ad8c267d290"
+    "preserved_sha256": "332da6aa08eace2d8407f7b7346d2ec02552d7ae84a344e53c50458f55fb3ac0"
   },
   {
     "file": "recovery/source/collections--frontpage.html",
@@ -242,7 +242,7 @@
     "source": "https://web.archive.org/web/20250122135450/https://specteslacup.com/collections/frontpage",
     "raw_sha256": "f0a5671add327e362ef6d75be5ee00dc59c9d8b7f5f34459387bece789b36d09",
     "path": "/archives/specteslacup/2025-01-22/collections/frontpage/index.html",
-    "preserved_sha256": "da2c9d185de5d02dd872ac3aa4956a4ab7b0fe1dddaa0015c8e1efba708f61ff"
+    "preserved_sha256": "9f0766ee9c4db1619839300cf7bc702c12a21e794d77b8d405be43899b9fa87c"
   },
   {
     "file": "recovery/source/collections--maier-aero.html",
@@ -257,7 +257,7 @@
     "source": "https://web.archive.org/web/20250516200841/https://specteslacup.com/collections/maier-aero",
     "raw_sha256": "45019bad9fbb2748ad09c6b524625356a7ed18a688a71d1bba8d173257b71fc8",
     "path": "/archives/specteslacup/2025-05-16/collections/maier-aero/index.html",
-    "preserved_sha256": "ae560752f4b26c2aa6c0f3a5d988583bf046648fce36c47d1141febbf3b930c0"
+    "preserved_sha256": "9b414d847b9d1158c8768993c961a070290c894a15011fd779e2663e9c9b5a8e"
   },
   {
     "file": "recovery/source/collections--safety.html",
@@ -272,7 +272,7 @@
     "source": "https://web.archive.org/web/20250122155927/https://specteslacup.com/collections/safety",
     "raw_sha256": "6be0d5fcd2cf0a9813d8fde8676ee881e3ae4ed783e40608319945a7eae3c933",
     "path": "/archives/specteslacup/2025-01-22/collections/safety/index.html",
-    "preserved_sha256": "3abb94c50276b065e2216c38219648d42fa4a1328babc5ed321da45169bab039"
+    "preserved_sha256": "77e0e94c1449d6a3b0c84416a0c3d9313f8d4ff7cf39d5db998d58d93931b3b6"
   },
   {
     "file": "recovery/source/collections--stage-2-wheels-tires.html",
@@ -287,7 +287,7 @@
     "source": "https://web.archive.org/web/20250122133926/https://specteslacup.com/collections/stage-2-wheels-tires",
     "raw_sha256": "1f4d51c2749e852c709288ad3f09cf0a6a8c23597374bc573b258b2a0eab91e9",
     "path": "/archives/specteslacup/2025-01-22/collections/stage-2-wheels-tires/index.html",
-    "preserved_sha256": "7350ed2c02d71603941a9d54cedc2b9deb5dfcdc64c7850c185f701ae40a95f5"
+    "preserved_sha256": "1c0d074f5194f3b0caee384cbb47498026a49b4c4421a8e7a2aab01ba7c88688"
   },
   {
     "file": "recovery/source/collections--stage-3-brakes.html",
@@ -302,7 +302,7 @@
     "source": "https://web.archive.org/web/20241208223928/https://specteslacup.com/collections/stage-3-brakes",
     "raw_sha256": "e6d7b25e28c53357307f1747c05dbae251416daaafe0021d30d814c5653f4907",
     "path": "/archives/specteslacup/2024-12-08/collections/stage-3-brakes/index.html",
-    "preserved_sha256": "6229a75c3d7d45f283fb5aed8e154136385dee95a6cea36b88732e0f4c4047af"
+    "preserved_sha256": "89f7c60f11d79d8d940a5ba58c77dfa91c0acb33372a2b73d1d7c42d0f9580fd"
   },
   {
     "file": "recovery/source/pages--about-us.html",
@@ -317,7 +317,7 @@
     "source": "https://web.archive.org/web/20230308060841/https://specteslacup.com/pages/about-us",
     "raw_sha256": "1cc2ab7f2324b5425265f6a89f7336f44dcc147636a1e227023f0cbcb031c4cb",
     "path": "/archives/specteslacup/2023-03-08/pages/about-us/index.html",
-    "preserved_sha256": "11a14852cdfbafe27d8c64f9b2096f3711b3f4a72c304f019e1425b1268c06bd"
+    "preserved_sha256": "a7b681ac5c46d14d86018b33cfb1fedfadaf755a66301aab6696630c6af7e739"
   },
   {
     "file": "recovery/source/pages--contact-us.html",
@@ -332,7 +332,7 @@
     "source": "https://web.archive.org/web/20230409150141/https://specteslacup.com/pages/contact-us",
     "raw_sha256": "237248c337a9083c9156f5c32c99e2d1ca98eda62d9f1040afb3947be516c43b",
     "path": "/archives/specteslacup/2023-04-09/pages/contact-us/index.html",
-    "preserved_sha256": "7af430b1255564724932f7c335145e92a4137761a030f0c5bcb19ddd6d4a0940"
+    "preserved_sha256": "5e778d7b66b652194d7eac57953a0b8bca22b83a61dcf22ff467cbc967a6e155"
   },
   {
     "file": "recovery/source/pages--private-login.html",
@@ -347,7 +347,7 @@
     "source": "https://web.archive.org/web/20241208212044/https://specteslacup.com/pages/private-login",
     "raw_sha256": "0f7d2666557c8013e56aaa100c3fc4415a4ddbf2ba5740b95c5470d795bb843e",
     "path": "/archives/specteslacup/2024-12-08/pages/private-login/index.html",
-    "preserved_sha256": "4dc62f32e9839da8ef4f9015e498816f64e8880088937db51770fc7e96c3fdca"
+    "preserved_sha256": "3c5974b69d2b3a2ef75504653ce109e55dcb610ead5f3bdac459d4dfdcd04ebf"
   },
   {
     "file": "recovery/source/products--team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt.html",
@@ -362,6 +362,6 @@
     "source": "https://web.archive.org/web/20250122160344/https://specteslacup.com/products/team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt",
     "raw_sha256": "f77bd113db78ca3a5d458bd6288bd4dfeb3ee460a8ddb15f1210444af7c051ed",
     "path": "/archives/specteslacup/2025-01-22/products/team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt/index.html",
-    "preserved_sha256": "0eed1fba7a04cd0761623f901d3716fac364170fbd08b3738bfd5fca1484c6be"
+    "preserved_sha256": "133d61311e683037a23b0b33e4386237ca96a7376676b47cb7f596c6c1039790"
   }
 ]
