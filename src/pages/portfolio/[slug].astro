@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import PortfolioVisual from '../../components/PortfolioVisual.astro';
+import { portfolio, type PortfolioProject } from '../../data/portfolio';
+import '../../styles/portfolio.css';
+export function getStaticPaths() { return portfolio.map(project => ({ params: { slug: project.slug }, props: { project } })); }
+interface Props { project: PortfolioProject; }
+const { project } = Astro.props;
+const next = portfolio[(portfolio.findIndex(item => item.slug === project.slug) + 1) % portfolio.length];
+---
+<Base title={`${project.name} · Portfolio preview`} description={project.summary} compact noindex>
+  <article class="shell folio-wrap folio-case">
+    <div class="folio-review"><span class="folio-dot" aria-hidden="true"></span><strong>Portfolio preview</strong><span>Unlisted · For review</span></div>
+    <nav class="folio-back" aria-label="Portfolio"><a class="text-link" href="/portfolio/"><span aria-hidden="true">←</span> All projects</a><span>{project.number} / 04</span></nav>
+    <header class="folio-case-heading">
+      <p class="eyebrow">{project.category}</p>
+      <h1 class="serif">{project.name}</h1>
+      <p class="folio-case-title">{project.title}</p>
+      <p class="folio-case-summary">{project.summary}</p>
+      <ul class="folio-tags" aria-label="Areas of work">{project.tags.map(tag => <li>{tag}</li>)}</ul>
+    </header>
+    <figure class="folio-case-visual"><PortfolioVisual project={project} priority />{project.image && <figcaption>{project.image.caption}</figcaption>}</figure>
+    <dl class="folio-facts"><div><dt>My role</dt><dd>{project.role}</dd></div><div><dt>Project record</dt><dd>{project.status}</dd></div><div><dt>Timeframe</dt><dd>{project.period}</dd></div></dl>
+    <section class="folio-case-section" aria-labelledby="question"><h2 id="question" class="eyebrow">The starting point</h2><div><h3 class="serif folio-question">{project.question}</h3><p>{project.context}</p></div></section>
+    <section class="folio-case-section" aria-labelledby="contribution"><h2 id="contribution" class="eyebrow">My contribution</h2><div><p>{project.contribution}</p><div class="folio-work">{project.work.map((item, index) => <div><span class="folio-work-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></div>)}</div></div></section>
+    <section class="folio-case-section" aria-labelledby="record"><h2 id="record" class="eyebrow">What the record shows</h2><div><p>{project.record}</p>{project.reviewNote && <aside class="folio-review-note"><strong>Archive note</strong><p>{project.reviewNote}</p></aside>}<div class="folio-evidence">{project.evidence.map(item => <a href={item.href}><span><strong>{item.title}</strong><span>{item.note}</span></span><span aria-hidden="true">↗</span></a>)}</div></div></section>
+    <section class="folio-case-section folio-takeaway" aria-labelledby="takeaway"><h2 id="takeaway" class="eyebrow">Why it belongs here</h2><p class="serif">{project.takeaway}</p></section>
+    <nav class="folio-next" aria-label="More projects"><a class="text-link" href="/portfolio/">All projects</a><a href={`/portfolio/${next.slug}/`}><span class="eyebrow">Next case study</span><span class="serif">{next.name} <span aria-hidden="true">→</span></span></a></nav>
+  </article>
+</Base>

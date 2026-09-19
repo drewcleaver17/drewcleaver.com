@@ -235,3 +235,14 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] 42 model tests, three focused UI tests and the production build pass; no communication sent.
 - [ ] Verify live publication, restored older state, custom-row editing and exports.
 - [ ] Exact mobile viewport and physical-device inspection; responsive source and contained table scrolling implemented.
+## Unlisted portfolio review — September 19, 2026
+
+- [x] Overview and four case studies build at `/portfolio/` and its project subpaths.
+- [x] Every review page has `noindex, nofollow`, a visible review label, and no analytics.
+- [x] Build guards prevent sitemap entries and links into the review from other pages.
+- [x] All new internal links and assets resolve in the production output.
+- [x] Existing shared navigation, historical archives, contact routes and GitHub profile are unchanged by this release.
+- [x] Content distinguishes published career figures, project reports, proposed services and archive capture dates.
+- [x] `npm run build` and `npm test` pass (74 existing tests across the release commands, plus release visibility and link checks).
+- [ ] Higher Hangers storefront capture: still needs an original export or recoverable historical snapshot.
+- [ ] Public navigation and GitHub-profile promotion: intentionally held for Drew's review.
