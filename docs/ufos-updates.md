@@ -65,3 +65,24 @@ Notifications are for substantive additions, material corrections or actionable 
 - For an initial-page rollback, revert the dedicated feature merge through a reviewed PR; preserve unrelated newer changes.
 
 All credentials remain in the existing GitHub connection or GitHub Actions environment; no browser client writes to the repository. The page downloads its already-embedded public JSON, so there is no extra public data or write endpoint requiring a separate noindex policy.
+
+## Historical layer and maintenance recovery
+
+The owner-authorized historical release extends the data model (`contentModelVersion: 2`) without expanding unattended file permissions. Keep the modern 2017+ story as the default. Earlier milestones use `context: true`; a later publication specifically explaining an older allegation can also be historical context. `view=history` includes all published records; `view=recent` sorts all records by site revision. Never move an unverified alleged incident date into `date.start` merely to place it earlier.
+
+New fields:
+
+- `topics`: values exported by `src/lib/ufos.mjs`.
+- `entityIds`: optional membership in the existing sourced index. The importer may derive existing entities’ `eventIds` from a newly added eligible event. This is navigation membership, not a new relationship claim.
+- `claimDate`: separately attributed alleged date and qualification. Such records require editorial review.
+- `dateNotes`: the distinction among law, effective, report, approval and disclosure dates.
+- Source `author` and `custodian`: distinguish authorship, sponsorship and hosting. `primary-mirror`, `archival-history` and `participant-account` are conservative review-required source kinds for unattended additions.
+- `entities` and `relationships`: definitions and typed connections require an owner-authorized editorial release. The automatic envelope cannot add or rewrite these definitions. Hypotheses, new entity identities and relationship interpretations remain held.
+
+The fixed-date recent-view fixture is repaired to derive its timestamp from the test data. This developer repair alone does not reactivate the reporter. `meta.maintenance.status` remains `repaired-awaiting-runtime-test` and `updateStatus` remains `setup incomplete` until the actual scheduled-task runtime proves its publishing path again. Preserve the already-completed commissioning marker; do not repeat the NASA public-meeting addition.
+
+For a real unchanged check, the importer supports a check-only envelope: the ordinary schema/id/baseDigest/sourceChecks fields, `checkOnly: true`, `changes: []`, `sources: []`. Every attestation must refer to an existing source, use its exact URL, contain a freshly read supported statement and locator, and pass freshness validation. This changes **only** `meta.lastCheckedAt` to the latest attested check time. It preserves the content edition, content update timestamp, history and receipt. Replaying the same check is idempotent. Do not fabricate a content change to exercise the pipeline.
+
+A post-maintenance runtime test may use this real source-check path when no new eligible event exists. Run the same importer, tests, build, dataset-only PR, CI, exact-head merge and exact deployment checks. Verify the live embedded `lastCheckedAt` and unchanged edition/content digest. This proves the actual task’s repository-to-live capability without publishing a fictional event or claiming new content. Then a separately validated dataset-only status/receipt follow-up may record `maintenance.status: verified`, the actual workflow run/revision/verification time, and `updateStatus: active`. Verify that follow-up deployment too. If any step is blocked, retain setup incomplete and report the exact missing capability once.
+
+`contentDigest` covers sources, events, entities, relationships and the change log. Operational timestamps and receipts remain outside that digest. A prior receipt is kept in `meta.publicationHistory` when a new content edition replaces it. An editorial deployment may attach its genuine live receipt while still leaving automatic publication setup incomplete.

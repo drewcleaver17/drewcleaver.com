@@ -29,3 +29,21 @@ Research cutoff: September 19, 2026. This file is an editorial audit, not a tran
 Every published record has an event-level evidence boundary, citations resolving to the source registry and a last-verified timestamp. Supporting-text-read records mean the specified supporting material was actually inspected; they are not HTTP-only checks. Source-level notes explain access failures, reprints and unknown publication dates. The full initial JSON is committed with this audit; later material revisions retain previous summaries and Git history.
 
 The initial 28 entries include one pre-2017 context entry. Reporting-supported entries are not advertised as original-document verification. More primary records can replace reporting only through a documented correction and fresh review.
+
+## Historical expansion, September 19, 2026
+
+See `docs/ufos-history-inventory.md` for the complete subject disposition ledger. Forty selected entries expand the original 29-entry record to 69. The original event IDs, summaries, source records, correction histories and last-verified timestamps are preserved. Added topic/entity memberships are navigation metadata, not silent factual revisions.
+
+Material editorial boundaries:
+
+- Maison Rouge sorts on the surviving report, with the alleged meeting date separate. The report does not establish a meeting of fourteen bankers or a UFO connection.
+- Union Banking Corporation is separate from Brown Brothers Harriman. Vesting Order 248 was executed October 20, 1942, filed November 6 and published November 7. The original p. 9097 was visually checked.
+- WCC’s specific 1952 legal-representation record is included; an exact incorporation date is withheld.
+- Gateway is an Army assessment, not a CIA-authored demonstration of paranormal physics. Source mirror and authorship are visible.
+- The 1984 Army memo distinguishes GRILL FLAME and CENTER LANE and describes a December 1982 restart. STAR GATE is not used as one timeless umbrella agency.
+- AIR’s final September 29, 1995 evaluation is distinguished from its September 22 draft and from Utts’s and Hyman’s separately authored assessments. The recommendation is not mislabeled a termination order.
+- Magenta sorts on a verified later retelling. The alleged 1933 date is not a factual incident date or a sorting substitute.
+- A 2019 KLAS retrospective verifies the broadcaster’s stated May 15, 1989 Lazar interview date; its later footage comparisons are not adopted as proof of Lazar’s claims.
+- Rice’s Vallée finding aid is not access to restricted papers; a collection’s content dates, donation date, catalog date and opening dates are distinct.
+
+The schema now carries topics, a sourced canonical entity index, attributed claim dates, date notes, author/custodian provenance and typed relationships. Connections require their own claim, date, source support and limitation. No speculative network edges, numeric credibility ratings or private conversations are published.

@@ -4,38 +4,32 @@
     "title": "UFOs: A Living Timeline",
     "researchCutoff": "2026-09-19",
     "lastCheckedAt": "2026-09-19T18:03:51.100Z",
-    "contentUpdatedAt": "2026-09-19T18:03:51.100Z",
-    "updateStatus": "paused",
-    "updateDescription": "Weekly monitoring continues. A source-to-live update passed its end-to-end test; automatic publishing is paused until a date-dependent test fixture is corrected.",
+    "contentUpdatedAt": "2026-09-19T19:57:57Z",
+    "updateStatus": "setup incomplete",
+    "updateDescription": "Weekly monitoring continues. The historical expansion and maintenance repair await a fresh publishing test from the scheduled task. Automatic publication is not yet confirmed for this edition.",
     "cadence": "Weekly",
-    "edition": "2026-09-19-nasa-public-meeting",
-    "publicationReceipt": {
-      "edition": "2026-09-19-nasa-public-meeting",
-      "verifiedAt": "2026-09-19T18:09:17Z",
-      "revision": "0b1086ae6ba2b99cbdceb5c3edd9ae8ecb4c14e7",
-      "contentDigest": "24f56dcf54feba771ae678b24f836882e46f489928f1a4222fba59235b7b8193",
-      "url": "https://drewcleaver.com/ufos/?view=recent#nasa-public-meeting-2023",
-      "workflowRun": 35460200526
-    },
+    "edition": "2026-09-19-historical-expansion",
+    "publicationReceipt": null,
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
     "commissioningComplete": true,
     "commissioningVerifiedAt": "2026-09-19T18:09:17Z",
     "maintenance": {
-      "status": "review-required",
-      "file": "scripts/ufos.test.mjs",
-      "test": "recent view uses site revision, not incident date",
-      "issue": "The test uses a fixed September 20, 2026 revision timestamp. Newer real records can make the test fail even when sorting works correctly.",
-      "requiredChange": "Make the fixture revision timestamp later than the maximum revision timestamp in that test dataset. Rerun tests and the production build before resuming automatic publication.",
-      "scopeBoundary": "The unattended reporter may edit only the dataset; the code correction requires an authorized maintenance change."
+      "status": "repaired-awaiting-runtime-test",
+      "issue": "The recent-view test now derives its fixture date from the data instead of a fixed calendar date.",
+      "scopeBoundary": "This owner-authorized maintenance release changes implementation. Future unattended runs remain dataset-only."
     },
-    "verificationNotes": {
-      "localTests": "12 passing; importer valid, duplicate, malformed, unsupported, source-failure and deployment-failure paths tested safely.",
-      "liveUI": "Search, combined filters, date range, URL restoration, reset, copy links, oldest/newest, recently revised, empty state, keyboard focus, latest and context anchors checked.",
-      "mobileQA": "Responsive source reviewed. Exact 320/390/768/1440px browser viewports unavailable in this run; physical-device checks not claimed.",
-      "unlisted": "Static noindex, no inbound navigation links, no sitemap entry, no analytics; no robots.txt block."
-    }
+    "publicationHistory": [
+      {
+        "edition": "2026-09-19-nasa-public-meeting",
+        "verifiedAt": "2026-09-19T18:09:17Z",
+        "revision": "0b1086ae6ba2b99cbdceb5c3edd9ae8ecb4c14e7",
+        "contentDigest": "24f56dcf54feba771ae678b24f836882e46f489928f1a4222fba59235b7b8193",
+        "url": "https://drewcleaver.com/ufos/?view=recent#nasa-public-meeting-2023",
+        "workflowRun": 35460200526
+      }
+    ]
   },
   "sources": {
     "nyt-context": {
@@ -409,6 +403,524 @@
       "verification": "supporting-text-read",
       "locator": "Dated report and release description",
       "note": "Original war.gov release and manifest were inaccessible. No file total is asserted."
+    },
+    "oss-history": {
+      "id": "oss-history",
+      "title": "Guide to Federal Records: Office of Strategic Services",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/226.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "226.1 and 226.2",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "cia-history": {
+      "id": "cia-history",
+      "title": "Guide to Federal Records: Central Intelligence Agency",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/263.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "263.1",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "nsc-history": {
+      "id": "nsc-history",
+      "title": "Guide to Federal Records: National Security Council",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/273.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "273.1",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "usaf-history": {
+      "id": "usaf-history",
+      "title": "Guide to Federal Records: Office of the Secretary of the Air Force",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/340.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "340.1 and 340.2",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "aec-history": {
+      "id": "aec-history",
+      "title": "Guide to Federal Records: Atomic Energy Commission",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/326.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "326.1 and 326.2",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "nsa-history": {
+      "id": "nsa-history",
+      "title": "Guide to Federal Records: National Security Agency / Central Security Service",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/457.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "457.1 and 457.2",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "dia-history": {
+      "id": "dia-history",
+      "title": "Guide to Federal Records: Defense Intelligence Agency",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/373.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "373.1",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "nasa-history": {
+      "id": "nasa-history",
+      "title": "Guide to Federal Records: National Aeronautics and Space Administration",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/255.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "255.1 and 255.2",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "doe-history": {
+      "id": "doe-history",
+      "title": "Guide to Federal Records: Department of Energy",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/434.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "434.1",
+      "note": "Retrospective archival description. Formation, statutory authorization and operational dates are distinguished; the underlying orders have not all been inspected separately.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "doe-chronology": {
+      "id": "doe-chronology",
+      "title": "Timeline of Events: 1938–1950",
+      "publisher": "Department of Energy",
+      "url": "https://www.energy.gov/lm/timeline-events-1938-1950",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "Entries for August 2, 1939; August 13, 1942; July 16, 1945; August 1, 1946 and January 1, 1947",
+      "note": "",
+      "verification": "supporting-text-read",
+      "author": "Department of Energy",
+      "custodian": "Department of Energy"
+    },
+    "leonardo-flight": {
+      "id": "leonardo-flight",
+      "title": "Leonardo da Vinci: Birdwatcher",
+      "publisher": "Smithsonian / Air & Space",
+      "url": "https://www.smithsonianmag.com/air-space-magazine/leonardo-da-vinci-birdwatcher-26505261/",
+      "publicationDate": "2013-09",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "locator": "Codex compilation dates and discussion of observation and flight",
+      "note": "Museum reporting about the manuscript; this audit did not inspect the original codex.",
+      "verification": "supporting-text-read",
+      "author": "Rebecca Maksel",
+      "custodian": "Smithsonian / Air & Space"
+    },
+    "bbh-timeline": {
+      "id": "bbh-timeline",
+      "title": "200 years of partnership",
+      "publisher": "Brown Brothers Harriman",
+      "url": "https://www.bbh.com/us/en/bbh-who-we-are/our-story/200-years-of-partnership.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "1931: formation of Brown Brothers Harriman and Prescott Bush private-wealth entry",
+      "note": "The firm’s own retrospective history, not independent reporting or an incorporation filing.",
+      "verification": "supporting-text-read",
+      "author": "Brown Brothers Harriman",
+      "custodian": "Brown Brothers Harriman"
+    },
+    "bbh-prescott": {
+      "id": "bbh-prescott",
+      "title": "Prescott Bush establishes private wealth management business",
+      "publisher": "Brown Brothers Harriman",
+      "url": "https://www.bbh.com/us/en/bbh-who-we-are/our-story/200-years-of-partnership/prescott-bush-establishes-private-wealth-management-business.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "Opening paragraphs: employment at W. A. Harriman and development of the private-client business",
+      "note": "The narrative refers to merger activity in 1930; the firm’s main chronology dates the combined firm to 1931. No exact formation day is assigned.",
+      "verification": "supporting-text-read",
+      "author": "Brown Brothers Harriman",
+      "custodian": "Brown Brothers Harriman"
+    },
+    "ubc-order": {
+      "id": "ubc-order",
+      "title": "Vesting Order 248: Union Banking Corporation",
+      "publisher": "Federal Register / Office of Alien Property Custodian",
+      "url": "https://www.govinfo.gov/content/pkg/FR-1942-11-07/pdf/FR-1942-11-07.pdf#page=31",
+      "publicationDate": "1942-11-07",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "Printed p. 9097, PDF p. 31; order heading, shareholder table, beneficial-ownership finding and signature",
+      "note": "Original page visually inspected. Executed October 20, filed November 6, published November 7. Registered ownership and the Custodian’s beneficial-ownership finding are different statements.",
+      "verification": "supporting-text-read",
+      "author": "Alien Property Custodian Leo T. Crowley",
+      "custodian": "U.S. Government Publishing Office"
+    },
+    "tesla-papers": {
+      "id": "tesla-papers",
+      "title": "The missing papers",
+      "publisher": "PBS: Tesla, Master of Lightning",
+      "url": "https://www.pbs.org/tesla/ll/ll_mispapers.html",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "locator": "Account of the 1943 government examination and quotation of John G. Trump’s assessment",
+      "note": "Retrospective documentary companion. The underlying FBI/Alien Property file was not successfully inspected in this audit; this is a qualified historical account, not a newly authenticated technical result.",
+      "verification": "supporting-text-read",
+      "author": "PBS: Tesla, Master of Lightning",
+      "custodian": "PBS: Tesla, Master of Lightning"
+    },
+    "red-house-original": {
+      "id": "red-house-original",
+      "title": "SHAEF report EW-Pa 128 and State Department transmittal",
+      "publisher": "SHAEF / U.S. Department of State",
+      "url": "https://text-message.blogs.archives.gov/wp-content/uploads/sites/5/2025/05/800.51511-2744.pdf",
+      "publicationDate": "1944-11-07",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "Report dated November 7, 1944; pages 2–3 describe the reported August 10 meeting; covering dispatch November 27",
+      "note": "An intelligence report relaying a source’s account, not a meeting transcript or independent confirmation of every assertion.",
+      "verification": "supporting-text-read",
+      "author": "SHAEF G-2 Economic Section",
+      "custodian": "National Archives"
+    },
+    "red-house-audit": {
+      "id": "red-house-audit",
+      "title": "SHAEF Intelligence Report EW-Pa 128: real plan or red herring?",
+      "publisher": "National Archives, The Text Message",
+      "url": "https://text-message.blogs.archives.gov/2025/06/03/shaef-intelligence-report-ew-pa-128-aka-the-red-house-report-real-plan-or-red-herring/",
+      "publicationDate": "2025-06-03",
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "Document provenance, differing copies and assessment of the reported meeting",
+      "note": "The attached records and archivist’s interpretation are separately identified. Declassification of one copy does not date every copy’s release.",
+      "verification": "supporting-text-read",
+      "author": "David Langbart",
+      "custodian": "National Archives, The Text Message"
+    },
+    "wcc-memo": {
+      "id": "wcc-memo",
+      "title": "Memorandum by the Assistant Secretary of State for European Affairs (Perkins)",
+      "publisher": "Foreign Relations of the United States",
+      "url": "https://history.state.gov/historicaldocuments/frus1952-54v08/d8",
+      "publicationDate": "1952-04-04",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "Document 8, April 4, 1952; World Commerce Corporation proposal and Donovan law-firm representation",
+      "note": "Official documentary edition of a contemporaneous memorandum. It does not establish WCC’s incorporation date.",
+      "verification": "supporting-text-read",
+      "author": "George W. Perkins",
+      "custodian": "Department of State, Office of the Historian"
+    },
+    "bluebook-history": {
+      "id": "bluebook-history",
+      "title": "Project Blue Book: 50 years after its closure",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/news/articles/project-blue-book-50th-anniversary",
+      "publicationDate": "2019-12-05",
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "Arnold report; December 1947 Sign order; Grudge succession; March 1952 Blue Book and closure",
+      "note": "",
+      "verification": "supporting-text-read",
+      "author": "Jonathan Marker",
+      "custodian": "National Archives"
+    },
+    "airforce-ufo-facts": {
+      "id": "airforce-ufo-facts",
+      "title": "U.S. Air Force fact sheet and archival guidance on UFO records",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/military/air-force/ufos",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "1985 Air Force fact sheet; Blue Book termination; September 8, 1994 Roswell announcement",
+      "note": "A compilation of institutional statements and archival guidance. Agency conclusions are attributed; unidentified cases remain distinct from evidence of an origin.",
+      "verification": "supporting-text-read",
+      "author": "National Archives",
+      "custodian": "National Archives"
+    },
+    "gao-roswell": {
+      "id": "gao-roswell",
+      "title": "Results of a Search for Records Concerning the 1947 Crash Near Roswell, New Mexico",
+      "publisher": "U.S. General Accounting Office",
+      "url": "https://www.gao.gov/assets/nsiad-95-187.pdf",
+      "publicationDate": "1995-07-28",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "NSIAD-95-187, July 28, 1995; pp. 1–5 and reproduced 1947 records",
+      "note": "GAO searched records. Its discussion of destroyed administrative files does not identify who authorized their destruction or establish a cover-up.",
+      "verification": "supporting-text-read",
+      "author": "U.S. General Accounting Office",
+      "custodian": "U.S. General Accounting Office"
+    },
+    "darpa-history": {
+      "id": "darpa-history",
+      "title": "DARPA marks its 60th anniversary",
+      "publisher": "DARPA",
+      "url": "https://www.darpa.mil/news/2018/d60-symposium",
+      "publicationDate": "2018-04-17",
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "Opening paragraph: McElroy’s February 7, 1958 establishment of ARPA",
+      "note": "",
+      "verification": "supporting-text-read",
+      "author": "DARPA",
+      "custodian": "DARPA"
+    },
+    "nro-agreement": {
+      "id": "nro-agreement",
+      "title": "Letter confirming arrangements for the National Reconnaissance Program",
+      "publisher": "Foreign Relations of the United States",
+      "url": "https://history.state.gov/historicaldocuments/frus1961-63v25/d90",
+      "publicationDate": "1961-09-06",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "Document 90, September 6, 1961; paragraphs 1–4 and editorial note 2",
+      "note": "The letter establishes the proposed covert management arrangement. The editorial note warns that the co-directorship agreement did not go into effect as written.",
+      "verification": "supporting-text-read",
+      "author": "Roswell L. Gilpatric; concurrence by C. P. Cabell",
+      "custodian": "Department of State, Office of the Historian"
+    },
+    "monroe-history": {
+      "id": "monroe-history",
+      "title": "The history of the Monroe Institute",
+      "publisher": "Monroe Institute",
+      "url": "https://www.monroeinstitute.org/pages/history",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "Research origins and 1971 institutional history",
+      "note": "Organizational self-history. The page describes creation in 1971 while other site wording says “since 1973”; neither is treated as an inspected legal incorporation record.",
+      "verification": "supporting-text-read",
+      "author": "Monroe Institute",
+      "custodian": "Monroe Institute"
+    },
+    "gateway-report": {
+      "id": "gateway-report",
+      "title": "Analysis and Assessment of Gateway Process",
+      "publisher": "U.S. Army INSCOM; archival copy",
+      "url": "https://archive.org/details/CIA-RDP96-00788R001700210016-5",
+      "publicationDate": "1983-06-09",
+      "accessedDate": "2026-09-19",
+      "kind": "primary-mirror",
+      "locator": "June 9, 1983 memorandum, opening task statement, conclusions and bibliography",
+      "note": "Army-authored assessment preserved in CIA files. CIA hosting is not CIA authorship or scientific endorsement. Supporting text read from the archival scan/OCR; the current CIA document URL redirected away from the record.",
+      "verification": "supporting-text-read",
+      "author": "Wayne M. McDonnell, U.S. Army",
+      "custodian": "CIA-released record mirrored by Internet Archive"
+    },
+    "sri-report": {
+      "id": "sri-report",
+      "title": "Perceptual Augmentation Techniques, Part One: Executive Summary",
+      "publisher": "Stanford Research Institute; archival copy",
+      "url": "https://archive.org/details/CIA-RDP96-00787R000700050001-1",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "primary-mirror",
+      "locator": "Cover; I Objective; II Summary; Category I operational examples",
+      "note": "The report covers January 1974–February 1975; its exact issue date is not established here. Favorable results are the investigators’ conclusions. Current CIA URL redirected; archival text inspected.",
+      "verification": "supporting-text-read",
+      "author": "Harold E. Puthoff and Russell Targ",
+      "custodian": "CIA-released record mirrored by Internet Archive"
+    },
+    "air-final": {
+      "id": "air-final",
+      "title": "An Evaluation of Remote Viewing: Research and Applications",
+      "publisher": "American Institutes for Research; archival copy",
+      "url": "https://archive.org/details/CIA-RDP96-00791R000200180006-4",
+      "publicationDate": "1995-09-29",
+      "accessedDate": "2026-09-19",
+      "kind": "primary-mirror",
+      "locator": "September 29, 1995 final report; Executive Summary E-1–E-5; Chapter 1; reviewer assessments in Chapter 3",
+      "note": "Final report, distinguished from the separately inspected September 22 draft. The AIR authors’ conclusions, Utts’s assessment and Hyman’s assessment are not interchangeable.",
+      "verification": "supporting-text-read",
+      "author": "Michael D. Mumford, Andrew M. Rose and David A. Goslin",
+      "custodian": "CIA-released record mirrored by Internet Archive"
+    },
+    "utts-assessment": {
+      "id": "utts-assessment",
+      "title": "An assessment of the evidence for psychic functioning",
+      "publisher": "Jessica Utts / University of California, Irvine",
+      "url": "https://www.ics.uci.edu/~jutts/air.pdf",
+      "publicationDate": "1995",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "Abstract, introduction, SRI/SAIC history and discussion of replication",
+      "note": "Author’s university-hosted assessment prepared for the AIR review. It argues for anomalous cognition; it is not a consensus declaration or proof of intelligence utility.",
+      "verification": "supporting-text-read",
+      "author": "Jessica Utts",
+      "custodian": "Jessica Utts / University of California, Irvine"
+    },
+    "hyman-assessment": {
+      "id": "hyman-assessment",
+      "title": "Evaluation of program on anomalous mental phenomena",
+      "publisher": "Ray Hyman / University of California, Irvine mirror",
+      "url": "https://ics.uci.edu/~jutts/hyman.html",
+      "publicationDate": "1995-09-11",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "September 11, 1995 evaluation; response to Utts and concerns about independent replication",
+      "note": "Hyman accepts statistical departures in the reviewed work but disputes the inference that a paranormal mechanism is established.",
+      "verification": "supporting-text-read",
+      "author": "Ray Hyman",
+      "custodian": "Jessica Utts’s university page"
+    },
+    "monroe-mcmoneagle": {
+      "id": "monroe-mcmoneagle",
+      "title": "From the director’s chair: August 2017",
+      "publisher": "Monroe Institute",
+      "url": "https://www.monroeinstitute.org/blogs/blog/from-the-directors-chair-august-2017",
+      "publicationDate": "2017-07-29",
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "July 29, 2017 post: Joe McMoneagle’s role and work with Robert Monroe",
+      "note": "An account by institute leadership and McMoneagle’s spouse. It supports what the institute said about him, not independent verification of claimed abilities or operational successes.",
+      "verification": "supporting-text-read",
+      "author": "Nancy H. McMoneagle",
+      "custodian": "Monroe Institute"
+    },
+    "voyager-record": {
+      "id": "voyager-record",
+      "title": "Voyager Golden Record: contents",
+      "publisher": "NASA",
+      "url": "https://science.nasa.gov/mission/voyager/golden-record-contents/",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "Record-selection committee and its chair Carl Sagan",
+      "note": "NASA’s mission history identifies the selection role. A message sent toward space is not evidence that it was received.",
+      "verification": "supporting-text-read",
+      "author": "NASA",
+      "custodian": "NASA"
+    },
+    "voyager-overview": {
+      "id": "voyager-overview",
+      "title": "Voyager Golden Record: overview",
+      "publisher": "NASA",
+      "url": "https://science.nasa.gov/mission/voyager/voyager-golden-record-overview/",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "archival-history",
+      "locator": "1977 launches and purpose of the records",
+      "note": "",
+      "verification": "supporting-text-read",
+      "author": "NASA",
+      "custodian": "NASA"
+    },
+    "area51-release": {
+      "id": "area51-release",
+      "title": "The secret history of the U-2—and Area 51",
+      "publisher": "National Security Archive, George Washington University",
+      "url": "https://nsarchive2.gwu.edu/NSAEBB/NSAEBB434/",
+      "publicationDate": "2013-08-15",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "August 15, 2013 release account; June 25 approval; provenance and newly unredacted material",
+      "note": "The FOIA recipient’s firsthand release account was inspected. This nongovernmental archive is not the National Archives or the NSA. The entire underlying CIA history was not audited here.",
+      "verification": "supporting-text-read",
+      "author": "Jeffrey T. Richelson / National Security Archive",
+      "custodian": "National Security Archive, George Washington University"
+    },
+    "vallee-finding-aid": {
+      "id": "vallee-finding-aid",
+      "title": "Jacques F. Vallée UFO and paranormal phenomena papers, MS 0672",
+      "publisher": "Rice University, Woodson Research Center",
+      "url": "https://archives.library.rice.edu/repositories/2/resources/1085",
+      "publicationDate": "2019",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "locator": "Immediate Source of Acquisition; Scope and Contents; Conditions Governing Access",
+      "note": "Finding aid, not the underlying restricted papers. Donations began December 2016. Series have different future opening dates; listed holdings do not mean their contents are publicly readable.",
+      "verification": "supporting-text-read",
+      "author": "Rice University, Woodson Research Center",
+      "custodian": "Rice University, Woodson Research Center"
+    },
+    "magenta-report": {
+      "id": "magenta-report",
+      "title": "The flying object allegedly kept secret by Mussolini",
+      "publisher": "Il Fatto Quotidiano",
+      "url": "https://www.ilfattoquotidiano.it/2017/03/21/ufo-in-italia-loggetto-volante-secretato-da-mussolini-lenigma-dei-piloti-alieni/3465633/",
+      "publicationDate": "2017-03-21",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "locator": "March 21, 2017 account attributing the 1933 story to Roberto Pinotti and earlier coverage",
+      "note": "Later reporting of an allegation. No authenticated 1933 crash record or chain of custody was inspected. This is an accessible dated retelling, not a claim to have found the story’s first publication.",
+      "verification": "supporting-text-read",
+      "author": "Davide Turrini",
+      "custodian": "Il Fatto Quotidiano"
+    },
+    "center-lane-review": {
+      "id": "center-lane-review",
+      "title": "CENTER LANE Human Use Review",
+      "publisher": "U.S. Army INSCOM; archival copy",
+      "url": "https://archive.org/details/cia-readingroom-document-cia-rdp96-00788r001500160002-8",
+      "publicationDate": "1984-03-26",
+      "accessedDate": "2026-09-19",
+      "kind": "primary-mirror",
+      "locator": "March 26, 1984 memorandum, pp. 1–3; background, program transition and recommended review",
+      "note": "The memorandum was read in the archival copy. It documents administrative history and a recommended review, not a demonstrated paranormal capability or a fresh legal opinion.",
+      "verification": "supporting-text-read",
+      "author": "Brian Buzby, CENTER LANE Project Manager",
+      "custodian": "CIA-released record mirrored by Internet Archive"
+    },
+    "lazar-klas-retrospective": {
+      "id": "lazar-klas-retrospective",
+      "title": "I-Team: a look back at the 1989 Bob Lazar interview",
+      "publisher": "KLAS-TV / 8 News Now, official YouTube channel",
+      "url": "https://www.youtube.com/watch?v=2GRjgBVw9Pk",
+      "publicationDate": "2019-05-16",
+      "accessedDate": "2026-09-19",
+      "kind": "original-reporting",
+      "locator": "Description and transcript 0:00–1:10; George Knapp identification 0:24 and 4:46",
+      "note": "The original broadcaster’s retrospective description and transcript were inspected. The upload is May 16, 2019; its description dates the original anonymous interview to May 15, 1989. Transcript errors and later commentary are not used to validate the technology claims.",
+      "verification": "supporting-text-read",
+      "author": "George Knapp / KLAS-TV",
+      "custodian": "8 News Now official YouTube channel"
     }
   },
   "events": [
@@ -471,7 +983,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": true
+      "context": true,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "nyt-2017",
@@ -548,7 +1064,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "navy-reporting",
@@ -606,7 +1126,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "navy-videos",
@@ -670,7 +1194,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "uap-task-force",
@@ -729,7 +1257,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "odni-assessment",
@@ -792,7 +1324,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "grusch-dod-complaint",
@@ -853,7 +1389,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "grusch-icig-complaint",
@@ -913,7 +1453,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "house-hearing-2022",
@@ -974,7 +1518,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "nasa-study-announced",
@@ -1032,7 +1580,13 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": [
+        "nasa"
+      ]
     },
     {
       "id": "aaro-created",
@@ -1092,7 +1646,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "grusch-public",
@@ -1160,7 +1718,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "disclosure-proposal",
@@ -1224,7 +1786,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "house-hearing-2023",
@@ -1309,7 +1875,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "nasa-report",
@@ -1376,7 +1946,13 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": [
+        "nasa"
+      ]
     },
     {
       "id": "archives-law",
@@ -1439,7 +2015,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "aaro-history-report",
@@ -1501,7 +2081,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "house-hearing-2024",
@@ -1563,7 +2147,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "annual-report-2024",
@@ -1625,7 +2213,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "senate-hearing-2024",
@@ -1695,7 +2287,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "nara-first-release",
@@ -1759,7 +2355,11 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "house-hearing-2025",
@@ -1822,7 +2422,13 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": [
+        "knapp"
+      ]
     },
     {
       "id": "presidential-announcement",
@@ -1882,7 +2488,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "pursue-first-release",
@@ -1942,7 +2552,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "annual-report-2026",
@@ -2000,7 +2614,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "historical-archive-plan",
@@ -2062,7 +2680,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "pursue-waiver",
@@ -2133,7 +2755,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "pursue-sixth-release",
@@ -2193,7 +2819,11 @@
       "verificationLabel": "Reported milestone",
       "automationClass": "review-required",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": []
     },
     {
       "id": "nasa-public-meeting-2023",
@@ -2254,7 +2884,2637 @@
       "verificationLabel": "Primary source read",
       "automationClass": "institutional",
       "correctionHistory": [],
-      "context": false
+      "context": false,
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "entityIds": [
+        "nasa"
+      ]
+    },
+    {
+      "id": "leonardo-flight-notebook",
+      "slug": "leonardo-flight-notebook",
+      "date": {
+        "start": "1505",
+        "end": "1506",
+        "precision": "range",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Leonardo studies birds and the mechanics of flight",
+      "summary": "Leonardo da Vinci’s Codex on the Flight of Birds is dated to 1505–1506 in Smithsonian’s account.",
+      "significance": "An early example of observation-led flight research, included as scientific context.",
+      "established": [
+        "The manuscript concerns bird flight and proposed human flight."
+      ],
+      "limitations": [
+        "This source supplies no connection to UFO technology, NHI or later classified programs."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific and technical context"
+      ],
+      "topics": [
+        "Science & invention"
+      ],
+      "people": [
+        "Leonardo da Vinci"
+      ],
+      "institutions": [],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "leonardo-flight",
+          "supports": [
+            "compilation range and subject of the codex"
+          ]
+        }
+      ],
+      "relatedEventIds": [],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reporting inspected",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "A compilation range, not a precisely dated experiment or successful aircraft.",
+      "entityIds": [
+        "leonardo"
+      ]
+    },
+    {
+      "id": "bbh-formation",
+      "slug": "bbh-formation",
+      "date": {
+        "start": "1931",
+        "end": null,
+        "precision": "year",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Brown Brothers Harriman takes shape",
+      "summary": "The firm’s chronology dates the combination of Brown Brothers and the Harriman banking businesses to 1931.",
+      "significance": "Establishes which business is being discussed before later financial claims are compared.",
+      "established": [
+        "BBH’s own history places Prescott Bush’s private-client work in the combined firm."
+      ],
+      "limitations": [
+        "An interested institutional history is not an incorporation filing. BBH and Union Banking Corporation must not be treated as the same legal entity."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Business and financial history"
+      ],
+      "topics": [
+        "Business & wartime finance"
+      ],
+      "people": [
+        "Prescott Bush"
+      ],
+      "institutions": [
+        "Brown Brothers Harriman"
+      ],
+      "evidenceTypes": [
+        "Organizational account"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "bbh-timeline",
+          "supports": [
+            "1931 formation chronology"
+          ]
+        },
+        {
+          "sourceId": "bbh-prescott",
+          "supports": [
+            "Prescott Bush role and retrospective date qualification"
+          ]
+        }
+      ],
+      "relatedEventIds": [],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Year-level date. Merger negotiations and the operational combined firm should not be assigned an invented common day.",
+      "entityIds": [
+        "prescott-bush",
+        "bbh"
+      ]
+    },
+    {
+      "id": "einstein-szilard-letter",
+      "slug": "einstein-szilard-letter",
+      "date": {
+        "start": "1939-08-02",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Einstein signs a warning about nuclear chain reactions",
+      "summary": "Albert Einstein signed a letter to President Roosevelt, prepared with Leo Szilard’s help, urging attention to nuclear research.",
+      "significance": "Connects scientific advocacy to the later wartime atomic program through a specific document.",
+      "established": [
+        "DOE’s chronology dates the letter to August 2, 1939."
+      ],
+      "limitations": [
+        "Signing this letter does not establish that Einstein worked on the Manhattan Project or supplied an exotic propulsion theory."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific and technical context"
+      ],
+      "topics": [
+        "Nuclear history"
+      ],
+      "people": [
+        "Albert Einstein",
+        "Leo Szilard"
+      ],
+      "institutions": [],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "doe-chronology",
+          "supports": [
+            "letter date and scientific-policy context"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "manhattan-district"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "einstein",
+        "szilard"
+      ]
+    },
+    {
+      "id": "oss-established",
+      "slug": "oss-established",
+      "date": {
+        "start": "1942-06-13",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Office of Strategic Services is established",
+      "summary": "A military order established the OSS under the Joint Chiefs of Staff.",
+      "significance": "Clarifies the wartime organization associated with William Donovan and later intelligence histories.",
+      "established": [
+        "NARA dates establishment to June 13, 1942, and abolition to October 1, 1945."
+      ],
+      "limitations": [
+        "The OSS did not simply become the CIA under a new name; intermediate organizations and transfers intervened."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [
+        "William J. Donovan"
+      ],
+      "institutions": [
+        "Office of Strategic Services"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "oss-history",
+          "supports": [
+            "establishment, supervision and abolition"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "cia-established",
+        "wcc-donovan-memo"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "donovan",
+        "oss"
+      ]
+    },
+    {
+      "id": "manhattan-district",
+      "slug": "manhattan-district",
+      "date": {
+        "start": "1942-08-13",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Army creates the Manhattan Engineer District",
+      "summary": "An Army order created the district that administered the atomic-bomb project.",
+      "significance": "Places nuclear weapons development in a documented wartime structure.",
+      "established": [
+        "DOE gives the order date; NARA records an August 16 effective date."
+      ],
+      "limitations": [
+        "This administrative record establishes no link to recovered craft."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific and technical context"
+      ],
+      "topics": [
+        "Nuclear history"
+      ],
+      "people": [],
+      "institutions": [
+        "Manhattan Engineer District"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "doe-chronology",
+          "supports": [
+            "August 13 order"
+          ]
+        },
+        {
+          "sourceId": "aec-history",
+          "supports": [
+            "August 16 effective date and later transfer"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "trinity-test",
+        "aec-established"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Order August 13; effective August 16, 1942. These are different administrative dates.",
+      "entityIds": [
+        "manhattan"
+      ]
+    },
+    {
+      "id": "union-banking-vesting",
+      "slug": "union-banking-vesting",
+      "date": {
+        "start": "1942-10-20",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1942-11-07",
+      "title": "The Alien Property Custodian vests Union Banking shares",
+      "summary": "Vesting Order 248 covered all 4,000 shares of Union Banking Corporation and specified associated indebtedness.",
+      "significance": "Provides a contemporaneous legal record for a frequently conflated part of Bush–Harriman financial history.",
+      "established": [
+        "The shareholder table lists Prescott S. Bush with one registered share. The Custodian found the shares were held for a Rotterdam bank controlled by members of the Thyssen family."
+      ],
+      "limitations": [
+        "Registered and beneficial ownership are different. The order concerns UBC, not a seizure of BBH itself; it does not demonstrate a UFO program or establish every director’s knowledge or intent."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Business and financial history"
+      ],
+      "topics": [
+        "Business & wartime finance"
+      ],
+      "people": [
+        "Prescott Bush",
+        "E. Roland Harriman"
+      ],
+      "institutions": [
+        "Union Banking Corporation",
+        "Office of Alien Property Custodian"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "ubc-order",
+          "supports": [
+            "scope, execution date, registered shares and attributed beneficial-ownership finding"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "bbh-formation"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Executed October 20; filed November 6; published November 7, 1942.",
+      "entityIds": [
+        "prescott-bush",
+        "harriman",
+        "ubc",
+        "alien-property"
+      ]
+    },
+    {
+      "id": "tesla-papers-review",
+      "slug": "tesla-papers-review",
+      "date": {
+        "start": "1943",
+        "end": null,
+        "precision": "year",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "John G. Trump examines Tesla’s papers, according to PBS’s history",
+      "summary": "PBS recounts a government examination of Nikola Tesla’s papers after his death, with an assessment by electrical engineer John G. Trump.",
+      "significance": "Separates a documented historical lead from claims that the papers yielded extraordinary working weapons.",
+      "established": [
+        "The account quotes Trump’s negative assessment of workable new principles in the material he examined."
+      ],
+      "limitations": [
+        "The underlying file was not directly inspected in this audit. A review of papers does not establish a functioning device, a transfer to UFO research or access to every Tesla record."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific and technical context"
+      ],
+      "topics": [
+        "Science & invention"
+      ],
+      "people": [
+        "Nikola Tesla",
+        "John G. Trump"
+      ],
+      "institutions": [
+        "Office of Alien Property Custodian"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "tesla-papers",
+          "supports": [
+            "1943 examination and attributed assessment"
+          ]
+        }
+      ],
+      "relatedEventIds": [],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reporting inspected",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Only the year of the examination is assigned here; no exact examination or public-release day is inferred.",
+      "entityIds": [
+        "tesla",
+        "john-trump",
+        "alien-property"
+      ]
+    },
+    {
+      "id": "maison-rouge-report",
+      "slug": "maison-rouge-report",
+      "date": {
+        "start": "1944-11-07",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1944-11-07",
+      "title": "An intelligence report recounts the Maison Rouge meeting",
+      "summary": "SHAEF report EW-Pa 128 relayed an informant’s account of an August 10 meeting at Strasbourg’s Rotes Haus, or Maison Rouge.",
+      "significance": "Makes the surviving report, its provenance and its evidentiary limits inspectable.",
+      "established": [
+        "The report describes industrial and military figures discussing postwar economic arrangements and underground activity."
+      ],
+      "limitations": [
+        "It is not a meeting transcript or independent verification of implementation. It does not establish a gathering of “14 bankers,” or a chain connecting the meeting to UFO programs."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Business and financial history"
+      ],
+      "topics": [
+        "Business & wartime finance"
+      ],
+      "people": [],
+      "institutions": [
+        "SHAEF"
+      ],
+      "evidenceTypes": [
+        "Historical record",
+        "Attributed claim"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "red-house-original",
+          "supports": [
+            "report date, attributed meeting date and reported participants"
+          ]
+        },
+        {
+          "sourceId": "red-house-audit",
+          "supports": [
+            "provenance and cautions about interpretation"
+          ]
+        }
+      ],
+      "relatedEventIds": [],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "The timeline sorts on the surviving report date. Its State Department covering dispatch is dated November 27, 1944.",
+      "claimDate": {
+        "start": "1944-08-10",
+        "attribution": "Informant account relayed in SHAEF EW-Pa 128",
+        "note": "Reported meeting date; occurrence and details are not independently established by this report alone."
+      },
+      "entityIds": [
+        "shaef"
+      ]
+    },
+    {
+      "id": "trinity-test",
+      "slug": "trinity-test",
+      "date": {
+        "start": "1945-07-16",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Trinity inaugurates the nuclear-test era",
+      "summary": "The Manhattan Project conducted the Trinity atomic test in New Mexico.",
+      "significance": "Provides a firm reference point for later claims about nuclear facilities and unusual observations.",
+      "established": [
+        "DOE’s chronology records the test on July 16, 1945."
+      ],
+      "limitations": [
+        "Proximity in time or geography is not evidence that nuclear testing caused UFO activity."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific and technical context"
+      ],
+      "topics": [
+        "Nuclear history"
+      ],
+      "people": [],
+      "institutions": [
+        "Manhattan Engineer District"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "doe-chronology",
+          "supports": [
+            "Trinity date and place"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "manhattan-district"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "manhattan"
+      ]
+    },
+    {
+      "id": "aec-established",
+      "slug": "aec-established",
+      "date": {
+        "start": "1946-08-01",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Atomic Energy Act creates the AEC",
+      "summary": "The Atomic Energy Act established the civilian Atomic Energy Commission.",
+      "significance": "Identifies the successor responsible for atomic administration after wartime Army control.",
+      "established": [
+        "Manhattan District assets transferred to the AEC on January 1, 1947."
+      ],
+      "limitations": [
+        "Creation by law and transfer of operations are separate; neither establishes possession of non-human technology."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Nuclear history"
+      ],
+      "people": [],
+      "institutions": [
+        "Atomic Energy Commission"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "aec-history",
+          "supports": [
+            "statutory establishment"
+          ]
+        },
+        {
+          "sourceId": "doe-chronology",
+          "supports": [
+            "January 1, 1947 transfer"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "manhattan-district",
+        "doe-established"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Statutory date August 1, 1946; transfer date January 1, 1947.",
+      "entityIds": [
+        "aec"
+      ]
+    },
+    {
+      "id": "arnold-report",
+      "slug": "arnold-report",
+      "date": {
+        "start": "1947-06-24",
+        "end": null,
+        "precision": "day",
+        "role": "incident"
+      },
+      "incidentDate": "1947-06-24",
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Kenneth Arnold reports objects near Mount Rainier",
+      "summary": "Pilot Kenneth Arnold reported nine objects near Mount Rainier.",
+      "significance": "A prominent starting point for the postwar “flying saucer” reporting wave.",
+      "established": [
+        "NARA’s history identifies the date and reported observation."
+      ],
+      "limitations": [
+        "Estimated speed and the objects’ origin are not calibrated measurements established by this historical summary."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Encounters and observations"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [
+        "Kenneth Arnold"
+      ],
+      "institutions": [],
+      "evidenceTypes": [
+        "Historical record",
+        "Attributed claim"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "date and Arnold report"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "project-sign"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "kenneth-arnold"
+      ]
+    },
+    {
+      "id": "roswell-press-release",
+      "slug": "roswell-press-release",
+      "date": {
+        "start": "1947-07-08",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": "1947-07-08",
+      "publicationDate": null,
+      "title": "Roswell’s flying-disc announcement is followed by a balloon explanation",
+      "summary": "Roswell Army Air Field announced recovery of a “flying disc”; the military then described balloon debris.",
+      "significance": "The contemporary announcement is distinct from later claims about a crash, bodies or retrieval programs.",
+      "established": [
+        "GAO’s records review reproduces and discusses surviving 1947 records."
+      ],
+      "limitations": [
+        "The announcement does not authenticate an extraterrestrial craft. This date is the announcement date, not a proven crash date."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [],
+      "institutions": [
+        "Roswell Army Air Field"
+      ],
+      "evidenceTypes": [
+        "Historical record",
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "gao-roswell",
+          "supports": [
+            "July 8 announcement, subsequent explanation and surviving records"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "roswell-airforce-assessment",
+        "roswell-gao-search"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "roswell"
+      ]
+    },
+    {
+      "id": "national-security-act",
+      "slug": "national-security-act",
+      "date": {
+        "start": "1947-07-26",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The National Security Act reorganizes national defense",
+      "summary": "The 1947 act provided the framework for the National Security Council, CIA and a separate Department of the Air Force.",
+      "significance": "Helps readers distinguish organizations that recur in later intelligence and UFO records.",
+      "established": [
+        "NARA identifies the law and the agencies’ different establishment arrangements."
+      ],
+      "limitations": [
+        "The law’s existence provides no evidence for a hidden UFO mandate."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [],
+      "institutions": [
+        "National Security Council",
+        "Central Intelligence Agency",
+        "United States Air Force"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "nsc-history",
+          "supports": [
+            "NSC establishment under the act"
+          ]
+        },
+        {
+          "sourceId": "cia-history",
+          "supports": [
+            "CIA statutory and effective dates"
+          ]
+        },
+        {
+          "sourceId": "usaf-history",
+          "supports": [
+            "Department of the Air Force establishment"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "cia-established"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "The July 26 law and September implementation dates are not treated as interchangeable.",
+      "entityIds": [
+        "cia",
+        "nsc",
+        "usaf"
+      ]
+    },
+    {
+      "id": "cia-established",
+      "slug": "cia-established",
+      "date": {
+        "start": "1947-09-18",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The CIA begins under the new national-security framework",
+      "summary": "NARA gives September 18 as the CIA’s effective establishment date under the July 26 act.",
+      "significance": "Places later CIA-held records within the correct institutional chronology.",
+      "established": [
+        "The Central Intelligence Group preceded the CIA."
+      ],
+      "limitations": [
+        "A document’s presence in CIA files does not establish CIA authorship, endorsement or a successful operation."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [],
+      "institutions": [
+        "Central Intelligence Agency"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "cia-history",
+          "supports": [
+            "effective date and predecessor"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "oss-established",
+        "national-security-act",
+        "cia-remote-viewing"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "cia"
+      ]
+    },
+    {
+      "id": "project-sign",
+      "slug": "project-sign",
+      "date": {
+        "start": "1947-12-30",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Air Force orders Project Sign",
+      "summary": "An Air Force order initiated a formal UFO study effort.",
+      "significance": "Begins the institutional sequence later associated with Grudge and Blue Book.",
+      "established": [
+        "NARA dates the Sign order to December 30, 1947, and describes its later inconclusive assessment."
+      ],
+      "limitations": [
+        "The order date is not a finding that the reported objects had an exotic origin."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [],
+      "institutions": [
+        "United States Air Force",
+        "Project Sign"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "Sign order and later assessment"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "blue-book-created"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "usaf",
+        "sign"
+      ]
+    },
+    {
+      "id": "blue-book-created",
+      "slug": "blue-book-created",
+      "date": {
+        "start": "1952-03",
+        "end": null,
+        "precision": "month",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Project Blue Book follows Sign and Grudge",
+      "summary": "The Air Force ordered Project Blue Book in March 1952, following its earlier Sign and Grudge studies.",
+      "significance": "Names successive investigations without treating them as one unchanged program.",
+      "established": [
+        "NARA’s chronology identifies the sequence and month."
+      ],
+      "limitations": [
+        "An investigation establishes official attention, not the explanation for every case."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [],
+      "institutions": [
+        "United States Air Force",
+        "Project Blue Book",
+        "Project Grudge"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "March 1952 order and program succession"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "project-sign",
+        "blue-book-closure"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "usaf",
+        "grudge",
+        "bluebook"
+      ]
+    },
+    {
+      "id": "wcc-donovan-memo",
+      "slug": "wcc-donovan-memo",
+      "date": {
+        "start": "1952-04-04",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1952-04-04",
+      "title": "A State Department memo records WCC’s Donovan connection",
+      "summary": "A memorandum discussed a World Commerce Corporation steel-mill proposal and identified General Donovan’s law firm as its representative.",
+      "significance": "Supplies a specific documented business relationship instead of an inferred intelligence network.",
+      "established": [
+        "The contemporaneous memo identifies WCC president Frank Ryan and the representation in this matter."
+      ],
+      "limitations": [
+        "It neither establishes WCC’s exact formation date nor proves OSS ownership, an intelligence mission or a UFO connection."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Business and financial history"
+      ],
+      "topics": [
+        "Business & wartime finance"
+      ],
+      "people": [
+        "William J. Donovan",
+        "Frank Ryan"
+      ],
+      "institutions": [
+        "World Commerce Corporation"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "wcc-memo",
+          "supports": [
+            "WCC proposal, named president and Donovan law-firm representation"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "oss-established"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Date of the memorandum; this is not presented as WCC’s founding date.",
+      "entityIds": [
+        "donovan",
+        "wcc"
+      ]
+    },
+    {
+      "id": "nsa-established",
+      "slug": "nsa-established",
+      "date": {
+        "start": "1952-11-04",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The National Security Agency is established",
+      "summary": "A presidential memorandum dated October 29 established the NSA effective November 4.",
+      "significance": "Distinguishes the signals-intelligence organization from other agencies and similarly named archives.",
+      "established": [
+        "NARA records both authorization and effective dates."
+      ],
+      "limitations": [
+        "Its existence does not authenticate every intercepted or filed account."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [],
+      "institutions": [
+        "National Security Agency"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "nsa-history",
+          "supports": [
+            "authorization and effective dates"
+          ]
+        }
+      ],
+      "relatedEventIds": [],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Authorization October 29; effective November 4, 1952.",
+      "entityIds": [
+        "nsa"
+      ]
+    },
+    {
+      "id": "arpa-established",
+      "slug": "arpa-established",
+      "date": {
+        "start": "1958-02-07",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "ARPA is established for advanced defense research",
+      "summary": "Defense Secretary Neil McElroy established the Advanced Research Projects Agency, later called DARPA.",
+      "significance": "Adds the research institution often invoked in accounts of unusual aerospace technology.",
+      "established": [
+        "DARPA’s history dates establishment to February 7, 1958, in the aftermath of Sputnik."
+      ],
+      "limitations": [
+        "An agency’s research remit is not evidence that a particular speculative technology worked."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy",
+        "Space & SETI"
+      ],
+      "people": [],
+      "institutions": [
+        "DARPA"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "darpa-history",
+          "supports": [
+            "formation date, official and context"
+          ]
+        }
+      ],
+      "relatedEventIds": [],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "darpa"
+      ]
+    },
+    {
+      "id": "nasa-established",
+      "slug": "nasa-established",
+      "date": {
+        "start": "1958-07-29",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Space Act creates NASA",
+      "summary": "The National Aeronautics and Space Act established NASA; transfers from NACA took effect October 1.",
+      "significance": "Distinguishes civilian space research from military and intelligence organizations.",
+      "established": [
+        "NARA records the act and the later transfer date."
+      ],
+      "limitations": [
+        "Space exploration is relevant context; its existence is not evidence of contact."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Space & SETI"
+      ],
+      "people": [],
+      "institutions": [
+        "NASA",
+        "NACA"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "nasa-history",
+          "supports": [
+            "statutory date and October 1 transfer"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "voyager-golden-record",
+        "nasa-study-announced"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Law July 29; operational transfer October 1, 1958.",
+      "entityIds": [
+        "nasa",
+        "naca"
+      ]
+    },
+    {
+      "id": "dia-directive",
+      "slug": "dia-directive",
+      "date": {
+        "start": "1961-08-01",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "A Defense directive establishes the DIA",
+      "summary": "DoD Directive 5105.21 established the Defense Intelligence Agency.",
+      "significance": "Identifies the institution later associated with military remote-viewing programs.",
+      "established": [
+        "NARA records the August 1 directive."
+      ],
+      "limitations": [
+        "This date is the directive, not an independently verified start date for every DIA operation."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [],
+      "institutions": [
+        "Defense Intelligence Agency"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "dia-history",
+          "supports": [
+            "directive and establishment"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "air-remote-viewing-review"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "dia"
+      ]
+    },
+    {
+      "id": "nro-agreement",
+      "slug": "nro-agreement",
+      "date": {
+        "start": "1961-09-06",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1961-09-06",
+      "title": "A letter sets out a covert National Reconnaissance Office",
+      "summary": "A Defense–CIA agreement described an office to manage satellite and aerial reconnaissance.",
+      "significance": "An original record of compartmented human reconnaissance work supplies concrete context for secrecy.",
+      "established": [
+        "The letter specifies proposed management, collection responsibilities and cover arrangements."
+      ],
+      "limitations": [
+        "The documentary edition warns that the co-directorship did not take effect as written. The record does not establish an exotic vehicle program."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [],
+      "institutions": [
+        "National Reconnaissance Office",
+        "Central Intelligence Agency",
+        "United States Air Force"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "nro-agreement",
+          "supports": [
+            "dated letter, office remit and editorial qualification"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "area51-history-release"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "cia",
+        "usaf",
+        "nro"
+      ]
+    },
+    {
+      "id": "blue-book-closure",
+      "slug": "blue-book-closure",
+      "date": {
+        "start": "1969-12-17",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Air Force announces the end of Blue Book",
+      "summary": "The Air Force announced termination of Project Blue Book.",
+      "significance": "Closes a major public investigation while leaving its surviving records available for later scrutiny.",
+      "established": [
+        "The Air Force said the investigation had found no evidence of extraterrestrial vehicles or a national-security threat."
+      ],
+      "limitations": [
+        "That institutional assessment is not a case-by-case resolution of every unidentified report."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Corrections and case resolutions"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [],
+      "institutions": [
+        "United States Air Force",
+        "Project Blue Book"
+      ],
+      "evidenceTypes": [
+        "Institutional assessment",
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "airforce-ufo-facts",
+          "supports": [
+            "termination date and attributed Air Force conclusions"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "blue-book-created"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Announcement December 17, 1969; NARA’s separate history places the end of operations in January 1970.",
+      "entityIds": [
+        "usaf",
+        "bluebook"
+      ]
+    },
+    {
+      "id": "monroe-1971",
+      "slug": "monroe-1971",
+      "date": {
+        "start": "1971",
+        "end": null,
+        "precision": "year",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Robert Monroe publishes his out-of-body account",
+      "summary": "Robert Monroe’s Journeys Out of the Body appeared in 1971, the year the institute’s history also associates with its creation.",
+      "significance": "Provides a dated entry into the Monroe/Gateway strand of consciousness research.",
+      "established": [
+        "The 1983 Army assessment cites the book; the institute describes its own development."
+      ],
+      "limitations": [
+        "An autobiographical account is not a controlled demonstration. The institution’s historical labels do not establish an exact incorporation date."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [
+        "Robert Monroe"
+      ],
+      "institutions": [
+        "Monroe Institute"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "gateway-report",
+          "supports": [
+            "bibliographic publication year"
+          ]
+        },
+        {
+          "sourceId": "monroe-history",
+          "supports": [
+            "institution’s own historical account"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "gateway-assessment"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Year precision only. The source’s 1971 creation language and “since 1973” wording are not collapsed into an invented exact founding day.",
+      "entityIds": [
+        "robert-monroe",
+        "monroe-institute"
+      ]
+    },
+    {
+      "id": "cia-remote-viewing",
+      "slug": "cia-remote-viewing",
+      "date": {
+        "start": "1972",
+        "end": null,
+        "precision": "year",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "CIA begins research on remote viewing",
+      "summary": "AIR’s later program review dates the beginning of CIA remote-viewing research to 1972.",
+      "significance": "Establishes that government-backed investigation occurred, independently of whether the proposed ability worked.",
+      "established": [
+        "The review describes a succession of sponsors and research and operational efforts."
+      ],
+      "limitations": [
+        "Funding and classified handling do not validate paranormal mechanisms. This entry is a retrospective program date, not a contemporaneous public disclosure."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [],
+      "institutions": [
+        "Central Intelligence Agency",
+        "Stanford Research Institute"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "air-final",
+          "supports": [
+            "Chapter 1 program history"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "sri-perceptual-research",
+        "air-remote-viewing-review"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Archival copy read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "cia",
+        "sri"
+      ]
+    },
+    {
+      "id": "sri-perceptual-research",
+      "slug": "sri-perceptual-research",
+      "date": {
+        "start": "1974",
+        "end": "1975-02",
+        "precision": "range",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Puthoff and Targ report SRI remote-viewing experiments",
+      "summary": "An SRI report covering January 1974 through February 1975 describes remote-viewing experiments and argues for useful information transfer.",
+      "significance": "Lets readers compare the researchers’ original claims with later methodological and operational reviews.",
+      "established": [
+        "Harold Puthoff and Russell Targ authored the report and described laboratory and applied work."
+      ],
+      "limitations": [
+        "These are the investigators’ claims. The excerpt is not an independent replication, and its anonymous subject codes are not converted into named participants here."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [
+        "Harold Puthoff",
+        "Russell Targ"
+      ],
+      "institutions": [
+        "Stanford Research Institute"
+      ],
+      "evidenceTypes": [
+        "Scientific assessment",
+        "Attributed claim"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "sri-report",
+          "supports": [
+            "authors, research period, goals and favorable interpretation"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "remote-viewing-review-disagreement",
+        "air-remote-viewing-review"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Archival copy read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Date range is the research period printed on the report, not its exact issue date.",
+      "entityIds": [
+        "sri",
+        "puthoff",
+        "targ"
+      ]
+    },
+    {
+      "id": "inscom-established",
+      "slug": "inscom-established",
+      "date": {
+        "start": "1977-01-01",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Army consolidates intelligence functions in INSCOM",
+      "summary": "The Army formed Intelligence and Security Command under a December 30, 1976 general order.",
+      "significance": "Identifies the command on the later Gateway assessment.",
+      "established": [
+        "NARA dates consolidation to January 1, 1977."
+      ],
+      "limitations": [
+        "The command’s formation is not the start date of every later consciousness or remote-viewing project."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [],
+      "institutions": [
+        "U.S. Army INSCOM"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "nsa-history",
+          "supports": [
+            "Army intelligence consolidation history in 457.2"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "gateway-assessment"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "inscom"
+      ]
+    },
+    {
+      "id": "voyager-golden-record",
+      "slug": "voyager-golden-record",
+      "date": {
+        "start": "1977",
+        "end": null,
+        "precision": "year",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Voyager carries a message selected by Sagan’s committee",
+      "summary": "The Voyager spacecraft launched with records representing life and culture on Earth. Carl Sagan chaired the selection committee.",
+      "significance": "Shows an explicit scientific and cultural engagement with the possibility of extraterrestrial intelligence.",
+      "established": [
+        "NASA documents the mission and Sagan’s selection role."
+      ],
+      "limitations": [
+        "Sending a message does not establish that it was received, or that extraterrestrial life has been detected."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific and technical context"
+      ],
+      "topics": [
+        "Space & SETI"
+      ],
+      "people": [
+        "Carl Sagan"
+      ],
+      "institutions": [
+        "NASA",
+        "Voyager"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "voyager-record",
+          "supports": [
+            "Sagan committee role"
+          ]
+        },
+        {
+          "sourceId": "voyager-overview",
+          "supports": [
+            "1977 launches and record purpose"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nasa-established"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Year-level entry groups the two launches rather than assigning one spacecraft’s launch day to both.",
+      "entityIds": [
+        "nasa",
+        "sagan",
+        "voyager"
+      ]
+    },
+    {
+      "id": "doe-established",
+      "slug": "doe-established",
+      "date": {
+        "start": "1977-10-01",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Department of Energy begins operations",
+      "summary": "DOE became effective October 1 under the August 4 Department of Energy Organization Act.",
+      "significance": "Places atomic administration within its later institutional structure.",
+      "established": [
+        "NARA records the consolidation of ERDA, FEA and other functions."
+      ],
+      "limitations": [
+        "DOE is not simply the AEC renamed; intermediate reorganizations matter."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Institutional history"
+      ],
+      "topics": [
+        "Nuclear history"
+      ],
+      "people": [],
+      "institutions": [
+        "Department of Energy",
+        "Energy Research and Development Administration"
+      ],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "doe-history",
+          "supports": [
+            "law, effective date and predecessor functions"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "aec-established"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Enabling law August 4; effective establishment October 1, 1977.",
+      "entityIds": [
+        "doe",
+        "erda"
+      ]
+    },
+    {
+      "id": "gateway-assessment",
+      "slug": "gateway-assessment",
+      "date": {
+        "start": "1983-06-09",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1983-06-09",
+      "title": "An Army officer assesses the Gateway Process",
+      "summary": "Wayne McDonnell prepared an INSCOM assessment of Monroe’s Gateway training, proposing an account of its mechanisms and further experimentation.",
+      "significance": "The surviving record makes an often-misidentified document available in its actual institutional context.",
+      "established": [
+        "It is an Army-authored assessment preserved among CIA-released records."
+      ],
+      "limitations": [
+        "Its speculative physical models and proposed experiments do not establish out-of-body perception, a new physics theory or NHI contact."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [
+        "Wayne McDonnell",
+        "Robert Monroe"
+      ],
+      "institutions": [
+        "U.S. Army INSCOM",
+        "Monroe Institute"
+      ],
+      "evidenceTypes": [
+        "Institutional assessment",
+        "Attributed claim"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "gateway-report",
+          "supports": [
+            "author, date, Army provenance, stated task and conclusions"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "monroe-1971",
+        "inscom-established"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Archival copy read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "The report date is distinct from its September 10, 2003 release-approval stamp. That stamp is not treated as a verified first public-posting date.",
+      "entityIds": [
+        "robert-monroe",
+        "monroe-institute",
+        "inscom",
+        "mcdonnell"
+      ]
+    },
+    {
+      "id": "roswell-airforce-assessment",
+      "slug": "roswell-airforce-assessment",
+      "date": {
+        "start": "1994-09-08",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The Air Force announces its Roswell assessment",
+      "summary": "The Air Force said the recovered material was consistent with debris from a classified balloon project.",
+      "significance": "Records the agency’s explanation separately from both the 1947 announcement and GAO’s later search.",
+      "established": [
+        "NARA’s archival guidance preserves the date and the Air Force’s attributed conclusion."
+      ],
+      "limitations": [
+        "An official assessment should be evaluated against its supporting records; the institutional conclusion alone does not answer every later claim."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Corrections and case resolutions"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [],
+      "institutions": [
+        "United States Air Force"
+      ],
+      "evidenceTypes": [
+        "Institutional assessment",
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "airforce-ufo-facts",
+          "supports": [
+            "September 8 announcement and balloon-project assessment"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "roswell-press-release",
+        "roswell-gao-search"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Historical source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "usaf"
+      ]
+    },
+    {
+      "id": "roswell-gao-search",
+      "slug": "roswell-gao-search",
+      "date": {
+        "start": "1995-07-28",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1995-07-28",
+      "title": "GAO reports what its Roswell records search found",
+      "summary": "GAO issued a report on its search for government records about the 1947 Roswell incident.",
+      "significance": "Separates archival findings and gaps from theories offered to explain them.",
+      "established": [
+        "The search found contemporary records and identified destroyed administrative files."
+      ],
+      "limitations": [
+        "The destruction forms did not establish who destroyed the files or under what authority. That gap does not itself establish concealment of extraterrestrial evidence."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [],
+      "institutions": [
+        "U.S. General Accounting Office"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "gao-roswell",
+          "supports": [
+            "report date, search findings and destruction-record limitation"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "roswell-press-release",
+        "roswell-airforce-assessment"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "gao"
+      ]
+    },
+    {
+      "id": "remote-viewing-review-disagreement",
+      "slug": "remote-viewing-review-disagreement",
+      "date": {
+        "start": "1995-09-11",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1995-09-11",
+      "title": "Remote-viewing reviewers disagree about what the statistics show",
+      "summary": "Ray Hyman’s dated assessment challenged Jessica Utts’s interpretation of the SRI/SAIC evidence.",
+      "significance": "Preserves a substantive scientific disagreement rather than presenting a single government verdict.",
+      "established": [
+        "Utts argued for anomalous cognition; Hyman accepted statistical departures in the reviewed work but required stronger independent replication before attributing them to a paranormal ability."
+      ],
+      "limitations": [
+        "Statistical significance, causal mechanism and intelligence usefulness are separate claims."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [
+        "Jessica Utts",
+        "Ray Hyman",
+        "Edwin May"
+      ],
+      "institutions": [
+        "Stanford Research Institute",
+        "SAIC"
+      ],
+      "evidenceTypes": [
+        "Scientific assessment"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "utts-assessment",
+          "supports": [
+            "Utts’s assessment and replication discussion"
+          ]
+        },
+        {
+          "sourceId": "hyman-assessment",
+          "supports": [
+            "dated evaluation and methodological disagreement"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "sri-perceptual-research",
+        "air-remote-viewing-review"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "September 11 dates Hyman’s evaluation; Utts’s standalone assessment is dated only to 1995 here. It is not a joint publication date.",
+      "entityIds": [
+        "sri",
+        "utts",
+        "hyman",
+        "edwin-may",
+        "saic"
+      ]
+    },
+    {
+      "id": "air-remote-viewing-review",
+      "slug": "air-remote-viewing-review",
+      "date": {
+        "start": "1995-09-29",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1995-09-29",
+      "title": "AIR’s final review advises against intelligence use of remote viewing",
+      "summary": "The CIA-commissioned AIR evaluation distinguished laboratory results from intelligence usefulness and recommended against continuation.",
+      "significance": "Provides a direct record of the review’s methods, competing assessments and institutional recommendation.",
+      "established": [
+        "AIR found statistical effects but no unambiguous paranormal cause; the operational review found no demonstrated actionable intelligence in the material it evaluated."
+      ],
+      "limitations": [
+        "This is the reviewers’ conclusion about the reviewed program, not a proof that all conceivable consciousness effects are impossible. It is not itself a termination order."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [
+        "Jessica Utts",
+        "Ray Hyman"
+      ],
+      "institutions": [
+        "American Institutes for Research",
+        "Central Intelligence Agency",
+        "Defense Intelligence Agency",
+        "STAR GATE"
+      ],
+      "evidenceTypes": [
+        "Scientific assessment",
+        "Institutional assessment"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "air-final",
+          "supports": [
+            "final-report date, scope, executive conclusions and recommendation"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "remote-viewing-review-disagreement",
+        "cia-remote-viewing"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Archival copy read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Final report September 29; a September 22 draft is a separate version. No exact declassification announcement or closure day is inferred from either.",
+      "entityIds": [
+        "cia",
+        "dia",
+        "utts",
+        "hyman",
+        "air",
+        "stargate"
+      ]
+    },
+    {
+      "id": "area51-history-release",
+      "slug": "area51-history-release",
+      "date": {
+        "start": "2013-08-15",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "2013-08-15",
+      "title": "A FOIA release adds detail to the CIA history of Area 51",
+      "summary": "The National Security Archive published its account of a less-redacted CIA history of U-2 and OXCART reconnaissance.",
+      "significance": "Offers a documented example of secrecy around human aircraft and a later, traceable disclosure.",
+      "established": [
+        "The FOIA recipient identified newly visible names, locations and program details, including Groom Lake/Area 51."
+      ],
+      "limitations": [
+        "The archive is nongovernmental. A real test site and classified aircraft do not authenticate claims of alien reverse engineering; the entire CIA history has not been independently audited here."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases"
+      ],
+      "topics": [
+        "Intelligence & secrecy"
+      ],
+      "people": [],
+      "institutions": [
+        "Central Intelligence Agency",
+        "National Security Archive",
+        "Area 51"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "area51-release",
+          "supports": [
+            "recipient’s publication date, provenance and described changes"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nro-agreement"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Release review approved June 25, 2013; the recipient’s public account is dated August 15.",
+      "entityIds": [
+        "cia",
+        "area51",
+        "security-archive"
+      ]
+    },
+    {
+      "id": "vallee-rice-donation",
+      "slug": "vallee-rice-donation",
+      "date": {
+        "start": "2016-12",
+        "end": null,
+        "precision": "month",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Vallée begins donating research papers to Rice",
+      "summary": "Rice’s finding aid dates the beginning of Jacques Vallée’s donations to December 2016.",
+      "significance": "Creates a documented archival trail for a major UFO researcher while making access limits explicit.",
+      "established": [
+        "The catalog describes correspondence, background files and notes, including material concerning NIDS and BAASS."
+      ],
+      "limitations": [
+        "A finding aid is not access to the files or validation of their contents. The catalog lists separate future opening dates for restricted series."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [
+        "Jacques Vallée"
+      ],
+      "institutions": [
+        "Rice University",
+        "NIDS",
+        "BAASS"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "vallee-finding-aid",
+          "supports": [
+            "acquisition month, collection scope and access restrictions"
+          ]
+        }
+      ],
+      "relatedEventIds": [],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Donation month is distinct from the collection’s 1960–2015 content dates and the finding aid’s 2019 date.",
+      "entityIds": [
+        "vallee",
+        "rice",
+        "nids",
+        "baass"
+      ]
+    },
+    {
+      "id": "magenta-claim-retelling",
+      "slug": "magenta-claim-retelling",
+      "date": {
+        "start": "2017-03-21",
+        "end": null,
+        "precision": "day",
+        "role": "reporting"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "2017-03-21",
+      "title": "A dated retelling of the alleged 1933 Italian recovery",
+      "summary": "An Italian report relayed Roberto Pinotti’s account of an alleged 1933 object recovery near Vergiate, often discussed as the Magenta story.",
+      "significance": "Preserves the history of a consequential allegation without moving an unverified crash into the factual chronology.",
+      "established": [
+        "The inspected article establishes that this account was publicly reported by March 2017."
+      ],
+      "limitations": [
+        "No authenticated 1933 incident record, cabinet record or custody chain was inspected. Repeated stories drawing on Pinotti are not independent corroboration."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [
+        "Roberto Pinotti"
+      ],
+      "institutions": [
+        "RS/33 (alleged)"
+      ],
+      "evidenceTypes": [
+        "Attributed claim",
+        "Reporting inspected"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "magenta-report",
+          "supports": [
+            "dated publication and attribution to Pinotti"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "grusch-public"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reporting inspected",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "The article is a verified dated retelling, not the earliest-ever public account. Later Grusch statements do not retroactively authenticate the 1933 story.",
+      "claimDate": {
+        "start": "1933-06-13",
+        "attribution": "Roberto Pinotti’s account as retold in the inspected 2017 article",
+        "note": "Alleged incident date, not established fact; not used as this event’s sorting date."
+      },
+      "entityIds": [
+        "pinotti",
+        "rs33"
+      ]
+    },
+    {
+      "id": "mcmoneagle-monroe-account",
+      "slug": "mcmoneagle-monroe-account",
+      "date": {
+        "start": "2017-07-29",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "2017-07-29",
+      "title": "The Monroe Institute describes McMoneagle’s role",
+      "summary": "An institute post describes Joe McMoneagle as an Army remote viewer and recounts his work with Robert Monroe.",
+      "significance": "Adds an inspectable institutional account for a central figure, with the author’s relationship disclosed.",
+      "established": [
+        "The post documents what institute leadership said about McMoneagle and its training."
+      ],
+      "limitations": [
+        "It was written by his spouse, Nancy McMoneagle. It does not independently establish claimed operational successes, near-death experiences or paranormal mechanisms."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [
+        "Joe McMoneagle",
+        "Robert Monroe",
+        "Nancy McMoneagle"
+      ],
+      "institutions": [
+        "Monroe Institute"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "monroe-mcmoneagle",
+          "supports": [
+            "date, author, described roles and collaboration"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "gateway-assessment",
+        "air-remote-viewing-review"
+      ],
+      "addedAt": "2026-09-19T19:46:38Z",
+      "revisedAt": "2026-09-19T19:46:38Z",
+      "lastVerifiedAt": "2026-09-19T19:46:38Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "The webpage publication is July 29 despite the title’s “August 2017.” No unsupported start date for the described collaboration is assigned.",
+      "entityIds": [
+        "robert-monroe",
+        "monroe-institute",
+        "mcmoneagle"
+      ]
+    },
+    {
+      "id": "center-lane-human-review",
+      "slug": "center-lane-human-review",
+      "date": {
+        "start": "1984-03-26",
+        "end": null,
+        "precision": "day",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1984-03-26",
+      "title": "An Army memo seeks human-use review of CENTER LANE",
+      "summary": "INSCOM’s CENTER LANE project manager recommended review of the program’s protocol by its Human Technology Review Board.",
+      "significance": "Separates named Army programs and their oversight history from the broader “Stargate” shorthand.",
+      "established": [
+        "The memo says INSCOM GRILL FLAME activity ceased in September 1982 and psychoenergetic activity restarted under CENTER LANE in December 1982."
+      ],
+      "limitations": [
+        "The memorandum’s administrative classifications and approvals do not establish that remote viewing worked. It is not an independent legal assessment of the entire program."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Hearings and oversight"
+      ],
+      "topics": [
+        "Remote viewing & consciousness"
+      ],
+      "people": [
+        "Brian Buzby"
+      ],
+      "institutions": [
+        "U.S. Army INSCOM",
+        "GRILL FLAME",
+        "CENTER LANE"
+      ],
+      "evidenceTypes": [
+        "Institutional record",
+        "Historical record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "center-lane-review",
+          "supports": [
+            "date, author, recommendation and stated program transitions"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "inscom-established",
+        "air-remote-viewing-review"
+      ],
+      "addedAt": "2026-09-19T19:57:57Z",
+      "revisedAt": "2026-09-19T19:57:57Z",
+      "lastVerifiedAt": "2026-09-19T19:57:57Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Archival copy read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "The entry sorts on the memorandum date. Its account places the Army transition in December 1982; no invented day or universal start date for all programs is used.",
+      "entityIds": [
+        "inscom",
+        "grill-flame",
+        "center-lane",
+        "buzby"
+      ]
+    },
+    {
+      "id": "lazar-klas-interview",
+      "slug": "lazar-klas-interview",
+      "date": {
+        "start": "1989-05-15",
+        "end": null,
+        "precision": "day",
+        "role": "reporting"
+      },
+      "incidentDate": null,
+      "disclosureDate": "1989-05-15",
+      "publicationDate": "2019-05-16",
+      "title": "Lazar’s anonymous television interview makes a recovery claim public",
+      "summary": "KLAS aired an interview with Bob Lazar, using the name “Dennis,” alleging military study of alien technology in Nevada.",
+      "significance": "A consequential moment in the public history of reverse-engineering allegations.",
+      "established": [
+        "The broadcaster’s retrospective dates the interview and preserves excerpts of the claims, with reporting by George Knapp."
+      ],
+      "limitations": [
+        "Broadcasting the claim does not establish Lazar’s claimed employment, a recovered craft or the described propulsion. Later Navy footage is not independent authentication of this story."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "topics": [
+        "UFO reports & disclosure"
+      ],
+      "people": [
+        "Bob Lazar",
+        "George Knapp"
+      ],
+      "institutions": [
+        "KLAS-TV"
+      ],
+      "evidenceTypes": [
+        "Original reporting",
+        "Attributed claim"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "lazar-klas-retrospective",
+          "supports": [
+            "original interview date, pseudonym, allegation and broadcaster attribution"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "area51-history-release"
+      ],
+      "addedAt": "2026-09-19T19:57:57Z",
+      "revisedAt": "2026-09-19T19:57:57Z",
+      "lastVerifiedAt": "2026-09-19T19:57:57Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reporting inspected",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "dateNotes": "Historical broadcast date comes from the broadcaster’s inspected retrospective. The later upload date remains separate.",
+      "entityIds": [
+        "lazar",
+        "knapp",
+        "klas"
+      ]
     }
   ],
   "changeLog": [
@@ -2302,6 +5562,1580 @@
       "eventIds": [
         "nasa-public-meeting-2023"
       ]
+    },
+    {
+      "id": "2026-09-19-historical-expansion",
+      "date": "2026-09-19",
+      "title": "A historical layer, with provenance kept visible",
+      "detail": "Added selected historical milestones and a sourced people/programs index. Modern disclosure remains the default. The Maison Rouge report is an attributed intelligence account; UBC and BBH remain distinct; Gateway is Army-authored; Magenta sorts on a verified later retelling rather than an unverified 1933 crash. AIR’s final review is distinguished from its earlier draft. These are historical additions, not new incidents.",
+      "eventIds": [
+        "maison-rouge-report",
+        "union-banking-vesting",
+        "gateway-assessment",
+        "magenta-claim-retelling",
+        "air-remote-viewing-review"
+      ]
     }
-  ]
+  ],
+  "entities": [
+    {
+      "id": "leonardo",
+      "name": "Leonardo da Vinci",
+      "aliases": [
+        "Da Vinci",
+        "Leonardo"
+      ],
+      "type": "person",
+      "description": "Author of the flight notebook discussed in Smithsonian’s historical account.",
+      "eventIds": [
+        "leonardo-flight-notebook"
+      ],
+      "sources": [
+        {
+          "sourceId": "leonardo-flight",
+          "supports": [
+            "Author of the flight notebook discussed in Smithsonian’s historical account."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "einstein",
+      "name": "Albert Einstein",
+      "aliases": [
+        "Einstein"
+      ],
+      "type": "person",
+      "description": "Signer of the 1939 letter warning Roosevelt about nuclear research.",
+      "eventIds": [
+        "einstein-szilard-letter"
+      ],
+      "sources": [
+        {
+          "sourceId": "doe-chronology",
+          "supports": [
+            "Signer of the 1939 letter warning Roosevelt about nuclear research."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "szilard",
+      "name": "Leo Szilard",
+      "aliases": [
+        "Szilárd"
+      ],
+      "type": "person",
+      "description": "Scientist involved in preparing the 1939 Einstein letter.",
+      "eventIds": [
+        "einstein-szilard-letter"
+      ],
+      "sources": [
+        {
+          "sourceId": "doe-chronology",
+          "supports": [
+            "Scientist involved in preparing the 1939 Einstein letter."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tesla",
+      "name": "Nikola Tesla",
+      "aliases": [
+        "Tesla"
+      ],
+      "type": "person",
+      "description": "Inventor whose papers were examined after his death in the PBS account.",
+      "eventIds": [
+        "tesla-papers-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "tesla-papers",
+          "supports": [
+            "Inventor whose papers were examined after his death in the PBS account."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "john-trump",
+      "name": "John G. Trump",
+      "aliases": [
+        "John Trump"
+      ],
+      "type": "person",
+      "description": "Electrical engineer credited with examining Tesla’s papers in the inspected PBS account.",
+      "eventIds": [
+        "tesla-papers-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "tesla-papers",
+          "supports": [
+            "Electrical engineer credited with examining Tesla’s papers in the inspected PBS account."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prescott-bush",
+      "name": "Prescott Bush",
+      "aliases": [
+        "Prescott S. Bush"
+      ],
+      "type": "person",
+      "description": "BBH’s history describes his private-client work; the separate UBC order lists one registered share in his name.",
+      "eventIds": [
+        "bbh-formation",
+        "union-banking-vesting"
+      ],
+      "sources": [
+        {
+          "sourceId": "ubc-order",
+          "supports": [
+            "BBH’s history describes his private-client work; the separate UBC order lists one registered share in his name."
+          ]
+        },
+        {
+          "sourceId": "bbh-prescott",
+          "supports": [
+            "BBH private-client role"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harriman",
+      "name": "E. Roland Harriman",
+      "aliases": [
+        "Edward Roland Harriman"
+      ],
+      "type": "person",
+      "description": "Named registered shareholder in the 1942 Union Banking vesting order.",
+      "eventIds": [
+        "union-banking-vesting"
+      ],
+      "sources": [
+        {
+          "sourceId": "ubc-order",
+          "supports": [
+            "Named registered shareholder in the 1942 Union Banking vesting order."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bbh",
+      "name": "Brown Brothers Harriman",
+      "aliases": [
+        "BBH"
+      ],
+      "type": "organization",
+      "description": "Banking firm whose own chronology dates the combined business to 1931.",
+      "eventIds": [
+        "bbh-formation"
+      ],
+      "sources": [
+        {
+          "sourceId": "bbh-timeline",
+          "supports": [
+            "Banking firm whose own chronology dates the combined business to 1931."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ubc",
+      "name": "Union Banking Corporation",
+      "aliases": [
+        "UBC"
+      ],
+      "type": "organization",
+      "description": "New York corporation whose capital stock was covered by Vesting Order 248.",
+      "eventIds": [
+        "union-banking-vesting"
+      ],
+      "sources": [
+        {
+          "sourceId": "ubc-order",
+          "supports": [
+            "New York corporation whose capital stock was covered by Vesting Order 248."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alien-property",
+      "name": "Office of Alien Property Custodian",
+      "aliases": [
+        "Alien Property Custodian",
+        "OAP",
+        "APC"
+      ],
+      "type": "organization",
+      "description": "Wartime property authority that issued the Union Banking vesting order. “Alien” here concerns nationality, not extraterrestrial origin.",
+      "eventIds": [
+        "union-banking-vesting",
+        "tesla-papers-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "ubc-order",
+          "supports": [
+            "Wartime property authority that issued the Union Banking vesting order. “Alien” here concerns nationality, not extraterrestrial origin."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donovan",
+      "name": "William J. Donovan",
+      "aliases": [
+        "William Donovan",
+        "Wild Bill Donovan",
+        "General Donovan"
+      ],
+      "type": "person",
+      "description": "Associated with OSS leadership; a 1952 State memo identifies his law firm as WCC’s representative.",
+      "eventIds": [
+        "oss-established",
+        "wcc-donovan-memo"
+      ],
+      "sources": [
+        {
+          "sourceId": "wcc-memo",
+          "supports": [
+            "Associated with OSS leadership; a 1952 State memo identifies his law firm as WCC’s representative."
+          ]
+        },
+        {
+          "sourceId": "oss-history",
+          "supports": [
+            "OSS leadership context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wcc",
+      "name": "World Commerce Corporation",
+      "aliases": [
+        "WCC"
+      ],
+      "type": "organization",
+      "description": "Business identified in the April 1952 State memorandum; exact incorporation date remains unverified here.",
+      "eventIds": [
+        "wcc-donovan-memo"
+      ],
+      "sources": [
+        {
+          "sourceId": "wcc-memo",
+          "supports": [
+            "Business identified in the April 1952 State memorandum; exact incorporation date remains unverified here."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oss",
+      "name": "Office of Strategic Services",
+      "aliases": [
+        "OSS"
+      ],
+      "type": "organization",
+      "description": "Wartime intelligence organization established in 1942 and abolished in 1945.",
+      "eventIds": [
+        "oss-established"
+      ],
+      "sources": [
+        {
+          "sourceId": "oss-history",
+          "supports": [
+            "Wartime intelligence organization established in 1942 and abolished in 1945."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shaef",
+      "name": "SHAEF",
+      "aliases": [
+        "Supreme Headquarters Allied Expeditionary Force",
+        "EW-Pa 128",
+        "Maison Rouge",
+        "Red House",
+        "Rotes Haus"
+      ],
+      "type": "organization",
+      "description": "Headquarters whose economic intelligence section produced the Maison Rouge report.",
+      "eventIds": [
+        "maison-rouge-report"
+      ],
+      "sources": [
+        {
+          "sourceId": "red-house-original",
+          "supports": [
+            "Headquarters whose economic intelligence section produced the Maison Rouge report."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manhattan",
+      "name": "Manhattan Engineer District",
+      "aliases": [
+        "MED",
+        "Manhattan Project"
+      ],
+      "type": "program",
+      "description": "Army administrative district for the wartime atomic-bomb project.",
+      "eventIds": [
+        "manhattan-district",
+        "trinity-test"
+      ],
+      "sources": [
+        {
+          "sourceId": "aec-history",
+          "supports": [
+            "Army administrative district for the wartime atomic-bomb project."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aec",
+      "name": "Atomic Energy Commission",
+      "aliases": [
+        "AEC"
+      ],
+      "type": "organization",
+      "description": "Civilian atomic agency established by the 1946 Atomic Energy Act.",
+      "eventIds": [
+        "aec-established"
+      ],
+      "sources": [
+        {
+          "sourceId": "aec-history",
+          "supports": [
+            "Civilian atomic agency established by the 1946 Atomic Energy Act."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doe",
+      "name": "Department of Energy",
+      "aliases": [
+        "DOE"
+      ],
+      "type": "organization",
+      "description": "Department established effective October 1, 1977, incorporating multiple predecessor functions.",
+      "eventIds": [
+        "doe-established"
+      ],
+      "sources": [
+        {
+          "sourceId": "doe-history",
+          "supports": [
+            "Department established effective October 1, 1977, incorporating multiple predecessor functions."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erda",
+      "name": "Energy Research and Development Administration",
+      "aliases": [
+        "ERDA"
+      ],
+      "type": "organization",
+      "description": "A predecessor whose functions were consolidated into DOE in 1977.",
+      "eventIds": [
+        "doe-established"
+      ],
+      "sources": [
+        {
+          "sourceId": "doe-history",
+          "supports": [
+            "A predecessor whose functions were consolidated into DOE in 1977."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cia",
+      "name": "Central Intelligence Agency",
+      "aliases": [
+        "CIA"
+      ],
+      "type": "organization",
+      "description": "Agency established effective September 18, 1947; author, sponsor and custodian roles must be distinguished by document.",
+      "eventIds": [
+        "national-security-act",
+        "cia-established",
+        "nro-agreement",
+        "cia-remote-viewing",
+        "air-remote-viewing-review",
+        "area51-history-release"
+      ],
+      "sources": [
+        {
+          "sourceId": "cia-history",
+          "supports": [
+            "Agency established effective September 18, 1947; author, sponsor and custodian roles must be distinguished by document."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nsc",
+      "name": "National Security Council",
+      "aliases": [
+        "NSC"
+      ],
+      "type": "organization",
+      "description": "National-security coordinating body created under the 1947 act.",
+      "eventIds": [
+        "national-security-act"
+      ],
+      "sources": [
+        {
+          "sourceId": "nsc-history",
+          "supports": [
+            "National-security coordinating body created under the 1947 act."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usaf",
+      "name": "United States Air Force",
+      "aliases": [
+        "USAF",
+        "U.S. Air Force",
+        "Air Force"
+      ],
+      "type": "organization",
+      "description": "Military service associated with the Sign, Grudge and Blue Book investigations.",
+      "eventIds": [
+        "national-security-act",
+        "project-sign",
+        "blue-book-created",
+        "nro-agreement",
+        "blue-book-closure",
+        "roswell-airforce-assessment"
+      ],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "Military service associated with the Sign, Grudge and Blue Book investigations."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nsa",
+      "name": "National Security Agency",
+      "aliases": [
+        "NSA"
+      ],
+      "type": "organization",
+      "description": "Signals-intelligence agency established effective November 4, 1952. Distinct from the National Security Archive.",
+      "eventIds": [
+        "nsa-established"
+      ],
+      "sources": [
+        {
+          "sourceId": "nsa-history",
+          "supports": [
+            "Signals-intelligence agency established effective November 4, 1952. Distinct from the National Security Archive."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dia",
+      "name": "Defense Intelligence Agency",
+      "aliases": [
+        "DIA"
+      ],
+      "type": "organization",
+      "description": "Defense intelligence agency established by directive in August 1961.",
+      "eventIds": [
+        "dia-directive",
+        "air-remote-viewing-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "dia-history",
+          "supports": [
+            "Defense intelligence agency established by directive in August 1961."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nro",
+      "name": "National Reconnaissance Office",
+      "aliases": [
+        "NRO",
+        "National Reconnaissance Program",
+        "NRP"
+      ],
+      "type": "organization",
+      "description": "Office set out in the 1961 Defense–CIA reconnaissance agreement.",
+      "eventIds": [
+        "nro-agreement"
+      ],
+      "sources": [
+        {
+          "sourceId": "nro-agreement",
+          "supports": [
+            "Office set out in the 1961 Defense–CIA reconnaissance agreement."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "darpa",
+      "name": "DARPA",
+      "aliases": [
+        "ARPA",
+        "Defense Advanced Research Projects Agency",
+        "Advanced Research Projects Agency"
+      ],
+      "type": "organization",
+      "description": "Defense research agency established as ARPA in February 1958.",
+      "eventIds": [
+        "arpa-established"
+      ],
+      "sources": [
+        {
+          "sourceId": "darpa-history",
+          "supports": [
+            "Defense research agency established as ARPA in February 1958."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nasa",
+      "name": "NASA",
+      "aliases": [
+        "National Aeronautics and Space Administration"
+      ],
+      "type": "organization",
+      "description": "Civilian space agency created by the 1958 Space Act.",
+      "eventIds": [
+        "nasa-study-announced",
+        "nasa-report",
+        "nasa-public-meeting-2023",
+        "nasa-established",
+        "voyager-golden-record"
+      ],
+      "sources": [
+        {
+          "sourceId": "nasa-history",
+          "supports": [
+            "Civilian space agency created by the 1958 Space Act."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "naca",
+      "name": "NACA",
+      "aliases": [
+        "National Advisory Committee for Aeronautics"
+      ],
+      "type": "organization",
+      "description": "Aeronautics organization whose functions transferred into NASA.",
+      "eventIds": [
+        "nasa-established"
+      ],
+      "sources": [
+        {
+          "sourceId": "nasa-history",
+          "supports": [
+            "Aeronautics organization whose functions transferred into NASA."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sagan",
+      "name": "Carl Sagan",
+      "aliases": [
+        "Sagan"
+      ],
+      "type": "person",
+      "description": "Chair of the committee selecting the Voyager Golden Record’s contents.",
+      "eventIds": [
+        "voyager-golden-record"
+      ],
+      "sources": [
+        {
+          "sourceId": "voyager-record",
+          "supports": [
+            "Chair of the committee selecting the Voyager Golden Record’s contents."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "voyager",
+      "name": "Voyager",
+      "aliases": [
+        "Golden Record"
+      ],
+      "type": "program",
+      "description": "NASA spacecraft carrying records representing life and culture on Earth.",
+      "eventIds": [
+        "voyager-golden-record"
+      ],
+      "sources": [
+        {
+          "sourceId": "voyager-overview",
+          "supports": [
+            "NASA spacecraft carrying records representing life and culture on Earth."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kenneth-arnold",
+      "name": "Kenneth Arnold",
+      "aliases": [
+        "Arnold"
+      ],
+      "type": "person",
+      "description": "Pilot whose June 1947 report appears in NARA’s account of the postwar UFO investigations.",
+      "eventIds": [
+        "arnold-report"
+      ],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "Pilot whose June 1947 report appears in NARA’s account of the postwar UFO investigations."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sign",
+      "name": "Project Sign",
+      "aliases": [
+        "Sign"
+      ],
+      "type": "program",
+      "description": "Air Force UFO study ordered in December 1947.",
+      "eventIds": [
+        "project-sign"
+      ],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "Air Force UFO study ordered in December 1947."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grudge",
+      "name": "Project Grudge",
+      "aliases": [
+        "Grudge"
+      ],
+      "type": "program",
+      "description": "Air Force UFO study between Sign and Blue Book in NARA’s chronology.",
+      "eventIds": [
+        "blue-book-created"
+      ],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "Air Force UFO study between Sign and Blue Book in NARA’s chronology."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bluebook",
+      "name": "Project Blue Book",
+      "aliases": [
+        "Blue Book",
+        "Bluebook"
+      ],
+      "type": "program",
+      "description": "Air Force UFO investigation ordered in March 1952; termination announced in December 1969.",
+      "eventIds": [
+        "blue-book-created",
+        "blue-book-closure"
+      ],
+      "sources": [
+        {
+          "sourceId": "bluebook-history",
+          "supports": [
+            "Air Force UFO investigation ordered in March 1952; termination announced in December 1969."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roswell",
+      "name": "Roswell Army Air Field",
+      "aliases": [
+        "RAAF",
+        "Roswell"
+      ],
+      "type": "organization",
+      "description": "Army air field that issued the July 1947 recovery announcement.",
+      "eventIds": [
+        "roswell-press-release"
+      ],
+      "sources": [
+        {
+          "sourceId": "gao-roswell",
+          "supports": [
+            "Army air field that issued the July 1947 recovery announcement."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gao",
+      "name": "U.S. General Accounting Office",
+      "aliases": [
+        "GAO",
+        "Government Accountability Office"
+      ],
+      "type": "organization",
+      "description": "Auditing institution that issued the 1995 Roswell records-search report under its then-current name.",
+      "eventIds": [
+        "roswell-gao-search"
+      ],
+      "sources": [
+        {
+          "sourceId": "gao-roswell",
+          "supports": [
+            "Auditing institution that issued the 1995 Roswell records-search report under its then-current name."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "robert-monroe",
+      "name": "Robert Monroe",
+      "aliases": [
+        "Bob Monroe",
+        "Robert A. Monroe"
+      ],
+      "type": "person",
+      "description": "Author of Journeys Out of the Body and central figure in the institute’s history and Gateway assessment.",
+      "eventIds": [
+        "monroe-1971",
+        "gateway-assessment",
+        "mcmoneagle-monroe-account"
+      ],
+      "sources": [
+        {
+          "sourceId": "gateway-report",
+          "supports": [
+            "Author of Journeys Out of the Body and central figure in the institute’s history and Gateway assessment."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monroe-institute",
+      "name": "Monroe Institute",
+      "aliases": [
+        "The Monroe Institute",
+        "TMI",
+        "Gateway",
+        "Hemi-Sync"
+      ],
+      "type": "organization",
+      "description": "Organization describing the training considered in the Army’s 1983 Gateway assessment.",
+      "eventIds": [
+        "monroe-1971",
+        "gateway-assessment",
+        "mcmoneagle-monroe-account"
+      ],
+      "sources": [
+        {
+          "sourceId": "gateway-report",
+          "supports": [
+            "Organization describing the training considered in the Army’s 1983 Gateway assessment."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inscom",
+      "name": "U.S. Army INSCOM",
+      "aliases": [
+        "INSCOM",
+        "Intelligence and Security Command"
+      ],
+      "type": "organization",
+      "description": "Army command established in January 1977; identified on the 1983 Gateway assessment.",
+      "eventIds": [
+        "inscom-established",
+        "gateway-assessment",
+        "center-lane-human-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "nsa-history",
+          "supports": [
+            "Army command established in January 1977; identified on the 1983 Gateway assessment."
+          ]
+        },
+        {
+          "sourceId": "gateway-report",
+          "supports": [
+            "Army command on the Gateway report"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcdonnell",
+      "name": "Wayne McDonnell",
+      "aliases": [
+        "Wayne M. McDonnell"
+      ],
+      "type": "person",
+      "description": "Army officer who authored the June 9, 1983 Gateway assessment.",
+      "eventIds": [
+        "gateway-assessment"
+      ],
+      "sources": [
+        {
+          "sourceId": "gateway-report",
+          "supports": [
+            "Army officer who authored the June 9, 1983 Gateway assessment."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sri",
+      "name": "Stanford Research Institute",
+      "aliases": [
+        "SRI",
+        "SRI International"
+      ],
+      "type": "organization",
+      "description": "Institution that conducted the remote-viewing work described by Puthoff and Targ.",
+      "eventIds": [
+        "cia-remote-viewing",
+        "sri-perceptual-research",
+        "remote-viewing-review-disagreement"
+      ],
+      "sources": [
+        {
+          "sourceId": "sri-report",
+          "supports": [
+            "Institution that conducted the remote-viewing work described by Puthoff and Targ."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "puthoff",
+      "name": "Harold Puthoff",
+      "aliases": [
+        "Hal Puthoff",
+        "Harold E. Puthoff"
+      ],
+      "type": "person",
+      "description": "Coauthor of the inspected SRI Perceptual Augmentation Techniques report.",
+      "eventIds": [
+        "sri-perceptual-research"
+      ],
+      "sources": [
+        {
+          "sourceId": "sri-report",
+          "supports": [
+            "Coauthor of the inspected SRI Perceptual Augmentation Techniques report."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "targ",
+      "name": "Russell Targ",
+      "aliases": [
+        "Targ"
+      ],
+      "type": "person",
+      "description": "Coauthor of the inspected SRI Perceptual Augmentation Techniques report.",
+      "eventIds": [
+        "sri-perceptual-research"
+      ],
+      "sources": [
+        {
+          "sourceId": "sri-report",
+          "supports": [
+            "Coauthor of the inspected SRI Perceptual Augmentation Techniques report."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "utts",
+      "name": "Jessica Utts",
+      "aliases": [
+        "Utts"
+      ],
+      "type": "person",
+      "description": "Statistician who argued for anomalous cognition in her 1995 assessment.",
+      "eventIds": [
+        "remote-viewing-review-disagreement",
+        "air-remote-viewing-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "utts-assessment",
+          "supports": [
+            "Statistician who argued for anomalous cognition in her 1995 assessment."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyman",
+      "name": "Ray Hyman",
+      "aliases": [
+        "Raymond Hyman"
+      ],
+      "type": "person",
+      "description": "Psychologist who disputed a paranormal interpretation of the reviewed results.",
+      "eventIds": [
+        "remote-viewing-review-disagreement",
+        "air-remote-viewing-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "hyman-assessment",
+          "supports": [
+            "Psychologist who disputed a paranormal interpretation of the reviewed results."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "edwin-may",
+      "name": "Edwin May",
+      "aliases": [
+        "Ed May",
+        "Edwin C. May"
+      ],
+      "type": "person",
+      "description": "Research director described in Utts’s account of the SRI and SAIC work.",
+      "eventIds": [
+        "remote-viewing-review-disagreement"
+      ],
+      "sources": [
+        {
+          "sourceId": "utts-assessment",
+          "supports": [
+            "Research director described in Utts’s account of the SRI and SAIC work."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saic",
+      "name": "SAIC",
+      "aliases": [
+        "Science Applications International Corporation"
+      ],
+      "type": "organization",
+      "description": "Contractor associated with the later research evaluated in the 1995 review.",
+      "eventIds": [
+        "remote-viewing-review-disagreement"
+      ],
+      "sources": [
+        {
+          "sourceId": "utts-assessment",
+          "supports": [
+            "Contractor associated with the later research evaluated in the 1995 review."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "air",
+      "name": "American Institutes for Research",
+      "aliases": [
+        "AIR"
+      ],
+      "type": "organization",
+      "description": "Organization commissioned to review remote-viewing research and applications in 1995.",
+      "eventIds": [
+        "air-remote-viewing-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "air-final",
+          "supports": [
+            "Organization commissioned to review remote-viewing research and applications in 1995."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stargate",
+      "name": "STAR GATE",
+      "aliases": [
+        "Stargate",
+        "Star Gate program"
+      ],
+      "type": "program",
+      "description": "Name used for the program evaluated in the 1995 AIR report; not a synonym for every earlier project or Gateway training.",
+      "eventIds": [
+        "air-remote-viewing-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "air-final",
+          "supports": [
+            "Name used for the program evaluated in the 1995 AIR report; not a synonym for every earlier project or Gateway training."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcmoneagle",
+      "name": "Joe McMoneagle",
+      "aliases": [
+        "Joseph McMoneagle",
+        "Joseph W. McMoneagle",
+        "Remote Viewer 001"
+      ],
+      "type": "person",
+      "description": "Described as an Army remote viewer and Monroe collaborator in the institute’s 2017 account.",
+      "eventIds": [
+        "mcmoneagle-monroe-account"
+      ],
+      "sources": [
+        {
+          "sourceId": "monroe-mcmoneagle",
+          "supports": [
+            "Described as an Army remote viewer and Monroe collaborator in the institute’s 2017 account."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vallee",
+      "name": "Jacques Vallée",
+      "aliases": [
+        "Jacques Vallee",
+        "Jacques F. Vallee"
+      ],
+      "type": "person",
+      "description": "UFO researcher whose donations to Rice began in December 2016.",
+      "eventIds": [
+        "vallee-rice-donation"
+      ],
+      "sources": [
+        {
+          "sourceId": "vallee-finding-aid",
+          "supports": [
+            "UFO researcher whose donations to Rice began in December 2016."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rice",
+      "name": "Rice University",
+      "aliases": [
+        "Woodson Research Center",
+        "Archives of the Impossible"
+      ],
+      "type": "organization",
+      "description": "Custodian of the cataloged Vallée collection; catalog access does not mean access to every restricted file.",
+      "eventIds": [
+        "vallee-rice-donation"
+      ],
+      "sources": [
+        {
+          "sourceId": "vallee-finding-aid",
+          "supports": [
+            "Custodian of the cataloged Vallée collection; catalog access does not mean access to every restricted file."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nids",
+      "name": "NIDS",
+      "aliases": [
+        "National Institute for Discovery Science"
+      ],
+      "type": "organization",
+      "description": "Named in the scope of Rice’s Vallée finding aid; the underlying meeting files were not inspected.",
+      "eventIds": [
+        "vallee-rice-donation"
+      ],
+      "sources": [
+        {
+          "sourceId": "vallee-finding-aid",
+          "supports": [
+            "Named in the scope of Rice’s Vallée finding aid; the underlying meeting files were not inspected."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baass",
+      "name": "BAASS",
+      "aliases": [
+        "Bigelow Aerospace Advanced Space Studies"
+      ],
+      "type": "organization",
+      "description": "Named in the scope of Rice’s Vallée finding aid; the catalog does not authenticate the underlying claims.",
+      "eventIds": [
+        "vallee-rice-donation"
+      ],
+      "sources": [
+        {
+          "sourceId": "vallee-finding-aid",
+          "supports": [
+            "Named in the scope of Rice’s Vallée finding aid; the catalog does not authenticate the underlying claims."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "area51",
+      "name": "Area 51",
+      "aliases": [
+        "Groom Lake",
+        "Paradise Ranch"
+      ],
+      "type": "place",
+      "description": "Test location discussed in the FOIA release account for the CIA reconnaissance history.",
+      "eventIds": [
+        "area51-history-release"
+      ],
+      "sources": [
+        {
+          "sourceId": "area51-release",
+          "supports": [
+            "Test location discussed in the FOIA release account for the CIA reconnaissance history."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-archive",
+      "name": "National Security Archive",
+      "aliases": [
+        "NSArchive",
+        "George Washington University National Security Archive"
+      ],
+      "type": "organization",
+      "description": "Nongovernmental archive that obtained and described the 2013 CIA history release.",
+      "eventIds": [
+        "area51-history-release"
+      ],
+      "sources": [
+        {
+          "sourceId": "area51-release",
+          "supports": [
+            "Nongovernmental archive that obtained and described the 2013 CIA history release."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinotti",
+      "name": "Roberto Pinotti",
+      "aliases": [
+        "Pinotti"
+      ],
+      "type": "person",
+      "description": "Source attributed in the inspected 2017 retelling of the alleged 1933 recovery.",
+      "eventIds": [
+        "magenta-claim-retelling"
+      ],
+      "sources": [
+        {
+          "sourceId": "magenta-report",
+          "supports": [
+            "Source attributed in the inspected 2017 retelling of the alleged 1933 recovery."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rs33",
+      "name": "RS/33 (alleged)",
+      "aliases": [
+        "RS33",
+        "Gabinetto RS/33",
+        "Magenta",
+        "Vergiate"
+      ],
+      "type": "claimed organization",
+      "description": "Purported Italian body in later accounts; its claimed role is not established here by authenticated 1933 records.",
+      "eventIds": [
+        "magenta-claim-retelling"
+      ],
+      "sources": [
+        {
+          "sourceId": "magenta-report",
+          "supports": [
+            "Purported Italian body in later accounts; its claimed role is not established here by authenticated 1933 records."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grill-flame",
+      "name": "GRILL FLAME",
+      "aliases": [
+        "Grill Flame"
+      ],
+      "type": "program",
+      "description": "Army program described in the March 1984 memorandum; INSCOM activity ceased in September 1982 according to that record.",
+      "eventIds": [
+        "center-lane-human-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "center-lane-review",
+          "supports": [
+            "Army program described in the March 1984 memorandum; INSCOM activity ceased in September 1982 according to that record."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "center-lane",
+      "name": "CENTER LANE",
+      "aliases": [
+        "Center Lane",
+        "ICLP"
+      ],
+      "type": "program",
+      "description": "INSCOM program described as restarting psychoenergetic activity in December 1982.",
+      "eventIds": [
+        "center-lane-human-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "center-lane-review",
+          "supports": [
+            "INSCOM program described as restarting psychoenergetic activity in December 1982."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buzby",
+      "name": "Brian Buzby",
+      "aliases": [
+        "LTC Buzby"
+      ],
+      "type": "person",
+      "description": "CENTER LANE project manager who signed the March 1984 human-use review memorandum.",
+      "eventIds": [
+        "center-lane-human-review"
+      ],
+      "sources": [
+        {
+          "sourceId": "center-lane-review",
+          "supports": [
+            "CENTER LANE project manager who signed the March 1984 human-use review memorandum."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lazar",
+      "name": "Bob Lazar",
+      "aliases": [
+        "Robert Lazar",
+        "Dennis (Lazar pseudonym)"
+      ],
+      "type": "person",
+      "description": "Claimant whose anonymous 1989 KLAS interview is dated by the original broadcaster’s retrospective.",
+      "eventIds": [
+        "lazar-klas-interview"
+      ],
+      "sources": [
+        {
+          "sourceId": "lazar-klas-retrospective",
+          "supports": [
+            "Claimant whose anonymous 1989 KLAS interview is dated by the original broadcaster’s retrospective."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knapp",
+      "name": "George Knapp",
+      "aliases": [
+        "Knapp"
+      ],
+      "type": "person",
+      "description": "KLAS reporter identified in the inspected retrospective about the Lazar interview.",
+      "eventIds": [
+        "house-hearing-2025",
+        "lazar-klas-interview"
+      ],
+      "sources": [
+        {
+          "sourceId": "lazar-klas-retrospective",
+          "supports": [
+            "KLAS reporter identified in the inspected retrospective about the Lazar interview."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klas",
+      "name": "KLAS-TV",
+      "aliases": [
+        "8 News Now",
+        "KLAS"
+      ],
+      "type": "organization",
+      "description": "Las Vegas broadcaster whose official channel preserves the inspected interview retrospective.",
+      "eventIds": [
+        "lazar-klas-interview"
+      ],
+      "sources": [
+        {
+          "sourceId": "lazar-klas-retrospective",
+          "supports": [
+            "Las Vegas broadcaster whose official channel preserves the inspected interview retrospective."
+          ]
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "bush-ubc",
+      "from": "prescott-bush",
+      "to": "ubc",
+      "date": {
+        "start": "1942-10-20",
+        "end": null
+      },
+      "status": "Documented",
+      "description": "The order lists Prescott S. Bush as the registered holder of one UBC share.",
+      "limitations": "This is not a finding of beneficial ownership or a statement about BBH’s own assets.",
+      "eventIds": [
+        "union-banking-vesting"
+      ],
+      "sources": [
+        {
+          "sourceId": "ubc-order",
+          "supports": [
+            "The order lists Prescott S. Bush as the registered holder of one UBC share."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bush-bbh",
+      "from": "prescott-bush",
+      "to": "bbh",
+      "date": {
+        "start": "1931",
+        "end": null
+      },
+      "status": "Attributed",
+      "description": "BBH’s history describes Bush developing its private-client business.",
+      "limitations": "The organization’s self-history is attributed; this does not establish a UFO connection.",
+      "eventIds": [
+        "bbh-formation"
+      ],
+      "sources": [
+        {
+          "sourceId": "bbh-prescott",
+          "supports": [
+            "BBH’s history describes Bush developing its private-client business."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "donovan-wcc",
+      "from": "donovan",
+      "to": "wcc",
+      "date": {
+        "start": "1952-04-04",
+        "end": null
+      },
+      "status": "Documented",
+      "description": "The State memorandum identifies General Donovan’s law firm as WCC’s representative in the proposal.",
+      "limitations": "Legal representation in this matter is not evidence of ownership or an intelligence assignment.",
+      "eventIds": [
+        "wcc-donovan-memo"
+      ],
+      "sources": [
+        {
+          "sourceId": "wcc-memo",
+          "supports": [
+            "The State memorandum identifies General Donovan’s law firm as WCC’s representative in the proposal."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "puthoff-sri",
+      "from": "puthoff",
+      "to": "sri",
+      "date": {
+        "start": "1974",
+        "end": null
+      },
+      "status": "Documented",
+      "description": "Puthoff coauthored the SRI report covering research in 1974–1975.",
+      "limitations": "Authorship documents the work and claims, not their independent replication.",
+      "eventIds": [
+        "sri-perceptual-research"
+      ],
+      "sources": [
+        {
+          "sourceId": "sri-report",
+          "supports": [
+            "Puthoff coauthored the SRI report covering research in 1974–1975."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "targ-sri",
+      "from": "targ",
+      "to": "sri",
+      "date": {
+        "start": "1974",
+        "end": null
+      },
+      "status": "Documented",
+      "description": "Targ coauthored the SRI report covering research in 1974–1975.",
+      "limitations": "The start year is the research period, not an employment-start date.",
+      "eventIds": [
+        "sri-perceptual-research"
+      ],
+      "sources": [
+        {
+          "sourceId": "sri-report",
+          "supports": [
+            "Targ coauthored the SRI report covering research in 1974–1975."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "army-gateway",
+      "from": "mcdonnell",
+      "to": "inscom",
+      "date": {
+        "start": "1983-06-09",
+        "end": null
+      },
+      "status": "Documented",
+      "description": "McDonnell’s Gateway assessment identifies its Army INSCOM origin.",
+      "limitations": "Custody in CIA files does not convert it into a CIA-authored scientific validation.",
+      "eventIds": [
+        "gateway-assessment"
+      ],
+      "sources": [
+        {
+          "sourceId": "gateway-report",
+          "supports": [
+            "McDonnell’s Gateway assessment identifies its Army INSCOM origin."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcmoneagle-monroe",
+      "from": "mcmoneagle",
+      "to": "robert-monroe",
+      "date": {
+        "start": "2017-07-29",
+        "end": null
+      },
+      "status": "Attributed",
+      "description": "The institute’s 2017 account describes a collaboration between McMoneagle and Monroe.",
+      "limitations": "This dates the inspected account, not the start of collaboration or proof of claimed abilities.",
+      "eventIds": [
+        "mcmoneagle-monroe-account"
+      ],
+      "sources": [
+        {
+          "sourceId": "monroe-mcmoneagle",
+          "supports": [
+            "The institute’s 2017 account describes a collaboration between McMoneagle and Monroe."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sagan-voyager",
+      "from": "sagan",
+      "to": "voyager",
+      "date": {
+        "start": "1977",
+        "end": null
+      },
+      "status": "Documented",
+      "description": "NASA identifies Sagan as chair of the record-selection committee.",
+      "limitations": "This role is not evidence that the message was received.",
+      "eventIds": [
+        "voyager-golden-record"
+      ],
+      "sources": [
+        {
+          "sourceId": "voyager-record",
+          "supports": [
+            "NASA identifies Sagan as chair of the record-selection committee."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vallee-rice",
+      "from": "vallee",
+      "to": "rice",
+      "date": {
+        "start": "2016-12",
+        "end": null
+      },
+      "status": "Documented",
+      "description": "Rice records donations from Vallée beginning in December 2016.",
+      "limitations": "An accession relationship does not authenticate the collection’s underlying reports.",
+      "eventIds": [
+        "vallee-rice-donation"
+      ],
+      "sources": [
+        {
+          "sourceId": "vallee-finding-aid",
+          "supports": [
+            "Rice records donations from Vallée beginning in December 2016."
+          ]
+        }
+      ]
+    }
+  ],
+  "contentModelVersion": 2
 }
