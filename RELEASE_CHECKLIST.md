@@ -177,3 +177,13 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [ ] Supply the actual public/unlisted playlist, selected links, or export; verify video content before writing summaries and confirm personal reasons before attribution.
 - [ ] Real YouTube playback and per-video restrictions: external video requests were blocked during browser QA, so no actual playback is claimed.
 - [ ] Live route verification after the GitHub Pages release.
+
+## Tesla project archives — September 19, 2026
+
+- [x] Owner requested the two live memory/portfolio pages; no additional publication confirmation needed.
+- [x] Original public source recovered: Tesloco WordPress home plus 3 pages, Spec Tesla Cup home captures from 2022 and 2026 plus 19 supporting pages.
+- [x] Local archival replay retains source copy, branding, images and styles with explicit historical/capture-date context.
+- [x] All 25 preserved documents have no scripts, active forms or remote image loads; all rewritten local links/assets resolve. Original commerce/account/booking widgets are inert. Video destinations use original IDs.
+- [x] Both routes compile and the existing release gates pass. Navigation, other routes and hosting stay intact.
+- [ ] Cloud-browser rendered verification after publication. Local preview access was blocked; no pre-publication visual or exact mobile viewport check is claimed.
+- [ ] Successful GitHub Pages deployment and live URLs verified.

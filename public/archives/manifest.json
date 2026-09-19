@@ -1,0 +1,1325 @@
+{
+  "recovered": "2026-09-19",
+  "pages": [
+    {
+      "file": "tesloco-original.html",
+      "original": "https://tesloco.wordpress.com/",
+      "local": "tesloco/2026-09-19/index.html",
+      "label": "Home \u00b7 surviving WordPress site",
+      "date": "Recovered September 19, 2026",
+      "project": "tesloco",
+      "title": "TESLOCO \u2013 Crazy Good Concierge Tesla Road & Race Service",
+      "source": "https://tesloco.wordpress.com/",
+      "raw_sha256": "76c48068cbf7e427eb406bfd366bdaeb1de7dce6e6696583fd5de449d49c4eee",
+      "path": "/archives/tesloco/2026-09-19/index.html",
+      "preserved_sha256": "cea10196ccd2edff80e899d541ab271a3df9906dffc8d8432b2873312a72e3f6"
+    },
+    {
+      "file": "wp-services.html",
+      "original": "https://tesloco.wordpress.com/our-services/",
+      "local": "tesloco/2026-09-19/our-services/index.html",
+      "label": "Our Services",
+      "date": "Recovered September 19, 2026",
+      "project": "tesloco",
+      "title": "Our Services \u2013 TESLOCO \u2013 Crazy Good Concierge Tesla Road & Race Service",
+      "source": "https://tesloco.wordpress.com/our-services/",
+      "raw_sha256": "93c79b1bf181aa27ccc265af396916d936821c6cf941508331ccd249ba38d1d6",
+      "path": "/archives/tesloco/2026-09-19/our-services/index.html",
+      "preserved_sha256": "b37e61fe2bb85cefc3a1ac0e56ac03f107f132722aa6b9a434e18656ecd87a56"
+    },
+    {
+      "file": "wp-about.html",
+      "original": "https://tesloco.wordpress.com/about-2/",
+      "local": "tesloco/2026-09-19/about-2/index.html",
+      "label": "About TESLOCO",
+      "date": "Recovered September 19, 2026",
+      "project": "tesloco",
+      "title": "About TESLOCO \u2013 TESLOCO \u2013 Crazy Good Concierge Tesla Road & Race Service",
+      "source": "https://tesloco.wordpress.com/about-2/",
+      "raw_sha256": "905b645fded1dd657f3aa41c095dffcb48fd96f37b61d070b44bfb9b95408225",
+      "path": "/archives/tesloco/2026-09-19/about-2/index.html",
+      "preserved_sha256": "90c50607aacb5aab76a1c5dd43a439733d55e882d873f9c8cc19e54c563eebb8"
+    },
+    {
+      "file": "wp-quote.html",
+      "original": "https://tesloco.wordpress.com/get-a-quote/",
+      "local": "tesloco/2026-09-19/get-a-quote/index.html",
+      "label": "Get a Quote \u00b7 inactive",
+      "date": "Recovered September 19, 2026",
+      "project": "tesloco",
+      "title": "Get a Quote \u2013 TESLOCO \u2013 Crazy Good Concierge Tesla Road & Race Service",
+      "source": "https://tesloco.wordpress.com/get-a-quote/",
+      "raw_sha256": "a0e92013f94f0b1c928d2baa7f703d271bcf151d0a6ba986b0e6f80a3afe832c",
+      "path": "/archives/tesloco/2026-09-19/get-a-quote/index.html",
+      "preserved_sha256": "ac1872cd55c8aabdfa813867c84e5b4b84dc7d2ef513884dce9c20f1a0675036"
+    },
+    {
+      "file": "cup-latest.html",
+      "original": "https://specteslacup.com/",
+      "timestamp": "20260208081150",
+      "local": "specteslacup/2026-02-08/index.html",
+      "label": "Home \u00b7 February 8, 2026",
+      "date": "Wayback capture \u00b7 February 8, 2026",
+      "project": "specteslacup",
+      "title": "Spec Tesla Performance & Luxury Upgrades Austin, TX USA \u2013 Spec Tesla Cup",
+      "source": "https://web.archive.org/web/20260208081150/https://specteslacup.com/",
+      "raw_sha256": "390b13ddfd3b6cf43fb2527c2e3eff2f07e137887f99b0258d0cc2023c1f2e14",
+      "path": "/archives/specteslacup/2026-02-08/index.html",
+      "preserved_sha256": "5aa65effae8b6e22715d2971c7dc63387700b78ecbb08d458b4b949d0c422457"
+    },
+    {
+      "file": "cup-first.html",
+      "original": "https://specteslacup.com/",
+      "timestamp": "20221017031946",
+      "local": "specteslacup/2022-10-17/index.html",
+      "label": "Earlier home \u00b7 October 17, 2022",
+      "date": "Wayback capture \u00b7 October 17, 2022",
+      "project": "specteslacup",
+      "title": "Spec Tesla Cup \u2013 Spec Tesla Motorsport",
+      "source": "https://web.archive.org/web/20221017031946/https://specteslacup.com/",
+      "raw_sha256": "ba4ff662af65055bc0146958c192774634e239ed4c0ba1f1a458c9aab2215975",
+      "path": "/archives/specteslacup/2022-10-17/index.html",
+      "preserved_sha256": "20ef519fd660a369d3c413fd8f61bf2cc38ea1b04f091ec58fae55f3d78eee39"
+    },
+    {
+      "file": "recovery/source/blogs--news.html",
+      "original": "https://specteslacup.com/blogs/news",
+      "timestamp": "20240914114943",
+      "retrieved": "https://web.archive.org/web/20240914114943id_/https://specteslacup.com/blogs/news",
+      "local": "specteslacup/2024-09-14/blogs/news/index.html",
+      "date": "Wayback capture \u00b7 2024-09-14",
+      "project": "specteslacup",
+      "title": "News \u2013 Spec Tesla Cup",
+      "label": "News",
+      "source": "https://web.archive.org/web/20240914114943/https://specteslacup.com/blogs/news",
+      "raw_sha256": "ddf4add3ea94c0835291913ade9e3519fc5442b4ed27f1ae561c055ac6813e1b",
+      "path": "/archives/specteslacup/2024-09-14/blogs/news/index.html",
+      "preserved_sha256": "5b2b5a37fdb62cabc8e37d323c73f2b331364bd10036c00f8148ab5b7ec3a0f9"
+    },
+    {
+      "file": "recovery/source/blogs--news--2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota.html",
+      "original": "https://specteslacup.com/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota",
+      "timestamp": "20240914111309",
+      "retrieved": "https://web.archive.org/web/20240914111309id_/https://specteslacup.com/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota",
+      "local": "specteslacup/2024-09-14/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota/index.html",
+      "date": "Wayback capture \u00b7 2024-09-14",
+      "project": "specteslacup",
+      "title": "2/6/23 - Spec Tesla Torture Test Achieves 24 Minutes @ COTA \u2013 Spec Tesla Cup",
+      "label": "2/6/23 - Spec Tesla Torture Test Achieves 24 Minutes @ COTA",
+      "source": "https://web.archive.org/web/20240914111309/https://specteslacup.com/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota",
+      "raw_sha256": "0415b01c14dd2018a1f7c0a038ec1d738df773b6d36d9ce1f6369cfe45b33e9e",
+      "path": "/archives/specteslacup/2024-09-14/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota/index.html",
+      "preserved_sha256": "8124782ca187777825583b1055050064a520266bd3d6b08e28030166205a6207"
+    },
+    {
+      "file": "recovery/source/blogs--news--gridlife-heartlands-park-tbd.html",
+      "original": "https://specteslacup.com/blogs/news/gridlife-heartlands-park-tbd",
+      "timestamp": "20250122142316",
+      "retrieved": "https://web.archive.org/web/20250122142316id_/https://specteslacup.com/blogs/news/gridlife-heartlands-park-tbd",
+      "local": "specteslacup/2025-01-22/blogs/news/gridlife-heartlands-park-tbd/index.html",
+      "date": "Wayback capture \u00b7 2025-01-22",
+      "project": "specteslacup",
+      "title": "Gridlife Heartlands Park Topeka - 2nd Place TrackMod August 2021 \u2013 Spec Tesla Cup",
+      "label": "Gridlife Heartlands Park Topeka - 2nd Place TrackMod August 2021",
+      "source": "https://web.archive.org/web/20250122142316/https://specteslacup.com/blogs/news/gridlife-heartlands-park-tbd",
+      "raw_sha256": "afccf7a7b3cac2dc69714209cde91b5785d20a8c94aec41177b97a15cedef418",
+      "path": "/archives/specteslacup/2025-01-22/blogs/news/gridlife-heartlands-park-tbd/index.html",
+      "preserved_sha256": "568f823bb14f08647e332a6ab475765e55433dd19624d2ca3d606e32a2d85dbf"
+    },
+    {
+      "file": "recovery/source/blogs--news--gridlife-nola-motorsports-park-2020-3rd-place-trackmod.html",
+      "original": "https://specteslacup.com/blogs/news/gridlife-nola-motorsports-park-2020-3rd-place-trackmod",
+      "timestamp": "20240914101320",
+      "retrieved": "https://web.archive.org/web/20240914101320id_/https://specteslacup.com/blogs/news/gridlife-nola-motorsports-park-2020-3rd-place-trackmod",
+      "local": "specteslacup/2024-09-14/blogs/news/gridlife-nola-motorsports-park-2020-3rd-place-trackmod/index.html",
+      "date": "Wayback capture \u00b7 2024-09-14",
+      "project": "specteslacup",
+      "title": "Gridlife NOLA Motorsports Park 2020 - 3rd Place TrackMod \u2013 Spec Tesla Cup",
+      "label": "Gridlife NOLA Motorsports Park 2020 - 3rd Place TrackMod",
+      "source": "https://web.archive.org/web/20240914101320/https://specteslacup.com/blogs/news/gridlife-nola-motorsports-park-2020-3rd-place-trackmod",
+      "raw_sha256": "910c4d5c4ada85f7fa8ab36bde44c753886cf62fdeaa07b99200ee4d9529e6ad",
+      "path": "/archives/specteslacup/2024-09-14/blogs/news/gridlife-nola-motorsports-park-2020-3rd-place-trackmod/index.html",
+      "preserved_sha256": "ffa3643260f1ad8839026cfe97d868acd46155c7c1317dd20a2f2e98cd1a613f"
+    },
+    {
+      "file": "recovery/source/blogs--news--gridlife-road-america-5th-place-street-gt.html",
+      "original": "https://specteslacup.com/blogs/news/gridlife-road-america-5th-place-street-gt",
+      "timestamp": "20241208224006",
+      "retrieved": "https://web.archive.org/web/20241208224006id_/https://specteslacup.com/blogs/news/gridlife-road-america-5th-place-street-gt",
+      "local": "specteslacup/2024-12-08/blogs/news/gridlife-road-america-5th-place-street-gt/index.html",
+      "date": "Wayback capture \u00b7 2024-12-08",
+      "project": "specteslacup",
+      "title": "Gridlife Road America 2020 - 5th Place Street GT October 2020 \u2013 Spec Tesla Cup",
+      "label": "Gridlife Road America 2020 - 5th Place Street GT October 2020",
+      "source": "https://web.archive.org/web/20241208224006/https://specteslacup.com/blogs/news/gridlife-road-america-5th-place-street-gt",
+      "raw_sha256": "5119fad8985fa1b381c26bc40546eb5c1f5cb698cc4a40eb6c0ebca9cc11441e",
+      "path": "/archives/specteslacup/2024-12-08/blogs/news/gridlife-road-america-5th-place-street-gt/index.html",
+      "preserved_sha256": "c545c8125dcbf247a2f3948133b2abea31b248400c7f6c4ab19f1d8d38c492e3"
+    },
+    {
+      "file": "recovery/source/blogs--news--hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr.html",
+      "original": "https://specteslacup.com/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr",
+      "timestamp": "20250122131321",
+      "retrieved": "https://web.archive.org/web/20250122131321id_/https://specteslacup.com/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr",
+      "local": "specteslacup/2025-01-22/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr/index.html",
+      "date": "Wayback capture \u00b7 2025-01-22",
+      "project": "specteslacup",
+      "title": "September 27, 2021 - Michelin Tire Test: Tesla Base Model 3 Standard R \u2013 Spec Tesla Cup",
+      "label": "September 27, 2021 - Michelin Tire Test: Tesla Base Model 3 Standard R",
+      "source": "https://web.archive.org/web/20250122131321/https://specteslacup.com/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr",
+      "raw_sha256": "687b153c65a6b0112a8564c443a8ab925026d51975d812b7401418c25b3e8613",
+      "path": "/archives/specteslacup/2025-01-22/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr/index.html",
+      "preserved_sha256": "f5b4d84adfbb0c5e0c74933ff02c8233af0a87beb4bf1e1a5e407dec2efbedec"
+    },
+    {
+      "file": "recovery/source/blogs--news--october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo.html",
+      "original": "https://specteslacup.com/blogs/news/october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo",
+      "timestamp": "20241208213927",
+      "retrieved": "https://web.archive.org/web/20241208213927id_/https://specteslacup.com/blogs/news/october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo",
+      "local": "specteslacup/2024-12-08/blogs/news/october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo/index.html",
+      "date": "Wayback capture \u00b7 2024-12-08",
+      "project": "specteslacup",
+      "title": "October 3, 2021 - Oklahoma SCCA Solo Autocross - Showroom Stock Base M \u2013 Spec Tesla Cup",
+      "label": "October 3, 2021 - Oklahoma SCCA Solo Autocross - Showroom Stock Base M",
+      "source": "https://web.archive.org/web/20241208213927/https://specteslacup.com/blogs/news/october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo",
+      "raw_sha256": "03f7a6449fa84659847c09122e8767362e3e76bd0a4edbdb972cf29d24106e27",
+      "path": "/archives/specteslacup/2024-12-08/blogs/news/october-3-2021-oklahoma-scca-solo-autocross-showroom-stock-base-model-3-sr-on-245-20-bridgestone-re71r-tires-autox-solo/index.html",
+      "preserved_sha256": "264797d87f1f4c5c3274e34107eef74ebdc9133f8c2e7db0512a5a9aa81beb77"
+    },
+    {
+      "file": "recovery/source/blogs--news--raceseng-tow-hooks-now-available-for-tesla.html",
+      "original": "https://specteslacup.com/blogs/news/raceseng-tow-hooks-now-available-for-tesla",
+      "timestamp": "20241208222215",
+      "retrieved": "https://web.archive.org/web/20241208222215id_/https://specteslacup.com/blogs/news/raceseng-tow-hooks-now-available-for-tesla",
+      "local": "specteslacup/2024-12-08/blogs/news/raceseng-tow-hooks-now-available-for-tesla/index.html",
+      "date": "Wayback capture \u00b7 2024-12-08",
+      "project": "specteslacup",
+      "title": "Raceseng Tow Hooks Now Available for Tesla \u2013 Spec Tesla Cup",
+      "label": "Raceseng Tow Hooks Now Available for Tesla",
+      "source": "https://web.archive.org/web/20241208222215/https://specteslacup.com/blogs/news/raceseng-tow-hooks-now-available-for-tesla",
+      "raw_sha256": "062710308aee1bf6d1aa22bfb13c3abd19e266c0ce24aa45bf13974d1f40ab1b",
+      "path": "/archives/specteslacup/2024-12-08/blogs/news/raceseng-tow-hooks-now-available-for-tesla/index.html",
+      "preserved_sha256": "0d2d4d5fd9e470497f7628090c90fe981f2ea05204847a7b6fe4332e1b474511"
+    },
+    {
+      "file": "recovery/source/blogs--news--the-tesla-that-broke-the-gridlife-rulebook-2.html",
+      "original": "https://specteslacup.com/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2",
+      "timestamp": "20240914102106",
+      "retrieved": "https://web.archive.org/web/20240914102106id_/https://specteslacup.com/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2",
+      "local": "specteslacup/2024-09-14/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2/index.html",
+      "date": "Wayback capture \u00b7 2024-09-14",
+      "project": "specteslacup",
+      "title": "WINNER Gridlife Alpine Horizon Fest Street Class Time Attack - The Tes \u2013 Spec Tesla Cup",
+      "label": "WINNER Gridlife Alpine Horizon Fest Street Class Time Attack - The Tes",
+      "source": "https://web.archive.org/web/20240914102106/https://specteslacup.com/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2",
+      "raw_sha256": "4528987ef41830b6f980d325a0717038c8300da59e8166ed128064e82488ee1f",
+      "path": "/archives/specteslacup/2024-09-14/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2/index.html",
+      "preserved_sha256": "a5506f954e3df6b3eb799dc4da3ef15b86eabc021241dc882a590520d6654d00"
+    },
+    {
+      "file": "recovery/source/collections--all-products.html",
+      "original": "https://specteslacup.com/collections/all-products",
+      "timestamp": "20241208224044",
+      "retrieved": "https://web.archive.org/web/20241208224044id_/https://specteslacup.com/collections/all-products",
+      "local": "specteslacup/2024-12-08/collections/all-products/index.html",
+      "date": "Wayback capture \u00b7 2024-12-08",
+      "project": "specteslacup",
+      "title": "All Products \u2013 Spec Tesla Cup",
+      "label": "All Products",
+      "source": "https://web.archive.org/web/20241208224044/https://specteslacup.com/collections/all-products",
+      "raw_sha256": "e81b61ae1d6def7a2c6e68b5e17bbdb0773c349fb8d9b1fbf71c76d6012ab9f9",
+      "path": "/archives/specteslacup/2024-12-08/collections/all-products/index.html",
+      "preserved_sha256": "adc4b14a0bf00b0765c68902361e7bca643532a9fdee712c22158ad8c267d290"
+    },
+    {
+      "file": "recovery/source/collections--frontpage.html",
+      "original": "https://specteslacup.com/collections/frontpage",
+      "timestamp": "20250122135450",
+      "retrieved": "https://web.archive.org/web/20250122135450id_/https://specteslacup.com/collections/frontpage",
+      "local": "specteslacup/2025-01-22/collections/frontpage/index.html",
+      "date": "Wayback capture \u00b7 2025-01-22",
+      "project": "specteslacup",
+      "title": "Stage 1 - Suspension \u2013 Spec Tesla Cup",
+      "label": "Stage 1 - Suspension",
+      "source": "https://web.archive.org/web/20250122135450/https://specteslacup.com/collections/frontpage",
+      "raw_sha256": "f0a5671add327e362ef6d75be5ee00dc59c9d8b7f5f34459387bece789b36d09",
+      "path": "/archives/specteslacup/2025-01-22/collections/frontpage/index.html",
+      "preserved_sha256": "da2c9d185de5d02dd872ac3aa4956a4ab7b0fe1dddaa0015c8e1efba708f61ff"
+    },
+    {
+      "file": "recovery/source/collections--maier-aero.html",
+      "original": "https://specteslacup.com/collections/maier-aero",
+      "timestamp": "20250516200841",
+      "retrieved": "https://web.archive.org/web/20250516200841id_/https://specteslacup.com/collections/maier-aero",
+      "local": "specteslacup/2025-05-16/collections/maier-aero/index.html",
+      "date": "Wayback capture \u00b7 2025-05-16",
+      "project": "specteslacup",
+      "title": "Stage 5 - Maier Aero \u2013 Spec Tesla Cup",
+      "label": "Stage 5 - Maier Aero",
+      "source": "https://web.archive.org/web/20250516200841/https://specteslacup.com/collections/maier-aero",
+      "raw_sha256": "45019bad9fbb2748ad09c6b524625356a7ed18a688a71d1bba8d173257b71fc8",
+      "path": "/archives/specteslacup/2025-05-16/collections/maier-aero/index.html",
+      "preserved_sha256": "ae560752f4b26c2aa6c0f3a5d988583bf046648fce36c47d1141febbf3b930c0"
+    },
+    {
+      "file": "recovery/source/collections--safety.html",
+      "original": "https://specteslacup.com/collections/safety",
+      "timestamp": "20250122155927",
+      "retrieved": "https://web.archive.org/web/20250122155927id_/https://specteslacup.com/collections/safety",
+      "local": "specteslacup/2025-01-22/collections/safety/index.html",
+      "date": "Wayback capture \u00b7 2025-01-22",
+      "project": "specteslacup",
+      "title": "Stage 4 - Safety \u2013 Spec Tesla Cup",
+      "label": "Stage 4 - Safety",
+      "source": "https://web.archive.org/web/20250122155927/https://specteslacup.com/collections/safety",
+      "raw_sha256": "6be0d5fcd2cf0a9813d8fde8676ee881e3ae4ed783e40608319945a7eae3c933",
+      "path": "/archives/specteslacup/2025-01-22/collections/safety/index.html",
+      "preserved_sha256": "3abb94c50276b065e2216c38219648d42fa4a1328babc5ed321da45169bab039"
+    },
+    {
+      "file": "recovery/source/collections--stage-2-wheels-tires.html",
+      "original": "https://specteslacup.com/collections/stage-2-wheels-tires",
+      "timestamp": "20250122133926",
+      "retrieved": "https://web.archive.org/web/20250122133926id_/https://specteslacup.com/collections/stage-2-wheels-tires",
+      "local": "specteslacup/2025-01-22/collections/stage-2-wheels-tires/index.html",
+      "date": "Wayback capture \u00b7 2025-01-22",
+      "project": "specteslacup",
+      "title": "Stage 2 - Apex Wheels \u2013 Spec Tesla Cup",
+      "label": "Stage 2 - Apex Wheels",
+      "source": "https://web.archive.org/web/20250122133926/https://specteslacup.com/collections/stage-2-wheels-tires",
+      "raw_sha256": "1f4d51c2749e852c709288ad3f09cf0a6a8c23597374bc573b258b2a0eab91e9",
+      "path": "/archives/specteslacup/2025-01-22/collections/stage-2-wheels-tires/index.html",
+      "preserved_sha256": "7350ed2c02d71603941a9d54cedc2b9deb5dfcdc64c7850c185f701ae40a95f5"
+    },
+    {
+      "file": "recovery/source/collections--stage-3-brakes.html",
+      "original": "https://specteslacup.com/collections/stage-3-brakes",
+      "timestamp": "20241208223928",
+      "retrieved": "https://web.archive.org/web/20241208223928id_/https://specteslacup.com/collections/stage-3-brakes",
+      "local": "specteslacup/2024-12-08/collections/stage-3-brakes/index.html",
+      "date": "Wayback capture \u00b7 2024-12-08",
+      "project": "specteslacup",
+      "title": "Stage 3 - Brakes \u2013 Spec Tesla Cup",
+      "label": "Stage 3 - Brakes",
+      "source": "https://web.archive.org/web/20241208223928/https://specteslacup.com/collections/stage-3-brakes",
+      "raw_sha256": "e6d7b25e28c53357307f1747c05dbae251416daaafe0021d30d814c5653f4907",
+      "path": "/archives/specteslacup/2024-12-08/collections/stage-3-brakes/index.html",
+      "preserved_sha256": "6229a75c3d7d45f283fb5aed8e154136385dee95a6cea36b88732e0f4c4047af"
+    },
+    {
+      "file": "recovery/source/pages--about-us.html",
+      "original": "https://specteslacup.com/pages/about-us",
+      "timestamp": "20230308060841",
+      "retrieved": "https://web.archive.org/web/20230308060841id_/https://specteslacup.com/pages/about-us",
+      "local": "specteslacup/2023-03-08/pages/about-us/index.html",
+      "date": "Wayback capture \u00b7 2023-03-08",
+      "project": "specteslacup",
+      "title": "About Us - Current Mod List \u2013 Spec Tesla Cup",
+      "label": "About Us - Current Mod List",
+      "source": "https://web.archive.org/web/20230308060841/https://specteslacup.com/pages/about-us",
+      "raw_sha256": "1cc2ab7f2324b5425265f6a89f7336f44dcc147636a1e227023f0cbcb031c4cb",
+      "path": "/archives/specteslacup/2023-03-08/pages/about-us/index.html",
+      "preserved_sha256": "11a14852cdfbafe27d8c64f9b2096f3711b3f4a72c304f019e1425b1268c06bd"
+    },
+    {
+      "file": "recovery/source/pages--contact-us.html",
+      "original": "https://specteslacup.com/pages/contact-us",
+      "timestamp": "20230409150141",
+      "retrieved": "https://web.archive.org/web/20230409150141id_/https://specteslacup.com/pages/contact-us",
+      "local": "specteslacup/2023-04-09/pages/contact-us/index.html",
+      "date": "Wayback capture \u00b7 2023-04-09",
+      "project": "specteslacup",
+      "title": "Contact Us \u2013 Spec Tesla Cup",
+      "label": "Contact Us",
+      "source": "https://web.archive.org/web/20230409150141/https://specteslacup.com/pages/contact-us",
+      "raw_sha256": "237248c337a9083c9156f5c32c99e2d1ca98eda62d9f1040afb3947be516c43b",
+      "path": "/archives/specteslacup/2023-04-09/pages/contact-us/index.html",
+      "preserved_sha256": "7af430b1255564724932f7c335145e92a4137761a030f0c5bcb19ddd6d4a0940"
+    },
+    {
+      "file": "recovery/source/pages--private-login.html",
+      "original": "https://specteslacup.com/pages/private-login",
+      "timestamp": "20241208212044",
+      "retrieved": "https://web.archive.org/web/20241208212044id_/https://specteslacup.com/pages/private-login",
+      "local": "specteslacup/2024-12-08/pages/private-login/index.html",
+      "date": "Wayback capture \u00b7 2024-12-08",
+      "project": "specteslacup",
+      "title": "Why? \u2013 Spec Tesla Cup",
+      "label": "Why?",
+      "source": "https://web.archive.org/web/20241208212044/https://specteslacup.com/pages/private-login",
+      "raw_sha256": "0f7d2666557c8013e56aaa100c3fc4415a4ddbf2ba5740b95c5470d795bb843e",
+      "path": "/archives/specteslacup/2024-12-08/pages/private-login/index.html",
+      "preserved_sha256": "4dc62f32e9839da8ef4f9015e498816f64e8880088937db51770fc7e96c3fdca"
+    },
+    {
+      "file": "recovery/source/products--team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt.html",
+      "original": "https://specteslacup.com/products/team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt",
+      "timestamp": "20250122160344",
+      "retrieved": "https://web.archive.org/web/20250122160344id_/https://specteslacup.com/products/team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt",
+      "local": "specteslacup/2025-01-22/products/team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt/index.html",
+      "date": "Wayback capture \u00b7 2025-01-22",
+      "project": "specteslacup",
+      "title": "Team Spec Tesla Nike Dri-Fit Micro Pique Polo Golf Shirt \u2013 Spec Tesla Cup",
+      "label": "Team Spec Tesla Nike Dri-Fit Micro Pique Polo Golf Shirt",
+      "source": "https://web.archive.org/web/20250122160344/https://specteslacup.com/products/team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt",
+      "raw_sha256": "f77bd113db78ca3a5d458bd6288bd4dfeb3ee460a8ddb15f1210444af7c051ed",
+      "path": "/archives/specteslacup/2025-01-22/products/team-spec-tesla-nike-dri-fit-micro-pique-polo-golf-shirt/index.html",
+      "preserved_sha256": "0eed1fba7a04cd0761623f901d3716fac364170fbd08b3738bfd5fca1484c6be"
+    }
+  ],
+  "assets": [
+    {
+      "local": "/archives/assets/2ddf6ecdadadf8b16b5a.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_600.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_600.ttf",
+      "bytes": 315756,
+      "sha256": "e8cbc2b88bc4268237ff5e251776d3c54edcb14e015a9e66e4883bde4b55f13f",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/c1775f557dee20b3a1b6.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/SpecTeslaCup_TeslaMotorsport_Transparent_Logo_43dffcd2-1e57-4721-af56-098df4692a73_x60.png?v=1660412029",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/SpecTeslaCup_TeslaMotorsport_Transparent_Logo_43dffcd2-1e57-4721-af56-098df4692a73_x60.png?v=1660412029",
+      "bytes": 16337,
+      "sha256": "94641f5a2d1ea788922925545bd9246b6ab9b558f0a4c7db855e84436a110a9b",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/8d688dd06b6c00c20d24.css",
+      "source": "https://tesloco.wordpress.com/wp-content/themes/h4/global.css?m=1420737423i&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/themes/h4/global.css?m=1420737423i&cssminify=yes",
+      "bytes": 317,
+      "sha256": "224f43833c9a318a3d885fe2ecb4c5b0794e0617ebfff62ad8d729105929246c",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/0e7b0cc25e7dbeb60aeb.png",
+      "source": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/shopify-store-spec-tesla-share-image-1200-x-628-copy-1.png",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/shopify-store-spec-tesla-share-image-1200-x-628-copy-1.png",
+      "bytes": 1222040,
+      "sha256": "71900f14d6abbea5fa69ddf09408a09eff4d80261ed7c38c03fc2edf5ce3565a",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/05418d836309547ad911.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-04_17.59.13_1080x.jpg?v=1675745487",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-04_17.59.13_1080x.jpg?v=1675745487",
+      "bytes": 231481,
+      "sha256": "798bc6fd03d4c2cd9e9aca5d416c4ed160adc0c224169cf29a097393b655040b",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/d24e99288cf7d3f7d122.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbLi4F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbLi4F_PcTWCWp8g.woff2",
+      "bytes": 81084,
+      "sha256": "b35adc5cc81f2b418c7b38b71dffe6f74b662a567e5ea9023b448c3b6f11009b",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/22df4af9463e1f1a0612.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfMZ1rib2Bg-4.woff2",
+      "bytes": 106836,
+      "sha256": "d9237459c62d6852fd0ff4a670be5734ff0c5f3e658bcd109a173d6ae2eeb6b2",
+      "type": "font/woff2"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/lato/lato_n4.c86cddcf8b15d564761aaa71b6201ea326f3648b.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=14ed051bdec05c0981f0b28059a85256e87888127cb9ad6e47d5af5e055d4576",
+      "error": "text/html"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/titillium_web/titilliumweb_n7.669e49a9a18dba73feccda36771289d60afd2565.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=e069a907cd66d38b2560a5c9c4cd65a42c9802553d4a79da6eb328800b093a91",
+      "error": "text/html"
+    },
+    {
+      "local": "/archives/assets/466b837486816acbf84f.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/CloseUpWillieSquare_1080x.jpg?v=1649657259",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/CloseUpWillieSquare_1080x.jpg?v=1649657259",
+      "bytes": 216054,
+      "sha256": "340a75e1ac67f08962da6e5ac21c9c861f728106d8b8a75335df9bebff09128b",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/3a5321cd9bfff6098eb1.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/gridlife_kerbs_go_brr_copy_59d6c677-5f4e-41e8-b4d8-2461dbd679a4_1080x.png?v=1598708426",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/gridlife_kerbs_go_brr_copy_59d6c677-5f4e-41e8-b4d8-2461dbd679a4_1080x.png?v=1598708426",
+      "bytes": 1091674,
+      "sha256": "b3f3b09cfb6c83ee423ac4e579e563ae42be86e9dce1c513b7bce6a47dd54e1e",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/1047c9f5cfce4ef03b8e.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_normal_500.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_normal_500.ttf",
+      "bytes": 240424,
+      "sha256": "335cd9685a27256d23a658811c9cdb9533121da97524fdda7a7babb75acd6e67",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/95bb800825e4af124778.css",
+      "source": "https://tesloco.wordpress.com/_static/??-eJytjcsOgyAQRX+oMthYH4um3wJIyNRxMAxo/HtJXHXf5ck9uQeOrXGRs+cMG5WALBBKRetTqEvysD87pZUGW5BmkHySF7AU3dIQ2mTSCRIdGqrIi9yGWpGVE3nAXwJsdgwmY+Tf+8/6bodx6l+6b6fvBXRiSlU=&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/_static/??-eJytjcsOgyAQRX+oMthYH4um3wJIyNRxMAxo/HtJXHXf5ck9uQeOrXGRs+cMG5WALBBKRetTqEvysD87pZUGW5BmkHySF7AU3dIQ2mTSCRIdGqrIi9yGWpGVE3nAXwJsdgwmY+Tf+8/6bodx6l+6b6fvBXRiSlU=&cssminify=yes",
+      "bytes": 32538,
+      "sha256": "3273811a11b7dad11d1b669527c6b2fc0b51993c332ed0ef59e3078c5075f51c",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/51fe37514d9cfa1f1255.jpg",
+      "source": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/drew-dad-selfie-trg-pitbox.jpg?w=1024",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/drew-dad-selfie-trg-pitbox.jpg?w=1024",
+      "bytes": 203464,
+      "sha256": "ef0fd87fbf7942bbe58c2b81e8f507d98500c7fe369adc2bf4feb0030cccf56e",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/7e87b317de5b7e36af70.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.c86cddcf8b15d564761aaa71b6201ea326f3648b.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=14ed051bdec05c0981f0b28059a85256e87888127cb9ad6e47d5af5e055d4576",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.c86cddcf8b15d564761aaa71b6201ea326f3648b.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=14ed051bdec05c0981f0b28059a85256e87888127cb9ad6e47d5af5e055d4576",
+      "bytes": 42156,
+      "sha256": "575c97668d79c41ce6dbc1bf6d1c7fa0c5920725a1cd691aa5e11410f892f18b",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/e16f5e5ecb55b99a332a.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbPa4F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbPa4F_PcTWCWp8g.woff2",
+      "bytes": 85416,
+      "sha256": "955ad26e54c85fdcc6d2607921e7f9317fb3e0beac5fb88120c9d24f50a08533",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/cac4bc9606999418fe2f.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbJG4F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbJG4F_PcTWCWp8g.woff2",
+      "bytes": 85844,
+      "sha256": "34cb9fb48d8a0e69b6d7b24bd390b31677c0740ac271211958d22f11de797510",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/487dd2345e11a4738018.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYMZ1rib2Bg-4.woff2",
+      "bytes": 104660,
+      "sha256": "3207573bda2d3ad341b664e2f6307b3e3df22a3af9d10a43394395a4428ce68f",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/f1615535c3e2ed4954ac.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8IbLWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8IbLWTEKTt8iVow.woff2",
+      "bytes": 85516,
+      "sha256": "f262da665466d7bec0436e66c855de2fb07ca79790ceef814c79afe93e2de635",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/991cd572f2a2649d4f7d.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/sabeltyello2_1080x.jpg?v=1632872569",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/sabeltyello2_1080x.jpg?v=1632872569",
+      "bytes": 46006,
+      "sha256": "99ec2ebfc96d2c328250a8129dc2e0cf41c073109d73672871656dc308eebdfe",
+      "type": "image/jpeg"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/titillium_web/titilliumweb_n7.d9934f829b1262cd6f365837a78b867b01693063.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=167bbc6fb9e5adc9f2e4c22b36634233f6ecad482ad23eecbff60a2d47884767",
+      "error": "text/html"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/titillium_web/titilliumweb_n7.56a12bf435e8401765588d4fbf86b152db29e2a2.woff",
+      "error": "text/html"
+    },
+    {
+      "local": "/archives/assets/0d169844fceed5acc115.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/zevlogotwinbolt_black_1080x.png?v=1648850481",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/zevlogotwinbolt_black_1080x.png?v=1648850481",
+      "bytes": 5846,
+      "sha256": "e73b19d6a232c49fcc0a183b904b3193268c59ea2c217f35b89f31db46f321e5",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/802dbddb89525bff7407.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1963_gorgegreen_model_3q-430x500_1080x.jpg?v=1695080656",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1963_gorgegreen_model_3q-430x500_1080x.jpg?v=1695080656",
+      "bytes": 22164,
+      "sha256": "e03065615fa67fda5e23590d364ffad3127e2608190eacf50d9f1ebe5e8a3b78",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/42a2b27b6e218ef17e50.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/Michelin-Logo-2017-present_1080x.png?v=1632873957",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/Michelin-Logo-2017-present_1080x.png?v=1632873957",
+      "bytes": 61127,
+      "sha256": "e4fbb7e076705cd6115d0a9a12bd0b1e338d56e50fb134697505e54d4b3d4eb0",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/eaa466c49b97c5e0be36.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZ1rib2Bg-4.woff2",
+      "bytes": 100328,
+      "sha256": "a409b4776ac7e8e623c3963ec8598e77166a2b65a502907e1d3108c177818427",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/1f364244c728beff01e3.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeMZ1rib2Bg-4.woff2",
+      "bytes": 100564,
+      "sha256": "85637ddd683c601dfe9ba8c5a36dc98cddf5e132f53750a0aeea253a1dc305f0",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/eeb73ef87de41dd4b470.css",
+      "source": "https://tesloco.wordpress.com/_static/??-eJy9jlEKwkAMRC/kGi1I64d4FAnpWrZ2k2WTKN6+rajgBfybGR4zA48SSNgiG2QPZfIhscIYrSDd3h7U+RNd7pF7qYBuktEs0Re+Ss0KfVKDtRLJXhGQKgzVOQlvF72BP23+MGHCp7itB875tG+7rjm2h10zzmSfYcg=&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/_static/??-eJy9jlEKwkAMRC/kGi1I64d4FAnpWrZ2k2WTKN6+rajgBfybGR4zA48SSNgiG2QPZfIhscIYrSDd3h7U+RNd7pF7qYBuktEs0Re+Ss0KfVKDtRLJXhGQKgzVOQlvF72BP23+MGHCp7itB875tG+7rjm2h10zzmSfYcg=&cssminify=yes",
+      "bytes": 60167,
+      "sha256": "21e3ae8fbe89d5855dce6ddbac25ef1dd88e044e8b4e2067bbefdbb8a4ec2c37",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/fc3f90e9ecc324888e7d.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_700.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_700.ttf",
+      "bytes": 316100,
+      "sha256": "790c108befe859dac2ddbd20af3fbb6917c601b3d544c8a05761519f3b5508fe",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/cf61d47f213fde8a8145.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYMZ1rib2Bg-4.woff2",
+      "bytes": 108876,
+      "sha256": "eed2aa9e394c4dc2a764f5f756e759bc9b4a8114bac97ce75305f8aa7f096f8e",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/4b44dc4bfb95ee4b430b.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbM-4F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbM-4F_PcTWCWp8g.woff2",
+      "bytes": 84236,
+      "sha256": "4977d4e3b6b51dc40c78833b852dc85c6b1af22a8b8445fd14c72494f7a3f8b1",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/7002922a9f896f81586e.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8zbXWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8zbXWTEKTt8iVow.woff2",
+      "bytes": 85356,
+      "sha256": "fd0b353a554212bc9b8aa044c6a165b877acc9143ccf015a01ec44f6e0ad734c",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/a0bc51cddf6176640376.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/gridlife_heartland_park_podium_1080x.jpg?v=1632853989",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/gridlife_heartland_park_podium_1080x.jpg?v=1632853989",
+      "bytes": 137573,
+      "sha256": "e303cddce9e68d841515971efa3f2cbc1d5209ea63a70a46a95c39eb06d66513",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/d23d70fca94c81ada47f.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-05_12.11.07_480x480.jpg?v=1675743213",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-05_12.11.07_480x480.jpg?v=1675743213",
+      "bytes": 37151,
+      "sha256": "bc24051d156fa8f8044af5d902ed0b5131d6dddca6638f6969166cb6afada74d",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/b235f3b05b617235b45f.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d9934f829b1262cd6f365837a78b867b01693063.woff2?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=f7a7fa99197bb4be4849f2a3c7911e3c469e50bde0d1a599b61695fbe571f7b8",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d9934f829b1262cd6f365837a78b867b01693063.woff2?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=f7a7fa99197bb4be4849f2a3c7911e3c469e50bde0d1a599b61695fbe571f7b8",
+      "bytes": 15136,
+      "sha256": "f34e90f890742f5b160ad77f20628654a7940ba91ec3a904ec612000cc8e4f13",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/117d421b23928c3d3a87.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.669e49a9a18dba73feccda36771289d60afd2565.woff?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=f51413e05280641442e46ed596228762d0cae830c99b7f70db755b13f0ddaa3f",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.669e49a9a18dba73feccda36771289d60afd2565.woff?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=f51413e05280641442e46ed596228762d0cae830c99b7f70db755b13f0ddaa3f",
+      "bytes": 15144,
+      "sha256": "7596e779630587e84461efabafa1d56d14ff72fd8bc6364fd143df2cc08510d7",
+      "type": "font/woff2"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/lato/lato_n4.e0ee1e2c008a0f429542630edf70be01045ac5e9.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=bf5d126751ca0e0b6b41b60a0e937af21bcf7b46a7a14b9705287c2240eb6986",
+      "error": "text/html"
+    },
+    {
+      "local": "/archives/assets/271c0a81ec7588e1e3f6.css",
+      "source": "https://tesloco.wordpress.com/_static/??/wp-content/mu-plugins/core-compat/wp-mediaelement.css,/wp-content/mu-plugins/wpcom-bbpress-premium-themes.css?m=1432920480j&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/_static/??/wp-content/mu-plugins/core-compat/wp-mediaelement.css,/wp-content/mu-plugins/wpcom-bbpress-premium-themes.css?m=1432920480j&cssminify=yes",
+      "bytes": 432,
+      "sha256": "77e6916cc1f597af2401037c2cebb3f392dfcd9993d1d4b716644c14c319363b",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/329ae86c3381e5535474.css",
+      "source": "https://tesloco.wordpress.com/_static/??-eJx9jUEOgzAMBD/U1CCogAPiLSRy0yAnjmJHVX8P3ODS2440o4VvNo6TYlLQD0YUyNWCK7hqYBD9ET6dyAMuYqwmU/UhCRS0xP6YHg7rgv8ij2yI3fmQbmDetIZypkuc26FvXt3Qj9O2A4GHPS0=&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/_static/??-eJx9jUEOgzAMBD/U1CCogAPiLSRy0yAnjmJHVX8P3ODS2440o4VvNo6TYlLQD0YUyNWCK7hqYBD9ET6dyAMuYqwmU/UhCRS0xP6YHg7rgv8ij2yI3fmQbmDetIZypkuc26FvXt3Qj9O2A4GHPS0=&cssminify=yes",
+      "bytes": 3422,
+      "sha256": "6c584990bb8d281f3ce19c9542d078e716ae53c5d733a15181ebeda21168af72",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/2c00b64550499cd3ae03.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/Garmin-logo-1536x864_1080x.png?v=1632880661",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/Garmin-logo-1536x864_1080x.png?v=1632880661",
+      "bytes": 45211,
+      "sha256": "7baef405c712bdb4ffc8f734fde91faeb3b5c9211c8a8a64b96e43c3afd7c3b2",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/3631c0ca4281d90dc439.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PSX_20211005_160227_1080x.jpg?v=1633467807",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PSX_20211005_160227_1080x.jpg?v=1633467807",
+      "bytes": 175739,
+      "sha256": "df3a377cf7e918c10bf6a2eb1bca9b05b7a9b1f4ccbf8d57f84fcbb60c3554f2",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/ebfd98ee42ea32628a96.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/PhotoSep182023_61654PM_1080x.jpg?v=1695080656",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/PhotoSep182023_61654PM_1080x.jpg?v=1695080656",
+      "bytes": 351218,
+      "sha256": "e6322f318e5e383b01082012a9f7a11897521f5cd9e00ce557ba64dcb7f7ab44",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/2a7e0fe1113485d191dc.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fMZ1rib2Bg-4.woff2",
+      "bytes": 107540,
+      "sha256": "abd18c6f825fa128eb8835c17b1417ed786cf335bd6f27778f8100cddc8c5485",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/2c0ca9907d73e514048c.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8_7XWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8_7XWTEKTt8iVow.woff2",
+      "bytes": 80224,
+      "sha256": "8474223290d06c3aaf13f9da2295fce0d6b3b3d208442f93f702eeaa5e6d520f",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/0ef6792595636af01a31.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbCO_F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbCO_F_PcTWCWp8g.woff2",
+      "bytes": 84048,
+      "sha256": "f1b1dc464450dba9e9df5ca88e11d1ec7a58b41fa89bbac442a637b1f5e4d61b",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/facedbcdf51b0406f78e.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8f7LWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8f7LWTEKTt8iVow.woff2",
+      "bytes": 87532,
+      "sha256": "7910d694d5cd0f96786b8ecc017b09ce1fdb4e3a0d7cb614fd6a316156299ee9",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/6716b83d50960f7fc21f.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.e0ee1e2c008a0f429542630edf70be01045ac5e9.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=bf5d126751ca0e0b6b41b60a0e937af21bcf7b46a7a14b9705287c2240eb6986",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.e0ee1e2c008a0f429542630edf70be01045ac5e9.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=bf5d126751ca0e0b6b41b60a0e937af21bcf7b46a7a14b9705287c2240eb6986",
+      "bytes": 42416,
+      "sha256": "806fa3bcefce9277c7897311b8b2ca39ffef9e6a0e2179af250f41cf9e8ad727",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/935bd6d269854f603902.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.e0ee1e2c008a0f429542630edf70be01045ac5e9.woff?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=bc24a2755948b79770e105f45baf33cbaede3c719d57c19ad5c6c3af06ef3a23",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.e0ee1e2c008a0f429542630edf70be01045ac5e9.woff?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=bc24a2755948b79770e105f45baf33cbaede3c719d57c19ad5c6c3af06ef3a23",
+      "bytes": 42416,
+      "sha256": "806fa3bcefce9277c7897311b8b2ca39ffef9e6a0e2179af250f41cf9e8ad727",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/fbf153a8d8f66636cbca.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_normal_400.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_normal_400.ttf",
+      "bytes": 240180,
+      "sha256": "c7ab674ae9e25b79eea2bc8a9cf61241a9a2736662054ff1bcf0cc2439ceabb6",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/cba93e19ac2578135712.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_400.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_400.ttf",
+      "bytes": 309828,
+      "sha256": "41ab0f707a2bfab8133ccdfcdab52282f5f79e5751f43a264805451c7bb95fb8",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/88b8811ffad7acbbe2cf.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbE-_F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbE-_F_PcTWCWp8g.woff2",
+      "bytes": 82688,
+      "sha256": "6ffc5a8c9dd85a0767b89dabdb91c0a471c9662f6845bbccaa8119fc1cb98a13",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/e15e5ab11d8bb0a9bc74.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYMZ1rib2Bg-4.woff2",
+      "bytes": 108708,
+      "sha256": "e632df7358f56b0cd74a1affd03b01a60ba72e000377272eb5b39e6b90e424b6",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/550bc8c4baeacfdb93f6.css",
+      "source": "https://tesloco.wordpress.com/wp-content/plugins/gutenberg-core/v24.0.0/build/styles/block-library/cover/style.min.css?m=1789650619i&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/plugins/gutenberg-core/v24.0.0/build/styles/block-library/cover/style.min.css?m=1789650619i&cssminify=yes",
+      "bytes": 20296,
+      "sha256": "a74cdaf7aec21036eaf13e4434b214f206a1eaff5298975f5a73f7269dbb6187",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/ba464bb3904f7ccc8a6e.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/ARD-_Black_1080x.png?v=1648850481",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/ARD-_Black_1080x.png?v=1648850481",
+      "bytes": 18052,
+      "sha256": "233111f3d91a69cece282cb6244c88719f411a86de8865155980871349f7c176",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/d25272ef2147a7e3b1d8.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/hallett_vip_club_days_cover_1080x.jpg?v=1632861193",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/hallett_vip_club_days_cover_1080x.jpg?v=1632861193",
+      "bytes": 234833,
+      "sha256": "ca4d61f024681caa28c78199d107e0198cb09883d9cc1b591bb0932bc8906aa8",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/b3df929e1f40713eab6a.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/t5_road_america_wet_street_gt_1080x.jpg?v=1632844393",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/t5_road_america_wet_street_gt_1080x.jpg?v=1632844393",
+      "bytes": 104724,
+      "sha256": "afc0981c765736e64c67329cd3509fccde2e7d92937f678246fc8e411c0a61ec",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/e99a12a380589891f0b9.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/LG2_5089_1080x.jpg?v=1668452127",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/LG2_5089_1080x.jpg?v=1668452127",
+      "bytes": 117400,
+      "sha256": "4e4b1b6e9024aa238c48549d71bb004edfebcd0ffee566da22a828e602ea2039",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/e1c40eab8208b747acb6.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_italic_500.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_italic_500.ttf",
+      "bytes": 232140,
+      "sha256": "59a915e81236525bc770df7b24377d32645bef4d0e31bb307ccca65796224fbd",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/5a4e1498bbb247195ec1.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_italic_400.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/literata_italic_400.ttf",
+      "bytes": 231716,
+      "sha256": "dc1771a66a40cf5646cec1db4caa46f05123f6b93e8684835e54d0be39bf634d",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/2b5bb082ef63a73c4ae2.ttf",
+      "source": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_500.ttf",
+      "retrieved": "https://s2.wp.com/wp-content/themes/pub/creatio/assets/fonts/inter_normal_500.ttf",
+      "bytes": 314712,
+      "sha256": "10d48331f5b3c7362ca357b00c17ac4863ad35199b13b0eceb0962c8c1ad7dc9",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/6d63e84e2d4b0a713387.css",
+      "source": "https://tesloco.wordpress.com/_static/??-eJx9jVEOwjAMQy9ECYihwQfiLFsVSiBtqjXVxO3JQIIBEn+2E/vBmJ2XpJgUYnWZa6BUwEuMFjmmK5orX8nSkgUQJFGydnmJ52G2qWeMtpBrD37ATkmg6I3x53EGH7BnCSbDg/y2/0oBxbH4iZA+jDtxR8NUPcbDum1W203b7PaXO3btXQc=&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/_static/??-eJx9jVEOwjAMQy9ECYihwQfiLFsVSiBtqjXVxO3JQIIBEn+2E/vBmJ2XpJgUYnWZa6BUwEuMFjmmK5orX8nSkgUQJFGydnmJ52G2qWeMtpBrD37ATkmg6I3x53EGH7BnCSbDg/y2/0oBxbH4iZA+jDtxR8NUPcbDum1W203b7PaXO3btXQc=&cssminify=yes",
+      "bytes": 42897,
+      "sha256": "549db7ddeb6ffcab3401927a4c63f4531a9d258006c453b876d0fb92d86be746",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/48ee2b578f55aae8e19c.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZ1rib2Bg-4.woff2",
+      "bytes": 108392,
+      "sha256": "5edf3b24a0672b6ae39c06fab0edd4eeb8b1f5e98765aeb824b5e8affca98287",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/2a95584b28c78e90bb4f.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/Tesla_Owners_Austin_Logo_1080x.webp?v=1668444547",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/Tesla_Owners_Austin_Logo_1080x.webp?v=1668444547",
+      "bytes": 5277,
+      "sha256": "7ebb205ab7ed366205d1f46caee39db11253a924fc249a7f92839bb8c1bd8752",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/b19b8e6e6c335a0fb12c.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/autorndbrakes_ap_comp.jpg?v=1632862290",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/autorndbrakes_ap_comp.jpg?v=1632862290",
+      "bytes": 37669,
+      "sha256": "a0207a9f2305fbebeb0cd663b9b010c8179bddb9cc5095bec3b6f93d76731157",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/7d4d6de2b27de4bee9c9.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/SPL_Parts_Logo_1080x.jpg?v=1648813591",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/SPL_Parts_Logo_1080x.jpg?v=1648813591",
+      "bytes": 7581,
+      "sha256": "68caae7151d8454d9081c5548fbc33dbc141c6a52e8bd15b85eb4755d57ef921",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/17c2e47f02bacd8cf657.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/ortune-auto-fortune-auto-sticker-clipart_1080x.png?v=1648813445",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/ortune-auto-fortune-auto-sticker-clipart_1080x.png?v=1648813445",
+      "bytes": 124646,
+      "sha256": "8aac7257af7a2f450fdffd5067180d7536282b15894f11286f3c41ae235aef8b",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/47c3a81c7409f89ffb91.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/CloseUpWillieSquare_d02b92b6-966e-4584-81bc-4be4a469b024_1080x.jpg?v=1649656121",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/CloseUpWillieSquare_d02b92b6-966e-4584-81bc-4be4a469b024_1080x.jpg?v=1649656121",
+      "bytes": 216054,
+      "sha256": "340a75e1ac67f08962da6e5ac21c9c861f728106d8b8a75335df9bebff09128b",
+      "type": "image/jpeg"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/lato/lato_n4.d5c00c781efb195594fd2fd4ad04f7882949e327.woff",
+      "error": "text/html"
+    },
+    {
+      "local": "/archives/assets/5a46b7431010b19c3303.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8obXWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8obXWTEKTt8iVow.woff2",
+      "bytes": 82904,
+      "sha256": "9f44c1c1dd99498a8319512578de3eb12bae6d4440ed544d43ac9a999258d2f2",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/de053f704e06c24aa7ae.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8f7XWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8f7XWTEKTt8iVow.woff2",
+      "bytes": 78084,
+      "sha256": "d077067ff6747e40b8982e081bef52d86d68212d9410bfdb5e7d169af87925d3",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/1020343bd815d6e0816f.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8VrLWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8VrLWTEKTt8iVow.woff2",
+      "bytes": 84152,
+      "sha256": "d4091790cedbb3dfe05ac7bfe7623d9eaa53ceaa4a318ece9f5856c6cad47576",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/aae7ec5d8386b8f291c9.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d9934f829b1262cd6f365837a78b867b01693063.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=167bbc6fb9e5adc9f2e4c22b36634233f6ecad482ad23eecbff60a2d47884767",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d9934f829b1262cd6f365837a78b867b01693063.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=167bbc6fb9e5adc9f2e4c22b36634233f6ecad482ad23eecbff60a2d47884767",
+      "bytes": 15136,
+      "sha256": "f34e90f890742f5b160ad77f20628654a7940ba91ec3a904ec612000cc8e4f13",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/2732627de634e9cb65ea.css",
+      "source": "https://tesloco.wordpress.com/_static/??-eJxtzNEKwjAMheEXssaJMr0YPktpw+iWtmFJKL69HXg1dvlzOB80dqEWxaKQzTHZnIpAS3FGFUDra10TOvINFDOTVxQQ/RJeg8gFzoEFlX1Y/w1iBXKNRv274W5Ex1X0ULv4ydMwjrf38Hy87ssPMDY7gQ==&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/_static/??-eJxtzNEKwjAMheEXssaJMr0YPktpw+iWtmFJKL69HXg1dvlzOB80dqEWxaKQzTHZnIpAS3FGFUDra10TOvINFDOTVxQQ/RJeg8gFzoEFlX1Y/w1iBXKNRv274W5Ex1X0ULv4ydMwjrf38Hy87ssPMDY7gQ==&cssminify=yes",
+      "bytes": 8222,
+      "sha256": "2b54ba6203f5b16cd7339f6c8cbc76c2ab3017d5bd8a40745e785c7ba32d7d5d",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/d295642bd28383a7f7ab.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/specteslacolorlogoBUFFER_border_b828ceb7-7b92-4435-a21c-f8cb3a2e5943_1080x.jpg?v=1668444790",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/specteslacolorlogoBUFFER_border_b828ceb7-7b92-4435-a21c-f8cb3a2e5943_1080x.jpg?v=1668444790",
+      "bytes": 7080,
+      "sha256": "96f3d95c6dd92b472eb1d78d377349c9aaef9511412f65d74cba9d740673a57b",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/022be74151d855917916.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/20200519_Support_AUT_0254_RGB_1080x.jpg?v=1632842018",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/20200519_Support_AUT_0254_RGB_1080x.jpg?v=1632842018",
+      "bytes": 141169,
+      "sha256": "79ced01d4f419a3acc48c5f6c1550321220196f877eaf77a0f5afb9d984e111f",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/01069f029ae03d4eda75.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbBG_F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbBG_F_PcTWCWp8g.woff2",
+      "bytes": 79388,
+      "sha256": "9fe4e0ebdbf5ddbb8fefc8276eb4115863c0566a6361b28fd5668d0dcb3834ca",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/9d325f210262b9d65339.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbJG_F_PcTWCWp8g.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3PQ6P12-iJxAIgLa78DkrbXsDgk0oVDaDPYLanFLHpPf2TbJG_F_PcTWCWp8g.woff2",
+      "bytes": 76804,
+      "sha256": "a25449e388f1d05e221029afd9dcfd197ca94c7ef81a4b015a1ea3b6a93c9a4f",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/038a58c9288fe9ccfa45.woff2",
+      "source": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8GLLWTEKTt8iVow.woff2",
+      "retrieved": "https://fonts.wp.com/s/literata/v35/or3NQ6P12-iJxAIgLYT1PLs1Zd0nfUwAbeGVKoRYzNiCp1OUedn8GLLWTEKTt8iVow.woff2",
+      "bytes": 87156,
+      "sha256": "87db5d4f9b9546acb5d58ecb9a513ec174f8d97f94e511f06042cdace2521061",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/6c345063512c3623bbe7.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/gridlife_heartland_park_podium_1080x.jpg?v=1632843735",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/gridlife_heartland_park_podium_1080x.jpg?v=1632843735",
+      "bytes": 137573,
+      "sha256": "e303cddce9e68d841515971efa3f2cbc1d5209ea63a70a46a95c39eb06d66513",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/cee482ac99c0dd73b640.jpg",
+      "source": "https://i.imgur.com/tnm3C8W.jpeg",
+      "retrieved": "https://i.imgur.com/tnm3C8W.jpeg",
+      "bytes": 236905,
+      "sha256": "1ec237bbe39837811807b15b5f06cfcfac4e8097dcd8e00c795d6629765d6de2",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/03c746feb4df864dffdf.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PSX_20211005_160916_1080x.jpg?v=1633468233",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PSX_20211005_160916_1080x.jpg?v=1633468233",
+      "bytes": 138425,
+      "sha256": "d6fa8b1a1c74c79870a9c11a0f81ed80f2798f1a39387d9f8c145e971265eb2a",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/e67bb4bb4619e738b41e.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PXL_20210927_191416876_1080x.jpg?v=1632843495",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PXL_20210927_191416876_1080x.jpg?v=1632843495",
+      "bytes": 223668,
+      "sha256": "440154d1153948d5e1a7e43c09e6602142eab3a13d3434df247bf04d24f010ba",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/1ea331513121087b2f80.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/2023-02-04_17.59.13_1080x.jpg?v=1675745324",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/2023-02-04_17.59.13_1080x.jpg?v=1675745324",
+      "bytes": 231481,
+      "sha256": "798bc6fd03d4c2cd9e9aca5d416c4ed160adc0c224169cf29a097393b655040b",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/1e9f5dd2d8a05d283087.woff2",
+      "source": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfMZ1rib2Bg-4.woff2",
+      "retrieved": "https://fonts.wp.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfMZ1rib2Bg-4.woff2",
+      "bytes": 106528,
+      "sha256": "d7262f7d001387f07f4cb4d2cfa675d04a9d04c03e253646a40bc5a4e1b72598",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/075ca3b4ff55af42f3c8.png",
+      "source": "https://tesloco.files.wordpress.com/2023/10/tesloco-logo-header-wordpress-8.png",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/tesloco-logo-header-wordpress-8.png",
+      "bytes": 23217,
+      "sha256": "1759b837dcd49baa0015970abeae2afba9c2ffb100b2a8bee8b700155d82a927",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/be9607d2828df358ae4a.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-05_12.08.37_480x480.jpg?v=1675742931",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-05_12.08.37_480x480.jpg?v=1675742931",
+      "bytes": 61511,
+      "sha256": "c67942f7b9c5d63f7e3807d5474cd1ed06861d93486247e504a9901ce4e863be",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/627f07e48ec14bc975c5.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-05_12.11.16_480x480.jpg?v=1675743198",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/2023-02-05_12.11.16_480x480.jpg?v=1675743198",
+      "bytes": 41270,
+      "sha256": "d3baf9cff4734ae8283a326c5a0216a4b5733bc912447cc1dd0a0f5f30a5c8ed",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/d913d44d0715b8b81d42.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.669e49a9a18dba73feccda36771289d60afd2565.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=e069a907cd66d38b2560a5c9c4cd65a42c9802553d4a79da6eb328800b093a91",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.669e49a9a18dba73feccda36771289d60afd2565.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=e069a907cd66d38b2560a5c9c4cd65a42c9802553d4a79da6eb328800b093a91",
+      "bytes": 15144,
+      "sha256": "7596e779630587e84461efabafa1d56d14ff72fd8bc6364fd143df2cc08510d7",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/c90fce1d289772f154cc.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.c86cddcf8b15d564761aaa71b6201ea326f3648b.woff2?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=c0dc2886615b2d9981ce530af3dcd27529cf0001d97c63be6ccfc33473e66c64",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.c86cddcf8b15d564761aaa71b6201ea326f3648b.woff2?h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&hmac=c0dc2886615b2d9981ce530af3dcd27529cf0001d97c63be6ccfc33473e66c64",
+      "bytes": 42156,
+      "sha256": "575c97668d79c41ce6dbc1bf6d1c7fa0c5920725a1cd691aa5e11410f892f18b",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/5294fb842b28f5394712.png",
+      "source": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/logo-posters-kevin-paige-art-2-tesla-cota-110722-copy.png?w=1024",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/logo-posters-kevin-paige-art-2-tesla-cota-110722-copy.png?w=1024",
+      "bytes": 321382,
+      "sha256": "62b34ab30fa17fbd667e69d51c0727f2c67b924ffabc73785bdf89c5b09d05a8",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/98e4bc4ac004035b90f3.css",
+      "source": "https://tesloco.wordpress.com/wp-content/mu-plugins/widgets/eu-cookie-law/templates/style.css?m=1642463000i&cssminify=yes",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/mu-plugins/widgets/eu-cookie-law/templates/style.css?m=1642463000i&cssminify=yes",
+      "bytes": 1413,
+      "sha256": "2ef339ebaf4f8879d876aa57516a696ba4e773be6bfcd0827e6447bba644504b",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/d840c11fed3097017818.png",
+      "source": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/gridlife-kerbs-go-brr.png?w=1024",
+      "retrieved": "https://tesloco.wordpress.com/wp-content/uploads/2023/10/gridlife-kerbs-go-brr.png?w=1024",
+      "bytes": 299089,
+      "sha256": "dd98e1622db9788ba2654399eb899cdd0ff182513b0129211750539067dd44a0",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/d40076e566ff572663b1.png",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/UP_Text_Horizontal_1080x.png?v=1632871834",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/UP_Text_Horizontal_1080x.png?v=1632871834",
+      "bytes": 12352,
+      "sha256": "409accd6dd4fb1678016f25b7270e4abc2f5b02725a45a13e81b87e260b1c0e6",
+      "type": "image/png"
+    },
+    {
+      "local": "/archives/assets/f4ad1759a2cfe55e13a4.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1963_white_model_3q-430x500_1080x.jpg?v=1695080656",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1963_white_model_3q-430x500_1080x.jpg?v=1695080656",
+      "bytes": 20368,
+      "sha256": "6ba48185226ea368b2862f0f86f6c79c31f26fceff9a28a4ab20639006a6d555",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/5686f2f1207f53e7d433.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1991_white_model_front-430x500_1080x.jpg?v=1695080656",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1991_white_model_front-430x500_1080x.jpg?v=1695080656",
+      "bytes": 20762,
+      "sha256": "c74694d21022edb49e7b1cf8ea90480560442d66c8659623d0135e668a87bc40",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/5da2f0ac153170bd26b4.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1991_lucidgreen_model_3q-430x500_1080x.jpg?v=1695080656",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/NKDC1991_lucidgreen_model_3q-430x500_1080x.jpg?v=1695080656",
+      "bytes": 21344,
+      "sha256": "a64c74be1f2fb5ccec3c61ff48c0269a95088bd622747d1126f61875273d759e",
+      "type": "image/jpeg"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/titillium_web/titilliumweb_n7.d17ed1f3a767ca2dd9fcaa8710c651c747c3860e.woff2",
+      "error": "text/html"
+    },
+    {
+      "local": null,
+      "source": "https://specteslacup.com/cdn/fonts/lato/lato_n4.c3b93d431f0091c8be23185e15c9d1fee1e971c5.woff2",
+      "error": "text/html"
+    },
+    {
+      "local": "/archives/assets/134568ce56e4b8ecf7f4.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PSX_20211005_160227.jpg?v=1633467807",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/articles/PSX_20211005_160227.jpg?v=1633467807",
+      "bytes": 175739,
+      "sha256": "df3a377cf7e918c10bf6a2eb1bca9b05b7a9b1f4ccbf8d57f84fcbb60c3554f2",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/8a0dcef0d26370a00d6f.jpg",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/PXL_20210927_191416876_1080x.jpg?v=1632834372",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/files/PXL_20210927_191416876_1080x.jpg?v=1632834372",
+      "bytes": 223668,
+      "sha256": "440154d1153948d5e1a7e43c09e6602142eab3a13d3434df247bf04d24f010ba",
+      "type": "image/jpeg"
+    },
+    {
+      "local": "/archives/assets/44fa8cf7433445aa5bdd.eot",
+      "source": "https://tesloco.wordpress.com/i/noticons/Noticons.eot",
+      "retrieved": "https://tesloco.wordpress.com/i/noticons/Noticons.eot",
+      "bytes": 29782,
+      "sha256": "71db4f5d6d8acbb8be0e3796cd58507b0cf84d414d24414ff5ff1f73b09ae8aa",
+      "type": "application/vnd.ms-fontobject"
+    },
+    {
+      "local": "/archives/assets/85b46a3734c3d1340c19.ttf",
+      "source": "https://tesloco.wordpress.com/i/noticons/Noticons.ttf",
+      "retrieved": "https://tesloco.wordpress.com/i/noticons/Noticons.ttf",
+      "bytes": 29604,
+      "sha256": "475e7af684a0c7e9a7e26d546611421803e3456f079ecef3bd1c59052c9024ef",
+      "type": "application/font-ttf"
+    },
+    {
+      "local": "/archives/assets/fae043feee38d6ba79ff.svg",
+      "source": "https://tesloco.wordpress.com/i/noticons/Noticons.svg#Noticons",
+      "retrieved": "https://tesloco.wordpress.com/i/noticons/Noticons.svg#Noticons",
+      "bytes": 106065,
+      "sha256": "c57264dcfb16f46da2a225dfc54e5855593d6b014aa8cb78543d594e1f3318d9",
+      "type": "image/svg+xml"
+    },
+    {
+      "local": "/archives/assets/a6a7b2a625dd50b45eb1.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d17ed1f3a767ca2dd9fcaa8710c651c747c3860e.woff2",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d17ed1f3a767ca2dd9fcaa8710c651c747c3860e.woff2",
+      "bytes": 15528,
+      "sha256": "a907d931d85e5c3ad81354a764092bbf54bdd980acc06cb652a8b2821d284010",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/8178dc40e86446497353.css",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/t/3/assets/theme.scss.css?v=52836708282287189491668460514",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/t/3/assets/theme.scss.css?v=52836708282287189491668460514",
+      "bytes": 173322,
+      "sha256": "e5395d86a5555e42561206a83cb0436ef2b5b12ea6fe94f36d60458860269743",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/cd5cb38f1579134228c6.css",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/t/3/assets/theme.scss.css?v=34699337903787092191759332512",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/t/3/assets/theme.scss.css?v=34699337903787092191759332512",
+      "bytes": 173322,
+      "sha256": "91ca64e97893cfc2c3a331163465a6f20ed3cb1e67271b1c8f2c897d2667fc3c",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/980af501bdc3ba88f540.css",
+      "source": "https://cdn.shopify.com/s/files/1/0472/1344/5275/t/3/assets/theme.scss.css?v=82938940827154194721664835325",
+      "retrieved": "https://cdn.shopify.com/s/files/1/0472/1344/5275/t/3/assets/theme.scss.css?v=82938940827154194721664835325",
+      "bytes": 173322,
+      "sha256": "844f3ded62205fe57d9ea5313ad4833d55dac3f6e6dd5b247474ae1937e6d907",
+      "type": "text/css"
+    },
+    {
+      "local": "/archives/assets/9df79ef5378f29b83ae4.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.d5c00c781efb195594fd2fd4ad04f7882949e327.woff",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.d5c00c781efb195594fd2fd4ad04f7882949e327.woff",
+      "bytes": 44540,
+      "sha256": "fd33302a5bed0e1d5d0951b366b13bd20f666cc785386a9efff7710fcb628fd3",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/0f6d95a2fae44bdc1355.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.c3b93d431f0091c8be23185e15c9d1fee1e971c5.woff2",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.c3b93d431f0091c8be23185e15c9d1fee1e971c5.woff2",
+      "bytes": 44672,
+      "sha256": "66b6193aeb243f7663454749bc77bb10702b6bc4cb3304bc96334e32d4afd237",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/a34343e69005b2276881.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.56a12bf435e8401765588d4fbf86b152db29e2a2.woff",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.56a12bf435e8401765588d4fbf86b152db29e2a2.woff",
+      "bytes": 15528,
+      "sha256": "b2ee9acb10f3be8a1b3a3e3971639b0f5cca4cd4bae15710c2681b9e973814f9",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/a2db3bf09a2a6e2fda1b.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d17ed1f3a767ca2dd9fcaa8710c651c747c3860e.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=986572d60f2ee4fbc26ccbdd25f81dbf5653504ff3fa67e6bd0d33d5198690d8",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.d17ed1f3a767ca2dd9fcaa8710c651c747c3860e.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=986572d60f2ee4fbc26ccbdd25f81dbf5653504ff3fa67e6bd0d33d5198690d8",
+      "bytes": 15528,
+      "sha256": "a907d931d85e5c3ad81354a764092bbf54bdd980acc06cb652a8b2821d284010",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/234e263b54d569b267bc.woff2",
+      "source": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.56a12bf435e8401765588d4fbf86b152db29e2a2.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=a66b9d7b1666de753b2cfd72c391f8ed2a286ccdc1e195fe021da7c263c9ed2b",
+      "retrieved": "https://fonts.shopifycdn.com/titillium_web/titilliumweb_n7.56a12bf435e8401765588d4fbf86b152db29e2a2.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=a66b9d7b1666de753b2cfd72c391f8ed2a286ccdc1e195fe021da7c263c9ed2b",
+      "bytes": 15528,
+      "sha256": "b2ee9acb10f3be8a1b3a3e3971639b0f5cca4cd4bae15710c2681b9e973814f9",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/8f5a3eb62759651f15c0.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.c3b93d431f0091c8be23185e15c9d1fee1e971c5.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=c8c4101718a08aefa966abef45fba9e2352f08e8133ec06a929866b7ed41aa9a",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.c3b93d431f0091c8be23185e15c9d1fee1e971c5.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=c8c4101718a08aefa966abef45fba9e2352f08e8133ec06a929866b7ed41aa9a",
+      "bytes": 44672,
+      "sha256": "66b6193aeb243f7663454749bc77bb10702b6bc4cb3304bc96334e32d4afd237",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/c6f2daeb9d5f93f86f39.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n4.d5c00c781efb195594fd2fd4ad04f7882949e327.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=4c5f9dcc65f69bea37613d5bf6417c572df4bd33ed5a1a6d2afdcd963569147e",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n4.d5c00c781efb195594fd2fd4ad04f7882949e327.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=4c5f9dcc65f69bea37613d5bf6417c572df4bd33ed5a1a6d2afdcd963569147e",
+      "bytes": 44540,
+      "sha256": "fd33302a5bed0e1d5d0951b366b13bd20f666cc785386a9efff7710fcb628fd3",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/7b7eaf38f90174fcd60e.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n6.38d0e3b23b74a60f769c51d1df73fac96c580d59.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=fb3306ac3eebafd09294115dbfb974fd21994f20c0f4c69c08cf5d077fdaf3d6",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n6.38d0e3b23b74a60f769c51d1df73fac96c580d59.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=fb3306ac3eebafd09294115dbfb974fd21994f20c0f4c69c08cf5d077fdaf3d6",
+      "bytes": 44892,
+      "sha256": "9212559d3643b3a868d81c69ec8418856b60bfffb68c489a1b6df5df530c144f",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/cd90d8c290c919f631f8.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n6.3365366161bdcc36a3f97cfbb23954d8c4bf4079.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=7d233c74dbcae4e6e0b7bb03b13cadec9ca9864f2a1ff351893f194df00018c3",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n6.3365366161bdcc36a3f97cfbb23954d8c4bf4079.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=7d233c74dbcae4e6e0b7bb03b13cadec9ca9864f2a1ff351893f194df00018c3",
+      "bytes": 44704,
+      "sha256": "871628f0bb47fc4fc347482965f1d06849634b7eb24d906c3f1f58ae6eceb908",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/c9f6a6a113157061f2c7.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n7.900f219bc7337bc57a7a2151983f0a4a4d9d5dcf.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=cdedc532fbee1e8c6bf40e683df4d3ede160b675835399d2057e54ade473b92e",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n7.900f219bc7337bc57a7a2151983f0a4a4d9d5dcf.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=cdedc532fbee1e8c6bf40e683df4d3ede160b675835399d2057e54ade473b92e",
+      "bytes": 43724,
+      "sha256": "55e0c9e04f8209976fa3f319c42ac7f568b4d54cc98931566e3ea48572cf1111",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/7e7ddaa46dd6b719478a.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_n7.a55c60751adcc35be7c4f8a0313f9698598612ee.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=4fc5ba3ffcefe1282df7cf5edb833c0a2537d324373e89def20814a9987d2bed",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_n7.a55c60751adcc35be7c4f8a0313f9698598612ee.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=4fc5ba3ffcefe1282df7cf5edb833c0a2537d324373e89def20814a9987d2bed",
+      "bytes": 43732,
+      "sha256": "413ab87b78aabd964b08da7a17237ed1023f9ef72464d1fdb8c60f407732a327",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/01a6ae3947f165f1a0a4.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_i4.09c847adc47c2fefc3368f2e241a3712168bc4b6.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=4e46fbcb2eaec2a153ce765cd48a88a2efc2e576196ba8e71a9cdbc55a11fc9d",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_i4.09c847adc47c2fefc3368f2e241a3712168bc4b6.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=4e46fbcb2eaec2a153ce765cd48a88a2efc2e576196ba8e71a9cdbc55a11fc9d",
+      "bytes": 47020,
+      "sha256": "d1dca6c72a2bcc0824112a280ed2ed9675806dd817194231b77284d3939e3725",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/3d2e1916c35bea8b0a5a.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_i4.3c7d9eb6c1b0a2bf62d892c3ee4582b016d0f30c.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=9ea10c68a2296f84ce24119fe6d21e277dd19267928b18ab2d77f0ed61e3af23",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_i4.3c7d9eb6c1b0a2bf62d892c3ee4582b016d0f30c.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=9ea10c68a2296f84ce24119fe6d21e277dd19267928b18ab2d77f0ed61e3af23",
+      "bytes": 46932,
+      "sha256": "bb678d0ba42b004af14529613ddf389a858351c54b2c85a275f8cae478437490",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/b7b0d4509c9e2296743c.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_i7.16ba75868b37083a879b8dd9f2be44e067dfbf92.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=8b6ec357d35164657434fdded37386ed11f74d06b5d7c45c264679f123246d9c",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_i7.16ba75868b37083a879b8dd9f2be44e067dfbf92.woff2?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=8b6ec357d35164657434fdded37386ed11f74d06b5d7c45c264679f123246d9c",
+      "bytes": 45944,
+      "sha256": "a12da1b46587ad631ef004a0997be79756c30ef68cc5932aa8beb63708a94fd8",
+      "type": "font/woff2"
+    },
+    {
+      "local": "/archives/assets/9b87ded2689a3d80aa3a.woff2",
+      "source": "https://fonts.shopifycdn.com/lato/lato_i7.4c07c2b3b7e64ab516aa2f2081d2bb0366b9dce8.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=20c65a367eeee9d3d36a215884350b23069201bed0108afea40b407f7de7044a",
+      "retrieved": "https://fonts.shopifycdn.com/lato/lato_i7.4c07c2b3b7e64ab516aa2f2081d2bb0366b9dce8.woff?h10=c3BlYy10ZXNsYS1yYWNpbmcuYWNjb3VudC5teXNob3BpZnkuY29t&h1=c3BlY3Rlc2xhLnJhY2luZw&h2=c3BlY3Rlc2xhLm15c2hvcGlmeS5jb20&h3=c3BlY3Rlc2xhbW90b3JzcG9ydC5jb20&h4=dGVzbGFtb3RvcnNwb3J0Y2x1Yi5jb20&h5=c3BlY3Rlc2xhcmFjaW5nLmNvbQ&h6=c3BlY3Rlc2xhY3VwLmNvbQ&h7=dGVzbGF0ZWVuZHJpdmluZ2FjYWRlbXkuY29t&h8=dGVzbGF0cmFja2V4cGVyaWVuY2UuY29t&h9=dGVzbGF0ZWVuZHJpdmluZ3NjaG9vbC5jb20&hmac=20c65a367eeee9d3d36a215884350b23069201bed0108afea40b407f7de7044a",
+      "bytes": 46032,
+      "sha256": "80ffd4fe3fe65ab775855c5e70c5e9d36d6338390e76a0322df1fab52011199b",
+      "type": "font/woff2"
+    }
+  ],
+  "method": "Original public HTML; scripts/trackers removed, forms disabled, assets copied locally; internal navigation rewritten. Capture dates are not content revision dates. Shopify /cdn/shop paths resolved to the store CDN namespace present in the 2022 source. CSS fonts/images recovered where available. No account access or billing changes."
+}
