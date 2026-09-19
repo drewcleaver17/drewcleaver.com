@@ -146,3 +146,13 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [x] Pilot terms, HiringCafe content, shared navigation, and unlisted-route protections are preserved.
 - [x] Production build, release privacy checks, unique heading/ID structure, and new synthesis/pilot anchors pass.
 - [ ] Post-deployment live revision verification.
+
+### Tekmetric compensation and budget refinement
+
+- [x] Owner authorized live publication of scope-based candidate compensation and a capped pilot budget agreed after scoping.
+- [x] Paid work leads the compensation section. The proposed minimum, higher compensation for deeper work, equal payment for equal assignments/terms, completion-based payment, advance disclosure, and bounded effort are explicit.
+- [x] Fixed employer price and associated allocations are removed from the page; budget components now separate reserved candidate pay, service delivery, and tools/direct costs.
+- [x] Work-sample value includes deliverables and judgment evidence from simulated scenarios, with hiring as the primary purpose and agreed terms for reuse.
+- [x] First-person story, executive synthesis, pilot scope, candidate passport, research hypothesis, and HiringCafe proposal are retained.
+- [x] Production build, release checks, obsolete-price scan, anchors, and contact verification pass. Original ProofPath source is unchanged.
+- [ ] Live publication and browser verification. Exact mobile viewport checks remain subject to browser capabilities.
