@@ -127,6 +127,10 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 
 Drew requested one editable column with all 70 assumptions prefilled, every numerical input accepting zero or blank, all sections open, and addable rows with category/description and optional numeric or dollar values. Preserve saving, exchange, feedback and earlier inputs. Blank is unknown, never silently zero; added rows affect calculations only through an explicit financial treatment. The prior comparison columns are retained as individually openable worksheets during migration. Keep the DPC page unlisted and retain the dated PDF.
 
+## DPC R05 staffing revision
+
+Drew explicitly authorized the staggered Sun–Thu/Tue–Sat associates, up to 12 total encounters, 9–9 outer availability, separately editable routine cutoff and owner schedule. Recalculate daily capacity, constrained enrollment, launch cash and leadership/replacement stages. Preserve the single open worksheet and earlier models without reinterpreting their inputs. Update the dated PDF and add evidence-based R01–R05 history with a frozen America/Chicago timestamp. Unknown incremental costs remain blank. See `docs/dpc/R05_STAFFING.md`.
+
 ## Portfolio review — September 19, 2026
 
 Drew authorized an unlisted portfolio implementation before public promotion.

@@ -1,5 +1,7 @@
 # Independent DPC concept — September 19, 2026
 
+**Current model:** [R05 staffing revision](dpc/R05_STAFFING.md). The R03/R04 numbers and implementation notes below remain historical.
+
 The single-worksheet revision below supersedes the original comparison UI and schema notes. The narrative, 70 default values and dated PDF remain the same.
 
 Drew explicitly authorized implementation and live publication at `/dpc/`. This supersedes the affiliated framing of `/metsicare/`. It is a discussion proposal by Drew, not a company launch, investment offering, named physician's participation, or a finalized ownership arrangement.

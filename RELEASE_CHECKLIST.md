@@ -235,6 +235,16 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] 42 model tests, three focused UI tests and the production build pass; no communication sent.
 - [ ] Verify live publication, restored older state, custom-row editing and exports.
 - [ ] Exact mobile viewport and physical-device inspection; responsive source and contained table scrolling implemented.
+
+## DPC R05 staffing revision
+
+- [x] Independent framing, staggered associate days, separate availability/bookings/pay, daily constraints, leadership/replacement stages and unknown coverage costs.
+- [x] One open worksheet, preserved original input meanings/calculation mode, custom rows, local saving and neutral export/import workflows.
+- [x] R01–R04 verified from successful deployments; R05 uses fixed content-finalization time with tested CDT/CST formatting.
+- [x] Shared model snapshot feeds the 18-slide PDF and narrative; all slides rendered and inspected.
+- [ ] Final production build, current-main integration, live deployment and browser/PDF/forwarding verification; evidence recorded in the release PR.
+- [ ] Exact viewport and physical-device tests; do not infer these from automated DOM checks.
+
 ## Unlisted portfolio review — September 19, 2026
 
 - [x] Overview and five case studies build at `/portfolio/` and its project subpaths.

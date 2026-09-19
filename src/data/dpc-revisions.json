@@ -1,0 +1,16 @@
+{
+  "pageRevision": "R05",
+  "updatedAt": "2026-09-19T22:30:00Z",
+  "timestampBasis": "Revision finalized for publication; deployment success is recorded separately in the release evidence.",
+  "modelVersion": "dpc-2026-09-v4",
+  "schemaVersion": 4,
+  "pdfRevision": "DPC-R05",
+  "countingRule": "One revision per distinct successfully published change to this concept's page, calculator or PDF. Commits within one release, failed deployments and unrelated site changes do not add revisions. R01–R04 were reconstructed from first-parent Git history and successful GitHub Pages runs. The current entry becomes the fifth published iteration when this release succeeds.",
+  "history": [
+    {"id":"R01","date":"2026-09-19T17:23:22Z","basis":"Successful deployment run completed","title":"METSI Care growth concept and PDF","summary":"Initial practice-specific predecessor. Historical name only; the current proposal is independent and unaffiliated.","commit":"03815c5fdbb555eac7ba600993ed5ac0badc88cb","url":"https://github.com/drewcleaver17/drewcleaver.com/actions/runs/35457910763"},
+    {"id":"R02","date":"2026-09-19T18:11:42Z","basis":"Successful deployment run completed","title":"METSI Care scenario tool and green design","summary":"Introduced editable comparisons, saving and review-file exchange in the site palette.","commit":"2f6afde3097bd5f14f4ad96cc70a488de6d0dd13","url":"https://github.com/drewcleaver17/drewcleaver.com/actions/runs/35460346544"},
+    {"id":"R03","date":"2026-09-19T18:56:11Z","basis":"Successful deployment run completed","title":"Independent DPC concept, deck and launch model","summary":"Moved to /dpc/, removed affiliation, added monthly enrollment and cash timing, and preserved earlier files.","commit":"1b78cfdd93c0560b05a48c1ed8e797126ac02305","url":"https://github.com/drewcleaver17/drewcleaver.com/actions/runs/35462733114"},
+    {"id":"R04","date":"2026-09-19T21:08:13Z","basis":"Successful deployment run completed","title":"One open worksheet with custom rows","summary":"Replaced side-by-side editing with one worksheet, blank/zero inputs, addable rows and preserved earlier comparisons.","commit":"54925780b421d4a06c1541f925c05dbbb64653b1","url":"https://github.com/drewcleaver17/drewcleaver.com/actions/runs/35469454982"},
+    {"id":"R05","date":"2026-09-19T22:30:00Z","basis":"Revision finalized for publication","title":"Staggered associate schedules and ownership progression","summary":"Separate 9–9 availability and appointment windows, twelve-encounter ceilings, weekday constraints, roster stages, constrained launch enrollment, updated PDF and revision history.","url":"https://github.com/drewcleaver17/drewcleaver.com/tree/feat/dpc-staffing-r05"}
+  ]
+}
