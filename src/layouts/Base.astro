@@ -7,6 +7,7 @@ interface Props { title: string; description?: string; compact?: boolean; noinde
 const { title, description = profile.description, compact = false, noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, profile.website);
 const links = [{ href: '/about/', label: 'About' }, { href: '/services/', label: 'Work with me' }, { href: profile.bookingUrl, label: 'Schedule a conversation' }];
+const portfolioLinks = [{ href: '/tesloco/', label: 'Tesloco' }, { href: '/specteslacup/', label: 'Spec Tesla Cup' }];
 const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
 const measurePage = analyticsEnabled && !noindex && publicPages.includes(Astro.url.pathname);
 ---
@@ -36,6 +37,15 @@ const measurePage = analyticsEnabled && !noindex && publicPages.includes(Astro.u
         {compact ? <a class="quiet-link" href="/">Explore my site <span aria-hidden="true">↗</span></a> : <>
           <nav class="desktop-nav" aria-label="Main navigation">
             {links.map(({ href, label }) => <a href={href} aria-current={active(href) ? 'page' : undefined}>{label}</a>)}
+            <details class="portfolio-menu">
+              <summary>Portfolio <span aria-hidden="true">+</span></summary>
+              <div class="portfolio-panel">
+                <p class="portfolio-heading" id="desktop-portfolio-heading">EV &amp; Motorsport Business Concepts</p>
+                <ul aria-labelledby="desktop-portfolio-heading">
+                  {portfolioLinks.map(({ href, label }) => <li><a href={href} aria-current={active(href) ? 'page' : undefined}>{label}</a></li>)}
+                </ul>
+              </div>
+            </details>
             <a class="nav-contact" href="/contact/" aria-current={active('/contact/') ? 'page' : undefined}>Say hello</a>
             <a href="/hello/" aria-current={active('/hello/') ? 'page' : undefined}>Linktree</a>
           </nav>
@@ -45,6 +55,12 @@ const measurePage = analyticsEnabled && !noindex && publicPages.includes(Astro.u
               {links.map(({ href, label }) => <a href={href} aria-current={active(href) ? 'page' : undefined}>{label}</a>)}
               <a href="/contact/" aria-current={active('/contact/') ? 'page' : undefined}>Say hello</a>
               <a href="/hello/" aria-current={active('/hello/') ? 'page' : undefined}>Linktree</a>
+              <div class="mobile-portfolio">
+                <p class="portfolio-heading" id="mobile-portfolio-heading">EV &amp; Motorsport Business Concepts</p>
+                <ul aria-labelledby="mobile-portfolio-heading">
+                  {portfolioLinks.map(({ href, label }) => <li><a href={href} aria-current={active(href) ? 'page' : undefined}>{label}</a></li>)}
+                </ul>
+              </div>
             </nav>
           </details>
         </>}
@@ -58,5 +74,21 @@ const measurePage = analyticsEnabled && !noindex && publicPages.includes(Astro.u
       </div>
     </footer>
     {measurePage && <Analytics />}
+    <script>
+      const menus = document.querySelectorAll<HTMLDetailsElement>('.portfolio-menu, .mobile-menu');
+      document.addEventListener('click', (event) => {
+        for (const menu of menus) {
+          if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+        }
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        for (const menu of menus) {
+          if (!menu.open) continue;
+          if (menu.contains(document.activeElement)) menu.querySelector('summary')?.focus();
+          menu.open = false;
+        }
+      });
+    </script>
   </body>
 </html>
