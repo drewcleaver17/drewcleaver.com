@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import MetsiModel from '../components/MetsiModel.astro';
 import { profile } from '../data/profile';
 
 const costs = [
@@ -46,12 +47,16 @@ const sources = [
         <h1 id="metsi-title">METSI Care</h1>
         <p class="hero-thesis">Small physician-owned practices.<br />A shared platform for growth.</p>
         <p class="hero-intro">Preserve the relationship with a trusted doctor. Make the experience more consistent. Give the next generation of physicians a path to ownership.</p>
+        <a class="download model-cta" href="#model">Open the working model <span aria-hidden="true">↓</span></a>
         <a class="download" href="/metsicare-deck.pdf" download="METSI-Care-Growth-Concept.pdf">Download the 16-slide PDF <span aria-hidden="true">↓</span></a>
         <p class="disclosure">Independent proposal for discussion with Dr. Garrick. This is not an approved METSI Care offering, partnership, franchise offer or investment solicitation. All economics are illustrative.</p>
       </div>
     </header>
 
+    <MetsiModel />
+
     <div class="metsi-shell reading">
+      <p class="reference-context">The reference concept below and the PDF retain the original assumptions. Use the working model above to compare your inputs and save revisions.</p>
       <section aria-labelledby="thesis">
         <p class="eyebrow">01 / The investment thesis</p>
         <h2 id="thesis">A trusted local doctor is the product. A repeatable practice is the growth engine.</h2>
@@ -73,7 +78,7 @@ const sources = [
         <p class="note">These are proposed new terms, not current membership benefits. Existing members would retain their agreements unless they voluntarily accept a change. Membership is not health insurance. The 20% annual discount is an option to test, not the recommended economic baseline.</p>
       </section>
 
-      <section aria-labelledby="care">
+      <section class="green-band" aria-labelledby="care">
         <p class="eyebrow">03 / The patient experience</p>
         <h2 id="care">Every visit ends with an agreed plan.</h2>
         <ol class="steps">
@@ -137,7 +142,7 @@ const sources = [
         <p class="note">No verified Austin therapy-price benchmark or claim of equivalent psychotherapy outcomes enters the model. Testing and treatment should follow clinical need. The investment case does not depend on experimental peptides, unnecessary testing or promised lab savings.</p>
       </section>
 
-      <section aria-labelledby="ownership">
+      <section class="green-band" aria-labelledby="ownership">
         <p class="eyebrow">09 / The physician ownership path</p>
         <h2 id="ownership">Learn the practice. Demonstrate readiness. Earn a path to ownership.</h2>
         <p>Recruit licensed, residency-trained MDs or DOs, with competitive pay and clinical autonomy. Early-career physicians can develop practice-management skills alongside a senior owner. This is business mentorship, separate from accredited medical training.</p>
@@ -165,7 +170,7 @@ const sources = [
         <p>The potential advantage is a repeatable patient experience and a credible route to physician ownership. Conventional venture-capital fit remains conditional on repeatable openings, retention and profitable support delivery. A strong local practice alone does not establish venture-scale returns.</p>
       </section>
 
-      <section aria-labelledby="pilot">
+      <section class="green-band" aria-labelledby="pilot">
         <p class="eyebrow">12 / The next decision</p>
         <h2 id="pilot">Run a limited pilot before funding a network.</h2>
         <ol class="steps">
@@ -192,17 +197,17 @@ const sources = [
 </Base>
 
 <style>
-  .metsi { --ink:#152b35; --muted:#53616a; --accent:#b42f32; --border:#d9e0e1; color:var(--ink); background:#fff; font-family:Arial,Helvetica,sans-serif; }
+  .metsi { --ink:#173e35; --muted:#5d6962; --accent:#235c48; --border:#d1d6ca; color:var(--ink); background:#f7f5ee; font-family:var(--font-sans); }
   .metsi-shell { width:min(1080px,calc(100% - 48px)); margin-inline:auto; }
   .metsi-hero { background:var(--ink); color:#fff; padding:76px 0 64px; }
   .eyebrow { font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 24px; }
-  .metsi-hero .eyebrow { color:#f0a2a3; display:flex; flex-wrap:wrap; gap:12px 24px; }
+  .metsi-hero .eyebrow { color:#d5e6bd; display:flex; flex-wrap:wrap; gap:12px 24px; }
   .metsi h1 { color:#fff; font-size:clamp(3.5rem,8vw,6.8rem); font-weight:700; letter-spacing:-.055em; line-height:1; margin:0 0 32px; }
   .hero-thesis { font-size:clamp(1.7rem,3.5vw,3rem); font-weight:600; line-height:1.2; letter-spacing:-.025em; max-width:900px; margin:0 0 28px; }
-  .hero-intro { color:#d2dce0; font-size:clamp(1.1rem,2vw,1.3rem); max-width:740px; line-height:1.65; }
-  .download { display:inline-flex; align-items:center; justify-content:space-between; gap:32px; border:1px solid #71858e; color:#fff; padding:15px 20px; min-height:48px; margin:16px 0 24px; text-decoration:none; font-weight:700; }
-  .download:hover { background:#29434f; }
-  .disclosure { color:#bfcdd3; max-width:830px; font-size:.875rem; line-height:1.6; margin:0; }
+  .hero-intro { color:#d7e1d5; font-size:clamp(1.1rem,2vw,1.3rem); max-width:740px; line-height:1.65; }
+  .download { display:inline-flex; align-items:center; justify-content:space-between; gap:32px; border:1px solid #94ac94; color:#fff; padding:15px 20px; min-height:48px; margin:16px 0 24px; text-decoration:none; font-weight:700; }
+  .download:hover { background:#235c48; }
+  .disclosure { color:#d3dfce; max-width:830px; font-size:.875rem; line-height:1.6; margin:0; }
   .reading { max-width:920px; }
   section { padding:64px 0; border-bottom:1px solid var(--border); scroll-margin-top:32px; }
   .metsi h2 { font-size:clamp(1.7rem,3.2vw,2.65rem); line-height:1.2; font-weight:700; letter-spacing:-.03em; max-width:850px; margin:0 0 28px; color:var(--ink); }
@@ -210,7 +215,7 @@ const sources = [
   section p { font-size:1.08rem; line-height:1.8; margin:0 0 20px; }
   section p:last-child { margin-bottom:0; }
   .metsi a:not(.download) { color:var(--accent); text-underline-offset:4px; text-decoration-thickness:1px; }
-  .metsi a:focus-visible,summary:focus-visible { outline:3px solid #ce4749; outline-offset:5px; }
+  .metsi a:focus-visible,summary:focus-visible { outline:3px solid #af6d2e; outline-offset:5px; }
   .note { font-size:.91rem; color:var(--muted); line-height:1.65; }
   .callout { border-left:3px solid var(--accent); padding:8px 0 8px 22px; margin:28px 0; font-size:1.16rem; font-weight:600; line-height:1.6; }
   .plans,.responsibilities { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin:34px 0; }
@@ -242,7 +247,7 @@ const sources = [
   thead { background:var(--ink); color:#fff; }
   thead th { font-weight:600; }
   tbody th { font-weight:500; }
-  tbody tr:nth-child(even) { background:#f3f5f5; }
+  tbody tr:nth-child(even) { background:#edf0e6; }
   .discussion { display:inline-block; font-size:1.08rem; font-weight:700; padding:12px 0; min-height:44px; }
   .sources { padding-bottom:70px; border-bottom:0; }
   .sources ol { padding-left:22px; margin:30px 0; }
@@ -277,4 +282,18 @@ const sources = [
   }
   @media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto; } }
   @media print { .metsi-hero { color:var(--ink); background:#fff; } .metsi h1 { color:var(--ink); } .hero-intro,.disclosure { color:var(--muted); } .download { display:none; } section { padding:30px 0; } h2,h3 { break-after:avoid; } .metsi-shell { width:100%; } }
+
+  .metsi h1,.metsi h2 { font-family:var(--serif); font-weight:400; letter-spacing:-.035em; }
+  .hero-thesis { font-family:var(--serif); font-weight:400; letter-spacing:-.025em; }
+  .metsi-hero { padding:56px 0 48px; }
+  .metsi h1 { font-size:clamp(3.5rem,7vw,6rem); }
+  .model-cta { background:#f7f5ee; color:#173e35; margin-right:12px; border-color:#f7f5ee; }
+  .model-cta:hover { background:#e4ecd8; }
+  .reading { width:100%; max-width:none; }
+  .reading>section { padding:64px max(24px,calc((100% - 920px)/2)); }
+  .reference-context { margin:0; padding:24px max(24px,calc((100% - 920px)/2)); font-size:.9rem; line-height:1.65; border-bottom:1px solid #d1d6ca; color:#5d6962; }
+  .reading>.green-band { --ink:#f7f5ee; --muted:#d3dfce; --accent:#d5e6bd; --border:#698271; background:#173e35; color:#f7f5ee; }
+  .green-band .callout { border-color:#aac494; }
+  @media(max-width:640px) { .reading>section { padding:46px 20px; } .model-cta { margin-right:0; margin-bottom:0; } .metsi-hero { padding:38px 0; } }
+  @media print { .reading>.green-band { --ink:#173e35; --muted:#5d6962; --accent:#235c48; background:#fff; color:#173e35; } }
 </style>
