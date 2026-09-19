@@ -33,6 +33,11 @@ for (const page of ['buildmine/index.html', 'preview/index.html', 'motorsport/in
   assert(/name="robots" content="noindex, nofollow"/.test(html), 'Unlisted pages must ask search engines not to index them: ' + page);
 }
 const sitemap = readFileSync(join(root, 'sitemap.xml'), 'utf8');
+const youtube = readFileSync(join(root, 'youtube/index.html'), 'utf8');
+assert(/name="robots" content="noindex, nofollow"/.test(youtube), 'The initial YouTube collection should remain noindex.');
+assert(!youtube.includes('<iframe'), 'YouTube players must load only after a visitor clicks.');
+assert(!youtube.includes('id="analytics-choice"'), 'The unlisted YouTube page must not initialize analytics.');
+assert(!sitemap.includes('/youtube'), 'The initial YouTube collection should remain out of the sitemap.');
 assert(!/\/(buildmine|preview|writing|motorsport|proofpath|tekmetric|metsicare)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
 assert(existsSync(join(root, 'metsicare-deck.pdf')), 'Missing METSI Care PDF.');
 console.log('Release check passed: contact routes present; writing absent; all concept and pilot routes unlisted and noindex.');

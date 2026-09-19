@@ -156,3 +156,16 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [x] First-person story, executive synthesis, pilot scope, candidate passport, research hypothesis, and HiringCafe proposal are retained.
 - [x] Production build, release checks, obsolete-price scan, anchors, and contact verification pass. Original ProofPath source is unchanged.
 - [ ] Live publication and browser verification. Exact mobile viewport checks remain subject to browser capabilities.
+
+## YouTube library — September 19, 2026
+
+- [x] `/youtube/` uses the existing visual design and an honest empty state; no saved-video source has been supplied or favorites inferred.
+- [x] Data-backed cards support native YouTube links, optional source-grounded TL;DW summaries, takeaways, and separately supplied personal context.
+- [x] Search, topic/length filters, sorting, empty results, and reset were exercised in an isolated build with clearly labelled synthetic entries. No fixture entries enter production.
+- [x] Chromium checks passed at 320, 390, 768, and 1440px for empty/populated layouts and player sizing; no horizontal overflow. Desktop/mobile empty-page screenshots inspected.
+- [x] Case/accent search, combined filters, 10/30-minute duration boundaries, unknown duration handling, sorting, escaped content, and no-JavaScript links passed.
+- [x] Click-to-load privacy-enhanced iframe, direct fallback link, minimum player height, referrer policy, Escape/close teardown, and returned keyboard focus passed. No autoplay requested.
+- [x] The initial route is noindex, excluded from the sitemap, and unlinked from the homepage. Existing site routes and release exclusions are preserved.
+- [ ] Supply the actual public/unlisted playlist, selected links, or export; verify video content before writing summaries and confirm personal reasons before attribution.
+- [ ] Real YouTube playback and per-video restrictions: external video requests were blocked during browser QA, so no actual playback is claimed.
+- [ ] Live route verification after the GitHub Pages release.
