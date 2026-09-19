@@ -5,14 +5,37 @@
     "researchCutoff": "2026-09-19",
     "lastCheckedAt": "2026-09-19T18:03:51.100Z",
     "contentUpdatedAt": "2026-09-19T18:03:51.100Z",
-    "updateStatus": "setup incomplete",
-    "updateDescription": "Weekly monitoring exists. Publishing integration is not yet end-to-end verified; reviewed imports remain available.",
+    "updateStatus": "paused",
+    "updateDescription": "Weekly monitoring continues. A source-to-live update passed its end-to-end test; automatic publishing is paused until a date-dependent test fixture is corrected.",
     "cadence": "Weekly",
     "edition": "2026-09-19-nasa-public-meeting",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-09-19-nasa-public-meeting",
+      "verifiedAt": "2026-09-19T18:09:17Z",
+      "revision": "0b1086ae6ba2b99cbdceb5c3edd9ae8ecb4c14e7",
+      "contentDigest": "24f56dcf54feba771ae678b24f836882e46f489928f1a4222fba59235b7b8193",
+      "url": "https://drewcleaver.com/ufos/?view=recent#nasa-public-meeting-2023",
+      "workflowRun": 35460200526
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
-    ]
+    ],
+    "commissioningComplete": true,
+    "commissioningVerifiedAt": "2026-09-19T18:09:17Z",
+    "maintenance": {
+      "status": "review-required",
+      "file": "scripts/ufos.test.mjs",
+      "test": "recent view uses site revision, not incident date",
+      "issue": "The test uses a fixed September 20, 2026 revision timestamp. Newer real records can make the test fail even when sorting works correctly.",
+      "requiredChange": "Make the fixture revision timestamp later than the maximum revision timestamp in that test dataset. Rerun tests and the production build before resuming automatic publication.",
+      "scopeBoundary": "The unattended reporter may edit only the dataset; the code correction requires an authorized maintenance change."
+    },
+    "verificationNotes": {
+      "localTests": "12 passing; importer valid, duplicate, malformed, unsupported, source-failure and deployment-failure paths tested safely.",
+      "liveUI": "Search, combined filters, date range, URL restoration, reset, copy links, oldest/newest, recently revised, empty state, keyboard focus, latest and context anchors checked.",
+      "mobileQA": "Responsive source reviewed. Exact 320/390/768/1440px browser viewports unavailable in this run; physical-device checks not claimed.",
+      "unlisted": "Static noindex, no inbound navigation links, no sitemap entry, no analytics; no robots.txt block."
+    }
   },
   "sources": {
     "nyt-context": {
