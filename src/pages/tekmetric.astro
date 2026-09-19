@@ -1,0 +1,282 @@
+---
+import Base from '../layouts/Base.astro';
+import { profile } from '../data/profile';
+
+const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('Tekmetric × ProofPath — scope a pilot')}`;
+const criteria = [
+  ['Customer understanding', 'Recognizes the shop owner’s constraints and asks the questions needed to recommend a next step.'],
+  ['Product accuracy', 'Checks claims against approved material, identifies unknowns, and avoids unsupported promises.'],
+  ['Enablement quality', 'Turns the answer into guidance a sales rep can understand and use.'],
+  ['Judgment with AI', 'Shows what was verified, corrected, or rejected before submission.'],
+  ['Coaching and adaptation', 'Explains the reasoning, handles an objection, and improves the work after feedback.'],
+];
+const weeks = [
+  ['Week 1', 'Define and calibrate', 'Choose one funded requisition. Agree on the brief, rubric, tools, candidate terms, budget, and success measures. Calibrate reviewers on an example response.'],
+  ['Week 2', 'Recruit and qualify', 'Use Tekmetric’s applicant pool and agreed sourcing channels. Confirm interest, role fit, and availability before inviting up to ten candidates.'],
+  ['Week 3', 'Run the assessment', 'Provide the same brief and tools, a 48–72 hour written-work window, one feedback round, and a short live coaching exercise. Pay for agreed completion.'],
+  ['Week 4', 'Review and decide', 'Deliver evidence packets and a shortlist, capture candidate feedback, and report time and cost. Tekmetric decides whom to advance and whether to repeat.'],
+];
+---
+
+<Base title="ProofPath for Tekmetric" description="A proposed four-week Tekmetric hiring pilot: one sales enablement role, up to ten paid work assessments, and a practical path from job discovery to demonstrated ability. By Drew Cleaver." compact noindex>
+  <article class="proofpath" aria-labelledby="tekmetric-title">
+    <div class="pitch-shell">
+      <header class="pitch-hero">
+        <p class="pitch-meta">A pilot proposal for Tekmetric <span aria-hidden="true">·</span> By Drew Cleaver</p>
+        <h1 id="tekmetric-title">ProofPath</h1>
+        <p class="pitch-thesis">See the work.<br />Then make the hire.</p>
+        <p class="pitch-intro">Help Tekmetric evaluate how candidates explain its product, equip its sales team, and earn a shop owner’s trust.</p>
+        <p class="hero-explainer">One role. Up to ten paid assessments. A four-week trial of hiring built around realistic work, supported tools, and time to think.</p>
+        <a class="pitch-link" href="#pilot">See the proposed pilot <span aria-hidden="true">↓</span></a>
+        <p class="note">An independent proposal. Tekmetric and HiringCafe have not agreed to participate.</p>
+      </header>
+
+      <section class="pitch-section" aria-labelledby="fit-title">
+        <div class="section-label"><span>01</span><p>Why Tekmetric</p></div>
+        <div class="section-copy">
+          <h2 id="fit-title">Customer understanding should show up in the hiring evidence.</h2>
+          <p>Tekmetric connects repair orders, inspections, inventory, and reporting in its <a href="https://www.tekmetric.com/feature/shop-management">shop management platform</a>. Explaining that value calls for product accuracy, commercial judgment, and an understanding of the people running a shop.</p>
+          <p>ProofPath would let candidates demonstrate those abilities with the research, AI tools, and revision time available in a working environment. A focused live exercise would still test the interaction the role requires.</p>
+          <p class="statement">Can this person help a rep have a better conversation with a shop owner?</p>
+          <p class="note">This proposed experiment fits Tekmetric’s published emphasis on customer outcomes, curiosity, and learning from feedback in its <a href="https://www.tekmetric.com/careers">career principles</a>. It does not assume access to, or diagnose, Tekmetric’s current hiring process.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" id="pilot" aria-labelledby="pilot-title">
+        <div class="section-label"><span>02</span><p>The first trial</p></div>
+        <div class="section-copy">
+          <h2 id="pilot-title">Start with one sales enablement role.</h2>
+          <p>Choose a funded requisition with a hiring manager who wants stronger evidence of candidate ability. Sales enablement is the suggested starting point; Tekmetric would confirm the actual role and its requirements.</p>
+          <div class="pilot-math"><p><strong>1</strong><span>funded requisition</span></p><p><strong>10</strong><span>paid assessments maximum</span></p><p><strong>4 weeks</strong><span>target pilot delivery window</span></p></div>
+          <p>ProofPath would source and qualify candidates, administer the exercise, pay participants, and deliver a structured shortlist. Tekmetric would retain its applicant system, final interviews, and hiring decision.</p>
+          <p class="note">A proposed scope, subject to agreement and candidate availability. The pilot can begin with Tekmetric’s existing pipeline.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="task-title">
+        <div class="section-label"><span>03</span><p>The work sample</p></div>
+        <div class="section-copy">
+          <h2 id="task-title">Use the questions shop owners actually ask.</h2>
+          <p>Tekmetric’s <a href="https://www.tekmetric.com/faq">public FAQ</a> already covers switching systems, training, pricing, and rollout. Those topics provide a starting point for a realistic assessment, refined with the hiring manager’s most common customer questions.</p>
+          <aside class="example" aria-labelledby="scenario-title">
+            <h3 id="scenario-title">Illustrative scenario: a two-location repair business</h3>
+            <p>A shop owner is considering Tekmetric. They want to understand what data can move from their current system, how their staff will learn it, and how to assess value. They are concerned about disruption during the switch.</p>
+          </aside>
+          <ol class="process-list">
+            <li><span class="step-number" aria-hidden="true">01</span><div><h3>Prepare a customer response</h3><p>Write a concise follow-up with relevant answers, necessary discovery questions, and a practical next step. Cite sources and flag what needs confirmation.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">02</span><div><h3>Equip the sales rep</h3><p>Create a one-page coaching guide: what to ask, how to explain the value, and which commitments require specialist input.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">03</span><div><h3>Respond to feedback</h3><p>Revise one part after a new constraint or reviewer comment. Briefly explain the change and the checks behind it.</p></div></li>
+            <li><span class="step-number" aria-hidden="true">04</span><div><h3>Coach in conversation</h3><p>Use a short, scheduled role-play to coach a rep through an objection and answer questions about the submitted work.</p></div></li>
+          </ol>
+          <p class="note">Use a fictional customer and approved reference materials. A demo environment would be used only if Tekmetric supplies access; no production customer data is needed.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="conditions-title">
+        <div class="section-label"><span>04</span><p>The candidate experience</p></div>
+        <div class="section-copy">
+          <h2 id="conditions-title">Pay for the work. Make the conditions clear.</h2>
+          <dl class="assessment-terms">
+            <div><dt>$100+</dt><dd><strong>Per completed assessment</strong>Agreed payment regardless of score or hiring outcome.</dd></div>
+            <div><dt>48–72h</dt><dd><strong>To submit written work</strong>A flexible return window with a two-hour total effort cap, including revision and the live exercise.</dd></div>
+            <div><dt>Tools + AI</dt><dd><strong>Provided access</strong>The same supported tools, reference packet, and disclosed recording conditions.</dd></div>
+          </dl>
+          <p>Research, drafting, and editing are part of the assessment. Candidates remain accountable for the claims and recommendations they submit. Tool activity is captured only within the agreed workspace, with access and retention explained before participation.</p>
+          <p class="note">The pilot would use available tools and managed administration. A universal, fully integrated assessment sandbox is a future product direction. Candidate work is for evaluation; broader commercial reuse or research requires separate permission.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="review-title">
+        <div class="section-label"><span>05</span><p>The decision evidence</p></div>
+        <div class="section-copy">
+          <h2 id="review-title">A consistent rubric makes the work easier to compare.</h2>
+          <p>Agree on anchored criteria before inviting candidates. Review the output, its supporting evidence, and the response to feedback. Define in advance how material errors and later corrections affect the assessment.</p>
+          <dl class="launch-list">
+            {criteria.map(([label, description]) => <div><dt>{label}</dt><dd>{description}</dd></div>)}
+          </dl>
+          <p>Each evidence packet would contain the deliverables, reviewer notes, cited examples, relevant tool-use context, and remaining interview questions. Human reviewers would own the assessment; prompt volume and writing polish would not stand in for job performance.</p>
+          <p class="note">Calibrate two reviewers on a sample and independently review a subset to surface disagreements. No universal employability score or automated hiring decision is proposed.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="budget-title">
+        <div class="section-label"><span>06</span><p>Budget &amp; ownership</p></div>
+        <div class="section-copy">
+          <h2 id="budget-title">One employer budget. A defined service.</h2>
+          <p>Tekmetric would fund a scoped engagement. ProofPath’s fee would cover recruiting, qualification, assessment design, tools, administration, payments, and the final evidence review.</p>
+          <div class="economics" aria-labelledby="budget-example-title">
+            <h3 id="budget-example-title">Illustrative pilot budget</h3>
+            <dl class="cost-list">
+              <div><dt>Candidate payment reserve · 10 × $100</dt><dd>$1,000</dd></div>
+              <div><dt>Recruiting, assessment delivery, tools &amp; review</dt><dd>$9,000</dd></div>
+              <div class="contribution"><dt>Total planning envelope</dt><dd>$10,000</dd></div>
+            </dl>
+            <p class="note">A working estimate carried from the ProofPath model, subject to a written scope and budget. Candidate effort, payment amounts, unused reserves, and delivery terms would be agreed before launch.</p>
+          </div>
+          <div class="value-list">
+            <div><h3>Tekmetric sets the hiring standard</h3><p>Provide one accountable hiring manager, a recruiter contact, approved product materials, reviewer availability, and final hiring decisions.</p></div>
+            <div><h3>Drew leads the proposed ProofPath pilot</h3><p>Design and administer the assessment, coordinate recruiting and payments, assemble the shortlist, and report delivery time, cost, and lessons.</p></div>
+            <div><h3>Candidates pay no participation fee</h3><p>The service earns its margin through efficient delivery of the employer mandate. Candidate compensation is reserved within that mandate.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="delivery-title">
+        <div class="section-label"><span>07</span><p>Execution</p></div>
+        <div class="section-copy">
+          <h2 id="delivery-title">Four weeks from agreed brief to evidence review.</h2>
+          <ol class="process-list">
+            {weeks.map(([week, title, description]) => <li><span class="step-number" aria-hidden="true">{week.slice(-1).padStart(2, '0')}</span><div><h3>{week}: {title}</h3><p>{description}</p></div></li>)}
+          </ol>
+          <p class="note">This is the delivery target after kickoff. Tekmetric’s hiring timeline and any eventual start date remain separate.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="success-title">
+        <div class="section-label"><span>08</span><p>The pilot scorecard</p></div>
+        <div class="section-copy">
+          <h2 id="success-title">Agree on what would earn a second pilot.</h2>
+          <p>The trial should test whether the evidence is useful and the service is practical. Proposed thresholds give the kickoff a concrete starting point.</p>
+          <dl class="launch-list">
+            <div><dt>Shortlist quality</dt><dd>Target at least three candidates whom Tekmetric judges worth advancing against the agreed role criteria. Report any shortfall.</dd></div>
+            <div><dt>Review effort</dt><dd>Target a median of 30 minutes or less for the initial hiring-manager review of each packet. Track setup, live exercises, and later interviews separately.</dd></div>
+            <div><dt>Candidate experience</dt><dd>Pay every agreed completion on time. Target a median experience rating of at least 4/5 and report the survey response rate.</dd></div>
+            <div><dt>Cost &amp; repeat demand</dt><dd>Stay within the agreed engagement budget and ask Tekmetric whether it would fund another role at the measured delivery cost.</dd></div>
+          </dl>
+          <p>Use a recent comparable requisition as a baseline where available. Capture whether the work samples changed reviewers’ views and gave them better follow-up questions.</p>
+          <p class="note">Ten assessments can inform a service decision; they cannot establish predictive validity. With separate permission, later onboarding and role-performance outcomes could inform a larger study.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="passport-title">
+        <div class="section-label"><span>09</span><p>Value beyond one opening</p></div>
+        <div class="section-copy">
+          <h2 id="passport-title">Keep useful evidence after the decision.</h2>
+          <p>ProofPath’s larger model includes a free candidate passport: experience, preferences, optional skill exercises, and work samples with their task briefs, tool conditions, dates, and feedback.</p>
+          <p>A candidate could choose to reuse permitted evidence for a relevant future opening. For Tekmetric, reusable task designs and reviewer lessons could improve later assessments and onboarding. Research into AI usage and job outcomes would require separate consent.</p>
+          <p class="note">The initial pilot can provide a simple evidence record. A full passport platform would follow validation. Sharing must respect both the candidate’s permissions and Tekmetric’s confidential materials; optional quizzes would not become a universal hiring score.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="partnership-title">
+        <div class="section-label"><span>10</span><p>The broader partnership</p></div>
+        <div class="section-copy">
+          <h2 id="partnership-title">HiringCafe connects discovery. ProofPath adds evidence.</h2>
+          <p><a href="https://hiringcafe.com/about">HiringCafe</a> describes a job search engine that collects roles directly from employer websites and rejects pay-to-win discovery. A proposed collaboration could connect that discovery experience to an optional, employer-funded assessment process.</p>
+          <dl class="launch-list">
+            <div><dt>HiringCafe</dt><dd>Help people discover relevant employer openings, with any additional routing agreed by HiringCafe.</dd></div>
+            <div><dt>ProofPath</dt><dd>Qualify interested candidates, administer paid work, and assemble evidence they can choose to share.</dd></div>
+            <div><dt>Tekmetric</dt><dd>Define the role, fund the assessment, review the evidence, and make the hiring decision.</dd></div>
+          </dl>
+          <p class="statement">A Tekmetric pilot can proceed independently of a HiringCafe partnership.</p>
+          <p>After internal validation, Tekmetric could explore a separate offering for interested shop customers—for example, service-advisor hiring built around customer communication and shop workflows. Its <a href="https://www.tekmetric.com/partners">existing partner program</a> provides a context for discussing that possibility.</p>
+          <p class="note">No partnership, integration, endorsement, or commercial terms are in place. HiringCafe filters external recruiting-agency listings, so any collaboration would need an agreed direct-employer path. Candidate sharing would be opt-in, and service fees would stay separate from organic search ranking. Expansion to shop customers would require its own validation.</p>
+        </div>
+      </section>
+
+      <footer class="pitch-close" aria-labelledby="next-title">
+        <p class="pitch-meta">The next step for Tekmetric</p>
+        <h2 id="next-title">Choose a role.<br />Scope the first pilot.</h2>
+        <p>I’m proposing a working session with a Tekmetric hiring leader and recruiter to select the requisition, pressure-test the exercise, and agree on a funded trial.</p>
+        <p>I would lead the design and delivery. Tekmetric would help define what strong work looks like—and decide whether the resulting evidence earns a place in its hiring process.</p>
+        <a class="pitch-button" href={emailHref}>Discuss the Tekmetric pilot <span aria-hidden="true">↗</span></a>
+        <a class="email-link" href={emailHref}>{profile.email}</a>
+        <p class="note">Prepared by Drew Cleaver · September 2026. Company context is linked to public sources; the pilot, budget, and partnership paths are proposals.</p>
+      </footer>
+    </div>
+  </article>
+</Base>
+
+<style>
+  :global(body:has(.proofpath)) { background: #fff; color: #142338; --paper: #fff; --color-ink: #142338; --color-muted: #526171; --color-border: #d4dce2; }
+  .proofpath { --pitch-ink: #142338; --pitch-body: #26364a; --pitch-muted: #526171; --pitch-teal: #006a68; --pitch-red: #b73732; --pitch-line: #d4dce2; color: var(--pitch-body); font: 1.125rem/1.7 -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; overflow-wrap: break-word; }
+  .pitch-shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+  .pitch-meta { color: var(--pitch-muted); font-size: .875rem; line-height: 1.6; }
+  .pitch-meta span { margin-inline: .35rem; }
+  .pitch-hero { padding-block: 2.75rem 3.5rem; }
+  .pitch-hero h1 { font-size: clamp(3.1rem, 9vw, 5.5rem); font-weight: 750; letter-spacing: -.055em; line-height: 1.05; color: var(--pitch-ink); margin: 1.35rem 0 1.75rem; }
+  .pitch-thesis { border-top: 3px solid var(--pitch-red); padding-top: 1.6rem; font-size: clamp(2.15rem, 5.8vw, 4.5rem); line-height: 1.12; letter-spacing: -.038em; font-weight: 720; color: var(--pitch-ink); max-width: 100%; }
+  .desktop-break { display: none; }
+  .pitch-intro { font-size: clamp(1.2rem, 2.3vw, 1.55rem); font-weight: 550; line-height: 1.5; max-width: 42rem; margin-top: 1.6rem; }
+  .hero-explainer { max-width: 42rem; margin-top: 1.1rem; }
+  .pitch-link { display: inline-flex; min-height: 48px; gap: 1rem; align-items: center; font-size: 1rem; text-decoration: underline; color: var(--pitch-teal); margin-top: 1.25rem; font-weight: 650; }
+  .pitch-section { display: grid; gap: 1rem; border-top: 1px solid var(--pitch-line); padding-block: 2.75rem; scroll-margin-top: 1.5rem; }
+  .section-label { display: flex; align-items: baseline; gap: .8rem; color: var(--pitch-muted); font-size: .875rem; line-height: 1.5; }
+  .section-label > span { color: var(--pitch-teal); font-size: 1.25rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .section-copy { min-width: 0; }
+  .proofpath h2 { color: var(--pitch-ink); font-weight: 700; font-size: clamp(1.9rem, 3.6vw, 2.65rem); line-height: 1.16; letter-spacing: -.033em; margin-bottom: 1.35rem; text-wrap: pretty; }
+  .section-copy > p + p { margin-top: 1.1rem; }
+  .proofpath h3 { color: var(--pitch-ink); font-size: 1.125rem; line-height: 1.45; font-weight: 700; }
+  .proofpath .statement { font-size: 1.4rem; color: var(--pitch-ink); font-weight: 650; line-height: 1.45; margin-block: 1.6rem; }
+  .proofpath .note { font-size: .9375rem; line-height: 1.65; color: var(--pitch-muted); margin-top: 1.3rem; }
+  .proofpath a:not(.pitch-button):not(.pitch-link):not(.email-link) { color: var(--pitch-teal); text-decoration: underline; }
+  .process-list { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; }
+  .process-list li { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: .8rem; border-top: 1px solid var(--pitch-line); padding-block: 1.15rem; }
+  .step-number { color: var(--pitch-teal); font-weight: 650; font-size: 1rem; padding-top: .1rem; }
+  .process-list h3 { margin-bottom: .35rem; }
+  .process-list p { font-size: 1.0625rem; line-height: 1.65; }
+  .evidence-list { list-style: none; padding: 0; margin: 1.6rem 0 0; }
+  .evidence-list li { padding-block: 1rem; border-top: 1px solid var(--pitch-line); }
+  .evidence-list strong { color: var(--pitch-ink); }
+  .assessment-terms { display: grid; margin: 1.8rem 0; }
+  .assessment-terms > div { border-top: 1px solid var(--pitch-line); padding-block: 1.15rem; }
+  .assessment-terms dt { color: var(--pitch-teal); font-size: 2.25rem; font-weight: 720; line-height: 1.2; letter-spacing: -.045em; margin-bottom: .6rem; }
+  .assessment-terms dd { font-size: 1.0625rem; line-height: 1.65; }
+  .assessment-terms dd strong { display: block; color: var(--pitch-ink); margin-bottom: .25rem; }
+  .example { margin-block: 1.7rem; padding: .25rem 0 .25rem 1.1rem; border-left: 3px solid var(--pitch-teal); }
+  .example h3 { margin-bottom: .5rem; }
+  .economics { margin-block: 2rem 0; }
+  .economics > h3 { margin-bottom: 1rem; }
+  .cost-list > div { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 1rem; border-top: 1px solid var(--pitch-line); padding: .95rem 0; font-size: 1rem; line-height: 1.5; }
+  .cost-list dd { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--pitch-ink); font-weight: 600; }
+  .cost-list .contribution { color: var(--pitch-teal); font-weight: 700; border-top: 2px solid var(--pitch-teal); }
+  .contribution dd { color: inherit; }
+  .margin { color: var(--pitch-teal); margin-top: 1rem; font-size: 1.125rem; }
+  .margin strong { font-size: 2.6rem; font-weight: 720; margin-right: .35rem; letter-spacing: -.05em; }
+  .value-list { display: grid; gap: 1.25rem; margin-block: 1.8rem; }
+  .value-list > div { border-top: 1px solid var(--pitch-line); padding-top: 1rem; }
+  .value-list h3 { margin-bottom: .35rem; color: var(--pitch-teal); }
+  .launch-list, .market-list { margin-top: 1.7rem; }
+  .launch-list > div, .market-list > div { display: grid; gap: .35rem; padding-block: 1rem; border-top: 1px solid var(--pitch-line); }
+  .launch-list dt, .market-list dt { color: var(--pitch-ink); font-weight: 700; }
+  .market-list a { display: inline-flex; align-items: center; min-height: 44px; }
+  .pilot-math { display: grid; gap: 1.5rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid var(--pitch-line); }
+  .pilot-math strong, .pilot-math span { display: block; }
+  .pilot-math strong { color: var(--pitch-teal); font-size: 2.65rem; font-weight: 720; line-height: 1.2; letter-spacing: -.045em; }
+  .pilot-math span { font-size: 1rem; line-height: 1.55; margin-top: .35rem; }
+  .measure-title { max-width: 33rem; }
+  .measure-list { list-style: disc; padding-left: 1.2rem; margin-block: 1rem; }
+  .measure-list li { padding-left: .15rem; margin-bottom: .5rem; }
+  .pitch-close { border-top: 3px solid var(--pitch-red); padding-block: 2.75rem 3.5rem; max-width: 100%; }
+  .pitch-close h2 { margin: .8rem 0 1.35rem; font-size: clamp(2.5rem, 5.5vw, 4.5rem); }
+  .pitch-close > p:not(.pitch-meta) { max-width: 42rem; margin-bottom: 1.1rem; }
+  .pitch-button { display: inline-flex; align-items: center; justify-content: center; gap: 1rem; background: var(--pitch-teal); color: white; padding: .9rem 1.15rem; min-height: 52px; font-weight: 600; font-size: 1rem; line-height: 1.5; margin-top: .8rem; max-width: 100%; }
+  .pitch-button:hover { background: #005552; }
+  .email-link { display: block; width: fit-content; min-height: 44px; padding-block: .7rem; color: var(--pitch-teal); text-decoration: underline; font-size: 1rem; overflow-wrap: anywhere; }
+  @media (min-width: 640px) {
+    .pitch-shell { width: min(1120px, calc(100% - 80px)); }
+    .pitch-hero { padding-block: 3.5rem 4.5rem; }
+    .desktop-break { display: initial; }
+    .pitch-section { padding-block: 3.5rem; gap: 1.35rem; }
+    .assessment-terms { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.4rem; }
+    .assessment-terms dt { font-size: 2rem; }
+    .pilot-math { grid-template-columns: 1fr 1fr 1.6fr; }
+    .launch-list > div, .market-list > div { grid-template-columns: 10rem minmax(0,1fr); gap: 1.5rem; }
+  }
+  @media (min-width: 960px) {
+    .pitch-section { grid-template-columns: 12rem minmax(0,1fr); gap: 3rem; }
+    .section-label { display: block; padding-top: .25rem; }
+    .section-label > span { font-size: 2rem; display: block; margin-bottom: .65rem; }
+    .section-label p { max-width: 10rem; }
+    .section-copy { max-width: 48rem; }
+    .process-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 2rem; }
+    .pitch-close { padding-block: 3.5rem 4rem; }
+  }
+  @media print {
+    :global(.site-header), :global(.site-footer), .pitch-link, .pitch-button, .email-link { display: none; }
+    .pitch-shell { width: 100%; }
+    .pitch-section { display: block; padding-block: 1.5rem; }
+    .section-label { margin-bottom: .75rem; }
+    .proofpath h2, .proofpath h3 { break-after: avoid; }
+  }
+</style>

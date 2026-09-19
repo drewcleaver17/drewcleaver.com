@@ -17,19 +17,20 @@ for (const file of files(root).filter(file => file.endsWith('.html'))) {
   assert(file.endsWith('/preview/index.html') || !/<a\b[^>]*href=["'][^"']*\/buildmine(?:[\/?#"'])/i.test(html), 'The buildmine pilot must stay out of public navigation: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/motorsport(?:[\/?#"'])/i.test(html), 'The motorsport pilot must have no inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/proofpath(?:[\/?#"'])/i.test(html), 'The ProofPath brief must have no inbound site links: ' + file);
+  assert(!/<a\b[^>]*href=["'][^"']*\/tekmetric(?:[\/?#"'])/i.test(html), 'The Tekmetric pitch must have no inbound site links: ' + file);
 }
-for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'buildmine/index.html', 'preview/index.html', 'motorsport/index.html', 'proofpath/index.html', 'privacy/index.html', 'sitemap.xml', 'robots.txt', 'drew-cleaver.vcf']) {
+for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'buildmine/index.html', 'preview/index.html', 'motorsport/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'privacy/index.html', 'sitemap.xml', 'robots.txt', 'drew-cleaver.vcf']) {
   assert(existsSync(join(root, page)), 'Missing required output: ' + page);
 }
 const pilot = readFileSync(join(root, 'buildmine/index.html'), 'utf8');
 assert(/name="robots" content="noindex, nofollow"/.test(pilot), 'The buildmine pilot must ask search engines not to index it.');
 assert.equal((pilot.match(/class="buildmine-question"/g) || []).length, 7, 'Expected seven pilot questions.');
 assert(!pilot.includes('maxlength='), 'Pilot answers must not have a character cap.');
-for (const page of ['buildmine/index.html', 'preview/index.html', 'motorsport/index.html', 'proofpath/index.html']) {
+for (const page of ['buildmine/index.html', 'preview/index.html', 'motorsport/index.html', 'proofpath/index.html', 'tekmetric/index.html']) {
   const html = readFileSync(join(root, page), 'utf8');
   assert(!html.includes('id="analytics-choice"'), 'Unlisted pages must not initialize analytics.');
   assert(/name="robots" content="noindex, nofollow"/.test(html), 'Unlisted pages must ask search engines not to index them: ' + page);
 }
 const sitemap = readFileSync(join(root, 'sitemap.xml'), 'utf8');
-assert(!/\/(buildmine|preview|writing|motorsport|proofpath)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
-console.log('Release check passed: contact routes present; writing absent; builder, preview, motorsport, and ProofPath routes unlisted and noindex.');
+assert(!/\/(buildmine|preview|writing|motorsport|proofpath|tekmetric)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
+console.log('Release check passed: contact routes present; writing absent; builder, preview, motorsport, ProofPath, and Tekmetric routes unlisted and noindex.');
