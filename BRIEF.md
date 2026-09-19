@@ -143,3 +143,12 @@ capture remains pending. TESLOCO and Spec Tesla Cup use the preserved original
 pages and local imagery. Distinguish archive capture dates from event dates,
 and proposed services / race series from documented development work.
 Buildmine links to the live builder and the existing scoped starter source.
+
+### Angeline Office addition — September 19, 2026
+
+Drew requested Angeline Office in the same unlisted collection. Add it after
+Higher Hangers as an advisory-practice case study, using angelineoffice.com as
+the source for its offer, method and founder role. Use the original site seal
+locally and link to the live website, diagnostic and method. Do not invent
+client results or promote the review through navigation, sitemap or GitHub
+profile changes. The collection now has five projects.

@@ -4,7 +4,7 @@ interface Props { project: PortfolioProject; priority?: boolean; }
 const { project, priority = false } = Astro.props;
 ---
 {project.image ? (
-  <div class="folio-image">
+  <div class:list={['folio-image', { 'folio-image-contain': project.image.fit === 'contain' }]}>
     <img src={project.image.src} alt={project.image.alt} width={project.image.width} height={project.image.height} loading={priority ? 'eager' : 'lazy'} decoding="async" />
   </div>
 ) : project.slug === 'higher-hangers' ? (

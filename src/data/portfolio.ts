@@ -9,7 +9,7 @@ export interface PortfolioProject {
   status: string;
   period: string;
   tags: string[];
-  image?: { src: string; alt: string; width: number; height: number; caption: string };
+  image?: { src: string; alt: string; width: number; height: number; caption: string; fit?: 'contain' };
   question: string;
   context: string;
   contribution: string;
@@ -47,7 +47,37 @@ export const portfolio: PortfolioProject[] = [
     takeaway: 'A product portfolio is stronger when it shows the business behind the object: distribution, customer experience and operating responsibility.',
   },
   {
-    slug: 'tesloco', number: '02', name: 'TESLOCO',
+    slug: 'angeline-office', number: '02', name: 'Angeline Office',
+    category: 'Advisory practice · Revenue strategy',
+    title: 'Turning operating experience into a defined advisory offer.',
+    summary: 'My advisory practice connects customer experience, sales and operations to help founders decide where to focus next.',
+    role: 'Founder & revenue strategist',
+    status: 'Live practice website', period: 'Website reviewed September 19, 2026',
+    tags: ['Revenue strategy', 'Customer experience', 'Service design'],
+    image: {
+      src: '/portfolio/angeline-office-logo.jpeg',
+      alt: 'Angeline Office circular green seal showing a mountain lake.',
+      width: 1254, height: 1254, fit: 'contain',
+      caption: 'Original Angeline Office seal from angelineoffice.com.',
+    },
+    question: 'Where should a founder intervene when growth becomes harder to explain?',
+    context: 'Angeline Office examines how a business sells, delivers and retains customers, then organizes the work around the most consequential bottlenecks.',
+    contribution: 'I lead the practice, drawing on my experience in consumer products, enterprise sales and business operations.',
+    work: [
+      { title: 'A focused entry point', text: 'The Revenue Diagnostic combines founder interviews with a review of the buying experience and sales pipeline.' },
+      { title: 'A sequence for action', text: 'The offer includes priorities, accountable owners and a 30/60/90-day implementation plan.' },
+      { title: 'A clear fit', text: 'The site explains the intended client, engagement approach and inquiry process.' },
+    ],
+    record: 'The live website documents the practice’s offer and method. This case study covers its positioning and service design; client outcomes are not presented here.',
+    evidence: [
+      { title: 'Visit Angeline Office', href: 'https://angelineoffice.com/', note: 'The live practice website and original source for this case study.' },
+      { title: 'Explore the diagnostic', href: 'https://angelineoffice.com/#diagnostic', note: 'Scope of the primary engagement.' },
+      { title: 'Read the working method', href: 'https://angelineoffice.com/#method', note: 'From observation to implementation support.' },
+    ],
+    takeaway: 'This is the advisory expression of my operating background: make the problem legible, choose a priority and give the next step an owner.',
+  },
+  {
+    slug: 'tesloco', number: '03', name: 'TESLOCO',
     category: 'Service concept · Brand & website',
     title: 'Making Tesla ownership feel more personal.',
     summary: 'A concierge service concept connecting road and track preparation with a more attentive ownership experience.',
@@ -77,7 +107,7 @@ export const portfolio: PortfolioProject[] = [
     takeaway: 'The useful artifact is the relationship between a customer problem, a service menu and a next step someone can understand.',
   },
   {
-    slug: 'spec-tesla-cup', number: '03', name: 'Spec Tesla Cup',
+    slug: 'spec-tesla-cup', number: '04', name: 'Spec Tesla Cup',
     category: 'Motorsport · Development project',
     title: 'Exploring what electric motorsport could become.',
     summary: 'Tesla track development, published testing notes and a proposed arrive-and-drive racing experience, preserved alongside the original website.',
@@ -107,7 +137,7 @@ export const portfolio: PortfolioProject[] = [
     takeaway: 'A development story becomes useful when readers can inspect the setup, the test report and the boundary between what was tested and what was proposed.',
   },
   {
-    slug: 'buildmine', number: '04', name: 'Buildmine',
+    slug: 'buildmine', number: '05', name: 'Buildmine',
     category: 'Live software · Open-source starter',
     title: 'A personal website you can take with you.',
     summary: 'A working builder that turns a personal introduction into a preview and a portable website kit, with source and deployment guidance included.',
