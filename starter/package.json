@@ -1,0 +1,9 @@
+{
+  "name": "buildmine-personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {"node": ">=22.13.0"},
+  "scripts": {"build": "node generate.mjs", "test": "node --test core.test.mjs"}
+}

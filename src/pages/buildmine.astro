@@ -10,19 +10,27 @@ const editorFields = [
   { id: 'highlights', label: 'Selected work', rows: 5 },
 ];
 ---
-<Base title="Build mine" description="Turn your résumé into an editable personal website starter. Seven optional questions. Preview it instantly." compact noindex>
+<Base title="Build mine" description="Turn your résumé into an editable personal website starter. Seven optional questions. Preview it instantly." compact>
   <div class="shell buildmine-shell">
     <section class="page-heading buildmine-heading">
-      <p class="eyebrow">Build mine · Free experimental pilot</p>
+      <p class="eyebrow">Buildmine · Free & open source</p>
       <h1 class="serif">Your background.<br /><em>Your own little corner.</em></h1>
-      <p class="lead">Bring your résumé. Answer as much or as little as you like. See an editable website starter right here, without waiting for an email.</p>
-      <p class="field-help">This version matches résumé sections to three ready-made layouts. It preserves your words; it doesn’t use AI to write or interpret every answer. Your answers stay on this device unless you choose to share them.</p>
+      <p class="lead">Make a personal website you can take with you. Start with a résumé or a blank page, find your style, then download your code and publish it in your own account.</p>
+      <p class="field-help">This version matches résumé sections to three ready-made layouts. It preserves your words; it doesn’t use AI to write or interpret every answer. Your answers stay in this browser unless you download or deliberately share them. No account is needed to build or download.</p>
     </section>
+    <ol class="builder-steps" aria-label="How Buildmine works"><li><span>01</span> Start</li><li><span>02</span> Customize</li><li><span>03</span> Review</li><li><span>04</span> Take it live</li></ol>
+    <div class="project-tools" id="project-tools" hidden>
+      <div><strong>Pick up where you left off.</strong><p class="field-help">Save a private project to keep your full résumé, all seven answers, and site edits. Nothing is saved automatically.</p></div>
+      <div class="actions"><button type="button" class="button button-outline" id="project-save">Save private project</button><label class="text-link project-upload" for="project-file">Open saved project<input id="project-file" type="file" accept=".json,application/json" /></label></div>
+      <p class="field-help">Your .buildmine.json file is private. Keep it out of public repositories. Approval is never restored from a file.</p>
+      <p id="project-status" class="form-status" role="status" aria-live="polite" hidden></p>
+    </div>
+    <p class="field-help">Want to explore first? <a class="inline-link" href="/p/alex.rivera.example/">See a fictional example</a> · <a class="inline-link" href="/buildmine/starter.zip" download>Download the example kit</a> · <a class="inline-link" href="https://github.com/drewcleaver17/drewcleaver.com/tree/main/starter">Read the source &amp; MIT license</a></p>
     <form class="buildmine-form" id="buildmine-form">
       <fieldset id="builder-inputs" disabled>
       <section aria-labelledby="resume-title" class="buildmine-start">
         <div class="field"><label for="build-name">Your name <span>Required</span></label><input id="build-name" name="name" autocomplete="name" required /></div>
-        <h2 class="serif" id="resume-title">Start with your résumé.</h2>
+        <h2 class="serif" id="resume-title">Start with your résumé. Or skip it.</h2>
         <div class="field resume-import" id="resume-import" hidden>
           <label for="resume-file">Import your résumé</label>
           <input id="resume-file" type="file" accept=".pdf,.txt,application/pdf,text/plain" aria-describedby="resume-import-help resume-import-status" />
@@ -32,7 +40,7 @@ const editorFields = [
         </div>
         <details class="resume-text-details" open>
           <summary>Paste or review your résumé text</summary>
-          <div class="field"><label for="resume-text">Résumé text <span>Required · editable</span></label><textarea id="resume-text" name="resume_text" rows="7" required placeholder="Paste your résumé here, or import a file above."></textarea></div>
+          <div class="field"><label for="resume-text">Résumé text <span>Optional · editable</span></label><textarea id="resume-text" name="resume_text" rows="7" placeholder="Paste your résumé here, or import a file above."></textarea></div>
         </details>
       </section>
       <section aria-labelledby="questions-title">
@@ -56,12 +64,12 @@ const editorFields = [
         <button class="text-link" type="button" id="build-download" hidden>Save my brief (.txt)</button>
       </div>
       <p class="form-status" id="build-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
-      <p class="field-help" id="build-saving-note">Keep this page open while you work. Nothing is saved automatically. Save your brief before leaving.</p>
+      <p class="field-help" id="build-saving-note">Keep this page open while you work. Nothing is saved automatically. Save a private project before leaving. A text brief is also available for reading or sharing deliberately.</p>
       </fieldset>
       <noscript><p>JavaScript is needed to create a preview on your device. You can also contact <a class="inline-link" href={`mailto:${profile.email}`}>{profile.email}</a>.</p></noscript>
     </form>
     <section class="builder-result" id="builder-result" hidden aria-labelledby="result-title">
-      <p class="eyebrow">Your starting point</p>
+      <p class="eyebrow">02 · Customize</p>
       <h2 class="serif" id="result-title" tabindex="-1">Make it feel like you.</h2>
       <p class="question-help">Check the details, change the wording, and try another layout. Only the public fields below appear in your site. Résumé formatting varies; unrecognized sections may need pasting in.</p>
       <form id="site-editor" class="site-editor">
@@ -76,17 +84,23 @@ const editorFields = [
             <div class="field"><label for="site-email">Public contact email <span>Optional</span></label><input id="site-email" name="email" type="email" /><p class="field-help">Add it here only if it should be visible. Contact details are never copied from your résumé automatically.</p></div>
             <div class="field"><label for="site-booking">Scheduling link <span>Optional</span></label><input id="site-booking" name="booking" type="url" inputmode="url" placeholder="https://calendly.com/your-name" /></div>
           </div>
-          <div class="preview-panel"><div class="preview-toolbar"><span>Live preview</span><label for="preview-width" class="sr-only">Preview width</label><select id="preview-width"><option value="full">Fit screen</option><option value="mobile">Phone width</option></select></div><iframe id="site-frame" title="Your website preview" sandbox="allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe></div>
+          <div class="preview-panel"><div class="preview-toolbar"><span>Combined page preview</span><label for="preview-width" class="sr-only">Preview width</label><select id="preview-width"><option value="full">Fit screen</option><option value="mobile">Phone width</option></select></div><iframe id="site-frame" title="Your website preview" sandbox="allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe></div>
         </div>
+        <label class="buildmine-choice credit-choice" for="site-credit"><input type="checkbox" id="site-credit" name="credit" checked /><span>Include a small “Made with Buildmine” link. You can remove this visible credit at any time; the software’s MIT notice stays in your kit.</span></label>
         <section class="buildmine-send" aria-labelledby="next-title">
-          <h2 class="serif" id="next-title">Like where this is going?</h2>
+          <p class="eyebrow">03 · Review</p><h2 class="serif" id="next-title">Choose what goes public.</h2><p class="question-help">Read every public field above. Check names, claims, contact details, and anything that should stay private. Editing a field or theme clears this approval.</p>
           <label class="buildmine-choice" for="review-approved"><input id="review-approved" type="checkbox" /><span>I’ve reviewed the public text and contact details. This is what I want included in a shared preview or website download.</span></label>
-          <div class="actions"><button type="button" class="button" id="site-share">Create a share link</button><button type="button" class="button button-outline" id="site-export">Download my website</button></div>
+          <div class="actions"><button type="button" class="button" id="site-share">Create a share link</button><button type="button" class="button button-outline" id="site-export">Download my website kit (.zip)</button></div>
           <p class="field-help">The share link carries a snapshot of your approved site. Anyone with the link can read and forward it. It isn’t a private vault or a permanent named address; links cannot be revoked, and edits need a new link. Very long sites can be downloaded instead.</p>
           <div class="field" id="share-output" hidden><label for="share-url">Your preview link</label><input id="share-url" type="text" readonly /><button id="share-copy" class="text-link" type="button">Copy link</button><a id="share-open" class="text-link" target="_blank" rel="noopener noreferrer">Open preview</a></div>
           <p class="form-status" id="editor-status" role="status" aria-live="polite" hidden></p>
-          <p class="field-help">The download is a complete single-page website with its styling included. It works on static hosting. A custom domain needs a hosting setup; buying a domain alone doesn’t point it at a page within Drew’s site.</p>
-          <p class="question-help">Want a more tailored design or help going live? <a class="inline-link" href={`mailto:${profile.email}?subject=Help%20launching%20my%20website`}>Talk to Drew about the next step.</a> Nothing is purchased here. We’ll agree on the work and price first.</p>
+          <p class="field-help">The ZIP includes Home, About and Hello pages when there is content for them, local styles, your public site.json, editable source, publishing instructions, and an MIT license. Your private résumé and answers are excluded.</p>
+          <button type="button" class="text-link" id="site-single">Download a single-page HTML copy</button>
+        </section>
+        <section class="take-live" aria-labelledby="live-title"><p class="eyebrow">04 · Take it live</p><h2 class="serif" id="live-title">Your site. Your next step.</h2>
+          <div class="launch-options"><article><h3>Publish it yourself</h3><p>Use the included GitHub Pages workflow or another static host. You’ll create your own account and repository; the guide walks you through the setup.</p><a class="inline-link" href="/buildmine/publish/">Publish it myself ↗</a></article><article><h3>Keep creating</h3><p>Save your private project to return to the editor, or give the kit’s customization guide to your coding assistant. Your code stays portable.</p><a class="inline-link" href="https://github.com/drewcleaver17/drewcleaver.com/tree/main/starter">Explore the starter source ↗</a></article></div>
+          <p class="field-help">A share link is a snapshot, not a hosted account. The <a class="inline-link" href="/p/alex.rivera.example/">named example page</a> shows what a published result can look like. Automatic named-page publishing on Drew’s domain is not available in this release.</p>
+          <p class="question-help">Want a more tailored design or help going live? <a class="inline-link" href={`mailto:${profile.email}?subject=Help%20launching%20my%20website`}>Get help from Drew.</a> Nothing is purchased here. We’ll agree on the work and price first.</p>
         </section>
       </form>
     </section>

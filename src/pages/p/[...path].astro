@@ -1,0 +1,10 @@
+---
+import { staticFiles, namedPath } from '../../../starter/core.mjs';
+import { css, sample } from '../../lib/buildmine-kit';
+export function getStaticPaths() {
+  const prefix = namedPath('alex.rivera.example').slice(2);
+  return Object.entries(staticFiles(sample, css, { demo: true })).filter(([path]) => path.endsWith('.html')).map(([path, content]) => ({params: {path: (prefix + path).replace(/\/?index\.html$/, '')}, props: { content }}));
+}
+const { content } = Astro.props;
+---
+<Fragment set:html={content} />

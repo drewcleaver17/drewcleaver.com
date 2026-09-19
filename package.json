@@ -7,11 +7,13 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/ufos-update.mjs --validate && astro build && node scripts/check-release.mjs",
+    "build": "npm run test:buildmine && node scripts/ufos-update.mjs --validate && astro build && node scripts/check-release.mjs && npm run test:buildmine-ui",
     "test": "node --test scripts/ufos.test.mjs",
     "ufos:validate": "node scripts/ufos-update.mjs --validate",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:buildmine": "node --experimental-strip-types --test starter/core.test.mjs scripts/buildmine.test.mjs",
+    "test:buildmine-ui": "node --experimental-vm-modules --test scripts/buildmine-ui.test.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
@@ -19,5 +21,8 @@
     "astro": "^6.0.8",
     "pdfjs-dist": "^6.3.289",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
   }
 }

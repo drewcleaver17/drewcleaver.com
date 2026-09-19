@@ -1,0 +1,5 @@
+site/
+node_modules/
+*.buildmine.json
+my-website-brief.txt
+.DS_Store
