@@ -2,6 +2,12 @@
 import Base from '../layouts/Base.astro';
 import { profile } from '../data/profile';
 import { experience } from '../data/experience';
+import { Image } from 'astro:assets';
+import greenModel3 from '../assets/about/2023-10-07_ea_cota_rp_3551.jpeg';
+import modelY from '../assets/about/2023-10-07_ea_cota_rp_6244.jpeg';
+import cotaPitLane from '../assets/about/IMG_5491.jpeg';
+import trgWithDad from '../assets/about/IMG_6020.jpeg';
+const photoSizes = '(min-width: 1200px) 524px, (min-width: 800px) calc((100vw - 152px) / 2), (min-width: 640px) calc(100vw - 80px), calc(100vw - 40px)';
 ---
 <Base title="About" description="Drew Cleaver's story across founder operations, e-commerce, enterprise sales, and electric motorsport, with photography and highlights from TESLOCO and Spec Tesla Cup.">
   <div class="shell">
@@ -29,12 +35,16 @@ import { experience } from '../data/experience';
       <article class="project-story" aria-labelledby="spec-tesla-title">
         <div class="project-visuals">
           <figure>
-            <img class="project-photo" src="/archives/assets/d840c11fed3097017818.png" alt="Blue Spec Tesla Model 3 taking a kerb on track" width="1023" height="682" loading="lazy" decoding="async" />
-            <figcaption>The Model 3 in action. Original photograph preserved on the TESLOCO website.</figcaption>
+            <Image class="project-photo" src={greenModel3} alt="Green Spec Tesla Model 3, number 718, with a rear wing taking the kerb at Circuit of the Americas" widths={[480, 800, 1200, 1536]} sizes={photoSizes} format="webp" quality={85} loading="lazy" decoding="async" />
+            <figcaption>The green Spec Tesla Model 3 at Circuit of the Americas.</figcaption>
           </figure>
           <figure>
-            <img class="project-photo" src="/archives/assets/05418d836309547ad911.jpg" alt="Two white Teslas and two people in the COTA pit lane at sunset" width="1080" height="810" loading="lazy" decoding="async" />
-            <figcaption>Circuit of the Americas, from the Spec Tesla archive.</figcaption>
+            <Image class="project-photo" src={modelY} alt="Blue Tesla Model Y cornering at COTA with its inside front wheel lifted off the track" widths={[480, 800, 1200, 1536]} sizes={photoSizes} format="webp" quality={85} loading="lazy" decoding="async" />
+            <figcaption>Three wheels on the ground. The Model Y at COTA.</figcaption>
+          </figure>
+          <figure>
+            <Image class="project-photo" src={cotaPitLane} alt="Two white Tesla race cars and two people in the COTA pit lane at sunset" widths={[480, 800, 1200, 1536]} sizes={photoSizes} format="webp" quality={85} loading="lazy" decoding="async" />
+            <figcaption>From the paddock to the pit lane: the Spec Tesla project at COTA.</figcaption>
           </figure>
         </div>
         <div class="project-copy">
@@ -57,8 +67,8 @@ import { experience } from '../data/experience';
         <div class="project-visuals">
           <div class="tesloco-brand"><img src="/archives/assets/075ca3b4ff55af42f3c8.png" alt="Original TESLOCO logo and red brand banner" width="1920" height="250" loading="lazy" decoding="async" /></div>
           <figure>
-            <img class="project-photo" src="/archives/assets/51fe37514d9cfa1f1255.jpg" alt="Drew and his dad together in a trackside pit box" width="1024" height="883" loading="lazy" decoding="async" />
-            <figcaption>With my dad at the track. A photograph from the original TESLOCO site.</figcaption>
+            <Image class="project-photo" src={trgWithDad} alt="Drew and his dad beside the blue number 007 TRG Aston Martin on the COTA grid" widths={[480, 800, 1152]} sizes={photoSizes} format="webp" quality={85} loading="lazy" decoding="async" />
+            <figcaption>With my dad on the COTA grid beside TRG’s No. 007 Aston Martin. Sharing the experience is part of the appeal.</figcaption>
           </figure>
         </div>
         <div class="project-copy">
@@ -131,7 +141,7 @@ import { experience } from '../data/experience';
   .project-story + .project-story { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--color-border); }
   .project-visuals { display: grid; gap: 1.5rem; min-width: 0; }
   figure { margin: 0; }
-  .project-photo { width: 100%; height: auto; display: block; border-radius: 3px; }
+  .project-visuals :global(.project-photo) { width: 100%; height: auto; display: block; border-radius: 3px; }
   figcaption { font-size: .875rem; line-height: 1.55; color: var(--color-muted); padding-top: .65rem; }
   .project-copy { min-width: 0; }
   .spec-logo { width: min(294px, 100%); height: auto; display: block; margin-bottom: 1.6rem; }
