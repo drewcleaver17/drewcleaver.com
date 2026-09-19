@@ -15,6 +15,7 @@ export const profile = {
   bookingUrl: 'https://calendly.com/drewcleaver',
   linkedinUrl: 'https://www.linkedin.com/in/drewcleaver',
   instagramUrl: 'https://www.instagram.com/drew.cleaver/',
+  githubUrl: 'https://github.com/drewcleaver17',
   inquiryEndpoint: 'https://formspree.io/f/xqabokqn',
   contactFile: '/drew-cleaver.vcf',
   resumeFile: '/Drew-Cleaver-Resume.pdf',
@@ -29,4 +30,5 @@ export const contactLinks = [
   { label: 'Schedule a conversation', url: profile.bookingUrl },
   { label: 'Send an inquiry', url: new URL('/contact/', profile.website).href },
   { label: 'About Drew', url: new URL('/about/', profile.website).href },
+  { label: 'GitHub', url: profile.githubUrl },
 ] as const;
