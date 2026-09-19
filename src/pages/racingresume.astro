@@ -1,0 +1,314 @@
+---
+import Base from '../layouts/Base.astro';
+
+const archive = '/archives/specteslacup/';
+const results = [
+  { year: '2001', event: 'Texas Superkart Grand Prix', venue: 'Junior karting', result: 'Winner', detail: 'September · personal racing history', href: '#record-notes', source: 'Personal record' },
+  { year: '2019', event: 'Battle at the Brickyard', venue: 'Indianapolis Motor Speedway · Ignite Senior', result: 'P8', detail: 'Qualified P29 · gained 21 positions', href: 'https://speedhive.mylaps.com/Sessions/5510813', source: 'MYLAPS results' },
+  { year: '2020', event: 'GRIDLIFE Alpine Horizon', venue: 'Pikes Peak International Raceway · Track Battle EV', result: 'P1', detail: '1:02.58 best lap · Model 3 Performance', href: archive + '2024-09-14/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2/', source: 'Team report' },
+  { year: '2020', event: 'GRIDLIFE Bayou Bash', venue: 'NOLA Motorsports Park · TrackMod', result: 'P3', detail: 'Tesla Model 3 · Unplugged Performance', href: 'https://www.youtube.com/watch?v=sPtx8jozaMA', source: 'Original onboard' },
+  { year: '2020', event: 'GRIDLIFE Road America', venue: 'Road America · Street GT', result: 'P5', detail: 'October · Tesla Model 3', href: archive + '2024-12-08/blogs/news/gridlife-road-america-5th-place-street-gt/', source: 'Archived team post' },
+  { year: '2021', event: 'GRIDLIFE Heartlands', venue: 'Heartland Motorsports Park · TrackMod', result: 'P2', detail: '1:47.625 best lap · Tesla Model 3', href: 'https://www.grid.life/live-blog-heartland', source: 'Organizer report' },
+];
+const rivals = [
+  { name: 'Conor Daly', note: 'IndyCar driver', qualifying: 2, final: 5, lap: '1:17.647', gap: 'Finished 2.114s ahead of Drew' },
+  { name: 'Gabby Chaves', note: '2014 Indy Lights champion', qualifying: 4, final: 7, lap: '1:18.131', gap: 'Finished 1.938s ahead of Drew' },
+  { name: 'Keith Scharf', note: 'Veteran karting standout', qualifying: 7, final: 9, lap: '1:18.000', gap: 'Finished 0.167s behind Drew' },
+];
+const onboards = [
+  { date: 'June 4, 2016', title: 'Lemons · High Plains Raceway', detail: '#69 Nine Finger Drifters · fast lap', id: 'LnYe5gGxnxA' },
+  { date: 'April 2017', title: 'WRL · Road Atlanta', detail: '#771 White Lightening · Day 1 fast lap', id: 'MPINwMjL7gQ' },
+  { date: 'April 2018', title: 'WRL · NCM Motorsports Park', detail: 'Thing 3 Miata · 2:21.6 onboard lap', id: 'wrNcnuAJe2A' },
+  { date: 'July 2019', title: 'Ignite Senior · Indianapolis', detail: 'Full final · started the race P14', id: 'ylb7YWfFwSU' },
+];
+---
+
+<Base title="Racing résumé" description="Drew Cleaver’s racing résumé: shifter karting, endurance sports cars, GRIDLIFE time attack, Tesla development and motorsport partnerships." compact noindex>
+  <article class="racing-resume" aria-labelledby="resume-title">
+    <header class="shell resume-hero">
+      <div class="hero-top"><p class="eyebrow">Drew Cleaver / Racing résumé</p><span class="status">Unlisted · Shared by direct link</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="resume-title" class="serif">A life at<br />the <em>track.</em></h1>
+          <p class="hero-deck">Driver. Team operator. Motorsport entrepreneur.</p>
+          <p class="hero-intro">From a shared Yamaha kart in Katy to shifter karts, endurance racing and electric time attack. A racing education built with family, teammates and a stopwatch.</p>
+          <a class="text-link" href="#race-record">Explore the racing record <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="hero-image">
+          <img src="/archives/assets/d840c11fed3097017818.png" alt="Drew's blue Tesla Model 3 at speed on a road course" width="1023" height="682" fetchpriority="high" />
+          <figcaption>Tesloco / Spec Tesla · From competition to development</figcaption>
+        </figure>
+      </div>
+      <div class="hero-stats" aria-label="Selected career highlights">
+        <div><strong>1990s</strong><span>Started in karting</span></div>
+        <div><strong>P8 <small>at Indy</small></strong><span>2019 Ignite Senior · 21 places gained</span></div>
+        <div><strong>P2 <small>TrackMod</small></strong><span>2021 GRIDLIFE Heartlands</span></div>
+      </div>
+    </header>
+
+    <nav class="resume-nav shell" aria-label="Racing résumé sections">
+      <a href="#race-record">Results</a><a href="#brickyard">The Brickyard</a><a href="#karting">Karting</a><a href="#endurance">Endurance</a><a href="#electric">Electric</a><a href="#paddock">Sponsorship &amp; paddock</a>
+    </nav>
+
+    <section class="shell resume-section" id="race-record" aria-labelledby="results-title">
+      <div class="section-intro"><p class="eyebrow">01 / Selected competition results</p><h2 id="results-title" class="serif">The record.</h2><p>A selection of results recovered from timing sheets, organizer coverage and original team archives.</p></div>
+      <div class="results-wrap" role="region" aria-label="Selected competition results" tabindex="0">
+        <table class="results-table">
+          <thead><tr><th scope="col">Year</th><th scope="col">Event / category</th><th scope="col">Result</th><th scope="col">Record</th></tr></thead>
+          <tbody>{results.map(row => <tr><td class="year">{row.year}</td><th scope="row"><strong>{row.event}</strong><span>{row.venue}</span></th><td class="result">{row.result}</td><td><span>{row.detail}</span><a href={row.href}>{row.source} <span aria-hidden="true">↗</span></a></td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="fine-print">PPIR’s 2020 team report records the final award as <strong>Track Battle EV</strong>. It also reports a lap quick enough for P1 in Street; the result above uses the awarded category.</p>
+    </section>
+
+    <section class="brickyard-section" id="brickyard" aria-labelledby="brickyard-title">
+      <div class="shell">
+        <div class="section-intro"><p class="eyebrow">02 / A weekend at Indianapolis</p><h2 id="brickyard-title" class="serif">29th in qualifying.<br /><em>Eighth at the flag.</em></h2><p>2019 Battle at the Brickyard · Margay Ignite Senior<br />Indianapolis Motor Speedway · July 5–7, 2019</p></div>
+        <div class="brickyard-grid">
+          <div>
+            <ol class="progression" aria-label="Drew's session positions">
+              <li><span>Qualifying</span><strong>29</strong></li><li><span>Heat</span><strong>22</strong></li><li><span>Pre-final</span><strong>14</strong></li><li><span>Final</span><strong>8</strong></li>
+            </ol>
+            <div class="race-facts"><p><strong>+21</strong><span>Positions gained<br />qualifying → final</span></p><p><strong>1.833s</strong><span>Best-lap improvement<br />1:19.832 → 1:17.999</span></p><p><strong>8th</strong><span>Fastest lap<br />in the final</span></p></div>
+            <p class="brickyard-copy">Finished eighth in a 57-driver classification, with 53 starters. A 1:17.999 best lap was 0.132s quicker than Gabby Chaves’s best and 0.001s quicker than Keith Scharf’s.</p>
+            <p class="brickyard-copy">The final started from P14 after the pre-final: six positions gained during the race itself, and 21 from the qualifying classification.</p>
+            <div class="race-links"><a href="https://speedhive.mylaps.com/Sessions/5510810">Qualifying sheet ↗</a><a href="https://speedhive.mylaps.com/Sessions/5510813">Final results ↗</a><a href="https://www.youtube.com/watch?v=ikjMKtBoRiY">Watch my race highlights ↗</a></div>
+          </div>
+          <figure class="infographic-preview">
+            <a href="/images/racing/brickyard-2019-results.png" aria-label="Open full 2019 Brickyard results infographic"><img src="/images/racing/brickyard-2019-results.png" alt="Preview of Drew Cleaver's Brickyard results infographic: P29 qualifying to P8 final, 21 positions gained, 1.833 seconds quicker and eighth-fastest final lap" width="2560" height="8288" loading="lazy" /></a>
+            <figcaption><strong>The complete race infographic</strong><a href="/images/racing/brickyard-2019-results.png">Open full-size image · all 57 drivers ↗</a></figcaption>
+          </figure>
+        </div>
+        <div class="rivals-heading"><h3>In good company.</h3><p>A few familiar names on the same timing sheet.</p></div>
+        <div class="rival-grid">{rivals.map(driver => <div class="rival-card"><p class="rival-role">{driver.note}</p><h4>{driver.name}</h4><div class="rival-positions"><span>Q <strong>P{driver.qualifying}</strong></span><span>Final <strong>P{driver.final}</strong></span></div><p>Best lap <strong>{driver.lap}</strong></p><p class="rival-gap">{driver.gap}</p></div>)}</div>
+        <details class="full-infographic"><summary>View the complete results infographic on this page <span aria-hidden="true">+</span></summary><img src="/images/racing/brickyard-2019-results.png" alt="Complete Brickyard infographic including Drew's session progression, notable competitors and all 57 final results. The original MYLAPS qualifying and final result sheets are linked above." width="2560" height="8288" loading="lazy" /><a href="/images/racing/brickyard-2019-results.png" download="Drew-Cleaver-Brickyard-2019.png">Download the infographic ↓</a></details>
+      </div>
+    </section>
+
+    <section class="shell resume-section split-section" id="karting" aria-labelledby="karting-title">
+      <div class="section-intro"><p class="eyebrow">03 / Karting foundations</p><h2 id="karting-title" class="serif">A family effort.<br />A six-speed education.</h2><p>GCKI in Katy · SKUSA Red River<br />Texas ProKart · Tulsa Kart Club</p><p class="source-note">Karting history combines contemporary coverage with personal recollection. Individual Texas ProKart and Tulsa event classifications have not yet been recovered.</p></div>
+      <div class="timeline">
+        <div><span class="timeline-date">1995 / The spark</span><h3>IMSA, Texas World Speedway</h3><p>My dad won tickets on a radio show. We went as a family, and racing became the thing I wanted to do.</p></div>
+        <div><span class="timeline-date">Age 9–10 / First kart, first races</span><h3>One Margay. Two brothers.</h3><p>Matt and I shared a used Margay with a Yamaha KT100 at GCKI in Katy, then moved into separate Gold chassis. Matt later stepped out of the seat to help run my racing effort.</p></div>
+        <div><span class="timeline-date">1999 onward / Shifter karting</span><h3>80cc Junior &amp; SKUSA Red River</h3><p>A move into 80cc Junior brought six-speed racing and a regional schedule across Texas, Oklahoma and Arkansas, with Kawasaki support and a CRG chassis.</p></div>
+        <div><span class="timeline-date">2001 / A season to remember</span><h3>Houston Chronicle feature</h3><p>Barbara Karkabi’s May 31 feature profiled my junior karting and the family behind it. Later that year came my Texas Superkart Grand Prix win.</p><a class="text-link" href="https://www.chron.com/life/article/cover-story-kart-racer-keeps-his-eyes-on-what-s-2050871.php">Read the original feature ↗</a></div>
+        <aside class="supporters"><h3>Early support</h3><p>Kawasaki · Royal Purple · Bieffe Helmets · Aerografix · NAPA Auto Parts</p><span>Historical supporters from my karting years.</span></aside>
+      </div>
+    </section>
+
+    <section class="endurance-section" id="endurance" aria-labelledby="endurance-title">
+      <div class="shell">
+        <div class="section-intro"><p class="eyebrow">04 / Endurance &amp; road racing</p><h2 id="endurance-title" class="serif">More than a fast lap.</h2><p>24 Hours of Lemons · ChumpCar / ChampCar · World Racing League</p></div>
+        <div class="endurance-copy"><p>I drove and helped run our own amateur endurance sports car team, learning the work around the driving: preparation, reliability, pit stops, driver changes and keeping a team moving through a long race.</p><p>My personal racing history includes a WRL win. The original onboards below document several endurance outings; the winning event and class are still to be matched to an official result sheet.</p></div>
+        <div class="onboard-grid">{onboards.map(video => <a class="onboard-card" href={`https://www.youtube.com/watch?v=${video.id}`}><span class="onboard-date">{video.date}</span><h3>{video.title}</h3><p>{video.detail}</p><span class="watch">Watch original onboard <span aria-hidden="true">↗</span></span></a>)}</div>
+        <div class="experience-strip"><h3>Additional seat time</h3><p>SCCA Solo autocross · NASA Time Trials in a Panoz GTWC · BMW E46 M3 track days · Texas Motor Speedway roval at night · Spec Racer Ford Gen2 school at Hallett, November 2017</p></div>
+      </div>
+    </section>
+
+    <section class="shell resume-section" id="electric" aria-labelledby="electric-title">
+      <div class="section-intro"><p class="eyebrow">05 / Electric competition &amp; development</p><h2 id="electric-title" class="serif">Race it. Learn.<br /><em>Build on it.</em></h2><p>Tesloco and Spec Tesla connected my interests in racing, engineering and creating a track experience people could take part in.</p></div>
+      <div class="electric-grid">
+        <figure><img src="/archives/assets/05418d836309547ad911.jpg" alt="Two Tesla Model 3 cars in the Circuit of the Americas pit lane" width="1080" height="810" loading="lazy" /><figcaption>Spec Tesla · Circuit of the Americas</figcaption></figure>
+        <div class="electric-notes">
+          <div><span class="eyebrow">2019 / The beginning</span><h3>Spec Tesla</h3><p>Founded after taking my Model 3 Performance to Hallett. The project grew into time attack, development testing and an electric arrive-and-drive concept.</p></div>
+          <div><span class="eyebrow">2020–2021 / Competition</span><h3>GRIDLIFE across four circuits</h3><p>PPIR, NOLA, Road America and Heartland: racing and developing a Model 3, including an EV-category win and two TrackMod podiums.</p></div>
+          <div><span class="eyebrow">2021 / Hallett testing</span><h3>Compare. Measure. Repeat.</h3><p>Back-to-back Model 3 Performance and SR+ testing, with tire comparisons and onboard data. A September test recorded a 1:24.280 best lap in the Performance.</p><a href={archive + '2025-01-22/blogs/news/hallett-vip-club-test-day-tesla-model-3-performance-vs-base-model-3-sr/'}>Read the test report ↗</a></div>
+          <div><span class="eyebrow">February 5, 2023 / COTA</span><h3>24 minutes. No overheating.</h3><p>A Model 3 RWD SR+ ran seven flying laps in a 24-minute test at Chin Track Days. The project also hosted a paying arrive-and-drive customer at COTA.</p><a href="https://www.youtube.com/watch?v=jBMz1013esY">Watch the complete test ↗</a></div>
+        </div>
+      </div>
+      <div class="archive-links"><a class="text-link" href="/tesloco/">Explore the Tesloco archive ↗</a><a class="text-link" href="/specteslacup/">Explore the Spec Tesla Cup archive ↗</a></div>
+    </section>
+
+    <section class="paddock-section" id="paddock" aria-labelledby="paddock-title">
+      <div class="shell">
+        <div class="section-intro"><p class="eyebrow">06 / Sponsorship &amp; paddock experiences</p><h2 id="paddock-title" class="serif">On both sides<br />of the pit wall.</h2><p>Supporting a driver, joining a team’s celebration and experiencing how motorsport brings people together.</p></div>
+        <div class="paddock-grid">
+          <div class="paddock-cards">
+            <div><span class="role-tag">Sponsor</span><h3>Matt Jaskol / NASCAR Trucks</h3><p>Sponsored Matt Jaskol’s NASCAR Truck Series effort at Circuit of the Americas, experiencing the weekend from the partner side of the sport.</p></div>
+            <div><span class="role-tag">Guest · January 26–29, 2023</span><h3>TRG reunion / Rolex 24 at Daytona</h3><p>Attended TRG’s reunion during the 2023 Daytona 24 Hours, celebrating 20 years since the team’s 2003 overall victory.</p><a href="https://www.theracersgroup.com/2022/10/28/trg-presents-the-all-trg-reunion/">TRG’s reunion announcement ↗</a></div>
+            <div><span class="role-tag">Hospitality guest</span><h3>TRG GT3 / Circuit of the Americas</h3><p>Joined TRG’s GT3 hospitality at COTA, adding a team guest’s perspective to my experience as a driver, team operator and sponsor.</p></div>
+          </div>
+          <figure class="paddock-photo"><img src="/archives/assets/51fe37514d9cfa1f1255.jpg" alt="Drew Cleaver and his father together in a pit garage" width="1024" height="883" loading="lazy" /><figcaption>With my dad at the track. The family thread runs through all of it.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <footer class="shell resume-close">
+      <div><p class="eyebrow">The next chapter</p><h2 class="serif">Let’s talk racing.</h2><p>Driving, development, team operations or a motorsport partnership.</p><a class="button" href="/contact/">Get in touch <span aria-hidden="true">↗</span></a></div>
+      <aside id="record-notes" aria-labelledby="notes-title"><h3 id="notes-title">About this record</h3><p>Compiled from original timing, organizer coverage, contemporary press, my own video and project archives, and personal recollections. Source links accompany the results.</p><p>The early Grand Prix win, endurance team history, sponsorship and hospitality attendance include firsthand recollections. This is a selected résumé; older event-by-event classifications are still being assembled.</p><p>Unlisted page · September 2026</p></aside>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .racing-resume { --accent: #a6532b; --pale: #e8ecdf; }
+  .resume-hero { padding-block: 2rem 0; }
+  .hero-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .6rem 2rem; align-items: center; }
+  .status { font-size: .72rem; color: var(--color-muted); }
+  .hero-grid { display: grid; gap: 2rem; align-items: center; margin-block: 2.4rem; }
+  .hero-copy h1 { font-size: clamp(4.3rem, 10vw, 7.9rem); line-height: .96; letter-spacing: -.065em; margin-bottom: 1.5rem; }
+  .hero-copy h1 em, .section-intro h2 em { color: var(--accent); }
+  .hero-deck { font-size: 1.1rem; font-weight: 600; margin-bottom: .7rem; }
+  .hero-intro { max-width: 31rem; color: var(--color-muted); font-size: 1.05rem; }
+  .hero-copy > a { margin-top: 1.3rem; }
+  figure { min-width: 0; }
+  figure img { display: block; width: 100%; height: auto; }
+  .hero-image img { aspect-ratio: 1.15; object-fit: cover; object-position: 55% center; }
+  figcaption { font-size: .75rem; color: var(--color-muted); line-height: 1.6; padding-top: .7rem; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); padding-block: 1.7rem; border-block: 1px solid var(--color-border); gap: 1.2rem; }
+  .hero-stats > div { display: grid; gap: .4rem; }
+  .hero-stats strong { font: 2.4rem/1.2 var(--serif); letter-spacing: -.035em; }
+  .hero-stats small { font: .85rem/1.4 var(--font-sans); letter-spacing: 0; white-space: nowrap; }
+  .hero-stats span { font-size: .8rem; color: var(--color-muted); }
+  .resume-nav { display: flex; flex-wrap: wrap; gap: .25rem 1.8rem; padding-block: .8rem; border-bottom: 1px solid var(--color-border); }
+  .resume-nav a { font-size: .82rem; padding-block: .7rem; text-decoration: underline; text-decoration-color: var(--color-border); }
+  .resume-section { padding-block: 4.3rem; }
+  section[id], aside[id] { scroll-margin-top: 2rem; }
+  .section-intro { max-width: 44rem; margin-bottom: 2rem; }
+  .section-intro > .eyebrow { color: var(--accent); }
+  .section-intro h2 { font-size: clamp(2.7rem,5.4vw,4.4rem); margin: .8rem 0 1.3rem; line-height: 1.04; }
+  .section-intro > p:not(.eyebrow) { color: var(--color-muted); line-height: 1.8; }
+  .results-wrap { overflow-x: auto; }
+  .results-table { width: 100%; border-collapse: collapse; font-size: .85rem; text-align: left; }
+  .results-table thead { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-muted); }
+  .results-table th, .results-table td { padding: 1.2rem .75rem; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+  .results-table th:first-child, .results-table td:first-child { padding-left: 0; }
+  .results-table th:last-child, .results-table td:last-child { padding-right: 0; }
+  .results-table tbody th { font-weight: 400; min-width: 210px; }
+  .results-table tbody th strong { display: block; font-size: .95rem; font-weight: 600; }
+  .results-table th span, .results-table td > span { display: block; color: var(--color-muted); font-size: .78rem; margin-top: .2rem; }
+  .results-table a { display: inline-block; margin-top: .4rem; font-size: .75rem; text-decoration: underline; }
+  .results-table .year { font-family: ui-monospace,monospace; }
+  .results-table .result { font: 1.9rem/1.15 var(--serif); color: var(--accent); white-space: nowrap; }
+  .fine-print, .source-note { font-size: .77rem; margin-top: 1.2rem; line-height: 1.75; color: var(--color-muted); max-width: 51rem; }
+  .brickyard-section { background: var(--green); color: var(--paper); padding-block: 4.3rem; }
+  .brickyard-section .eyebrow { color: #d9ad7e; }
+  .brickyard-section .section-intro h2 em { color: #e3b783; }
+  .brickyard-section .section-intro > p:not(.eyebrow) { color: #d0dbce; }
+  .brickyard-grid { display: grid; gap: 2rem; align-items: start; }
+  .progression { list-style: none; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); padding: 0; gap: .5rem; }
+  .progression li { display: flex; flex-direction: column; border-top: 1px solid #90a88c; padding-top: .6rem; position: relative; }
+  .progression li:not(:last-child)::after { content: '→'; position: absolute; right: .2rem; bottom: .4rem; color: #d6ad7b; }
+  .progression span { font-size: .72rem; color: #d0dbce; }
+  .progression strong { font: 3.4rem/1.2 var(--serif); letter-spacing: -.05em; }
+  .progression li:last-child strong { color: #efc68d; }
+  .race-facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.3rem; margin-block: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #698475; }
+  .race-facts strong { display: block; font: 2.25rem/1.2 var(--serif); color: #efc68d; white-space: nowrap; }
+  .race-facts span { display: block; font-size: .72rem; color: #d0dbce; margin-top: .6rem; }
+  .brickyard-copy { font-size: .94rem; margin-top: 1.1rem; max-width: 39rem; }
+  .race-links { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; font-size: .78rem; margin-top: 1.6rem; }
+  .race-links a { text-decoration: underline; padding-block: .3rem; }
+  .infographic-preview { background: #fff; padding: .55rem .55rem 1rem; color: var(--green); }
+  .infographic-preview > a { display: block; height: 390px; overflow: hidden; }
+  .infographic-preview img { width: 100%; height: auto; }
+  .infographic-preview figcaption { color: var(--green); padding-inline: .45rem; }
+  .infographic-preview figcaption strong, .infographic-preview figcaption a { display: block; }
+  .infographic-preview figcaption a { text-decoration: underline; margin-top: .3rem; }
+  .rivals-heading { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #698475; }
+  .rivals-heading h3 { font: 2rem/1.3 var(--serif); }
+  .rivals-heading p { font-size: .8rem; color: #d0dbce; margin-top: .4rem; }
+  .rival-grid { display: grid; gap: 1rem; margin-top: 1.4rem; }
+  .rival-card { padding: 1.4rem; border: 1px solid #698475; }
+  .rival-role { font-size: .7rem; color: #d0dbce; }
+  .rival-card h4 { font: 1.75rem/1.3 var(--serif); margin-top: .35rem; }
+  .rival-positions { display: flex; gap: 2rem; margin-block: 1rem; }
+  .rival-positions span { font-size: .72rem; }
+  .rival-positions strong { display: block; font-size: 1.35rem; font-weight: 500; }
+  .rival-card > p:not(.rival-role) { font-size: .76rem; }
+  .rival-gap { margin-top: .35rem; color: #d0dbce; }
+  .full-infographic { margin-top: 1.5rem; border-block: 1px solid #698475; }
+  .full-infographic summary { cursor: pointer; padding-block: 1.2rem; display: flex; justify-content: space-between; gap: 1rem; font-size: .9rem; list-style: none; }
+  .full-infographic summary::-webkit-details-marker { display: none; }
+  .full-infographic summary span { font-size: 1.2rem; }
+  .full-infographic[open] summary span { transform: rotate(45deg); }
+  .full-infographic img { display: block; width: 100%; height: auto; }
+  .full-infographic > a { display: inline-block; padding-block: 1.2rem; font-size: .8rem; text-decoration: underline; }
+  .split-section { display: grid; gap: 2rem; }
+  .timeline > div { padding: 0 0 2rem 1.5rem; border-left: 1px solid #b8c2af; position: relative; }
+  .timeline > div::before { position: absolute; left: -4px; top: .5rem; content: ''; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
+  .timeline-date { font-size: .72rem; color: var(--accent); letter-spacing: .035em; }
+  .timeline h3 { font-size: 1.1rem; font-weight: 600; margin-block: .4rem .6rem; }
+  .timeline p { font-size: .92rem; color: var(--color-muted); }
+  .supporters { background: var(--pale); padding: 1.1rem 1.4rem; }
+  .supporters h3 { font-size: .8rem; }
+  .supporters span { display: block; font-size: .7rem; color: var(--color-muted); margin-top: .6rem; }
+  .endurance-section { padding-block: 4.3rem; background: var(--pale); border-block: 1px solid var(--color-border); }
+  .endurance-copy { display: grid; gap: 1rem 3rem; max-width: 67rem; font-size: .95rem; }
+  .onboard-grid { display: grid; gap: 1px; background: #c1ccb8; border: 1px solid #c1ccb8; margin-top: 2rem; }
+  .onboard-card { background: #f3f4ec; padding: 1.5rem; display: flex; flex-direction: column; }
+  .onboard-card:hover { background: #fffdf5; }
+  .onboard-date { font-size: .72rem; color: var(--color-muted); }
+  .onboard-card h3 { font: 1.45rem/1.3 var(--serif); margin: .8rem 0; }
+  .onboard-card p { font-size: .8rem; color: var(--color-muted); margin-bottom: 1.2rem; }
+  .watch { display: flex; justify-content: space-between; gap: 1rem; font-size: .76rem; text-decoration: underline; margin-top: auto; }
+  .experience-strip { padding-top: 1.5rem; margin-top: 1.5rem; border-top: 1px solid #bec9b6; }
+  .experience-strip h3 { font-size: .8rem; font-weight: 600; }
+  .experience-strip p { font-size: .85rem; color: var(--color-muted); margin-top: .5rem; }
+  .electric-grid { display: grid; gap: 2rem 3rem; align-items: start; }
+  .electric-grid figure img { aspect-ratio: 1; object-fit: cover; }
+  .electric-notes > div + div { border-top: 1px solid var(--color-border); margin-top: 1.5rem; padding-top: 1.5rem; }
+  .electric-notes .eyebrow { font-size: .65rem; color: var(--accent); }
+  .electric-notes h3 { font: 1.65rem/1.3 var(--serif); margin-block: .5rem; }
+  .electric-notes p { color: var(--color-muted); font-size: .9rem; }
+  .electric-notes a, .paddock-cards a { display: inline-block; text-decoration: underline; margin-top: .65rem; font-size: .78rem; }
+  .archive-links { display: flex; flex-wrap: wrap; gap: .5rem 2rem; margin-top: 1.5rem; }
+  .paddock-section { border-block: 1px solid var(--color-border); padding-block: 4.3rem; background: #efede3; }
+  .paddock-grid { display: grid; gap: 2rem 3rem; align-items: start; }
+  .paddock-cards > div { border-top: 1px solid #bdc4b6; padding-block: 1.5rem; }
+  .role-tag { display: inline-block; font-size: .65rem; text-transform: uppercase; letter-spacing: .09em; color: var(--accent); }
+  .paddock-cards h3 { font: 1.6rem/1.3 var(--serif); margin-block: .5rem .7rem; }
+  .paddock-cards p { color: var(--color-muted); font-size: .93rem; }
+  .paddock-photo img { aspect-ratio: 1; object-fit: cover; }
+  .resume-close { display: grid; gap: 3rem; padding-block: 4rem; }
+  .resume-close h2 { font-size: 3.5rem; margin-block: 1rem; }
+  .resume-close > div > p:not(.eyebrow) { color: var(--color-muted); }
+  .resume-close .button { margin-top: 1.5rem; }
+  .resume-close aside { border-left: 1px solid var(--color-border); padding-left: 1.5rem; font-size: .77rem; color: var(--color-muted); align-self: center; }
+  .resume-close aside h3 { font-weight: 600; color: var(--green); }
+  .resume-close aside p { margin-top: .75rem; }
+  @media (min-width: 660px) {
+    .rival-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .onboard-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .endurance-copy { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .infographic-preview > a { height: 510px; }
+  }
+  @media (min-width: 900px) {
+    .resume-hero { padding-top: 2.4rem; }
+    .hero-grid { grid-template-columns: 1fr 1.05fr; gap: 3rem; margin-block: 3rem; }
+    .hero-stats > div + div { border-left: 1px solid var(--color-border); padding-left: 2rem; }
+    .brickyard-grid { grid-template-columns: 1.3fr 1fr; gap: 3.5rem; }
+    .split-section { grid-template-columns: 1fr 1.15fr; gap: 5rem; }
+    .electric-grid { grid-template-columns: 1fr 1fr; }
+    .paddock-grid { grid-template-columns: 1.2fr 1fr; }
+    .resume-close { grid-template-columns: 1.2fr 1fr; gap: 5rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-stats { gap: .7rem; }
+    .hero-stats strong { font-size: 1.7rem; }
+    .hero-stats small { display: block; font-size: .7rem; margin-top: .35rem; }
+    .hero-stats span { font-size: .68rem; }
+    .resume-nav { gap: 0 1.2rem; }
+    .resume-section, .brickyard-section, .endurance-section, .paddock-section { padding-block: 3rem; }
+    .results-table { min-width: 660px; }
+    .race-facts { gap: .6rem; }
+    .race-facts strong { font-size: 1.9rem; }
+    .race-facts span { font-size: .65rem; }
+    .progression strong { font-size: 2.8rem; }
+    .progression span { font-size: .63rem; }
+    .progression li:not(:last-child)::after { right: 0; bottom: .25rem; }
+    .infographic-preview > a { height: 340px; }
+  }
+  @media print {
+    :global(.site-header), :global(.site-footer), .resume-nav, .status, .infographic-preview, .full-infographic { display: none; }
+    .racing-resume { font-size: 10pt; }
+    .resume-section, .brickyard-section, .endurance-section, .paddock-section, .resume-close { padding-block: 1.5rem; }
+    .hero-copy h1 { font-size: 48pt; }
+    .hero-grid { grid-template-columns: 1fr 1fr; }
+    .section-intro h2 { font-size: 28pt; }
+    .brickyard-section { background: white; color: #173e35; }
+    .brickyard-section :is(p, span, strong), .brickyard-section .section-intro > p:not(.eyebrow) { color: #173e35; }
+    .rival-grid { grid-template-columns: repeat(3,1fr); }
+    .results-table { min-width: 0; }
+    tr, .rival-card, .onboard-card { break-inside: avoid; }
+  }
+</style>

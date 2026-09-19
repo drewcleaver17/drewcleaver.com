@@ -263,3 +263,17 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] Project totals update from the collection; the new case is covered by existing visibility and internal-link guards.
 - [x] Production build passes, including 56 model/renderer/UI tests; six unlisted portfolio pages are generated.
 - [ ] Full browser visual review remains unverified; prior browser connection failures prevented it.
+
+## Racing résumé — September 19, 2026
+
+- [x] New `/racingresume/` page uses the latest Brickyard infographic, original
+  onboards, verified result highlights, karting/endurance history and EV work.
+- [x] Sponsor and hospitality roles are distinct from driving entries; incomplete
+  historical classifications are identified. Carter Boles receives no highlight.
+- [x] Production build and existing required checks pass.
+- [x] Chromium at 320, 390, 768 and 1440 px: no page overflow or missing images;
+  native infographic expansion, section navigation, links and download checked.
+- [x] Noindex/nofollow, no analytics, no inbound site links or sitemap listing.
+- [x] Owner's request authorizes publishing this new unlisted route through the
+  existing GitHub Pages workflow. No shared navigation or hosting changes.
+- [ ] Verify the live URL and final deployment after publishing.

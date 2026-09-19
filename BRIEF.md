@@ -156,3 +156,15 @@ the source for its offer, method and founder role. Use the original site seal
 locally and link to the live website, diagnostic and method. Do not invent
 client results or promote the review through navigation, sitemap or GitHub
 profile changes. The collection now has five projects.
+
+## Racing résumé — September 19, 2026
+
+Drew requested a new live, unlisted page at `/racingresume/`, using the latest
+2019 Brickyard infographic and researched racing history. Publish through the
+existing GitHub Pages workflow. Keep the route out of navigation, the sitemap
+and all inbound site links; set `noindex, nofollow` and do not initialize analytics.
+Use original timing, organizer reports, press and owned archives; distinguish
+firsthand history from verified classifications. Separate driving from sponsor
+and hospitality roles. Preserve the infographic revision that gives Carter Boles
+only the same neutral results-row treatment as the rest of the field.
+See `docs/RACING_RESUME.md` for the source ledger and verification.
