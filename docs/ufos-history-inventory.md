@@ -60,3 +60,20 @@ The published dataset is the claim-level citation ledger. Its source IDs below l
 CIA document URLs for Gateway, the SRI report and AIR redirected to a generic collection page. Readable archival copies at Internet Archive were used and labeled `primary-mirror`, with the author and custodian distinguished. Gateway and the CENTER LANE memo are Army-authored; SRI and AIR authored their own reports. Archival custody is not agency endorsement. Exact PDF/document IDs are preserved in source URLs.
 
 The additions deliberately mix originals, institutional histories and attributed accounts. “Source-audited” means the cited passage was inspected for the narrow stated claim; it does not mean all underlying explanations are verified, or that every source is a primary original. Existing modern entries retain their earlier source labels, qualification text and verification dates.
+
+
+## Religious texts and channeling — editorial scope added September 19, 2026
+
+| Subject | Disposition and limit |
+| --- | --- |
+| Nag Hammadi composition and Coptic copies | Included as separate broad, explicitly estimated ranges from Emmel’s inspected scholarly reference. Not exact endpoints or an age shared by every text. |
+| Burial / concealment | Discussed with copying and discovery; no dated burial event because date, owner and motive remain unknown. |
+| Athanasius, Letter 39 | Included: 367 letter via identified 1892 translation. No asserted causal connection to deposition. |
+| Discovery | Included: conventional 1945 date, with Goodacre’s source-critical qualifications. |
+| Thomas edition; facsimiles; English translation | Included: 1959 critical edition, 1972–1984 facsimile series, 1977 English collection. Bibliographic support distinguished from reading complete translated books; interpretation remains open. |
+| Ra session chronology | Included in four original-book session groups, plus the final session. All 106 date labels read; full directory linked. No claim to have summarized every question. |
+| Ra books and restored material | Included: collective original publication range, Book V (1998), and 2018 two-volume edition. Original omissions and later restoration stated. |
+| Nag Hammadi / Ra connection | No historical transmission, common speaker or non-human origin asserted. Comparative themes alone are insufficient. |
+| Other Gnostic collections and broader reception | Not conflated with Nag Hammadi. Berlin Codex, Pistis Sophia, Gospel of Judas, Dead Sea Scrolls and a full reception history would require separate source audits. |
+
+See `ufos-research-audit.md` for inspected passages, access limitations and the precise book/session mapping. These are editorially reviewed historical additions, not newly occurring UAP milestones. Future channeling claims or interpretive revisions require review under the existing policy.

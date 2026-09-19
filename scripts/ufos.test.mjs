@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { filterEvents, initialState, paramsFromState, stateFromParams, validateDataset, dateBounds, formatDate } from '../src/lib/ufos.mjs';
+import { filterEvents, initialState, paramsFromState, stateFromParams, validateDataset, dateBounds, formatDate, eventDateLabel } from '../src/lib/ufos.mjs';
 import { datasetPath, digest, contentDigest, prepareUpdate, publishValidatedUpdate, assertPermittedPaths } from './ufos-update.mjs';
 const data=JSON.parse(readFileSync(datasetPath,'utf8'));
 const now=new Date();
@@ -19,7 +19,7 @@ test('search includes people, institutions, source titles and combined filters',
 test('chronology, reverse, context and empty results',()=>{
   const normal=filterEvents(data,{}); assert.equal(normal[0].id,'nyt-2017');
   assert.deepEqual(filterEvents(data,{sort:'newest'}).map(e=>e.id),normal.map(e=>e.id).reverse());
-  assert.equal(filterEvents(data,{view:'history'})[0].id,'leonardo-flight-notebook');
+  assert.equal(filterEvents(data,{view:'history'})[0].id,'nag-hammadi-composition');
   assert.ok(filterEvents(data,{context:true}).some(e=>e.id==='nimitz-encounter'));
   assert.equal(filterEvents(data,{q:'zz-no-such-event'}).length,0);
 });
@@ -27,6 +27,25 @@ test('partial dates overlap a range without inventing a display day',()=>{
   assert.deepEqual(dateBounds('2020-02'),['2020-02-01','2020-02-29']);
   assert.equal(formatDate('2019-03'),'March 2019');
   assert.ok(filterEvents(data,{from:'2019-03-20',to:'2019-03-21'}).some(e=>e.id==='navy-reporting'));
+});
+test('ancient estimates keep their qualifications and overlap date filters',()=>{
+  const e=data.events.find(e=>e.id==='nag-hammadi-codices');
+  assert.equal(eventDateLabel(e),'Later fourth century CE · approximate');
+  assert.equal(formatDate('0367'),'367');
+  assert.ok(filterEvents(data,{view:'history',from:'0367-01-01',to:'0367-12-31'}).some(e=>e.id==='nag-hammadi-codices'));
+  const invalid=structuredClone(data); delete invalid.events.find(e=>e.id==='nag-hammadi-codices').dateNotes;
+  assert.ok(validateDataset(invalid).some(e=>e.includes('Unqualified approximate date')));
+});
+test('religious texts are searchable historical context with attributed session dates',()=>{
+  const state={...initialState,view:'history',topic:'Religious texts & channeling',entity:'law-of-one',q:'archetypes'};
+  assert.deepEqual(stateFromParams(paramsFromState(state)),state);
+  assert.deepEqual(filterEvents(data,state).map(e=>e.id),['ra-book-4-sessions']);
+  assert.equal(filterEvents(data,{topic:'Religious texts & channeling'}).length,0);
+  const newer=data.events.filter(e=>e.topics.includes('Religious texts & channeling'));
+  assert.ok(newer.length > 0);
+  assert.ok(newer.every(e=>e.context && e.automationClass==='review-required'));
+  assert.equal(data.events.find(e=>e.id==='ra-final-session').date.role,'session');
+  assert.equal(data.events.find(e=>e.id==='ra-book-v-1998').date.start,'1998');
 });
 test('URL state round trip and reset',()=>{
   const s={...initialState,q:'NASA & UAP',category:'Scientific research',context:true,view:'recent'};

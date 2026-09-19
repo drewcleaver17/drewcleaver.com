@@ -86,3 +86,16 @@ For a real unchanged check, the importer supports a check-only envelope: the ord
 A post-maintenance runtime test may use this real source-check path when no new eligible event exists. Run the same importer, tests, build, dataset-only PR, CI, exact-head merge and exact deployment checks. Verify the live embedded `lastCheckedAt` and unchanged edition/content digest. This proves the actual task’s repository-to-live capability without publishing a fictional event or claiming new content. Then a separately validated dataset-only status/receipt follow-up may record `maintenance.status: verified`, the actual workflow run/revision/verification time, and `updateStatus: active`. Verify that follow-up deployment too. If any step is blocked, retain setup incomplete and report the exact missing capability once.
 
 `contentDigest` covers sources, events, entities, relationships and the change log. Operational timestamps and receipts remain outside that digest. A prior receipt is kept in `meta.publicationHistory` when a new content edition replaces it. An editorial deployment may attach its genuine live receipt while still leaving automatic publication setup incomplete.
+
+
+## Religious-text editorial extension — September 19, 2026
+
+This owner-authorized release adds the `Religious texts & channeling` strand and `Religious and esoteric history` category. It does not expand automatic publishing authorization. The existing commissioning and successful runtime recovery markers remain valid and are not reset by adding compatible editorial content.
+
+- `scholarship` identifies scholarly analysis/reference; it is not automatically eligible as an inspected original institutional source.
+- `Textual scholarship` is an evidence label, not validation of the religious content.
+- `work / collection` is a sourced index entity type. Definition changes still require an editorial release.
+- `date.role` may identify `composition`, `manuscript` or `session`. Session dates are archive attributions; publication dates remain separate.
+- Estimated ancient ranges may use `date.approximate: true` with a nonempty `date.label` and `dateNotes`. Both bounds must have year precision. The label displays the qualified period; numeric bounds exist only for overlap filtering and navigation. The importer’s existing review gate is not relaxed.
+
+All fifteen additions are `context: true`, `editor-reviewed`, and `review-required`. Do not turn a channeling assertion into a confirmed encounter or add new religious-origin interpretations unattended. Grouped Ra summaries cover selected inspected passages; they are not exhaustive session analyses. Preserve the accessible source provenance and original-audio/PDF access limitations.
