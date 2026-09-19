@@ -1,0 +1,288 @@
+---
+import Base from '../layouts/Base.astro';
+import { profile } from '../data/profile';
+
+const steps = [
+  ['Discover', 'Explore relevant roles, adjacent career paths, and opportunities that fit the person.'],
+  ['Build a passport', 'Create a free profile with experience, preferences, and reusable work evidence.'],
+  ['Qualify', 'Confirm interest and fit through a brief conversation and relevant evidence, then select candidates for a funded assessment.'],
+  ['Do paid work', 'Complete a realistic task with supplied tools, permission to use AI, and time to think.'],
+  ['Employer decides', 'Review the evidence, resolve the remaining questions, and make the hiring decision.'],
+  ['Reuse and improve', 'Carry useful evidence into the next opportunity and learn from consented outcomes.'],
+];
+const costs = [
+  ['Employer engagement fee', '$10,000'],
+  ['Candidate pay · 10 × $100', '−$1,000'],
+  ['Recruiting, design, and review', '−$4,500'],
+  ['Tools and administration', '−$500'],
+];
+const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPath — pilot or partnership')}`;
+---
+
+<Base title="ProofPath" description="A proposal for employer-funded recruiting, paid work assessments, and a portable record of what candidates can do. By Drew Cleaver." compact noindex>
+  <article class="proofpath" aria-labelledby="proofpath-title">
+    <div class="pitch-shell">
+      <header class="pitch-hero">
+        <p class="pitch-meta">A concept by Drew Cleaver <span aria-hidden="true">·</span> September 2026</p>
+        <h1 id="proofpath-title">ProofPath</h1>
+        <p class="pitch-thesis">Hiring built around<br class="desktop-break" /> demonstrated work.</p>
+        <p class="pitch-intro">Employer-funded recruiting. Paid candidate assessments. A portable record of what people can do.</p>
+        <p class="hero-explainer">Give candidates a real task, the right tools, and time to think. Pay them for the work. Help employers decide using the evidence—and let candidates carry that evidence forward.</p>
+        <a class="pitch-link" href="#pilot">Explore the first pilot <span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="pitch-section" aria-labelledby="premise-title">
+        <div class="section-label"><span>01</span><p>The premise</p></div>
+        <div class="section-copy">
+          <h2 id="premise-title">Test the work people will actually do.</h2>
+          <p>A live interview asks for an immediate, polished answer. Much of the work that follows allows research, tools, reflection, and revision. Those are different conditions for demonstrating ability.</p>
+          <p>ProofPath proposes making a realistic work sample the core hiring evidence. Candidates can show their judgment in the output they choose to submit, including how they use AI and respond to feedback.</p>
+          <p class="statement">The question becomes: “Can you do the work?”</p>
+          <p>Live conversations still matter. They answer the remaining questions and test interaction where it is relevant to the role.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="system-title">
+        <div class="section-label"><span>02</span><p>The system</p></div>
+        <div class="section-copy">
+          <h2 id="system-title">One connected hiring process.</h2>
+          <p>Discovery, applications, qualification, assessments, and employer review become parts of one process. ProofPath administers the work between them.</p>
+          <ol class="process-list">
+            {steps.map(([title, description], index) => <li>
+              <span class="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div><h3>{title}</h3><p>{description}</p></div>
+            </li>)}
+          </ol>
+          <p class="note">ProofPath owns delivery of its recruiting and assessment service. Employers retain the hiring decision. Candidates control evidence sharing.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="passport-title">
+        <div class="section-label"><span>03</span><p>The candidate passport</p></div>
+        <div class="section-copy">
+          <h2 id="passport-title">A rejection should not erase the work.</h2>
+          <p>Today, an application can require effort that becomes useful only to one employer. The proposed passport lets a candidate build a record that can travel across relevant opportunities.</p>
+          <ul class="evidence-list">
+            <li><strong>Free to build.</strong> Experience, preferences, career interests, and selected role targets.</li>
+            <li><strong>Optional ways to demonstrate ability.</strong> Quizzes, surveys, and skill exercises, with engaging formats where they help.</li>
+            <li><strong>Evidence with context.</strong> Work samples, dates, task briefs, permitted tools, and review criteria.</li>
+            <li><strong>Candidate-controlled sharing.</strong> Permission to use relevant evidence for a new role or an adjacent opportunity.</li>
+          </ul>
+          <p class="note">Qualification is role-specific. The concept does not depend on one universal employability score, and missing optional evidence is not treated as failure.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="assessment-title">
+        <div class="section-label"><span>04</span><p>The paid assessment</p></div>
+        <div class="section-copy">
+          <h2 id="assessment-title">Realistic conditions. A defined task. Paid work.</h2>
+          <dl class="assessment-terms">
+            <div><dt>$100+</dt><dd><strong>Paid on completion</strong>Payment for the agreed work, regardless of the hiring outcome.</dd></div>
+            <div><dt>48–72h</dt><dd><strong>Time to think</strong>A return window with a clear effort cap. Research and revision are allowed.</dd></div>
+            <div><dt>Tools + AI</dt><dd><strong>A supplied workspace</strong>Use a supported tool stack, with workspace recording disclosed in advance.</dd></div>
+          </dl>
+          <p>The employer and ProofPath agree on the task and rubric before it begins. Review covers the deliverable, relevant tool use, and one response to feedback.</p>
+          <aside class="example" aria-labelledby="sales-example-title">
+            <h3 id="sales-example-title">For a sales role</h3>
+            <p>Answer the company’s common customer questions, prepare a follow-up, then respond to an objection. Give candidates the product information and tools they would use on the job.</p>
+          </aside>
+          <p>AI is part of the work. Candidates remain accountable for what they submit. The assessment can reveal how they research, prompt, check, edit, and make decisions—not just whether they can produce fluent text.</p>
+          <p class="note">48–72 hours is the completion window, not the expected workload. Recording is limited to the disclosed assessment environment.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="economics-title">
+        <div class="section-label"><span>05</span><p>The business model</p></div>
+        <div class="section-copy">
+          <h2 id="economics-title">One employer budget funds the engagement.</h2>
+          <p>The employer sets the role, budget, and acceptance criteria. ProofPath sources and qualifies candidates, pays selected applicants to complete the assessment, and delivers an evidence-supported shortlist.</p>
+          <p>The employer owns final interviews, the offer, and the hiring decision. ProofPath is accountable for its screening, referrals, and delivery. Its margin comes from doing that work well within the agreed budget.</p>
+          <div class="economics" aria-labelledby="economics-example-title">
+            <h3 id="economics-example-title">Illustrative economics per role</h3>
+            <dl class="cost-list">
+              {costs.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
+              <div class="contribution"><dt>Contribution before overhead</dt><dd>$4,000</dd></div>
+            </dl>
+            <p class="margin"><strong>40%</strong> contribution margin</p>
+            <p class="note">Illustrative assumptions, not operating results or a price commitment. Labor includes founder delivery time. Excludes customer acquisition, fixed overhead, and taxes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="learning-title">
+        <div class="section-label"><span>06</span><p>Value after the decision</p></div>
+        <div class="section-copy">
+          <h2 id="learning-title">Each assessment can leave something useful behind.</h2>
+          <div class="value-list">
+            <div><h3>For candidates</h3><p>Reusable work evidence, feedback, and a clearer path to relevant opportunities.</p></div>
+            <div><h3>For employers</h3><p>Focused follow-up questions, more informed onboarding, and reusable assessment designs.</p></div>
+            <div><h3>For ProofPath</h3><p>Repeatable recruiting and assessment methods, improved through experience.</p></div>
+          </div>
+          <p>With separate permission for research and outcome linkage, work samples and AI usage can be compared with later job outcomes. AI can help identify patterns worth testing in hiring and training.</p>
+          <p class="statement">Learn what works, then improve the process.</p>
+          <p class="note">This is a proposed learning model. Predictive value must be demonstrated; recording activity alone does not establish it.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="launch-title">
+        <div class="section-label"><span>07</span><p>The path to scale</p></div>
+        <div class="section-copy">
+          <h2 id="launch-title">Launch a focused service. Scale proven workflows.</h2>
+          <p>The first product is an accountable recruiting service. Begin with one employer mandate, learn the delivery cost, and build reusable infrastructure as the economics justify it.</p>
+          <dl class="launch-list">
+            <div><dt>First customer</dt><dd>An employer hiring e-commerce operations talent.</dd></div>
+            <div><dt>First offer</dt><dd>One funded role, a defined rubric, and a supported tool stack.</dd></div>
+            <div><dt>Repeat delivery</dt><dd>Reuse assessments, permitted candidate evidence, and review methods.</dd></div>
+            <div><dt>Platform expansion</dt><dd>Automate proven workflows and add adjacent roles and employer tools.</dd></div>
+          </dl>
+          <p class="note">The initial customer and role family are hypotheses to validate.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="market-title">
+        <div class="section-label"><span>08</span><p>The existing market</p></div>
+        <div class="section-copy">
+          <h2 id="market-title">The opportunity is in connected service delivery.</h2>
+          <p>Realistic assessments and AI-enabled hiring already exist. ProofPath’s proposal brings funded recruiting, paid candidate work, and portable evidence together in one managed service.</p>
+          <dl class="market-list">
+            <div><dt><a href="https://codesignal.com/agentic-assessments/">CodeSignal</a></dt><dd>Role-relevant AI simulations across business and technical work.</dd></div>
+            <div><dt><a href="https://coderpad.io/use-case/ai-enabled-hiring/">CoderPad</a></dt><dd>AI-enabled coding projects, process playback, and contextual interviews.</dd></div>
+            <div><dt><a href="https://vervoe.com/assessments/">Vervoe</a></dt><dd>Role-specific tasks, evidence-linked scoring, and outcome feedback.</dd></div>
+          </dl>
+          <p class="note">Examples reflect vendor descriptions reviewed in September 2026, not a complete feature comparison. ProofPath’s differentiation requires customer validation.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" aria-labelledby="partnership-title">
+        <div class="section-label"><span>09</span><p>A proposed partnership</p></div>
+        <div class="section-copy">
+          <h2 id="partnership-title">HiringCafe + ProofPath:<br /> discovery connected to proof.</h2>
+          <p><a href="https://hiringcafe.com/about">HiringCafe</a> provides free job discovery from employer websites, with no pay-to-win discovery. ProofPath could provide an optional, employer-funded path into qualification and paid work assessments.</p>
+          <p>Candidates would opt in to sharing relevant evidence. ProofPath’s service fees would remain separate from organic search ranking.</p>
+          <p class="note">Proposal only. No partnership, integration, or commercial terms exist. HiringCafe filters external recruiting agency listings; any pilot would need an agreed path consistent with its direct-employer model.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" id="pilot" aria-labelledby="pilot-title">
+        <div class="section-label"><span>10</span><p>The first pilot</p></div>
+        <div class="section-copy">
+          <h2 id="pilot-title">Test demand, quality, and delivery economics.</h2>
+          <p>Recruit three employer design partners in one role family. Run up to ten paid assessments per employer, with the rubric and success thresholds agreed in advance.</p>
+          <div class="pilot-math"><p><strong>3</strong><span>employer partners</span></p><p><strong>30</strong><span>assessments maximum</span></p><p><strong>$3,000</strong><span>minimum candidate pay if all 30 complete at $100</span></p></div>
+          <h3 class="measure-title">Measure what determines whether the model works</h3>
+          <ul class="measure-list">
+            <li>Employer acceptance of the shortlist</li>
+            <li>Hiring-manager review time</li>
+            <li>Actual delivery cost</li>
+            <li>Candidate experience</li>
+            <li>Employer repeat purchase</li>
+          </ul>
+          <p class="note">These are pilot targets, not traction. Candidate payments exclude recruiting, design, review, tools, and administration. Scale after employers value the evidence and delivery economics hold.</p>
+        </div>
+      </section>
+
+      <footer class="pitch-close" aria-labelledby="build-title">
+        <p class="pitch-meta">Build ProofPath with Drew</p>
+        <h2 id="build-title">Let’s prove the model.</h2>
+        <p>A hiring system where candidates get paid to show their work—and the evidence remains useful after the decision.</p>
+        <p>Fund an employer pilot, partner on the build, hire me to lead it, or invest in validating the concept. The next step is to identify three design partners and scope the first funded pilot.</p>
+        <a class="pitch-button" href={emailHref}>Talk with Drew about ProofPath <span aria-hidden="true">↗</span></a>
+        <a class="email-link" href={emailHref}>{profile.email}</a>
+      </footer>
+    </div>
+  </article>
+</Base>
+
+<style>
+  :global(body:has(.proofpath)) { background: #fff; color: #142338; --paper: #fff; --color-ink: #142338; --color-muted: #526171; --color-border: #d4dce2; }
+  .proofpath { --pitch-ink: #142338; --pitch-body: #26364a; --pitch-muted: #526171; --pitch-teal: #006a68; --pitch-red: #b73732; --pitch-line: #d4dce2; color: var(--pitch-body); font: 1.125rem/1.7 -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; overflow-wrap: break-word; }
+  .pitch-shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+  .pitch-meta { color: var(--pitch-muted); font-size: .875rem; line-height: 1.6; }
+  .pitch-meta span { margin-inline: .35rem; }
+  .pitch-hero { padding-block: 2.75rem 3.5rem; }
+  .pitch-hero h1 { font-size: clamp(3.1rem, 9vw, 5.5rem); font-weight: 750; letter-spacing: -.055em; line-height: 1.05; color: var(--pitch-ink); margin: 1.35rem 0 1.75rem; }
+  .pitch-thesis { border-top: 3px solid var(--pitch-red); padding-top: 1.6rem; font-size: clamp(2.15rem, 5.8vw, 4.5rem); line-height: 1.12; letter-spacing: -.038em; font-weight: 720; color: var(--pitch-ink); max-width: 100%; }
+  .desktop-break { display: none; }
+  .pitch-intro { font-size: clamp(1.2rem, 2.3vw, 1.55rem); font-weight: 550; line-height: 1.5; max-width: 42rem; margin-top: 1.6rem; }
+  .hero-explainer { max-width: 42rem; margin-top: 1.1rem; }
+  .pitch-link { display: inline-flex; min-height: 48px; gap: 1rem; align-items: center; font-size: 1rem; text-decoration: underline; color: var(--pitch-teal); margin-top: 1.25rem; font-weight: 650; }
+  .pitch-section { display: grid; gap: 1rem; border-top: 1px solid var(--pitch-line); padding-block: 2.75rem; scroll-margin-top: 1.5rem; }
+  .section-label { display: flex; align-items: baseline; gap: .8rem; color: var(--pitch-muted); font-size: .875rem; line-height: 1.5; }
+  .section-label > span { color: var(--pitch-teal); font-size: 1.25rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .section-copy { min-width: 0; }
+  .proofpath h2 { color: var(--pitch-ink); font-weight: 700; font-size: clamp(1.9rem, 3.6vw, 2.65rem); line-height: 1.16; letter-spacing: -.033em; margin-bottom: 1.35rem; text-wrap: pretty; }
+  .section-copy > p + p { margin-top: 1.1rem; }
+  .proofpath h3 { color: var(--pitch-ink); font-size: 1.125rem; line-height: 1.45; font-weight: 700; }
+  .proofpath .statement { font-size: 1.4rem; color: var(--pitch-ink); font-weight: 650; line-height: 1.45; margin-block: 1.6rem; }
+  .proofpath .note { font-size: .9375rem; line-height: 1.65; color: var(--pitch-muted); margin-top: 1.3rem; }
+  .proofpath a:not(.pitch-button):not(.pitch-link):not(.email-link) { color: var(--pitch-teal); text-decoration: underline; }
+  .process-list { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; }
+  .process-list li { display: grid; grid-template-columns: 2rem minmax(0,1fr); gap: .8rem; border-top: 1px solid var(--pitch-line); padding-block: 1.15rem; }
+  .step-number { color: var(--pitch-teal); font-weight: 650; font-size: 1rem; padding-top: .1rem; }
+  .process-list h3 { margin-bottom: .35rem; }
+  .process-list p { font-size: 1.0625rem; line-height: 1.65; }
+  .evidence-list { list-style: none; padding: 0; margin: 1.6rem 0 0; }
+  .evidence-list li { padding-block: 1rem; border-top: 1px solid var(--pitch-line); }
+  .evidence-list strong { color: var(--pitch-ink); }
+  .assessment-terms { display: grid; margin: 1.8rem 0; }
+  .assessment-terms > div { border-top: 1px solid var(--pitch-line); padding-block: 1.15rem; }
+  .assessment-terms dt { color: var(--pitch-teal); font-size: 2.25rem; font-weight: 720; line-height: 1.2; letter-spacing: -.045em; margin-bottom: .6rem; }
+  .assessment-terms dd { font-size: 1.0625rem; line-height: 1.65; }
+  .assessment-terms dd strong { display: block; color: var(--pitch-ink); margin-bottom: .25rem; }
+  .example { margin-block: 1.7rem; padding: .25rem 0 .25rem 1.1rem; border-left: 3px solid var(--pitch-teal); }
+  .example h3 { margin-bottom: .5rem; }
+  .economics { margin-block: 2rem 0; }
+  .economics > h3 { margin-bottom: 1rem; }
+  .cost-list > div { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 1rem; border-top: 1px solid var(--pitch-line); padding: .95rem 0; font-size: 1rem; line-height: 1.5; }
+  .cost-list dd { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--pitch-ink); font-weight: 600; }
+  .cost-list .contribution { color: var(--pitch-teal); font-weight: 700; border-top: 2px solid var(--pitch-teal); }
+  .contribution dd { color: inherit; }
+  .margin { color: var(--pitch-teal); margin-top: 1rem; font-size: 1.125rem; }
+  .margin strong { font-size: 2.6rem; font-weight: 720; margin-right: .35rem; letter-spacing: -.05em; }
+  .value-list { display: grid; gap: 1.25rem; margin-block: 1.8rem; }
+  .value-list > div { border-top: 1px solid var(--pitch-line); padding-top: 1rem; }
+  .value-list h3 { margin-bottom: .35rem; color: var(--pitch-teal); }
+  .launch-list, .market-list { margin-top: 1.7rem; }
+  .launch-list > div, .market-list > div { display: grid; gap: .35rem; padding-block: 1rem; border-top: 1px solid var(--pitch-line); }
+  .launch-list dt, .market-list dt { color: var(--pitch-ink); font-weight: 700; }
+  .market-list a { display: inline-flex; align-items: center; min-height: 44px; }
+  .pilot-math { display: grid; gap: 1.5rem; margin-block: 2rem; padding-block: 1.5rem; border-block: 1px solid var(--pitch-line); }
+  .pilot-math strong, .pilot-math span { display: block; }
+  .pilot-math strong { color: var(--pitch-teal); font-size: 2.65rem; font-weight: 720; line-height: 1.2; letter-spacing: -.045em; }
+  .pilot-math span { font-size: 1rem; line-height: 1.55; margin-top: .35rem; }
+  .measure-title { max-width: 33rem; }
+  .measure-list { list-style: disc; padding-left: 1.2rem; margin-block: 1rem; }
+  .measure-list li { padding-left: .15rem; margin-bottom: .5rem; }
+  .pitch-close { border-top: 3px solid var(--pitch-red); padding-block: 2.75rem 3.5rem; max-width: 100%; }
+  .pitch-close h2 { margin: .8rem 0 1.35rem; font-size: clamp(2.5rem, 5.5vw, 4.5rem); }
+  .pitch-close > p:not(.pitch-meta) { max-width: 42rem; margin-bottom: 1.1rem; }
+  .pitch-button { display: inline-flex; align-items: center; justify-content: center; gap: 1rem; background: var(--pitch-teal); color: white; padding: .9rem 1.15rem; min-height: 52px; font-weight: 600; font-size: 1rem; line-height: 1.5; margin-top: .8rem; max-width: 100%; }
+  .pitch-button:hover { background: #005552; }
+  .email-link { display: block; width: fit-content; min-height: 44px; padding-block: .7rem; color: var(--pitch-teal); text-decoration: underline; font-size: 1rem; overflow-wrap: anywhere; }
+  @media (min-width: 640px) {
+    .pitch-shell { width: min(1120px, calc(100% - 80px)); }
+    .pitch-hero { padding-block: 3.5rem 4.5rem; }
+    .desktop-break { display: initial; }
+    .pitch-section { padding-block: 3.5rem; gap: 1.35rem; }
+    .assessment-terms { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.4rem; }
+    .assessment-terms dt { font-size: 2rem; }
+    .pilot-math { grid-template-columns: 1fr 1fr 1.6fr; }
+    .launch-list > div, .market-list > div { grid-template-columns: 10rem minmax(0,1fr); gap: 1.5rem; }
+  }
+  @media (min-width: 960px) {
+    .pitch-section { grid-template-columns: 12rem minmax(0,1fr); gap: 3rem; }
+    .section-label { display: block; padding-top: .25rem; }
+    .section-label > span { font-size: 2rem; display: block; margin-bottom: .65rem; }
+    .section-label p { max-width: 10rem; }
+    .section-copy { max-width: 48rem; }
+    .process-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 2rem; }
+    .pitch-close { padding-block: 3.5rem 4rem; }
+  }
+  @media print {
+    :global(.site-header), :global(.site-footer), .pitch-link, .pitch-button, .email-link { display: none; }
+    .pitch-shell { width: 100%; }
+    .pitch-section { display: block; padding-block: 1.5rem; }
+    .section-label { margin-bottom: .75rem; }
+    .proofpath h2, .proofpath h3 { break-after: avoid; }
+  }
+</style>
