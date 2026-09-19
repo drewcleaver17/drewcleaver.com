@@ -30,9 +30,10 @@ if (banner && eligible) {
   const location = new URL(path, window.location.origin);
   const query = new URLSearchParams(window.location.search);
   const campaignValues: Record<string, readonly string[]> = {
-    utm_source: ['reddit', 'linkedin', 'instagram', 'business_card', 'email'],
+    utm_source: ['reddit', 'linkedin', 'instagram', 'github', 'business_card', 'email'],
     utm_medium: ['social', 'organic_social', 'qr', 'email', 'referral'],
     utm_campaign: ['profile', 'business_card', 'introduction'],
+    utm_content: ['website', 'linkedin', 'instagram'],
   };
   for (const [key, allowed] of Object.entries(campaignValues)) {
     const value = query.get(key)?.toLowerCase();
