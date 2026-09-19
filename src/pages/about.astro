@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import { profile } from '../data/profile';
 import { experience } from '../data/experience';
 ---
-<Base title="About" description="Drew Cleaver's background in founder operations, e-commerce, enterprise sales, and technical manufacturing. Explore his experience or download his résumé.">
+<Base title="About" description="Drew Cleaver's story across founder operations, e-commerce, enterprise sales, and electric motorsport, with photography and highlights from TESLOCO and Spec Tesla Cup.">
   <div class="shell">
     <section class="page-heading">
       <p class="eyebrow">A little background</p>
@@ -17,6 +17,63 @@ import { experience } from '../data/experience';
         <a class="button" href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Download my résumé (PDF) <span aria-hidden="true">↓</span></a>
         <a class="text-link" href="/contact/">Start a conversation <span aria-hidden="true">↗</span></a>
       </div>
+    </section>
+
+    <section class="motorsport-chapter" aria-labelledby="motorsport-title">
+      <div class="chapter-intro">
+        <p class="eyebrow">Beyond the résumé · EV &amp; motorsport</p>
+        <h2 id="motorsport-title" class="serif">An idea is better<br />with a few laps on it.</h2>
+        <p>Racing is another thread running through my life. With Spec Tesla Cup and TESLOCO, I brought that interest into my work: exploring electric performance, a more personal ownership experience, and hospitality that makes people want to come back.</p>
+      </div>
+
+      <article class="project-story" aria-labelledby="spec-tesla-title">
+        <div class="project-visuals">
+          <figure>
+            <img class="project-photo" src="/archives/assets/d840c11fed3097017818.png" alt="Blue Spec Tesla Model 3 taking a kerb on track" width="1023" height="682" loading="lazy" decoding="async" />
+            <figcaption>The Model 3 in action. Original photograph preserved on the TESLOCO website.</figcaption>
+          </figure>
+          <figure>
+            <img class="project-photo" src="/archives/assets/05418d836309547ad911.jpg" alt="Two white Teslas and two people in the COTA pit lane at sunset" width="1080" height="810" loading="lazy" decoding="async" />
+            <figcaption>Circuit of the Americas, from the Spec Tesla archive.</figcaption>
+          </figure>
+        </div>
+        <div class="project-copy">
+          <img class="spec-logo" src="/archives/assets/c1775f557dee20b3a1b6.png" alt="Original Spec Tesla Cup / Tesla Motorsport logo" width="294" height="60" loading="lazy" decoding="async" />
+          <p class="project-kicker">Founded in 2019 · Racing &amp; development</p>
+          <h3 id="spec-tesla-title" class="serif">Spec Tesla Cup</h3>
+          <p>A customer racing concept that began with taking a new Model 3 Performance to Hallett. I saw a chance to combine electric motorsport with arrive-and-drive convenience, driver development, and thoughtful trackside hospitality.</p>
+          <ol class="project-milestones">
+            <li><span class="milestone-year">2019</span><div><strong>Start with the car.</strong><p>A showroom-stock Model 3 Performance and a visit to Hallett became the starting point for the project.</p></div></li>
+            <li><span class="milestone-year">2020</span><div><strong>Take it into competition.</strong><p>My <a href="/archives/specteslacup/2024-09-14/blogs/news/the-tesla-that-broke-the-gridlife-rulebook-2/">Alpine Horizon race report</a> records a GRIDLIFE Track Battle EV class win at Pikes Peak International Raceway.</p></div></li>
+            <li><span class="milestone-year">2023</span><div><strong>Test the customer racing idea.</strong><p>At COTA, we documented a <a href="/archives/specteslacup/2024-09-14/blogs/news/2-6-23-spec-tesla-torture-test-achieves-24-minutes-cota/">24-minute sprint-race simulation</a>: more than 30 miles on track without overheating in the Model 3 RWD.</p></div></li>
+          </ol>
+          <p class="project-context">The testing and competition informed a larger vision for a supported customer racing series. The archived launch plans remain proposals from that period.</p>
+          <a class="text-link" href="/specteslacup/">Explore the Spec Tesla Cup archive <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="project-story tesloco-story" aria-labelledby="tesloco-title">
+        <div class="project-visuals">
+          <div class="tesloco-brand"><img src="/archives/assets/075ca3b4ff55af42f3c8.png" alt="Original TESLOCO logo and red brand banner" width="1920" height="250" loading="lazy" decoding="async" /></div>
+          <figure>
+            <img class="project-photo" src="/archives/assets/51fe37514d9cfa1f1255.jpg" alt="Drew and his dad together in a trackside pit box" width="1024" height="883" loading="lazy" decoding="async" />
+            <figcaption>With my dad at the track. A photograph from the original TESLOCO site.</figcaption>
+          </figure>
+        </div>
+        <div class="project-copy">
+          <p class="project-kicker">Concierge service · Business concept</p>
+          <h3 id="tesloco-title" class="serif">TESLOCO</h3>
+          <p class="project-tagline">Crazy Good Concierge Tesla Road &amp; Race Service</p>
+          <p>My first job at 15 was at a family-owned Texaco service center in Houston. TESLOCO imagined bringing that familiar neighborhood-service relationship into electric vehicle ownership, with personal attention to how each customer wanted their car to feel, look, and drive.</p>
+          <ul class="tesloco-highlights">
+            <li><strong>A car tailored to its owner.</strong> A service concept spanning comfort and cosmetic upgrades, wheels and tires, suspension, brakes, and track preparation.</li>
+            <li><strong>Hospitality beyond the track.</strong> Concierge planning and service management, with a premium Turo fleet-management offering in the original vision.</li>
+            <li><strong>A place to learn.</strong> A workforce-training ambition to give students a first step into EVs, technical work, and entrepreneurship.</li>
+          </ul>
+          <a class="text-link" href="/tesloco/">Explore the TESLOCO archive <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      <p class="archive-context">These are chapters of my work, preserved through the original photographs, branding, and project notes. The linked archives retain their historical context; services and future plans described there are not current offers.</p>
     </section>
 
     <section class="experience-section" aria-labelledby="experience-title">
@@ -62,3 +119,46 @@ import { experience } from '../data/experience';
     </section>
   </div>
 </Base>
+
+<style>
+  .motorsport-chapter { padding-block: 2rem 3rem; border-top: 1px solid var(--color-border); }
+  .chapter-intro { max-width: 43rem; margin-bottom: 2.5rem; }
+  .chapter-intro .eyebrow { font-size: .875rem; }
+  .chapter-intro h2 { font-size: clamp(2.25rem, 5.2vw, 3.75rem); margin: .9rem 0 1.2rem; line-height: 1.08; }
+  .chapter-intro > p:last-child { font-size: 1.0625rem; line-height: 1.75; color: var(--color-muted); }
+  .project-story { display: grid; gap: 2rem; align-items: start; }
+  .project-story + .project-story { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--color-border); }
+  .project-visuals { display: grid; gap: 1.5rem; min-width: 0; }
+  figure { margin: 0; }
+  .project-photo { width: 100%; height: auto; display: block; border-radius: 3px; }
+  figcaption { font-size: .875rem; line-height: 1.55; color: var(--color-muted); padding-top: .65rem; }
+  .project-copy { min-width: 0; }
+  .spec-logo { width: min(294px, 100%); height: auto; display: block; margin-bottom: 1.6rem; }
+  .project-kicker { color: var(--color-muted); font-size: .875rem; margin-bottom: .7rem; }
+  .project-copy h3 { font-size: clamp(2.25rem, 4.2vw, 3.25rem); margin: 0 0 1rem; line-height: 1.1; }
+  .project-copy > p:not(.project-kicker) { margin-bottom: 1.25rem; }
+  .project-copy p, .tesloco-highlights { line-height: 1.75; }
+  .project-milestones { margin: 1.75rem 0; padding: 0; list-style: none; }
+  .project-milestones li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .9rem; padding-block: 1rem; border-top: 1px solid var(--color-border); }
+  .milestone-year { font-size: .9375rem; font-weight: 600; color: #895324; padding-top: .1rem; }
+  .project-milestones p { margin: .35rem 0 0; color: var(--color-muted); }
+  .project-milestones a { color: var(--color-ink); text-decoration: underline; }
+  .project-context { color: var(--color-muted); font-size: .9375rem; }
+  .tesloco-brand { background: #ff3000; border-radius: 3px; overflow: hidden; }
+  .tesloco-brand img { display: block; width: 100%; height: 128px; object-fit: cover; object-position: center; }
+  .project-tagline { font-style: italic; color: var(--color-muted); }
+  .tesloco-highlights { list-style: none; padding: 0; margin: 1.75rem 0 1rem; }
+  .tesloco-highlights li { padding-block: 1rem; border-top: 1px solid var(--color-border); color: var(--color-muted); }
+  .tesloco-highlights strong { display: block; color: var(--color-ink); margin-bottom: .25rem; }
+  .archive-context { margin: 2.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--color-border); color: var(--color-muted); font-size: .875rem; max-width: 54rem; }
+  @media (min-width: 800px) {
+    .motorsport-chapter { padding-top: 3rem; }
+    .project-story { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); }
+    .tesloco-story .project-visuals { grid-column: 2; grid-row: 1; }
+    .tesloco-story .project-copy { grid-column: 1; grid-row: 1; }
+  }
+  @media (max-width: 799px) {
+    .project-copy { order: -1; }
+    .project-story { gap: 1.5rem; }
+  }
+</style>
