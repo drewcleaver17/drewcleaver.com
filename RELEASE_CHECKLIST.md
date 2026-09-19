@@ -203,3 +203,11 @@ This supersedes the initial empty-collection status above.
 - [ ] Actual video playback across devices and regions. QA checks the player integration and metadata; it does not claim media playback. The test environment blocks some external media requests.
 - [ ] Exact saved URL for Karlous Miller: “That's Funny” / LOL Network Stand-Up! / 31:19.
 - [ ] Successful Pages deployment and independent live-route verification.
+
+## ProofPath site-brand refinement — September 19, 2026
+
+- [x] Replaced the page's white/navy/teal overrides with shared forest-green and ivory colors, Georgia serif display type, bronze numbering, and the site's button treatment.
+- [x] Preserved the full proposal, current headline, contact destinations, and section anchors. Typography and layout changes are scoped to `/proofpath`; shared styles and `/tekmetric` are unchanged.
+- [x] Production build and release checks pass. Text contrast is at least 4.5:1 for body, muted, accent, and reversed closing-panel text. No homepage/navigation links, sitemap entry, or analytics were added; noindex/nofollow remains.
+- [x] Fluid typography, automatic headline wrapping, single-column narrow layout, and touch-friendly links retained; closing panel includes a readable print fallback.
+- [ ] Post-deployment browser rendering and live asset verification. Exact 320/390/768/1440px viewport testing is unavailable through the current browser surface.
