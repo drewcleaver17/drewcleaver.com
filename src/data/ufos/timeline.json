@@ -5,17 +5,17 @@
     "researchCutoff": "2026-09-19",
     "lastCheckedAt": "2026-09-19T20:16:40.195Z",
     "contentUpdatedAt": "2026-09-19T19:57:57Z",
-    "updateStatus": "setup incomplete",
-    "updateDescription": "Weekly monitoring continues. The historical expansion and maintenance repair await a fresh publishing test from the scheduled task. Automatic publication is not yet confirmed for this edition.",
+    "updateStatus": "active",
+    "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-09-19-historical-expansion",
     "publicationReceipt": {
       "edition": "2026-09-19-historical-expansion",
-      "verifiedAt": "2026-09-19T20:10:09Z",
-      "revision": "2f7ba699a28e79daffa0d0391a6b7d5b139dbd74",
+      "verifiedAt": "2026-09-19T20:19:35.645Z",
+      "revision": "1e8ae8fab0b01f7078a27506952f1e6da60ed203",
       "contentDigest": "45748d4d3ab8d32182f70bd56e8d4eb7bb2167c8f08e3dfa7d8e8a3f12ed89e1",
-      "url": "https://drewcleaver.com/ufos/?view=history",
-      "workflowRun": 35466466704
+      "url": "https://drewcleaver.com/ufos/?v=1e8ae8f",
+      "workflowRun": 35466991311
     },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
@@ -23,9 +23,13 @@
     "commissioningComplete": true,
     "commissioningVerifiedAt": "2026-09-19T18:09:17Z",
     "maintenance": {
-      "status": "repaired-awaiting-runtime-test",
+      "status": "verified",
       "issue": "The recent-view test now derives its fixture date from the data instead of a fixed calendar date.",
-      "scopeBoundary": "This owner-authorized maintenance release changes implementation. Future unattended runs remain dataset-only."
+      "scopeBoundary": "This owner-authorized maintenance release changes implementation. Future unattended runs remain dataset-only.",
+      "verifiedAt": "2026-09-19T20:19:35.645Z",
+      "revision": "1e8ae8fab0b01f7078a27506952f1e6da60ed203",
+      "workflowRun": 35466991311,
+      "verificationScope": "Actual reporter run: NASA and NARA text read; check-only importer; tests and build; dataset-only PR and CI; normal merge; Pages deployment; live lastCheckedAt and unchanged content digest verified."
     },
     "publicationHistory": [
       {
@@ -35,6 +39,14 @@
         "contentDigest": "24f56dcf54feba771ae678b24f836882e46f489928f1a4222fba59235b7b8193",
         "url": "https://drewcleaver.com/ufos/?view=recent#nasa-public-meeting-2023",
         "workflowRun": 35460200526
+      },
+      {
+        "edition": "2026-09-19-historical-expansion",
+        "verifiedAt": "2026-09-19T20:10:09Z",
+        "revision": "2f7ba699a28e79daffa0d0391a6b7d5b139dbd74",
+        "contentDigest": "45748d4d3ab8d32182f70bd56e8d4eb7bb2167c8f08e3dfa7d8e8a3f12ed89e1",
+        "url": "https://drewcleaver.com/ufos/?view=history",
+        "workflowRun": 35466466704
       }
     ]
   },
