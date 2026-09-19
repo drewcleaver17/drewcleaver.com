@@ -132,8 +132,17 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [x] Proposed one-role, four-week trial includes up to ten paid assessments, realistic shop-owner questions, sales enablement deliverables, a defined rubric, budget, responsibilities, schedule, and success measures.
 - [x] HiringCafe remains in the proposed partnership and future shop-customer opportunity. No affiliation, integration, vacancy, or traction is implied; the first trial does not depend on a HiringCafe agreement.
 - [x] Pilot economics, role choice, timings, and thresholds are labeled proposals. Candidate payment, consent, evidence reuse, and the distinction between managed service and future platform are clear.
-- [x] Public company context links to Tekmetric's product, FAQ, careers, and partner pages and HiringCafe's about page, reviewed September 2026. No personal application history is published.
+- [x] Public company context links to Tekmetric's product, FAQ, careers, and partner pages and HiringCafe's about page, reviewed September 2026. The later story revision includes Drew's explicitly supplied general interview experience; no particular employer rejection details are published.
 - [x] Production build and release checks pass: required route, no inbound site links, no sitemap entry, noindex/nofollow, and no analytics initialization. Original ProofPath page and shared navigation are unchanged.
 - [x] Narrow-screen source retains readable fluid typography, single-column layout, wrapping content, and large contact targets from the approved ProofPath design.
 - [ ] Post-deployment live route, browser rendering, and pilot anchor verification.
 - [ ] Actual rendering at 320, 390, 768, and 1440px. Current browser surface has no viewport-resize control; source checks are not physical device tests.
+
+### Tekmetric story and executive synthesis revision
+
+- [x] Opening now leads with Drew's interview experience and the live/on-camera versus written-work mismatch as his working explanation.
+- [x] Executive synthesis explains paid work samples, demonstrated AI aptitude, and a consented learning loop for better assessments, training, and onboarding before introducing pilot details.
+- [x] Evidence-reuse section connects observed patterns to specific improvements and testing in later cohorts; no predictive validity is asserted.
+- [x] Pilot terms, HiringCafe content, shared navigation, and unlisted-route protections are preserved.
+- [x] Production build, release privacy checks, unique heading/ID structure, and new synthesis/pilot anchors pass.
+- [ ] Post-deployment live revision verification.
