@@ -4,13 +4,13 @@ import { videos, durationLabel } from '../data/youtube';
 
 const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
 ---
-<Base title="YouTube library" description="Drew Cleaver’s saved YouTube videos, organized by topic with short summaries and personal context." noindex>
+<Base title="YouTube library" description="Videos Drew Cleaver wants to share with friends and family, organized by topic with summaries and links to watch." noindex>
   <section class="shell video-library" aria-labelledby="library-title">
     <header class="library-heading">
       <div>
         <p class="library-kicker">Drew’s collection</p>
         <h1 id="library-title">YouTube library<span aria-hidden="true">.</span></h1>
-        <p class="library-intro">Favorite videos, short summaries, and the context behind saving them.</p>
+        <p class="library-intro">Videos I want to share with friends and family—ideas, stories, and performances to explore at your own pace.</p>
       </div>
       <p class="library-total"><strong>{videos.length}</strong> {videos.length === 1 ? 'video' : 'videos'}</p>
     </header>
@@ -42,6 +42,10 @@ const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
         <button type="button" class="topic-button" data-topic="" aria-pressed="true">All topics</button>
         {topics.map(topic => <button type="button" class="topic-button" data-topic={topic} aria-pressed="false">{topic}</button>)}
       </div>
+      <div class="topic-select">
+        <label for="video-topic">Topic</label>
+        <select id="video-topic"><option value="">All topics</option>{topics.map(topic => <option value={topic}>{topic}</option>)}</select>
+      </div>
     </form>
 
     <div class="results-bar" hidden={!videos.length}>
@@ -51,11 +55,12 @@ const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
 
     <div class="video-grid" id="video-grid">
       {videos.map((video, index) => {
-        const youtubeUrl = `https://www.youtube.com/watch?v=${video.id}`;
+        const youtubeUrl = video.pendingSearch ? `https://www.youtube.com/results?search_query=${encodeURIComponent(video.pendingSearch)}` : `https://www.youtube.com/watch?v=${video.id}`;
+        const isOverview = video.summary && ['Creator description', 'Description & chapters', 'Video listing'].includes(video.summary.basis);
         const searchText = [video.title, video.channel, ...video.topics, video.summary?.text, ...(video.summary?.takeaways || []), video.context].filter(Boolean).join(' ');
         return <article class="video-card" id={`video-${video.id}`} data-video-id={video.id} data-title={video.title} data-search={searchText} data-topics={JSON.stringify(video.topics)} data-added={video.addedOn} data-duration={video.durationSeconds ?? ''} data-order={index}>
-          <a class="thumbnail" href={youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label={`Watch ${video.title} on YouTube (new tab)`}>
-            <img src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`} alt="" width="480" height="360" loading="lazy" decoding="async" />
+          <a class:list={['thumbnail', { 'pending-thumbnail': video.pendingSearch }]} href={youtubeUrl} target="_blank" rel="noopener noreferrer" aria-label={`${video.pendingSearch ? 'Find' : 'Watch'} ${video.title} on YouTube (new tab)`}>
+            {video.pendingSearch ? <span>Saved selection<br /><small>Exact link to confirm</small></span> : <img src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} alt="" width="480" height="360" loading="lazy" decoding="async" />}
             {video.durationSeconds && <span class="duration">{durationLabel(video.durationSeconds)}</span>}
           </a>
           <div class="video-card-body">
@@ -63,20 +68,20 @@ const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
             <h2><a href={youtubeUrl} target="_blank" rel="noopener noreferrer">{video.title}<span class="sr-only"> (YouTube, new tab)</span></a></h2>
             <ul class="video-topics" aria-label="Topics">{video.topics.map(topic => <li>{topic}</li>)}</ul>
             <div class="video-summary">
-              <h3>TL;DW</h3>
-              <p>{video.summary?.text ?? 'Summary not added yet.'}</p>
+              <h3>{video.pendingSearch ? 'Link to confirm' : isOverview ? 'Overview' : 'TL;DW'}</h3>
+              <p>{video.summary?.text ?? (video.pendingSearch ? 'This selection is saved in the collection. Its exact original upload is still being confirmed; the link below searches YouTube for it.' : 'Summary not added yet.')}</p>
             </div>
             {(video.summary || video.context) && <details class="video-notes">
-              <summary>Takeaways &amp; context</summary>
+              <summary>{video.summary?.takeaways?.length ? 'Takeaways & context' : 'Source & context'}</summary>
               {Boolean(video.summary?.takeaways?.length) && <ul class="takeaways">{video.summary!.takeaways!.map(point => <li>{point}</li>)}</ul>}
               {video.context && <div class="drew-context"><h3>Why I saved it</h3><p>{video.context}</p></div>}
-              {video.summary && <p class="summary-source">Summary based on: {video.summary.basis}. <a href={video.summary.sourceUrl} target="_blank" rel="noopener noreferrer">Source<span class="sr-only"> (new tab)</span></a></p>}
+              {video.summary && <p class="summary-source">Based on: {video.summary.basis}. <a href={video.summary.sourceUrl} target="_blank" rel="noopener noreferrer">Read source<span class="sr-only"> (new tab)</span></a></p>}
             </details>}
             <div class="video-actions">
               {video.embed !== 'unavailable' && <button class="watch-button" type="button" data-watch={video.id} hidden aria-haspopup="dialog">Watch here</button>}
-              <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">Open YouTube <span aria-hidden="true">↗</span><span class="sr-only"> (new tab)</span></a>
+              <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">{video.pendingSearch ? 'Find on YouTube' : 'Open YouTube'} <span aria-hidden="true">↗</span><span class="sr-only"> (new tab)</span></a>
             </div>
-            {video.embed === 'unavailable' && <p class="embed-note">Watch this one on YouTube.</p>}
+            {video.embed === 'unavailable' && !video.pendingSearch && <p class="embed-note">{video.playbackNote ?? 'Watch this one on YouTube.'}</p>}
           </div>
         </article>;
       })}
@@ -92,7 +97,7 @@ const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
       <p>Try a different topic or a broader search.</p>
       <button id="reset-search" class="watch-button" type="button">Show all videos</button>
     </div>
-    {videos.length > 0 && <p class="library-footnote">Summaries describe each video’s content; inclusion isn’t an endorsement of every claim. Opening a player connects to YouTube.</p>}
+    {videos.length > 0 && <p class="library-footnote">TL;DW notes use full transcripts. Overviews draw on the linked video descriptions, chapters, or listings. Inclusion isn’t an endorsement of every claim. Playback availability can vary; each video links to YouTube.</p>}
   </section>
 
   <dialog id="video-dialog" aria-labelledby="player-title" aria-describedby="player-help">
@@ -120,6 +125,7 @@ const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
   .library-controls input, .library-controls select { width: 100%; min-width: 0; min-height: 48px; padding: .65rem .8rem; background: #fffefa; border: 1px solid #a6b2a7; border-radius: 4px; color: var(--green); font-size: 1rem; }
   .library-controls :disabled { opacity: .65; cursor: default; }
   .topic-filters { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .topic-select { display: none; }
   .topic-button { border: 1px solid var(--color-border); border-radius: 2rem; padding: .5rem 1rem; font-size: .875rem; min-height: 44px; cursor: pointer; background: transparent; }
   .topic-button[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: white; }
   .topic-button:hover { border-color: var(--green); }
@@ -129,6 +135,8 @@ const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
   .video-card { border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; background: #fffefa; min-width: 0; scroll-margin-top: 1.5rem; }
   .thumbnail { display: block; aspect-ratio: 16 / 9; position: relative; overflow: hidden; background: #e0e5db; }
   .thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+  .pending-thumbnail { display: grid; place-items: center; text-align: center; font-size: 1.1rem; }
+  .pending-thumbnail small { font-size: .8125rem; color: var(--color-muted); }
   .duration { position: absolute; bottom: .65rem; right: .65rem; background: #102b24ed; color: white; padding: .1rem .4rem; border-radius: 3px; font-size: .8125rem; font-variant-numeric: tabular-nums; }
   .video-card-body { padding: 1.2rem; }
   .video-channel { font-size: .875rem; color: var(--color-muted); margin: 0 0 .35rem; }
@@ -166,4 +174,5 @@ const topics = [...new Set(videos.flatMap(video => video.topics))].sort();
   @media (max-width: 950px) { .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .library-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); } .search-field { grid-column: 1 / -1; } }
   @media (max-width: 600px) { .video-library { padding-top: 2rem; } .library-heading { align-items: start; flex-direction: column; gap: .65rem; } .video-grid { grid-template-columns: 1fr; } .library-controls { gap: .8rem; } .library-controls select { padding-inline: .5rem; } .library-empty { padding: 2rem 1.2rem; } .dialog-heading { padding: .8rem; } .player-footer { padding: .8rem; } }
   @media (max-width: 359px) { .library-controls { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .topic-filters { display: none; } .topic-select { display: block; grid-column: 1 / -1; } }
 </style>
