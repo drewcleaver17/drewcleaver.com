@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {newState,fields,blankRow,validateState,openPreserved,calculateWorksheet,calculateLaunchWorksheet,exportPack,reviewText,worksheetCsv} from '../src/lib/dpc-worksheet.mjs';
+import {newState,fields,blankRow,validateState,openPreserved,calculateWorksheet,calculateLaunchWorksheet,exportPack,reviewText,worksheetCsv} from '../src/lib/dpc-worksheet-v3.mjs';
 import {newState as oldState,calculate,calculateLaunch,reference,metrics,launchMetrics} from '../src/lib/dpc-model.mjs';
 import {newState as firstState} from '../src/lib/metsi-model.mjs';
 const near=(a,b)=>a===null||b===null?assert.equal(a,b):assert.ok(Math.abs(a-b)<1e-6,a+' != '+b);
