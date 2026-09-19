@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-interface Entry { label: string; path: string; source: string; date: string; }
+interface Entry { label: string; path: string; source: string; date: string; preserved_sha256?: string; }
 interface Props { name: string; slug: string; subtitle: string; intro: string; note: string; entries: Entry[]; }
-const { name, slug, subtitle, intro, note, entries } = Astro.props;
+const { name, slug, subtitle, intro, note, entries: sourceEntries } = Astro.props;
+const entries = sourceEntries.map(entry => ({ ...entry, path: `${entry.path}?revision=${entry.preserved_sha256?.slice(0, 12) || '20260919'}` }));
 const other = slug === 'tesloco' ? {name:'Spec Tesla Cup', path:'/specteslacup/'} : {name:'TESLOCO', path:'/tesloco/'};
 ---
 <Base title={`${name} · Website archive`} description={`A preserved copy of Drew Cleaver’s ${name} website, with its original vision, words and recovered imagery.`} compact noindex>
@@ -37,7 +38,8 @@ const other = slug === 'tesloco' ? {name:'Spec Tesla Cup', path:'/specteslacup/'
   frame?.addEventListener('load', () => {
     try {
       const path = frame.contentWindow?.location.pathname;
-      const option = Array.from(select?.options || []).find(o => o.value === path);
+      const option = Array.from(select?.options || []).find(o => o.value.split('?')[0] === path);
+      if (option && frame.contentWindow?.location.search !== new URL(option.value, location.origin).search) { frame.src = option.value + (frame.contentWindow?.location.hash || ''); return; }
       if (option && select && open && date) { select.value = option.value; open.href = option.value; date.textContent = option.dataset.date || ''; }
     } catch {}
   });

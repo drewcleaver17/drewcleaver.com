@@ -185,8 +185,8 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [x] Local archival replay retains source copy, branding, images and styles with explicit historical/capture-date context.
 - [x] All 25 preserved documents have no scripts, active forms or remote image loads; all rewritten local links/assets resolve. Original commerce/account/booking widgets are inert. Video destinations use original IDs.
 - [x] Both routes compile and the existing release gates pass. Navigation, other routes and hosting stay intact.
-- [ ] Cloud-browser rendered verification after publication. Local preview access was blocked; no pre-publication visual or exact mobile viewport check is claimed.
-- [ ] Successful GitHub Pages deployment and live URLs verified.
+- [x] Live desktop browser rendering inspected, recovered images load, Tesloco service-page selection works, and Spec Tesla Cup version selection updates the destination. Fixed the original theme’s viewport growth and inactive menu overlay. Exact 320/390/768/1440 viewport resizing is unavailable in this browser; no physical mobile test is claimed.
+- [x] Successful GitHub Pages deployments and both live URLs verified. Raw-source backup separately retained.
 
 ### Screenshot collection import — September 19, 2026
 
