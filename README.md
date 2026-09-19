@@ -4,6 +4,19 @@ Drew Cleaver's personal homepage, founder advisory, scheduling, and digital call
 
 Astro 6, Tailwind CSS 4, and MDX. Hosted on GitHub Pages using the existing GitHub Actions workflow.
 
+## Make your own site
+
+[Buildmine](https://drewcleaver.com/buildmine/) turns a résumé or blank page into
+an editable personal site. Save your private project, download a complete code
+kit, and follow the included guide to publish in your own account.
+
+**Reusable MIT starter:** [starter/](starter/README.md) ·
+[Example kit v1.0.0](https://drewcleaver.com/buildmine/buildmine-starter-1.0.0.zip) ·
+[Fictional demo](https://drewcleaver.com/p/alex.rivera.example/)
+
+The starter is the intended reusable foundation. Drew's personal assets and
+other parent-repository content are outside its MIT license.
+
 ## Develop and review
 
 Use Node.js 22.13 or later.
@@ -27,10 +40,11 @@ The build generates static files in `dist/`. Work on a feature branch and review
 - `src/pages/drew-cleaver.vcf.ts`: generated contact download from the shared profile.
 - `src/pages/contact.astro`: inquiry form and submission states. Category and budget are optional.
 - `src/pages/services.astro`: work-with-me page; the existing URL is retained.
-- `src/pages/buildmine.astro`: unlisted instant website starter, seven optional questions, local résumé import, and a public-content editor.
-- `src/data/buildmine.ts` and `src/scripts/buildmine.ts`: shared prompts, private brief export, instant generation, review, sharing, and HTML export.
-- `src/lib/site-preview.ts` and `src/pages/preview.astro`: controlled public schema, three escaped renderers, snapshot links, and the shared viewer.
-- `docs/BUILDMINE_PILOT.md`: operating procedure from intake to a reviewed client preview and approved launch.
+- `src/pages/buildmine.astro`: public instant website starter, seven optional questions, local résumé import, and a public-content editor.
+- `src/data/buildmine.ts` and `src/scripts/buildmine.ts`: shared prompts, private project save/import, instant generation, review, sharing, and ZIP/HTML export.
+- `starter/core.mjs` and `src/lib/buildmine-kit.ts`: shared v2 rendering, public schema, private project schema, and portable kit.
+- `src/lib/site-preview.ts` and `src/pages/preview.astro`: legacy v1 compatibility and the shared snapshot viewer.
+- `docs/BUILDMINE_PILOT.md`: current architecture, privacy boundaries, licensing, verification and next-stage hosting design.
 - `src/layouts/Base.astro` and `src/styles/global.css`: shared navigation, metadata, responsive layout, and design.
 - `src/features/writing/`: retained writing index and article templates.
 - `src/pages/writing/[...path].astro`: optional writing routes, disabled through `src/config/features.ts`.
@@ -63,10 +77,30 @@ Use the latest file supplied by Drew as the source for role titles, dates, emplo
 
 SMS contact exchange is deferred: Drew requested free-only implementation, and the checked SMS verification services require paid usage or a billing-enabled plan. Do not add a paid service without authorization.
 
-## Build mine pilot
+## Buildmine 1.0.0
 
-`/buildmine` is available by direct link and excluded from public navigation. It creates an instant, editable, browser-local starter from résumé section matching and three layouts. All seven questions are optional. It does not use an AI model, interpret arbitrary directions, or submit to Drew automatically. The original file stays local.
+The builder and publishing guide are public and discoverable; previews and the
+fictional named-page example remain noindex. The builder uses conservative
+résumé section matching and three editable layouts. All seven questions are
+optional. It does not call an AI model or submit details to Drew automatically.
 
-After review, visitors can create a snapshot link at `/preview/#...` or download a complete single-page `index.html`. Snapshot data is in the URL fragment, not a server database; anyone with the entire link can read or forward it, edits require a new link, and individual links cannot be revoked. A 9,000-byte public JSON budget limits share links only; input and HTML/brief exports are not truncated. Neither noindex nor an unlisted route is authentication.
+Private `.buildmine.json` projects keep all résumé text, answers and edits and
+can be reopened locally. Public ZIP kits contain only the reviewed website,
+local assets, site.json, source, license, provenance and deployment instructions.
+The source generator has no package dependencies. Generated navigation works
+under both a domain root and a GitHub repository subpath.
 
-The downloaded site contains no external dependencies or tracking and has public indexing enabled after the explicit review step. Preview pages remain noindex. The free pilot has no payments, account ownership, saved named URLs, custom domains, or managed customer hosting. See the procedure for the next product stage. Never commit participant data to this repository.
+After review, visitors can also create a `/preview/#...` snapshot or download a
+single HTML page. Snapshot data is in the URL fragment, not a server database;
+anyone with the link can forward it and individual links cannot be revoked.
+The 9,000-byte public JSON limit applies only to links, with an explicit error
+and download alternative. Input, private backups and full exports are not
+silently truncated. Old v1 snapshot links remain supported.
+
+There are no payments, customer accounts or automatic named-page publication.
+A separate starter repository cannot be created/configured by the connected
+GitHub tools, so the scoped source directory and versioned ZIP are the complete
+fallback. See [maintainer notes](docs/BUILDMINE_PILOT.md),
+[hosting design](docs/BUILDMINE_HOSTING_DESIGN.md), and the
+[five-volunteer protocol](docs/BUILDMINE_USABILITY.md). Never commit participant
+private data or infer real adoption from fictional demonstrations.
