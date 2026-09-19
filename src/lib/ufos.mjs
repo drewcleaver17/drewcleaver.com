@@ -1,6 +1,6 @@
-export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history'];
-export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance'];
-export const sourceKindLabels = { primary: 'Primary record', 'archival-history': 'Institutional or archival history', 'participant-account': 'Participant / organizational account', 'primary-mirror': 'Archival copy of a primary record', reprint: 'Reproduced announcement', 'original-reporting': 'Original reporting', reporting: 'Reporting' };
+export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history'];
+export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling'];
+export const sourceKindLabels = { primary: 'Primary record', 'archival-history': 'Institutional or archival history', 'participant-account': 'Participant / organizational account', 'primary-mirror': 'Archival copy of a primary record', scholarship: 'Scholarly analysis / reference', reprint: 'Reproduced announcement', 'original-reporting': 'Original reporting', reporting: 'Reporting' };
 export const evidenceDefinitions = {
   'Institutional record': 'A hearing, law, policy or release documented by the responsible institution. It verifies an action, not every claim within it.',
   'Institutional assessment': 'An agency’s stated analysis or conclusion, subject to its data and methods.',
@@ -12,10 +12,12 @@ export const evidenceDefinitions = {
   'Reporting inspected': 'Supporting passages in reporting were read; an original may be inaccessible. This label does not imply independent corroboration by multiple outlets.',
   'Historical record': 'A dated document or an archival history supports a historical action. Its author, custodian and access limits matter.',
   'Attributed claim': 'The record establishes who made a claim, not that the claimed event or mechanism occurred.',
-  'Organizational account': 'An institution or participant describes its own history or work; its interests and independent corroboration remain relevant.'
+  'Organizational account': 'An institution or participant describes its own history or work; its interests and independent corroboration remain relevant.',
+  'Textual scholarship': 'Scholars study manuscripts, editions or textual history. Dating and interpretation can remain contested; this is not verification of a text’s religious claims.'
 };
 export const eras = [
-  { id: 'foundations', label: 'Earlier / Ideas and institutions', years: 'Before 1940', start: '0001', end: '1939', summary: 'Selected scientific and financial context. Inclusion here does not imply a UFO connection.' },
+  { id: 'ancient-texts', label: 'Earlier / Texts and transmission', years: 'Ancient history', start: '0001', end: '1499', summary: 'Composition, copying and the later survival of religious texts are distinct questions. Estimated ranges are not exact dates.' },
+  { id: 'foundations', label: 'Earlier / Ideas and institutions', years: '1500–1939', start: '1500', end: '1939', summary: 'Selected scientific and financial context. Inclusion here does not imply a UFO connection.' },
   { id: 'war', label: 'History / War and the national-security state', years: '1940–1951', start: '1940', end: '1951', summary: 'Nuclear weapons, intelligence structures and the first postwar UFO investigations develop on different tracks.' },
   { id: 'cold-war', label: 'History / The Cold War and the space age', years: '1952–1969', start: '1952', end: '1969', summary: 'Reconnaissance, civilian spaceflight and official UFO studies expand. Their responsibilities and findings differ.' },
   { id: 'experiments', label: 'History / Experiments and contested results', years: '1970–1995', start: '1970', end: '1995', summary: 'Remote-viewing research, consciousness claims and retrospective record searches generate documents and disagreement.' },
@@ -39,7 +41,7 @@ export function formatDate(value) {
   const options = value.length === 4 ? { year: 'numeric' } : value.length === 7 ? { year: 'numeric', month: 'long' } : { year: 'numeric', month: 'short', day: 'numeric' };
   return new Intl.DateTimeFormat('en-US', { ...options, timeZone: 'UTC' }).format(new Date(dateBounds(value)[0] + 'T12:00:00Z'));
 }
-export const eventDateLabel = e => formatDate(e.date.start) + (e.date.end ? ' – ' + formatDate(e.date.end) : '');
+export const eventDateLabel = e => e.date.approximate ? e.date.label : formatDate(e.date.start) + (e.date.end ? ' – ' + formatDate(e.date.end) : '');
 export function searchText(e, sources, entities = []) {
   const names = entities.filter(entity => e.entityIds?.includes(entity.id) || entity.eventIds.includes(e.id));
   return normalizeSearch([e.title, e.summary, e.significance, ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, n.description]), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
@@ -116,7 +118,8 @@ export function validateDataset(data, now = new Date()) {
     check(e.date?.end === null || (date(e.date?.end) && e.date.end >= e.date.start), 'Invalid date range: ' + e.id);
     const precision = e.date?.end ? 'range' : ({4:'year',7:'month',10:'day'})[e.date?.start?.length];
     check(e.date?.precision === precision, 'False date precision: ' + e.id);
-    check(['milestone', 'incident', 'publication', 'reporting'].includes(e.date?.role), 'Invalid date role: ' + e.id);
+    check(['milestone', 'incident', 'publication', 'reporting', 'composition', 'manuscript', 'session'].includes(e.date?.role), 'Invalid date role: ' + e.id);
+    if (e.date?.approximate !== undefined || e.date?.label !== undefined) check(e.date.approximate === true && precision === 'range' && e.date.start.length === 4 && e.date.end?.length === 4 && string(e.date.label) && string(e.dateNotes), 'Unqualified approximate date: ' + e.id);
     for (const k of ['incidentDate', 'disclosureDate', 'publicationDate']) check(e[k] === null || date(e[k]), 'Invalid ' + k + ': ' + e.id);
     for (const k of ['addedAt', 'revisedAt', 'lastVerifiedAt']) check(stamp(e[k]), 'Invalid ' + k + ': ' + e.id);
     check(e.revisedAt >= e.addedAt, 'Revision predates addition: ' + e.id);
@@ -143,7 +146,7 @@ export function validateDataset(data, now = new Date()) {
   const entityIds = new Set();
   for (const n of data.entities || []) {
     check(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(n.id || '') && !entityIds.has(n.id), 'Invalid/duplicate entity: ' + n.id); entityIds.add(n.id);
-    check(string(n.name) && string(n.description) && ['person','organization','program','place','claimed organization'].includes(n.type), 'Invalid entity record: ' + n.id);
+    check(string(n.name) && string(n.description) && ['person','organization','program','place','claimed organization','work / collection'].includes(n.type), 'Invalid entity record: ' + n.id);
     check(Array.isArray(n.aliases) && n.aliases.every(string), 'Invalid aliases: ' + n.id);
     check(n.eventIds?.length && n.eventIds.every(id => ids.has(id)), 'Unknown entity event: ' + n.id);
     check(n.sources?.length && n.sources.every(r => data.sources[r.sourceId] && r.supports?.length && r.supports.every(string)), 'Unsourced entity: ' + n.id);

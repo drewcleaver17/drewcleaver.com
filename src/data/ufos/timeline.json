@@ -4,19 +4,12 @@
     "title": "UFOs: A Living Timeline",
     "researchCutoff": "2026-09-19",
     "lastCheckedAt": "2026-09-19T20:16:40.195Z",
-    "contentUpdatedAt": "2026-09-19T19:57:57Z",
+    "contentUpdatedAt": "2026-09-19T23:25:23Z",
     "updateStatus": "active",
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
-    "edition": "2026-09-19-historical-expansion",
-    "publicationReceipt": {
-      "edition": "2026-09-19-historical-expansion",
-      "verifiedAt": "2026-09-19T20:19:35.645Z",
-      "revision": "1e8ae8fab0b01f7078a27506952f1e6da60ed203",
-      "contentDigest": "45748d4d3ab8d32182f70bd56e8d4eb7bb2167c8f08e3dfa7d8e8a3f12ed89e1",
-      "url": "https://drewcleaver.com/ufos/?v=1e8ae8f",
-      "workflowRun": 35466991311
-    },
+    "edition": "2026-09-19-texts-and-ra",
+    "publicationReceipt": null,
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
@@ -47,6 +40,14 @@
         "contentDigest": "45748d4d3ab8d32182f70bd56e8d4eb7bb2167c8f08e3dfa7d8e8a3f12ed89e1",
         "url": "https://drewcleaver.com/ufos/?view=history",
         "workflowRun": 35466466704
+      },
+      {
+        "edition": "2026-09-19-historical-expansion",
+        "verifiedAt": "2026-09-19T20:19:35.645Z",
+        "revision": "1e8ae8fab0b01f7078a27506952f1e6da60ed203",
+        "contentDigest": "45748d4d3ab8d32182f70bd56e8d4eb7bb2167c8f08e3dfa7d8e8a3f12ed89e1",
+        "url": "https://drewcleaver.com/ufos/?v=1e8ae8f",
+        "workflowRun": 35466991311
       }
     ]
   },
@@ -940,6 +941,202 @@
       "verification": "supporting-text-read",
       "author": "George Knapp / KLAS-TV",
       "custodian": "8 News Now official YouTube channel"
+    },
+    "emmel-nag-hammadi": {
+      "id": "emmel-nag-hammadi",
+      "title": "Nag Hammadi Library — The Coptic Encyclopedia",
+      "author": "Stephen Emmel",
+      "publisher": "Claremont Coptic Encyclopedia / Macmillan",
+      "custodian": "Claremont Coptic Encyclopedia / Macmillan",
+      "url": "https://ccdl.claremont.edu/digital/collection/cce/id/1418/",
+      "publicationDate": "1991",
+      "accessedDate": "2026-09-19",
+      "kind": "scholarship",
+      "locator": "Vol. 6, pp. 1771a–1773b; composition, manufacture, conservation and bibliography paragraphs",
+      "note": "Full article text read through the library’s item transcript. This is a scholarly reference, not a contemporary excavation report. Its detailed discovery narrative is qualified by the later Goodacre study.",
+      "verification": "supporting-text-read"
+    },
+    "janssens-thomas": {
+      "id": "janssens-thomas",
+      "title": "Gospel of Thomas — The Coptic Encyclopedia",
+      "author": "Yvonne Janssens",
+      "publisher": "Claremont Coptic Encyclopedia / Macmillan",
+      "custodian": "Claremont Coptic Encyclopedia / Macmillan",
+      "url": "https://ccdl.claremont.edu/digital/collection/cce/id/902/",
+      "publicationDate": "1991",
+      "accessedDate": "2026-09-19",
+      "kind": "scholarship",
+      "locator": "Pp. 1162b–1163b; paragraph on the 1959 editio princeps",
+      "note": "Full library transcript read. The article’s dating and classification of Thomas are scholarly positions, not a unanimous or final resolution.",
+      "verification": "supporting-text-read"
+    },
+    "goodacre-nag-hammadi": {
+      "id": "goodacre-nag-hammadi",
+      "title": "How Reliable is the Story of the Nag Hammadi Discovery?",
+      "author": "Mark Goodacre",
+      "publisher": "Journal for the Study of the New Testament / author-hosted paper",
+      "custodian": "Journal for the Study of the New Testament / author-hosted paper",
+      "url": "https://markgoodacre.org/NagHammadiStory.pdf",
+      "publicationDate": "2013",
+      "accessedDate": "2026-09-19",
+      "kind": "scholarship",
+      "locator": "35(4), pp. 303–322; especially 314–319 and bibliography pp. 321–322",
+      "note": "The author’s paper was inspected. Its bibliography identifies the 1977 English collection and the 1988 third revised edition; those books’ complete contents were not independently inspected for this addition.",
+      "verification": "supporting-text-read"
+    },
+    "athanasius-letter39": {
+      "id": "athanasius-letter39",
+      "title": "From Athanasius’s Thirty-Ninth Festal Letter",
+      "author": "Athanasius; translated by R. Payne-Smith",
+      "publisher": "New Advent / Nicene and Post-Nicene Fathers",
+      "custodian": "New Advent / Nicene and Post-Nicene Fathers",
+      "url": "https://www.newadvent.org/fathers/2806039.htm",
+      "publicationDate": "1892",
+      "accessedDate": "2026-09-19",
+      "kind": "primary-mirror",
+      "locator": "Heading “For 367”; sections 2–7 and source credit",
+      "note": "An English translation of excerpts from an ancient letter, reproduced by New Advent. The translation’s publication year is separate from the letter’s year. The excerpts do not document the burial of the Nag Hammadi manuscripts.",
+      "verification": "supporting-text-read"
+    },
+    "pearse-nag-hammadi": {
+      "id": "pearse-nag-hammadi",
+      "title": "The Nag Hammadi discovery of manuscripts",
+      "author": "Roger Pearse",
+      "publisher": "Tertullian.org / Roger Pearse",
+      "custodian": "Tertullian.org / Roger Pearse",
+      "url": "https://www.tertullian.org/rpearse/manuscripts/nag_hammadi.htm",
+      "publicationDate": "2003-07-31",
+      "accessedDate": "2026-09-19",
+      "kind": "scholarship",
+      "locator": "Publication paragraph and bibliography",
+      "note": "Used narrowly for the 1972–1984 facsimile series, corroborated by Emmel’s bibliography. Its colorful discovery reconstruction is not adopted; the page includes a later correction of its own.",
+      "verification": "supporting-text-read"
+    },
+    "ra-book-guide": {
+      "id": "ra-book-guide",
+      "title": "The Law of One books: contents and editions",
+      "author": "Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/books.php",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "“The Original Law of One Books” and “The Ra Contact”",
+      "note": "An editor’s account of the editions, not independent verification of channeling. L/L Research’s linked legacy download pages returned access errors; they are not marked inspected.",
+      "verification": "supporting-text-read"
+    },
+    "ra-session-directory": {
+      "id": "ra-session-directory",
+      "title": "Dated directory of the 106 Ra sessions",
+      "author": "L/L Research; directory edited by Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/sessions.php",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "Session numbers and date labels 1–106",
+      "note": "These are the archive’s session dates. The directory is not a record of when each transcript first became public, nor evidence of the claimed source’s identity.",
+      "verification": "supporting-text-read"
+    },
+    "ra-participant-introductions": {
+      "id": "ra-participant-introductions",
+      "title": "Introductions to The Law of One, Books I and V",
+      "author": "Don Elkins, Carla L. Rueckert and Jim McCarty",
+      "publisher": "L/L Research, reproduced at Lawofone.info",
+      "custodian": "L/L Research, reproduced at Lawofone.info",
+      "url": "https://www.lawofone.info/s/Intro",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "Book I: participants and recording procedure; Book V: McCarty’s and Rueckert’s introductory statements",
+      "note": "Read as the participants’ account. Descriptions of trance, contact and causation remain attributed; an experiment described by its participants is not thereby an independently controlled demonstration.",
+      "verification": "supporting-text-read"
+    },
+    "ra-session-1": {
+      "id": "ra-session-1",
+      "title": "The Law of One — session 1",
+      "author": "L/L Research; edited transcript hosted by Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/s/1",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "1.1, 1.5, 1.7 and the note following 1.10",
+      "note": "The archive dates this session 1981-01-15. The webpage’s first-publication date is not established here. Supporting transcript passages were read; original audio was not audited.",
+      "verification": "supporting-text-read"
+    },
+    "ra-session-16": {
+      "id": "ra-session-16",
+      "title": "The Law of One — session 16",
+      "author": "L/L Research; edited transcript hosted by Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/s/16",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "16.30–32 and 16.50–51",
+      "note": "The archive dates this session 1981-01-31. The webpage’s first-publication date is not established here. Supporting transcript passages were read; original audio was not audited.",
+      "verification": "supporting-text-read"
+    },
+    "ra-session-27": {
+      "id": "ra-session-27",
+      "title": "The Law of One — session 27",
+      "author": "L/L Research; edited transcript hosted by Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/s/27",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "27.3–17",
+      "note": "The archive dates this session 1981-02-21. The webpage’s first-publication date is not established here. Supporting transcript passages were read; original audio was not audited.",
+      "verification": "supporting-text-read"
+    },
+    "ra-session-54": {
+      "id": "ra-session-54",
+      "title": "The Law of One — session 54",
+      "author": "L/L Research; edited transcript hosted by Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/s/54",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "54.7–17",
+      "note": "The archive dates this session 1981-05-29. The webpage’s first-publication date is not established here. Supporting transcript passages were read; original audio was not audited.",
+      "verification": "supporting-text-read"
+    },
+    "ra-session-76": {
+      "id": "ra-session-76",
+      "title": "The Law of One — session 76",
+      "author": "L/L Research; edited transcript hosted by Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/s/76",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "76.6–9",
+      "note": "The archive dates this session 1982-02-03. The webpage’s first-publication date is not established here. Supporting transcript passages were read; original audio was not audited.",
+      "verification": "supporting-text-read"
+    },
+    "ra-session-106": {
+      "id": "ra-session-106",
+      "title": "The Law of One — session 106",
+      "author": "L/L Research; edited transcript hosted by Tobey Wheelock",
+      "publisher": "Lawofone.info",
+      "custodian": "Lawofone.info",
+      "url": "https://www.lawofone.info/s/106",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "participant-account",
+      "locator": "Session date and 106.1–13",
+      "note": "The archive dates this session 1984-03-15. The webpage’s first-publication date is not established here. Supporting transcript passages were read; original audio was not audited.",
+      "verification": "supporting-text-read"
     }
   },
   "events": [
@@ -5534,6 +5731,1158 @@
         "knapp",
         "klas"
       ]
+    },
+    {
+      "id": "nag-hammadi-composition",
+      "slug": "nag-hammadi-composition",
+      "date": {
+        "start": "0001",
+        "end": "0399",
+        "precision": "range",
+        "role": "composition",
+        "approximate": true,
+        "label": "First–fourth centuries CE · broad range"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The texts take shape before the surviving manuscripts",
+      "summary": "Emmel places the Greek compositions represented at Nag Hammadi at different times, mostly within the first four centuries CE. There was no single author, writing date or unified doctrine.",
+      "significance": "Separates the age of a work from the age of the copy that survives.",
+      "established": [
+        "The collection preserves diverse works subsequently translated into Coptic."
+      ],
+      "limitations": [
+        "This broad range is not a date for every work. Individual compositions, revisions and classifications require text-specific study."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [],
+      "institutions": [],
+      "evidenceTypes": [
+        "Textual scholarship"
+      ],
+      "tags": [
+        "Gnostic",
+        "Gnosticism",
+        "Greek",
+        "Coptic",
+        "Gospel of Thomas",
+        "Gospel of Philip",
+        "Secret Book of John",
+        "Apocryphon of John"
+      ],
+      "sources": [
+        {
+          "sourceId": "emmel-nag-hammadi",
+          "supports": [
+            "Greek composition and later Coptic transmission"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nag-hammadi-codices"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Scholarly source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "nag-hammadi"
+      ],
+      "dateNotes": "0001–0399 are navigation bounds for the stated centuries, not exact endpoints of composition. Some traditions or component passages may be earlier."
+    },
+    {
+      "id": "nag-hammadi-codices",
+      "slug": "nag-hammadi-codices",
+      "date": {
+        "start": "0350",
+        "end": "0399",
+        "precision": "range",
+        "role": "manuscript",
+        "approximate": true,
+        "label": "Later fourth century CE · approximate"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Surviving Coptic codices are copied and assembled",
+      "summary": "The manuscripts are generally assigned to the later fourth century. A reused document in Codex VII’s cover dates its manufacture after 348; that is not the date of the religious work inside.",
+      "significance": "The surviving books provide material evidence for textual transmission, distinct from the truth of their teachings.",
+      "established": [
+        "Emmel describes multiple scribes, translations and copies."
+      ],
+      "limitations": [
+        "Neither an exact burial date nor the owners’ reason for depositing the books is established. A later-fourth-century copying range does not date their concealment."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [],
+      "institutions": [],
+      "evidenceTypes": [
+        "Textual scholarship"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "emmel-nag-hammadi",
+          "supports": [
+            "codex manufacture, cartonnage dating and unknown ownership or burial motive"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nag-hammadi-composition",
+        "athanasius-letter-367",
+        "nag-hammadi-discovery"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Scholarly source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "nag-hammadi"
+      ],
+      "dateNotes": "0350–0399 represents “latter half of the fourth century” for navigation. It is not a measured interval for every codex or a burial date."
+    },
+    {
+      "id": "athanasius-letter-367",
+      "slug": "athanasius-letter-367",
+      "date": {
+        "start": "0367",
+        "end": null,
+        "precision": "year",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1892",
+      "title": "Athanasius distinguishes canonical, instructional and rejected writings",
+      "summary": "Athanasius’s Thirty-Ninth Festal Letter lists scriptural books, distinguishes other recommended reading, and condemns writings he calls apocryphal.",
+      "significance": "Supplies an actual ancient document for the debate about textual authority and exclusion.",
+      "established": [
+        "The inspected translation preserves the letter’s categories and its polemical language."
+      ],
+      "limitations": [
+        "The letter does not identify a Nag Hammadi burial. It cannot establish who hid the codices, when, or whether this letter motivated them."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Athanasius"
+      ],
+      "institutions": [],
+      "evidenceTypes": [
+        "Historical record"
+      ],
+      "tags": [
+        "canon",
+        "apocrypha",
+        "suppression",
+        "burial",
+        "hiding"
+      ],
+      "sources": [
+        {
+          "sourceId": "athanasius-letter39",
+          "supports": [
+            "letter year and distinctions in sections 2–7"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nag-hammadi-codices"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Translated document read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "nag-hammadi"
+      ],
+      "dateNotes": "367 is the letter’s year. The inspected English translation was published in 1892; the original composition and the modern source edition are separate."
+    },
+    {
+      "id": "nag-hammadi-discovery",
+      "slug": "nag-hammadi-discovery",
+      "date": {
+        "start": "1945",
+        "end": null,
+        "precision": "year",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Nag Hammadi manuscripts enter the modern record",
+      "summary": "The discovery is conventionally dated to 1945 near Nag Hammadi in Upper Egypt. Later interviews supply much of the familiar buried-jar story; their details are not uniformly reliable.",
+      "significance": "Makes a major body of ancient religious literature available for study while exposing a gap in archaeological provenance.",
+      "established": [
+        "Goodacre compares conflicting retellings and earlier inquiries rather than treating repeated versions as independent witnesses."
+      ],
+      "limitations": [
+        "The exact find circumstances remain disputed. “December 1945” is a traditional dating, not a verified day; neither persecution nor deliberate doctrinal suppression is established as the burial motive."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "James M. Robinson",
+        "Jean Doresse",
+        "Mark Goodacre"
+      ],
+      "institutions": [],
+      "evidenceTypes": [
+        "Textual scholarship"
+      ],
+      "tags": [
+        "Gnostic gospels",
+        "discovery",
+        "burial",
+        "hiding",
+        "Egypt"
+      ],
+      "sources": [
+        {
+          "sourceId": "goodacre-nag-hammadi",
+          "supports": [
+            "conventional discovery dating and limitations of retrospective accounts"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nag-hammadi-codices",
+        "nag-hammadi-facsimiles",
+        "nag-hammadi-english-1977"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Scholarly source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "nag-hammadi",
+        "james-robinson"
+      ],
+      "dateNotes": "Year precision is retained. The date of discovery is separate from ancient deposition and later publication."
+    },
+    {
+      "id": "thomas-critical-edition-1959",
+      "slug": "thomas-critical-edition-1959",
+      "date": {
+        "start": "1959",
+        "end": null,
+        "precision": "year",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1959",
+      "title": "The Gospel of Thomas receives a critical edition",
+      "summary": "The 1959 edition by Guillaumont and colleagues provides the numbering used for the 114 sayings in modern editions of the Coptic Gospel of Thomas.",
+      "significance": "Shows that particular texts became available for scholarly interpretation before the later English collection.",
+      "established": [
+        "Janssens identifies the 1959 editio princeps and distinguishes this sayings collection from the separate Infancy Gospel of Thomas."
+      ],
+      "limitations": [
+        "A critical edition does not settle authorship, composition date, relationship to the canonical gospels or the authenticity of sayings attributed to Jesus."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Antoine Guillaumont"
+      ],
+      "institutions": [],
+      "evidenceTypes": [
+        "Textual scholarship"
+      ],
+      "tags": [
+        "translation",
+        "Gospel of Thomas",
+        "logia"
+      ],
+      "sources": [
+        {
+          "sourceId": "janssens-thomas",
+          "supports": [
+            "1959 critical edition, sayings numbering and distinction between Thomas texts"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nag-hammadi-discovery",
+        "nag-hammadi-english-1977"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Scholarly source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "nag-hammadi"
+      ]
+    },
+    {
+      "id": "nag-hammadi-facsimiles",
+      "slug": "nag-hammadi-facsimiles",
+      "date": {
+        "start": "1972",
+        "end": "1984",
+        "precision": "range",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The facsimile project opens the manuscripts to wider inspection",
+      "summary": "The Facsimile Edition of the Nag Hammadi Codices appears across 1972–1984 under Egyptian antiquities and UNESCO auspices. The series reproduces the manuscripts photographically.",
+      "significance": "Photographs let researchers inspect surviving pages alongside editorial readings and translations.",
+      "established": [
+        "The bibliographic record identifies a twelve-volume facsimile series."
+      ],
+      "limitations": [
+        "A facsimile is not a translation. The series spans several publication stages; it is not one release on an invented exact date."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "James M. Robinson"
+      ],
+      "institutions": [
+        "UNESCO"
+      ],
+      "evidenceTypes": [
+        "Textual scholarship"
+      ],
+      "tags": [
+        "facsimile",
+        "manuscript",
+        "publication"
+      ],
+      "sources": [
+        {
+          "sourceId": "emmel-nag-hammadi",
+          "supports": [
+            "series bibliography and Egyptian/UNESCO auspices"
+          ]
+        },
+        {
+          "sourceId": "pearse-nag-hammadi",
+          "supports": [
+            "1972–1984 facsimile publication range"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nag-hammadi-discovery",
+        "nag-hammadi-english-1977"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Scholarly source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "nag-hammadi",
+        "james-robinson"
+      ],
+      "dateNotes": "The range describes publication of the complete series, not continuous manuscript discovery or a single translation date."
+    },
+    {
+      "id": "nag-hammadi-english-1977",
+      "slug": "nag-hammadi-english-1977",
+      "date": {
+        "start": "1977",
+        "end": null,
+        "precision": "year",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1977",
+      "title": "The Nag Hammadi Library in English is published",
+      "summary": "James M. Robinson’s edited English collection appears in 1977. Goodacre’s scholarly bibliography records that edition and a third revised edition in 1988.",
+      "significance": "An English collection makes the literature easier to compare and discuss beyond specialist manuscript studies.",
+      "established": [
+        "The bibliographic dates document publication and subsequent revision."
+      ],
+      "limitations": [
+        "Publication is not a moment when the texts were finally or unanimously understood. The complete 1977 volume was not inspected for this entry; no individual translation is authenticated here."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "James M. Robinson"
+      ],
+      "institutions": [],
+      "evidenceTypes": [
+        "Textual scholarship"
+      ],
+      "tags": [
+        "translation",
+        "English",
+        "Gnostic gospels"
+      ],
+      "sources": [
+        {
+          "sourceId": "goodacre-nag-hammadi",
+          "supports": [
+            "1977 English collection and 1988 third revised edition, bibliography pp. 321–322"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "thomas-critical-edition-1959",
+        "nag-hammadi-facsimiles"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Scholarly source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "nag-hammadi",
+        "james-robinson"
+      ]
+    },
+    {
+      "id": "ra-book-1-sessions",
+      "slug": "ra-book-1-sessions",
+      "date": {
+        "start": "1981-01-15",
+        "end": "1981-02-17",
+        "precision": "range",
+        "role": "session"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Ra sessions begin: the material later collected in Book I",
+      "summary": "Sessions 1–26 introduce unity, spiritual learning and a claimed connection to ancient Egypt. Session 16 discusses service to others, service to self and levels of spiritual development called densities.",
+      "significance": "A starting point for reading the teachings and the participants’ account of how the material arose.",
+      "established": [
+        "Original Book I: sessions 1–26."
+      ],
+      "limitations": [
+        "The transcripts establish what was recorded and attributed to “Ra”; they do not independently identify a non-human speaker or validate the cosmology.",
+        "These are selective thematic summaries of inspected passages, not a claim to have reviewed every question or audited the original recordings.",
+        "The editor notes that part of session 1’s original tape was reused after transcription; that portion of the online text relies on the earlier printed text."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Don Elkins",
+        "Carla L. Rueckert",
+        "Jim McCarty"
+      ],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Material",
+        "channeling",
+        "Book 1"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-session-1",
+          "supports": [
+            "opening date; unity and attributed Egyptian connection"
+          ]
+        },
+        {
+          "sourceId": "ra-session-16",
+          "supports": [
+            "service orientations and the text’s density concept"
+          ]
+        },
+        {
+          "sourceId": "ra-session-directory",
+          "supports": [
+            "session-date range"
+          ]
+        },
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "original book membership"
+          ]
+        },
+        {
+          "sourceId": "ra-participant-introductions",
+          "supports": [
+            "Elkins as questioner, Rueckert as channel and McCarty’s recording/transcription role"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-original-books-published",
+        "ra-book-v-1998"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research",
+        "don-elkins",
+        "carla-rueckert",
+        "jim-mccarty"
+      ],
+      "dateNotes": "Dates refer to the archive’s sessions, not the book’s publication. The current online text restores material that was omitted from the original books."
+    },
+    {
+      "id": "ra-book-2-sessions",
+      "slug": "ra-book-2-sessions",
+      "date": {
+        "start": "1981-02-21",
+        "end": "1981-05-06",
+        "precision": "range",
+        "role": "session"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Book II sessions develop the creation framework",
+      "summary": "The discussion turns toward creation and consciousness. Session 27 defines the text’s “intelligent infinity,” free will, love and light as elements of its metaphysical model.",
+      "significance": "Shows how the series develops its vocabulary rather than treating every statement as a separate historical event.",
+      "established": [
+        "Original Book II: 27–43 and 46–50. Sessions 44–45 were withheld until Book V."
+      ],
+      "limitations": [
+        "The transcripts establish what was recorded and attributed to “Ra”; they do not independently identify a non-human speaker or validate the cosmology.",
+        "These are selective thematic summaries of inspected passages, not a claim to have reviewed every question or audited the original recordings."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Don Elkins",
+        "Carla L. Rueckert",
+        "Jim McCarty"
+      ],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Material",
+        "channeling",
+        "Book 2"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-session-27",
+          "supports": [
+            "stated Book II transition and selected cosmological concepts"
+          ]
+        },
+        {
+          "sourceId": "ra-session-directory",
+          "supports": [
+            "session-date range"
+          ]
+        },
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "original book membership"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-original-books-published",
+        "ra-book-v-1998"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research",
+        "don-elkins",
+        "carla-rueckert",
+        "jim-mccarty"
+      ],
+      "dateNotes": "Dates refer to the archive’s sessions, not the book’s publication. The current online text restores material that was omitted from the original books."
+    },
+    {
+      "id": "ra-book-3-sessions",
+      "slug": "ra-book-3-sessions",
+      "date": {
+        "start": "1981-05-13",
+        "end": "1981-10-31",
+        "precision": "range",
+        "role": "session"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Book III sessions explore spiritual practice and balancing",
+      "summary": "Sessions 51–75 form Book III. In session 54, the teaching describes energy centers and life experiences as opportunities for spiritual learning, emphasizing balance rather than mechanical perfection.",
+      "significance": "Provides a dated reading path into the practical spiritual themes.",
+      "established": [
+        "Original Book III: sessions 51–75."
+      ],
+      "limitations": [
+        "The transcripts establish what was recorded and attributed to “Ra”; they do not independently identify a non-human speaker or validate the cosmology.",
+        "These are selective thematic summaries of inspected passages, not a claim to have reviewed every question or audited the original recordings."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Don Elkins",
+        "Carla L. Rueckert",
+        "Jim McCarty"
+      ],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Material",
+        "channeling",
+        "Book 3"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-session-54",
+          "supports": [
+            "selected discussion of balancing, energy centers and catalyst"
+          ]
+        },
+        {
+          "sourceId": "ra-session-directory",
+          "supports": [
+            "session-date range"
+          ]
+        },
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "original book membership"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-original-books-published",
+        "ra-book-v-1998"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research",
+        "don-elkins",
+        "carla-rueckert",
+        "jim-mccarty"
+      ],
+      "dateNotes": "Dates refer to the archive’s sessions, not the book’s publication. The current online text restores material that was omitted from the original books."
+    },
+    {
+      "id": "ra-book-4-sessions",
+      "slug": "ra-book-4-sessions",
+      "date": {
+        "start": "1982-02-03",
+        "end": "1983-06-10",
+        "precision": "range",
+        "role": "session"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Book IV sessions turn toward the archetypal mind",
+      "summary": "In session 76, the dialogue explores archetypes and symbolic study through tarot, astrology and the Tree of Life. Its account of tarot’s ancient origins is a claim within the teaching.",
+      "significance": "Locates the symbolic material in the session chronology without treating its historical assertions as established archaeology.",
+      "established": [
+        "Original Book IV: 76–97, 99–100 and 103. Other late sessions appeared in Book V."
+      ],
+      "limitations": [
+        "The transcripts establish what was recorded and attributed to “Ra”; they do not independently identify a non-human speaker or validate the cosmology.",
+        "These are selective thematic summaries of inspected passages, not a claim to have reviewed every question or audited the original recordings."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Don Elkins",
+        "Carla L. Rueckert",
+        "Jim McCarty"
+      ],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Material",
+        "channeling",
+        "Book 4"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-session-76",
+          "supports": [
+            "archetypal study and attributed account of tarot origins"
+          ]
+        },
+        {
+          "sourceId": "ra-session-directory",
+          "supports": [
+            "session-date range"
+          ]
+        },
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "original book membership"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-original-books-published",
+        "ra-book-v-1998"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research",
+        "don-elkins",
+        "carla-rueckert",
+        "jim-mccarty"
+      ],
+      "dateNotes": "Dates refer to the archive’s sessions, not the book’s publication. The current online text restores material that was omitted from the original books."
+    },
+    {
+      "id": "ra-original-books-published",
+      "slug": "ra-original-books-published",
+      "date": {
+        "start": "1982",
+        "end": "1984",
+        "precision": "range",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "The original Law of One Books I–IV reach print",
+      "summary": "The editor’s publication history dates the first four books to 1982–1984. Their contents were selected from the earlier sessions, with some personal or controversial material omitted.",
+      "significance": "Separates the session chronology from what readers could encounter in the original editions.",
+      "established": [
+        "The initial four-book set is an edited publication of the session material."
+      ],
+      "limitations": [
+        "The inspected guide gives a collective publication range, not verified release days for each volume. Publication does not corroborate the claimed source of the teachings."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Material",
+        "publication"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "publication range and omissions"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-book-1-sessions",
+        "ra-book-2-sessions",
+        "ra-book-3-sessions",
+        "ra-book-4-sessions",
+        "ra-book-v-1998"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research"
+      ],
+      "dateNotes": "A collective range is retained; no individual book release day is invented."
+    },
+    {
+      "id": "ra-final-session",
+      "slug": "ra-final-session",
+      "date": {
+        "start": "1984-03-15",
+        "end": null,
+        "precision": "day",
+        "role": "session"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": null,
+      "title": "Session 106 is the final dated session in the Ra archive",
+      "summary": "The archive ends its numbered sequence with session 106 on March 15, 1984. This conversation concerns the participants’ condition and a proposed move, rather than announcing independently testable physical evidence.",
+      "significance": "Fixes the endpoint of this particular recorded series and distinguishes it from later editions or other channeling.",
+      "established": [
+        "The directory contains 106 numbered sessions, beginning January 15, 1981."
+      ],
+      "limitations": [
+        "The archive’s endpoint is not evidence that an external intelligence arrived or departed. Personal and health-related claims in the transcript are not medical findings."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Don Elkins",
+        "Carla L. Rueckert",
+        "Jim McCarty"
+      ],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Material",
+        "106",
+        "last session"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-session-directory",
+          "supports": [
+            "first and last session dates and numbering"
+          ]
+        },
+        {
+          "sourceId": "ra-session-106",
+          "supports": [
+            "final session date and subjects discussed"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-book-v-1998",
+        "ra-contact-edition-2018"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research",
+        "don-elkins",
+        "carla-rueckert",
+        "jim-mccarty"
+      ]
+    },
+    {
+      "id": "ra-book-v-1998",
+      "slug": "ra-book-v-1998",
+      "date": {
+        "start": "1998",
+        "end": null,
+        "precision": "year",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "1998",
+      "title": "Book V publishes withheld material with participant commentary",
+      "summary": "Book V restores much previously withheld material. Jim McCarty and Carla Rueckert frame it with personal recollections about the group, their relationships and their understanding of the sessions.",
+      "significance": "Makes the editorial history visible: the original four books were not the entire surviving record.",
+      "established": [
+        "McCarty’s introduction explains the earlier withholding of predominantly personal material and the later decision to publish it."
+      ],
+      "limitations": [
+        "Retrospective commentary is participant testimony, not independent corroboration. This is a 1998 publication of older material, not new Ra sessions in 1998."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Jim McCarty",
+        "Carla L. Rueckert"
+      ],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Material",
+        "Book V",
+        "Book 5",
+        "Unpublished Fragments"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "1998 release and restored material"
+          ]
+        },
+        {
+          "sourceId": "ra-participant-introductions",
+          "supports": [
+            "Book V’s stated purpose and personal commentary"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-original-books-published",
+        "ra-final-session",
+        "ra-contact-edition-2018"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research",
+        "carla-rueckert",
+        "jim-mccarty"
+      ]
+    },
+    {
+      "id": "ra-contact-edition-2018",
+      "slug": "ra-contact-edition-2018",
+      "date": {
+        "start": "2018",
+        "end": null,
+        "precision": "year",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "2018",
+      "title": "The Ra Contact reorganizes all 106 sessions into two volumes",
+      "summary": "The 2018 edition presents the sessions in two volumes: 1–56 and 57–106, based on the editor’s lightly edited transcript version.",
+      "significance": "Provides a reading map between the original five-book publication and the later complete session sequence.",
+      "established": [
+        "This is a new edition of earlier material, not a new channeling series."
+      ],
+      "limitations": [
+        "Editorial completeness does not establish the claimed speaker’s identity or the truth of the content. The linked L/L Research legacy downloads could not be inspected; the edition mapping comes from the editor’s guide."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Religious and esoteric history"
+      ],
+      "topics": [
+        "Religious texts & channeling"
+      ],
+      "people": [
+        "Tobey Wheelock",
+        "Jim McCarty"
+      ],
+      "institutions": [
+        "L/L Research"
+      ],
+      "evidenceTypes": [
+        "Organizational account",
+        "Attributed claim"
+      ],
+      "tags": [
+        "Law of One",
+        "Ra Contact",
+        "2018 edition",
+        "106 sessions"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "2018 edition, transcript basis and volume boundaries"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "ra-book-v-1998",
+        "ra-final-session"
+      ],
+      "addedAt": "2026-09-19T23:25:23Z",
+      "revisedAt": "2026-09-19T23:25:23Z",
+      "lastVerifiedAt": "2026-09-19T23:25:23Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Attributed account read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true,
+      "entityIds": [
+        "law-of-one",
+        "ll-research",
+        "jim-mccarty"
+      ]
     }
   ],
   "changeLog": [
@@ -5593,6 +6942,19 @@
         "gateway-assessment",
         "magenta-claim-retelling",
         "air-remote-viewing-review"
+      ]
+    },
+    {
+      "id": "religious-texts-ra-history",
+      "date": "2026-09-19",
+      "title": "Religious texts and channeling: a distinct historical strand",
+      "detail": "Added Nag Hammadi composition/copying context, the uncertain burial history, 1945 discovery, editions and translation milestones; plus a dated guide to the original Ra books, final session and later editions. Ancient ranges remain approximate, channeling claims remain attributed, and no historical connection between the two is asserted. These are historical additions, not newly occurring UAP incidents.",
+      "eventIds": [
+        "nag-hammadi-composition",
+        "nag-hammadi-discovery",
+        "nag-hammadi-english-1977",
+        "ra-book-1-sessions",
+        "ra-book-v-1998"
       ]
     }
   ],
@@ -6942,6 +8304,192 @@
           "sourceId": "lazar-klas-retrospective",
           "supports": [
             "Las Vegas broadcaster whose official channel preserves the inspected interview retrospective."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nag-hammadi",
+      "name": "Nag Hammadi texts",
+      "aliases": [
+        "Nag Hammadi library",
+        "Nag Hammadi codices",
+        "Chenoboskion",
+        "Gnostic texts",
+        "Gnostic gospels"
+      ],
+      "type": "work / collection",
+      "description": "Ancient works preserved in a collection of Coptic manuscripts; composition, copying and modern publication have different dates.",
+      "eventIds": [
+        "nag-hammadi-composition",
+        "nag-hammadi-codices",
+        "athanasius-letter-367",
+        "nag-hammadi-discovery",
+        "thomas-critical-edition-1959",
+        "nag-hammadi-facsimiles",
+        "nag-hammadi-english-1977"
+      ],
+      "sources": [
+        {
+          "sourceId": "emmel-nag-hammadi",
+          "supports": [
+            "Ancient works preserved in a collection of Coptic manuscripts; composition, copying and modern publication have different dates."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "law-of-one",
+      "name": "The Law of One / Ra Material",
+      "aliases": [
+        "Law of One",
+        "Ra Contact",
+        "Ra Material",
+        "Ra channeling"
+      ],
+      "type": "work / collection",
+      "description": "Session transcripts and later editions attributed by their participants to a source called Ra.",
+      "eventIds": [
+        "ra-book-1-sessions",
+        "ra-book-2-sessions",
+        "ra-book-3-sessions",
+        "ra-book-4-sessions",
+        "ra-original-books-published",
+        "ra-final-session",
+        "ra-book-v-1998",
+        "ra-contact-edition-2018"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-book-guide",
+          "supports": [
+            "Session transcripts and later editions attributed by their participants to a source called Ra."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ll-research",
+      "name": "L/L Research",
+      "aliases": [
+        "LL Research",
+        "L/L"
+      ],
+      "type": "organization",
+      "description": "The participant group and publisher associated with the Law of One material.",
+      "eventIds": [
+        "ra-book-1-sessions",
+        "ra-book-2-sessions",
+        "ra-book-3-sessions",
+        "ra-book-4-sessions",
+        "ra-original-books-published",
+        "ra-final-session",
+        "ra-book-v-1998",
+        "ra-contact-edition-2018"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-participant-introductions",
+          "supports": [
+            "The participant group and publisher associated with the Law of One material."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "don-elkins",
+      "name": "Don Elkins",
+      "aliases": [
+        "Donald Elkins"
+      ],
+      "type": "person",
+      "description": "Questioner in the Ra sessions, according to the participants’ introduction.",
+      "eventIds": [
+        "ra-book-1-sessions",
+        "ra-book-2-sessions",
+        "ra-book-3-sessions",
+        "ra-book-4-sessions",
+        "ra-final-session"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-participant-introductions",
+          "supports": [
+            "Questioner in the Ra sessions, according to the participants’ introduction."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "carla-rueckert",
+      "name": "Carla L. Rueckert",
+      "aliases": [
+        "Carla Rueckert"
+      ],
+      "type": "person",
+      "description": "The participant described as the channel for the Ra material.",
+      "eventIds": [
+        "ra-book-1-sessions",
+        "ra-book-2-sessions",
+        "ra-book-3-sessions",
+        "ra-book-4-sessions",
+        "ra-final-session",
+        "ra-book-v-1998"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-participant-introductions",
+          "supports": [
+            "The participant described as the channel for the Ra material."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jim-mccarty",
+      "name": "Jim McCarty",
+      "aliases": [
+        "James McCarty"
+      ],
+      "type": "person",
+      "description": "Participant who describes recording, transcribing and supporting the sessions.",
+      "eventIds": [
+        "ra-book-1-sessions",
+        "ra-book-2-sessions",
+        "ra-book-3-sessions",
+        "ra-book-4-sessions",
+        "ra-final-session",
+        "ra-book-v-1998",
+        "ra-contact-edition-2018"
+      ],
+      "sources": [
+        {
+          "sourceId": "ra-participant-introductions",
+          "supports": [
+            "Participant who describes recording, transcribing and supporting the sessions."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "james-robinson",
+      "name": "James M. Robinson",
+      "aliases": [
+        "James Robinson",
+        "James MacConkey Robinson"
+      ],
+      "type": "person",
+      "description": "Scholar and editor associated with the Nag Hammadi conservation, facsimile and translation projects.",
+      "eventIds": [
+        "nag-hammadi-discovery",
+        "nag-hammadi-facsimiles",
+        "nag-hammadi-english-1977"
+      ],
+      "sources": [
+        {
+          "sourceId": "emmel-nag-hammadi",
+          "supports": [
+            "Scholar and editor associated with the Nag Hammadi conservation, facsimile and translation projects."
           ]
         }
       ]

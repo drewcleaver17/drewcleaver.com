@@ -3,9 +3,10 @@ import { eventDateLabel, formatDate, sourceKindLabels } from '../lib/ufos.mjs';
 const { event: e, sources, events, entities = [], relationships = [] } = Astro.props;
 const names=entities.filter(n=>e.entityIds?.includes(n.id));
 const connections=relationships.filter(r=>r.eventIds.includes(e.id));
+const dateRoles={milestone:'Milestone',incident:'Reported incident',reporting:'Reporting date',publication:'Publication',composition:'Estimated composition',manuscript:'Estimated copying',session:'Session dates · archive attribution'};
 ---
 <article class="ufo-event" id={e.slug} data-event-id={e.id} tabindex="-1">
-  <div class="event-date"><time datetime={e.date.start}>{eventDateLabel(e)}</time><span>{e.date.role === 'milestone' ? 'Milestone' : e.date.role === 'incident' ? 'Reported incident' : e.date.role === 'reporting' ? 'Reporting date' : 'Publication'}</span>{e.date.precision === 'month' && <span>Month known; day unverified</span>}</div>
+  <div class="event-date"><time datetime={e.date.start}>{eventDateLabel(e)}</time><span>{dateRoles[e.date.role]}</span>{e.date.precision === 'month' && <span>Month known; day unverified</span>}</div>
   <div class="event-body">
     <div class="event-topline"><span class="event-category">{e.categories[0]}</span><span class:list={['source-status', { secondary: e.verificationLabel !== 'Primary source read' }]}>{e.verificationLabel}</span></div>
     <h3><a href={`#${e.slug}`}>{e.title}</a></h3>
