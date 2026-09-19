@@ -4,6 +4,7 @@ if (form && grid) {
   const search = document.querySelector<HTMLInputElement>('#video-search')!;
   const length = document.querySelector<HTMLSelectElement>('#video-length')!;
   const sort = document.querySelector<HTMLSelectElement>('#video-sort')!;
+  const topicSelect = document.querySelector<HTMLSelectElement>('#video-topic')!;
   const count = document.querySelector<HTMLElement>('#video-count')!;
   const clear = document.querySelector<HTMLButtonElement>('#clear-filters')!;
   const empty = document.querySelector<HTMLElement>('#no-results')!;
@@ -43,6 +44,7 @@ if (form && grid) {
     empty.hidden = visible > 0 || cards.length === 0;
     clear.hidden = !search.value && !topic && length.value === 'all' && sort.value === 'curated';
     topicButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.topic === topic)));
+    topicSelect.value = topic;
   }
 
   function reset() {
@@ -56,6 +58,7 @@ if (form && grid) {
   search.addEventListener('input', update);
   length.addEventListener('change', update);
   sort.addEventListener('change', update);
+  topicSelect.addEventListener('change', () => { topic = topicSelect.value; update(); });
   topicButtons.forEach(button => button.addEventListener('click', () => { topic = button.dataset.topic || ''; update(); }));
   clear.addEventListener('click', reset);
   document.querySelector('#reset-search')?.addEventListener('click', reset);

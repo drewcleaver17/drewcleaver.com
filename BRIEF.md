@@ -2,7 +2,9 @@
 
 ## YouTube library addition
 
-Drew requested `/youtube` as a browsable library of his saved favorite videos with TL;DW summaries, personal context, native YouTube links, and embedded viewing when allowed. Build within the existing Astro/GitHub Pages site. No source playlist, video list, or export has been supplied; publish the honest empty collection without inferred favorites. Keep it unlinked from the homepage and noindex while awaiting selections. Search, topic/length filters, sorting, expandable notes, and click-to-load privacy-enhanced playback are implemented for populated entries. Do not represent this as a connected or automatically synchronized YouTube account. Summary source and Drew's personal reason for saving a video are separate fields.
+Drew requested `/youtube` as a browsable library of his saved favorite videos with TL;DW summaries, personal context, native YouTube links, and embedded viewing when allowed. Build within the existing Astro/GitHub Pages site. On September 19, 2026, Drew supplied seven Watch Later screenshots containing 48 distinct selections to share with friends and family. Preserve their order and variety. Keep the route unlinked from the homepage and noindex. Search, topic/length filters, sorting, expandable notes, and click-to-load privacy-enhanced playback are implemented. Do not represent this as a connected or automatically synchronized YouTube account. Summary source and Drew's personal reason for saving a video are separate fields.
+
+The populated release has 47 verified original upload links and one clearly marked Karlous Miller selection awaiting its exact URL. Two TL;DW summaries use complete TED transcripts; the other notes are labeled overviews with description, chapter, or listing provenance. Do not infer individual reasons for saving videos or quote the private wording of the collection's motivation on the page.
 
 Source: DrewCleaver_Website_Release_SOP.md, version 1, followed by Drew's approval of the preview and instruction to remove public writing, emphasize contact and scheduling, retain writing infrastructure, and deploy.
 

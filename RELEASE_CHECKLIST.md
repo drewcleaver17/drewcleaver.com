@@ -187,3 +187,19 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [x] Both routes compile and the existing release gates pass. Navigation, other routes and hosting stay intact.
 - [ ] Cloud-browser rendered verification after publication. Local preview access was blocked; no pre-publication visual or exact mobile viewport check is claimed.
 - [ ] Successful GitHub Pages deployment and live URLs verified.
+
+### Screenshot collection import — September 19, 2026
+
+This supersedes the initial empty-collection status above.
+
+- [x] 48 unique screenshot selections represented in their supplied order; 47 original YouTube upload links matched by title, channel, and duration.
+- [x] The four YouTube Movies editions are preserved. One Karlous Miller selection remains clearly pending with a search link, without an invented video ID or substituted upload.
+- [x] Two TL;DW summaries use complete TED transcripts; 45 overviews identify creator-description, chapter, or listing provenance. Source links are visible in expandable notes. No personal per-video reasons were invented.
+- [x] Public player metadata allows embedding for 43 entries. Four verified entries use native links because embedding is disabled or sign-in is required; the pending entry also has no embed.
+- [x] Production build and release checks pass; existing UFO tests pass. Latest unrelated METSI, ProofPath, and UFO changes are retained.
+- [x] Chromium verification with all 48 real selections: mobile topic dropdown and desktop topic buttons, combined search/topic/length filters, five short / seven medium / 36 long videos, shortest-first sorting, no results/reset, source notes, no-JavaScript links, and pending-link behavior.
+- [x] Layout and player sizing checked at 320, 390, 768, and 1440px without horizontal overflow. Escape/close removes the iframe and restores focus. No iframe loads before a watch action.
+- [x] Noindex, sitemap exclusion, and absence of inbound homepage/navigation links are preserved.
+- [ ] Actual video playback across devices and regions. QA checks the player integration and metadata; it does not claim media playback. The test environment blocks some external media requests.
+- [ ] Exact saved URL for Karlous Miller: “That's Funny” / LOL Network Stand-Up! / 31:19.
+- [ ] Successful Pages deployment and independent live-route verification.
