@@ -1,7 +1,7 @@
 {
   "revision": {
     "pageRevision": "R05",
-    "updatedAt": "2026-09-19T22:30:00Z",
+    "updatedAt": "2026-09-19T23:10:02Z",
     "timestampBasis": "Revision finalized for publication; deployment success is recorded separately in the release evidence.",
     "modelVersion": "dpc-2026-09-v4",
     "schemaVersion": 4,
@@ -46,15 +46,15 @@
       },
       {
         "id": "R05",
-        "date": "2026-09-19T22:30:00Z",
+        "date": "2026-09-19T23:10:02Z",
         "basis": "Revision finalized for publication",
         "title": "Staggered associate schedules and ownership progression",
         "summary": "Separate 9–9 availability and appointment windows, twelve-encounter ceilings, weekday constraints, roster stages, constrained launch enrollment, updated PDF and revision history.",
-        "url": "https://github.com/drewcleaver17/drewcleaver.com/tree/feat/dpc-staffing-r05"
+        "url": "https://github.com/drewcleaver17/drewcleaver.com/pull/45"
       }
     ]
   },
-  "centralTimestamp": "September 19, 2026 at 5:30 PM CDT (UTC-05:00)",
+  "centralTimestamp": "September 19, 2026 at 6:10 PM CDT (UTC-05:00)",
   "state": {
     "schemaVersion": 4,
     "modelVersion": "dpc-2026-09-v4",
