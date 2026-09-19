@@ -9,7 +9,14 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-09-19-texts-and-ra",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-09-19-texts-and-ra",
+      "verifiedAt": "2026-09-19T23:36:22Z",
+      "revision": "e7d74cf3b967dd99f4cd5e670e5098064c5fd4da",
+      "contentDigest": "4c7fe891a9a1bb47e9063666def818f291f56b594208f99b519aca6170b9fd6f",
+      "url": "https://drewcleaver.com/ufos/?view=history&topic=Religious%20texts%20%26%20channeling&v=e7d74cf",
+      "workflowRun": 35476447762
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
