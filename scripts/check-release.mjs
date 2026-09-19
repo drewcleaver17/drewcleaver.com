@@ -57,6 +57,10 @@ assert(!sitemap.includes('/youtube'), 'The initial YouTube collection should rem
 assert(existsSync(join(root, 'metsicare-deck.pdf')), 'Missing METSI Care PDF.');
 assert(existsSync(join(root, 'dpc-deck.pdf')), 'Missing DPC PDF.');
 const dpc=readFileSync(join(root,'dpc/index.html'),'utf8');
+assert(dpc.includes('data-dpc-worksheet'), 'The DPC worksheet must be present.');
+assert.equal((dpc.match(/data-input="/g)||[]).length,70,'DPC must have one editable field per original assumption.');
+const dpcArticle=dpc.slice(dpc.indexOf('<article'),dpc.lastIndexOf('</article>'));
+assert(!/<details\b|<summary\b/i.test(dpcArticle),'DPC narrative and worksheet sections must stay fully open.');
 assert(!/METSI|Garrick/i.test(dpc), 'The neutral DPC page must not imply practice affiliation.');
 assert(readFileSync(join(root,'metsicare-deck.pdf')).equals(readFileSync(join(root,'dpc-deck.pdf'))), 'Old PDF links must deliver the neutral deck.');
 assert(sitemap.includes('/buildmine/'), 'Public builder must appear in the sitemap.');

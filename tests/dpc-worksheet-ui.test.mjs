@@ -1,0 +1,39 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {JSDOM} from 'jsdom';
+import * as model from '../src/lib/dpc-worksheet.mjs';
+import {newState as oldState} from '../src/lib/dpc-model.mjs';
+const html=fs.readFileSync(new URL('../dist/dpc/index.html',import.meta.url),'utf8');
+const source=fs.readFileSync(new URL('../src/scripts/dpc-calculator.js',import.meta.url),'utf8').replace(/^import .*?;\n/,'').replace('export function','function');
+const wait=()=>new Promise(r=>setTimeout(r,500));
+function setup(storage={}){
+ const dom=new JSDOM(html,{url:'https://drewcleaver.com/dpc/',runScripts:'outside-only'}),w=dom.window,downloads=[];
+ w.__model=model;w.structuredClone=structuredClone;w.confirm=()=>true;w.Blob=Blob;w.URL.createObjectURL=b=>{downloads.push(b);return 'blob:test';};w.URL.revokeObjectURL=()=>{};w.HTMLAnchorElement.prototype.click=function(){};
+ for(const [key,value]of Object.entries(storage))w.localStorage.setItem(key,value);
+ w.eval('const {'+Object.keys(model).join(',')+'}=window.__model;\n'+source+'\ninitializeDpcWorksheet();');
+ const q=s=>w.document.querySelector(s),edit=(selector,value,event='input')=>{const el=q(selector);el.value=value;el.dispatchEvent(new w.Event(event,{bubbles:true}));};
+ return {dom,w,q,edit,downloads,click:a=>q('[data-action="'+a+'"]').click()};
+}
+test('single open worksheet: blank/zero, custom rows, saving, exports, imports and failure handling',async()=>{
+ const x=setup();try{
+  const {q,w,edit,click}=x;assert.equal(w.document.querySelectorAll('[data-input]').length,70);assert.equal(w.document.querySelectorAll('article details').length,0);assert.equal(w.document.querySelectorAll('[data-input]:disabled').length,0);assert.equal(q('[data-result="surplus"]').textContent,'$78,000');assert.equal(q('[data-monthly-body]').children.length,36);
+  edit('[data-input="support"]','');assert.equal(q('[data-result="surplus"]').textContent,'Not provided');assert.equal(q('[data-result="revenue"]').textContent,'$1,188,000');click('export-json');assert.equal(x.downloads.length,1);assert.equal(JSON.parse(await x.downloads[0].text()).worksheet.values.support,null);await wait();assert.equal(JSON.parse(w.localStorage.getItem('dpc:worksheet:v3:draft')).worksheet.values.support,null);
+  edit('[data-input="support"]','0');assert.equal(q('[data-result="surplus"]').textContent,'$168,000');edit('[data-input="support"]','90000');
+  click('add-row');assert.equal(w.document.querySelectorAll('[data-custom-row]').length,1);edit('[data-row-field="label"]','Weekend support');edit('[data-row-field="value"]','1000');assert.equal(q('[data-result="surplus"]').textContent,'$78,000');edit('[data-row-field="treatment"]','practice_monthly_cost','change');assert.equal(q('[data-row-field="unit"]').value,'USD');assert.equal(q('[data-row-field="unit"]').disabled,true);assert.equal(q('[data-result="surplus"]').textContent,'$66,000');
+  edit('[data-row-field="value"]','');assert.equal(q('[data-result="costs"]').textContent,'Not provided');click('export-json');const pack=JSON.parse(await x.downloads[1].text());assert.equal(pack.worksheet.customRows[0].value,null);edit('[data-row-field="value"]','0');assert.equal(q('[data-result="surplus"]').textContent,'$78,000');edit('[data-row-field="value"]','1000');edit('[data-meta="feedback"]','<img src=x onerror=alert(1)> Café 日本語');
+  click('save-copy');assert.equal(JSON.parse(w.localStorage.getItem('dpc:worksheet:v3:saves')).length,1);edit('[data-input="members"]','450');click('load-copy');assert.equal(q('[data-input="members"]').value,'360');assert.equal(q('[data-row-field="label"]').value,'Weekend support');assert.equal(q('[data-meta="feedback"]').querySelector('img'),null);
+  click('export-json');click('export-csv');click('export-text');const exported=JSON.parse(await x.downloads[2].text());assert.equal(exported.worksheet.customRows[0].value,1000);assert.ok((await x.downloads[3].text()).includes('Weekend support'));assert.ok((await x.downloads[4].text()).includes('日本語'));
+  const imported=structuredClone(exported);imported.worksheet.values.members=400;imported.results.mature.surplus=999999;const file=q('[data-import]');Object.defineProperty(file,'files',{configurable:true,value:[{size:1000,text:async()=>JSON.stringify(imported)}]});file.dispatchEvent(new w.Event('change'));await wait();assert.equal(q('[data-result="surplus"]').textContent,'$198,000');
+  Object.defineProperty(file,'files',{configurable:true,value:[{size:3,text:async()=>'{bad'}]});file.dispatchEvent(new w.Event('change'));await wait();assert.match(q('[data-action-status]').textContent,/Import failed/);assert.equal(q('[data-input="members"]').value,'400');
+  edit('[data-input="members"]','-1');click('export-json');assert.equal(x.downloads.length,5);edit('[data-input="members"]','400');
+  q('[data-remove-row]').click();assert.equal(w.document.querySelectorAll('[data-custom-row]').length,0);assert.equal(q('[data-result="surplus"]').textContent,'$210,000');
+  edit('[data-input="horizonMonths"]','0');assert.equal(q('[data-monthly-body]').children.length,0);assert.equal(q('[data-validation]').hidden,true);click('export-json');assert.equal(JSON.parse(await x.downloads[5].text()).worksheet.values.horizonMonths,0);
+  Object.defineProperty(w.Storage.prototype,'setItem',{configurable:true,value:()=>{throw new Error('quota');}});edit('[data-input="horizonMonths"]','24');await wait();assert.match(q('[data-save-status]').textContent,/could not save/);click('export-json');assert.equal(x.downloads.length,7);
+ }finally{x.dom.window.close();}
+});
+test('older drafts and named copies preserve both columns and custom labels without changing legacy keys',async()=>{
+ const old=oldState();old.name='Existing discussion';old.scenarios[0].name='My numbers';old.scenarios[0].values.members=210;old.scenarios[1].name='My future plan';old.scenarios[1].values.members=450;old.feedback='Keep this feedback';const raw=JSON.stringify(old),named=JSON.stringify([{id:'old1',savedAt:'2026-09-19T00:00:00.000Z',state:old}]);
+ const x=setup({'dpc:model:v2:draft':raw,'dpc:model:v2:saves':named});try{const {q,edit,click,w}=x;assert.equal(q('[data-input="members"]').value,'210');assert.equal(q('[data-migration]').hidden,false);assert.equal(q('[data-earlier-select]').options.length,2);assert.equal(q('[data-saved-select]').options.length,2);edit('[data-input="members"]','220');q('[data-earlier-select]').value='0';click('open-earlier');assert.equal(q('[data-input="members"]').value,'450');assert.equal(q('[data-sheet-meta="name"]').value,'My future plan');q('[data-earlier-select]').value='0';click('open-earlier');assert.equal(q('[data-input="members"]').value,'220');click('restore-defaults');assert.equal(q('[data-sheet-meta="name"]').value,'My numbers');assert.equal(q('[data-meta="feedback"]').value,old.feedback);assert.equal(w.localStorage.getItem('dpc:model:v2:draft'),raw);assert.equal(w.localStorage.getItem('dpc:model:v2:saves'),named);const saved=w.localStorage.getItem('dpc:worksheet:v3:draft');const y=setup({'dpc:worksheet:v3:draft':saved});try{assert.equal(y.q('[data-earlier-select]').options.length,2);assert.equal(y.q('[data-meta="feedback"]').value,old.feedback);}finally{y.dom.window.close();}}finally{x.dom.window.close();}
+});
+test('unreadable saved state is not overwritten',async()=>{const x=setup({'dpc:worksheet:v3:draft':'{bad','dpc:worksheet:v3:saves':'{bad'});try{x.edit('[data-input="members"]','200');await wait();x.click('save-copy');assert.equal(x.w.localStorage.getItem('dpc:worksheet:v3:draft'),'{bad');assert.equal(x.w.localStorage.getItem('dpc:worksheet:v3:saves'),'{bad');x.click('export-json');assert.equal(x.downloads.length,1);}finally{x.dom.window.close();}});

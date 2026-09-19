@@ -7,13 +7,15 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run test:buildmine && node scripts/ufos-update.mjs --validate && astro build && node scripts/check-release.mjs && npm run test:buildmine-ui",
+    "build": "npm run test:dpc && npm run test:buildmine && node scripts/ufos-update.mjs --validate && astro build && node scripts/check-release.mjs && npm run test:buildmine-ui && npm run test:dpc-ui",
     "test": "node --test scripts/ufos.test.mjs",
     "ufos:validate": "node scripts/ufos-update.mjs --validate",
     "preview": "astro preview",
     "astro": "astro",
     "test:buildmine": "node --experimental-strip-types --test starter/core.test.mjs scripts/buildmine.test.mjs",
-    "test:buildmine-ui": "node --experimental-vm-modules --test scripts/buildmine-ui.test.mjs"
+    "test:buildmine-ui": "node --experimental-vm-modules --test scripts/buildmine-ui.test.mjs",
+    "test:dpc": "node --test tests/metsi-model.test.mjs tests/dpc-model.test.mjs tests/dpc-worksheet.test.mjs",
+    "test:dpc-ui": "node --test tests/dpc-worksheet-ui.test.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",

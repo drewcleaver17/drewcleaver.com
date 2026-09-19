@@ -226,3 +226,12 @@ This supersedes the initial empty-collection status above.
 ## Buildmine public release — 2026-09-19
 
 The executed Buildmine implementation prompt authorizes public discovery and indexing of `/buildmine/` and its publishing guide, plus one footer link. Earlier unlisted-only Buildmine rules in this document are superseded for these routes. The snapshot viewer and fictional named demo stay noindex; unrelated route visibility, disabled writing, and paused Analytics remain unchanged. See `docs/BUILDMINE_PILOT.md` for the current release contract and verification.
+
+## DPC single worksheet refinement
+
+- [x] One active worksheet; 70 editable figures; all narrative, input and result sections open.
+- [x] Empty/zero support, custom reference/financial rows, monthly cash propagation and no internal-transfer double counting.
+- [x] Both earlier columns and all names/notes/feedback retained through migration, switching and exports.
+- [x] 42 model tests, three focused UI tests and the production build pass; no communication sent.
+- [ ] Verify live publication, restored older state, custom-row editing and exports.
+- [ ] Exact mobile viewport and physical-device inspection; responsive source and contained table scrolling implemented.

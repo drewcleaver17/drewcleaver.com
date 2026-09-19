@@ -43,13 +43,13 @@ export const monthlyColumns = [
   ['cashMovement','Net cash movement','money'],['cashBalance','Ending cash','money'],['cumulativeRecovery','Cumulative cash before financing','money'],['deferredRevenue','Unearned dues','money']
 ];
 
-export function computeLaunch(v, matureCalculator) {
+export function computeLaunch(v, matureCalculator, adjustments = {}) {
   const share = v.prepayShare / 100;
   const blend = v.corePrice * (1-v.extendedMix/100) + v.extendedPrice * v.extendedMix/100;
   const annualMonthlyDues = blend * (1-v.prepayDiscount/100);
   const churn = v.monthlyAttrition / 100;
   const baseLocalCosts = v.support+v.occupancy+v.technology+v.marketing+v.other;
-  const extras = v.extraShortVisits*v.extraShortPrice+v.extraLongVisits*v.extraLongPrice;
+  const extras = v.extraShortVisits*v.extraShortPrice+v.extraLongVisits*v.extraLongPrice+(adjustments.annualRevenue ?? 0)/12;
   const startupKnown = v.startupCapital !== null;
   const cashKnown = startupKnown && v.openingCash !== null;
   let monthlyMembers=0, annualCohorts=[], cumulativeRecovery=0, cashBalance=v.openingCash;
