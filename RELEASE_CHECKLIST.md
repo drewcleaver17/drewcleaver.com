@@ -211,3 +211,13 @@ This supersedes the initial empty-collection status above.
 - [x] Production build and release checks pass. Text contrast is at least 4.5:1 for body, muted, accent, and reversed closing-panel text. No homepage/navigation links, sitemap entry, or analytics were added; noindex/nofollow remains.
 - [x] Fluid typography, automatic headline wrapping, single-column narrow layout, and touch-friendly links retained; closing panel includes a readable print fallback.
 - [ ] Post-deployment browser rendering and live asset verification. Exact 320/390/768/1440px viewport testing is unavailable through the current browser surface.
+
+## Independent DPC revision — September 19, 2026
+
+- [x] Explicit user authorization to implement and publish through existing infrastructure.
+- [x] Independent narrative, 18-slide dated PDF, 56 preserved assumptions plus 14 launch inputs, mature/launch/network views and original-format migration.
+- [x] 27 model tests and focused production-markup UI checks pass; no external messages sent.
+- [x] PDF rendered and every slide visually inspected; searchable text and clickable sources verified.
+- [x] Build/release checks enforce neutral content, noindex, no analytics, no sitemap/homepage links, and identical neutral PDFs at old/new paths.
+- [ ] Live deployment, forwarding, browser interaction and PDF delivery checks.
+- [ ] Exact 320/390/768/1440 viewport and physical mobile-device checks; the available managed browser has no viewport-resize control.
