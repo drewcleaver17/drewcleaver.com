@@ -105,6 +105,7 @@ extra='''
 html,body{min-width:0!important}body{overflow-wrap:break-word}img{max-width:100%}a[aria-disabled=true]{cursor:default}.preservation-inactive{font:14px/1.5 system-ui!important;border:1px solid #c8c8c8;padding:12px;color:#424242;background:#f2f2f2}.preservation-video{display:block;text-align:center;padding:12px;background:#161616;color:white;font:14px/1.5 system-ui}
 .preservation-banner{font:14px/1.5 system-ui!important;padding:12px 20px;background:#173e35;color:#fff;text-align:center}.preservation-banner a{color:white;text-decoration:underline}
 .slideshow__slide{opacity:1!important;visibility:visible!important}.slideshow__image{opacity:1!important}.slideshow__button,.slideshow__controls,.slideshow__video,.slideshow__video-play,.slideshow__text-content .icon{display:none!important}.slideshow__text-content{opacity:1!important;visibility:visible!important}.lazyload,.fade-in{opacity:1!important}.feature-row__image{background-size:cover;background-position:center}.site-header__cart,.site-header__search,.site-header__account,.site-header__menu{display:none!important}.drawer{display:none!important}
+.site-header__section--button,.site-header__navigation,.announcement-bar__close{display:none!important}.site-header__wrapper{position:relative!important;height:auto!important;min-height:0!important;width:100%!important}.site-header-sections{justify-content:center!important;min-height:100px!important;height:auto!important;padding:24px 0!important}.site-header__section--title{flex:0 1 auto!important}.preservation-nav{display:flex;justify-content:center;gap:10px 24px;flex-wrap:wrap;padding:14px 18px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;background:#fff;font-size:14px}.preservation-nav a{display:inline-flex;align-items:center;min-height:40px;color:#222;text-decoration:underline}.wp-block-navigation__responsive-container-open,.wp-block-navigation__responsive-container-close{display:none!important}.wp-block-navigation__responsive-container{display:block!important;position:static!important}
 @media(max-width:749px){.site-header__logo-image{max-width:200px!important}.site-header__logo{max-width:100%!important}.site-header__wrapper{position:relative!important}.slideshow__heading{font-size:26px!important}.slideshow__text-content{max-width:100%!important}.slideshow{height:520px!important}.slideshow__image{height:100%!important;object-fit:cover}.slideshow__text-container{width:100%!important}.custom__item{max-width:100%}.wp-block-columns{flex-wrap:wrap!important}.wp-block-column{flex-basis:100%!important}}
 '''
 for p,s in soups:
@@ -132,6 +133,13 @@ for p,s in soups:
  meta=s.new_tag('meta',attrs={'http-equiv':'Content-Security-Policy','content':"default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; form-action 'none'; base-uri 'none'; frame-src 'none'; script-src 'none'"});s.head.insert(1,meta)
  style=s.new_tag('style');style.string=extra;s.head.append(style)
  banner=s.new_tag('div');banner['class']='preservation-banner';banner.string='Preserved website · '+p['date']+' · Original plans and offers are historical. ';a=s.new_tag('a',href='/'+p['project']+'/',target='_blank',rel='noopener');a.string='Archive guide';banner.append(a);s.body.insert(0,banner)
+ if p['project']=='specteslacup':
+  header=s.find('header');primary=s.select_one('header .navigation__links')
+  if header and primary:
+   nav=s.new_tag('nav',attrs={'class':'preservation-nav','aria-label':'Preserved pages'})
+   for link in primary.select('a[href]'):
+    a=s.new_tag('a',href=link['href']);a.string=link.get_text(' ',strip=True);nav.append(a)
+   header.insert_after(nav)
  dest=root/p['local'];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(str(s))
  p['path']='/archives/'+p['local'];p['preserved_sha256']=hashlib.sha256(dest.read_bytes()).hexdigest();records.append(p)
 (root/'manifest.json').write_text(json.dumps({'recovered':'2026-09-19','pages':records,'assets':list(cache.values()),'method':'Original public HTML; scripts/trackers removed, forms disabled, assets copied locally; internal navigation rewritten. Capture dates are not content revision dates. Shopify /cdn/shop paths resolved to the store CDN namespace present in the 2022 source. CSS fonts/images recovered where available. No account access or billing changes.'},indent=2))

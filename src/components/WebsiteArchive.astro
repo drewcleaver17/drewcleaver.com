@@ -18,6 +18,7 @@ const other = slug === 'tesloco' ? {name:'Spec Tesla Cup', path:'/specteslacup/'
       <a id="archive-open" href={entries[0].path} target="_blank" rel="noopener">Open preserved page ↗</a>
     </div>
     <div class="archive-caption"><span id="archive-date">{entries[0].date}</span><span>Historical copy · Transactions and forms inactive</span></div>
+    <p class="viewer-hint">Scroll inside the preserved site, or open it full-page above.</p>
     <iframe id="archive-frame" title={`${name} preserved website`} src={entries[0].path} sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox" loading="eager"></iframe>
     <noscript><p class="archive-fallback">Open any preserved page below to explore without JavaScript.</p></noscript>
   </section>
@@ -33,27 +34,19 @@ const other = slug === 'tesloco' ? {name:'Spec Tesla Cup', path:'/specteslacup/'
   const frame = document.querySelector<HTMLIFrameElement>('#archive-frame');
   const open = document.querySelector<HTMLAnchorElement>('#archive-open');
   const date = document.querySelector('#archive-date');
-  let observer: ResizeObserver | undefined;
-  function resizeFrame() {
-    if (!frame) return;
-    try { const body = frame.contentDocument?.body; if(body) frame.style.height = `${Math.max(650, body.scrollHeight)}px`; } catch {}
-  }
   frame?.addEventListener('load', () => {
-    observer?.disconnect(); resizeFrame();
     try {
       const path = frame.contentWindow?.location.pathname;
       const option = Array.from(select?.options || []).find(o => o.value === path);
       if (option && select && open && date) { select.value = option.value; open.href = option.value; date.textContent = option.dataset.date || ''; }
     } catch {}
-    try { if(frame.contentDocument?.body) { observer = new ResizeObserver(resizeFrame); observer.observe(frame.contentDocument.body); } } catch {}
   });
   select?.addEventListener('change', () => {
     if(!frame || !open || !date) return;
-    frame.style.height = '650px'; frame.src = select.value; open.href = select.value;
+    frame.src = select.value; open.href = select.value;
     date.textContent = select.selectedOptions[0].dataset.date || '';
     frame.title = `${select.selectedOptions[0].textContent} — preserved website`;
   });
-  window.addEventListener('resize', resizeFrame);
 </script>
 <style>
   .archive-intro{padding-block:2rem 1.6rem}.archive-topline{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.875rem}.archive-topline p{letter-spacing:.08em;text-transform:uppercase}.archive-topline a{text-decoration:underline}
@@ -61,4 +54,5 @@ const other = slug === 'tesloco' ? {name:'Spec Tesla Cup', path:'/specteslacup/'
   .archive-workspace{border:1px solid #9ead9e;border-radius:4px;overflow:hidden;background:white}.archive-controls{padding:1.1rem 1.35rem;display:flex;align-items:end;justify-content:space-between;gap:1.25rem;background:var(--green);color:var(--paper)}.archive-controls>div{flex:1;max-width:38rem;min-width:0}.archive-controls label{display:block;font-size:.875rem;margin-bottom:.4rem}.archive-controls select{width:100%;min-height:48px;background:var(--paper);border:1px solid #cad2c5;border-radius:2px;color:var(--green);padding:.65rem 2rem .65rem .7rem;font-size:1rem}.archive-controls a{flex-shrink:0;font-size:.9rem;text-decoration:underline;min-height:44px;display:flex;align-items:center}
   .archive-caption{display:flex;justify-content:space-between;gap:.5rem 1rem;flex-wrap:wrap;padding:.7rem 1.3rem;background:#e7ecdf;color:#334b3e;font-size:.8125rem;border-bottom:1px solid #c3cbbb}iframe{display:block;width:100%;height:950px;border:0;background:#fff}.archive-notes{padding-block:2rem 3rem;max-width:850px}.archive-notes h2{font:400 1.65rem/1.2 var(--serif);margin-bottom:.75rem}.archive-notes p{margin:.8rem 0;color:var(--color-muted)}summary{cursor:pointer;min-height:48px;padding-block:.6rem;text-decoration:underline}ul{padding:0;list-style:none}li{display:flex;gap:.4rem 1rem;flex-wrap:wrap;padding:.85rem 0;border-top:1px solid var(--color-border);font-size:.9rem}li a{text-decoration:underline}li span{color:var(--color-muted)}.archive-fallback{padding:1rem}
   @media(max-width:600px){.archive-controls{align-items:stretch;flex-direction:column;gap:.5rem;padding:1rem}.archive-workspace{width:calc(100% - 20px)}.archive-caption{padding:.75rem 1rem}.archive-controls a{font-size:.875rem}.archive-notes{padding-top:1.5rem}}
+  iframe{height:82svh;min-height:600px;max-height:1000px}.viewer-hint{font-size:.8125rem;padding:.5rem 1.3rem;background:#f7f8f4;color:#526256;border-bottom:1px solid #d1d6ca;margin:0}
 </style>
