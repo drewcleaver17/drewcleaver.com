@@ -1,5 +1,7 @@
 # Independent DPC concept — September 19, 2026
 
+The single-worksheet revision below supersedes the original comparison UI and schema notes. The narrative, 70 default values and dated PDF remain the same.
+
 Drew explicitly authorized implementation and live publication at `/dpc/`. This supersedes the affiliated framing of `/metsicare/`. It is a discussion proposal by Drew, not a company launch, investment offering, named physician's participation, or a finalized ownership arrangement.
 
 ## Assets and continuity
@@ -47,3 +49,18 @@ An isolated JSDOM exercise using production HTML passed all 140 editable inputs,
 The 18 PDF slides were rendered and visually inspected, with searchable text on every page and six clickable links. The PDF is approximately 94 KB. Production build and release checks pass. Responsive source uses stacking tables/cards, wrapping actions and contained monthly-table scrolling. Exact mobile viewport and physical-device checks must not be inferred from source inspection; record live browser findings after deployment.
 
 Rollback: revert this feature's publication commit and use the existing GitHub Pages workflow. Do not alter DNS, deployment infrastructure or unrelated site changes.
+
+
+## Single-worksheet revision
+
+Drew requested one editable value per assumption, all sections openly visible, zero or blank in every numeric input, and addable rows for missing categories and optional values. The page contains no collapsed or collapsible narrative/model sections. All 70 inputs and all calculated results remain present. This change does not turn the earlier scheduling discussion into new default staffing assumptions.
+
+Schema 3 / model `dpc-2026-09-v3` stores one active worksheet and an array of preserved earlier worksheets. When loading a v1/v2 comparison, the first column opens and the second is retained with a visible explanation and an “Earlier inputs” selector. Switching swaps them without discarding edits. Every original label, value, reporting period, source note and shared feedback is preserved. Named copies migrate too. Earlier storage keys remain untouched. New keys are `dpc:worksheet:v3:draft` and `dpc:worksheet:v3:saves`.
+
+Every numeric assumption accepts null and zero. Missing operands produce incomplete dependent results, while unrelated known results still calculate. A blank payroll expense leaves revenue/capacity available but costs/surplus incomplete. Missing pilot fields do not invalidate practice economics. Zero appointment duration or timing values are preserved but cannot define a usable launch schedule. Incomplete worksheets can autosave, save named copies and export/import; out-of-range or malformed numeric values still pause saving until corrected.
+
+Custom rows contain category, description, optional value, unit, calculation treatment and notes. The default treatment is reference-only. Financial treatments explicitly use USD and cover monthly/annual practice income/expense, once-only startup expense, and whole-network annual platform income/expense. Practice recurring expenses begin in the existing local-cost month, revenues at opening and startup expenses at the selected startup month. A blank financial value keeps affected results incomplete. Negative financial values are explicit reversing adjustments with a warning. Custom rows do not infer clinical capacity or internal fee transfers.
+
+JSON includes the active and preserved worksheets, custom rows, all review text, recalculated results and model definitions. CSV/text include active and preserved inputs plus calculated monthly rows. Import validation is atomic and ignores supplied derived results. Unknown or damaged storage is never silently overwritten. No backend or automatic communication was added.
+
+Validation: 42 model tests (including the original 27) and three production-markup UI tests pass. They cover every input individually set to zero and null, independent dependent-result propagation, custom revenue/cost timing, unknown custom values, startup counting, platform fee elimination, reference-only rows, migration and switching, round trips, custom-name/feedback preservation, malformed imports, storage failure, and CSV/HTML injection handling. Build now runs these checks alongside the existing Buildmine/release checks. The original PDF bytes are unchanged. Exact mobile viewport/device inspection remains limited by the managed browser's available controls; inspect live desktop behavior after publication.
