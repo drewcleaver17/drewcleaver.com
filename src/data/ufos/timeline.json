@@ -1,0 +1,2210 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "title": "UFOs: A Living Timeline",
+    "researchCutoff": "2026-09-19",
+    "lastCheckedAt": "2026-09-19T17:34:37Z",
+    "contentUpdatedAt": "2026-09-19T17:34:37Z",
+    "updateStatus": "setup incomplete",
+    "updateDescription": "Weekly monitoring exists. Publishing integration is not yet end-to-end verified; reviewed imports remain available.",
+    "cadence": "Weekly",
+    "edition": "2026-09-19.1"
+  },
+  "sources": {
+    "nyt-context": {
+      "id": "nyt-context",
+      "title": "Once secret, now closed UFO program confirmed by Pentagon",
+      "publisher": "ABC News",
+      "url": "https://abcnews.com/US/secret-now-closed-ufo-program-confirmed-pentagon/story?id=51843013",
+      "publicationDate": "2017-12-17",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Pentagon statement and opening paragraphs",
+      "note": ""
+    },
+    "nyt-online": {
+      "id": "nyt-online",
+      "title": "Inside the Pentagon’s multi-million dollar program to explore UFOs",
+      "publisher": "Axios",
+      "url": "https://www.axios.com/2017/12/16/inside-the-pentagons-multi-million-dollar-program-to-explore-ufos-1513445795",
+      "publicationDate": "2017-12-16",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Publication date and opening",
+      "note": "Used only to corroborate the online-publication date."
+    },
+    "nyt-print": {
+      "id": "nyt-print",
+      "title": "What Is Up With Those Pentagon UFO Videos?",
+      "publisher": "WIRED",
+      "url": "https://www.wired.com/story/what-is-up-with-those-pentagon-ufo-videos/",
+      "publicationDate": "2018-02-17",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Paragraph identifying the December 17 front page",
+      "note": "The NYT original was inaccessible during this audit; this is contemporaneous corroboration."
+    },
+    "odni21": {
+      "id": "odni21",
+      "title": "Preliminary Assessment: Unidentified Aerial Phenomena",
+      "publisher": "ODNI",
+      "url": "https://archive.dni.gov/files/ODNI/documents/assessments/Prelimary-Assessment-UAP-20210625.pdf",
+      "publicationDate": "2021-06-25",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "PDF pp. 3–6",
+      "note": ""
+    },
+    "videos20": {
+      "id": "videos20",
+      "title": "Pentagon releases Navy videos of unidentified objects",
+      "publisher": "ABC News",
+      "url": "https://abcnews.com/Politics/pentagon-declassifies-navy-videos-purportedly-show-ufos/story?id=70364183",
+      "publicationDate": "2020-04-27",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Quoted Pentagon release statement",
+      "note": "The quoted statement says the released videos were unclassified; the article’s headline uses broader language."
+    },
+    "taskforce": {
+      "id": "taskforce",
+      "title": "Pentagon announces task force to investigate UFO incidents",
+      "publisher": "ABC News",
+      "url": "https://abcnews.com/Politics/pentagon-task-force-investigate-ufo-incidents/story?id=72383496",
+      "publicationDate": "2020-08-14",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Approval date and quoted Pentagon statement",
+      "note": "The original defense.gov / Navy announcement returned an access error in this audit."
+    },
+    "grusch23": {
+      "id": "grusch23",
+      "title": "Intelligence Officials Say U.S. Has Retrieved Non-Human Craft",
+      "publisher": "The Debrief",
+      "url": "https://thedebrief.org/intelligence-officials-say-u-s-has-retrieved-non-human-craft/",
+      "publicationDate": "2023-06-05",
+      "accessedDate": "2026-09-19",
+      "kind": "original-reporting",
+      "verification": "supporting-text-read",
+      "locator": "Grusch interview; account of complaints and documents",
+      "note": "Direct reporting of allegations, not independent public authentication of the alleged craft."
+    },
+    "hearing22": {
+      "id": "hearing22",
+      "title": "Hearing transcript: Unidentified Aerial Phenomena",
+      "publisher": "House Intelligence Committee",
+      "url": "https://docs.house.gov/meetings/IG/IG05/20220517/114761/HHRG-117-IG05-Transcript-20220517.pdf",
+      "publicationDate": "2022-05-17",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "PDF opening, witness list and opening statements",
+      "note": ""
+    },
+    "nasa-study": {
+      "id": "nasa-study",
+      "title": "UAP research at NASA",
+      "publisher": "NASA",
+      "url": "https://science.nasa.gov/uap/",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Study announcement, public meeting and report milestones",
+      "note": "An evolving overview; no single publication date is assigned."
+    },
+    "odni22": {
+      "id": "odni22",
+      "title": "2022 Annual Report on Unidentified Aerial Phenomena",
+      "publisher": "ODNI",
+      "url": "https://www.dni.gov/files/ODNI/documents/assessments/Unclassified-2022-Annual-Report-UAP.pdf",
+      "publicationDate": "2023-01",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "PDF p. 4, Scope and Assumptions",
+      "note": "The report’s title refers to its reporting year. Used here for the AARO establishment date."
+    },
+    "schumer23": {
+      "id": "schumer23",
+      "title": "Schumer, Rounds introduce UAP records legislation",
+      "publisher": "Senate Democratic Leader",
+      "url": "https://www.democrats.senate.gov/newsroom/press-releases/schumer-rounds-introduce-new-legislation-to-declassify-government-records-related-to-unidentified-anomalous-phenomena-and-ufos_modeled-after-jfk-assassination-records-collection-act--as-an-amendment-to-ndaa",
+      "publicationDate": "2023-07-14",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Release dated July 14; proposal summary",
+      "note": "Sponsor announcement establishes the proposal, not enactment."
+    },
+    "hearing23": {
+      "id": "hearing23",
+      "title": "UAP: Implications on National Security, Public Safety, and Government Transparency",
+      "publisher": "House Oversight Committee",
+      "url": "https://oversight.house.gov/hearing/unidentified-anomalous-phenomena-implications-on-national-security-public-safety-and-government-transparency/",
+      "publicationDate": "2023-07-26",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Hearing date, witness list and linked statements",
+      "note": ""
+    },
+    "grusch-statement": {
+      "id": "grusch-statement",
+      "title": "David Grusch: opening statement",
+      "publisher": "House Oversight Committee",
+      "url": "https://oversight.house.gov/wp-content/uploads/2023/07/Dave_G_HOC_Speech_FINAL_For_Trans.pdf",
+      "publicationDate": "2023-07-26",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "PDF pp. 1–3",
+      "note": "Primary evidence of what Grusch said, not of the existence or origin of alleged recovered objects."
+    },
+    "fravor": {
+      "id": "fravor",
+      "title": "David Fravor: witness statement",
+      "publisher": "House Oversight Committee",
+      "url": "https://oversight.house.gov/wp-content/uploads/2023/07/David-Fravor-Statement-for-House-Oversight-Committee.pdf",
+      "publicationDate": "2023-07-26",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "PDF pp. 1–3",
+      "note": "Retrospective firsthand account; the month, not a specific day, is stated."
+    },
+    "nasa-report": {
+      "id": "nasa-report",
+      "title": "UAP Independent Study Team Report",
+      "publisher": "NASA",
+      "url": "https://science.nasa.gov/wp-content/uploads/2023/09/uap-independent-study-team-final-report.pdf",
+      "publicationDate": "2023-09-14",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Recommendations and printed p. 25 (PDF p. 26)",
+      "note": ""
+    },
+    "ndaa24": {
+      "id": "ndaa24",
+      "title": "Laws affecting NARA: FY2024 NDAA, §§1841–1843",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/about/laws/nara",
+      "publicationDate": "2023-12-22",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Public Law 118-31, UAP records collection provisions",
+      "note": "Publication date is the law’s enactment date, not the webpage’s revision date."
+    },
+    "aaro-history": {
+      "id": "aaro-history",
+      "title": "Pentagon UFO report says most sightings ordinary objects, phenomena",
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/technology/space/pentagon-ufo-report-says-most-sightings-ordinary-objects-phenomena-2024-03-08/",
+      "publicationDate": "2024-03-09",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Report release and AARO findings",
+      "note": "Original PDF inaccessible; Reuters dates the release to March 8."
+    },
+    "hearing24": {
+      "id": "hearing24",
+      "title": "Unidentified Anomalous Phenomena: Exposing the Truth",
+      "publisher": "House Oversight Committee",
+      "url": "https://oversight.house.gov/hearing/unidentified-anomalous-phenomena-exposing-the-truth/",
+      "publicationDate": "2024-11-13",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Date and witness list",
+      "note": ""
+    },
+    "annual24": {
+      "id": "annual24",
+      "title": "AARO chief unveils annual caseload analysis and new efforts",
+      "publisher": "DefenseScoop",
+      "url": "https://defensescoop.com/2024/11/14/uap-aaro-chief-unveils-pentagon-annual-caseload-analysis-new-efforts/",
+      "publicationDate": "2024-11-14",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Annual report and director’s briefing",
+      "note": ""
+    },
+    "senate24": {
+      "id": "senate24",
+      "title": "Hearing on the activities of AARO",
+      "publisher": "Senate Armed Services Committee",
+      "url": "https://www.armed-services.senate.gov/hearings/to-receive-testimony-on-the-activities-of-the-all-domain-anomaly-resolution-office",
+      "publicationDate": "2024-11-19",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Hearing date and witness",
+      "note": ""
+    },
+    "kosloski": {
+      "id": "kosloski",
+      "title": "Jon Kosloski: statement to the Senate",
+      "publisher": "Senate Armed Services Committee",
+      "url": "https://www.armed-services.senate.gov/download/aaro-statement-112224",
+      "publicationDate": "2024-11-19",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "PDF pp. 1–3",
+      "note": "The statement is dated November 19; the download filename is not the hearing date."
+    },
+    "nara-first": {
+      "id": "nara-first",
+      "title": "National Archives releases UAP records",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/press/press-releases/2025/nr25-07",
+      "publicationDate": "2025-04-24",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Release date and contributing agencies",
+      "note": ""
+    },
+    "nara-holdings": {
+      "id": "nara-holdings",
+      "title": "Record Group 615: UAP records collection",
+      "publisher": "National Archives",
+      "url": "https://www.archives.gov/research/topics/uaps/rg-615",
+      "publicationDate": null,
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Agency holdings and collection identifiers",
+      "note": "Last reviewed is not a transfer or release date. Current holdings checked September 19, 2026."
+    },
+    "hearing25": {
+      "id": "hearing25",
+      "title": "Restoring Public Trust Through UAP Transparency and Whistleblower Protection",
+      "publisher": "House Oversight Committee",
+      "url": "https://oversight.house.gov/hearing/restoring-public-trust-through-uap-transparency-and-whistleblower-protection/",
+      "publicationDate": "2025-09-09",
+      "accessedDate": "2026-09-19",
+      "kind": "primary",
+      "verification": "supporting-text-read",
+      "locator": "Date and witness list",
+      "note": ""
+    },
+    "trump26": {
+      "id": "trump26",
+      "title": "Trump says he will direct agencies to release UFO files",
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/world/us/trump-orders-agencies-identify-release-government-files-aliens-2026-02-20/",
+      "publicationDate": "2026-02-20",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "February 19 statement as reported February 20 UTC",
+      "note": "A reported presidential announcement; not an inspected executive-order text."
+    },
+    "pursue-first": {
+      "id": "pursue-first",
+      "title": "What the first PURSUE UFO file drop does—and does not—show",
+      "publisher": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/05/14/uap-trump-first-pursue-ufo-file-drop/",
+      "publicationDate": "2026-05-14",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "May 8 release and limits of the files",
+      "note": "The war.gov portal was inaccessible during this audit."
+    },
+    "annual26": {
+      "id": "annual26",
+      "title": "Pentagon investigating UAP event near Virginia coast",
+      "publisher": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/07/21/pentagon-investigating-ufo-uap-event-near-virginia-coast/",
+      "publicationDate": "2026-07-21",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "FY2025 report, reporting window and aggregate count",
+      "note": "Reporting says released ‘this week’; an exact release day is not assigned here. Conflicting component counts are omitted."
+    },
+    "archive26": {
+      "id": "archive26",
+      "title": "Pentagon seeks access to vast private UFO records collection",
+      "publisher": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/09/02/pentagon-seeks-access-to-vast-private-ufo-records-collection/",
+      "publicationDate": "2026-09-02",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Proposed archive access and contract options",
+      "note": "The linked SAM notice did not expose readable text. Notice date and award are not independently established."
+    },
+    "waiver26": {
+      "id": "waiver26",
+      "title": "Pentagon announces legal relief for UAP disclosures to PURSUE",
+      "publisher": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/09/14/pentagon-legal-relief-uap-whistleblowers-trump-project/",
+      "publicationDate": "2026-09-14",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Announcement and reporting-channel restrictions",
+      "note": ""
+    },
+    "waiver-reprint": {
+      "id": "waiver-reprint",
+      "title": "Department announcement: UAP disclosures to PURSUE",
+      "publisher": "Sierra Sun Times, reprinting Department of War",
+      "url": "https://goldrushcam.com/sierrasuntimes/index.php/news/local-news/81654-president-trump-s-department-of-war-issues-legal-waiver-to-authorize-unidentified-anomalous-phenomena-uap-and-unidentified-flying-objects-disclosures-to-pursue",
+      "publicationDate": "2026-09-15",
+      "accessedDate": "2026-09-19",
+      "kind": "reprint",
+      "verification": "supporting-text-read",
+      "locator": "Reproduced September 14 announcement",
+      "note": "Same underlying announcement as other coverage, not independent corroboration. Operative signed waiver not inspected."
+    },
+    "pursue-sixth": {
+      "id": "pursue-sixth",
+      "title": "Pentagon releases sixth batch of declassified UFO files",
+      "publisher": "FOX 5 DC",
+      "url": "https://www.fox5dc.com/news/pentagon-releases-sixth-batch-declassified-ufo-files",
+      "publicationDate": "2026-09-18",
+      "accessedDate": "2026-09-19",
+      "kind": "reporting",
+      "verification": "supporting-text-read",
+      "locator": "Dated report and release description",
+      "note": "Original war.gov release and manifest were inaccessible. No file total is asserted."
+    }
+  },
+  "events": [
+    {
+      "id": "nimitz-encounter",
+      "slug": "nimitz-encounter",
+      "date": {
+        "start": "2004-11",
+        "end": null,
+        "precision": "month",
+        "role": "incident"
+      },
+      "incidentDate": "2004-11",
+      "disclosureDate": null,
+      "publicationDate": "2023-07-26",
+      "title": "An encounter before its public afterlife",
+      "summary": "David Fravor later described seeing an unusual object during a Navy training deployment near the USS Nimitz.",
+      "significance": "The encounter, its later testimony and the release of related footage are different events.",
+      "established": [
+        "Fravor’s 2023 statement records his own visual account; another crew subsequently captured infrared footage."
+      ],
+      "limitations": [
+        "The account alone does not independently establish the object’s performance or origin."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Encounters and observations"
+      ],
+      "people": [
+        "David Fravor"
+      ],
+      "institutions": [
+        "US Navy"
+      ],
+      "evidenceTypes": [
+        "Firsthand account",
+        "Sensor material"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "fravor",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "navy-videos",
+        "house-hearing-2023"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": true
+    },
+    {
+      "id": "nyt-2017",
+      "slug": "nyt-2017",
+      "date": {
+        "start": "2017-12-16",
+        "end": "2017-12-17",
+        "precision": "range",
+        "role": "publication"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2017-12-16",
+      "publicationDate": "2017-12-16",
+      "title": "The story reaches the front page",
+      "summary": "The New York Times published its Pentagon UFO-program story online December 16; it appeared on the print front page December 17.",
+      "significance": "A useful starting point for the modern public chronology.",
+      "established": [
+        "Contemporaneous coverage identifies the reporting and print appearance; ABC separately obtained a Pentagon statement about the program."
+      ],
+      "limitations": [
+        "Coverage of a program is not confirmation of an extraordinary explanation."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "people": [
+        "Harry Reid",
+        "Leslie Kean",
+        "Ralph Blumenthal",
+        "Helene Cooper"
+      ],
+      "institutions": [
+        "The New York Times",
+        "Department of Defense"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [
+        "AATIP",
+        "print front page"
+      ],
+      "sources": [
+        {
+          "sourceId": "nyt-context",
+          "supports": [
+            "established"
+          ]
+        },
+        {
+          "sourceId": "nyt-online",
+          "supports": [
+            "date.start",
+            "publicationDate"
+          ]
+        },
+        {
+          "sourceId": "nyt-print",
+          "supports": [
+            "date.end",
+            "summary"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "navy-videos"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "navy-reporting",
+      "slug": "navy-reporting",
+      "date": {
+        "start": "2019-03",
+        "end": null,
+        "precision": "month",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "2021-06-25",
+      "title": "The Navy standardizes UAP reporting",
+      "summary": "ODNI’s later assessment dates the Navy’s standardized reporting mechanism to March 2019.",
+      "significance": "Reporting procedures affect what enters the official record.",
+      "established": [
+        "A formal reporting mechanism is documented retrospectively in the 2021 assessment."
+      ],
+      "limitations": [
+        "More reports need not mean more unusual objects."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "people": [],
+      "institutions": [
+        "US Navy",
+        "ODNI"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "odni21",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "odni-assessment"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "navy-videos",
+      "slug": "navy-videos",
+      "date": {
+        "start": "2020-04-27",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2020-04-27",
+      "publicationDate": "2020-04-27",
+      "title": "The Pentagon formally releases three videos",
+      "summary": "The Defense Department authorized release of three already-circulating Navy videos: FLIR, GIMBAL and GOFAST.",
+      "significance": "Official release clarified provenance without settling interpretation.",
+      "established": [
+        "ABC reproduced the Pentagon statement describing one November 2004 recording and two from January 2015."
+      ],
+      "limitations": [
+        "Authorization to release unclassified footage is not confirmation of anomalous motion or non-human origin."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases"
+      ],
+      "people": [],
+      "institutions": [
+        "Department of Defense",
+        "US Navy"
+      ],
+      "evidenceTypes": [
+        "Sensor material",
+        "Reporting inspected"
+      ],
+      "tags": [
+        "FLIR",
+        "GIMBAL",
+        "GOFAST"
+      ],
+      "sources": [
+        {
+          "sourceId": "videos20",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nimitz-encounter",
+        "nyt-2017"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "uap-task-force",
+      "slug": "uap-task-force",
+      "date": {
+        "start": "2020-08-04",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2020-08-14",
+      "publicationDate": "2020-08-14",
+      "title": "A dedicated UAP task force is approved",
+      "summary": "The Pentagon announced on August 14 that the UAP Task Force had been approved August 4.",
+      "significance": "UAP reporting gained a designated defense coordination body.",
+      "established": [
+        "Contemporaneous reporting quotes the department’s task-force announcement."
+      ],
+      "limitations": [
+        "Creating an investigative office does not establish what reported objects are."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Legislation and executive actions"
+      ],
+      "people": [],
+      "institutions": [
+        "Department of Defense",
+        "US Navy",
+        "UAP Task Force"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "taskforce",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "aaro-created"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "odni-assessment",
+      "slug": "odni-assessment",
+      "date": {
+        "start": "2021-06-25",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2021-06-25",
+      "publicationDate": "2021-06-25",
+      "title": "ODNI publishes its preliminary assessment",
+      "summary": "The assessment examined 144 reports; one was identified with high confidence as a balloon.",
+      "significance": "It made both the reporting problem and the limits of available data explicit.",
+      "established": [
+        "ODNI described a heterogeneous dataset, including reports from multiple sensors."
+      ],
+      "limitations": [
+        "Unresolved reports are not a count of extraordinary craft. Incomplete data can prevent identification."
+      ],
+      "openQuestions": [
+        "Which cases have enough calibrated, contextual data for competing explanations to be tested?"
+      ],
+      "categories": [
+        "Scientific research",
+        "Reporting and disclosures"
+      ],
+      "people": [],
+      "institutions": [
+        "ODNI",
+        "UAP Task Force"
+      ],
+      "evidenceTypes": [
+        "Institutional assessment",
+        "Sensor material"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "odni21",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "navy-reporting",
+        "nasa-report"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "grusch-dod-complaint",
+      "slug": "grusch-dod-complaint",
+      "date": {
+        "start": "2021-07",
+        "end": null,
+        "precision": "month",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-06-05",
+      "publicationDate": "2023-06-05",
+      "title": "Grusch’s earlier inspector-general disclosure",
+      "summary": "The Debrief later reported that David Grusch provided information to the Defense Department inspector general in July 2021.",
+      "significance": "This predates his public allegations.",
+      "established": [
+        "The chronology is reported from interviews and documents described by the journalists."
+      ],
+      "limitations": [
+        "The confidential submission itself was not independently inspected for this page."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "people": [
+        "David Grusch"
+      ],
+      "institutions": [
+        "DoD Inspector General"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected",
+        "Secondhand allegation"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "grusch23",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "grusch-icig-complaint",
+        "grusch-public"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "grusch-icig-complaint",
+      "slug": "grusch-icig-complaint",
+      "date": {
+        "start": "2022-05",
+        "end": null,
+        "precision": "month",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-06-05",
+      "publicationDate": "2023-06-05",
+      "title": "A separate intelligence-inspector-general complaint",
+      "summary": "The Debrief described a May 2022 complaint concerning alleged concealment and reprisals.",
+      "significance": "The complaint is distinct from later interviews and testimony.",
+      "established": [
+        "The publication reported the complaint’s existence and timing."
+      ],
+      "limitations": [
+        "A complaint’s procedural treatment is not a finding that alleged non-human craft exist."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "people": [
+        "David Grusch"
+      ],
+      "institutions": [
+        "Intelligence Community Inspector General"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected",
+        "Secondhand allegation"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "grusch23",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "grusch-public"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "house-hearing-2022",
+      "slug": "house-hearing-2022",
+      "date": {
+        "start": "2022-05-17",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2022-05-17",
+      "publicationDate": "2022-05-17",
+      "title": "UAP returns to an open congressional hearing",
+      "summary": "Defense officials Ronald Moultrie and Scott Bray appeared before a House Intelligence subcommittee.",
+      "significance": "The subject entered a public oversight forum.",
+      "established": [
+        "The official transcript documents the hearing and officials’ testimony."
+      ],
+      "limitations": [
+        "A hearing is a forum for scrutiny, not a certification of every statement made."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Hearings and oversight"
+      ],
+      "people": [
+        "Ronald Moultrie",
+        "Scott Bray"
+      ],
+      "institutions": [
+        "House Intelligence Committee",
+        "Department of Defense"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "hearing22",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "house-hearing-2023"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "nasa-study-announced",
+      "slug": "nasa-study-announced",
+      "date": {
+        "start": "2022-06-09",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2022-06-09",
+      "publicationDate": "2022-06-09",
+      "title": "NASA announces an independent UAP study",
+      "summary": "NASA announced a study of how to investigate UAP with available and future data.",
+      "significance": "It framed the problem around scientific methods and data quality.",
+      "established": [
+        "NASA’s public chronology documents the study announcement."
+      ],
+      "limitations": [
+        "The announcement was not a conclusion about any reported object."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "people": [],
+      "institutions": [
+        "NASA"
+      ],
+      "evidenceTypes": [
+        "Institutional record",
+        "Scientific assessment"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "nasa-study",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nasa-report"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "aaro-created",
+      "slug": "aaro-created",
+      "date": {
+        "start": "2022-07-20",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": null,
+      "publicationDate": "2023-01",
+      "title": "AARO succeeds the task force",
+      "summary": "ODNI’s annual report records the establishment of the All-domain Anomaly Resolution Office.",
+      "significance": "The defense effort expanded into a standing, cross-domain office.",
+      "established": [
+        "The establishment date and succession are documented in the ODNI report."
+      ],
+      "limitations": [
+        "An office’s mandate is not evidence for a particular origin hypothesis."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Legislation and executive actions"
+      ],
+      "people": [],
+      "institutions": [
+        "AARO",
+        "Department of Defense",
+        "ODNI"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "odni22",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "uap-task-force",
+        "aaro-history-report"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "grusch-public",
+      "slug": "grusch-public",
+      "date": {
+        "start": "2023-06-05",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-06-05",
+      "publicationDate": "2023-06-05",
+      "title": "Grusch’s recovery-program allegations become public",
+      "summary": "The Debrief published Grusch’s claims about concealed recovery and reverse-engineering programs.",
+      "significance": "The claims gave oversight a specific alleged subject to investigate.",
+      "established": [
+        "The article records his allegations and others’ supporting statements."
+      ],
+      "limitations": [
+        "It does not publicly authenticate recovered non-human technology."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "people": [
+        "David Grusch",
+        "Leslie Kean",
+        "Ralph Blumenthal"
+      ],
+      "institutions": [
+        "The Debrief"
+      ],
+      "evidenceTypes": [
+        "Secondhand allegation",
+        "Original reporting"
+      ],
+      "tags": [
+        "NHI",
+        "crash retrieval",
+        "reverse engineering"
+      ],
+      "sources": [
+        {
+          "sourceId": "grusch23",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "grusch-dod-complaint",
+        "grusch-icig-complaint",
+        "house-hearing-2023"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "disclosure-proposal",
+      "slug": "disclosure-proposal",
+      "date": {
+        "start": "2023-07-14",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-07-14",
+      "publicationDate": "2023-07-14",
+      "title": "Schumer and Rounds propose a disclosure framework",
+      "summary": "The senators announced an NDAA amendment proposing a UAP records collection and an independent review process.",
+      "significance": "This was a legislative proposal, not enacted law.",
+      "established": [
+        "The sponsors’ release documents what they introduced."
+      ],
+      "limitations": [
+        "Introduction does not establish chamber passage or enactment; later law must be read separately."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Legislation and executive actions"
+      ],
+      "people": [
+        "Chuck Schumer",
+        "Mike Rounds"
+      ],
+      "institutions": [
+        "US Senate"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [
+        "UAP Disclosure Act",
+        "NDAA",
+        "proposed"
+      ],
+      "sources": [
+        {
+          "sourceId": "schumer23",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "archives-law"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "house-hearing-2023",
+      "slug": "house-hearing-2023",
+      "date": {
+        "start": "2023-07-26",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-07-26",
+      "publicationDate": "2023-07-26",
+      "title": "Grusch, Graves and Fravor testify",
+      "summary": "The House heard testimony from David Grusch, Ryan Graves and David Fravor.",
+      "significance": "It placed distinct kinds of accounts into a public oversight record.",
+      "established": [
+        "Grusch’s prepared statement attributes recovery-program information to others; Fravor described his own encounter."
+      ],
+      "limitations": [
+        "Sworn testimony is evidence of an account, not independent verification of its explanation or of alleged recovered material."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Hearings and oversight"
+      ],
+      "people": [
+        "David Grusch",
+        "Ryan Graves",
+        "David Fravor"
+      ],
+      "institutions": [
+        "House Oversight Committee"
+      ],
+      "evidenceTypes": [
+        "Institutional record",
+        "Firsthand account",
+        "Secondhand allegation"
+      ],
+      "tags": [
+        "NHI",
+        "whistleblower"
+      ],
+      "sources": [
+        {
+          "sourceId": "hearing23",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        },
+        {
+          "sourceId": "grusch-statement",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        },
+        {
+          "sourceId": "fravor",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nimitz-encounter",
+        "grusch-public"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "nasa-report",
+      "slug": "nasa-report",
+      "date": {
+        "start": "2023-09-14",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-09-14",
+      "publicationDate": "2023-09-14",
+      "title": "NASA releases its study-team report",
+      "summary": "NASA’s independent team set out ways to improve UAP data collection and analysis.",
+      "significance": "The recommendations offer a testable research agenda.",
+      "established": [
+        "The report emphasizes better observations and reproducible analysis; it found no conclusive extraterrestrial evidence in the peer-reviewed literature considered."
+      ],
+      "limitations": [
+        "This was not a comprehensive resolution of military case files."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "people": [],
+      "institutions": [
+        "NASA"
+      ],
+      "evidenceTypes": [
+        "Scientific assessment"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "nasa-study",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        },
+        {
+          "sourceId": "nasa-report",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nasa-study-announced",
+        "odni-assessment"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "archives-law",
+      "slug": "archives-law",
+      "date": {
+        "start": "2023-12-22",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-12-22",
+      "publicationDate": "2023-12-22",
+      "title": "A UAP records collection becomes law",
+      "summary": "The enacted FY2024 NDAA required a UAP records collection at the National Archives.",
+      "significance": "A statutory records process is different from a proposed disclosure regime.",
+      "established": [
+        "Public Law 118-31, sections 1841–1843, provides collection and disclosure procedures, including grounds for postponement."
+      ],
+      "limitations": [
+        "The law does not certify the truth of allegations in records or guarantee immediate, complete disclosure."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Legislation and executive actions"
+      ],
+      "people": [],
+      "institutions": [
+        "US Congress",
+        "National Archives"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [
+        "enacted",
+        "NDAA",
+        "Public Law 118-31"
+      ],
+      "sources": [
+        {
+          "sourceId": "ndaa24",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "disclosure-proposal",
+        "nara-first-release"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "aaro-history-report",
+      "slug": "aaro-history-report",
+      "date": {
+        "start": "2024-03-08",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2024-03-08",
+      "publicationDate": "2024-03-09",
+      "title": "AARO issues its historical review",
+      "summary": "Reuters reported that AARO found no evidence that a government investigation had confirmed extraterrestrial technology.",
+      "significance": "This records the office’s historical assessment.",
+      "established": [
+        "The reported finding is an institutional conclusion."
+      ],
+      "limitations": [
+        "It does not identify every unresolved object. The original report PDF was inaccessible during this audit."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research",
+        "Reporting and disclosures"
+      ],
+      "people": [],
+      "institutions": [
+        "AARO"
+      ],
+      "evidenceTypes": [
+        "Institutional assessment",
+        "Reporting inspected"
+      ],
+      "tags": [
+        "historical report",
+        "Volume I"
+      ],
+      "sources": [
+        {
+          "sourceId": "aaro-history",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "aaro-created"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "house-hearing-2024",
+      "slug": "house-hearing-2024",
+      "date": {
+        "start": "2024-11-13",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2024-11-13",
+      "publicationDate": "2024-11-13",
+      "title": "The House holds another UAP hearing",
+      "summary": "Tim Gallaudet, Luis Elizondo, Michael Gold and Michael Shellenberger appeared before House Oversight subcommittees.",
+      "significance": "The hearing continued public scrutiny of transparency and UAP claims.",
+      "established": [
+        "The committee’s hearing page establishes the date and witnesses."
+      ],
+      "limitations": [
+        "The hearing’s title and the witnesses’ participation do not validate every underlying allegation."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Hearings and oversight"
+      ],
+      "people": [
+        "Tim Gallaudet",
+        "Luis Elizondo",
+        "Michael Gold",
+        "Michael Shellenberger"
+      ],
+      "institutions": [
+        "House Oversight Committee"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "hearing24",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "house-hearing-2023"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "annual-report-2024",
+      "slug": "annual-report-2024",
+      "date": {
+        "start": "2024-11-14",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2024-11-14",
+      "publicationDate": "2024-11-14",
+      "title": "AARO reports a larger caseload",
+      "summary": "DefenseScoop reported 757 additional reports in AARO’s annual analysis.",
+      "significance": "Report counts describe the intake system, not a census of anomalous craft.",
+      "established": [
+        "The article documents the annual report and the director’s accompanying briefing."
+      ],
+      "limitations": [
+        "Counts mix reporting periods and older submissions. Unresolved cases and incomplete data remain."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "people": [
+        "Jon Kosloski"
+      ],
+      "institutions": [
+        "AARO",
+        "ODNI"
+      ],
+      "evidenceTypes": [
+        "Institutional assessment",
+        "Reporting inspected"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "annual24",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "senate-hearing-2024",
+        "annual-report-2026"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "senate-hearing-2024",
+      "slug": "senate-hearing-2024",
+      "date": {
+        "start": "2024-11-19",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2024-11-19",
+      "publicationDate": "2024-11-19",
+      "title": "AARO’s director testifies to the Senate",
+      "summary": "Jon Kosloski described AARO’s work and unresolved cases to a Senate Armed Services subcommittee.",
+      "significance": "The director’s assessment is available in a public primary record.",
+      "established": [
+        "His statement says AARO had found no verifiable extraterrestrial evidence while some cases still required investigation."
+      ],
+      "limitations": [
+        "An institutional assessment is not a case-by-case demonstration that every observation has been explained."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Hearings and oversight"
+      ],
+      "people": [
+        "Jon Kosloski"
+      ],
+      "institutions": [
+        "AARO",
+        "Senate Armed Services Committee"
+      ],
+      "evidenceTypes": [
+        "Institutional record",
+        "Institutional assessment"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "senate24",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        },
+        {
+          "sourceId": "kosloski",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "annual-report-2024"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "nara-first-release",
+      "slug": "nara-first-release",
+      "date": {
+        "start": "2025-04-24",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2025-04-24",
+      "publicationDate": "2025-04-24",
+      "title": "The National Archives releases its first collection records",
+      "summary": "NARA announced records from the FAA, NRC, ODNI and Office of the Secretary of Defense.",
+      "significance": "This is a dated, documented implementation of the records law.",
+      "established": [
+        "The release notice identifies the initial contributing agencies and continuing transfers."
+      ],
+      "limitations": [
+        "Collection membership does not authenticate every account or establish that all responsive records have arrived."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases"
+      ],
+      "people": [],
+      "institutions": [
+        "National Archives",
+        "FAA",
+        "NRC",
+        "ODNI",
+        "Department of Defense"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [
+        "RG 615",
+        "archive"
+      ],
+      "sources": [
+        {
+          "sourceId": "nara-first",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "archives-law"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "house-hearing-2025",
+      "slug": "house-hearing-2025",
+      "date": {
+        "start": "2025-09-09",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2025-09-09",
+      "publicationDate": "2025-09-09",
+      "title": "Oversight focuses on transparency and whistleblowers",
+      "summary": "The House held a hearing titled Restoring Public Trust Through UAP Transparency and Whistleblower Protection.",
+      "significance": "It continued the public oversight record.",
+      "established": [
+        "The official page lists the hearing and witnesses, including Dylan Borland and Jeffrey Nuccetelli."
+      ],
+      "limitations": [
+        "Witness testimony remains attributed; holding a hearing does not adjudicate its claims."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Hearings and oversight"
+      ],
+      "people": [
+        "Dylan Borland",
+        "Jeffrey Nuccetelli",
+        "Alexandro Wiggins",
+        "George Knapp",
+        "Walter Spielberger"
+      ],
+      "institutions": [
+        "House Oversight Committee"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "hearing25",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "house-hearing-2024"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "presidential-announcement",
+      "slug": "presidential-announcement",
+      "date": {
+        "start": "2026-02-19",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2026-02-19",
+      "publicationDate": "2026-02-20",
+      "title": "Trump announces plans to release UFO files",
+      "summary": "Reuters reported that President Donald Trump said he would direct agencies to identify and release relevant records.",
+      "significance": "This documents a public executive intention.",
+      "established": [
+        "The report records the announcement, rather than an inspected executive order."
+      ],
+      "limitations": [
+        "It is not evidence that all records were immediately declassified or that alleged non-human origins were confirmed."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Legislation and executive actions"
+      ],
+      "people": [
+        "Donald Trump"
+      ],
+      "institutions": [
+        "White House",
+        "Department of Defense"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "trump26",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "pursue-first-release"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "pursue-first-release",
+      "slug": "pursue-first-release",
+      "date": {
+        "start": "2026-05-08",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2026-05-08",
+      "publicationDate": "2026-05-14",
+      "title": "The first PURSUE file release",
+      "summary": "DefenseScoop’s reporting identifies May 8 as the first PURSUE release.",
+      "significance": "It opened another route to public records and imagery.",
+      "established": [
+        "The publication describes the released material and interviews researchers and officials about its limits."
+      ],
+      "limitations": [
+        "Raw files can lack decisive context. The official portal was inaccessible to this audit; no independent analysis of every file is claimed."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases"
+      ],
+      "people": [],
+      "institutions": [
+        "Department of War",
+        "PURSUE"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected",
+        "Sensor material"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "pursue-first",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "presidential-announcement",
+        "pursue-sixth-release"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "annual-report-2026",
+      "slug": "annual-report-2026",
+      "date": {
+        "start": "2026-07",
+        "end": null,
+        "precision": "month",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2026-07",
+      "publicationDate": "2026-07-21",
+      "title": "A later annual assessment is reported",
+      "summary": "DefenseScoop described AARO’s FY2025 annual report in July 2026, including 319 new reports.",
+      "significance": "The report year, release period and observation dates are different.",
+      "established": [
+        "The article dates its reporting to July 21 and says the report was released that week."
+      ],
+      "limitations": [
+        "An exact release day was not verified. Inconsistent component counts in the article are not reproduced."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Reporting and disclosures"
+      ],
+      "people": [],
+      "institutions": [
+        "AARO"
+      ],
+      "evidenceTypes": [
+        "Institutional assessment",
+        "Reporting inspected"
+      ],
+      "tags": [],
+      "sources": [
+        {
+          "sourceId": "annual26",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "annual-report-2024"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "historical-archive-plan",
+      "slug": "historical-archive-plan",
+      "date": {
+        "start": "2026-09-02",
+        "end": null,
+        "precision": "day",
+        "role": "reporting"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2026-09-02",
+      "publicationDate": "2026-09-02",
+      "title": "A plan to access a private historical archive is reported",
+      "summary": "DefenseScoop reported that the Pentagon sought access to a large civilian UFO archive.",
+      "significance": "The proposed access would broaden the historical material available to investigators.",
+      "established": [
+        "The article describes an intended base year with four optional years."
+      ],
+      "limitations": [
+        "This is not evidence of a contract award. The notice’s exact date was not verified from readable procurement text."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases",
+        "Reporting and disclosures"
+      ],
+      "people": [],
+      "institutions": [
+        "AARO",
+        "National UFO Historical Records Center"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [
+        "procurement",
+        "archive"
+      ],
+      "sources": [
+        {
+          "sourceId": "archive26",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "aaro-history-report"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "pursue-waiver",
+      "slug": "pursue-waiver",
+      "date": {
+        "start": "2026-09-14",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2026-09-14",
+      "publicationDate": "2026-09-14",
+      "title": "A restricted disclosure waiver is announced",
+      "summary": "The department announced relief for certain disclosures to designated PURSUE representatives.",
+      "significance": "A protected reporting channel is different from permission to disclose publicly.",
+      "established": [
+        "The reproduced announcement describes civil and administrative relief under specified secrecy agreements for this channel."
+      ],
+      "limitations": [
+        "The operative signed waiver was not inspected. Do not infer blanket public-disclosure permission, criminal immunity or confirmation of any allegation."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Legislation and executive actions"
+      ],
+      "people": [],
+      "institutions": [
+        "Department of War",
+        "PURSUE"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [
+        "NDA",
+        "waiver",
+        "authorized disclosure"
+      ],
+      "sources": [
+        {
+          "sourceId": "waiver26",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        },
+        {
+          "sourceId": "waiver-reprint",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "pursue-first-release"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    },
+    {
+      "id": "pursue-sixth-release",
+      "slug": "pursue-sixth-release",
+      "date": {
+        "start": "2026-09-18",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2026-09-18",
+      "publicationDate": "2026-09-18",
+      "title": "A sixth PURSUE release is reported",
+      "summary": "FOX 5 DC reported another Pentagon release of historical and contemporary UAP files.",
+      "significance": "The public record continued to grow after the first release.",
+      "established": [
+        "The dated coverage documents the release announcement."
+      ],
+      "limitations": [
+        "The inaccessible original manifest prevents an independently verified file count here. Releasing a record does not validate its explanation."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Records releases"
+      ],
+      "people": [],
+      "institutions": [
+        "Department of War",
+        "PURSUE"
+      ],
+      "evidenceTypes": [
+        "Reporting inspected"
+      ],
+      "tags": [
+        "declassification"
+      ],
+      "sources": [
+        {
+          "sourceId": "pursue-sixth",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "pursue-first-release"
+      ],
+      "addedAt": "2026-09-19T17:34:37Z",
+      "revisedAt": "2026-09-19T17:34:37Z",
+      "lastVerifiedAt": "2026-09-19T17:34:37Z",
+      "publicationStatus": "published",
+      "reviewStatus": "editor-reviewed",
+      "verificationLabel": "Reported milestone",
+      "automationClass": "review-required",
+      "correctionHistory": [],
+      "context": false
+    }
+  ],
+  "changeLog": [
+    {
+      "id": "initial-audit",
+      "date": "2026-09-19",
+      "title": "Initial source audit",
+      "detail": "Separated the December 16, 2017 online story from its December 17 print-front-page appearance. Earlier summaries are research leads, not sources.",
+      "eventIds": [
+        "nyt-2017"
+      ]
+    },
+    {
+      "id": "nara-date-correction",
+      "date": "2026-09-19",
+      "title": "Removed an unsupported September 4 transfer date",
+      "detail": "NARA’s page-review date does not establish when additional agency collections arrived. The current eight-agency listing is described as a checked holding, not a newly dated transfer event.",
+      "eventIds": [
+        "nara-first-release"
+      ]
+    },
+    {
+      "id": "procurement-correction",
+      "date": "2026-09-19",
+      "title": "Narrowed the archive-procurement claim",
+      "detail": "Readable reporting supports an intended purchase, not an award. The previously stated July 31 notice date was not verified and is not used.",
+      "eventIds": [
+        "historical-archive-plan"
+      ]
+    },
+    {
+      "id": "waiver-scope",
+      "date": "2026-09-19",
+      "title": "Kept the waiver’s scope explicit",
+      "detail": "The announcement concerns specified communications to PURSUE. It is not described here as general permission for public disclosure.",
+      "eventIds": [
+        "pursue-waiver"
+      ]
+    }
+  ]
+}
