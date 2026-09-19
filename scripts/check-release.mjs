@@ -20,6 +20,7 @@ for (const file of files(root).filter(file => file.endsWith('.html'))) {
   assert(file.endsWith('/ufos/index.html') || !/<a\b[^>]*href=["'][^"']*\/ufos(?:[\/?#"'])/i.test(html), 'The UFO timeline must have no inbound site links: ' + file);
   assert(file.endsWith('/dpc/index.html') || file.endsWith('/metsicare/index.html') || !/<a\b[^>]*href=["'][^"']*\/dpc(?:[\/?#"'])/i.test(html), 'The DPC concept must have no inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/metsicare(?:[\/?#"'])/i.test(html), 'The METSI Care concept must have no inbound site links: ' + file);
+  assert(file.startsWith(join(root, 'portfolio') + '/') || !/<a\b[^>]*href=["'][^"']*\/portfolio(?:[\/?#"'])/i.test(html), 'The portfolio review must have no inbound links from the rest of the site: ' + file);
 }
 for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'buildmine/index.html', 'preview/index.html', 'motorsport/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'privacy/index.html', 'sitemap.xml', 'robots.txt', 'drew-cleaver.vcf']) {
   assert(existsSync(join(root, page)), 'Missing required output: ' + page);
@@ -64,4 +65,20 @@ assert(!/<details\b|<summary\b/i.test(dpcArticle),'DPC narrative and worksheet s
 assert(!/METSI|Garrick/i.test(dpc), 'The neutral DPC page must not imply practice affiliation.');
 assert(readFileSync(join(root,'metsicare-deck.pdf')).equals(readFileSync(join(root,'dpc-deck.pdf'))), 'Old PDF links must deliver the neutral deck.');
 assert(sitemap.includes('/buildmine/'), 'Public builder must appear in the sitemap.');
-console.log('Release check passed: Buildmine public; unrelated unlisted routes and privacy preserved.');
+assert(!/\/portfolio(?:\/|<)/.test(sitemap), 'The portfolio review must stay out of the sitemap.');
+for (const page of ['index.html', 'higher-hangers/index.html', 'tesloco/index.html', 'spec-tesla-cup/index.html', 'buildmine/index.html']) {
+  const file = join(root, 'portfolio', page);
+  assert(existsSync(file), 'Missing portfolio review page: ' + page);
+  const html = readFileSync(file, 'utf8');
+  assert(/name="robots" content="noindex, nofollow"/.test(html), 'Portfolio review must remain noindex: ' + page);
+  assert(!/id="analytics-choice"|googletagmanager\.com|google-analytics\.com/.test(html), 'No analytics on the portfolio review: ' + page);
+  assert(html.includes('Unlisted · For review'), 'Portfolio review needs a visible status label: ' + page);
+  for (const match of html.matchAll(/(?:href|src)="(\/[^"?#]*)(?:[?#][^"]*)?"/g)) {
+    const path = decodeURIComponent(match[1]);
+    if (path.startsWith('//')) continue;
+    const target = join(root, path.endsWith('/') ? path + 'index.html' : path);
+    assert(existsSync(target), 'Broken portfolio link or asset: ' + path + ' in ' + page);
+  }
+}
+assert(!/Disallow:\s*\/portfolio/i.test(readFileSync(join(root, 'robots.txt'), 'utf8')), 'Allow crawlers to read portfolio noindex instructions.');
+console.log('Release check passed: Buildmine public; portfolio review and other unlisted routes preserved.');

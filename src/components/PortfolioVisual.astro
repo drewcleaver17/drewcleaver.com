@@ -1,0 +1,22 @@
+---
+import type { PortfolioProject } from '../data/portfolio';
+interface Props { project: PortfolioProject; priority?: boolean; }
+const { project, priority = false } = Astro.props;
+---
+{project.image ? (
+  <div class="folio-image">
+    <img src={project.image.src} alt={project.image.alt} width={project.image.width} height={project.image.height} loading={priority ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+) : project.slug === 'higher-hangers' ? (
+  <div class="folio-art folio-art-hangers" aria-label="Higher Hangers: product, commerce, operations">
+    <span class="folio-art-label">An everyday object, reconsidered.</span>
+    <span class="folio-art-name">Higher<br />Hangers<span class="folio-art-dot">.</span></span>
+    <span class="folio-art-foot">Product <span aria-hidden="true">/</span> Commerce <span aria-hidden="true">/</span> Operations</span>
+  </div>
+) : (
+  <div class="folio-art folio-art-builder" aria-label="Buildmine: your name, your story, your site">
+    <span class="folio-art-label">An open-source starting point.</span>
+    <span class="folio-art-name">Your name.<br />Your story.<br /><em>Your site.</em></span>
+    <div class="folio-theme-line" aria-hidden="true"><span>Editorial</span><span>Studio</span><span>Technical</span></div>
+  </div>
+)}

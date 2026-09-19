@@ -126,3 +126,20 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 ## DPC single worksheet refinement
 
 Drew requested one editable column with all 70 assumptions prefilled, every numerical input accepting zero or blank, all sections open, and addable rows with category/description and optional numeric or dollar values. Preserve saving, exchange, feedback and earlier inputs. Blank is unknown, never silently zero; added rows affect calculations only through an explicit financial treatment. The prior comparison columns are retained as individually openable worksheets during migration. Keep the DPC page unlisted and retain the dated PDF.
+
+## Portfolio review — September 19, 2026
+
+Drew authorized an unlisted portfolio implementation before public promotion.
+`/portfolio/` and its Higher Hangers, TESLOCO, Spec Tesla Cup and Buildmine case
+studies are direct-link review pages with `noindex, nofollow`, no analytics, and
+no entries in the sitemap or inbound links from other site sections. Existing
+TESLOCO / Spec Tesla Cup navigation and archives remain unchanged. Do not add
+this collection to shared navigation or promote it in the GitHub profile until
+Drew approves that separate step. Unlisted means publicly accessible by URL,
+not authenticated or confidential; source remains in the existing repository.
+
+Higher Hangers facts follow the published career record; its storefront
+capture remains pending. TESLOCO and Spec Tesla Cup use the preserved original
+pages and local imagery. Distinguish archive capture dates from event dates,
+and proposed services / race series from documented development work.
+Buildmine links to the live builder and the existing scoped starter source.
