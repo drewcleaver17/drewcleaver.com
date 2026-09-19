@@ -3,12 +3,16 @@
   "meta": {
     "title": "UFOs: A Living Timeline",
     "researchCutoff": "2026-09-19",
-    "lastCheckedAt": "2026-09-19T17:34:37Z",
-    "contentUpdatedAt": "2026-09-19T17:34:37Z",
+    "lastCheckedAt": "2026-09-19T18:03:51.100Z",
+    "contentUpdatedAt": "2026-09-19T18:03:51.100Z",
     "updateStatus": "setup incomplete",
     "updateDescription": "Weekly monitoring exists. Publishing integration is not yet end-to-end verified; reviewed imports remain available.",
     "cadence": "Weekly",
-    "edition": "2026-09-19.1"
+    "edition": "2026-09-19-nasa-public-meeting",
+    "publicationReceipt": null,
+    "appliedBatchIds": [
+      "2026-09-19-nasa-public-meeting"
+    ]
   },
   "sources": {
     "nyt-context": {
@@ -2167,6 +2171,67 @@
       "automationClass": "review-required",
       "correctionHistory": [],
       "context": false
+    },
+    {
+      "id": "nasa-public-meeting-2023",
+      "slug": "nasa-public-meeting-2023",
+      "date": {
+        "start": "2023-05-31",
+        "end": null,
+        "precision": "day",
+        "role": "milestone"
+      },
+      "incidentDate": null,
+      "disclosureDate": "2023-05-31",
+      "publicationDate": null,
+      "title": "NASA’s study team meets in public",
+      "summary": "NASA’s independent UAP study team held a public meeting on May 31, 2023.",
+      "significance": "Public deliberation preceded the final research recommendations.",
+      "established": [
+        "NASA’s meeting notice and retrospective caption document the meeting."
+      ],
+      "limitations": [
+        "This establishes a public scientific meeting, not an identified origin for UAP."
+      ],
+      "openQuestions": [],
+      "categories": [
+        "Scientific research"
+      ],
+      "people": [],
+      "institutions": [
+        "NASA"
+      ],
+      "evidenceTypes": [
+        "Institutional record"
+      ],
+      "tags": [
+        "public meeting",
+        "independent study"
+      ],
+      "sources": [
+        {
+          "sourceId": "nasa-study",
+          "supports": [
+            "date",
+            "title",
+            "summary",
+            "established"
+          ]
+        }
+      ],
+      "relatedEventIds": [
+        "nasa-study-announced",
+        "nasa-report"
+      ],
+      "addedAt": "2026-09-19T18:03:51.100Z",
+      "revisedAt": "2026-09-19T18:03:51.100Z",
+      "lastVerifiedAt": "2026-09-19T18:03:51.100Z",
+      "publicationStatus": "published",
+      "reviewStatus": "bounded-reviewed",
+      "verificationLabel": "Primary source read",
+      "automationClass": "institutional",
+      "correctionHistory": [],
+      "context": false
     }
   ],
   "changeLog": [
@@ -2204,6 +2269,15 @@
       "detail": "The announcement concerns specified communications to PURSUE. It is not described here as general permission for public disclosure.",
       "eventIds": [
         "pursue-waiver"
+      ]
+    },
+    {
+      "id": "2026-09-19-nasa-public-meeting",
+      "date": "2026-09-19",
+      "title": "Added a historical NASA meeting",
+      "detail": "Added NASA’s May 31, 2023 public study meeting after inspecting the agency’s record. This is a historical addition, not a new incident or a finding about UAP origins.",
+      "eventIds": [
+        "nasa-public-meeting-2023"
       ]
     }
   ]
