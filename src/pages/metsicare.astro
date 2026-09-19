@@ -1,0 +1,280 @@
+---
+import Base from '../layouts/Base.astro';
+import { profile } from '../data/profile';
+
+const costs = [
+  ['Owner physician cash compensation', 180000],
+  ['Two associates, $260,000 each', 520000],
+  ['Payroll burden, benefits and malpractice', 140000],
+  ['Local support staff, fully loaded', 90000],
+  ['Occupancy and utilities', 60000],
+  ['Clinical technology and supplies', 18000],
+  ['Local marketing', 18000],
+  ['Other administration and business insurance', 24000],
+  ['Shared nonclinical platform fee', 60000],
+] as const;
+const money = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+const scenarios = [
+  ['75% Extended, monthly pay', '$275.00', '$78,000', '6.6%'],
+  ['25% prepay at 20% off', '$261.25', '$18,600', '1.6%'],
+  ['Everyone prepays at 20% off', '$220.00', '−$159,600', '−16.8%'],
+  ['50% Extended, monthly pay', '$250.00', '−$30,000', '−2.8%'],
+  ['100% Extended, monthly pay', '$300.00', '$186,000', '14.4%'],
+];
+const schedule = [
+  ['10 am–1 pm', 'Three scheduled visit blocks'],
+  ['1–2 pm', 'Lunch, reset and case review'],
+  ['2–5 pm', 'Three scheduled visit blocks'],
+  ['5–6 pm', 'Held urgent capacity and same-day needs'],
+  ['6–7 pm', 'Results, messages and closeout'],
+];
+const sources = [
+  ['METSI Care', 'Published membership prices, services and physician background.', 'https://www.metsicare.com/'],
+  ['AAFP: direct primary care', 'Context for the membership model and physician compensation.', 'https://www.aafp.org/practice-operations/practice-and-payment-models/direct-primary-care'],
+  ['AAFP: physician training', 'Family medicine residency and training requirements.', 'https://www.aafp.org/students/pre-med/training-requirements'],
+  ['Texas Medical Association', 'Corporate practice of medicine framework. Current structure requires counsel review.', 'https://www.texmed.org/CPMwhitepaper/'],
+  ['Federal Trade Commission', 'Franchise disclosure and financial performance representations.', 'https://www.ftc.gov/business-guidance/blog/2023/05/franchise-fundamentals-taking-deep-dive-franchise-disclosure-document'],
+  ['HHS: HIPAA and cloud services', 'Privacy and security considerations for clinical technology.', 'https://www.hhs.gov/hipaa/for-professionals/special-topics/health-information-technology/cloud-computing/index.html'],
+];
+---
+
+<Base title="METSI Care — Growth Concept" description="An independent concept by Drew Cleaver for small physician-owned practices, a better patient experience, and a shared operating platform." compact noindex>
+  <article class="metsi" aria-labelledby="metsi-title">
+    <header class="metsi-hero">
+      <div class="metsi-shell">
+        <p class="eyebrow">A growth concept by Drew Cleaver <span>September 2026</span></p>
+        <h1 id="metsi-title">METSI Care</h1>
+        <p class="hero-thesis">Small physician-owned practices.<br />A shared platform for growth.</p>
+        <p class="hero-intro">Preserve the relationship with a trusted doctor. Make the experience more consistent. Give the next generation of physicians a path to ownership.</p>
+        <a class="download" href="/metsicare-deck.pdf" download="METSI-Care-Growth-Concept.pdf">Download the 16-slide PDF <span aria-hidden="true">↓</span></a>
+        <p class="disclosure">Independent proposal for discussion with Dr. Garrick. This is not an approved METSI Care offering, partnership, franchise offer or investment solicitation. All economics are illustrative.</p>
+      </div>
+    </header>
+
+    <div class="metsi-shell reading">
+      <section aria-labelledby="thesis">
+        <p class="eyebrow">01 / The investment thesis</p>
+        <h2 id="thesis">A trusted local doctor is the product. A repeatable practice is the growth engine.</h2>
+        <p>The proposal combines a predictable monthly relationship visit with ongoing access and a clear care plan. A small local practice preserves continuity. Shared nonclinical operations make the experience easier to deliver and repeat.</p>
+        <p>Each location would have <strong>one physician owner and no more than two associates</strong>. Associates could learn the business, demonstrate clinical and operating readiness, then pursue ownership of their own location.</p>
+        <p class="callout">The investment case depends on proving that patients stay, clinicians have sustainable workloads, and a location earns a margin after fair physician pay.</p>
+        <p class="note">METSI Care already operates in Austin. Its <a href="https://www.metsicare.com/" rel="noreferrer">public website</a> lists $200 and $300 adult memberships with different benefits from this proposal. No actual patient census, retention, acquisition costs or practice financials were supplied for this analysis.</p>
+      </section>
+
+      <section aria-labelledby="membership">
+        <p class="eyebrow">02 / The proposed membership</p>
+        <h2 id="membership">Two visit lengths. One ongoing relationship.</h2>
+        <div class="plans">
+          <div class="plan"><h3>Core</h3><p class="price">$200<span>/month</span></p><p>One optional monthly visit with <strong>20–25 minutes of physician time</strong>, scheduled in a 30-minute block.</p><p class="note">Proposed annual option: $1,920 upfront, equivalent to $160/month.</p></div>
+          <div class="plan"><h3>Extended</h3><p class="price">$300<span>/month</span></p><p>One optional monthly visit with <strong>45 minutes of physician time</strong>, scheduled in a 60-minute block.</p><p class="note">Proposed annual option: $2,880 upfront, equivalent to $240/month.</p></div>
+        </div>
+        <p>Both plans would include ongoing remote access within published coverage hours. Additional in-person visits would cost $60 for up to 25 minutes or $100 for around 50 minutes, subject to capacity and clinical need.</p>
+        <p>Visits are encouraged when useful, never required just to use an allowance. Unused visits would not roll over. Clinically appropriate discounted labs would remain separately billed, with transparent pricing. Drugs, outside specialists and emergency care are separate.</p>
+        <p class="note">These are proposed new terms, not current membership benefits. Existing members would retain their agreements unless they voluntarily accept a change. Membership is not health insurance. The 20% annual discount is an option to test, not the recommended economic baseline.</p>
+      </section>
+
+      <section aria-labelledby="care">
+        <p class="eyebrow">03 / The patient experience</p>
+        <h2 id="care">Every visit ends with an agreed plan.</h2>
+        <ol class="steps">
+          <li><h3>Prepare the agenda</h3><p>Before the visit, capture the patient's priorities, medication updates and relevant results.</p></li>
+          <li><h3>Use the time deliberately</h3><p>Agree on the most important concerns, address clinical risk, and assign follow-up for anything unfinished.</p></li>
+          <li><h3>Close the loop</h3><p>Provide a physician-reviewed summary with actions, responsibility and timing. Check whether the patient feels heard and understands what comes next.</p></li>
+          <li><h3>Make access predictable</h3><p>Set a routine response target of the next business day during stated coverage. Provide a separate clinical escalation route, held appointments and funded backup coverage.</p></li>
+        </ol>
+        <p>A literal 24-hour promise across weekends requires a staffed rota. “Unlimited” access should describe an ongoing relationship, not an unbounded guarantee of immediate physician time. All members need a safe triage route, regardless of plan.</p>
+        <p class="note">The model includes mental-health support within primary care. It does not assume that a monthly physician visit replaces psychotherapy or specialist care. AI-assisted documentation would require appropriate privacy controls, vendor agreements and physician review. This concept page collects no patient information.</p>
+      </section>
+
+      <section aria-labelledby="rhythm">
+        <p class="eyebrow">04 / The physician rhythm</p>
+        <h2 id="rhythm">Six scheduled patients leave room to finish the work.</h2>
+        <p>The proposed owner schedule concentrates in-person care on Tuesday through Thursday, around 10 am to 7 pm. Three visit blocks fall before lunch and three after, with protected time for urgent needs and clinical follow-through.</p>
+        <dl class="schedule">{schedule.map(([time, activity]) => <div><dt>{time}</dt><dd>{activity}</dd></div>)}</dl>
+        <p>Core visits occupy 30-minute blocks, while Extended visits occupy an hour. Recovered time initially supports messages, care coordination and recovery rather than automatically becoming additional sold appointments.</p>
+        <p>Each associate would cover five weekdays. After-hours and weekend work would use an explicit, fairly compensated rotation. Three in-office days for the owner do not automatically mean four days free of clinical responsibility.</p>
+      </section>
+
+      <section aria-labelledby="capacity">
+        <p class="eyebrow">05 / Capacity is the constraint</p>
+        <h2 id="capacity">A mature three-physician location has 299 routine visits per month.</h2>
+        <p>The planning model uses 13 physician-days per week: three for the owner and five for each of two associates. At six routine visits a day and 46 working weeks per year:</p>
+        <p class="formula">13 days × 6 visits × 46 weeks ÷ 12<br /><strong>299 routine visits per month</strong></p>
+        <p>At <strong>360 members and 70% monthly attendance</strong>, routine demand is 252 visits, or 84% of the available slots. At 80% attendance, utilization reaches 96%. At 90%, demand exceeds the model's routine capacity.</p>
+        <p class="callout">360 members is a conditional planning case, not a safe enrollment cap established by evidence. Enrollment must pause if promised access cannot be delivered.</p>
+        <p>The pilot must measure messaging time, unplanned visits, absence coverage and variation between clinicians. Monthly averages can hide busy weeks. Extra visits and urgent access cannot consume the same spare capacity twice.</p>
+      </section>
+
+      <section aria-labelledby="economics">
+        <p class="eyebrow">06 / Illustrative location economics</p>
+        <h2 id="economics">The model can cover costs, but the initial margin is thin.</h2>
+        <p>At maturity, 360 members with a 75% Extended / 25% Core mix generate blended dues of $275 per month. This baseline assumes monthly payment with no annual discount.</p>
+        <dl class="economics">
+          <div><dt>Annual membership revenue</dt><dd>$1,188,000</dd></div>
+          <div><dt>Physician compensation and burden</dt><dd>−$840,000</dd></div>
+          <div><dt>Local nonphysician operating costs</dt><dd>−$210,000</dd></div>
+          <div><dt>Shared-platform service fee</dt><dd>−$60,000</dd></div>
+          <div class="total"><dt>Annual operating surplus</dt><dd>$78,000 <span>6.6% margin</span></dd></div>
+        </dl>
+        <p>Break-even is approximately <strong>337 members at $275 per month</strong>, before startup costs and working capital. The owner receives compensation before any operating surplus. No profit from extra visits, labs or drugs is necessary to produce this calculation.</p>
+        <details><summary>See all annual cost assumptions</summary><dl class="costs">{costs.map(([label, amount]) => <div><dt>{label}</dt><dd>{money(amount)}</dd></div>)}<div class="total"><dt>Total</dt><dd>{money(costs.reduce((sum, row) => sum + row[1], 0))}</dd></div></dl><p class="note">Planning assumptions, not quotes. Compensation must pass an actual recruiting test. Surplus is before depreciation, amortization, interest and tax. The model excludes startup equipment, deposits, financing costs and the platform company's own central overhead.</p></details>
+      </section>
+
+      <section aria-labelledby="discounts">
+        <p class="eyebrow">07 / Pricing sensitivity</p>
+        <h2 id="discounts">A 20% annual discount can consume the profit.</h2>
+        <p>Upfront payments help cash timing. They do not create additional earned revenue. Every scenario below holds membership at 360 and annual location costs at $1.110 million.</p>
+        <table class="responsive-table"><caption>Illustrative pricing scenarios</caption><thead><tr><th scope="col">Scenario</th><th scope="col">Net monthly dues</th><th scope="col">Annual surplus</th><th scope="col">Margin</th></tr></thead><tbody>{scenarios.map(([name, dues, surplus, margin]) => <tr><th scope="row">{name}</th><td data-label="Net monthly dues">{dues}</td><td data-label="Annual surplus">{surplus}</td><td data-label="Margin">{margin}</td></tr>)}</tbody></table>
+        <p>For the prepay scenarios, the underlying mix remains 75% Extended and 25% Core, with equal prepay adoption across tiers. Refund and cancellation terms need review before testing the offer.</p>
+        <p class="callout">A proposed expansion gate is at least 15% location operating margin after physician pay and platform fees. The current base case does not meet that gate.</p>
+      </section>
+
+      <section aria-labelledby="acquisition">
+        <p class="eyebrow">08 / The Austin pilot audience</p>
+        <h2 id="acquisition">Start with people who value continuity.</h2>
+        <p>The first audience is adults roughly 35–55 who want an ongoing physician relationship and proactive follow-up. The offer emphasizes mental-health support within primary care, evidence-based weight care, and preventive planning.</p>
+        <p>Begin with opt-in patient referrals and local professional communities. Small paid campaigns can follow once the proposition converts. Track paid conversion, acquisition cost, retained margin and why people join or leave.</p>
+        <p class="note">No verified Austin therapy-price benchmark or claim of equivalent psychotherapy outcomes enters the model. Testing and treatment should follow clinical need. The investment case does not depend on experimental peptides, unnecessary testing or promised lab savings.</p>
+      </section>
+
+      <section aria-labelledby="ownership">
+        <p class="eyebrow">09 / The physician ownership path</p>
+        <h2 id="ownership">Learn the practice. Demonstrate readiness. Earn a path to ownership.</h2>
+        <p>Recruit licensed, residency-trained MDs or DOs, with competitive pay and clinical autonomy. Early-career physicians can develop practice-management skills alongside a senior owner. This is business mentorship, separate from accredited medical training.</p>
+        <ol class="steps">
+          <li><h3>Join and develop</h3><p>Learn the care model and operating routines while building patient relationships and receiving mentorship.</p></li>
+          <li><h3>Qualify for ownership</h3><p>Review clinical quality, patient continuity, operating judgment and financing readiness. An 18–36 month path is a hypothesis to test, not a guaranteed promotion.</p></li>
+          <li><h3>Open or buy in</h3><p>Use the shared support system to establish a physician-owned practice, subject to legal structure and financing.</p></li>
+          <li><h3>Protect the original practice</h3><p>Plan replacement staffing and patient transitions before an associate or panel moves. Neither location should depend on constant recruitment of new owners to survive.</p></li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="platform">
+        <p class="eyebrow">10 / The shared operating platform</p>
+        <h2 id="platform">Physicians control medicine. The platform supports the business.</h2>
+        <div class="responsibilities"><div><h3>Physician-owned practice</h3><p>Medical judgment, diagnosis and prescribing. Clinical staffing, patient relationships and clinical records. Care quality and escalation decisions.</p></div><div><h3>Nonclinical support company</h3><p>Brand and scheduling systems. Administrative support, recruitment and approved vendor coordination. Reporting and practice-owner training.</p></div></div>
+        <p>The economic model allocates <strong>$5,000 per location per month</strong> for defined platform services. That is a planning assumption, not an approved management fee or a legal safe harbor. Service value and contracts need independent review.</p>
+        <p class="note">Texas healthcare counsel must review ownership, clinical independence, fee arrangements and data access. Franchise counsel must determine whether branding, fees and control trigger franchise rules. Calling the company an MSO does not settle that question. Any future franchise financial claims require the appropriate disclosure process.</p>
+      </section>
+
+      <section aria-labelledby="scale">
+        <p class="eyebrow">11 / Scalability and investor fit</p>
+        <h2 id="scale">Clinic revenue and platform revenue are different businesses.</h2>
+        <table class="responsive-table"><caption>Illustrative mature network, not a forecast</caption><thead><tr><th scope="col">Locations</th><th scope="col">Annual clinic revenue across network</th><th scope="col">Annual platform revenue</th></tr></thead><tbody>{[['1', '$1.188 million', '$60,000'], ['25', '$29.7 million', '$1.5 million'], ['100', '$118.8 million', '$6.0 million']].map(([sites, clinical, platform]) => <tr><th scope="row">{sites} {sites === '1' ? 'location' : 'locations'}</th><td data-label="Network clinic revenue">{clinical}</td><td data-label="Platform revenue">{platform}</td></tr>)}</tbody></table>
+        <p>These numbers multiply the same mature-location case. They do not establish demand, opening speed or platform profit. The platform must fund its central team and delivery costs from its own fees.</p>
+        <p>The potential advantage is a repeatable patient experience and a credible route to physician ownership. Conventional venture-capital fit remains conditional on repeatable openings, retention and profitable support delivery. A strong local practice alone does not establish venture-scale returns.</p>
+      </section>
+
+      <section aria-labelledby="pilot">
+        <p class="eyebrow">12 / The next decision</p>
+        <h2 id="pilot">Run a limited pilot before funding a network.</h2>
+        <ol class="steps">
+          <li><h3>Weeks 1–2: agree the baseline</h3><p>Obtain Dr. Garrick's approval. Review actual costs, time use, current member agreements, clinical scope and coverage. Set the pilot budget and named responsibilities.</p></li>
+          <li><h3>Weeks 3–12: test with 20–30 opt-in members</h3><p>Measure paid demand, agenda completion, messages, urgent access, clinician workload and patient satisfaction. Track each member's full 90 days before claiming 90-day retention.</p></li>
+          <li><h3>Before the first associate</h3><p>Require documented demand, real compensation quotes and funded hiring runway. Resolve backup coverage and clinical quality oversight.</p></li>
+          <li><h3>Before a second location</h3><p>Require at least six months of stable retention, access and unit economics. Test whether the model works without founder-dependent delivery.</p></li>
+        </ol>
+        <p><strong>Proposed pilot thresholds:</strong> at least 90% 90-day retention, 90% of routine replies within the target, and 90% of visits ending with an agreed plan. Keep routine slot utilization at or below 85%, and monitor patient-reported experience and safety events.</p>
+        <p class="callout">The immediate ask is agreement on a bounded pilot. A fundraising amount should follow verified startup costs, hiring plans and runway, not precede them.</p>
+        <p>Membership contracts, annual prepayments, HSA representations, employment terms and any later franchise program need professional review. Clinical referral thresholds, emergency instructions, privacy and AI documentation controls belong in the operating design from day one.</p>
+        <a class="discussion" href={`mailto:${profile.email}?subject=${encodeURIComponent('METSI Care concept discussion')}`}>Discuss this concept with Drew <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sources" aria-labelledby="sources">
+        <p class="eyebrow">Sources and boundaries</p>
+        <h2 id="sources">Public facts. Explicit assumptions.</h2>
+        <p>Sources accessed September 19, 2026. All financial figures are USD. Pricing, attendance, staffing, fees and expansion thresholds in the proposed model are assumptions, not reported operating results.</p>
+        <ol>{sources.map(([name, description, url]) => <li><a href={url} rel="noreferrer">{name}</a><p>{description}</p></li>)}</ol>
+        <p class="note">Unlisted, not confidential: this page has no homepage or navigation links, is excluded from the sitemap, and asks search engines not to index it. Anyone with the URL can read or share it. No password protection is provided.</p>
+      </section>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .metsi { --ink:#152b35; --muted:#53616a; --accent:#b42f32; --border:#d9e0e1; color:var(--ink); background:#fff; font-family:Arial,Helvetica,sans-serif; }
+  .metsi-shell { width:min(1080px,calc(100% - 48px)); margin-inline:auto; }
+  .metsi-hero { background:var(--ink); color:#fff; padding:76px 0 64px; }
+  .eyebrow { font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 24px; }
+  .metsi-hero .eyebrow { color:#f0a2a3; display:flex; flex-wrap:wrap; gap:12px 24px; }
+  .metsi h1 { color:#fff; font-size:clamp(3.5rem,8vw,6.8rem); font-weight:700; letter-spacing:-.055em; line-height:1; margin:0 0 32px; }
+  .hero-thesis { font-size:clamp(1.7rem,3.5vw,3rem); font-weight:600; line-height:1.2; letter-spacing:-.025em; max-width:900px; margin:0 0 28px; }
+  .hero-intro { color:#d2dce0; font-size:clamp(1.1rem,2vw,1.3rem); max-width:740px; line-height:1.65; }
+  .download { display:inline-flex; align-items:center; justify-content:space-between; gap:32px; border:1px solid #71858e; color:#fff; padding:15px 20px; min-height:48px; margin:16px 0 24px; text-decoration:none; font-weight:700; }
+  .download:hover { background:#29434f; }
+  .disclosure { color:#bfcdd3; max-width:830px; font-size:.875rem; line-height:1.6; margin:0; }
+  .reading { max-width:920px; }
+  section { padding:64px 0; border-bottom:1px solid var(--border); scroll-margin-top:32px; }
+  .metsi h2 { font-size:clamp(1.7rem,3.2vw,2.65rem); line-height:1.2; font-weight:700; letter-spacing:-.03em; max-width:850px; margin:0 0 28px; color:var(--ink); }
+  .metsi h3 { font-size:1.16rem; line-height:1.35; margin:0 0 8px; color:var(--ink); font-weight:700; letter-spacing:-.01em; }
+  section p { font-size:1.08rem; line-height:1.8; margin:0 0 20px; }
+  section p:last-child { margin-bottom:0; }
+  .metsi a:not(.download) { color:var(--accent); text-underline-offset:4px; text-decoration-thickness:1px; }
+  .metsi a:focus-visible,summary:focus-visible { outline:3px solid #ce4749; outline-offset:5px; }
+  .note { font-size:.91rem; color:var(--muted); line-height:1.65; }
+  .callout { border-left:3px solid var(--accent); padding:8px 0 8px 22px; margin:28px 0; font-size:1.16rem; font-weight:600; line-height:1.6; }
+  .plans,.responsibilities { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin:34px 0; }
+  .plan { border-top:3px solid var(--ink); padding-top:22px; }
+  .plan h3 { font-size:1.4rem; }
+  .price { color:var(--accent); font-size:3.7rem; letter-spacing:-.045em; font-weight:700; line-height:1.2; margin:18px 0; }
+  .price span { font-size:1rem; color:var(--muted); font-weight:400; letter-spacing:0; margin-left:6px; }
+  .steps { list-style:none; counter-reset:step; padding:0; margin:34px 0; }
+  .steps li { counter-increment:step; position:relative; padding:0 0 26px 46px; }
+  .steps li::before { content:counter(step,decimal-leading-zero); position:absolute; left:0; top:0; font-size:.85rem; font-weight:700; color:var(--accent); line-height:1.8; }
+  .steps li:last-child { padding-bottom:0; }
+  .steps p { margin:0; }
+  .schedule,.economics,.costs { margin:30px 0; }
+  .schedule>div,.economics>div,.costs>div { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; padding:16px 0; border-bottom:1px solid var(--border); }
+  .schedule>div { grid-template-columns:130px minmax(0,1fr); }
+  dt,dd { margin:0; font-size:1.03rem; line-height:1.6; }
+  .schedule dt { font-weight:700; }
+  .economics dd,.costs dd { font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right; }
+  .economics .total,.costs .total { border-top:2px solid var(--ink); border-bottom:0; font-weight:700; color:var(--ink); }
+  .total dd span { display:block; font-size:.9rem; color:var(--muted); font-weight:400; }
+  .formula { padding:24px 0; font-variant-numeric:tabular-nums; color:var(--muted); }
+  .formula strong { font-size:clamp(1.4rem,2.8vw,2rem); color:var(--accent); }
+  details { border:1px solid var(--border); padding:0 22px; margin-top:30px; }
+  summary { cursor:pointer; padding:18px 0; min-height:48px; font-size:1rem; font-weight:700; }
+  details .note { padding-bottom:22px; }
+  .responsive-table { width:100%; border-collapse:collapse; margin:30px 0; font-size:1rem; }
+  caption { text-align:left; font-size:.85rem; color:var(--muted); margin-bottom:12px; }
+  th,td { text-align:left; padding:17px 15px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.45; }
+  thead { background:var(--ink); color:#fff; }
+  thead th { font-weight:600; }
+  tbody th { font-weight:500; }
+  tbody tr:nth-child(even) { background:#f3f5f5; }
+  .discussion { display:inline-block; font-size:1.08rem; font-weight:700; padding:12px 0; min-height:44px; }
+  .sources { padding-bottom:70px; border-bottom:0; }
+  .sources ol { padding-left:22px; margin:30px 0; }
+  .sources li { padding:0 0 18px 8px; }
+  .sources li p { font-size:.9rem; color:var(--muted); margin:5px 0 0; }
+  @media(max-width:640px) {
+    .metsi-shell { width:calc(100% - 40px); }
+    .metsi-hero { padding:50px 0 44px; }
+    .metsi-hero .eyebrow { display:block; line-height:1.7; }
+    .metsi-hero .eyebrow span { display:block; }
+    .metsi h1 { margin-bottom:26px; }
+    .hero-thesis br { display:none; }
+    .download { display:flex; gap:16px; font-size:.95rem; }
+    section { padding:46px 0; }
+    section p { font-size:1rem; line-height:1.75; }
+    .eyebrow { font-size:.71rem; line-height:1.6; }
+    .plans,.responsibilities { grid-template-columns:1fr; gap:30px; }
+    .price { font-size:3.1rem; }
+    .steps li { padding-left:35px; }
+    .schedule>div { grid-template-columns:98px minmax(0,1fr); gap:16px; }
+    dt,dd { font-size:.94rem; }
+    .economics>div,.costs>div { gap:12px; }
+    .economics dd,.costs dd { font-size:.94rem; }
+    details { padding:0 14px; }
+    .responsive-table thead { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .responsive-table,.responsive-table tbody { display:block; }
+    .responsive-table tr { display:block; padding:15px 0; border-bottom:1px solid var(--border); background:none; }
+    .responsive-table th[scope=row] { display:block; border:0; padding:0 0 12px; font-size:1rem; font-weight:700; }
+    .responsive-table td { display:flex; justify-content:space-between; gap:18px; padding:5px 0; border:0; font-size:.94rem; }
+    .responsive-table td::before { content:attr(data-label); color:var(--muted); max-width:62%; }
+    .note,.disclosure { font-size:.85rem; }
+  }
+  @media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto; } }
+  @media print { .metsi-hero { color:var(--ink); background:#fff; } .metsi h1 { color:var(--ink); } .hero-intro,.disclosure { color:var(--muted); } .download { display:none; } section { padding:30px 0; } h2,h3 { break-after:avoid; } .metsi-shell { width:100%; } }
+</style>
