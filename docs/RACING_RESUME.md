@@ -73,4 +73,9 @@ The full original infographic is expandable, openable and downloadable.
 - Local links and anchors resolve; one H1; source/result table has six entries.
 - Release guard enforces noindex, no analytics, no inbound links and no sitemap
   listing for the new route.
-- Live deployment verification follows the publication commit.
+- GitHub Pages deployment 35476176931 succeeded for commit
+  8babdbf25a683a8ed13f4fdecc862ee7d7b2a03e.
+- Live `/racingresume` and `/racingresume/` return HTTP 200. Robots metadata is
+  noindex/nofollow; no analytics initialization; no homepage link or sitemap entry.
+- Live infographic matches the reviewed original byte-for-byte (1,539,352 bytes;
+  SHA-256 a68abe6a388c3b00efba8dac6f57c7bde39745da2a73e71a37a54c96e2fea4fc).
