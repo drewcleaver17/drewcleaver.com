@@ -1,0 +1,6 @@
+---
+import WebsiteArchive from '../components/WebsiteArchive.astro';
+import pages from '../data/website-archives.json';
+const entries = pages.filter(p => p.project === 'tesloco');
+---
+<WebsiteArchive name="TESLOCO" slug="tesloco" subtitle="Crazy Good Concierge Tesla Road & Race Service" intro="A home for the website I built around a better Tesla ownership experience: road and race service, personal attention, and world-class hospitality. Preserved here as a memory of the idea and the work that went into it." note="Recovered directly from the surviving WordPress site on September 19, 2026, including its homepage, service menu, About page and quote page. This is the version that remains publicly accessible, not a verified record of every earlier revision. The original About page says ‘Coming Soon’; that unfinished detail is preserved too. Original imagery and styling are stored with this copy. Forms and tracking are disabled." entries={entries} />

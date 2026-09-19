@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html>
+
+<html class="supports-no-js site-footer--hidden" lang="en">
+<head><meta charset="utf-8"/><meta content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; form-action 'none'; base-uri 'none'; frame-src 'none'; script-src 'none'" http-equiv="Content-Security-Policy"/>
+
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+
+
+
+<title>
+    Stage 2 - Apex Wheels – Spec Tesla Cup
+  </title>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  :root {
+    --color-body-text: #000000;
+    --color-body: #fafafa;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="shopify-accelerated-checkout-cart">
+        #dynamic-checkout-cart {
+  container-type: inline-size;
+  container-name: dcc;
+  width: 100%;
+}
+
+.wallet-cart-grid {
+  --wallet-button-height-horizontal: clamp(
+    25px,
+    var(
+      --shopify-accelerated-checkout-button-inline-size,
+      42px
+    ),
+    55px
+  );
+  --wallet-button-height-vertical: clamp(
+    25px,
+    var(
+      --shopify-accelerated-checkout-button-block-size,
+      54px
+    ),
+    55px
+  );
+  --wallet-button-width-horizontal: 150px;
+  --wallet-button-width-vertical: 100%;
+  --wallet-button-border-radius: var(
+    --shopify-accelerated-checkout-button-border-radius,
+    4px
+  );
+  --wallet-grid-margin-horizontal: 0 -5px -5px -5px;
+  --wallet-button-container-margin-horizontal: 0 5px 5px;
+  --wallet-button-container-margin-vertical: var(--shopify-accelerated-checkout-row-gap, 8px) 0 0;
+}
+
+@keyframes acceleratedCheckoutLoadingSkeleton {
+  50% {opacity: var(--shopify-accelerated-checkout-skeleton-animation-opacity-start, 1);}
+  75% {opacity: var(--shopify-accelerated-checkout-skeleton-animation-opacity-end, 0.5);}
+  100% {opacity: var(--shopify-accelerated-checkout-skeleton-animation-opacity-start, 1);}
+}
+
+.wallet-cart-button__skeleton {
+  animation: acceleratedCheckoutLoadingSkeleton var(--shopify-accelerated-checkout-skeleton-animation-duration, 4s) var(--shopify-accelerated-checkout-skeleton-animation-timing-function, ease) infinite;
+  animation-delay: -0.168s;
+  background-color: var(--shopify-accelerated-checkout-skeleton-background-color, #dedede);
+  box-sizing: border-box;
+  text-decoration: none !important;
+}
+
+.wallet-cart-grid {
+  margin: var(--wallet-grid-margin-horizontal);
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: var(--shopify-accelerated-checkout-inline-alignment, start);
+  gap: 0 !important;
+}
+
+.wallet-cart-grid--skeleton {
+  justify-content: var(--shopify-accelerated-checkout-inline-alignment, inherit);
+}
+
+.wallet-cart-button-container {
+  position: relative;
+  margin: var(--wallet-button-container-margin-horizontal);
+}
+
+.wallet-cart-button-container,
+.wallet-cart-button {
+  width: var(--wallet-button-width-horizontal);
+  height: var(--wallet-button-height-horizontal);
+  border-radius: var(--wallet-button-border-radius);
+  list-style-type: none !important;
+  text-align: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.additional-checkout-buttons--vertical .wallet-cart-grid {
+  justify-content: start;
+  flex-direction: column;
+  margin: 0;
+}
+.additional-checkout-buttons--vertical .wallet-cart-grid .wallet-cart-button-container {
+  width: var(--wallet-button-width-vertical);
+  height: var(--wallet-button-height-vertical);
+  margin: var(--wallet-button-container-margin-vertical);
+}
+.additional-checkout-buttons--vertical .wallet-cart-grid .wallet-cart-button-container:first-child {
+  margin-top: 0;
+}
+.additional-checkout-buttons--vertical .wallet-cart-grid .wallet-cart-button {
+  width: var(--wallet-button-width-vertical);
+  height: var(--wallet-button-height-vertical);
+}
+
+.additional-checkout-buttons--horizontal .wallet-cart-grid .wallet-cart-button-container,
+.additional-checkout-buttons--horizontal .wallet-cart-grid .wallet-cart-button {
+  width: var(--wallet-button-width-horizontal) !important;
+  height: var(--wallet-button-height-horizontal) !important;
+  border-radius: var(--wallet-button-border-radius) !important;
+}
+
+@container dcc (width >= 150px) and (width <= 500px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(1)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(2))) {
+    justify-content: start;
+    flex-direction: column;
+    margin: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(1)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(2))) .wallet-cart-button-container {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+    margin: var(--wallet-button-container-margin-vertical);
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(1)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(2))) .wallet-cart-button-container:first-child {
+    margin-top: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(1)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(2))) .wallet-cart-button {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+  }
+}
+
+@container dcc (width <= 310px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(2)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(3))) {
+    justify-content: start;
+    flex-direction: column;
+    margin: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(2)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(3))) .wallet-cart-button-container {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+    margin: var(--wallet-button-container-margin-vertical);
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(2)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(3))) .wallet-cart-button-container:first-child {
+    margin-top: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(2)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(3))) .wallet-cart-button {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+  }
+}
+
+@container dcc (width <= 470px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(3)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(4))) {
+    justify-content: start;
+    flex-direction: column;
+    margin: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(3)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(4))) .wallet-cart-button-container {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+    margin: var(--wallet-button-container-margin-vertical);
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(3)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(4))) .wallet-cart-button-container:first-child {
+    margin-top: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(3)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(4))) .wallet-cart-button {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+  }
+}
+
+@container dcc (width <= 630px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(4)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(5))) {
+    justify-content: start;
+    flex-direction: column;
+    margin: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(4)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(5))) .wallet-cart-button-container {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+    margin: var(--wallet-button-container-margin-vertical);
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(4)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(5))) .wallet-cart-button-container:first-child {
+    margin-top: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(4)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(5))) .wallet-cart-button {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+  }
+}
+
+@container dcc (width <= 790px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(5)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(6))) {
+    justify-content: start;
+    flex-direction: column;
+    margin: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(5)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(6))) .wallet-cart-button-container {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+    margin: var(--wallet-button-container-margin-vertical);
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(5)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(6))) .wallet-cart-button-container:first-child {
+    margin-top: 0;
+  }
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(5)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(6))) .wallet-cart-button {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+  }
+}
+
+.wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(6)) {
+  justify-content: start;
+  flex-direction: column;
+  margin: 0;
+}
+.wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(6)) .wallet-cart-button-container {
+  width: var(--wallet-button-width-vertical);
+  height: var(--wallet-button-height-vertical);
+  margin: var(--wallet-button-container-margin-vertical);
+}
+.wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(6)) .wallet-cart-button-container:first-child {
+  margin-top: 0;
+}
+.wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(6)) .wallet-cart-button {
+  width: var(--wallet-button-width-vertical);
+  height: var(--wallet-button-height-vertical);
+}
+
+@media screen and (max-width: 750px) {
+  .wallet-cart-grid {
+    justify-content: start;
+    flex-direction: column;
+    max-width: none;
+    margin: 0;
+  }
+  .wallet-cart-grid .wallet-cart-button-container {
+    max-width: none;
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+    margin: var(--wallet-button-container-margin-vertical);
+  }
+  .wallet-cart-grid .wallet-cart-button-container:first-child {
+    margin-top: 0;
+  }
+  .wallet-cart-grid .wallet-cart-button {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+  }
+}
+
+@supports (not (container-type: inline-size)) or (not (selector(:has(*)))) {
+  .wallet-cart-grid {
+    justify-content: start;
+    flex-direction: column;
+    margin: 0;
+  }
+  .wallet-cart-button-container {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+    margin: var(--wallet-button-container-margin-vertical);
+  }
+  .wallet-cart-button-container:first-child {
+    margin-top: 0;
+  }
+  .wallet-cart-grid .wallet-cart-button {
+    width: var(--wallet-button-width-vertical);
+    height: var(--wallet-button-height-vertical);
+  }
+}
+
+        #shopify-buyer-consent {
+  margin-top: 1em;
+  display: inline-block;
+  width: 100%;
+}
+
+#shopify-buyer-consent.hidden {
+  display: none;
+}
+
+#shopify-subscription-policy-button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#shopify-subscription-policy-button::before {
+  box-shadow: none;
+}
+
+      </style>
+<style id="shopify-accelerated-checkout-cart-grid-with-margin-top">.additional-checkout-buttons--vertical .wallet-cart-grid .wallet-cart-button-container:first-child {
+  margin-top: 8px;
+}
+
+
+@container dcc (width >= 150px) and (width <= 500px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(1)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(2))) .wallet-cart-button-container:first-child {
+    margin-top: 8px;
+  }
+}
+
+@container dcc (width <= 310px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(2)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(3))) .wallet-cart-button-container:first-child {
+    margin-top: 8px;
+  }
+}
+
+@container dcc (width <= 470px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(3)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(4))) .wallet-cart-button-container:first-child {
+    margin-top: 8px;
+  }
+}
+
+@container dcc (width <= 630px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(4)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(5))) .wallet-cart-button-container:first-child {
+    margin-top: 8px;
+  }
+}
+
+@container dcc (width <= 790px) {
+  .wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(5)).wallet-cart-grid:not(:has(>.wallet-cart-button-container:nth-of-type(6))) .wallet-cart-button-container:first-child {
+    margin-top: 8px;
+  }
+}
+
+.wallet-cart-grid:has(>.wallet-cart-button-container:nth-of-type(6)) .wallet-cart-button-container:first-child {
+  margin-top: 8px;
+}
+
+@media screen and (max-width: 750px) {
+  .wallet-cart-grid .wallet-cart-button-container:first-child {
+    margin-top: 8px;
+  }
+}
+
+@supports (not (container-type: inline-size)) or (not (selector(:has(*)))) {
+  .wallet-cart-button-container:first-child {
+    margin-top: 8px;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+<style>@font-face {
+  font-family: "Titillium Web";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/archives/assets/aae7ec5d8386b8f291c9.woff2") format("woff2"),
+       url("/archives/assets/d913d44d0715b8b81d42.woff2") format("woff");
+}
+
+  @font-face {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: normal;
+  src: url("/archives/assets/7e87b317de5b7e36af70.woff2") format("woff2"),
+       url("/archives/assets/6716b83d50960f7fc21f.woff2") format("woff");
+}
+
+/* ------------------------ Critical Helper Classes ------------------------- */
+.critical-hide {
+  display: none;
+}
+
+.critical-clear {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.drawer-cover {
+  opacity: 0;
+}
+
+.main-content .shopify-section {
+  display: none;
+}
+
+.main-content .shopify-section:first-child {
+  display: inherit;
+}
+
+body:not(.template-index) .main-content {
+  opacity: 0;
+}
+
+
+/* ----------------------------- Global Styles ------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: #fafafa;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.625;
+}
+
+.page-width {
+  max-width: 980px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* ---------------------------- Helper Classes ------------------------------ */
+.visually-hidden,
+.icon__fallback-text {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+/* ----------------------------- Typography --------------------------------- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+.h4 {
+  letter-spacing: inherit;
+  text-transform: inherit;
+  font-family: "Titillium Web", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+.h4 a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.h4 {
+  font-size: 2.2rem;
+}
+
+@media only screen and (min-width: 750px) {
+  .h4 {
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+}
+
+/* ------------------------------ Buttons ----------------------------------- */
+.btn,
+.btn--secondary {
+  -moz-user-select: "none";
+  -ms-user-select: "none";
+  -webkit-user-select: "none";
+  user-select: "none";
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  width: auto;
+  background-color: #1990c6;
+  border-radius: 0;
+  color: #000000;
+  border: 2px solid #1990c6;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  line-height: 2.2;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: outline 0.1s linear;
+  box-sizing: border-box;
+}
+
+.btn--square {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  text-align: center;
+  line-height: 50px;
+}
+
+.btn--clear {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  color: #000000;
+  transition: 0.15s opacity ease-out;
+}
+
+.btn--clear:hover::after,
+.btn--clear::after {
+  outline: 0 !important;
+}
+
+.btn::after,
+.btn--secondary::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  outline: 2px solid #1990c6;
+  transition: outline 0.1s linear;
+}
+
+/* -------------------------------- Icons ----------------------------------- */
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+/* ----------------------------- Site Header -------------------------------- */
+.site-header {
+  position: relative;
+  transition: transform 0.25s ease-out;
+  z-index: 10;
+}
+
+.site-header--transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.site-header__wrapper {
+  position: relative;
+  min-height: 60px;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.site-header--transparent .site-header__wrapper {
+  background-color: transparent;
+}
+
+.site-header__wrapper svg {
+  fill: #000000;
+}
+
+.site-header__wrapper--transitioning {
+  transition: background-color 0.25s ease-out, margin-top 0.25s ease-out;
+}
+
+.announcement-bar {
+  display: none;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.announcement-bar--visible {
+  display: block;
+}
+
+.announcement-bar__message {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 20px;
+  margin-bottom: 0;
+}
+
+.announcement-bar__message .icon {
+  fill: currentColor;
+}
+
+.announcement-bar__close {
+  position: absolute;
+  right: 20px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 100%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.announcement-bar__close .icon {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.site-header-sections {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  min-height: 60px;
+}
+
+.site-header__section--title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+
+.site-header__logo-wrapper {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.site-header__logo {
+  display: block;
+}
+
+.site-header__logo-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.site-header--transparent .site-header__logo-image {
+  display: none;
+}
+
+@media only screen and (max-width: 749px) {
+  .site-header__logo-image {
+    max-height: 30px;
+  }
+}
+
+.site-header__logo-image--transparent {
+  display: none;
+}
+
+.site-header--transparent .site-header__logo-image--transparent {
+  display: block;
+}
+
+.navigation-open .site-header__logo-image--transparent,
+html.supports-no-js .site-header__logo-image--transparent {
+  display: none;
+}
+
+.site-header__cart svg {
+  width: 22px;
+  height: 30px;
+  margin: -2px 0 0 -2px;
+}
+
+@media only screen and (min-width: 750px) {
+  .site-header__cart svg {
+    width: 26px;
+  }
+}
+
+.site-header__cart::after {
+  border-color: #000000;
+}
+
+.site-header__cart-bubble {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.25s ease-out;
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+@media only screen and (min-width: 750px) {
+  .site-header__cart-bubble {
+    top:15px;
+    right: 9px;
+  }
+}
+
+.site-header__cart .site-header__cart-bubble {
+  top: 13px;
+}
+
+@media only screen and (min-width: 750px) {
+  .site-header__cart .site-header__cart-bubble {
+    top: 12px;
+  }
+}
+
+.site-header__cart-bubble--visible {
+  opacity: 1;
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.burger-icon {
+  display: block;
+  height: 2px;
+  width: 16px;
+  left: 50%;
+  margin-left: -8px;
+  background: #000000;
+  position: absolute;
+  transition: all 0.25s ease-out;
+}
+
+@media only screen and (min-width: 750px) {
+  .burger-icon {
+    height:2px;
+    width: 24px;
+    left: 50%;
+    margin-left: -12px;
+  }
+}
+
+.burger-icon--top {
+  top: 18px;
+}
+
+@media only screen and (min-width: 750px) {
+  .burger-icon--top {
+    top: 16px;
+  }
+}
+
+.site-header__navigation--active .burger-icon--top {
+  top: 25px;
+  transform: rotate(45deg);
+}
+
+.burger-icon--mid {
+  top: 24px;
+}
+
+@media only screen and (min-width: 750px) {
+  .burger-icon--mid {
+    top: 24px;
+  }
+}
+
+.site-header__navigation--active .burger-icon--mid {
+  opacity: 0;
+}
+
+.burger-icon--bottom {
+  top: 30px;
+}
+
+@media only screen and (min-width: 750px) {
+  .burger-icon--bottom {
+    top: 32px;
+  }
+}
+
+.site-header__navigation--active .burger-icon--bottom {
+  top: 25px;
+  transform: rotate(-45deg);
+}
+
+.site-header__navigation {
+  position: relative;
+}
+
+.site-header__navigation svg {
+  width: 20px;
+  height: 30px;
+}
+
+.site-header__navigation::after {
+  border-color: #4a4a4a;
+}
+
+/* ----------------------------- Slideshow --------------------------------- */
+.slideshow {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  max-height: calc(100vh - 35px);
+  background-color: #d4d4d4;
+}
+
+.slideshow--full .slideshow {
+  height: calc(100vh - 35px);
+}
+
+@media only screen and (max-width: 749px) {
+  .slideshow--adapt .slideshow {
+    max-height: 125vw;
+    min-height: 75vw;
+  }
+}
+
+.slideshow__slides {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slideshow__slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+}
+
+.slideshow__slide--active {
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+  opacity: 1;
+  z-index: 2;
+}
+
+.slideshow__overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.slideshow__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87),filter 400ms,-webkit-filter 400ms;
+  font-family: "object-fit: cover";
+}
+
+.slideshow__image .placeholder-svg {
+  display: block;
+  fill: rgba(74,74,74,0.35);
+  background-color: #f1eee6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: auto;
+  max-height: none;
+  max-width: none;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.slideshow__image .placeholder-background {
+  background-color: #faf9f6;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.slideshow__navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slideshow__text-content-mobile,
+.slideshow__button-cta-single {
+  display: none;
+}
+
+.slideshow__indicators {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+</style>
+<link href="/archives/assets/8178dc40e86446497353.css" rel="stylesheet" title="theme"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link href="/archives/assets/8178dc40e86446497353.css" rel="stylesheet"/><meta content="noindex, nofollow" name="robots"/><style>
+html,body{min-width:0!important}body{overflow-wrap:break-word}img{max-width:100%}a[aria-disabled=true]{cursor:default}.preservation-inactive{font:14px/1.5 system-ui!important;border:1px solid #c8c8c8;padding:12px;color:#424242;background:#f2f2f2}.preservation-video{display:block;text-align:center;padding:12px;background:#161616;color:white;font:14px/1.5 system-ui}
+.preservation-banner{font:14px/1.5 system-ui!important;padding:12px 20px;background:#173e35;color:#fff;text-align:center}.preservation-banner a{color:white;text-decoration:underline}
+.slideshow__slide{opacity:1!important;visibility:visible!important}.slideshow__image{opacity:1!important}.slideshow__button,.slideshow__controls,.slideshow__video,.slideshow__video-play,.slideshow__text-content .icon{display:none!important}.slideshow__text-content{opacity:1!important;visibility:visible!important}.lazyload,.fade-in{opacity:1!important}.feature-row__image{background-size:cover;background-position:center}.site-header__cart,.site-header__search,.site-header__account,.site-header__menu{display:none!important}.drawer{display:none!important}
+@media(max-width:749px){.site-header__logo-image{max-width:200px!important}.site-header__logo{max-width:100%!important}.site-header__wrapper{position:relative!important}.slideshow__heading{font-size:26px!important}.slideshow__text-content{max-width:100%!important}.slideshow{height:520px!important}.slideshow__image{height:100%!important;object-fit:cover}.slideshow__text-container{width:100%!important}.custom__item{max-width:100%}.wp-block-columns{flex-wrap:wrap!important}.wp-block-column{flex-basis:100%!important}}
+</style></head>
+<body class="template-collection data-animations" id="stage-2-apex-wheels"><div class="preservation-banner">Preserved website · Wayback capture · 2025-01-22 · Original plans and offers are historical. <a href="/specteslacup/" rel="noopener" target="_blank">Archive guide</a></div>
+<a class="visually-hidden skip-link" href="#MainContent">Skip to content</a>
+<div class="shopify-section" id="shopify-section-header">
+<div class="site-header">
+<header class="site-header__wrapper" role="banner">
+<style>
+          .announcement-bar {
+            background-color: #000000;
+          }
+
+          .announcement-bar--link:hover {
+            
+
+            
+              
+              background-color: #292929;
+            
+          }
+
+          .announcement-bar__message,
+          .announcement-bar__close {
+            color: #ffffff;
+          }
+        </style>
+<a class="announcement-bar announcement-bar--link" href="/archives/specteslacup/2023-04-09/pages/contact-us/index.html">
+<p class="announcement-bar__message page-width">
+<svg aria-hidden="true" class="icon icon-envelope" focusable="false" role="presentation" viewbox="0 0 64 64"><path d="M15 44h34V20H15v24zm4-4V24.9l13 8.3 13-8.3V40H19zm3-16h20l-10 6.4L22 24z"></path></svg>
+            
+            Contact Us for Strategic Partnership Opportunities
+          </p>
+<button aria-expanded="true" class="announcement-bar__close btn btn--clear" disabled=""><svg aria-hidden="true" class="icon icon-close" focusable="false" role="presentation" viewbox="0 0 16.8 16.8"><path d="M16.8 1.5L15.4.1 8.4 7l-7-7L0 1.4l7 7-7 7 1.4 1.4 7-7 7 7 1.4-1.4-7-7z" fill="#444"></path></svg></button>
+</a>
+<div class="site-header-sections page-width">
+<nav class="site-header__section site-header__section--button" role="navigation">
+<button aria-expanded="false" class="site-header__navigation btn btn--clear btn--square" disabled="">
+<span class="burger-icon burger-icon--top"></span>
+<span class="burger-icon burger-icon--mid"></span>
+<span class="burger-icon burger-icon--bottom"></span>
+<span class="icon__fallback-text">Menu</span>
+</button>
+<div aria-hidden="true" class="navigation supports-no-js critical-hide">
+<div class="navigation__container">
+<ul class="navigation__links">
+<li class="navigation__link navigation__entrance-animation">
+<a href="/archives/specteslacup/2024-12-08/pages/private-login/index.html">Why?</a>
+</li>
+<li class="navigation__link navigation__entrance-animation">
+<a href="/archives/specteslacup/2023-04-09/pages/contact-us/index.html">Contact Us</a>
+</li>
+<li class="navigation__link navigation__entrance-animation">
+<a href="/archives/specteslacup/2023-03-08/pages/about-us/index.html">About Us &amp; Current Mod List</a>
+</li>
+<li class="navigation__link navigation__entrance-animation">
+<a href="/archives/specteslacup/2024-09-14/blogs/news/index.html">News</a>
+</li>
+</ul>
+<ul class="navigation__links">
+<li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+<a aria-disabled="true" title="Historical link; this destination is not available in the preserved copy.">Log in</a>
+</li>
+<li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+<a aria-disabled="true" title="Historical link; this destination is not available in the preserved copy.">Create account</a>
+</li>
+<li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+<a href="/archives/specteslacup/2024-12-08/pages/private-login/index.html">Why?</a>
+</li>
+<li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+<a href="/archives/specteslacup/2023-04-09/pages/contact-us/index.html">Contact Us</a>
+</li>
+<li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+<a href="/archives/specteslacup/2023-03-08/pages/about-us/index.html">About Us &amp; Current Mod List</a>
+</li>
+<li class="navigation__link navigation__link--secondary navigation__entrance-animation">
+<a href="/archives/specteslacup/2024-09-14/blogs/news/index.html">News</a>
+</li>
+</ul>
+<div class="navigation__social-sharing navigation__entrance-animation">
+<div class="social-links social-links--large"><ul class="list--inline">
+<li class="social-links__icon">
+<a href="https://www.facebook.com/spectesla.racing" rel="noopener noreferrer" tabindex="-1" target="_blank" title="Spec Tesla Cup on Facebook">
+<svg aria-hidden="true" class="icon icon-facebook" focusable="false" role="presentation" viewbox="0 0 8.4 20.6"><path d="M8.4 6H5.6V4.1c0-.7.5-.9.8-.9h2V0H5.6C2.5 0 1.8 2.4 1.8 3.9V6H0v3.3h1.8v9.3h3.8V9.3h2.5L8.4 6z" fill="#444"></path></svg>
+<span class="icon__fallback-text">Facebook</span>
+</a>
+</li>
+<li class="social-links__icon">
+<a aria-disabled="true" tabindex="-1" target="_blank" title="Historical link; this destination is not available in the preserved copy.">
+<svg aria-hidden="true" class="icon icon-twitter" focusable="false" role="presentation" viewbox="0 0 20 20"><path d="M19.551 4.208q-.815 1.202-1.956 2.038 0 .082.02.255t.02.255q0 1.589-.469 3.179t-1.426 3.036-2.272 2.567-3.158 1.793-3.963.672q-3.301 0-6.031-1.773.571.041.937.041 2.751 0 4.911-1.671-1.284-.02-2.292-.784T2.456 11.85q.346.082.754.082.55 0 1.039-.163-1.365-.285-2.262-1.365T1.09 7.918v-.041q.774.408 1.773.448-.795-.53-1.263-1.396t-.469-1.864q0-1.019.509-1.997 1.487 1.854 3.596 2.924T9.81 7.184q-.143-.509-.143-.897 0-1.63 1.161-2.781t2.832-1.151q.815 0 1.569.326t1.284.917q1.345-.265 2.506-.958-.428 1.386-1.732 2.18 1.243-.163 2.262-.611z" fill="#444"></path></svg>
+<span class="icon__fallback-text">Twitter</span>
+</a>
+</li>
+<li class="social-links__icon">
+<a href="https://www.instagram.com/spectesla" rel="noopener noreferrer" tabindex="-1" target="_blank" title="Spec Tesla Cup on Instagram">
+<svg aria-hidden="true" class="icon icon-instagram" focusable="false" role="presentation" viewbox="0 0 512 512"><path d="M256 49.5c67.3 0 75.2.3 101.8 1.5 24.6 1.1 37.9 5.2 46.8 8.7 11.8 4.6 20.2 10 29 18.8s14.3 17.2 18.8 29c3.4 8.9 7.6 22.2 8.7 46.8 1.2 26.6 1.5 34.5 1.5 101.8s-.3 75.2-1.5 101.8c-1.1 24.6-5.2 37.9-8.7 46.8-4.6 11.8-10 20.2-18.8 29s-17.2 14.3-29 18.8c-8.9 3.4-22.2 7.6-46.8 8.7-26.6 1.2-34.5 1.5-101.8 1.5s-75.2-.3-101.8-1.5c-24.6-1.1-37.9-5.2-46.8-8.7-11.8-4.6-20.2-10-29-18.8s-14.3-17.2-18.8-29c-3.4-8.9-7.6-22.2-8.7-46.8-1.2-26.6-1.5-34.5-1.5-101.8s.3-75.2 1.5-101.8c1.1-24.6 5.2-37.9 8.7-46.8 4.6-11.8 10-20.2 18.8-29s17.2-14.3 29-18.8c8.9-3.4 22.2-7.6 46.8-8.7 26.6-1.3 34.5-1.5 101.8-1.5m0-45.4c-68.4 0-77 .3-103.9 1.5C125.3 6.8 107 11.1 91 17.3c-16.6 6.4-30.6 15.1-44.6 29.1-14 14-22.6 28.1-29.1 44.6-6.2 16-10.5 34.3-11.7 61.2C4.4 179 4.1 187.6 4.1 256s.3 77 1.5 103.9c1.2 26.8 5.5 45.1 11.7 61.2 6.4 16.6 15.1 30.6 29.1 44.6 14 14 28.1 22.6 44.6 29.1 16 6.2 34.3 10.5 61.2 11.7 26.9 1.2 35.4 1.5 103.9 1.5s77-.3 103.9-1.5c26.8-1.2 45.1-5.5 61.2-11.7 16.6-6.4 30.6-15.1 44.6-29.1 14-14 22.6-28.1 29.1-44.6 6.2-16 10.5-34.3 11.7-61.2 1.2-26.9 1.5-35.4 1.5-103.9s-.3-77-1.5-103.9c-1.2-26.8-5.5-45.1-11.7-61.2-6.4-16.6-15.1-30.6-29.1-44.6-14-14-28.1-22.6-44.6-29.1-16-6.2-34.3-10.5-61.2-11.7-27-1.1-35.6-1.4-104-1.4z"></path><path d="M256 126.6c-71.4 0-129.4 57.9-129.4 129.4s58 129.4 129.4 129.4 129.4-58 129.4-129.4-58-129.4-129.4-129.4zm0 213.4c-46.4 0-84-37.6-84-84s37.6-84 84-84 84 37.6 84 84-37.6 84-84 84z"></path><circle cx="390.5" cy="121.5" r="30.2"></circle></svg>
+<span class="icon__fallback-text">Instagram</span>
+</a>
+</li>
+<li class="social-links__icon">
+<a href="https://youtube.com/playlist?list=PLBKsWHapay4kjwYzKGV6Zl2lwrDPs-AfZ" rel="noopener noreferrer" tabindex="-1" target="_blank" title="Spec Tesla Cup on YouTube">
+<svg aria-hidden="true" class="icon icon-youtube" focusable="false" role="presentation" viewbox="0 0 21 20"><path d="M-.196 15.803q0 1.23.812 2.092t1.977.861h14.946q1.165 0 1.977-.861t.812-2.092V3.909q0-1.23-.82-2.116T17.539.907H2.593q-1.148 0-1.969.886t-.82 2.116v11.894zm7.465-2.149V6.058q0-.115.066-.18.049-.016.082-.016l.082.016 7.153 3.806q.066.066.066.164 0 .066-.066.131l-7.153 3.806q-.033.033-.066.033-.066 0-.098-.033-.066-.066-.066-.131z" fill="#444"></path></svg>
+<span class="icon__fallback-text">YouTube</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="navigation__search navigation__entrance-animation">
+<div><p class="preservation-inactive">Archived form — submissions are closed.</p>
+<div class="input-group--underline">
+<input aria-label="Search" class="input-group__field" disabled="" placeholder="Search" tabindex="-1" type="search" value=""/>
+<div class="input-group__btn">
+<button class="btn btn--clear btn--square" disabled="" tabindex="-1" type="submit">
+<svg aria-hidden="true" class="icon icon-search" focusable="false" role="presentation" viewbox="0 0 21.4 21.4"><path d="M13.4 0c-4.4 0-8 3.6-8 8 0 1.8.6 3.5 1.7 4.9L0 20l1.4 1.4 7.1-7.1c1.4 1.1 3.1 1.7 4.9 1.7 4.4 0 8-3.6 8-8s-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" fill="#444"></path></svg>
+<span class="icon__fallback-text">Search again</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="site-header__section site-header__section--title">
+<div class="site-header__logo-wrapper h4" itemscope="" itemtype="http://schema.org/Organization">
+<a class="site-header__logo" href="/archives/specteslacup/2026-02-08/index.html" itemprop="url">
+<style>
+              .site-header__logo-image {
+                height: 60px;
+              }
+            </style>
+<img alt="Spec Tesla Cup" class="site-header__logo-image" itemprop="logo" loading="eager" src="/archives/assets/c1775f557dee20b3a1b6.png" style=";opacity:1;visibility:visible;"/>
+</a>
+</div>
+</div>
+<div class="site-header__section site-header__section--button">
+<a aria-disabled="true" aria-expanded="false" class="btn btn--clear btn--square btn--hover-scale site-header__cart ajax-cart__toggle" title="Historical link; this destination is not available in the preserved copy.">
+<svg aria-hidden="true" class="icon icon-header-cart" focusable="false" role="presentation" viewbox="0 0 24.3 26"><path d="M22.6 21.5v-2H7.9c-.2 0-.4-.1-.4-.1 0-.1 0-.3.2-.5l2.3-2.1 13.2-1.4 1.1-10h-18L4.6 1 .5 0 0 1.9l3.1.7 5.2 13-2 1.8c-.8.7-1 1.8-.7 2.7.4.9 1.2 1.4 2.3 1.4h14.7zM7.1 7.4H22l-.7 6.2-11.2 1.2-3-7.4z"></path><ellipse cx="8.1" cy="24.4" rx="1.6" ry="1.6"></ellipse><ellipse cx="21.7" cy="24.4" rx="1.6" ry="1.6"></ellipse></svg>
+<span class="icon__fallback-text">View cart</span>
+<span class="site-header__cart-bubble"></span>
+</a>
+</div>
+</div>
+</header>
+</div>
+</div>
+<div class="main-content">
+<div class="main-content__wrapper">
+<main class="content-for-layout" id="MainContent" role="main">
+<div class="shopify-section" id="shopify-section-collection-template"><div class="collection-template">
+<div class="page-width">
+<div class="grid text-center">
+<div class="grid__item medium-up--ten-twelfths medium-up--push-one-twelfth">
+<header class="section-header">
+<h1 class="section-header__title h2">Stage 2 - Apex Wheels</h1>
+</header>
+</div>
+</div><div class="card-list grid">
+<div class="card-list__column grid grid__item medium-up--one-half">
+</div>
+</div>
+<p class="text-center">Sorry, there are no products in this collection</p>
+</div>
+</div>
+</div>
+</main>
+<div class="shopify-section" id="shopify-section-footer">
+<footer class="site-footer" role="contentinfo">
+<div class="page-width">
+<div class="flex-footer">
+<div class="flex-footer__item flex-footer__item--menu">
+<ul class="site-footer__linklist">
+<li class="site-footer__linklist-item h6">
+<a href="/archives/specteslacup/2024-12-08/pages/private-login/index.html">Why?</a>
+</li>
+<li class="site-footer__linklist-item h6">
+<a href="/archives/specteslacup/2023-04-09/pages/contact-us/index.html">Contact Us</a>
+</li>
+<li class="site-footer__linklist-item h6">
+<a href="/archives/specteslacup/2023-03-08/pages/about-us/index.html">About Us &amp; Current Mod List</a>
+</li>
+<li class="site-footer__linklist-item h6">
+<a href="/archives/specteslacup/2024-09-14/blogs/news/index.html">News</a>
+</li>
+</ul>
+</div>
+<div class="flex-footer__item flex-footer__item--newsletter">
+<div class="site-footer__newsletter">
+<div class="contact-form" id="contact_form"><p class="preservation-inactive">Archived form — submissions are closed.</p>
+
+<label class="site-footer__newsletter-label" for="NewsletterEmail">Sign up for testing opportunities &amp; Development Milestone News</label>
+<div class="site-footer__newsletter-subheading"><p>Join Spec Tesla along the journey from a development concept all the way to a full Arrive &amp; Drive Customer Racing Program </p></div>
+<div class="input-group--underline">
+<input aria-label="My email address" autocapitalize="off" autocorrect="off" class="input-group__field site-footer__newsletter-input" disabled="" id="NewsletterEmail" placeholder="My email address" type="email" value=""/>
+<div class="input-group__btn input-group__btn--newsletter">
+<button class="btn--newsletter__submit" disabled="" type="submit">
+                      Subscribe
+                      <svg aria-hidden="true" class="icon icon-arrow-right" focusable="false" role="presentation" viewbox="0 0 4 7"><path d="M4 3.5L0 7V0z" fill="#444"></path></svg>
+</button>
+</div>
+</div>
+<div aria-role="alert" class="site-footer__newsletter-message">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="site-footer__bottom">
+<div class="site-footer__social-icons flex-footer__item--one-third">
+<div class="social-links"><ul class="list--inline">
+<li class="social-links__icon">
+<a href="https://www.facebook.com/spectesla.racing" rel="noopener noreferrer" tabindex="-1" target="_blank" title="Spec Tesla Cup on Facebook">
+<svg aria-hidden="true" class="icon icon-facebook" focusable="false" role="presentation" viewbox="0 0 8.4 20.6"><path d="M8.4 6H5.6V4.1c0-.7.5-.9.8-.9h2V0H5.6C2.5 0 1.8 2.4 1.8 3.9V6H0v3.3h1.8v9.3h3.8V9.3h2.5L8.4 6z" fill="#444"></path></svg>
+<span class="icon__fallback-text">Facebook</span>
+</a>
+</li>
+<li class="social-links__icon">
+<a aria-disabled="true" tabindex="-1" target="_blank" title="Historical link; this destination is not available in the preserved copy.">
+<svg aria-hidden="true" class="icon icon-twitter" focusable="false" role="presentation" viewbox="0 0 20 20"><path d="M19.551 4.208q-.815 1.202-1.956 2.038 0 .082.02.255t.02.255q0 1.589-.469 3.179t-1.426 3.036-2.272 2.567-3.158 1.793-3.963.672q-3.301 0-6.031-1.773.571.041.937.041 2.751 0 4.911-1.671-1.284-.02-2.292-.784T2.456 11.85q.346.082.754.082.55 0 1.039-.163-1.365-.285-2.262-1.365T1.09 7.918v-.041q.774.408 1.773.448-.795-.53-1.263-1.396t-.469-1.864q0-1.019.509-1.997 1.487 1.854 3.596 2.924T9.81 7.184q-.143-.509-.143-.897 0-1.63 1.161-2.781t2.832-1.151q.815 0 1.569.326t1.284.917q1.345-.265 2.506-.958-.428 1.386-1.732 2.18 1.243-.163 2.262-.611z" fill="#444"></path></svg>
+<span class="icon__fallback-text">Twitter</span>
+</a>
+</li>
+<li class="social-links__icon">
+<a href="https://www.instagram.com/spectesla" rel="noopener noreferrer" tabindex="-1" target="_blank" title="Spec Tesla Cup on Instagram">
+<svg aria-hidden="true" class="icon icon-instagram" focusable="false" role="presentation" viewbox="0 0 512 512"><path d="M256 49.5c67.3 0 75.2.3 101.8 1.5 24.6 1.1 37.9 5.2 46.8 8.7 11.8 4.6 20.2 10 29 18.8s14.3 17.2 18.8 29c3.4 8.9 7.6 22.2 8.7 46.8 1.2 26.6 1.5 34.5 1.5 101.8s-.3 75.2-1.5 101.8c-1.1 24.6-5.2 37.9-8.7 46.8-4.6 11.8-10 20.2-18.8 29s-17.2 14.3-29 18.8c-8.9 3.4-22.2 7.6-46.8 8.7-26.6 1.2-34.5 1.5-101.8 1.5s-75.2-.3-101.8-1.5c-24.6-1.1-37.9-5.2-46.8-8.7-11.8-4.6-20.2-10-29-18.8s-14.3-17.2-18.8-29c-3.4-8.9-7.6-22.2-8.7-46.8-1.2-26.6-1.5-34.5-1.5-101.8s.3-75.2 1.5-101.8c1.1-24.6 5.2-37.9 8.7-46.8 4.6-11.8 10-20.2 18.8-29s17.2-14.3 29-18.8c8.9-3.4 22.2-7.6 46.8-8.7 26.6-1.3 34.5-1.5 101.8-1.5m0-45.4c-68.4 0-77 .3-103.9 1.5C125.3 6.8 107 11.1 91 17.3c-16.6 6.4-30.6 15.1-44.6 29.1-14 14-22.6 28.1-29.1 44.6-6.2 16-10.5 34.3-11.7 61.2C4.4 179 4.1 187.6 4.1 256s.3 77 1.5 103.9c1.2 26.8 5.5 45.1 11.7 61.2 6.4 16.6 15.1 30.6 29.1 44.6 14 14 28.1 22.6 44.6 29.1 16 6.2 34.3 10.5 61.2 11.7 26.9 1.2 35.4 1.5 103.9 1.5s77-.3 103.9-1.5c26.8-1.2 45.1-5.5 61.2-11.7 16.6-6.4 30.6-15.1 44.6-29.1 14-14 22.6-28.1 29.1-44.6 6.2-16 10.5-34.3 11.7-61.2 1.2-26.9 1.5-35.4 1.5-103.9s-.3-77-1.5-103.9c-1.2-26.8-5.5-45.1-11.7-61.2-6.4-16.6-15.1-30.6-29.1-44.6-14-14-28.1-22.6-44.6-29.1-16-6.2-34.3-10.5-61.2-11.7-27-1.1-35.6-1.4-104-1.4z"></path><path d="M256 126.6c-71.4 0-129.4 57.9-129.4 129.4s58 129.4 129.4 129.4 129.4-58 129.4-129.4-58-129.4-129.4-129.4zm0 213.4c-46.4 0-84-37.6-84-84s37.6-84 84-84 84 37.6 84 84-37.6 84-84 84z"></path><circle cx="390.5" cy="121.5" r="30.2"></circle></svg>
+<span class="icon__fallback-text">Instagram</span>
+</a>
+</li>
+<li class="social-links__icon">
+<a href="https://youtube.com/playlist?list=PLBKsWHapay4kjwYzKGV6Zl2lwrDPs-AfZ" rel="noopener noreferrer" tabindex="-1" target="_blank" title="Spec Tesla Cup on YouTube">
+<svg aria-hidden="true" class="icon icon-youtube" focusable="false" role="presentation" viewbox="0 0 21 20"><path d="M-.196 15.803q0 1.23.812 2.092t1.977.861h14.946q1.165 0 1.977-.861t.812-2.092V3.909q0-1.23-.82-2.116T17.539.907H2.593q-1.148 0-1.969.886t-.82 2.116v11.894zm7.465-2.149V6.058q0-.115.066-.18.049-.016.082-.016l.082.016 7.153 3.806q.066.066.066.164 0 .066-.066.131l-7.153 3.806q-.033.033-.066.033-.066 0-.098-.033-.066-.066-.066-.131z" fill="#444"></path></svg>
+<span class="icon__fallback-text">YouTube</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="site-footer__copyright flex-footer__item--one-third">
+<small>Copyright © 2025, <a href="/archives/specteslacup/2026-02-08/index.html" title="">Spec Tesla Cup</a>.</small>
+<small class="site-footer__powered-by"><a href="https://www.shopify.com?utm_campaign=poweredby&amp;utm_medium=shopify&amp;utm_source=onlinestore" rel="noopener noreferrer" target="_blank">Powered by Shopify</a></small>
+</div><div class="site-footer__payment-icons flex-footer__item--one-third"><span class="visually-hidden">Payment icons</span>
+<ul class="payment-icons list--inline"><li class="payment-icon">
+<svg aria-labelledby="pi-american_express" class="icon icon--full-color" height="24" role="img" viewbox="0 0 38 24" width="38" xmlns="http://www.w3.org/2000/svg"><title id="pi-american_express">American Express</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z" fill="#006FCF"></path><path d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z" fill="#FFF"></path><path d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z" fill="#006FCF"></path><path d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z" fill="#006FCF"></path><path d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z" fill="#FFF"></path><path d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z" fill="#006FCF"></path><path d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z" fill="#006FCF"></path></svg>
+</li><li class="payment-icon">
+<svg aria-labelledby="pi-apple_pay" class="icon icon--full-color" height="24" role="img" version="1.1" viewbox="0 0 165.521 105.965" width="38" x="0" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" y="0"><title id="pi-apple_pay">Apple Pay</title><path d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z" fill="#000"></path><path d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875" fill="#FFF"></path><g><g><path d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858" fill="#000"></path><path d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048" fill="#000"></path></g><g><path d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z" fill="#000"></path><path d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z" fill="#000"></path><path d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z" fill="#000"></path></g></g></svg>
+</li><li class="payment-icon">
+<svg aria-labelledby="pi-diners_club" class="icon icon--full-color" height="24" role="img" viewbox="0 0 38 24" width="38" xmlns="http://www.w3.org/2000/svg"><title id="pi-diners_club">Diners Club</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#fff"></path><path d="M12 12v3.7c0 .3-.2.3-.5.2-1.9-.8-3-3.3-2.3-5.4.4-1.1 1.2-2 2.3-2.4.4-.2.5-.1.5.2V12zm2 0V8.3c0-.3 0-.3.3-.2 2.1.8 3.2 3.3 2.4 5.4-.4 1.1-1.2 2-2.3 2.4-.4.2-.4.1-.4-.2V12zm7.2-7H13c3.8 0 6.8 3.1 6.8 7s-3 7-6.8 7h8.2c3.8 0 6.8-3.1 6.8-7s-3-7-6.8-7z" fill="#3086C8"></path></svg>
+</li><li class="payment-icon">
+<svg aria-labelledby="pi-discover" class="icon icon--full-color" fill="none" height="24" role="img" viewbox="0 0 38 24" width="38" xmlns="http://www.w3.org/2000/svg"><title id="pi-discover">Discover</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32z" fill="#fff"></path><path d="M3.57 7.16H2v5.5h1.57c.83 0 1.43-.2 1.96-.63.63-.52 1-1.3 1-2.11-.01-1.63-1.22-2.76-2.96-2.76zm1.26 4.14c-.34.3-.77.44-1.47.44h-.29V8.1h.29c.69 0 1.11.12 1.47.44.37.33.59.84.59 1.37 0 .53-.22 1.06-.59 1.39zm2.19-4.14h1.07v5.5H7.02v-5.5zm3.69 2.11c-.64-.24-.83-.4-.83-.69 0-.35.34-.61.8-.61.32 0 .59.13.86.45l.56-.73c-.46-.4-1.01-.61-1.62-.61-.97 0-1.72.68-1.72 1.58 0 .76.35 1.15 1.35 1.51.42.15.63.25.74.31.21.14.32.34.32.57 0 .45-.35.78-.83.78-.51 0-.92-.26-1.17-.73l-.69.67c.49.73 1.09 1.05 1.9 1.05 1.11 0 1.9-.74 1.9-1.81.02-.89-.35-1.29-1.57-1.74zm1.92.65c0 1.62 1.27 2.87 2.9 2.87.46 0 .86-.09 1.34-.32v-1.26c-.43.43-.81.6-1.29.6-1.08 0-1.85-.78-1.85-1.9 0-1.06.79-1.89 1.8-1.89.51 0 .9.18 1.34.62V7.38c-.47-.24-.86-.34-1.32-.34-1.61 0-2.92 1.28-2.92 2.88zm12.76.94l-1.47-3.7h-1.17l2.33 5.64h.58l2.37-5.64h-1.16l-1.48 3.7zm3.13 1.8h3.04v-.93h-1.97v-1.48h1.9v-.93h-1.9V8.1h1.97v-.94h-3.04v5.5zm7.29-3.87c0-1.03-.71-1.62-1.95-1.62h-1.59v5.5h1.07v-2.21h.14l1.48 2.21h1.32l-1.73-2.32c.81-.17 1.26-.72 1.26-1.56zm-2.16.91h-.31V8.03h.33c.67 0 1.03.28 1.03.82 0 .55-.36.85-1.05.85z" fill="#231F20"></path><path d="M20.16 12.86a2.931 2.931 0 100-5.862 2.931 2.931 0 000 5.862z" fill="url(#pi-paint0_linear)"></path><path d="M20.16 12.86a2.931 2.931 0 100-5.862 2.931 2.931 0 000 5.862z" fill="url(#pi-paint1_linear)" opacity=".65"></path><path d="M36.57 7.506c0-.1-.07-.15-.18-.15h-.16v.48h.12v-.19l.14.19h.14l-.16-.2c.06-.01.1-.06.1-.13zm-.2.07h-.02v-.13h.02c.06 0 .09.02.09.06 0 .05-.03.07-.09.07z" fill="#231F20"></path><path d="M36.41 7.176c-.23 0-.42.19-.42.42 0 .23.19.42.42.42.23 0 .42-.19.42-.42 0-.23-.19-.42-.42-.42zm0 .77c-.18 0-.34-.15-.34-.35 0-.19.15-.35.34-.35.18 0 .33.16.33.35 0 .19-.15.35-.33.35z" fill="#231F20"></path><path d="M37 12.984S27.09 19.873 8.976 23h26.023a2 2 0 002-1.984l.024-3.02L37 12.985z" fill="#F48120"></path><defs><lineargradient gradientunits="userSpaceOnUse" id="pi-paint0_linear" x1="21.657" x2="19.632" y1="12.275" y2="9.104"><stop stop-color="#F89F20"></stop><stop offset=".25" stop-color="#F79A20"></stop><stop offset=".533" stop-color="#F68D20"></stop><stop offset=".62" stop-color="#F58720"></stop><stop offset=".723" stop-color="#F48120"></stop><stop offset="1" stop-color="#F37521"></stop></lineargradient><lineargradient gradientunits="userSpaceOnUse" id="pi-paint1_linear" x1="21.338" x2="18.378" y1="12.232" y2="6.446"><stop stop-color="#F58720"></stop><stop offset=".359" stop-color="#E16F27"></stop><stop offset=".703" stop-color="#D4602C"></stop><stop offset=".982" stop-color="#D05B2E"></stop></lineargradient></defs></svg>
+</li><li class="payment-icon">
+<svg aria-labelledby="pi-google_pay" class="icon icon--full-color" height="24" role="img" viewbox="0 0 38 24" width="38" xmlns="http://www.w3.org/2000/svg"><title id="pi-google_pay">Google Pay</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path><path d="M18.093 11.976v3.2h-1.018v-7.9h2.691a2.447 2.447 0 0 1 1.747.692 2.28 2.28 0 0 1 .11 3.224l-.11.116c-.47.447-1.098.69-1.747.674l-1.673-.006zm0-3.732v2.788h1.698c.377.012.741-.135 1.005-.404a1.391 1.391 0 0 0-1.005-2.354l-1.698-.03zm6.484 1.348c.65-.03 1.286.188 1.778.613.445.43.682 1.03.65 1.649v3.334h-.969v-.766h-.049a1.93 1.93 0 0 1-1.673.931 2.17 2.17 0 0 1-1.496-.533 1.667 1.667 0 0 1-.613-1.324 1.606 1.606 0 0 1 .613-1.336 2.746 2.746 0 0 1 1.698-.515c.517-.02 1.03.093 1.49.331v-.208a1.134 1.134 0 0 0-.417-.901 1.416 1.416 0 0 0-.98-.368 1.545 1.545 0 0 0-1.319.717l-.895-.564a2.488 2.488 0 0 1 2.182-1.06zM23.29 13.52a.79.79 0 0 0 .337.662c.223.176.5.269.785.263.429-.001.84-.17 1.146-.472.305-.286.478-.685.478-1.103a2.047 2.047 0 0 0-1.324-.374 1.716 1.716 0 0 0-1.03.294.883.883 0 0 0-.392.73zm9.286-3.75l-3.39 7.79h-1.048l1.281-2.728-2.224-5.062h1.103l1.612 3.885 1.569-3.885h1.097z" fill="#5F6368"></path><path d="M13.986 11.284c0-.308-.024-.616-.073-.92h-4.29v1.747h2.451a2.096 2.096 0 0 1-.9 1.373v1.134h1.464a4.433 4.433 0 0 0 1.348-3.334z" fill="#4285F4"></path><path d="M9.629 15.721a4.352 4.352 0 0 0 3.01-1.097l-1.466-1.14a2.752 2.752 0 0 1-4.094-1.44H5.577v1.17a4.53 4.53 0 0 0 4.052 2.507z" fill="#34A853"></path><path d="M7.079 12.05a2.709 2.709 0 0 1 0-1.735v-1.17H5.577a4.505 4.505 0 0 0 0 4.075l1.502-1.17z" fill="#FBBC04"></path><path d="M9.629 8.44a2.452 2.452 0 0 1 1.74.68l1.3-1.293a4.37 4.37 0 0 0-3.065-1.183 4.53 4.53 0 0 0-4.027 2.5l1.502 1.171a2.715 2.715 0 0 1 2.55-1.875z" fill="#EA4335"></path></svg>
+</li><li class="payment-icon">
+<svg aria-labelledby="pi-master" class="icon icon--full-color" height="24" role="img" viewbox="0 0 38 24" width="38" xmlns="http://www.w3.org/2000/svg"><title id="pi-master">Mastercard</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#fff"></path><circle cx="15" cy="12" fill="#EB001B" r="7"></circle><circle cx="23" cy="12" fill="#F79E1B" r="7"></circle><path d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z" fill="#FF5F00"></path></svg>
+</li><li class="payment-icon">
+<svg aria-labelledby="pi-shopify_pay" class="icon icon--full-color" height="24" role="img" viewbox="0 0 38 24" width="38" xmlns="http://www.w3.org/2000/svg"><title id="pi-shopify_pay">Shop Pay</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35.889 0C37.05 0 38 .982 38 2.182v19.636c0 1.2-.95 2.182-2.111 2.182H2.11C.95 24 0 23.018 0 21.818V2.182C0 .982.95 0 2.111 0H35.89z" fill="#5A31F4"></path><path d="M9.35 11.368c-1.017-.223-1.47-.31-1.47-.705 0-.372.306-.558.92-.558.54 0 .934.238 1.225.704a.079.079 0 00.104.03l1.146-.584a.082.082 0 00.032-.114c-.475-.831-1.353-1.286-2.51-1.286-1.52 0-2.464.755-2.464 1.956 0 1.275 1.15 1.597 2.17 1.82 1.02.222 1.474.31 1.474.705 0 .396-.332.582-.993.582-.612 0-1.065-.282-1.34-.83a.08.08 0 00-.107-.035l-1.143.57a.083.083 0 00-.036.111c.454.92 1.384 1.437 2.627 1.437 1.583 0 2.539-.742 2.539-1.98s-1.155-1.598-2.173-1.82v-.003zM15.49 8.855c-.65 0-1.224.232-1.636.646a.04.04 0 01-.069-.03v-2.64a.08.08 0 00-.08-.081H12.27a.08.08 0 00-.08.082v8.194a.08.08 0 00.08.082h1.433a.08.08 0 00.081-.082v-3.594c0-.695.528-1.227 1.239-1.227.71 0 1.226.521 1.226 1.227v3.594a.08.08 0 00.081.082h1.433a.08.08 0 00.081-.082v-3.594c0-1.51-.981-2.577-2.355-2.577zM20.753 8.62c-.778 0-1.507.24-2.03.588a.082.082 0 00-.027.109l.632 1.088a.08.08 0 00.11.03 2.5 2.5 0 011.318-.366c1.25 0 2.17.891 2.17 2.068 0 1.003-.736 1.745-1.669 1.745-.76 0-1.288-.446-1.288-1.077 0-.361.152-.657.548-.866a.08.08 0 00.032-.113l-.596-1.018a.08.08 0 00-.098-.035c-.799.299-1.359 1.018-1.359 1.984 0 1.46 1.152 2.55 2.76 2.55 1.877 0 3.227-1.313 3.227-3.195 0-2.018-1.57-3.492-3.73-3.492zM28.675 8.843c-.724 0-1.373.27-1.845.746-.026.027-.069.007-.069-.029v-.572a.08.08 0 00-.08-.082h-1.397a.08.08 0 00-.08.082v8.182a.08.08 0 00.08.081h1.433a.08.08 0 00.081-.081v-2.683c0-.036.043-.054.069-.03a2.6 2.6 0 001.808.7c1.682 0 2.993-1.373 2.993-3.157s-1.313-3.157-2.993-3.157zm-.271 4.929c-.956 0-1.681-.768-1.681-1.783s.723-1.783 1.681-1.783c.958 0 1.68.755 1.68 1.783 0 1.027-.713 1.783-1.681 1.783h.001z" fill="#fff"></path></svg>
+</li><li class="payment-icon">
+<svg aria-labelledby="pi-visa" class="icon icon--full-color" height="24" role="img" viewbox="0 0 38 24" width="38" xmlns="http://www.w3.org/2000/svg"><title id="pi-visa">Visa</title><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#fff"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg>
+</li></ul></div></div>
+</div>
+<div class="site-footer__drawer-cover"></div>
+</footer>
+</div>
+</div>
+</div>
+<div class="drawer-cover"></div>
+<div aria-hidden="true" class="drawer critical-hide" tabindex="-1">
+<div class="cart-drawer cart-drawer--empty"><p class="preservation-inactive">Archived form — submissions are closed.</p>
+<div class="cart-drawer__header">
+<div class="cart-drawer__header-container">
+<button class="cart-drawer__close-button btn btn--clear btn--square" disabled="" type="button">
+<svg aria-hidden="true" class="icon icon-close" focusable="false" role="presentation" viewbox="0 0 16.8 16.8"><path d="M16.8 1.5L15.4.1 8.4 7l-7-7L0 1.4l7 7-7 7 1.4 1.4 7-7 7 7 1.4-1.4-7-7z" fill="#444"></path></svg>
+<span class="icon__fallback-text">Close Cart</span>
+</button>
+<p class="cart-drawer__header-title text-title text-center">Shopping Cart</p>
+</div>
+</div>
+<div class="cart-drawer__content">
+<div class="cart-drawer__content-container">
+<div class="cart-drawer__empty-text">
+<p class="text-center">Your cart is currently empty.</p>
+</div>
+<div class="cart-drawer__no-cookies">
+<p class="text-center">Enable cookies to use the shopping cart</p>
+</div>
+<div class="cart-drawer__item-list">
+<div aria-live="polite" class="cart-drawer__item ajax-cart__template">
+<a class="cart-drawer__item-image" href="/archives/specteslacup/2025-01-22/collections/stage-2-wheels-tires/index.html" style="background-image: none;"></a>
+<div class="cart-drawer__item-content">
+<a class="h4 cart-drawer__item-title" href="/archives/specteslacup/2025-01-22/collections/stage-2-wheels-tires/index.html"></a>
+<p class="cart-drawer__item-subtitle">
+</p>
+<ul class="cart-drawer__item-properties">
+<li class="cart-drawer__item-property visually-hidden">
+</li>
+<li class="cart-drawer__item-property ajax-cart__template">
+                        t:
+
+                        
+                        
+                          e
+                        
+                      </li>
+</ul>
+<p class="cart-drawer__item-price-container"><span class="cart-item__original-price cart-item__price"></span></p>
+<ul aria-label="Discount" class="order-discount order-discount--list order-discount--title order-discount--cart"><li class="order-discount__item ajax-cart__template"><svg aria-hidden="true" class="icon icon-saletag" focusable="false" role="presentation"><path d="M10 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0-3H7a1 1 0 0 0-.71.29l-6 6a1 1 0 0 0 0 1.42l4 4a1 1 0 0 0 1.42 0c.19-.2 5.8-5.81 6-6A1 1 0 0 0 12 5V2a2 2 0 0 0-2-2z" fill="#231F20"></path></svg><span></span> (-<span></span>)
+                    </li></ul>
+<button class="cart-drawer__item-delete btn-link" disabled="" type="button">Remove</button>
+<label class="label--hidden" for="quantity_">Item Quantity</label>
+<input aria-label="Item Quantity" class="cart-drawer__item-quantity" disabled="" id="quantity_" min="1" pattern="\d*" type="number" value=""/>
+</div>
+<p aria-hidden="true" class="cart-item__message text-center"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cart-drawer__footer">
+<div class="cart-drawer__footer-container">
+<div class="cart-drawer__message-container">
+<div class="cart-drawer__message"></div>
+</div>
+<div><div class="order-discount-cart-drawer-wrapper ajax-cart__template">
+<span class="order-discount order-discount--title order-discount--cart-title"><svg aria-hidden="true" class="icon icon-saletag" focusable="false" role="presentation"><path d="M10 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0-3H7a1 1 0 0 0-.71.29l-6 6a1 1 0 0 0 0 1.42l4 4a1 1 0 0 0 1.42 0c.19-.2 5.8-5.81 6-6A1 1 0 0 0 12 5V2a2 2 0 0 0-2-2z" fill="#231F20"></path></svg><span class="visually-hidden">Discount:</span><span></span>
+</span>
+<span class="order-discount order-discount--cart-price">-<span></span></span>
+</div></div>
+<div aria-live="polite" class="cart-drawer__subtotal">
+<div class="cart-drawer__subtotal-label">
+<span class="h4">Subtotal</span>
+</div>
+<div class="cart-drawer__subtotal-price">
+<span class="cart-drawer__subtotal-number">$0.00</span>
+</div>
+</div><p class="cart-drawer__disclaimer rte">Taxes and shipping calculated at checkout
+</p>
+<button class="btn btn--loader cart-drawer__checkout" disabled="" type="submit">
+          Checkout
+          <span class="btn--loader-balls"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<ul hidden="">
+<li id="a11y-refresh-page-message">Choosing a selection results in a full page refresh.</li>
+<li id="a11y-selection-message">Press the space key then arrow keys to make a selection.</li>
+</ul>
+</body>
+</html>

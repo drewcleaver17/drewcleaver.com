@@ -1,0 +1,6 @@
+---
+import WebsiteArchive from '../components/WebsiteArchive.astro';
+import pages from '../data/website-archives.json';
+const entries = pages.filter(p => p.project === 'specteslacup');
+---
+<WebsiteArchive name="Spec Tesla Cup" slug="specteslacup" subtitle="Sustainable motorsport. A customer racing vision." intro="The original website for my Tesla motorsport project, preserved with its racing story, development notes, car preparation and vision for an arrive-and-drive experience built around hospitality." note="The default homepage is the latest successful homepage capture recovered from the Internet Archive: February 8, 2026. It still describes plans for 2023–2024; the capture date does not mean those plans were current or completed. An October 17, 2022 homepage shows the earlier vision. Supporting pages come from their individually dated captures. Original copy, recovered images and styling are preserved locally. Shopping, booking, account access and submissions are inactive; unavailable destinations stay inactive and videos link to YouTube." entries={entries} />
