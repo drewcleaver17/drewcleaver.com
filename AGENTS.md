@@ -11,3 +11,8 @@
 - Run a production build and check changed routes and behaviors. Record unverified checks honestly; do not label simulated delivery as actual inbox delivery.
 - Show a concrete preview before requesting publication approval. Do not send test inquiries to external recipients without authorization.
 - Writing is disabled for this release. Keep its templates, but do not generate its routes, link to it, or commit private drafts to this public repository. Future writing publication requires an explicit owner instruction.
+
+
+## Buildmine public release — 2026-09-19
+
+The executed Buildmine implementation prompt authorizes public discovery and indexing of `/buildmine/` and its publishing guide, plus one footer link. Earlier unlisted-only Buildmine rules in this document are superseded for these routes. The snapshot viewer and fictional named demo stay noindex; unrelated route visibility, disabled writing, and paused Analytics remain unchanged. See `docs/BUILDMINE_PILOT.md` for the current release contract and verification.

@@ -14,7 +14,6 @@ const files = directory => readdirSync(directory).flatMap(name => {
 for (const file of files(root).filter(file => file.endsWith('.html'))) {
   const html = readFileSync(file, 'utf8');
   assert(!/href=["'][^"']*\/writing(?:[\/?#"'])/i.test(html), 'Public writing link in ' + file);
-  assert(file.endsWith('/preview/index.html') || !/<a\b[^>]*href=["'][^"']*\/buildmine(?:[\/?#"'])/i.test(html), 'The buildmine pilot must stay out of public navigation: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/motorsport(?:[\/?#"'])/i.test(html), 'The motorsport pilot must have no inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/proofpath(?:[\/?#"'])/i.test(html), 'The ProofPath brief must have no inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/tekmetric(?:[\/?#"'])/i.test(html), 'The Tekmetric pitch must have no inbound site links: ' + file);
@@ -26,16 +25,23 @@ for (const page of ['index.html', 'hello/index.html', 'contact/index.html', 'bui
   assert(existsSync(join(root, page)), 'Missing required output: ' + page);
 }
 const pilot = readFileSync(join(root, 'buildmine/index.html'), 'utf8');
-assert(/name="robots" content="noindex, nofollow"/.test(pilot), 'The buildmine pilot must ask search engines not to index it.');
+assert(!/name="robots" content="noindex/.test(pilot), 'The approved public builder must be discoverable.');
+assert(!pilot.includes('id="analytics-choice"'), 'The builder must never initialize analytics.');
+const publishing = readFileSync(join(root, 'buildmine/publish/index.html'), 'utf8');
+assert(!publishing.includes('id="analytics-choice"'), 'Publishing instructions must not initialize analytics.');
+assert(existsSync(join(root, 'buildmine/starter.zip')), 'Missing downloadable starter kit.');
+assert(existsSync(join(root, 'p/alex.rivera.example/index.html')), 'Missing named fictional example.');
+const example=readFileSync(join(root, 'p/alex.rivera.example/index.html'), 'utf8');
+assert(example.includes('Fictional example') && /noindex, nofollow/.test(example), 'Example must be visibly fictional and noindex.');
 assert.equal((pilot.match(/class="buildmine-question"/g) || []).length, 7, 'Expected seven pilot questions.');
 assert(!pilot.includes('maxlength='), 'Pilot answers must not have a character cap.');
-for (const page of ['buildmine/index.html', 'preview/index.html', 'motorsport/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'metsicare/index.html', 'dpc/index.html', 'ufos/index.html']) {
+for (const page of ['preview/index.html', 'motorsport/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'metsicare/index.html', 'dpc/index.html', 'ufos/index.html']) {
   const html = readFileSync(join(root, page), 'utf8');
   assert(!html.includes('id="analytics-choice"'), 'Unlisted pages must not initialize analytics.');
   assert(/name="robots" content="noindex, nofollow"/.test(html), 'Unlisted pages must ask search engines not to index them: ' + page);
 }
 const sitemap = readFileSync(join(root, 'sitemap.xml'), 'utf8');
-assert(!/\/(buildmine|preview|writing|motorsport|proofpath|tekmetric|metsicare|dpc|ufos)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
+assert(!/\/(preview|writing|motorsport|proofpath|tekmetric|metsicare|dpc|ufos)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
 const ufoHtml = readFileSync(join(root, 'ufos/index.html'), 'utf8');
 const ufoData = JSON.parse(readFileSync(new URL('../src/data/ufos/timeline.json', import.meta.url), 'utf8'));
 for (const event of ufoData.events.filter(e => e.publicationStatus === 'published')) {
@@ -53,4 +59,5 @@ assert(existsSync(join(root, 'dpc-deck.pdf')), 'Missing DPC PDF.');
 const dpc=readFileSync(join(root,'dpc/index.html'),'utf8');
 assert(!/METSI|Garrick/i.test(dpc), 'The neutral DPC page must not imply practice affiliation.');
 assert(readFileSync(join(root,'metsicare-deck.pdf')).equals(readFileSync(join(root,'dpc-deck.pdf'))), 'Old PDF links must deliver the neutral deck.');
-console.log('Release check passed: public routes preserved; all concept, pilot, library and UFO routes remain unlisted and noindex; static chronology present.');
+assert(sitemap.includes('/buildmine/'), 'Public builder must appear in the sitemap.');
+console.log('Release check passed: Buildmine public; unrelated unlisted routes and privacy preserved.');

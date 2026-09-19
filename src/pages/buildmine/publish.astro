@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { profile } from '../../data/profile';
+---
+<Base title="Publish your Buildmine site" description="Take your free personal-site kit to GitHub Pages or another static host. A practical guide to publishing your own code." compact>
+  <div class="shell buildmine-shell publishing-guide">
+    <p class="eyebrow">Buildmine · Take it live</p><h1 class="serif">A website you can<br /><em>take with you.</em></h1>
+    <p class="lead">Your ZIP contains a ready-built website and the source to change it. Publishing takes a few account setup steps; the included workflow handles later builds.</p>
+    <p><a class="inline-link" href="/buildmine/">← Back to the builder</a> · <a class="inline-link" href="/buildmine/starter.zip" download>Try the example kit</a></p>
+    <h2 class="serif">First, check your files.</h2><ol><li>Unzip your website kit and open <code>site/index.html</code>. Check your public text and every link.</li><li>The <code>site/</code> folder is ready to publish. <code>site.json</code> contains your public content; the remaining files let you regenerate or customize it.</li><li>Keep your private <code>.buildmine.json</code> project, text brief, and original résumé out of the hosting folder and public repository.</li></ol>
+    <h2 class="serif">Use your own GitHub Pages site.</h2>
+    <ol><li>Create a new <strong>public repository</strong> in your GitHub account. Use any project name, or <code>YOUR-USERNAME.github.io</code> for your account’s root site.</li><li>Upload the kit’s source files to the repository root. Include the hidden <code>.github/workflows/pages.yml</code> file. If the upload picker hides it, use <strong>Add file → Create new file</strong>, enter that full path, and paste the workflow from your kit. Read <code>DEPLOY.md</code> for the exact file list.</li><li>Open <strong>Settings → Pages</strong>. Under Build and deployment, set Source to <strong>GitHub Actions</strong>.</li><li>In Actions, run <strong>Publish personal site</strong>, or push a change to <code>main</code>. Wait for the deployment to finish. Open the URL GitHub shows.</li><li>Test Home, About, Hello, and your contact links. Edit <code>site.json</code> and commit your changes to update the live site.</li></ol>
+    <p>GitHub Free supports Pages for public repositories. Your repository and site content are public. GitHub Pages has usage limits and is intended for suitable static sites; it is not a platform for operating a commercial SaaS or arbitrary customer hosting. Check <a class="inline-link" href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits">GitHub’s current limits and permitted uses</a>.</p>
+    <h2 class="serif">Prefer another host?</h2><p>Upload the contents of <code>site/</code> to a static host you choose. No server or database is required. To regenerate after editing your source, install Node.js 22.13 or later and run <code>node generate.mjs</code>. Your kit includes an AI customization prompt, too.</p>
+    <p>A custom domain is optional and usually costs money. Connect it through your chosen host’s domain settings. Buildmine does not buy domains, configure DNS, or request access tokens.</p>
+    <h2 class="serif">What about a named page here?</h2><p><a class="inline-link" href="/p/alex.rivera.example/">Alex Rivera’s fictional example</a> demonstrates a static named page. Self-service accounts, slug ownership, and automatic publishing to Drew’s domain are not part of this release. Your share link carries its data in the URL; it is not a saved or revocable account. Keep a downloaded copy.</p>
+    <p>Made something you want to show? <a class="inline-link" href={`mailto:${profile.email}?subject=Buildmine%20showcase`}>Send Drew your already-public link</a> and say whether you want your name and site included in a future showcase. Nothing is listed automatically.</p>
+    <p><a class="inline-link" href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Official GitHub Pages setup guide ↗</a></p>
+  </div>
+</Base>

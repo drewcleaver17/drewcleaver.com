@@ -117,3 +117,8 @@ Drew subsequently requested homepage navigation links to both preserved websites
 ## Independent Direct Primary Care concept
 
 Drew authorized revision and live publication of `/dpc/` as “Direct Primary Care: A Physician-Owned Growth Model.” Preserve his authorship and the green/ivory design, remove practice affiliation, and leave founder roles and ownership undecided. Keep the page unlisted/noindex and out of navigation/sitemap. Forward `/metsicare/` and its PDF readers to the revised material. The original 56 assumptions remain as a labeled reference; the 70-input tool adds launch cash timing and validated legacy migration. No automatic transmission, backend or patient data. See `docs/DPC_CONCEPT.md` and `docs/dpc/SOURCES.md`.
+
+
+## Buildmine public release — 2026-09-19
+
+The executed Buildmine implementation prompt authorizes public discovery and indexing of `/buildmine/` and its publishing guide, plus one footer link. Earlier unlisted-only Buildmine rules in this document are superseded for these routes. The snapshot viewer and fictional named demo stay noindex; unrelated route visibility, disabled writing, and paused Analytics remain unchanged. See `docs/BUILDMINE_PILOT.md` for the current release contract and verification.

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "Alex Rivera",
+  "headline": "A fictional community workshop organizer.",
+  "bio": "This is sample content for learning how to build a personal website. Replace it with your own words before publishing.",
+  "experience": "Example project: organizing a neighborhood repair workshop.\nReplace this example with your real experience.",
+  "highlights": "Example: a printable workshop checklist and a guide to borrowing tools. No real person or customer is represented here.",
+  "email": "hello@example.com",
+  "booking": "",
+  "theme": "editorial",
+  "credit": true
+}

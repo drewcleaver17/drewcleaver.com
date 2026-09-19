@@ -13,12 +13,17 @@ import '../styles/global.css';
 </html>
 <script>
   import { decodeDraft, renderSite } from '../lib/site-preview';
+  import { decodeSite, renderPage } from '../../starter/core.mjs';
+  import css from '../../starter/styles.css?raw';
   const frame = document.querySelector<HTMLIFrameElement>('#shared-site-frame')!;
   const status = document.querySelector<HTMLElement>('#preview-error')!;
   const load = () => {
     try {
-      const site = decodeDraft(window.location.hash.slice(1));
-      frame.srcdoc = renderSite(site, true); frame.hidden = false; status.hidden = true;
+      const fragment = window.location.hash.slice(1);
+      let site;
+      try { site = decodeSite(fragment); frame.srcdoc = renderPage(site, css, 'home', { single: true, embedded: true }); }
+      catch { site = decodeDraft(fragment); frame.srcdoc = renderSite(site, true); }
+      frame.hidden = false; status.hidden = true;
       document.title = `${site.name} — Shared website draft`;
     } catch {
       frame.hidden = true; frame.removeAttribute('srcdoc'); status.hidden = false;

@@ -1,58 +1,137 @@
-# Build mine — repeatable pilot procedure
+# Buildmine 1.0.0 — implementation and maintainer notes
 
-## What is working
+## Shipped scope
 
-Direct route: `https://drewcleaver.com/buildmine/`. Unlisted from the homepage and normal navigation; noindex requested. These are discoverability choices, not access control.
+`/buildmine/` is now public and appears in the site footer and sitemap. This
+release's explicit authorization supersedes the earlier unlisted-only rule
+for **Buildmine only**. `/preview/`, the fictional named demo, and unrelated
+unlisted projects remain noindex. Writing remains disabled and Analytics
+remains paused. Builder and publishing-guide routes never initialize Analytics.
 
-1. Enter a public name and import a PDF/TXT résumé, or paste text. The file stays in the browser; no intake is sent automatically.
-2. Answer any of seven open-ended questions, including none. All seven are always visible, with no collapse controls. Participants may use their preferred AI to talk through the questions, review its wording, and paste their answers into the corresponding fields. This optional help happens in their chosen AI; the pilot does not call a model. These are direction notes, not approved public copy. There are no application text caps. The style question offers Drew's look or another direction.
-3. Create an instant starter. Conservative section matching recognizes summary/profile and experience headings, omits common contact lines, and preserves source wording. It is not AI generation or reliable redaction. Unrecognized sections remain blank instead of inventing content. Every extracted field is editable.
-4. Review public name, headline, about, experience, selected work, contact email, and scheduling URL. Switch between Editorial, Studio, and Technical compositions. Contact fields start blank; private brief answers never populate public content automatically. Only preset-related style keywords affect generation; other answers stay in the private brief for later tailoring.
-5. Approve the public fields. Create a share link, download the site, or both. Editing a public field resets approval and hides the obsolete share link. A previously copied snapshot remains unchanged.
-6. Save the private brief separately before leaving. It includes all original answers, résumé text, and any edited site draft. Nothing autosaves or persists to a backend.
-7. If desired, email Drew to discuss a tailored build or launch. The pilot does not automatically notify Drew or promise a human follow-up.
+Visitors can start blank or import/paste a résumé, answer seven optional
+questions, edit public fields, choose one of three styles, review, download a
+complete portable kit, and follow instructions to publish in their own account.
+A private `.buildmine.json` project preserves complete résumé text, all answers,
+style preference and public edits; it can be restored locally. Nothing autosaves
+or uploads. The older readable `.txt` brief is not an importable project.
 
-## Share and export contracts
+There is no AI-writing service, customer account, backend intake, payment flow,
+or automated customer publishing. The résumé parser matches headings and keeps
+source wording; it is not a privacy redactor. Public contact fields start blank.
+Questions are private direction notes, not public copy or interpreted commands.
+Only the style question's keywords choose a preset. Every extracted field must
+be reviewed by the visitor. All seven questions remain optional and uncapped.
 
-- `/preview/#<encoded-public-schema>` renders a full-page sandboxed preview of the approved site. It is a snapshot encoded in a URL, not a permanent named page or editable server record. Anyone with the link can read and forward it. It cannot be individually revoked. Links are not encrypted or suitable for private data.
-- Only the allowlisted public schema is encoded. The private résumé, question answers, planning boundaries, and source file are not included unless the participant explicitly pastes that material into a public field and approves it.
-- A 9,000-byte public JSON limit keeps encoded fragments at or below 12,000 characters. Messaging clients can impose tighter limits. The interface refuses oversized links and offers a full export; it never silently truncates text.
-- `index.html` is a complete single-page site with inline CSS, working section navigation, email/scheduling links, and no external fonts, scripts, form service, or tracking. The approved export allows search indexing. Upload it to a suitable static host; no build process is required. It does not contain separate `/about` or `/hello` files yet.
-- The renderer escapes every text value, allows only fixed theme identifiers, validates email and HTTP(S) booking URLs, and blocks embedded scripts/resources with CSP and iframe sandboxing. Embedded anchors explicitly target `about:srcdoc`; export anchors target the local document.
-- Keep the schema/version and legacy viewer compatible when changing the renderer. Existing links otherwise break or change appearance. An owner can remove the viewer as a whole, but it cannot delete a snapshot from someone else's history or downloaded copy.
+## Architecture
 
-## Recommended business model
+- `starter/core.mjs`: public schema v2, private project schema v1, strict field
+  projection, safe renderer, complete static files, ZIP creation, snapshot codec.
+- `starter/styles.css`: shared local styles for Editorial, Studio, Technical.
+- `src/lib/buildmine-kit.ts`: explicit allowlist of redistributable source/docs.
+- `src/scripts/buildmine.ts`: editor, save/import, review state, exports.
+- `src/lib/site-preview.ts`: unchanged legacy public schema v1 renderer/codec.
+- `/preview/`: recognizes v2 and falls back to v1. Snapshots stay in URL fragments.
+- `/buildmine/starter.zip`: example kit; includes generator version/provenance.
+- `/buildmine/buildmine-starter-1.0.0.zip`: versioned first-release download.
+- `/p/alex.rivera.example/`: visibly fictional static example from the same
+  public schema and renderer, with About, Hello, and local CSS.
+- `/buildmine/publish/`: public publishing guide. Kit DEPLOY.md is portable.
 
-Start with a free usable preview and export. Offer an agreed one-time fee for bespoke refinement and launch. Sell the judgment, design, domain setup, and support, rather than relying on the idea that visible HTML cannot be copied. Add optional recurring managed hosting only after understanding support demand and ongoing cost.
+The preview combines sections in one frame; the full kit creates separate
+pages where content warrants them. Empty optional pages are absent. `site/`
+contains only deployable output. The source generator has no runtime packages
+and runs on Node 22.13+. The parent site remains Astro/Tailwind/MDX.
 
-No prices or checkout are published in this pilot. A future payment flow must verify payment on the server before granting paid entitlements; a browser checkbox or success redirect is not payment verification. Keep payment information with a payment provider, never this static site.
+## Privacy and publication contracts
 
-## The complete automatic product — next stage
+Editing a public field, layout or credit invalidates approval and hides the
+previous share link. Import never restores approval. Review is required for
+ZIP, single HTML, and snapshot exports. Only allowlisted public fields enter
+site.json and generated pages; original files and answers never enter the kit.
+Public text is escaped; themes are fixed; URL schemes and emails are validated.
+Preview frames are sandboxed with no same-origin or script privileges. Exported
+pages have a restrictive CSP, no tracking, no runtime script, no remote fonts,
+and no external assets. Optional links only navigate when clicked.
 
-Drew's original goal goes further than this static-host prototype. It needs:
+Snapshot links can be forwarded and cannot be individually revoked. Their
+9,000-byte JSON limit fails explicitly with a download alternative, never
+truncation. Projects and ZIPs preserve long input. Local backups contain private
+data; a visitor must store them accordingly. Names and paths prove no identity.
+Do not commit participant résumés, projects, approvals or private contacts.
 
-1. A connected backend capable of private draft storage, owned records, rate limits, and background generation. Cloudflare installation was declined for this request. No replacement provider or paid account has been activated.
-2. A server-side AI model producing a validated public site schema from résumé plus optional directions. Bound its cost and context size; retain full input and report capacity limits rather than silently truncating. Never put API credentials in a browser or a public repository, and never treat résumé text as executable model instructions.
-3. An owner access mechanism and explicit publication approval. Start with an opaque private draft ID; reserve a collision-safe human-readable slug only when the owner publishes. Implement deletion, expiration, and abuse reporting before open public user hosting.
-4. Named routes such as `/p/first-last/`, `/p/first-last/about/`, and `/p/first-last/hello/`. A namespace avoids conflicts with Drew's existing routes; names alone do not authenticate owners.
-5. Optional domain connection: DNS targets a host, not a URL path. A domain redirect can send visitors to a Drew-hosted page but changes the visible address. Keeping the customer's domain visible requires host-based routing, verified domain ownership, and TLS certificates. Prefer customers registering and owning their own domains.
-6. Optional payment-backed export or managed launch. Decide the offering, price, refund/support terms, and payment provider before enabling checkout. A paid export should include all pages/assets plus plain hosting instructions. Hosting subscriptions need an ongoing operating model.
+## Source, licensing and repository fallback
 
-Do not put a paid website-builder SaaS on GitHub Pages. Its published usage limits prohibit using Pages primarily for commercial transactions or commercial SaaS: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits. The current release is a free, browser-local experimental tool on Drew's personal site, with no payment processing or server-hosted participant records. Reassess hosting before commercialization.
+Only `starter/` and its generated structure are MIT-licensed. The extracted
+code is the newly authored template/renderer and locally authored styles.
+The kit includes no photographs, fonts, résumé, recovered archives, business
+marks or copied personal writing. No third-party runtime assets/dependencies
+are redistributed. The parent site's PDF parser remains its existing dependency
+and is bundled only into the builder, not into users' kits. See the kit's license
+and THIRD_PARTY_NOTICES.md; do not apply MIT to the entire personal repository.
 
-## Human-assisted refinement SOP
+The connected GitHub tools can update existing repositories but cannot create
+or configure a repository/template. The release therefore uses `starter/` in
+the existing repository plus a versioned ZIP. To establish the preferred
+`personal-site-starter` repository later: create a new public repository in
+Drew's account, copy **only** starter files to its root, set default branch main,
+and optionally check Settings → General → Template repository. Update SOURCE,
+the profile link, and documentation only after the real repository exists.
+Template-created repositories have independent history; they do not increase
+an upstream fork count. No star, fork, testimonial or referral is required.
 
-When a participant explicitly asks for help:
+## Named publishing: exact current boundary
 
-1. Have them send their saved brief and/or share link. Do not assume preview creation submitted their details.
-2. Confirm the goal, audience, visual direction, public contact fields, omissions, and scope. Resolve ambiguous résumé facts instead of inventing copy, achievements, or testimonials.
-3. Use the résumé as source material and optional answers as instructions. Build a distinct design where requested; the three presets are starting points.
-4. Present a real preview, test narrow and wide layouts, contact links, and downloads, and get approval for the exact public content.
-5. Agree any fee, domain ownership, hosting responsibility, and ongoing support before buying services or publishing under a customer's identity.
-6. Deliver the portable source and deployment notes or manage hosting under the agreed arrangement. Keep private source material outside the public repository.
+Only a fictional fixture is hosted. `namedPath()` validates the dotted
+namespace; generated relative links work under that prefix. No endpoint accepts
+publication requests or lets a stranger reserve, edit or delete a page. There
+is no live claim that a name is owned. Maintainers change/remove the fictional
+fixture in source and deploy through a reviewed PR. Removing files does not
+erase Git history, caches or downloaded copies.
 
-## Verification for this revision
+Automatic customer hosting needs a connected, suitable hosting/backend account
+with authenticated record ownership and permission to operate this service.
+No such publishing service is connected for this release. GitHub Pages remains
+the source/demo host, not a commercial multi-customer hosting platform. The
+precise next stage is in [BUILDMINE_HOSTING_DESIGN.md](BUILDMINE_HOSTING_DESIGN.md).
+Do not enable participant publication by merely adding a public GitHub write
+credential or a Publish button. Self-publishing in a user's own account works
+with the documented setup; automatic hosting here is future work.
 
-Production build and structural checks cover seven HTML pages, retained contact/vCard routes, no writing, and an unlisted/noindex pilot. Focused DOM and renderer checks cover resume-only generation, all seven optional questions, privacy separation, style selection, Unicode snapshots, malicious text/URLs, missing/malformed links, review gating, stale link invalidation, complete long-text exports, and no external submissions. Existing résumé import behavior remains in its unchanged module.
+## Verification and operations
 
-A browser check of the deployed route must verify rendering and real navigation within the sandboxed preview. Exact outer-page mobile viewport checks remain unverified when the available browser has no resize control. Do not claim those checks from CSS inspection or DOM simulations alone.
+`npm run build` runs schema/export tests, existing content validation, Astro,
+release checks and production-bundle DOM tests. `npm test` keeps the existing
+UFO tests. A PR workflow runs both. Coverage includes UTF-8, long inputs, escaping,
+private/public projection, blank starts, all themes, approval invalidation,
+invalid-file recovery, project restoration, TXT import, old snapshots, relative
+links, ZIP CRCs and regeneration of the exported kit without dependencies.
+
+The ZIP is independently checked with Python's standard zipfile reader. A local
+publishing rehearsal follows DEPLOY.md and compares the regenerated files at a
+domain root and repository subpath. This is not a claim that a new customer
+GitHub account/repository was provisioned. Final live checks use the existing
+Pages deployment and the actual downloaded kit.
+
+Visual browser checks and their actual limits belong in the PR/release report;
+DOM tests cannot establish pixel layout at 320/390/768/1440. Keep this distinction
+when reporting validation. Any skipped visual sizes must be disclosed.
+
+Merge through the existing Pages workflow, check the Actions result and live
+routes. For rollback, revert the release's merge commit and let the same workflow
+redeploy; preserve any subsequent unrelated edits. Increment starter VERSION,
+package version, provenance, changelog and versioned download path together for
+future releases; avoid changing the meaning of released snapshot schemas.
+
+## Honest measurement and five-volunteer test
+
+No analytics, counters or telemetry are added. Creation, export, successful
+publication, and continued use are distinct outcomes. If measurement is later
+authorized, record only aggregate event counts with consent where appropriate;
+never résumé text, answers, public-field contents, contact details, slugs or
+snapshot fragments. A file download is not proof of a published site or a user
+helped. Template copies are not GitHub forks. Do not infer outcomes from either.
+
+Use [BUILDMINE_USABILITY.md](BUILDMINE_USABILITY.md) with five consenting volunteers.
+There has been no recruitment and no results are claimed. A showcase is opt-in:
+the person sends an already-public URL and explicit permission to list name/link
+through Drew's existing contact route; removal uses that same route.

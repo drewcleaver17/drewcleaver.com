@@ -221,3 +221,8 @@ This supersedes the initial empty-collection status above.
 - [x] Build/release checks enforce neutral content, noindex, no analytics, no sitemap/homepage links, and identical neutral PDFs at old/new paths.
 - [ ] Live deployment, forwarding, browser interaction and PDF delivery checks.
 - [ ] Exact 320/390/768/1440 viewport and physical mobile-device checks; the available managed browser has no viewport-resize control.
+
+
+## Buildmine public release — 2026-09-19
+
+The executed Buildmine implementation prompt authorizes public discovery and indexing of `/buildmine/` and its publishing guide, plus one footer link. Earlier unlisted-only Buildmine rules in this document are superseded for these routes. The snapshot viewer and fictional named demo stay noindex; unrelated route visibility, disabled writing, and paused Analytics remain unchanged. See `docs/BUILDMINE_PILOT.md` for the current release contract and verification.
