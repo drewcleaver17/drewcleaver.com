@@ -110,6 +110,10 @@ Drew requested an opening story and executive synthesis explaining his interview
 
 Drew requested live memory/portfolio pages at `/tesloco/` and `/specteslacup/` showing the original websites and their working vision/versions. Preserve the original branding, copy and imagery using surviving WordPress and dated Internet Archive captures. Use a small wrapper in the existing green/ivory visual style with a version/page selector and a full-page preserved-view link. Do not replace source copy with an invented new business pitch. Identify capture dates separately from content revision dates and keep historic commercial claims contextualized. Disable original scripts, analytics, forms, booking, checkout and account actions; store recovered assets locally. Keep homepage/nav untouched and initially noindex. Preserve GitHub Pages hosting. Publication is authorized by the current request to make these pages on drewcleaver.com.
 
+## EV and motorsport portfolio navigation — September 19, 2026
+
+Drew subsequently requested homepage navigation links to both preserved websites under “EV & Motorsport Business Concepts.” Add a Portfolio dropdown to the shared desktop navigation and the same labeled section in the mobile menu, linking Tesloco at `/tesloco/` and Spec Tesla Cup at `/specteslacup/`. This supersedes the initial navigation exclusion for these two routes only. Preserve their archival context and existing noindex metadata. Publish through the existing GitHub Pages workflow.
+
 ## Independent Direct Primary Care concept
 
 Drew authorized revision and live publication of `/dpc/` as “Direct Primary Care: A Physician-Owned Growth Model.” Preserve his authorship and the green/ivory design, remove practice affiliation, and leave founder roles and ownership undecided. Keep the page unlisted/noindex and out of navigation/sitemap. Forward `/metsicare/` and its PDF readers to the revised material. The original 56 assumptions remain as a labeled reference; the 70-input tool adds launch cash timing and validated legacy migration. No automatic transmission, backend or patient data. See `docs/DPC_CONCEPT.md` and `docs/dpc/SOURCES.md`.
