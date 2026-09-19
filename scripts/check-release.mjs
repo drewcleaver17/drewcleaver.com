@@ -66,7 +66,7 @@ assert(!/METSI|Garrick/i.test(dpc), 'The neutral DPC page must not imply practic
 assert(readFileSync(join(root,'metsicare-deck.pdf')).equals(readFileSync(join(root,'dpc-deck.pdf'))), 'Old PDF links must deliver the neutral deck.');
 assert(sitemap.includes('/buildmine/'), 'Public builder must appear in the sitemap.');
 assert(!/\/portfolio(?:\/|<)/.test(sitemap), 'The portfolio review must stay out of the sitemap.');
-for (const page of ['index.html', 'higher-hangers/index.html', 'tesloco/index.html', 'spec-tesla-cup/index.html', 'buildmine/index.html']) {
+for (const page of ['index.html', 'higher-hangers/index.html', 'angeline-office/index.html', 'tesloco/index.html', 'spec-tesla-cup/index.html', 'buildmine/index.html']) {
   const file = join(root, 'portfolio', page);
   assert(existsSync(file), 'Missing portfolio review page: ' + page);
   const html = readFileSync(file, 'utf8');

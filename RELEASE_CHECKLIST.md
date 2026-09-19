@@ -237,7 +237,7 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [ ] Exact mobile viewport and physical-device inspection; responsive source and contained table scrolling implemented.
 ## Unlisted portfolio review — September 19, 2026
 
-- [x] Overview and four case studies build at `/portfolio/` and its project subpaths.
+- [x] Overview and five case studies build at `/portfolio/` and its project subpaths.
 - [x] Every review page has `noindex, nofollow`, a visible review label, and no analytics.
 - [x] Build guards prevent sitemap entries and links into the review from other pages.
 - [x] All new internal links and assets resolve in the production output.
@@ -246,3 +246,10 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] `npm run build` and `npm test` pass (74 existing tests across the release commands, plus release visibility and link checks).
 - [ ] Higher Hangers storefront capture: still needs an original export or recoverable historical snapshot.
 - [ ] Public navigation and GitHub-profile promotion: intentionally held for Drew's review.
+
+### Angeline Office addition
+
+- [x] Added the advisory-practice case after Higher Hangers with the original site seal and verified diagnostic/method links.
+- [x] Project totals update from the collection; the new case is covered by existing visibility and internal-link guards.
+- [x] Production build passes, including 56 model/renderer/UI tests; six unlisted portfolio pages are generated.
+- [ ] Full browser visual review remains unverified; prior browser connection failures prevented it.
