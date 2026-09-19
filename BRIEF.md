@@ -73,3 +73,9 @@ Drew requested a personal motorsport page based on his supplied history, from hi
 Use a first-person narrative, the existing green/ivory palette, and a readable mobile layout. No photography or empty image placeholders in the pilot. Keep independent chapters so real photos and captions can be inserted later. Treat Drew's account as the source; avoid inventing dates, results, team names, car models, sponsorship terms, or driver roles. Approximate 2001 dates stay approximate. Publication does not claim independent archival verification of the supplied racing results or historic-first claim. See `docs/MOTORSPORT_PILOT.md` for source and photo-expansion notes.
 
 Google Analytics setup is paused at Drew's request; leave the inactive integration intact for him to resume from his computer later.
+
+## Unlisted ProofPath concept brief
+
+Drew approved the revised 12-slide ProofPath pitch and requested a mobile-optimized, continuously scrollable version at `/proofpath`, published live without homepage or navigation links. Adapt the approved pitch into a readable narrative, preserving its white/navy/teal typography-led design. Keep it out of the sitemap, use noindex/nofollow, and exclude analytics through the existing unlisted-page handling. The direct link is public, not password protected.
+
+The current concept uses a fixed employer-funded recruiting mandate, paid assessments of at least $100 on agreed completion, a 48–72 hour return window with a defined effort cap, a supplied and disclosed recorded workspace, AI use, and a free reusable candidate passport. Employers retain final hiring decisions. Evidence reuse and research require permission. Preserve the illustrative economics and proposed pilot as assumptions; do not imply traction or a HiringCafe partnership. This page is a concept brief, not a working hiring platform. Use the shared public email for the invitation to discuss a pilot or partnership.

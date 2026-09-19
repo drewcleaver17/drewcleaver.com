@@ -116,3 +116,12 @@ Browser secure sign-in did not complete. A deployed scaffold, local test ID, or 
 - [ ] Post-deployment browser render and live route verification.
 - [ ] Actual rendering at 320, 390, 768, and 1440px. Current browser surface has no viewport-resize control; source-level responsive inspection is not physical device testing.
 - [ ] Archival evidence for newspaper feature, dated results, and historic-first claim before a broader launch. Pilot copy is based on the owner's account, not independent results verification.
+
+## Unlisted ProofPath concept brief
+
+- [x] Owner approved the deck and explicitly requested live publication at `/proofpath`.
+- [x] Continuous reading layout covers the work-sample premise, connected process, candidate passport, paid assessments, employer-funded mandate, learning model, launch path, existing competitors, proposed HiringCafe relationship, pilot, and invitation.
+- [x] Scoped, responsive styling preserves the deck's readable white/navy/teal visual direction. No embedded slide frames, decorative artwork, new forms, or backend.
+- [x] Existing public contact data supplies the email action. Assumptions, research permissions, and the lack of an existing HiringCafe deal remain explicit.
+- [x] Production build succeeds. Release checks enforce no inbound site links, no sitemap entry, noindex/nofollow, and no analytics initialization for this page.
+- [ ] Browser verification after publication; local preview is unavailable to the cloud browser. Source-level responsive checks are not physical mobile-device tests.
