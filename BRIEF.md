@@ -168,3 +168,8 @@ firsthand history from verified classifications. Separate driving from sponsor
 and hospitality roles. Preserve the infographic revision that gives Carter Boles
 only the same neutral results-row treatment as the rest of the field.
 See `docs/RACING_RESUME.md` for the source ledger and verification.
+
+
+## DPC R06 trial pricing and incentives
+
+Drew requested $250/$350 monthly targets, a 20% annual upfront discount, $150,000 associate bases plus performance pay, ethical optional-service economics, and review of the unreadable schedule screenshots. Preserve the $180,000 owner assumption and capacity constraints. Model a proposed 20% employer-cost pool on positive membership-funded surplus with an editable hurdle and quality achievement, excluding ancillary income. Keep unknown coverage costs blank, retain older calculations and inputs, update the deck, and publish through GitHub Pages.

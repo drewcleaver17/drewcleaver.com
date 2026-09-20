@@ -14,3 +14,11 @@ Sources support bounded category/legal context, not the model's price, demand, p
 The deck and page distinguish sourced category context, illustrative inputs, calculated outputs and unresolved decisions. No market size, healthcare savings, superior outcomes, recruiting interest, interviews, traction or partnerships are invented. DPC is established; the proposed combination is not claimed to be demonstrably unique.
 
 R05 review on September 19, 2026 reconfirmed AAFP, DPC Frontier and IRS primary-source context and added the AMA source. Schedule, pay, demand distribution, onboarding, urgent use and progression are explicitly editable design hypotheses. Historical TMA material remains dated background, not current legal clearance.
+
+
+## R06 optional-service review
+
+- [AMA Opinion 9.6.4](https://code-medical-ethics.ama-assn.org/ethics-opinions/sale-health-related-products): scientific support, disclosure, patient choice and conflicts in non-prescription health-product sales. Used as ethics context, not a lab-billing rule or approval of a compensation contract.
+- [FDA human drug compounding](https://www.fda.gov/drugs/guidance-compliance-regulatory-information/human-drug-compounding): compounded drugs are not FDA approved. The page makes no blanket claims about peptide legality or effectiveness and carries no peptide revenue assumption. Current product-specific review is required.
+
+The $150,000 base and 20% employer-cost profit pool are trial assumptions chosen for this proposal; neither is presented as a validated market compensation package.

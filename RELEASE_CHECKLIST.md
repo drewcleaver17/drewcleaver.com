@@ -279,3 +279,14 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] Live route and image verified after successful GitHub Pages deployment
   35476176931. Both path forms return HTTP 200; infographic matches the original;
   noindex, no analytics, no homepage link and sitemap exclusion confirmed.
+
+## DPC R06 pricing, incentives and screenshot repair
+
+- [x] $250/$350 monthly targets; 20% annual upfront savings; explicit $2,400/$3,360 annual charges and $200/$280 equivalents.
+- [x] $150,000 associate bases and adjustable quality-conditioned practice profit sharing; employer burden counted once; ancillary income excluded from the award basis.
+- [x] Unpriced coverage costs remain unknown; 0/50/100% annual-pay sensitivities are conditional and labeled.
+- [x] R05 inputs/results preserved; v5 storage, export, import, zero/blank and legacy switching tested.
+- [x] Schedule contrast repaired and coverage separated from booking hours; no navigation/indexing changes.
+- [x] Production build, model/UI checks and rendered 20-slide PDF reviewed; both PDF paths identical.
+- [ ] Exact 320/390/768/1440 browser rendering and physical iPhone check: supported browser could not access local preview; live navigation timed out.
+- [ ] Live publication confirmed separately in the release PR/workflow.
