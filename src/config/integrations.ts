@@ -1,7 +1,7 @@
 // These identifiers are public, not secrets. Fill them only from Drew's Google
 // properties. Blank values keep the integrations inactive until account setup.
 export const integrations = {
-  googleAnalyticsId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID || '',
+  googleAnalyticsId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-N55MYYB3SG',
   googleSiteVerification: import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || '',
 };
 
