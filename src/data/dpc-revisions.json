@@ -1,11 +1,11 @@
 {
-  "pageRevision": "R05",
-  "updatedAt": "2026-09-19T23:10:02Z",
+  "pageRevision": "R06",
+  "updatedAt": "2026-09-21T07:20:00Z",
   "timestampBasis": "Revision finalized for publication; deployment success is recorded separately in the release evidence.",
-  "modelVersion": "dpc-2026-09-v4",
-  "schemaVersion": 4,
-  "pdfRevision": "DPC-R05",
-  "countingRule": "One revision per distinct successfully published change to this concept's page, calculator or PDF. Commits within one release, failed deployments and unrelated site changes do not add revisions. R01\u2013R04 were reconstructed from first-parent Git history and successful GitHub Pages runs. The current entry becomes the fifth published iteration when this release succeeds.",
+  "modelVersion": "dpc-2026-09-v6",
+  "schemaVersion": 6,
+  "pdfRevision": "DPC-R06",
+  "countingRule": "One revision per distinct successfully published change to this concept's page, calculator or PDF. Commits within one release, failed deployments and unrelated site changes do not add revisions. R01\u2013R04 were reconstructed from first-parent Git history and successful GitHub Pages runs. The current entry becomes the sixth published iteration when this release succeeds.",
   "history": [
     {
       "id": "R01",
@@ -50,6 +50,14 @@
       "title": "Staggered associate schedules and ownership progression",
       "summary": "Separate 9\u20139 availability and appointment windows, twelve-encounter ceilings, weekday constraints, roster stages, constrained launch enrollment, updated PDF and revision history.",
       "url": "https://github.com/drewcleaver17/drewcleaver.com/pull/45"
+    },
+    {
+      "id": "R06",
+      "date": "2026-09-21T07:20:00Z",
+      "basis": "Revision finalized for publication",
+      "title": "Audited staffing, trial pricing and physician incentives",
+      "summary": "Owner Tuesday\u2013Thursday, balanced associate coverage and optional Friday\u2013Monday physician; separate visit mix and routine/urgent demand; provisional coverage budget, recruiting and prepayment sensitivities; pricing, incentives and readable roster.",
+      "url": "https://github.com/drewcleaver17/drewcleaver.com/compare/main...dpc/r06-audited-release"
     }
   ]
 }
