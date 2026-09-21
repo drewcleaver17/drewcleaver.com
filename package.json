@@ -14,7 +14,7 @@
     "astro": "astro",
     "test:buildmine": "node --experimental-strip-types --test starter/core.test.mjs scripts/buildmine.test.mjs",
     "test:buildmine-ui": "node --experimental-vm-modules --test scripts/buildmine-ui.test.mjs",
-    "test:dpc": "node --test tests/metsi-model.test.mjs tests/dpc-model.test.mjs tests/dpc-worksheet.test.mjs tests/dpc-staffing.test.mjs",
+    "test:dpc": "node --test tests/metsi-model.test.mjs tests/dpc-model.test.mjs tests/dpc-worksheet.test.mjs tests/dpc-staffing.test.mjs tests/dpc-incentives.test.mjs",
     "test:dpc-ui": "node --test tests/dpc-worksheet-ui.test.mjs"
   },
   "dependencies": {

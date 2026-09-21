@@ -1,5 +1,5 @@
 """Build the dated DPC reference deck from the checked model export. PDF only."""
-import json, html
+import json, html, math
 from pathlib import Path
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.colors import HexColor
@@ -9,7 +9,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parents[1]
-DATA=json.loads((ROOT/'docs/dpc/reference-results-r05.json').read_text())
+DATA=json.loads((ROOT/'docs/dpc/reference-results-r06.json').read_text())
 OUT=ROOT/'public/dpc-deck.pdf'
 for name,file in [('Body','DejaVuSans.ttf'),('Bold','DejaVuSans-Bold.ttf'),('Title','DejaVuSerif.ttf')]:
  pdfmetrics.registerFont(TTFont(name,'/usr/share/fonts/truetype/dejavu/'+file))
@@ -19,7 +19,7 @@ GREEN='#173E35';INK='#203D34';PAPER='#F7F5EE';MINT='#D5E6BD';MUTED='#5D6962';LIN
 c=Canvas(str(OUT),pagesize=(W,H),pageCompression=1)
 c.setTitle('Direct Primary Care: A Physician-Owned Growth Model')
 c.setAuthor('Drew Cleaver')
-c.setSubject('Independent reference scenario. '+DATA['revision']['pdfRevision']+'. '+DATA['centralTimestamp']+'. Model dpc-2026-09-v4.')
+c.setSubject('Independent reference scenario. '+DATA['revision']['pdfRevision']+'. '+DATA['centralTimestamp']+'. Model dpc-2026-09-v5.')
 issues=[];page=0;dark=False
 sources={
  'AMA':'https://www.ama-assn.org/practice-management/physician-health/doctors-work-fewer-hours-ehr-still-follows-them-home',
@@ -28,9 +28,11 @@ sources={
  'IRS Notice 2026-5':'https://www.irs.gov/pub/irs-drop/n-26-05.pdf',
  'Texas Medical Association':'https://www.texmed.org/CPMwhitepaper/',
  'FTC':'https://www.ftc.gov/business-guidance/resources/franchise-rule-compliance-guide',
+ 'AMA ethics':'https://code-medical-ethics.ama-assn.org/ethics-opinions/sale-health-related-products',
+ 'FDA':'https://www.fda.gov/drugs/guidance-compliance-regulatory-information/human-drug-compounding',
  'Working model':'https://drewcleaver.com/dpc/'
 }
-def money(n):return ('-$' if n<0 else '$')+f'{abs(n):,.0f}'
+def money(n):return ('-$' if n<0 else '$')+f'{math.floor(abs(n)+0.5):,}'
 def text(t,x,y,w,h,size=19,bold=False,color=None,font=None):
  st=ParagraphStyle('p',fontName=font or ('Bold' if bold else 'Body'),fontSize=size,leading=size*1.25,textColor=HexColor(color or (PAPER if dark else INK)),spaceBefore=0,spaceAfter=0)
  p=Paragraph(html.escape(t).replace('\n','<br/>'),st);_,ph=p.wrap(w,h)
@@ -73,4 +75,7 @@ def linked(label,url,x,y,w=830):
 def source_link(key,offset=0):
  c.linkURL(sources[key],(48+offset*300,12,340+offset*300,44),relative=0,thickness=0)
 
-exec((ROOT/'scripts/dpc-deck-r05-content.py').read_text())
+exec((ROOT/'scripts/dpc-deck-r06-content.py').read_text())
+
+# Keep the historical download URL byte-identical to the current deck.
+(ROOT/'public/metsicare-deck.pdf').write_bytes(OUT.read_bytes())
