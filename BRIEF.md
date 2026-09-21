@@ -1,5 +1,12 @@
 # Personal homepage and digital calling card
 
+## Analytics removal — September 21, 2026
+
+Drew explicitly requested removal and publication of GA4, its consent popup, and
+tracking-related UI. This supersedes earlier analytics setup/pause instructions.
+Keep contact paths and existing Search Console scaffolding, without configuring
+Search Console or introducing another analytics provider.
+
 ## YouTube library addition
 
 Drew requested `/youtube` as a browsable library of his saved favorite videos with TL;DW summaries, personal context, native YouTube links, and embedded viewing when allowed. Build within the existing Astro/GitHub Pages site. On September 19, 2026, Drew supplied seven Watch Later screenshots containing 48 distinct selections to share with friends and family. Preserve their order and variety. Keep the route unlinked from the homepage and noindex. Search, topic/length filters, sorting, expandable notes, and click-to-load privacy-enhanced playback are implemented. Do not represent this as a connected or automatically synchronized YouTube account. Summary source and Drew's personal reason for saving a video are separate fields.

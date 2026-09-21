@@ -1,4 +1,19 @@
-# Free measurement and search setup
+# Analytics removed — September 21, 2026
+
+Drew requested removal of GA4 and the consent popup, not another tracking vendor.
+The loader, measurement configuration, consent component/script, footer control,
+and popup styles are removed. The privacy page now describes visits without GA4.
+The integration no longer reads GA environment variables.
+
+Search Console setup is still incomplete. Existing sitemap, robots.txt, and optional
+homepage verification metadata remain. Contact paths and local builders are unchanged.
+The Google account/property is not deleted. Existing browser cookies/preferences are
+not actively cleared; removed code no longer reads them. Hosting and external
+services retain their own connection handling. Removal is recoverable in Git history.
+
+## Historical setup notes — superseded; do not reactivate
+
+The following describes the removed implementation, not the current site.
 
 ## Current activation state
 

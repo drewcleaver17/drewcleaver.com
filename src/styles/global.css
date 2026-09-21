@@ -101,12 +101,6 @@ button, input, textarea, select { font: inherit; }
 .footer-inner>div { display: flex; flex-wrap: wrap; align-items: start; gap: 1.4rem; }
 .footer-inner a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; }
 .footer-inner button { min-height:44px; padding:0; text-decoration:underline; text-underline-offset:.23em; cursor:pointer; }
-.analytics-choice { position:fixed; z-index:20; bottom:1rem; right:1rem; width:min(460px, calc(100% - 2rem)); max-height:calc(100svh - 2rem); overflow:auto; padding:1.25rem; background:var(--paper); color:var(--color-ink); border:1px solid #9dac9d; border-radius:4px; box-shadow:0 8px 32px #173e3525; }
-.analytics-choice h2 { font-size:1rem; font-weight:600; }
-.analytics-choice p { font-size:.875rem; line-height:1.55; margin-top:.5rem; }
-.analytics-choice a { text-decoration:underline; }
-.analytics-choice-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1rem; }
-.analytics-choice-actions .button { flex:1 1 140px; min-width:0; }
 .privacy-copy { padding-bottom:3rem; }
 .hello-wrap { max-width: 480px; width: calc(100% - 40px); margin: 2.3rem auto 3.5rem; }
 .hello-card { padding: 1.7rem 1.35rem; border: 1px solid #bfcabc; border-radius: 4px; background: #fffdf740; }

@@ -13,6 +13,7 @@ const files = directory => readdirSync(directory).flatMap(name => {
 });
 for (const file of files(root).filter(file => file.endsWith('.html'))) {
   const html = readFileSync(file, 'utf8');
+  assert(!/analytics-choice|analytics-settings|googletagmanager\.com|google-analytics\.com|G-N55MYYB3SG/.test(html), 'Analytics must not be present: ' + file);
   assert(!/href=["'][^"']*\/writing(?:[\/?#"'])/i.test(html), 'Public writing link in ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/motorsport(?:[\/?#"'])/i.test(html), 'The motorsport pilot must have no inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/racingresume(?:[\/?#"'])/i.test(html), 'The racing resume must have no inbound site links: ' + file);

@@ -1,15 +1,13 @@
 ---
 import '../styles/global.css';
 import { profile } from '../data/profile';
-import Analytics from '../components/Analytics.astro';
-import { analyticsEnabled, integrations, publicPages } from '../config/integrations';
+import { integrations } from '../config/integrations';
 interface Props { title: string; description?: string; compact?: boolean; noindex?: boolean; }
 const { title, description = profile.description, compact = false, noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, profile.website);
 const links = [{ href: '/about/', label: 'About' }, { href: '/services/', label: 'Work with me' }, { href: profile.bookingUrl, label: 'Schedule a conversation' }];
 const portfolioLinks = [{ href: '/tesloco/', label: 'Tesloco' }, { href: '/specteslacup/', label: 'Spec Tesla Cup' }];
 const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
-const measurePage = analyticsEnabled && !noindex && publicPages.includes(Astro.url.pathname);
 ---
 <!doctype html>
 <html lang="en">
@@ -70,10 +68,9 @@ const measurePage = analyticsEnabled && !noindex && publicPages.includes(Astro.u
     <footer class="site-footer">
       <div class="shell footer-inner">
         <p>© {new Date().getFullYear()} {profile.name}<span class="footer-location">{profile.location}</span></p>
-        <div><a href="/hello/">Save my contact</a><a href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Résumé (PDF)</a><a href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a><a href="/buildmine/">Build your own site</a><a href="/privacy/">Privacy</a>{measurePage && <button type="button" id="analytics-settings" hidden>Analytics preferences</button>}</div>
+        <div><a href="/hello/">Save my contact</a><a href={profile.resumeFile} download="Drew-Cleaver-Resume.pdf">Résumé (PDF)</a><a href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a><a href="/buildmine/">Build your own site</a><a href="/privacy/">Privacy</a></div>
       </div>
     </footer>
-    {measurePage && <Analytics />}
     <script>
       const menus = document.querySelectorAll<HTMLDetailsElement>('.portfolio-menu, .mobile-menu');
       document.addEventListener('click', (event) => {

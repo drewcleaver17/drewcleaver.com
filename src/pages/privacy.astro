@@ -1,9 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { analyticsEnabled } from '../config/integrations';
 import { profile } from '../data/profile';
 ---
-<Base title="Privacy" description="How this site handles inquiries, optional analytics, and website drafts.">
+<Base title="Privacy" description="How this site handles visits, inquiries, and website drafts.">
   <div class="shell">
     <section class="page-heading">
       <p class="eyebrow">Your information</p>
@@ -11,13 +10,8 @@ import { profile } from '../data/profile';
       <p class="lead">Here’s what happens when you visit, get in touch, or make a website draft.</p>
     </section>
     <div class="prose privacy-copy">
-      <h2>Optional analytics</h2>
-      {analyticsEnabled ? <>
-        <p>With your permission, this site uses Google Analytics to understand visits, traffic sources, basic device information, useful link clicks, and accepted inquiry submissions. Google Analytics uses cookies to recognize visits. Advertising personalization and Google signals are disabled.</p>
-        <p>Google Analytics loads only after you choose “Allow analytics.” Choose “No thanks” to keep it off. You can change your choice using “Analytics preferences” in the footer. Your preference is stored in this browser for up to six months. Browser Do Not Track and Global Privacy Control signals also keep analytics off.</p>
-        <p>The events this site sends contain fixed action names, public page addresses, and recognized campaign tags. They do not include your name, email address, message, budget, résumé, or website-draft contents. A scheduling click records interest, not a completed booking.</p>
-        <p>Read <a href="https://policies.google.com/privacy">Google’s privacy policy</a> for information about how Google processes data.</p>
-      </> : <p>Google Analytics is not active on this site right now. When enabled, it will load only after you choose to allow it, with a way to change your preference in the footer.</p>}
+      <h2>Visiting this site</h2>
+      <p>This site does not use Google Analytics, advertising pixels, or session replay, and does not set analytics cookies. There is no analytics consent popup.</p>
       <h2>Contacting Drew</h2>
       <p>When you submit the inquiry form, your answers go through Formspree so Drew can receive and respond to your message. The form asks for your name, email address, and message; category and budget are optional. These answers are not sent to analytics. You are not signed up for a mailing list.</p>
       <p>Email and scheduling links open your email app or Calendly. Those services handle the information you provide under their own policies. See <a href="https://formspree.io/legal/privacy-policy/">Formspree’s privacy policy</a> and <a href="https://calendly.com/privacy">Calendly’s privacy policy</a>.</p>
