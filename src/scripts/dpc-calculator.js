@@ -1,6 +1,6 @@
 import {fields,groups,reference,metrics,launchMetrics,monthlyColumns,formatMetric,treatments,newState,blankRow,validateState,openPreserved,calculateWorksheet,calculateLaunchWorksheet,exportPack,reviewText,worksheetCsv,roleFields,settingFields,days,newRole,newStage,replacedKeys,startRevised,incentiveFields,demandFields,legacyFields,withSchedule} from '../lib/dpc-worksheet.mjs';
-const DRAFT='dpc:worksheet:v6:draft',SAVES='dpc:worksheet:v6:saves';
-const oldDrafts=['dpc:worksheet:v5:draft','dpc:worksheet:v4:draft','dpc:worksheet:v3:draft','dpc:model:v2:draft','metsi:model:v1:draft'],oldSaves=['dpc:worksheet:v5:saves','dpc:worksheet:v4:saves','dpc:worksheet:v3:saves','dpc:model:v2:saves','metsi:model:v1:saves'];
+const DRAFT='dpc:worksheet:v7:draft',SAVES='dpc:worksheet:v7:saves';
+const oldDrafts=['dpc:worksheet:v6:draft','dpc:worksheet:v5:draft','dpc:worksheet:v4:draft','dpc:worksheet:v3:draft','dpc:model:v2:draft','metsi:model:v1:draft'],oldSaves=['dpc:worksheet:v6:saves','dpc:worksheet:v5:saves','dpc:worksheet:v4:saves','dpc:worksheet:v3:saves','dpc:model:v2:saves','metsi:model:v1:saves'];
 export function initializeDpcWorksheet(){
  const root=document.querySelector('[data-dpc-worksheet]');if(!root||root.dataset.ready)return;root.dataset.ready='true';
  const q=s=>root.querySelector(s),qa=s=>[...root.querySelectorAll(s)],announce=s=>q('[data-action-status]').textContent=s;
@@ -99,12 +99,12 @@ export function initializeDpcWorksheet(){
    const card=document.createElement('section');card.className='role-editor';const h=document.createElement('h4');h.textContent=r.name;card.append(h);const path='roles.'+index;
    structuredField(card,path+'.name',{label:'Role name',text:true});if(r.kind!=='owner')structuredSelect(card,path+'.kind','Role purpose',[['associate','Associate'],['replacement','Replacement'],['relief','Leave relief']]);
    structuredField(card,path+'.coverage',{label:'Onsite / remote response arrangement',text:true});weekdayControls(card,path+'.weekdays');
-   for(const f of roleFields)structuredField(card,path+'.'+f.key,f);
+   for(const f of roleFields.filter(f=>modern||f.key!=='adminOutside'))structuredField(card,path+'.'+f.key,f);
    const guidance=document.createElement('p');guidance.className='small';guidance.textContent='A leadership stage takes effect in its planning month. Reduce booking time or days and enter management/training time and pay explicitly. Readiness requires separate clinical, continuity, financial and leadership review. Dates do not confer ownership. A departing physician has no capacity here after the final paid month.';card.append(guidance);
    for(const [si,stage]of r.stages.entries()){
     const section=document.createElement('section');section.className='stage-editor';const title=document.createElement('h5');title.textContent='Stage '+(si+1)+' — '+r.name;section.append(title);const sp=path+'.stages.'+si;
     structuredField(section,sp+'.label',{label:'Stage description',text:true});structuredField(section,sp+'.month',{label:'Stage begins',unit:'planning month',min:0,max:120,step:1});weekdayControls(section,sp+'.weekdays');
-    for(const f of roleFields.filter(f=>!['startMonth','endMonth'].includes(f.key)))structuredField(section,sp+'.'+f.key,f);
+    for(const f of roleFields.filter(f=>!['startMonth','endMonth'].includes(f.key)&&(modern||f.key!=='adminOutside')))structuredField(section,sp+'.'+f.key,f);
     roleButton(section,'Remove stage '+(si+1),'remove-stage',index,si);card.append(section);
    }
    roleButton(card,'Add leadership / training stage','add-stage',index);if(r.kind!=='owner')roleButton(card,'Remove '+r.name,'remove-role',index);host.append(card);

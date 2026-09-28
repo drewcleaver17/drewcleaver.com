@@ -1,11 +1,11 @@
 {
-  "pageRevision": "R06",
-  "updatedAt": "2026-09-21T07:20:00Z",
-  "timestampBasis": "Revision finalized for publication; deployment success is recorded separately in the release evidence.",
-  "modelVersion": "dpc-2026-09-v6",
-  "schemaVersion": 6,
-  "pdfRevision": "DPC-R06",
-  "countingRule": "One revision per distinct successfully published change to this concept's page, calculator or PDF. Commits within one release, failed deployments and unrelated site changes do not add revisions. R01\u2013R04 were reconstructed from first-parent Git history and successful GitHub Pages runs. The current entry becomes the sixth published iteration when this release succeeds.",
+  "pageRevision": "R07 review",
+  "updatedAt": "2026-09-28T16:57:06Z",
+  "timestampBasis": "Review candidate finalized; not yet published.",
+  "modelVersion": "dpc-2026-09-v7",
+  "schemaVersion": 7,
+  "pdfRevision": "DPC-R07-review",
+  "countingRule": "One revision per successfully published concept release. R07 is a review candidate and is not included in the six published iterations.",
   "history": [
     {
       "id": "R01",
