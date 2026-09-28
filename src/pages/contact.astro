@@ -33,7 +33,7 @@ import { profile } from '../data/profile';
           <input id="price" name="price" maxlength="200" aria-describedby="price-help" placeholder="A number, a range, or let's discuss" />
           <p class="field-help" id="price-help">For advisory or project work, pay-what-you-want proposals are welcome. Leave this blank for introductions, opportunities, or if you'd rather discuss it.</p>
         </div>
-        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
         <div><button type="submit" class="button" id="send-button">Send my message <span aria-hidden="true">↗</span></button><p class="field-help">An inquiry, not a commitment. No mailing-list signup.</p></div>
         <noscript><p class="field-help">The form opens a confirmation page when submitted. You can also email me directly.</p></noscript>
       </form>
@@ -48,36 +48,6 @@ import { profile } from '../data/profile';
   </div>
 </Base>
 <script>
-  const form = document.querySelector<HTMLFormElement>('#inquiry-form');
-  const status = document.querySelector<HTMLParagraphElement>('#form-status');
-  const button = document.querySelector<HTMLButtonElement>('#send-button');
-  const reason = document.querySelector<HTMLSelectElement>('#reason');
-  const requestedReason = new URLSearchParams(window.location.search).get('reason');
-  if (reason && requestedReason && Array.from(reason.options).some(option => option.value === requestedReason)) reason.value = requestedReason;
-  if (form && status && button) {
-    form.addEventListener('submit', async event => {
-      event.preventDefault();
-      if (!form.reportValidity() || button.disabled) return;
-      button.disabled = true;
-      button.textContent = 'Sending…';
-      status.hidden = true;
-      status.classList.remove('error');
-      const controller = new AbortController();
-      const timer = window.setTimeout(() => controller.abort(), 15000);
-      try {
-        const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }, signal: controller.signal });
-        if (!response.ok) throw new Error('Submission was not accepted');
-        status.textContent = 'Thanks—your message was submitted. I look forward to reading it.';
-        form.reset();
-      } catch {
-        status.classList.add('error');
-        status.textContent = 'I couldn’t confirm your message was sent. Your text is still here. You can try again or use the email link.';
-      } finally {
-        window.clearTimeout(timer);
-        status.hidden = false;
-        button.disabled = false;
-        button.textContent = 'Send my message ↗';
-      }
-    });
-  }
+  import { initInquiry } from '../scripts/inquiry.mjs';
+  initInquiry(document);
 </script>
