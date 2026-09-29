@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import { profile } from '../data/profile';
+import revision from '../data/proofpath-revisions.json';
+import { centralTimestamp } from '../lib/dpc-revision.mjs';
+
+const currentRevision = revision.history.find(entry => entry.id === revision.pageRevision)!;
+const publishedCount = revision.history.filter(entry => entry.status === 'published').length;
+const updated = centralTimestamp(revision.updatedAt);
 
 const steps = [
   ['Discover', 'Explore relevant roles, adjacent career paths, and opportunities that fit the person.'],
@@ -22,6 +28,7 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
         <p class="pitch-thesis">Hiring built around demonstrated work, competency, and technical aptitude.</p>
         <p class="pitch-intro">Employer-funded recruiting. Paid candidate assessments. A portable record of what people can do.</p>
         <p class="hero-explainer">Give candidates a real task, the right tools, and time to think. Pay them for the work. Help employers decide using the evidence—and let candidates reuse evidence they have permission to share.</p>
+        <p class="revision-stamp"><strong>Page revision {revision.pageRevision}</strong> · {currentRevision.status === 'published' ? 'Published' : 'Pending publication'}<br />Updated <time datetime={revision.updatedAt}>{updated}</time> · content finalized<br /><a href="#revision-history">Revision history</a></p>
         <a class="pitch-link" href="#pilot">Scope one funded pilot <span aria-hidden="true">↓</span></a>
       </header>
 
@@ -189,6 +196,26 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
         </div>
       </section>
 
+      <section class="pitch-section" id="revision-history" aria-labelledby="revision-history-title">
+        <div class="section-label"><span>11</span><p>Publication record</p></div>
+        <div class="section-copy">
+          <h2 id="revision-history-title">Revision history</h2>
+          <p>{publishedCount} verified published revisions. {currentRevision.status !== 'published' && <span>{revision.pageRevision} is pending publication and is not included in that count.</span>}</p>
+          <p class="note">{revision.timestampBasis} The introduction’s “Updated” time stays fixed for this revision. America/Chicago formatting selects CDT or CST for the recorded date.</p>
+          <ol class="revision-log">
+            {[...revision.history].reverse().map(entry => <li>
+              <h3>{entry.id} · {entry.title}</h3>
+              {entry.status === 'published' && entry.publishedAt ? <p>Published · <time datetime={entry.publishedAt}>{centralTimestamp(entry.publishedAt)}</time> · successful deployment completed.</p> : <p><strong>Pending publication.</strong> Content finalized <time datetime={entry.finalizedAt}>{centralTimestamp(entry.finalizedAt!)}</time>; no publication time is confirmed.</p>}
+              <p>{entry.summary}</p>
+              {entry.evidenceUrl && <a href={entry.evidenceUrl}>Release evidence</a>}
+              {entry.reviewUrl && <a href={entry.reviewUrl}>Review branch and proposed changes</a>}
+            </li>)}
+          </ol>
+          <p class="note">{revision.countingRule}</p>
+          <p class="note">{revision.historyBasis}</p>
+        </div>
+      </section>
+
       <footer class="pitch-close" aria-labelledby="build-title">
         <p class="pitch-meta">Scope one funded pilot</p>
         <h2 id="build-title">Start with one useful experiment.</h2>
@@ -205,6 +232,13 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
   .proofpath { --pitch-ink: var(--green); --pitch-body: var(--color-ink); --pitch-muted: var(--color-muted); --pitch-accent: #98622e; --pitch-line: var(--color-border); color: var(--pitch-body); font: 1.125rem/1.7 var(--font-sans); overflow-wrap: break-word; }
   .pitch-shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
   .pitch-meta { color: var(--pitch-muted); font-size: .8125rem; line-height: 1.7; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
+  .revision-stamp { font-size: .9375rem; line-height: 1.7; color: var(--pitch-muted); margin-top: 1.3rem; }
+  .revision-stamp strong { color: var(--pitch-ink); }
+  .revision-stamp a, .revision-log a { display: inline-flex; align-items: center; min-height: 44px; }
+  .revision-log { padding-left: 1.25rem; margin-top: 1.5rem; }
+  .revision-log li { border-top: 1px solid var(--pitch-line); padding-block: 1.25rem; }
+  .revision-log p { font-size: 1rem; margin-top: .65rem; }
+  .revision-log a { font-size: .9375rem; margin-top: .4rem; }
   .pitch-meta span { margin-inline: .35rem; }
   .pitch-hero { padding-block: 2.75rem 3.5rem; }
   .pitch-hero h1 { font-family: var(--serif); font-size: clamp(3.6rem, 10vw, 6.5rem); font-weight: 400; letter-spacing: -.055em; line-height: 1.05; color: var(--pitch-ink); margin: 1.35rem 0 1.75rem; }
