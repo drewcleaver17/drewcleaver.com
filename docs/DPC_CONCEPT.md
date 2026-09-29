@@ -1,6 +1,6 @@
 # Independent DPC concept — September 19, 2026
 
-**Current model:** [R05 staffing revision](dpc/R05_STAFFING.md). The R03/R04 numbers and implementation notes below remain historical.
+**Review candidate:** [R07 reconciliation](dpc/R07_RECONCILIATION.md). R06 remains live until approved publication. The R03–R05 numbers and implementation notes below are historical.
 
 The single-worksheet revision below supersedes the original comparison UI and schema notes. The narrative, 70 default values and dated PDF remain the same.
 
