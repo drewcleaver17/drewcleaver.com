@@ -1,6 +1,21 @@
-# R09 review — assigned physician panels and protected team access
+# R09 published — assigned physician panels and protected team access
 
-Unpublished successor to R08, continuing draft PR #56. Live `/dpc/` was fetched and identified as R07. PR #56 was open, draft and unmerged at inspection, head `41aef8d7f8283790efd552d7acb54371d64931d1`. Seven published revisions remain; neither R08 nor R09 counts as published. Preserve the fixed Central timestamp in `src/data/dpc-revisions.json` when publication is later approved.
+Published from PR #56 after explicit owner authorization. R08 remains an unpublished draft superseded by R09; eight revisions are now published.
+
+## Publication receipt — September 29, 2026
+
+- Fixed content finalization: `2026-09-29T11:45:13Z` (6:45:13 AM CDT), unchanged.
+- Publication: `2026-09-29T12:29:30Z` (7:29:30 AM CDT), the successful Pages Deploy job completion time.
+- Merged PR: https://github.com/drewcleaver17/drewcleaver.com/pull/56
+- Release commit: `51a47a3920298f42b336056b735b7e4a2577b4ad`.
+- Successful build/deployment: https://github.com/drewcleaver17/drewcleaver.com/actions/runs/36568334697
+- Live `/dpc/` showed R09, assigned panels 57/144/144, exact 1/1/3/3/3/1/1 roster, and protected access tables. Browser input changes verified 100% attendance → 345 members / $243,960 surplus and 70% → 360 / $286,080; restored 100%.
+- Both live PDF paths returned identical bytes matching the reviewed 20-page PDF (SHA-256 `334696977d4ec72be2269ca47ae20903efda6d0161bc43483977ba43884322b2`) before the publication-label receipt update. The receipt updates labels/evidence, not economics.
+- Full production build and all model/UI/release checks passed again for the receipt. Historical engines, old browser keys, saved worksheet migration, notes and results remain covered by regression tests.
+- Desktop calculator inputs, panel table and daily reserve table visually inspected in live Chrome. Mobile / exact 320, 390, 768 and 1440 px screenshots remain unverified because supported browser controls do not expose viewport resizing; earlier local Chromium installation was unavailable. No demonstrated visual defect. Published per the owner's explicit instruction to proceed with this limitation.
+- PDF fit checks pass; publication cover and final receipt slide rendered and visually inspected. Both aliases remain identical.
+
+The sections below document the finalized review model and its earlier verification. Review-time status statements are historical, superseded by this publication receipt.
 
 ## Operating correction
 

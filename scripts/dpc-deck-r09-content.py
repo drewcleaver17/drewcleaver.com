@@ -1,5 +1,5 @@
 M=DATA['mature'];L=DATA['launch'];REV=DATA['revision']['pdfRevision'];STAMP=DATA['centralTimestamp']
-begin('Independent concept by Drew Cleaver','Direct Primary Care',True,f'{REV}. Finalized {STAMP}. Review only; not published.')
+begin('Independent concept by Drew Cleaver','Direct Primary Care',True,f'{REV}. Finalized {STAMP}. Published 2026-09-29 at 7:29:30 AM CDT.')
 text('Continuity with your physician.\nSeven-day access to the team.',48,191,864,125,34,font='Title')
 text('One owner, two associates, assigned routine panels\nand protected short-notice appointments.',48,350,850,75,23)
 text('An operating hypothesis for physician and investor review.',48,443,864,27,17)
@@ -17,7 +17,7 @@ table(['Illustrative clinic day','Owner','Each associate'],[['Onsite / available
 text('No late-evening service is assumed. Owner reserve 5-6 and admin 6-7 sit outside routine bookings. Additional mentoring reduces routine inventory.',48,458,864,35,13)
 
 begin('What changed','R09 corrects the care policy,\nnot just the calendar')
-table(['Revision','Members','Revenue','Surplus'],[['R07 published','360','$1,263,600','$286,080'],['R08 draft','247','$866,970','-$39,030'],['R09 review','345',money(M['revenue']),money(M['surplus'])]],[294,130,220,220],rowh=48,size=18)
+table(['Revision','Members','Revenue','Surplus'],[['R07 published','360','$1,263,600','$286,080'],['R08 draft','247','$866,970','-$39,030'],['R09 published','345',money(M['revenue']),money(M['surplus'])]],[294,130,220,220],rowh=48,size=18)
 text('R08 fixed weekday pooled demand did not match the intended policy. R09 uses assigned panels and 100% attendance, with protected reserve separate from routine scheduling. This is not an isolated roster comparison.',48,394,864,85,18)
 
 begin('Entitlement and attendance','Budget the intended monthly habit')
@@ -78,9 +78,9 @@ two('Membership terms','Define which additional encounters are included, whether
 linked('Category context: AAFP',sources['AAFP'],48,446,400)
 linked('DPC definition: DPC Frontier',sources['DPC Frontier'],510,446,402)
 
-begin('R09 review only','A reproducible reference,\nwith earlier work preserved')
+begin('R09 published','A reproducible reference,\nwith earlier work preserved')
 text('Page, calculator and both PDF paths use the same R09 reference snapshot. Existing saved worksheets keep their names, inputs, notes, feedback and historical engines. Start R09 explicitly to retain the current worksheet and open the revised care model.',48,186,864,114,21)
-text('R07 is published. R08 was a roster-only review; R09 supersedes it within draft PR #56. Neither review is counted as a published release. No deployment is authorized by this document.',48,325,864,87,20)
-linked('Review PR #56', 'https://github.com/drewcleaver17/drewcleaver.com/pull/56',48,445,400)
-linked('Current published page (R07)',sources['Working model'],510,445,402)
+text('R09 published September 29, 2026 at 7:29:30 AM CDT (12:29:30 UTC), after successful Pages deployment. R08 remains an unpublished draft superseded by R09. Fixed content finalization: September 29 at 6:45:13 AM CDT.',48,325,864,87,20)
+linked('Verified deployment / merged PR #56', 'https://github.com/drewcleaver17/drewcleaver.com/actions/runs/36568334697',48,445,400)
+linked('Published page and calculator (R09)',sources['Working model'],510,445,402)
 c.save()

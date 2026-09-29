@@ -1,12 +1,12 @@
 {
   "revision": {
-    "pageRevision": "R09 review",
+    "pageRevision": "R09",
     "updatedAt": "2026-09-29T11:45:13Z",
-    "timestampBasis": "Review candidate prepared; not published",
+    "timestampBasis": "Fixed content-finalization timestamp; publication recorded separately",
     "modelVersion": "dpc-2026-09-v9",
     "schemaVersion": 9,
-    "pdfRevision": "DPC-R09-review",
-    "countingRule": "Seven published releases. R08 was an unpublished roster draft; R09 supersedes it for review only.",
+    "pdfRevision": "DPC-R09",
+    "countingRule": "Eight published releases. R08 remains an unpublished draft superseded by R09.",
     "history": [
       {
         "id": "R01",
@@ -67,9 +67,27 @@
         "title": "Reconciled capacity, compensation and annual prepayment",
         "summary": "Restored six owner routine visits with a separate urgent reserve; aligned coverage-inclusive expenses, compensation and surplus across the page and PDF; separated physical utilization, bookable capacity, upfront cash and earned revenue; preserved earlier worksheets and the optional junior scenario.",
         "url": "https://github.com/drewcleaver17/drewcleaver.com/pull/54"
+      },
+      {
+        "id": "R09",
+        "date": "2026-09-29T12:29:30Z",
+        "basis": "Successful GitHub Pages deployment completed; live page, calculator and both PDF paths verified",
+        "title": "Assigned physician panels and protected seven-day team access",
+        "summary": "Replace fixed weekday pooled demand with assigned physician panels, 100% attendance base, protected daily team reserve, and fixed-assignment launch ledgers. R08 retained as historical engine.",
+        "commit": "51a47a3920298f42b336056b735b7e4a2577b4ad",
+        "url": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/36568334697"
       }
     ],
-    "reviewNotes": "Replace fixed weekday pooled demand with assigned physician panels, 100% attendance base, protected daily team reserve, and fixed-assignment launch ledgers. R08 retained as historical engine."
+    "reviewNotes": "Replace fixed weekday pooled demand with assigned physician panels, 100% attendance base, protected daily team reserve, and fixed-assignment launch ledgers. R08 retained as historical engine.",
+    "publishedAt": "2026-09-29T12:29:30Z",
+    "unpublishedDrafts": [
+      {
+        "id": "R08",
+        "status": "Unpublished draft superseded by R09",
+        "url": "https://github.com/drewcleaver17/drewcleaver.com/pull/56",
+        "summary": "Roster correction retained for historical worksheets; never counted as a published release."
+      }
+    ]
   },
   "centralTimestamp": "September 29, 2026 at 6:45 AM CDT (UTC-05:00)",
   "state": {
