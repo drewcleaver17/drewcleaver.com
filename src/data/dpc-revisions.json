@@ -1,11 +1,11 @@
 {
-  "pageRevision": "R07",
-  "updatedAt": "2026-09-29T10:34:10Z",
-  "timestampBasis": "Revision finalized for publication",
-  "modelVersion": "dpc-2026-09-v7",
-  "schemaVersion": 7,
-  "pdfRevision": "DPC-R07",
-  "countingRule": "One revision per successfully published concept release. Multiple commits and unrelated site deployments do not count.",
+  "pageRevision": "R08 review",
+  "updatedAt": "2026-09-29T10:51:28Z",
+  "timestampBasis": "Review candidate prepared; not published",
+  "modelVersion": "dpc-2026-09-v8",
+  "schemaVersion": 8,
+  "pdfRevision": "DPC-R08-review",
+  "countingRule": "Seven successful concept releases. R08 is a review candidate and is not counted as published.",
   "history": [
     {
       "id": "R01",

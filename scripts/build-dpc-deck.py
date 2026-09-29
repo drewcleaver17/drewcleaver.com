@@ -9,7 +9,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parents[1]
-DATA=json.loads((ROOT/'docs/dpc/reference-results-r07.json').read_text())
+DATA=json.loads((ROOT/'docs/dpc/reference-results-r08.json').read_text())
 OUT=ROOT/'public/dpc-deck.pdf'
 for name,file in [('Body','DejaVuSans.ttf'),('Bold','DejaVuSans-Bold.ttf'),('Title','DejaVuSerif.ttf')]:
  pdfmetrics.registerFont(TTFont(name,'/usr/share/fonts/truetype/dejavu/'+file))
@@ -75,7 +75,7 @@ def linked(label,url,x,y,w=830):
 def source_link(key,offset=0):
  c.linkURL(sources[key],(48+offset*300,12,340+offset*300,44),relative=0,thickness=0)
 
-exec((ROOT/'scripts/dpc-deck-r07-content.py').read_text())
+exec((ROOT/'scripts/dpc-deck-r08-content.py').read_text())
 
 # Keep the historical download URL byte-identical to the current deck.
 (ROOT/'public/metsicare-deck.pdf').write_bytes(OUT.read_bytes())

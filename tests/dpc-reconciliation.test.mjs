@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import * as m from '../src/lib/dpc-worksheet.mjs';
+import * as m from '../src/lib/dpc-worksheet-v7.mjs';
 import * as r06 from '../src/lib/dpc-worksheet-v6.mjs';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
 test('owner six scheduled visits and urgent/admin holds fit independently of associate availability',()=>{
