@@ -1,11 +1,11 @@
 {
-  "pageRevision": "R07 review",
-  "updatedAt": "2026-09-28T16:57:06Z",
-  "timestampBasis": "Review candidate finalized; not yet published.",
+  "pageRevision": "R07",
+  "updatedAt": "2026-09-29T10:34:10Z",
+  "timestampBasis": "Revision finalized for publication",
   "modelVersion": "dpc-2026-09-v7",
   "schemaVersion": 7,
-  "pdfRevision": "DPC-R07-review",
-  "countingRule": "One revision per successfully published concept release. R07 is a review candidate and is not included in the six published iterations.",
+  "pdfRevision": "DPC-R07",
+  "countingRule": "One revision per successfully published concept release. Multiple commits and unrelated site deployments do not count.",
   "history": [
     {
       "id": "R01",
@@ -58,6 +58,14 @@
       "title": "Audited staffing, trial pricing and physician incentives",
       "summary": "Owner Tuesday\u2013Thursday, balanced associate coverage and optional Friday\u2013Monday physician; separate visit mix and routine/urgent demand; provisional coverage budget, recruiting and prepayment sensitivities; pricing, incentives and readable roster.",
       "url": "https://github.com/drewcleaver17/drewcleaver.com/compare/main...dpc/r06-audited-release"
+    },
+    {
+      "id": "R07",
+      "date": "2026-09-29T10:34:10Z",
+      "basis": "Revision finalized for publication",
+      "title": "Reconciled capacity, compensation and annual prepayment",
+      "summary": "Restored six owner routine visits with a separate urgent reserve; aligned coverage-inclusive expenses, compensation and surplus across the page and PDF; separated physical utilization, bookable capacity, upfront cash and earned revenue; preserved earlier worksheets and the optional junior scenario.",
+      "url": "https://github.com/drewcleaver17/drewcleaver.com/pull/54"
     }
   ]
 }

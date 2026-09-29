@@ -1,6 +1,6 @@
-# DPC R07 review candidate — September 28, 2026
+# DPC R07 release — September 29, 2026
 
-Status: prepared for review, not published. GitHub Pages publication remains a separate merge to main. Scope is the DPC page, calculator, linked PDFs and supporting source/tests only.
+Status: publication authorized September 29, 2026; finalized for release through PR #54. Deployment success is verified separately from the frozen content timestamp. Scope is the DPC page, calculator, linked PDFs and supporting source/tests only.
 
 ## Baseline and decision provenance
 
@@ -89,4 +89,4 @@ The base includes coverage allowances and bonuses: $278,783 cumulative operating
 
 Passed: 81 model tests, 4 DPC production-markup UI tests, 11 existing build/renderer tests and 20 existing repository tests (116 total), plus release guards. Targeted independent arithmetic, owner window/cap, optional junior, missing expense, old-file migration, prepayment/renewal/refund and invalid duration tests accompany the existing suite. A standalone HTML preview also initialized and recalculated the 100% annual-prepay surplus to $173,760 under JSDOM; this is behavior evidence, not pixel-layout evidence. Production-markup UI tests cover edits, zero/blank values, stages, custom rows, imports/exports, local saving, storage failures and preserved older worksheets. Build checks protect noindex, sitemap/navigation exclusions, forwarding and identical PDF aliases.
 
-All 20 PDF slides rendered and visually inspected; searchable text and 11 clickable annotations retained; generator reported zero text-fit errors. Automated exact-viewport visual checks at 320/390/768/1440 were **not completed**: the cloud browser blocked the internal preview. Responsive source and DOM behavior were checked, but they do not prove visual layout. Review the standalone preview on phone/desktop before publication. No clinician, recipient or external form was contacted. No production deployment was performed.
+All 20 PDF slides rendered and visually inspected; searchable text and 11 clickable annotations retained; generator reported zero text-fit errors. Automated exact-viewport visual checks at 320/390/768/1440 were **not completed**: the cloud browser blocked the internal preview. Responsive source and DOM behavior were checked, but they do not prove visual layout. Drew explicitly authorized publication with this disclosed limitation on September 29, 2026, unless a demonstrated defect is found. No clinician, recipient or external form was contacted. The initial review did not deploy production.
