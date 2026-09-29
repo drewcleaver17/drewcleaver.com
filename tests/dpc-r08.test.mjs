@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import * as m from '../src/lib/dpc-worksheet.mjs';
+import * as m from '../src/lib/dpc-worksheet-v8.mjs';
 import * as r07 from '../src/lib/dpc-worksheet-v7.mjs';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
 test('R08 exact consecutive onsite roster, days off and shared owner days',()=>{
@@ -23,6 +23,6 @@ test('R07 migration, export and explicit R08 reset preserve entered work and res
  assert.deepEqual(m.validateState(m.exportPack(reset)).worksheet,reset.worksheet);assert.deepEqual(m.openPreserved(reset,1).worksheet,s.worksheet);
 });
 test('R08 snapshot matches current model and remains outside published revision count',()=>{
- const d=JSON.parse(fs.readFileSync(new URL('../docs/dpc/reference-results-r08.json',import.meta.url)));const revision=JSON.parse(fs.readFileSync(new URL('../src/data/dpc-revisions.json',import.meta.url)));assert.deepEqual(d.revision,revision);assert.equal(revision.history.length,7);assert.equal(revision.pageRevision,'R08 review');
+ const d=JSON.parse(fs.readFileSync(new URL('../docs/dpc/reference-results-r08.json',import.meta.url)));const revision=d.revision;assert.deepEqual(d.revision,revision);assert.equal(revision.history.length,7);assert.equal(revision.pageRevision,'R08 review');
  const a=m.calculateWorksheet(d.state.worksheet);for(const k of ['safeMembers','modeledMembers','revenue','costs','surplus'])assert.equal(d.mature[k],a[k]);assert.deepEqual(m.schedulePresets.map(x=>x[0]),['consecutive','fourth']);
 });

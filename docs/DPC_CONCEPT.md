@@ -69,3 +69,5 @@ Validation: 42 model tests (including the original 27) and three production-mark
 
 
 R08 review corrects the base roster to A Sunday–Thursday and B Tuesday–Saturday, with all three onsite Tuesday–Thursday. See [R08 reconciliation](dpc/R08_RECONCILIATION.md). Seven releases are published; this candidate is not.
+
+R09 review supersedes the unpublished R08 candidate within PR #56. It replaces fixed pooled weekday routine demand with assigned physician panels, budgets 100% monthly attendance, protects daily team access separately, and retains assigned launch waitlists. See [R09 reconciliation](dpc/R09_RECONCILIATION.md) and `reference-results-r09.json`. R07 remains the last published revision; earlier engines and worksheets remain preserved.

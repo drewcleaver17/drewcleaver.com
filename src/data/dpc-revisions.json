@@ -1,11 +1,11 @@
 {
-  "pageRevision": "R08 review",
-  "updatedAt": "2026-09-29T10:51:28Z",
+  "pageRevision": "R09 review",
+  "updatedAt": "2026-09-29T11:45:13Z",
   "timestampBasis": "Review candidate prepared; not published",
-  "modelVersion": "dpc-2026-09-v8",
-  "schemaVersion": 8,
-  "pdfRevision": "DPC-R08-review",
-  "countingRule": "Seven successful concept releases. R08 is a review candidate and is not counted as published.",
+  "modelVersion": "dpc-2026-09-v9",
+  "schemaVersion": 9,
+  "pdfRevision": "DPC-R09-review",
+  "countingRule": "Seven published releases. R08 was an unpublished roster draft; R09 supersedes it for review only.",
   "history": [
     {
       "id": "R01",
@@ -67,5 +67,6 @@
       "summary": "Restored six owner routine visits with a separate urgent reserve; aligned coverage-inclusive expenses, compensation and surplus across the page and PDF; separated physical utilization, bookable capacity, upfront cash and earned revenue; preserved earlier worksheets and the optional junior scenario.",
       "url": "https://github.com/drewcleaver17/drewcleaver.com/pull/54"
     }
-  ]
+  ],
+  "reviewNotes": "Replace fixed weekday pooled demand with assigned physician panels, 100% attendance base, protected daily team reserve, and fixed-assignment launch ledgers. R08 retained as historical engine."
 }
