@@ -34,13 +34,14 @@
     },
     {
       "id": "R04",
-      "status": "pending",
+      "status": "published",
       "finalizedAt": "2026-09-29T10:29:00Z",
-      "publishedAt": null,
+      "publishedAt": "2026-09-29T10:43:48Z",
       "title": "One separately operated, funded pilot",
       "summary": "Refocused the HiringCafe proposal on one employer, one verified role and five paid candidates to test demand without distracting the core product team. Defined effort and payment commitments, removed illustrative full-service pricing, and added this evidence-backed publication record.",
       "reviewUrl": "https://github.com/drewcleaver17/drewcleaver.com/pull/55",
-      "evidenceUrl": null
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/36557238934",
+      "commit": "3496dc79b6c115fa9a48fef1ffb4d0f76206a1d3"
     }
   ]
 }
