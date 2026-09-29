@@ -1,0 +1,46 @@
+{
+  "pageRevision": "R04",
+  "updatedAt": "2026-09-29T10:29:00Z",
+  "timestampBasis": "Fixed content-finalization time; publication is verified separately.",
+  "countingRule": "One revision per distinct successfully published ProofPath page release. Multiple commits within one release, failed runs, publication-record confirmations and unrelated site deployments do not add revisions. A pending revision does not count as published.",
+  "historyBasis": "R01–R03 were reconstructed from distinct ProofPath source versions on the main branch and successful GitHub Pages Deploy jobs. Their dates are deployment-job completion times, not inferred content-finalization times. Visible revision tracking begins with R04; the page was originally published as R01.",
+  "history": [
+    {
+      "id": "R01",
+      "status": "published",
+      "publishedAt": "2026-09-19T12:35:05Z",
+      "title": "Original ProofPath concept brief",
+      "summary": "Published the employer-funded recruiting, paid work-sample and candidate-passport proposal as an unlisted, mobile-friendly page so the concept could be read continuously and shared directly.",
+      "commit": "881d99cd2b7f260e6b51e7d77d90bef4a673eac4",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/35443248876"
+    },
+    {
+      "id": "R02",
+      "status": "published",
+      "publishedAt": "2026-09-19T18:21:40Z",
+      "title": "Broader demonstrated-capability headline",
+      "summary": "Expanded the headline to include competency and technical aptitude, making the intended hiring evidence clearer.",
+      "commit": "a0f205b8fd6e16085bd0006d8b2338337e93762e",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/35460910258"
+    },
+    {
+      "id": "R03",
+      "status": "published",
+      "publishedAt": "2026-09-19T18:43:57Z",
+      "title": "Green and ivory site design",
+      "summary": "Aligned typography, colors and buttons with Drew’s website while preserving the proposal and unlisted status, giving the brief a consistent reading experience.",
+      "commit": "26de896ebaff6a2dde39d439b8e6c93548dc2f1f",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/35462068957"
+    },
+    {
+      "id": "R04",
+      "status": "pending",
+      "finalizedAt": "2026-09-29T10:29:00Z",
+      "publishedAt": null,
+      "title": "One separately operated, funded pilot",
+      "summary": "Refocused the HiringCafe proposal on one employer, one verified role and five paid candidates to test demand without distracting the core product team. Defined effort and payment commitments, removed illustrative full-service pricing, and added this evidence-backed publication record.",
+      "reviewUrl": "https://github.com/drewcleaver17/drewcleaver.com/pull/55",
+      "evidenceUrl": null
+    }
+  ]
+}

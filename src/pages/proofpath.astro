@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import { profile } from '../data/profile';
+import revision from '../data/proofpath-revisions.json';
+import { centralTimestamp } from '../lib/dpc-revision.mjs';
+
+const currentRevision = revision.history.find(entry => entry.id === revision.pageRevision)!;
+const publishedCount = revision.history.filter(entry => entry.status === 'published').length;
+const updated = centralTimestamp(revision.updatedAt);
 
 const steps = [
   ['Discover', 'Explore relevant roles, adjacent career paths, and opportunities that fit the person.'],
@@ -10,13 +16,7 @@ const steps = [
   ['Employer decides', 'Review the evidence, resolve the remaining questions, and make the hiring decision.'],
   ['Reuse and improve', 'Carry useful evidence into the next opportunity and learn from consented outcomes.'],
 ];
-const costs = [
-  ['Employer engagement fee', '$10,000'],
-  ['Candidate pay · 10 × $100', '−$1,000'],
-  ['Recruiting, design, and review', '−$4,500'],
-  ['Tools and administration', '−$500'],
-];
-const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPath — pilot or partnership')}`;
+const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPath — scope one funded pilot')}`;
 ---
 
 <Base title="ProofPath" description="A proposal for employer-funded recruiting, paid work assessments, and a portable record of what candidates can do. By Drew Cleaver." compact noindex>
@@ -27,8 +27,9 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
         <h1 id="proofpath-title">ProofPath</h1>
         <p class="pitch-thesis">Hiring built around demonstrated work, competency, and technical aptitude.</p>
         <p class="pitch-intro">Employer-funded recruiting. Paid candidate assessments. A portable record of what people can do.</p>
-        <p class="hero-explainer">Give candidates a real task, the right tools, and time to think. Pay them for the work. Help employers decide using the evidence—and let candidates carry that evidence forward.</p>
-        <a class="pitch-link" href="#pilot">Explore the first pilot <span aria-hidden="true">↓</span></a>
+        <p class="hero-explainer">Give candidates a real task, the right tools, and time to think. Pay them for the work. Help employers decide using the evidence—and let candidates reuse evidence they have permission to share.</p>
+        <p class="revision-stamp"><strong>Page revision {revision.pageRevision}</strong> · {currentRevision.status === 'published' ? 'Published' : 'Pending publication'}<br />Updated <time datetime={revision.updatedAt}>{updated}</time> · content finalized<br /><a href="#revision-history">Revision history</a></p>
+        <a class="pitch-link" href="#pilot">Scope one funded pilot <span aria-hidden="true">↓</span></a>
       </header>
 
       <section class="pitch-section" aria-labelledby="premise-title">
@@ -46,14 +47,14 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
         <div class="section-label"><span>02</span><p>The system</p></div>
         <div class="section-copy">
           <h2 id="system-title">One connected hiring process.</h2>
-          <p>Discovery, applications, qualification, assessments, and employer review become parts of one process. ProofPath administers the work between them.</p>
+          <p>The broader concept connects discovery, qualification, paid assessments, and employer review. The first experiment would be a manually delivered service; the passport and connected platform are future proposals, not existing products.</p>
           <ol class="process-list">
             {steps.map(([title, description], index) => <li>
               <span class="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <div><h3>{title}</h3><p>{description}</p></div>
             </li>)}
           </ol>
-          <p class="note">ProofPath owns delivery of its recruiting and assessment service. Employers retain the hiring decision. Candidates control evidence sharing.</p>
+          <p class="note">ProofPath would own service delivery. Employers retain independent hiring decisions. Candidates control sharing within the agreed confidentiality and reuse terms.</p>
         </div>
       </section>
 
@@ -66,7 +67,7 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
             <li><strong>Free to build.</strong> Experience, preferences, career interests, and selected role targets.</li>
             <li><strong>Optional ways to demonstrate ability.</strong> Quizzes, surveys, and skill exercises, with engaging formats where they help.</li>
             <li><strong>Evidence with context.</strong> Work samples, dates, task briefs, permitted tools, and review criteria.</li>
-            <li><strong>Candidate-controlled sharing.</strong> Permission to use relevant evidence for a new role or an adjacent opportunity.</li>
+            <li><strong>Candidate-controlled sharing.</strong> Candidates choose whether to share permitted evidence with another employer. Confidential employer material is not automatically portable; a redacted sample or agreed summary may be appropriate.</li>
           </ul>
           <p class="note">Qualification is role-specific. The concept does not depend on one universal employability score, and missing optional evidence is not treated as failure.</p>
         </div>
@@ -76,35 +77,42 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
         <div class="section-label"><span>04</span><p>The paid assessment</p></div>
         <div class="section-copy">
           <h2 id="assessment-title">Realistic conditions. A defined task. Paid work.</h2>
+          <p>Proposed first-pilot terms: replace a specified take-home assignment or evaluation step. Agree with the employer which step comes out before inviting candidates; this should not automatically become another hurdle.</p>
           <dl class="assessment-terms">
-            <div><dt>$100+</dt><dd><strong>Paid on completion</strong>Payment for the agreed work, regardless of the hiring outcome.</dd></div>
-            <div><dt>48–72h</dt><dd><strong>Time to think</strong>A return window with a clear effort cap. Research and revision are allowed.</dd></div>
-            <div><dt>Tools + AI</dt><dd><strong>A supplied workspace</strong>Use a supported tool stack, with workspace recording disclosed in advance.</dd></div>
+            <div><dt>$100</dt><dd><strong>Per candidate · proposed</strong>For the agreed submission, independent of score or hiring outcome.</dd></div>
+            <div><dt>48–72h</dt><dd><strong>2 active hours maximum</strong>Proposed completion window and total effort cap, including any response to feedback.</dd></div>
+            <div><dt>Tools + AI</dt><dd><strong>Clear, equal access</strong>Supply necessary materials and tools; disclose permitted AI use and evaluation criteria.</dd></div>
           </dl>
-          <p>The employer and ProofPath agree on the task and rubric before it begins. Review covers the deliverable, relevant tool use, and one response to feedback.</p>
           <aside class="example" aria-labelledby="sales-example-title">
-            <h3 id="sales-example-title">For a sales role</h3>
-            <p>Answer the company’s common customer questions, prepare a follow-up, then respond to an objection. Give candidates the product information and tools they would use on the job.</p>
+            <h3 id="sales-example-title">Example: e-commerce customer operations</h3>
+            <p>Using a synthetic product brief and fictional customer messages, draft two customer replies and a follow-up, then explain one escalation decision. Reserve part of the two-hour cap for one brief response to feedback. Stop at the cap; deeper work requires a separate scope and compensation.</p>
           </aside>
-          <p>AI is part of the work. Candidates remain accountable for what they submit. The assessment can reveal how they research, prompt, check, edit, and make decisions—not just whether they can produce fluent text.</p>
-          <p class="note">48–72 hours is the completion window, not the expected workload. Recording is limited to the disclosed assessment environment.</p>
+          <h3>Proposed commitments before anyone starts</h3>
+          <ul class="evidence-list">
+            <li><strong>Fund the work first.</strong> Commit and reserve the full candidate-payment budget before invitations become work assignments. Pay the same agreed amount for the same task and terms.</li>
+            <li><strong>Set a payment date.</strong> Pay within seven calendar days of the agreed submission, regardless of score, hiring outcome, or employer review delays. If the employer cancels after work begins, honor the agreed payment.</li>
+            <li><strong>Disclose the rules.</strong> Share the rubric, deliverables, deadline, effort cap, tools, payment terms, and any recording or data retention before consent. Any recording would be limited to the disclosed assessment environment.</li>
+            <li><strong>Agree on use.</strong> Favor synthetic or de-identified exercises for evaluation. Operational use of submissions requires a separate agreement and compensation terms; participation is not permission for unrestricted reuse.</li>
+          </ul>
+          <p>Responsible AI use is part of the evidence: candidates explain how they checked, edited, and took responsibility for their output. Personal AI histories are not required. Candidates pay no participation or tool-access fee.</p>
+          <p class="note">These are proposed operating commitments, not an active assessment offer. The 48–72-hour window gives scheduling flexibility; it never implies 48–72 hours of work.</p>
         </div>
       </section>
 
       <section class="pitch-section" aria-labelledby="economics-title">
         <div class="section-label"><span>05</span><p>The business model</p></div>
         <div class="section-copy">
-          <h2 id="economics-title">One employer budget funds the engagement.</h2>
-          <p>The employer sets the role, budget, and acceptance criteria. ProofPath sources and qualifies candidates, pays selected applicants to complete the assessment, and delivers an evidence-supported shortlist.</p>
-          <p>The employer owns final interviews, the offer, and the hiring decision. ProofPath is accountable for its screening, referrals, and delivery. Its margin comes from doing that work well within the agreed budget.</p>
+          <h2 id="economics-title">Test what an employer will fund.</h2>
+          <p>ProofPath proposes an engagement or service fee for scoping, coordination, assessment delivery, and a structured evidence packet. The employer retains final interviews, the offer, and the independent hiring decision.</p>
+          <p>This is distinct from HiringCafe’s stated long-term goal of a fixed fee per hire. A ProofPath service engagement would pay for agreed delivery, not establish HiringCafe’s hiring fee or a shared revenue arrangement.</p>
           <div class="economics" aria-labelledby="economics-example-title">
-            <h3 id="economics-example-title">Illustrative economics per role</h3>
+            <h3 id="economics-example-title">Proposed first-pilot budget</h3>
             <dl class="cost-list">
-              {costs.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
-              <div class="contribution"><dt>Contribution before overhead</dt><dd>$4,000</dd></div>
+              <div><dt>Candidate payments · 5 × $100</dt><dd>$500</dd></div>
+              <div><dt>ProofPath service fee</dt><dd>To scope</dd></div>
+              <div><dt>Tools and other direct costs</dt><dd>To scope</dd></div>
             </dl>
-            <p class="margin"><strong>40%</strong> contribution margin</p>
-            <p class="note">Illustrative assumptions, not operating results or a price commitment. Labor includes founder delivery time. Excludes customer acquisition, fixed overhead, and taxes.</p>
+            <p class="note">$500 is the reserved candidate-payment budget, not the total pilot price. Agree a written scope and capped total budget before launch. Track founder labor, employer acquisition, review, administration, and tools to learn the actual cost. No validated price, margin, conversion rate, or partnership revenue split is assumed.</p>
           </div>
         </div>
       </section>
@@ -114,7 +122,7 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
         <div class="section-copy">
           <h2 id="learning-title">Each assessment can leave something useful behind.</h2>
           <div class="value-list">
-            <div><h3>For candidates</h3><p>Reusable work evidence, feedback, and a clearer path to relevant opportunities.</p></div>
+            <div><h3>For candidates</h3><p>Permitted reusable work evidence, feedback, and clearer follow-up questions for relevant opportunities.</p></div>
             <div><h3>For employers</h3><p>Focused follow-up questions, more informed onboarding, and reusable assessment designs.</p></div>
             <div><h3>For ProofPath</h3><p>Repeatable recruiting and assessment methods, improved through experience.</p></div>
           </div>
@@ -127,11 +135,11 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
       <section class="pitch-section" aria-labelledby="launch-title">
         <div class="section-label"><span>07</span><p>The path to scale</p></div>
         <div class="section-copy">
-          <h2 id="launch-title">Launch a focused service. Scale proven workflows.</h2>
+          <h2 id="launch-title">Start manually. Expand only after learning.</h2>
           <p>The first product is an accountable recruiting service. Begin with one employer mandate, learn the delivery cost, and build reusable infrastructure as the economics justify it.</p>
           <dl class="launch-list">
-            <div><dt>First customer</dt><dd>An employer hiring e-commerce operations talent.</dd></div>
-            <div><dt>First offer</dt><dd>One funded role, a defined rubric, and a supported tool stack.</dd></div>
+            <div><dt>First customer</dt><dd>One direct employer with a verified open e-commerce operations role, subject to discovery.</dd></div>
+            <div><dt>First offer</dt><dd>One role, five paid candidates, a defined rubric, and supplied tools.</dd></div>
             <div><dt>Repeat delivery</dt><dd>Reuse assessments, permitted candidate evidence, and review methods.</dd></div>
             <div><dt>Platform expansion</dt><dd>Automate proven workflows and add adjacent roles and employer tools.</dd></div>
           </dl>
@@ -156,37 +164,64 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
       <section class="pitch-section" aria-labelledby="partnership-title">
         <div class="section-label"><span>09</span><p>A proposed partnership</p></div>
         <div class="section-copy">
-          <h2 id="partnership-title">HiringCafe + ProofPath:<br /> discovery connected to proof.</h2>
-          <p><a href="https://hiringcafe.com/about">HiringCafe</a> provides free job discovery from employer websites, with no pay-to-win discovery. ProofPath could provide an optional, employer-funded path into qualification and paid work assessments.</p>
-          <p>Candidates would opt in to sharing relevant evidence. ProofPath’s service fees would remain separate from organic search ranking.</p>
-          <p class="note">Proposal only. No partnership, integration, or commercial terms exist. HiringCafe filters external recruiting agency listings; any pilot would need an agreed path consistent with its direct-employer model.</p>
+          <h2 id="partnership-title">HiringCafe + ProofPath:<br /> a small, separately operated experiment.</h2>
+          <p>In his <a href="https://www.reddit.com/r/hiringcafe/comments/1wsyngb/revenue_without_enshittification/">September 29 monetization proposal</a>, Hamed describes a long-term fixed fee per hire, with job search free. For now, he favors ads and voluntary support so the team can focus on job discovery instead of building an employer sales and service operation. Paid placement would stay separate from organic rankings.</p>
+          <p class="statement">Could employers fund paid candidate work and structured evaluation through a separately operated pilot—while HiringCafe’s rankings, free access, and core product team stay focused on job discovery?</p>
+          <p>I propose leading the manual operation: employer discovery, verification of the open role, task scoping, candidate coordination, payment administration, and delivery of the evidence packet. Start with an employer’s own consenting shortlist, without technical integration or access to HiringCafe’s user database.</p>
+          <p>The limited support I would ask of HiringCafe: one roadmap-fit conversation, review of the proposed boundaries against its direct-employer rules, and—only if useful and explicitly approved—one direct-employer introduction. I would return a short findings summary. No engineering work, ongoing sales operation, or candidate support queue is requested from its team.</p>
+          <p>Employer funding would buy this optional service, never organic search position. Candidates would not pay to compete. HiringCafe participation, brand use, outreach to its users, and any referral route would each require explicit agreement; this proposal assumes none and does not bypass its direct-employer rules.</p>
+          <p class="note">Proposal only. No HiringCafe partnership, integration, or commercial agreement exists. This is neither proven revenue nor an immediate answer to HiringCafe’s operating costs, and it does not ask the founders to replace their near-term funding plan.</p>
         </div>
       </section>
 
       <section class="pitch-section" id="pilot" aria-labelledby="pilot-title">
         <div class="section-label"><span>10</span><p>The first pilot</p></div>
         <div class="section-copy">
-          <h2 id="pilot-title">Test demand, quality, and delivery economics.</h2>
-          <p>Recruit three employer design partners in one role family. Run up to ten paid assessments per employer, with the rubric and success thresholds agreed in advance.</p>
-          <div class="pilot-math"><p><strong>3</strong><span>employer partners</span></p><p><strong>30</strong><span>assessments maximum</span></p><p><strong>$3,000</strong><span>minimum candidate pay if all 30 complete at $100</span></p></div>
-          <h3 class="measure-title">Measure what determines whether the model works</h3>
+          <h2 id="pilot-title">One employer. One open role. Five paid candidates.</h2>
+          <p>Proposed cohort: five candidates on one direct employer’s consenting shortlist for one verified open role. Use a small synthetic e-commerce customer-operations exercise, paid at $100 per candidate, with a two-hour active-work cap inside a 48–72-hour completion window.</p>
+          <div class="pilot-math"><p><strong>1</strong><span>employer · one verified open role</span></p><p><strong>5</strong><span>paid candidates · proposed cohort</span></p><p><strong>$500</strong><span>candidate funds reserved before work starts · 5 × $100</span></p></div>
+          <h3>Launch only with a defined decision and funded work</h3>
+          <p>Name the employer decision-maker and reviewers; agree the rubric, the existing evaluation step being replaced, candidate terms, and a dated review deadline before invitations. Proposed review deadline: within five business days after the final submission deadline. Fund candidate payments and approve the service scope and total budget first.</p>
+          <h3 class="measure-title">Measure what this experiment can actually tell us</h3>
           <ul class="measure-list">
-            <li>Employer acceptance of the shortlist</li>
-            <li>Hiring-manager review time</li>
-            <li>Actual delivery cost</li>
-            <li>Candidate experience</li>
-            <li>Employer repeat purchase</li>
+            <li><strong>Willingness to pay:</strong> the scoped fee offered, objections, and whether the employer actually funds it.</li>
+            <li><strong>Evidence usefulness:</strong> rubric-linked reviewer feedback and which decision questions the work resolves or leaves open.</li>
+            <li><strong>Reviewer time:</strong> minutes spent reviewing and following up, compared with the replaced step where a baseline exists.</li>
+            <li><strong>Actual delivery cost:</strong> candidate pay, founder hours, employer acquisition, review, tools, and administration.</li>
+            <li><strong>Candidate experience:</strong> active time, clarity, perceived fairness, payment timing, and feedback.</li>
+            <li><strong>Repeat-purchase interest:</strong> willingness to fund another engagement at a stated scope and price; interest is not a completed sale.</li>
           </ul>
-          <p class="note">These are pilot targets, not traction. Candidate payments exclude recruiting, design, review, tools, and administration. Scale after employers value the evidence and delivery economics hold.</p>
+          <p>If this is useful and deliverable, a later validation phase could involve three employers in the same role family. That phase would need its own scope and budget; it is not the initial ask.</p>
+          <p class="note">Five candidates can inform feasibility and service design. One small pilot cannot establish predictive validity or prove hiring outcomes. Any later outcome research requires separate consent and an appropriate study design.</p>
+        </div>
+      </section>
+
+      <section class="pitch-section" id="revision-history" aria-labelledby="revision-history-title">
+        <div class="section-label"><span>11</span><p>Publication record</p></div>
+        <div class="section-copy">
+          <h2 id="revision-history-title">Revision history</h2>
+          <p>{publishedCount} verified published revisions. {currentRevision.status !== 'published' && <span>{revision.pageRevision} is pending publication and is not included in that count.</span>}</p>
+          <p class="note">{revision.timestampBasis} The introduction’s “Updated” time stays fixed for this revision. America/Chicago formatting selects CDT or CST for the recorded date.</p>
+          <ol class="revision-log">
+            {[...revision.history].reverse().map(entry => <li>
+              <h3>{entry.id} · {entry.title}</h3>
+              {entry.status === 'published' && entry.publishedAt ? <p>Published · <time datetime={entry.publishedAt}>{centralTimestamp(entry.publishedAt)}</time> · successful deployment completed.</p> : <p><strong>Pending publication.</strong> Content finalized <time datetime={entry.finalizedAt}>{centralTimestamp(entry.finalizedAt!)}</time>; no publication time is confirmed.</p>}
+              <p>{entry.summary}</p>
+              {entry.evidenceUrl && <a href={entry.evidenceUrl}>Release evidence</a>}
+              {entry.reviewUrl && <a href={entry.reviewUrl}>Review branch and proposed changes</a>}
+            </li>)}
+          </ol>
+          <p class="note">{revision.countingRule}</p>
+          <p class="note">{revision.historyBasis}</p>
         </div>
       </section>
 
       <footer class="pitch-close" aria-labelledby="build-title">
-        <p class="pitch-meta">Build ProofPath with Drew</p>
-        <h2 id="build-title">Let’s prove the model.</h2>
-        <p>A hiring system where candidates get paid to show their work—and the evidence remains useful after the decision.</p>
-        <p>Fund an employer pilot, partner on the build, hire me to lead it, or invest in validating the concept. The next step is to identify three design partners and scope the first funded pilot.</p>
-        <a class="button button-light pitch-button" href={emailHref}>Talk with Drew about ProofPath <span aria-hidden="true">↗</span></a>
+        <p class="pitch-meta">Scope one funded pilot</p>
+        <h2 id="build-title">Start with one useful experiment.</h2>
+        <p>Pay candidates to demonstrate their judgment, and give one employer structured evidence for a real decision.</p>
+        <p>For HiringCafe, the next step is to determine whether this limited, separately operated experiment fits the roadmap. If it does, scope one employer, one verified role, and one funded five-candidate pilot together.</p>
+        <a class="button button-light pitch-button" href={emailHref}>Scope one funded pilot</a>
         <a class="email-link" href={emailHref}>{profile.email}</a>
       </footer>
     </div>
@@ -197,6 +232,13 @@ const emailHref = `mailto:${profile.email}?subject=${encodeURIComponent('ProofPa
   .proofpath { --pitch-ink: var(--green); --pitch-body: var(--color-ink); --pitch-muted: var(--color-muted); --pitch-accent: #98622e; --pitch-line: var(--color-border); color: var(--pitch-body); font: 1.125rem/1.7 var(--font-sans); overflow-wrap: break-word; }
   .pitch-shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
   .pitch-meta { color: var(--pitch-muted); font-size: .8125rem; line-height: 1.7; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
+  .revision-stamp { font-size: .9375rem; line-height: 1.7; color: var(--pitch-muted); margin-top: 1.3rem; }
+  .revision-stamp strong { color: var(--pitch-ink); }
+  .revision-stamp a, .revision-log a { display: inline-flex; align-items: center; min-height: 44px; }
+  .revision-log { padding-left: 1.25rem; margin-top: 1.5rem; }
+  .revision-log li { border-top: 1px solid var(--pitch-line); padding-block: 1.25rem; }
+  .revision-log p { font-size: 1rem; margin-top: .65rem; }
+  .revision-log a { font-size: .9375rem; margin-top: .4rem; }
   .pitch-meta span { margin-inline: .35rem; }
   .pitch-hero { padding-block: 2.75rem 3.5rem; }
   .pitch-hero h1 { font-family: var(--serif); font-size: clamp(3.6rem, 10vw, 6.5rem); font-weight: 400; letter-spacing: -.055em; line-height: 1.05; color: var(--pitch-ink); margin: 1.35rem 0 1.75rem; }
