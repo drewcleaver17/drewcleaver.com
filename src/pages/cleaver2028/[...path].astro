@@ -1,7 +1,7 @@
 ---
 import '../../styles/global.css';
 import { profile } from '../../data/profile';
-import { campaign, includeCampaign, isLocalReview } from '../../data/cleaver2028.mjs';
+import { campaign, includeCampaign } from '../../data/cleaver2028.mjs';
 import dpcRevision from '../../data/dpc-revisions.json';
 import proofpathRevision from '../../data/proofpath-revisions.json';
 export function getStaticPaths() {
@@ -9,7 +9,7 @@ export function getStaticPaths() {
 }
 const canonical = new URL('/cleaver2028', profile.website).href;
 const contact = `mailto:${profile.email}`;
-const showLabLinks = campaign.labLinksApproved || isLocalReview;
+const showLabLinks = campaign.labLinksApproved;
 const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.pageRevision };
 ---
 <!doctype html>
@@ -64,19 +64,22 @@ const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.
           {campaign.status.stage === 'filed' && <p class="filing-record"><time datetime={campaign.status.filingDate}>{campaign.status.filingDate}</time> · <a href={campaign.status.recordUrl}>Official FEC record</a></p>}
         </section>
 
-        <section class="editorial-section" id="why" aria-labelledby="why-title">
-          <div class="section-index"><span>01</span><p>Why I’m pursuing this</p></div>
+        <section class="editorial-section" id="futures" aria-labelledby="futures-title">
+          <div class="section-index"><span>01</span><p>Visions under development</p></div>
           <div class="section-body">
-            <h2 id="why-title">Start with a problem.<br />Be willing to learn.</h2>
-            {campaign.why.map(copy => <p>{copy}</p>)}
-            <a class="text-link" href="/about/">More about my background <span aria-hidden="true">↗</span></a>
+            <h2 id="futures-title">Futures I want to explore.</h2>
+            <p>{campaign.futuresIntro}</p>
+            {campaign.futures.map(group => <section class="vision-group" aria-labelledby={`${group.id}-title`}>
+              <h3 class="vision-category" id={`${group.id}-title`}>{group.category}</h3>
+              <ul class="vision-list">{group.ideas.map(([title, copy]) => <li><h4>{title}</h4><p>{copy}</p></li>)}</ul>
+            </section>)}
           </div>
         </section>
 
         <section class="editorial-section" id="method" aria-labelledby="method-title">
-          <div class="section-index"><span>02</span><p>How I would approach policy</p></div>
+          <div class="section-index"><span>02</span><p>From vision to evidence</p></div>
           <div class="section-body">
-            <h2 id="method-title">Make the reasoning visible.</h2>
+            <h2 id="method-title">From a vision to something<br />we can learn from.</h2>
             <ol class="method-list">
               {campaign.method.map(([title, text], index) => <li><span aria-hidden="true">{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}
             </ol>
@@ -86,7 +89,7 @@ const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.
         <section class="editorial-section" id="work" aria-labelledby="work-title">
           <div class="section-index"><span>03</span><p>Work people can inspect</p></div>
           <div class="section-body">
-            <h2 id="work-title">Two ideas. Open questions.</h2>
+            <h2 id="work-title">Existing work. Open questions.</h2>
             <p>{campaign.workIntro}</p>
             <div class="examples">
               {campaign.examples.map(example => <section class="example" aria-labelledby={`${example.revisionSource}-title`}>
@@ -107,7 +110,7 @@ const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.
             <dl class="faq">
               <div><dt>What stage is this at?</dt><dd>{campaign.status.faq}</dd></div>
               <div><dt>How does AI support the work?</dt><dd>{campaign.ai}</dd></div>
-              <div><dt>What does the Lab contain?</dt><dd>{campaign.labFAQ}</dd></div>
+              <div><dt>Is this a complete platform?</dt><dd>{campaign.labFAQ}</dd></div>
               <div><dt>How can I reach you?</dt><dd>Email <a href={contact}>{profile.email}</a>. It’s my existing direct contact.</dd></div>
             </dl>
           </div>
@@ -152,6 +155,12 @@ const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.
   h2{font-size:clamp(1.85rem,3.5vw,2.65rem);margin:0 0 1.15rem}
   .section-body>p{margin-block:1rem;line-height:1.75}
   h3{font-size:1rem;font-weight:600;line-height:1.5;margin:0 0 .25rem}
+  .vision-group{margin-top:1.75rem}
+  .vision-category{font-size:.8125rem;letter-spacing:.06em;color:#765027;border-bottom:1px solid var(--color-border);padding-bottom:.6rem}
+  .vision-list{list-style:none;padding:0;margin:0}
+  .vision-list li{padding-block:1rem .25rem}
+  .vision-list h4{font-family:var(--serif);font-weight:400;font-size:1.5rem;letter-spacing:-.02em;line-height:1.25;margin:0 0 .5rem}
+  .vision-list p{margin:0;line-height:1.7}
   .method-list{list-style:none;padding:0;margin:1.5rem 0 0}
   .method-list li{display:grid;grid-template-columns:1.75rem 1fr;gap:.75rem;padding-block:.8rem;border-top:1px solid var(--color-border)}
   .method-list li>span{color:#765027;font-size:.875rem;padding-top:.1rem}
