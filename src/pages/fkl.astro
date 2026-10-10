@@ -1,0 +1,89 @@
+---
+import '../styles/fkl.css';
+import { official, regions, ages, experience, faqs } from '../data/fkl.mjs';
+const disclosure = 'Independent pilot demo by Drew Cleaver. Not an official FKL booking page.';
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAT Karting League · First Session Pilot Demo — Drew Cleaver</title>
+  <meta name="description" content="An independent parent-focused FAT Karting League pilot demo: explore a first karting experience, find an official hub, and try a local-only inquiry flow." />
+  <meta name="robots" content="noindex, nofollow" /><meta name="theme-color" content="#0000ff" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="canonical" href="https://drewcleaver.com/fkl/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:type" content="website" /><meta property="og:title" content="FKL · Their first step into real karting — Pilot demo" />
+  <meta property="og:description" content={disclosure} /><meta property="og:url" content="https://drewcleaver.com/fkl/" />
+  <meta property="og:image" content="https://drewcleaver.com/fkl/share.jpg" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="FAT Karting League parent landing page · Independent pilot demo by Drew Cleaver" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class="fkl-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead wrap">
+    <a href="#main" aria-label="FAT Karting League pilot demo"><img src="/fkl/logo.png" width="380" height="180" class="logo" alt="FAT Karting League" /></a>
+    <a href="#questions" class="quiet">Have a question? <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy wrap">
+        <p class="eyebrow">FAT Karting League / Arrive &amp; drive</p>
+        <h1 id="hero-title">Their first step<br />into real karting.</h1>
+        <p class="intro">A curious kid. A real race kart. A place to start.</p>
+        <p class="hero-description">Discover outdoor electric karting for ages 5–17, with the kart, racewear and coaching provided. No kart to buy. No racing experience needed for Testing.</p>
+        <a class="button primary" href="#find-session" data-primary="hero">Find your child’s first session <span aria-hidden="true">↗</span></a>
+        <p class="reassurance">Start with Testing &amp; Coaching. Check fit and eligibility with FKL.</p>
+      </div>
+      <div class="hero-photo"><picture><source media="(max-width: 700px)" srcset="/fkl/hero-mobile.webp" /><img src="/fkl/hero.webp" width="1600" height="1060" alt="Young FAT Karting League drivers lined up in electric karts on an outdoor circuit" fetchpriority="high" /></picture><span class="photo-label">The kart is provided.<br />The curiosity is theirs.</span></div>
+    </section>
+    <div class="disclosure wrap"><p>{disclosure}</p></div>
+    <section class="basics wrap" aria-labelledby="basics-title">
+      <div class="section-heading"><p class="eyebrow">Less to organise. More to discover.</p><h2 id="basics-title">You bring the driver.<br />FKL brings the kit.</h2></div>
+      <div class="facts">
+        <div><span class="number">01 /</span><h3>Equipment included</h3><p>An electric kart, helmet and racewear are provided for Testing. You don’t need to own racing equipment.</p></div>
+        <div><span class="number">02 /</span><h3>New drivers welcome</h3><p>Testing is open to beginners and experienced young drivers aged 5–17, subject to fit and eligibility checks.</p></div>
+        <div><span class="number">03 /</span><h3>Guidance on the day</h3><p>FKL describes a briefing, track sessions and coaching between runs. Confirm the format of your chosen event.</p></div>
+      </div>
+    </section>
+    <section class="first-day" aria-labelledby="day-title">
+      <div class="day-photo"><img src="/fkl/arrival.webp" width="800" height="1200" alt="A young FKL driver arriving in the paddock with a helmet" loading="lazy" /></div>
+      <div class="day-copy"><p class="eyebrow">From curious to on track</p><h2 id="day-title">A first day,<br />made clearer.</h2>
+        <ol class="steps"><li><h3>Choose a Testing event</h3><p>Find a hub that works for your family. Check the venue, date, price and event information.</p></li><li><h3>Confirm the right fit</h3><p>Ask FKL to confirm age, class and kart-fit requirements before you book.</p></li><li><h3>Arrive and get ready</h3><p>Check in, get kitted up and take part in the briefing before heading out.</p></li><li><h3>Drive, learn, go again</h3><p>Track sessions and coaching give your child a chance to practise and get feedback.</p></li></ol>
+        <a href={`${official}/blog/what-to-expect-at-a-fat-karting-league-testing-day`} rel="noopener noreferrer" class="text-link">Read FKL’s Testing Day guide ↗ <span class="external-label">Official FKL website</span></a>
+      </div>
+    </section>
+    <section id="find-session" class="finder wrap" aria-labelledby="finder-title" tabindex="-1">
+      <div class="section-heading"><p class="eyebrow">Start with a place</p><h2 id="finder-title">Find their<br />starting line.</h2><p>No season commitment here. Explore a first Testing experience and confirm the details directly with FKL.</p></div>
+      <div class="finder-panel">
+        <label for="fkl-region">Where would you like to drive?</label>
+        <select id="fkl-region"><option value="">Choose a region</option>{regions.map(r => <option value={r.id}>{r.label}</option>)}</select>
+        <div class="optional-pair"><div><label for="finder-age">Child’s age <span>(optional)</span></label><select id="finder-age"><option value="">Choose an age band</option>{ages.map(a => <option>{a}</option>)}</select></div><div><label for="finder-experience">Experience <span>(optional)</span></label><select id="finder-experience"><option value="">Choose experience</option>{experience.map(e => <option>{e}</option>)}</select></div></div>
+        <div id="finder-result" class="finder-result" aria-live="polite" aria-atomic="true"><p>Select a region to see your official next step.</p></div>
+        <p id="age-guidance" class="small">Age guidance is advisory. FKL must confirm eligibility and kart fit.</p>
+        <p class="small">Dates, prices and availability are confirmed on FKL’s website. This demo does not reserve a place.</p>
+        <noscript><p>Use the <a href={`${official}/hubs`} rel="noopener noreferrer">official FKL hub directory ↗</a> to find current sessions.</p></noscript>
+      </div>
+    </section>
+    <section class="faq wrap" aria-labelledby="faq-title"><div class="section-heading"><p class="eyebrow">For the grown-ups</p><h2 id="faq-title">Good questions.<br />Clear next steps.</h2></div><div>{faqs.map(([q,a]) => <details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}<a class="text-link" href={`${official}/faq`} rel="noopener noreferrer">More answers from FKL ↗ <span class="external-label">Official FKL website</span></a></div></section>
+    <section id="questions" class="questions wrap" aria-labelledby="questions-title" tabindex="-1">
+      <div class="section-heading"><p class="eyebrow">Prefer a little guidance?</p><h2 id="questions-title">Let’s find<br />the right fit.</h2><p>Try the parent inquiry experience below. For a real answer today, <a href={`${official}/faq`} rel="noopener noreferrer">see FKL’s official FAQs and contact details ↗</a>.</p></div>
+      <form id="fkl-inquiry" novalidate autocomplete="off">
+        <p class="demo-note" id="demo-note">Demo form — information is not sent or saved</p>
+        <fieldset id="demo-fields" disabled aria-describedby="demo-note"><legend class="sr-only">Parent inquiry demo</legend>
+          <div class="optional-pair"><div><label for="parent-name">Parent or guardian name</label><input id="parent-name" type="text" required autocomplete="off" /><p class="field-error" id="parent-name-error" hidden></p></div><div><label for="parent-email">Email</label><input id="parent-email" type="email" required autocomplete="off" /><p class="field-error" id="parent-email-error" hidden></p></div></div>
+          <div class="optional-pair"><div><label for="parent-phone">Phone <span>(optional)</span></label><input id="parent-phone" type="tel" autocomplete="off" /></div><div><label for="parent-location">Region or ZIP / postal code</label><input id="parent-location" type="text" required autocomplete="off" /><p class="field-error" id="parent-location-error" hidden></p></div></div>
+          <div class="optional-pair"><div><label for="parent-age">Child’s age band</label><select id="parent-age" required><option value="">Choose an age band</option>{ages.map(a => <option>{a}</option>)}</select><p class="field-error" id="parent-age-error" hidden></p></div><div><label for="parent-experience">Experience <span>(optional)</span></label><select id="parent-experience"><option value="">Choose experience</option>{experience.map(e => <option>{e}</option>)}</select></div></div>
+          <p class="small">Please use sample details. No inquiry is delivered and no follow-up is scheduled.</p><button type="submit" class="button secondary">Try the inquiry demo <span aria-hidden="true">↗</span></button>
+        </fieldset>
+        <p id="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
+        <noscript><p>The demo needs JavaScript. No information can be submitted here. Please use FKL’s official FAQs.</p></noscript>
+      </form>
+    </section>
+    <section class="closing"><div class="wrap"><p class="eyebrow">One first session. A new possibility.</p><h2>See where<br />curiosity takes them.</h2><a href="#find-session" class="button light" data-primary="closing">Find your child’s first session <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="wrap"><img src="/fkl/logo.png" width="380" height="180" class="logo" alt="FAT Karting League" /><div><p>{disclosure}</p><nav aria-label="Official FKL links"><a href={official} rel="noopener noreferrer">Official FKL website ↗</a><a href={`${official}/hubs`} rel="noopener noreferrer">Hubs &amp; sessions ↗</a><a href={`${official}/privacy`} rel="noopener noreferrer">FKL privacy &amp; terms ↗</a></nav><p class="small">Demo information stays in this page while it is open. Nothing is submitted to Drew or FKL. Unlisted does not mean access-controlled.</p></div></footer>
+  <script id="fkl-regions" type="application/json" set:html={JSON.stringify(regions)}></script>
+  <script>import { initFkl } from '../scripts/fkl-client.mjs'; initFkl(document, { development: import.meta.env.DEV });</script>
+</body>
+</html>
