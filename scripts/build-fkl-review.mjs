@@ -1,0 +1,17 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve, extname, isAbsolute } from 'node:path';
+const destination=process.argv[2];
+if (!destination || !isAbsolute(destination)) throw new Error('Pass an absolute output HTML path. Run npm run build first.');
+const mime={'.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.woff2':'font/woff2'};
+const data=path=>'data:'+(mime[extname(path)]||'application/octet-stream')+';base64,'+readFileSync(resolve('dist',path.replace(/^\//,''))).toString('base64');
+let html=readFileSync('dist/fkl/index.html','utf8');
+html=html.replace(/<link rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g,(_,path)=>'<style>'+readFileSync(resolve('dist',path.slice(1)),'utf8').replace(/url\(["']?(\/fkl\/[^)"']+)["']?\)/g,(_,p)=>'url("'+data(p)+'")')+'</style>');
+html=html.replace(/(?:src|srcset)="(\/fkl\/[^" ]+)"/g,(match,path)=>match.startsWith('srcset')?'srcset="'+data(path)+'"':'src="'+data(path)+'"');
+html=html.replace(/<script type="module"[^>]*src="[^"]+"[^>]*><\/script>/g,'');
+html=html.replace(/<link rel="icon"[^>]*>/g,'');
+html=html.replace(/<a([^>]*href="https:\/\/fat-kartingleague.com[^>]+)>/g,'<a$1 target="_blank">');
+const js=readFileSync('src/scripts/fkl-client.mjs','utf8').replace(/export /g,'');
+html=html.replace('</body>','<script>'+js+'\ninitFkl(document);</script></body>');
+const json=JSON.stringify(html).replace(/</g,'\\u003c');
+const wrapper=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>FKL pilot review</title><style>body{margin:0;font:14px system-ui;background:#ddd;color:#111}header{padding:14px 18px;background:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}select{padding:10px;font:inherit}p{margin:6px 0;font-size:12px}main{overflow:auto;padding:20px 0}iframe{display:block;margin:auto;border:0;background:#fff;width:390px;height:calc(100vh - 140px);min-height:500px}</style></head><body><header><div><strong>FKL · Parent landing page pilot</strong><p>Interactive review of built markup, CSS and client behavior. No publication. No information is sent or saved.</p></div><label>Review width <select id="width"><option>320</option><option selected>390</option><option>768</option><option>1440</option></select> px</label><p>Pixel rendering, real keyboard operation and mobile device behavior remain unverified.</p></header><main><iframe title="FKL customer landing page demo" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"></iframe></main><script>const frame=document.querySelector('iframe');frame.srcdoc=${json};document.querySelector('#width').addEventListener('change',e=>frame.style.width=e.target.value+'px');</script></body></html>`;
+writeFileSync(destination,wrapper);console.log(destination);

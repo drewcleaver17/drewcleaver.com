@@ -1,0 +1,60 @@
+{
+  "checked": "2026-10-10",
+  "links": [
+    {
+      "url": "https://fat-kartingleague.com/",
+      "result": "200 https://fat-kartingleague.com/",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/faq",
+      "result": "200 https://fat-kartingleague.com/faq",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/privacy",
+      "result": "200 https://fat-kartingleague.com/privacy",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/blog/what-to-expect-at-a-fat-karting-league-testing-day",
+      "result": "200 https://fat-kartingleague.com/blog/what-to-expect-at-a-fat-karting-league-testing-day",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/hubs",
+      "result": "200 https://fat-kartingleague.com/hubs",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/hubs/texas-usa",
+      "result": "200 https://fat-kartingleague.com/hubs/texas-usa",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/hubs/midwest-usa",
+      "result": "200 https://fat-kartingleague.com/hubs/midwest-usa",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/hubs/socal-usa",
+      "result": "200 https://fat-kartingleague.com/hubs/socal-usa",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/hubs/norcal-usa",
+      "result": "200 https://fat-kartingleague.com/hubs/norcal-usa",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/hubs/uk",
+      "result": "200 https://fat-kartingleague.com/hubs/uk",
+      "exit": 0
+    },
+    {
+      "url": "https://fat-kartingleague.com/hubs/de",
+      "result": "200 https://fat-kartingleague.com/hubs/de",
+      "exit": 0
+    }
+  ]
+}
