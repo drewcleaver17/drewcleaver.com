@@ -1,6 +1,7 @@
 # Drew Cleaver / Lab — maintainer guide
 
-R01 is published after Drew’s October 10, 2026 approval. The publication time
+R02 is published after Drew’s October 10, 2026 approval; R01’s record is preserved.
+The publication times
 and verified deployment evidence are in `src/data/lab-revisions.json` and
 `docs/lab/REVIEW.md`. Topic/proposal status remains exploratory; publication
 does not establish pilot outcomes. This document and all Lab content are
@@ -139,7 +140,7 @@ After Drew approves the concrete review:
 4. Only after successful approved deployment and live verification, record its
    actual `publishedAt`, workflow evidence URL and published status in the same
    revision entry. Preserve `updatedAt` and `finalizedAt`. A publication-record
-   confirmation does not create R02. Verify that confirmation deployment too.
+   confirmation does not create a new content revision. Verify that confirmation deployment too.
 
 Rollback is a scoped revert through the existing Pages workflow. No DNS, paid
 service, domain, hosting migration or unrelated release is required.

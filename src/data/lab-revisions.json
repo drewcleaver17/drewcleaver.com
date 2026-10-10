@@ -33,10 +33,10 @@
       "id": "R02",
       "anchor": "r02-category-placeholders",
       "contentStatus": "final",
-      "implementationStatus": "verified; approved for release",
-      "publicationStatus": "pending verified deployment",
-      "publishedAt": null,
-      "evidenceUrl": null,
+      "implementationStatus": "deployed; live responses verified",
+      "publicationStatus": "published",
+      "publishedAt": "2026-10-10T15:35:57Z",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38064180254",
       "title": "Room for three more questions",
       "summary": "Added tentative Housing, Education and Taxes category placeholders. Display order is Healthcare, Housing, Work, Education and Taxes; Healthcare and Work remain the only populated categories.",
       "decision": "Reserve category names and stable homepage anchors without adding topic pages, policy details or commitments. The display order does not declare policy priorities.",
@@ -47,7 +47,12 @@
         "taxes"
       ],
       "proposals": [],
-      "finalizedAt": "2026-10-10T14:52:19Z"
+      "finalizedAt": "2026-10-10T14:52:19Z",
+      "reviewUrl": "https://github.com/drewcleaver17/drewcleaver.com/pull/60",
+      "commit": "809b4f571067376b16130fc1178faf3b3543c394",
+      "deploymentCommit": "abaff0627511a74e8913de79c78a0835d2105f1b",
+      "liveVerifiedAt": "2026-10-10T15:37:52Z",
+      "verification": "Four live routes, category order/nonlinked placeholders, 404 placeholder URLs, noindex, sitemap exclusion, navigation, scoped manifest/icons and CSS verified. Existing page markup unchanged except concurrent FKL build CSS fingerprint; all 469 preexisting CSS rule/declaration groups retained and PDFs byte-identical. Browser visual/keyboard, live calculator interaction and real-device installation remain unverified."
     }
   ]
 }

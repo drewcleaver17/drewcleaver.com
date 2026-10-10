@@ -126,8 +126,7 @@ workflow 38060520323 were checked before editing.
   Stable homepage anchors support future growth; they have no generated routes,
   links to nonexistent pages, substantive content or inactive controls.
 - Healthcare/Work content, proposal cards and persistent navigation are retained.
-- R02 content is final with publication pending verification and a fixed
-  America/Chicago content time. R01's entire published metadata entry remains unchanged.
+- R02 content is final and published with a fixed America/Chicago content time. R01's entire published metadata entry remains unchanged.
 - Category display records are separate from populated topics. Updates link to
   placeholder anchors; the review generator uses the actual current revision.
 
@@ -156,3 +155,32 @@ from production output provides those four width controls for owner inspection.
 After approval, follow the maintainer guide's finalization, merge, Pages/live
 verification and publication-evidence steps. Preserve R02's fixed content time
 and all R01 evidence. Do not mark R02 published before verified deployment.
+
+
+### Verified R02 publication — October 10, 2026
+
+- Owner authorized merge/deployment. PR #60 merged as
+  `809b4f571067376b16130fc1178faf3b3543c394`; final approval CI 38064077298 passed.
+- The Lab-only Pages run 38064159182 was superseded by the concurrently approved
+  FKL release. No unrelated PR was merged by this Lab task. The successful
+  [Pages run 38064180254](https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38064180254)
+  deployed `abaff0627511a74e8913de79c78a0835d2105f1b`, which includes R02.
+  Deploy completed `2026-10-10T15:35:57Z` (10:35:57 a.m. CDT).
+- R02 content `updatedAt`/`finalizedAt` remain `2026-10-10T14:52:19Z`
+  (9:52:19 a.m. CDT). The complete R01 metadata entry is unchanged.
+- All four live Lab routes, manifest/icons, CSS, sitemap, robots.txt and original
+  proposal/PDF paths returned HTTP 200 and matched current production output.
+  Healthcare → Housing → Work → Education → Taxes order, nonlinked title/status
+  placeholders, active navigation/anchors, noindex/nofollow, discovery exclusions
+  and manifest scope are verified. Placeholder URLs all return HTTP 404.
+- Concurrent FKL utilities changed the shared CSS fingerprint. Rebuilding the
+  pre-FKL commit reproduced the captured baseline: existing homepage, hello,
+  DPC and ProofPath markup differs only in that CSS asset filename. All 469
+  preexisting CSS rule/declaration groups are retained; PDF bytes are identical.
+  Proposal/calculator sources, revisions and saved/historical engines are untouched.
+- Release build, 138 existing tests and Lab checks passed. Rebuilding current
+  main after the concurrent release also passed its full build/test gates.
+- Browser visual/keyboard, live calculator interaction and physical-device
+  installation remain unverified; no screenshots or installation claim is made.
+- The publication-evidence confirmation must be successfully deployed and its
+  live published status/time/evidence link verified before this task is complete.
