@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+import '../styles/lab.css';
+import { profile } from '../data/profile';
+import { labTopics } from '../data/lab';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const links = [{ href: '/lab/', label: 'Lab Home' }, ...labTopics.map(topic => ({ href: topic.canonical, label: topic.title })), { href: '/lab/updates/', label: 'Updates' }];
+const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+const canonical = new URL(Astro.url.pathname, profile.website);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#173e35" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} — {profile.name} / Lab</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/lab/icon-192.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/lab/icon-192.png" />
+    <link rel="manifest" href="/lab/manifest.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} — ${profile.name} / Lab`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body class="site-body lab-body">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="lab-header">
+      <div class="shell lab-header-inner">
+        <a href="/lab/" class="lab-wordmark" aria-label="Drew Cleaver / Lab home">{profile.name} <span>/ Lab</span></a>
+        <nav class="lab-desktop-nav" aria-label="Lab navigation">
+          {links.map(link => <a href={link.href} aria-current={active(link.href) ? 'page' : undefined}>{link.label}</a>)}
+        </nav>
+        <a class="lab-site-link" href="/" target="_blank" rel="noopener noreferrer">Main site <span class="lab-sr-only">(opens outside Lab in a new tab)</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <main id="main" tabindex="-1" class="shell lab-main"><slot /></main>
+    <footer class="lab-footer shell">
+      <p>Unlisted, publicly accessible by link. No accounts or private submissions.</p>
+      <details class="lab-install">
+        <summary>Keep the Lab close</summary>
+        <p>You can bookmark this page. Where your browser supports it, use its Install or Add to Home Screen option. On iPhone, look in Safari’s Share menu. Installation availability varies; offline reading is not provided.</p>
+        <p>Proposal links and the main website open in a new tab outside the Lab. Browser and installed-app handling may vary.</p>
+      </details>
+    </footer>
+    <nav class="lab-bottom-nav" aria-label="Lab mobile navigation">
+      {links.map(link => <a href={link.href} aria-current={active(link.href) ? 'page' : undefined}>{link.label}</a>)}
+    </nav>
+  </body>
+</html>

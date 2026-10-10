@@ -1,0 +1,25 @@
+---
+import revision from '../../data/lab-revisions.json';
+import { labTopics, labProposals } from '../../data/lab';
+import { centralTimestamp } from '../../lib/dpc-revision.mjs';
+interface Props { entry: (typeof revision.history)[number]; }
+const { entry } = Astro.props;
+const finalizedAt = entry.finalizedAt;
+---
+<article class="lab-update" id={entry.anchor} aria-labelledby={`${entry.anchor}-title`}>
+  <p class="eyebrow muted">{entry.id} / Content revision</p>
+  <h2 class="serif" id={`${entry.anchor}-title`}>{entry.title}</h2>
+  <p class="lab-source-meta">Content finalized <time datetime={finalizedAt}>{centralTimestamp(finalizedAt)}</time></p>
+  <p>{entry.summary}</p>
+  <dl class="lab-status-list">
+    <div><dt>Content</dt><dd>{entry.contentStatus}</dd></div>
+    <div><dt>Implementation</dt><dd>{entry.implementationStatus}</dd></div>
+    <div><dt>Publication</dt><dd>{entry.publicationStatus}{entry.publishedAt && <> · <time datetime={entry.publishedAt}>{centralTimestamp(entry.publishedAt)}</time></>}{entry.evidenceUrl && <> · <a href={entry.evidenceUrl}>Deployment evidence</a></>}</dd></div>
+  </dl>
+  <p><strong>Decision.</strong> {entry.decision}</p>
+  <p><strong>Next question.</strong> {entry.nextQuestion}</p>
+  <div class="lab-update-links" aria-label="Affected topics and proposals">
+    {entry.affected.map(id => { const topic = labTopics.find(topic => topic.id === id)!; return <a class="text-link" href={topic.canonical}>{topic.title}</a>; })}
+    {entry.proposals.map(id => { const proposal = labProposals.find(proposal => proposal.id === id)!; return <a class="text-link" href={`${labTopics.find(topic => topic.id === proposal.category)!.canonical}#${proposal.id}`}>{proposal.title}</a>; })}
+  </div>
+</article>
