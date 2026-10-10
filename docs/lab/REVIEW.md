@@ -1,9 +1,10 @@
 # Lab R01 review and release evidence
 
-Prepared on `feat/lab-r01`, based on `main` at
-`c128727f0c74e06005537597d3c382564e708baf`. No merge, deployment, domain change
-or hosting migration is authorized by this preparation. R01 is a draft and
-unpublished. See `README.md` in this directory for future edits and release steps.
+Originally prepared on `feat/lab-r01`, based on `main` at
+`c128727f0c74e06005537597d3c382564e708baf`. Drew approved publication on
+October 10, 2026, superseding the review-only restriction. PR #58 is merged and
+R01’s deployment and live responses are verified below. No domain or hosting
+change was made. See `README.md` in this directory for future edits.
 
 ## Implemented
 
@@ -67,10 +68,11 @@ screenshot evidence. No public or private preview deployment was created.
 
 Real iOS/Android installation, standalone-app scope-exit behavior and icon
 presentation are untested. Installation availability depends on the browser;
-no successful installation or offline support is claimed. Live Lab routes do not
-exist until an approved release. Remote PR CI status must be checked separately.
+no successful installation or offline support is claimed. The four live Lab
+routes are now verified. Both final PR CI workflows passed; the approved
+production build also passed.
 
-## Exact remaining approved release steps
+## Release procedure (completed through initial deployment verification)
 
 1. Drew reviews the preview, content and draft PR; approves this scoped release.
 2. Resolve any review defects; refresh `main`, rerun changed-input checks and
@@ -85,3 +87,28 @@ exist until an approved release. Remote PR CI status must be checked separately.
    deployment. This does not increment R01 to R02.
 
 Do not publish just to obtain a preview or bypass disabled-writing protections.
+
+## Verified R01 publication — October 10, 2026
+
+- Owner approved the scoped release; approved content is final and all proposals
+  remain exploratory. [PR #58](https://github.com/drewcleaver17/drewcleaver.com/pull/58)
+  merged as `3c8d39586854247145d32ab26b9efe0709d160fc`.
+- [GitHub Pages run 38060212767](https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38060212767)
+  completed successfully; Deploy finished `2026-10-10T14:36:44Z`
+  (October 10, 2026, 9:36:44 a.m. CDT). This is R01’s publication time.
+- Content `updatedAt` and entry `finalizedAt` remain `2026-10-10T14:19:47Z`
+  (9:19:47 a.m. CDT). Publication-record confirmation is part of R01, not R02.
+- Initial live verification completed `2026-10-10T14:37:50Z`. All four Lab pages,
+  manifest, three PNG icons, sitemap, robots.txt and linked stylesheet assets
+  returned HTTP 200 and matched the locally built production bytes.
+- Live DOM checks confirm noindex/nofollow, fixed content time, active navigation,
+  section anchors, no Lab scripts/forms, sitemap and main-site link exclusions,
+  manifest identity/start URL/scope `/lab/` and retained DPC worksheet markup.
+- Existing homepage, `/hello/`, DPC, ProofPath, `/dpc-deck.pdf` and
+  `/metsicare-deck.pdf` responses match their captured pre-release hashes exactly.
+  The two PDFs remain byte-identical. Saved worksheets and historical engines
+  are unchanged; all six worksheet DOM regression tests passed before release.
+- Browser pixel/keyboard tests and actual device installation remain unavailable.
+  Live HTTP/DOM evidence is not a claim of live calculator interaction.
+- The publication-record confirmation must also be successfully deployed and its
+  live published-status/evidence link checked before the release task is complete.

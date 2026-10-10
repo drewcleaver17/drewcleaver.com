@@ -1,8 +1,11 @@
 # Drew Cleaver / Lab — maintainer guide
 
-R01 is a draft implementation for review, unpublished. This document and all
-Lab content are public-safe material in a public repository. Read the owner’s
-current instruction before a release: pushing to `main` publishes automatically.
+R01 is published after Drew’s October 10, 2026 approval. The publication time
+and verified deployment evidence are in `src/data/lab-revisions.json` and
+`docs/lab/REVIEW.md`. Topic/proposal status remains exploratory; publication
+does not establish pilot outcomes. This document and all Lab content are
+public-safe material in a public repository. Read the owner’s current
+instruction before future releases: pushing to `main` publishes automatically.
 
 ## Read first
 

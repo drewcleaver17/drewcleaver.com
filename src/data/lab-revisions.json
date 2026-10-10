@@ -7,10 +7,10 @@
       "id": "R01",
       "anchor": "r01-foundation",
       "contentStatus": "final",
-      "implementationStatus": "verified for release",
-      "publicationStatus": "pending publication",
-      "publishedAt": null,
-      "evidenceUrl": null,
+      "implementationStatus": "deployed; live responses verified",
+      "publicationStatus": "published",
+      "publishedAt": "2026-10-10T14:36:44Z",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38060212767",
       "title": "A connected home for two working ideas",
       "summary": "Established Healthcare and Work, connected the existing DPC and ProofPath proposals, and made funding alternatives, unanswered questions and evaluation plans visible. Added local navigation, a Lab manifest and a resumable content structure.",
       "decision": "Keep detailed models at their existing URLs. Explore funding and broader employment questions separately; build participation features only after their storage, consent and governance are designed.",
@@ -23,7 +23,11 @@
         "dpc",
         "proofpath"
       ],
-      "finalizedAt": "2026-10-10T14:19:47Z"
+      "finalizedAt": "2026-10-10T14:19:47Z",
+      "reviewUrl": "https://github.com/drewcleaver17/drewcleaver.com/pull/58",
+      "commit": "3c8d39586854247145d32ab26b9efe0709d160fc",
+      "liveVerifiedAt": "2026-10-10T14:37:50Z",
+      "verification": "All four live routes, source links/anchors, noindex, sitemap exclusion, scoped manifest/icons and CSS verified against production output. Existing homepage, hello, DPC, ProofPath and both PDF responses unchanged byte for byte. Browser visual/keyboard and real-device installation checks remain unverified."
     }
   ]
 }
