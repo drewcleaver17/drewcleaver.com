@@ -114,11 +114,11 @@ Do not publish just to obtain a preview or bypass disabled-writing protections.
   live published-status/evidence link checked before the release task is complete.
 
 
-## R02 category placeholders — draft review
+## R02 category placeholders — approved release
 
 Prepared on `feat/lab-r02-categories` from published `main` at
-`eb19ac25d505ea0e597479f05eecdd101021629a`. This change is review-only; no
-merge or deployment is authorized. Live R01 and its successful confirmation
+`eb19ac25d505ea0e597479f05eecdd101021629a`. Drew approved publication on October 10, 2026.
+The reviewed category-placeholder release is authorized for merge and deployment. Live R01 and its successful confirmation
 workflow 38060520323 were checked before editing.
 
 - Homepage order: Healthcare, Housing, Work, Education, Taxes.
@@ -126,8 +126,8 @@ workflow 38060520323 were checked before editing.
   Stable homepage anchors support future growth; they have no generated routes,
   links to nonexistent pages, substantive content or inactive controls.
 - Healthcare/Work content, proposal cards and persistent navigation are retained.
-- R02 records the content change as a draft with a fixed America/Chicago display
-  time. R01's entire published metadata entry remains unchanged.
+- R02 content is final with publication pending verification and a fixed
+  America/Chicago content time. R01's entire published metadata entry remains unchanged.
 - Category display records are separate from populated topics. Updates link to
   placeholder anchors; the review generator uses the actual current revision.
 

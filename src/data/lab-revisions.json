@@ -32,9 +32,9 @@
     {
       "id": "R02",
       "anchor": "r02-category-placeholders",
-      "contentStatus": "draft",
-      "implementationStatus": "prepared for review",
-      "publicationStatus": "not published",
+      "contentStatus": "final",
+      "implementationStatus": "verified; approved for release",
+      "publicationStatus": "pending verified deployment",
       "publishedAt": null,
       "evidenceUrl": null,
       "title": "Room for three more questions",
