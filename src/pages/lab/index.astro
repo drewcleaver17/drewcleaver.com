@@ -1,0 +1,42 @@
+---
+import Lab from '../../layouts/Lab.astro';
+import Revision from '../../components/lab/Revision.astro';
+import Proposal from '../../components/lab/Proposal.astro';
+import Update from '../../components/lab/Update.astro';
+import { labTopics, labProposals, labMethod } from '../../data/lab';
+import revision from '../../data/lab-revisions.json';
+---
+<Lab title="Lab" description="Working ideas about healthcare, hiring and the future of work. Develop alternatives, test them and revise with evidence.">
+  <header class="lab-hero">
+    <p class="eyebrow muted">Working ideas / Open questions</p>
+    <h1 class="serif">Good ideas need<br /><em>room to change.</em></h1>
+    <p class="lab-lead">A home for developing, connecting and revising my ideas about healthcare, hiring and the future of work.</p>
+    <p class="lab-intro">I want to develop alternatives, pilot them, measure outcomes and gather public input—then make accountable decisions about what to scale, revise or discontinue. These are working proposals with questions still open.</p>
+    <Revision />
+  </header>
+  <section class="lab-section" aria-labelledby="topics-title">
+    <div class="section-heading"><h2 class="serif" id="topics-title">Start with a question.</h2><p class="eyebrow muted">Two areas of exploration</p></div>
+    <div class="lab-topic-grid">
+      {labTopics.map((topic, index) => <a class="lab-topic-card" href={topic.canonical}>
+        <p class="eyebrow muted">{String(index + 1).padStart(2, '0')} / {topic.status}</p>
+        <h3 class="serif">{topic.title} <span aria-hidden="true">↗</span></h3>
+        <p>{topic.summary}</p>
+        <span class="lab-card-action">Explore {topic.title.toLowerCase()}</span>
+      </a>)}
+    </div>
+  </section>
+  <section class="lab-section" aria-labelledby="proposals-title">
+    <div class="section-heading"><h2 class="serif" id="proposals-title">Models already in development.</h2></div>
+    <p class="lab-section-intro">Each detailed proposal stays at its original address. Calculators, assumptions, documents and source revision histories belong there. Links open outside the Lab in a new tab.</p>
+    <div class="lab-topic-grid">{labProposals.map(proposal => <Proposal proposal={proposal} />)}</div>
+  </section>
+  <section class="lab-method" id="method" aria-labelledby="method-title">
+    <p class="eyebrow">The working method</p><h2 class="serif" id="method-title">Evidence should change the plan.</h2>
+    <ol>{labMethod.map((step, index) => <li><span class="eyebrow">{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
+    <p class="lab-method-note">Participation is a later phase. For now, this is a reading and development hub; no public-input process or pilot is operating here.</p>
+  </section>
+  <section class="lab-section" aria-labelledby="recent-title">
+    <div class="section-heading"><h2 class="serif" id="recent-title">Recent substantive updates.</h2><a class="text-link" href="/lab/updates/">All updates <span aria-hidden="true">↗</span></a></div>
+    {[...revision.history].reverse().slice(0, 2).map(entry => <Update entry={entry} />)}
+  </section>
+</Lab>

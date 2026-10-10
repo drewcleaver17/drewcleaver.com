@@ -1,0 +1,13 @@
+---
+import { labProposals } from '../../data/lab';
+import { centralTimestamp } from '../../lib/dpc-revision.mjs';
+interface Props { proposal: (typeof labProposals)[number]; }
+const { proposal } = Astro.props;
+---
+<article class="lab-proposal" id={proposal.id} aria-labelledby={`${proposal.id}-title`}>
+  <p class="eyebrow muted">{proposal.status}</p>
+  <h3 id={`${proposal.id}-title`} class="serif">{proposal.title}</h3>
+  <p>{proposal.summary}</p>
+  <p class="lab-source-meta">Source {proposal.sourceRevision} · updated <time datetime={proposal.sourceUpdatedAt}>{centralTimestamp(proposal.sourceUpdatedAt)}</time></p>
+  <a class="text-link" href={proposal.canonical} target="_blank" rel="noopener noreferrer">Read the authoritative proposal <span aria-hidden="true">↗</span><span class="lab-sr-only">(opens outside Lab in a new tab)</span></a>
+</article>

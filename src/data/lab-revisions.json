@@ -1,0 +1,29 @@
+{
+  "pageRevision": "R01",
+  "updatedAt": "2026-10-10T14:19:47Z",
+  "timestampBasis": "Fixed content-finalization time; implementation and verified publication are recorded separately.",
+  "history": [
+    {
+      "id": "R01",
+      "anchor": "r01-foundation",
+      "contentStatus": "draft",
+      "implementationStatus": "implemented for review",
+      "publicationStatus": "unpublished",
+      "publishedAt": null,
+      "evidenceUrl": null,
+      "title": "A connected home for two working ideas",
+      "summary": "Established Healthcare and Work, connected the existing DPC and ProofPath proposals, and made funding alternatives, unanswered questions and evaluation plans visible. Added local navigation, a Lab manifest and a resumable content structure.",
+      "decision": "Keep detailed models at their existing URLs. Explore funding and broader employment questions separately; build participation features only after their storage, consent and governance are designed.",
+      "nextQuestion": "Which proposed experiment is ready for a scoped review with the people who would deliver and use it?",
+      "affected": [
+        "healthcare",
+        "work"
+      ],
+      "proposals": [
+        "dpc",
+        "proofpath"
+      ],
+      "finalizedAt": "2026-10-10T14:19:47Z"
+    }
+  ]
+}

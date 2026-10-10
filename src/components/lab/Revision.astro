@@ -1,0 +1,9 @@
+---
+import revision from '../../data/lab-revisions.json';
+import { centralTimestamp } from '../../lib/dpc-revision.mjs';
+const entry = revision.history.find(entry => entry.id === revision.pageRevision)!;
+---
+<p class="lab-revision"><strong>{revision.pageRevision} · {entry.contentStatus}</strong> · {entry.publicationStatus}<br />
+  Updated <time datetime={revision.updatedAt}>{centralTimestamp(revision.updatedAt)}</time> · content finalized<br />
+  <a href={`/lab/updates/#${entry.anchor}`}>Revision and decision history</a>
+</p>

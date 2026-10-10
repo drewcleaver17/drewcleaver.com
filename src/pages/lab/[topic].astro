@@ -1,0 +1,32 @@
+---
+import Lab from '../../layouts/Lab.astro';
+import Revision from '../../components/lab/Revision.astro';
+import Proposal from '../../components/lab/Proposal.astro';
+import { labTopics, labProposals, type LabTopic } from '../../data/lab';
+export function getStaticPaths() { return labTopics.map(topic => ({ params: { topic: topic.id }, props: { topic } })); }
+interface Props { topic: LabTopic; }
+const { topic } = Astro.props;
+---
+<Lab title={topic.title} description={topic.summary}>
+  <header class="lab-hero lab-topic-hero">
+    <p class="eyebrow muted">{topic.category} / {topic.status}</p>
+    <h1 class="serif">{topic.title}</h1><p class="lab-lead">{topic.summary}</p>
+    <Revision />
+  </header>
+  <nav class="lab-section-nav" aria-label="On this page">{topic.sections.map(section => <a href={`#${section.id}`}>{section.id === 'position' ? 'Working hypothesis' : section.id === 'evidence' ? 'Evidence & assumptions' : section.id === 'next' ? 'Next question' : section.id === 'decisions' ? 'Decisions' : section.id === 'questions' ? 'Open questions' : section.title.startsWith('Three') ? 'Funding alternatives' : 'Pilot & evaluation'}</a>)}<a href="#proposals">Source proposal</a></nav>
+  <div class="lab-reading-layout">
+    <article class="lab-reading" aria-label={`${topic.title} exploration`}>
+      {topic.sections.map(section => <section class="lab-section" id={section.id} aria-labelledby={`${section.id}-title`}>
+        <h2 class="serif" id={`${section.id}-title`}>{section.title}</h2>
+        {section.paragraphs?.map(text => <p>{text}</p>)}
+        {section.items && <ul class="lab-item-list">{section.items.map(item => <li><h3>{item.title}</h3><p>{item.text}</p></li>)}</ul>}
+        {section.id === 'decisions' && <a class="text-link" href="/lab/updates/#r01-foundation">Read the R01 decision record</a>}
+      </section>)}
+    </article>
+    <aside class="lab-source-aside" id="proposals" aria-labelledby="source-title">
+      <p class="eyebrow muted" id="source-title">Authoritative source</p>
+      {labProposals.filter(proposal => proposal.category === topic.id).map(proposal => <Proposal proposal={proposal} />)}
+      <p class="lab-aside-note">The Lab connects the questions. The original proposal holds its detailed terms and revision history. Source links open outside Lab in a new tab.</p>
+    </aside>
+  </div>
+</Lab>
