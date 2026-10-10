@@ -18,6 +18,17 @@ export interface LabTopic {
   canonical: string;
   sections: LabSection[];
 }
+// Display order is independent of populated routes and does not rank policy priorities.
+export type LabCategory =
+  | { id: string; title: string; kind: 'topic' }
+  | { id: string; title: string; kind: 'placeholder'; status: 'To explore' };
+export const labCategories: LabCategory[] = [
+  { id: 'healthcare', title: 'Healthcare', kind: 'topic' },
+  { id: 'housing', title: 'Housing', kind: 'placeholder', status: 'To explore' },
+  { id: 'work', title: 'Work', kind: 'topic' },
+  { id: 'education', title: 'Education', kind: 'placeholder', status: 'To explore' },
+  { id: 'taxes', title: 'Taxes', kind: 'placeholder', status: 'To explore' },
+];
 export const labMethod = [
   { title: 'Pilot', text: 'Develop alternatives and define a small, bounded test with the people affected.' },
   { title: 'Measure', text: 'Agree on outcomes, costs, safeguards and stopping conditions before the test.' },

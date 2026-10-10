@@ -112,3 +112,47 @@ Do not publish just to obtain a preview or bypass disabled-writing protections.
   Live HTTP/DOM evidence is not a claim of live calculator interaction.
 - The publication-record confirmation must also be successfully deployed and its
   live published-status/evidence link checked before the release task is complete.
+
+
+## R02 category placeholders — approved release
+
+Prepared on `feat/lab-r02-categories` from published `main` at
+`eb19ac25d505ea0e597479f05eecdd101021629a`. Drew approved publication on October 10, 2026.
+The reviewed category-placeholder release is authorized for merge and deployment. Live R01 and its successful confirmation
+workflow 38060520323 were checked before editing.
+
+- Homepage order: Healthcare, Housing, Work, Education, Taxes.
+- Housing, Education and Taxes contain only their titles and “To explore” status.
+  Stable homepage anchors support future growth; they have no generated routes,
+  links to nonexistent pages, substantive content or inactive controls.
+- Healthcare/Work content, proposal cards and persistent navigation are retained.
+- R02 content is final with publication pending verification and a fixed
+  America/Chicago content time. R01's entire published metadata entry remains unchanged.
+- Category display records are separate from populated topics. Updates link to
+  placeholder anchors; the review generator uses the actual current revision.
+
+### R02 verification
+
+- `npm test`: 20 passed.
+- `npm run build`: passed, including 94 DPC model, 9 Buildmine/core,
+  2 Buildmine UI and 6 DPC worksheet UI tests, UFO validation and release gates.
+- `node --test scripts/public-contact.test.mjs`: 7 passed (138 tests total).
+- Lab output assertions pass for category order, labels, absence of placeholder
+  controls/pages, existing links/navigation, noindex/discovery exclusions,
+  fixed timestamps, preserved R01 evidence and scoped manifest/icons.
+- Self-contained `Lab-R02-Review.html` generated from all four built pages/CSS;
+  page switching and 320/390/768/1440 width controls passed DOM checks.
+- `git diff --check` passed. Diff is limited to nine Lab data/rendering/style,
+  verification/review-generator and maintainer-documentation files. Populated
+  topic content, DPC/ProofPath source, calculators, revisions, saved-worksheet
+  engines, PDF/download paths, public pages and deployment workflow are unchanged.
+
+Browser visual/keyboard inspection and
+screenshots at 320, 390, 768 and 1440 px remain unavailable in the managed
+runtime. The supported Sites guidance prohibits a substitute browser path.
+Real-device installation remains unverified. A standalone review HTML generated
+from production output provides those four width controls for owner inspection.
+
+After approval, follow the maintainer guide's finalization, merge, Pages/live
+verification and publication-evidence steps. Preserve R02's fixed content time
+and all R01 evidence. Do not mark R02 published before verified deployment.

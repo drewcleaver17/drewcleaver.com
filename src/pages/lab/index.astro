@@ -3,7 +3,7 @@ import Lab from '../../layouts/Lab.astro';
 import Revision from '../../components/lab/Revision.astro';
 import Proposal from '../../components/lab/Proposal.astro';
 import Update from '../../components/lab/Update.astro';
-import { labTopics, labProposals, labMethod } from '../../data/lab';
+import { labCategories, labTopics, labProposals, labMethod } from '../../data/lab';
 import revision from '../../data/lab-revisions.json';
 ---
 <Lab title="Lab" description="Working ideas about healthcare, hiring and the future of work. Develop alternatives, test them and revise with evidence.">
@@ -15,14 +15,20 @@ import revision from '../../data/lab-revisions.json';
     <Revision />
   </header>
   <section class="lab-section" aria-labelledby="topics-title">
-    <div class="section-heading"><h2 class="serif" id="topics-title">Start with a question.</h2><p class="eyebrow muted">Two areas of exploration</p></div>
+    <div class="section-heading"><h2 class="serif" id="topics-title">Start with a question.</h2><p class="eyebrow muted">Areas of exploration</p></div>
     <div class="lab-topic-grid">
-      {labTopics.map((topic, index) => <a class="lab-topic-card" href={topic.canonical}>
-        <p class="eyebrow muted">{String(index + 1).padStart(2, '0')} / {topic.status}</p>
-        <h3 class="serif">{topic.title} <span aria-hidden="true">↗</span></h3>
-        <p>{topic.summary}</p>
-        <span class="lab-card-action">Explore {topic.title.toLowerCase()}</span>
-      </a>)}
+      {labCategories.map((category, index) => {
+        const topic = category.kind === 'topic' ? labTopics.find(topic => topic.id === category.id)! : null;
+        return topic ? <a class="lab-topic-card" id={category.id} href={topic.canonical}>
+          <p class="eyebrow muted">{String(index + 1).padStart(2, '0')} / {topic.status}</p>
+          <h3 class="serif">{category.title} <span aria-hidden="true">↗</span></h3>
+          <p>{topic.summary}</p>
+          <span class="lab-card-action">Explore {topic.title.toLowerCase()}</span>
+        </a> : <div class="lab-topic-card lab-topic-placeholder" id={category.id}>
+          <p class="eyebrow muted">{String(index + 1).padStart(2, '0')} / {category.kind === 'placeholder' && category.status}</p>
+          <h3 class="serif">{category.title}</h3>
+        </div>;
+      })}
     </div>
   </section>
   <section class="lab-section" aria-labelledby="proposals-title">
