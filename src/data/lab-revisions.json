@@ -6,9 +6,9 @@
     {
       "id": "R01",
       "anchor": "r01-foundation",
-      "contentStatus": "draft",
-      "implementationStatus": "implemented for review",
-      "publicationStatus": "unpublished",
+      "contentStatus": "final",
+      "implementationStatus": "verified for release",
+      "publicationStatus": "pending publication",
       "publishedAt": null,
       "evidenceUrl": null,
       "title": "A connected home for two working ideas",
