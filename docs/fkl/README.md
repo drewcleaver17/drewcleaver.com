@@ -57,7 +57,7 @@ The portable HTML embeds all page images/fonts/CSS and the client module. Width 
 
 Browser-control capability is unavailable in this environment. Following the managed preview instructions, no preview server or alternate browser was installed or started. Thus actual pixel QA, screenshots, real keyboard/touch use and measured overflow at the four widths remain **unverified**. Source and DOM inspection are not substitutes for those checks. Static image assets were visually inspected.
 
-No route content, saved worksheet engines, PDFs or revision records in Lab/DPC/ProofPath were changed. FKL starts from current main; Lab draft PR #58 remains separate.
+No route content, saved worksheet engines, PDFs or revision records in Lab/DPC/ProofPath were changed. The FKL branch includes current main with Lab R01; Lab content and publication records are preserved.
 
 ## Pilot measurement contract
 

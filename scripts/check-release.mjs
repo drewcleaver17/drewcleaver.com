@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import './check-lab.mjs';
 
 // This release intentionally has no public writing. Update this check only when
 // Drew explicitly approves launching that section.
@@ -13,14 +14,17 @@ const files = directory => readdirSync(directory).flatMap(name => {
 });
 for (const file of files(root).filter(file => file.endsWith('.html'))) {
   const html = readFileSync(file, 'utf8');
+  // Drew authorized proposal links within the unlisted Lab only. Preserve the
+  // original inbound-link protections for every other site route.
+  const isLab = file.startsWith(join(root, 'lab') + '/');
   assert(!/analytics-choice|analytics-settings|googletagmanager\.com|google-analytics\.com|G-N55MYYB3SG/.test(html), 'Analytics must not be present: ' + file);
   assert(!/href=["'][^"']*\/writing(?:[\/?#"'])/i.test(html), 'Public writing link in ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/motorsport(?:[\/?#"'])/i.test(html), 'The motorsport pilot must have no inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/racingresume(?:[\/?#"'])/i.test(html), 'The racing resume must have no inbound site links: ' + file);
-  assert(!/<a\b[^>]*href=["'][^"']*\/proofpath(?:[\/?#"'])/i.test(html), 'The ProofPath brief must have no inbound site links: ' + file);
+  assert(isLab || !/<a\b[^>]*href=["'][^"']*\/proofpath(?:[\/?#"'])/i.test(html), 'The ProofPath brief must have no inbound site links outside Lab: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/tekmetric(?:[\/?#"'])/i.test(html), 'The Tekmetric pitch must have no inbound site links: ' + file);
   assert(file.endsWith('/ufos/index.html') || !/<a\b[^>]*href=["'][^"']*\/ufos(?:[\/?#"'])/i.test(html), 'The UFO timeline must have no inbound site links: ' + file);
-  assert(file.endsWith('/dpc/index.html') || file.endsWith('/metsicare/index.html') || !/<a\b[^>]*href=["'][^"']*\/dpc(?:[\/?#"'])/i.test(html), 'The DPC concept must have no inbound site links: ' + file);
+  assert(isLab || file.endsWith('/dpc/index.html') || file.endsWith('/metsicare/index.html') || !/<a\b[^>]*href=["'][^"']*\/dpc(?:[\/?#"'])/i.test(html), 'The DPC concept must have no inbound site links outside Lab: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/metsicare(?:[\/?#"'])/i.test(html), 'The METSI Care concept must have no inbound site links: ' + file);
   assert(file.startsWith(join(root, 'portfolio') + '/') || !/<a\b[^>]*href=["'][^"']*\/portfolio(?:[\/?#"'])/i.test(html), 'The portfolio review must have no inbound links from the rest of the site: ' + file);
 }

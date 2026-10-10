@@ -1,0 +1,11 @@
+---
+import Lab from '../../layouts/Lab.astro';
+import Revision from '../../components/lab/Revision.astro';
+import Update from '../../components/lab/Update.astro';
+import revision from '../../data/lab-revisions.json';
+---
+<Lab title="Updates" description="Substantive Lab changes, decisions and unresolved questions, with content, implementation and publication recorded separately.">
+  <header class="lab-hero lab-topic-hero"><p class="eyebrow muted">A record of the work</p><h1 class="serif">Updates</h1><p class="lab-lead">What changed, why it changed and what needs to be resolved next.</p><Revision /></header>
+  <p class="lab-section-intro">Content revision records changes to the ideas. Implementation status describes the prepared website. Publication is recorded only after an approved deployment is verified. A published page does not mean its proposed experiment has run.</p>
+  <div class="lab-update-history">{[...revision.history].reverse().map(entry => <Update entry={entry} />)}</div>
+</Lab>
