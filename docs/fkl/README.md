@@ -1,6 +1,6 @@
 # FKL parent landing page · R01 review demo
 
-Status: implemented for review; not merged or published. No ads, messages, live leads, CRM, payment flow or deployment changes. Owner: Drew Cleaver. Source verification date: October 10, 2026.
+Status: published as an independent unlisted pilot demo. No ads, messages, live leads, CRM, payment flow or tracking integrations. Owner: Drew Cleaver. Source verification date: October 10, 2026.
 
 ## Customer problem and hypothesis
 
@@ -57,7 +57,7 @@ The portable HTML embeds all page images/fonts/CSS and the client module. Width 
 
 Browser-control capability is unavailable in this environment. Following the managed preview instructions, no preview server or alternate browser was installed or started. Thus actual pixel QA, screenshots, real keyboard/touch use and measured overflow at the four widths remain **unverified**. Source and DOM inspection are not substitutes for those checks. Static image assets were visually inspected.
 
-No route content, saved worksheet engines, PDFs or revision records in Lab/DPC/ProofPath were changed. The FKL branch includes current main with Lab R01; Lab content and publication records are preserved.
+No route content, saved worksheet engines, PDFs or revision records in Lab/DPC/ProofPath were changed. The deployed release includes current main with Lab R02; Lab content and publication records are preserved.
 
 ## Pilot measurement contract
 
@@ -78,4 +78,21 @@ Agree sample size, campaign scope, budget, traffic mix, deduplication, attributi
 
 FKL supplies/approves: the offer and geography; exact event eligibility, inclusions, schedule and terms; brand/asset permission; official booking destinations; ownership of lead follow-up and service expectations; privacy notice, purpose and retention/deletion controls; security and abuse protection; approved CRM/API and failure behavior; marketing/phone consent text with separate, unselected choices where needed; approved analytics and booking attribution. Parent inquiry permission must not imply recurring marketing or SMS consent. Collect the minimum parent data; no child identity profile in this phase.
 
-Drew then approves publication separately. Recheck current official content and links, complete browser QA, resolve material defects, review CI, and merge only when authorized. `main` deploys through the existing Pages workflow; no automatic production deployment was enabled by this branch. Do not launch traffic or contact anyone as part of this PR.
+Drew approved publication of this independent pilot on October 10, 2026. This approval does not authorize a live acquisition campaign, live lead collection, tracking pixels, CRM, payments, ads or contacting anyone. Future funnel activation needs its own approval and the FKL permissions listed above. `main` deploys through the existing Pages workflow; hosting and DNS were unchanged.
+
+## R01 publication record — October 10, 2026
+
+- Owner approval: Drew’s explicit instruction to publish draft PR #59 and proceed despite unavailable browser visual checks unless a demonstrated defect existed.
+- PR: https://github.com/drewcleaver17/drewcleaver.com/pull/59 — marked ready, then squash merged after successful CI https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38060598805.
+- Published site-content commit: `abaff0627511a74e8913de79c78a0835d2105f1b`.
+- Successful Pages workflow: https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38064180254; Build and Deploy jobs both succeeded.
+- Publication time: **2026-10-10 10:35:57 CDT (America/Chicago)**, corresponding to Deploy job completion at `2026-10-10T15:35:57Z`. This is distinct from the unchanged source-verification date above.
+- Live URL: https://drewcleaver.com/fkl/.
+- Live verification completed at `2026-10-10T15:36:38Z` (10:36:38 CDT). Nineteen page/asset endpoints returned HTTP 200 and matched the locally built bytes: FKL, four Lab routes, DPC, ProofPath, homepage, sitemap, both DPC PDF aliases, FKL stylesheet and all seven brand/image/font/share assets.
+- Downloaded production HTML and its actual compiled inline JavaScript were exercised in JSDOM: both primary CTA events, all seven region handoffs, reset/fallback, outside-age advisory, seven native FAQ structures, invalid-form focus/accessible errors, successful demo confirmation/focus, clearing of sample details, no development inspector, no cookies/local/session storage and no personal values in event payloads. Network APIs were guarded against calls. This is DOM/runtime verification, not a real-browser network trace or device test.
+- Noindex/nofollow and independent-demo disclosure are present; form has no endpoint or submission field names. Sitemap and public navigation remain free of FKL links; output tests also check all generated pages for inbound FKL links. No discovery feed/search route exists to update.
+- `npm test` and `npm run build` passed (138 tests); the latest-main build and `scripts/check-lab.mjs` passed after Lab R02 was incorporated. R02 retains five ordered categories and three nonlinked placeholders without routes. Lab/DPC/ProofPath source, publication records, worksheets, calculators and PDF assets are unchanged by the FKL diff.
+- Local logo proportions are 380×180; hero 1600×1060, mobile hero 780×520, arrival 800×1200 and share image 1200×630. Live bytes match those visually inspected source-derived assets.
+- Remaining limitations: browser pixel QA, screenshots, real keyboard/touch use and measured overflow at 320/390/768/1440 remain unverified because browser control is unavailable. No demonstrated release defect was found. FKL permission for a future approved acquisition campaign remains separate from this independent pilot publication.
+
+This evidence-only documentation update does not change customer-facing content. Its resulting Pages deployment is checked separately after the record is committed; the original publication time above remains fixed.
