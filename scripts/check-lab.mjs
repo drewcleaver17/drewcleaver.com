@@ -4,6 +4,7 @@ import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { JSDOM } from 'jsdom';
 import { centralTimestamp } from '../src/lib/dpc-revision.mjs';
+import { campaign, includeCampaign, isLocalReview } from '../src/data/cleaver2028.mjs';
 
 // Run against actual production output, also invoked by the release gate.
 const root = new URL('../dist/', import.meta.url).pathname;
@@ -109,6 +110,8 @@ const walk = directory => readdirSync(directory).flatMap(name => {
 });
 for (const file of walk(root)) {
   if (file.startsWith(lab + '/')) continue;
+  // Only this local review or an explicitly approved landing page may expose Lab.
+  if (includeCampaign && (isLocalReview || campaign.labLinksApproved) && file === join(root, 'cleaver2028/index.html')) continue;
   if (/\.(html|xml|json|webmanifest|txt)$/.test(file)) {
     assert(!read(file).includes('/lab/'), 'Lab must be absent from public navigation, sitemap and discovery: ' + file);
   }
