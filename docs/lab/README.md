@@ -41,6 +41,16 @@ Keep DPC worksheets/storage keys, historical engines and both PDF paths intact.
 
 ## Add a topic or proposal
 
+`labCategories` controls homepage display order independently of `labTopics`.
+A placeholder has only a stable `id`, `title`, `kind: 'placeholder'` and
+`status: 'To explore'`; its homepage anchor is `/lab/#<id>`. It has no topic page,
+summary or navigation link. Display order does not declare policy priorities.
+To populate it, add the reviewed topic to `labTopics` with the same ID, then
+change its category `kind` to `topic` and remove the placeholder status. Update
+route/navigation checks and review mobile navigation capacity before release.
+The Update component links affected placeholders to their homepage anchors.
+
+
 - Add a populated topic to `labTopics` with a durable URL-safe ID, canonical
   `/lab/<id>/` URL and the core sections above. Category and source summaries
   should contain meaningful content rather than placeholders.
@@ -57,7 +67,7 @@ Edit the topic/summary data and record the actual decision, reason, affected
 topics/proposals and next question in `src/data/lab-revisions.json`. Keep topic
 decision sections aligned with that record. Create the next revision for a
 substantive approved iteration; commits, build fixes and unrelated deployments
-do not automatically increase the content revision. R01 starts as a draft.
+do not automatically increase the content revision. New revisions start as drafts; R01 remains the preserved published record.
 
 Set a fixed UTC ISO `updatedAt` when content is finalized for review, plus the
 entry’s `finalizedAt`. Reuse `centralTimestamp` from `src/lib/dpc-revision.mjs`:

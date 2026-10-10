@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { JSDOM } from 'jsdom';
@@ -26,6 +27,9 @@ for (const entry of revision.history) {
 assert.equal(current.finalizedAt, revision.updatedAt, 'Current finalization and update times must agree.');
 assert.match(centralTimestamp('2026-10-10T14:00:00Z'), /CDT/);
 assert.match(centralTimestamp('2026-12-10T14:00:00Z'), /CST/);
+// R01 is an immutable published record; later revisions must preserve its evidence.
+assert.equal(createHash('sha256').update(JSON.stringify(revision.history.find(entry => entry.id === 'R01'))).digest('hex'),
+  '77765bf1f44193616a017f7b0d55d8d9f91d06f555cfdba669896969ce5cb46b');
 const documents = new Map();
 const paths = ['/lab/', '/lab/healthcare/', '/lab/work/', '/lab/updates/'];
 for (const path of paths) {
@@ -69,6 +73,25 @@ for (const path of paths) {
     }
   }
 }
+const categories = [...documents.get('/lab/').querySelectorAll('.lab-topic-card')];
+assert.deepEqual(categories.map(card => card.id), ['healthcare', 'housing', 'work', 'education', 'taxes']);
+assert.deepEqual(categories.map(card => card.querySelector('h3').textContent.replace('↗', '').trim()),
+  ['Healthcare', 'Housing', 'Work', 'Education', 'Taxes']);
+assert.deepEqual(categories.filter(card => card.matches('a')).map(card => card.getAttribute('href')),
+  ['/lab/healthcare/', '/lab/work/']);
+for (const id of ['housing', 'education', 'taxes']) {
+  const card = categories.find(card => card.id === id);
+  assert(!card.matches('a') && !card.querySelector('a, button, [tabindex], [aria-disabled]'));
+  assert.equal(card.querySelector('.eyebrow').textContent.split('/')[1].trim(), 'To explore');
+  assert.equal(card.children.length, 2, 'Placeholder contains only its title and status.');
+  assert(!existsSync(join(lab, id)), 'Placeholder must not generate a page.');
+}
+const updates = documents.get('/lab/updates/');
+const r01 = revision.history.find(entry => entry.id === 'R01');
+assert(updates.querySelector(`#${r01.anchor} time[datetime="${r01.finalizedAt}"]`));
+assert(updates.querySelector(`#${r01.anchor} time[datetime="${r01.publishedAt}"]`));
+assert(updates.querySelector(`#${r01.anchor} a[href="${r01.evidenceUrl}"]`));
+assert(updates.getElementById(current.anchor).textContent.includes(current.publicationStatus));
 for (const path of ['/lab/healthcare/', '/lab/work/']) {
   const doc = documents.get(path);
   for (const id of ['position', 'evidence', 'questions', 'pilot', 'decisions', 'next', 'proposals']) assert(doc.getElementById(id));
@@ -113,4 +136,4 @@ assert.match(css, /\.lab-footer[^}]*padding-block:[^;]*7rem/);
 assert.match(css, /\.lab-bottom-nav a[^}]*min-height: 48px/);
 assert.match(read(new URL('../src/styles/global.css', import.meta.url)), /:focus-visible\s*\{[^}]*outline: 3px/);
 assert(readFileSync(join(root, 'dpc-deck.pdf')).equals(readFileSync(join(root, 'metsicare-deck.pdf'))));
-console.log('Lab check passed: four routes, canonical links/anchors, no-JS navigation, fixed revisions, discovery exclusions, scoped manifest and PDF aliases. Browser/device verification is separate.');
+console.log('Lab check passed: five ordered categories, three nonlinked placeholders without routes, preserved R01, four routes, canonical links/anchors, no-JS navigation, fixed revisions, discovery exclusions, scoped manifest and PDF aliases. Browser/device verification is separate.');

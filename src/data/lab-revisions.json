@@ -1,6 +1,6 @@
 {
-  "pageRevision": "R01",
-  "updatedAt": "2026-10-10T14:19:47Z",
+  "pageRevision": "R02",
+  "updatedAt": "2026-10-10T14:52:19Z",
   "timestampBasis": "Fixed content-finalization time; implementation and verified publication are recorded separately.",
   "history": [
     {
@@ -28,6 +28,26 @@
       "commit": "3c8d39586854247145d32ab26b9efe0709d160fc",
       "liveVerifiedAt": "2026-10-10T14:37:50Z",
       "verification": "All four live routes, source links/anchors, noindex, sitemap exclusion, scoped manifest/icons and CSS verified against production output. Existing homepage, hello, DPC, ProofPath and both PDF responses unchanged byte for byte. Browser visual/keyboard and real-device installation checks remain unverified."
+    },
+    {
+      "id": "R02",
+      "anchor": "r02-category-placeholders",
+      "contentStatus": "draft",
+      "implementationStatus": "prepared for review",
+      "publicationStatus": "not published",
+      "publishedAt": null,
+      "evidenceUrl": null,
+      "title": "Room for three more questions",
+      "summary": "Added tentative Housing, Education and Taxes category placeholders. Display order is Healthcare, Housing, Work, Education and Taxes; Healthcare and Work remain the only populated categories.",
+      "decision": "Reserve category names and stable homepage anchors without adding topic pages, policy details or commitments. The display order does not declare policy priorities.",
+      "nextQuestion": "Which placeholder should receive an initial question for exploration?",
+      "affected": [
+        "housing",
+        "education",
+        "taxes"
+      ],
+      "proposals": [],
+      "finalizedAt": "2026-10-10T14:52:19Z"
     }
   ]
 }
