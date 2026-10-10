@@ -37,7 +37,7 @@ if (includeCampaign) {
   assert(document.querySelector('.ambition').textContent.includes(campaign.status.detail));
   assert(document.querySelector('.faq').textContent.includes(campaign.status.faq));
   if (campaign.status.stage === 'pre-filing') assert(!document.querySelector('.filing-record'));
-  assert.equal(!!document.querySelector('a[href="/lab/"]'), isLocalReview || campaign.labLinksApproved);
+  assert.equal(!!document.querySelector('a[href="/lab/"]'), campaign.labLinksApproved);
   const ids = [...document.querySelectorAll('[id]')].map(n => n.id);
   assert.equal(ids.length, new Set(ids).size);
   for (const n of document.querySelectorAll('[aria-labelledby]')) for (const id of n.getAttribute('aria-labelledby').split(' ')) assert(document.getElementById(id));
@@ -47,6 +47,8 @@ if (includeCampaign) {
     else if (href.startsWith('/')) assert(existsSync(join(root, href === '/' ? 'index.html' : href.endsWith('/') ? href + 'index.html' : href)), 'Broken local destination: ' + href);
     else assert.equal(href, 'mailto:drew@drewcleaver.com');
   }
-  assert.equal(document.querySelectorAll('.method-list>li').length, 6);
+  assert.equal(document.querySelectorAll('.method-list>li').length, 3);
+  assert.equal(document.querySelectorAll('.vision-group').length, 4);
+  assert.equal(document.querySelectorAll('.vision-list>li').length, 7);
   console.log('Cleaver2028 output checks passed: gated route, claims/status, metadata, links, no collection, and discovery exclusions.');
 } else console.log('Cleaver2028 exclusion verified: ordinary build has no campaign route or discovery entries.');
