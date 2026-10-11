@@ -6263,10 +6263,14 @@
     },
     {
       "id": "REV-12",
-      "status": "deferred",
+      "status": "implemented",
       "recommendation": "Publish through PR and prove exact edition live",
-      "reason": "Release prepared; publication not yet claimed.",
-      "continuation": "Commit, push, run PR checks, merge at expected head, observe Pages for the exact merged commit, verify live embedded data and interactive behavior, then record and deploy a truthful receipt."
+      "implementation": "PR #67 passed both CI workflows and merged at expected head. GitHub Pages run 38109722671 succeeded for exact merge d6dc5b0. Fresh HTTP/assets/export equality and live-browser checks completed; truthful receipt now recorded through the normal follow-up process.",
+      "files": [
+        "src/data/ufos/timeline.json",
+        "docs/ufos-landmark-ledger-2026-10-11.json",
+        "docs/ufos-landmark-ledger-2026-10-11.md"
+      ]
     }
   ],
   "validation": {
@@ -6296,14 +6300,114 @@
       "priorEventFactualFieldsUnchanged": 112
     },
     "contentDigest": "7b9743412269ef1eb1407f6144affba9e1b65185a1e3d27a2b528ea77923cc88",
-    "staticPreviewCompleted": "Final built opening re-rendered and inspected after reconciliation; 139 main milestones and 100 featured people visible."
+    "staticPreviewCompleted": "Final built opening re-rendered and inspected after reconciliation; 139 main milestones and 100 featured people visible.",
+    "liveHTTP": {
+      "verifiedAt": "2026-10-11T03:55:09Z",
+      "url": "https://drewcleaver.com/ufos/",
+      "httpStatus": 200,
+      "edition": "2026-10-11-landmark-history",
+      "contentDigest": "7b9743412269ef1eb1407f6144affba9e1b65185a1e3d27a2b528ea77923cc88",
+      "datasetExactMatch": true,
+      "counts": {
+        "main": 139,
+        "retainedEvents": 176,
+        "core": 67,
+        "contextual": 109,
+        "sources": 256,
+        "featuredPeople": 100,
+        "canonicalPeople": 251,
+        "canonicalEntities": 358,
+        "relationships": 34,
+        "selectedYouTubeVideos": 1
+      },
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "assets": [
+        {
+          "path": "/_astro/global.DCFwFqIt.css",
+          "bytes": 36473,
+          "sha256": "cf86f973129a226c83153ee5c54c6df4fabbf013198f94e4b9fb3f8045aa5b1c"
+        },
+        {
+          "path": "/_astro/ufos@_@astro.BFSwFaDD.css",
+          "bytes": 14962,
+          "sha256": "b1b580f77bf889ce75cbde1f04b63052984b93eae2ff3a90a0e4247089f9b894"
+        },
+        {
+          "path": "/_astro/ufos.astro_astro_type_script_index_0_lang.DvhqT3EZ.js",
+          "bytes": 12638,
+          "sha256": "242a175ebdf298bea61019566e1c5df19165353e585b2ea7e1b4819993c9973b"
+        }
+      ],
+      "allEventAndEntityAnchors": true,
+      "sitemapExclusion": true,
+      "liveInboundLinkChecks": [
+        "/",
+        "/hello/",
+        "/about/",
+        "/contact/"
+      ],
+      "analyticsInitializationInHtmlAndAssets": false
+    },
+    "liveBrowser": {
+      "viewport": {
+        "innerWidth": 1363,
+        "innerHeight": 936,
+        "clientWidth": 1348,
+        "horizontalOverflow": false
+      },
+      "passed": [
+        "default all-era 139-milestone path",
+        "Phoenix search with core and era filters",
+        "zero results and reset",
+        "oldest/newest/recent ordering",
+        "contributor index to dated contribution and canonical sources",
+        "keyboard Enter on source/correction disclosure and Tab focus",
+        "1981 range overlap including split Ra sessions",
+        "restored URL and year control after reload",
+        "filtered legacy Ra deep link with explicit reveal",
+        "Walter Spielberger legacy search maps to Joe Spielberger without asserting an alias",
+        "editorial link to GOFAST assessment reveals and opens the target",
+        "browser back/forward restores filter and assessment states",
+        "all 9 material-change records accessible",
+        "downloaded JSON equals intended dataset"
+      ],
+      "limits": [
+        "Exact 320/390/768/1440 viewport matrix unavailable",
+        "Exhaustive keyboard traversal not performed",
+        "Saved-consent analytics absence tested in production DOM, not by modifying live browser storage"
+      ],
+      "toolingNotes": "Two initial browser locator/timing assumptions were corrected after inspecting visible state; successful behavior was then observed. Browser-extension metadata errors appeared; no site error is inferred from those extension messages."
+    },
+    "liveBrowserVerifiedAt": "2026-10-11T03:57:41Z"
   },
   "publication": {
-    "status": "not yet released",
-    "branch": "feat/ufos-landmark-human-progress-2026-10-11",
-    "edition": "2026-10-11-landmark-history",
+    "status": "verified live",
+    "verifiedAt": "2026-10-11T03:57:41Z",
     "liveURL": "https://drewcleaver.com/ufos/",
-    "remainingStep": "Normal PR checks, merge, exact-commit deployment and fresh live verification."
+    "edition": "2026-10-11-landmark-history",
+    "pullRequest": "https://github.com/drewcleaver17/drewcleaver.com/pull/67",
+    "mergedRevision": "d6dc5b098f1d03efed4e995a156e0012a4eab564",
+    "workflowRun": 38109722671,
+    "workflowURL": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38109722671",
+    "workflowResult": "success",
+    "contentDigest": "7b9743412269ef1eb1407f6144affba9e1b65185a1e3d27a2b528ea77923cc88",
+    "datasetExactMatch": true,
+    "counts": {
+      "main": 139,
+      "retainedEvents": 176,
+      "core": 67,
+      "contextual": 109,
+      "sources": 256,
+      "featuredPeople": 100,
+      "canonicalPeople": 251,
+      "canonicalEntities": 358,
+      "relationships": 34,
+      "selectedYouTubeVideos": 1
+    },
+    "receiptPersistence": "A normal receipt-only PR follows this verified content deployment. It preserves the content digest, all historical timestamps and scheduled-update state; its own deployment must be observed and checked.",
+    "scheduledUpdateStatus": "unchanged; no scheduled-operation success claim"
   },
   "reviewedAt": "2026-10-11T03:07:31Z",
   "reconciledMain": "3154d8da40751d15f39aa7822935c25a23cd78bb",

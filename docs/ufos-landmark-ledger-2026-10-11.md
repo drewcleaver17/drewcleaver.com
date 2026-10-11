@@ -46,7 +46,7 @@ All CH-001–CH-040 and the 28 prior additions were already implemented. This re
 | REV-09 | deferred | Available cloud browser has no viewport-setting API; the Sites workflow lacks control-browser for a managed premerge browser preview. Static rendering and DOM interaction are not substitutes for those checks. Use a browser with viewport controls at 320, 390, 768 and 1440 CSS pixels and complete exhaustive keyboard traversal. Record actual dimensions and results; do not inherit the prior release’s limitation as a pass. |
 | REV-10 | deferred | Underlying publisher/Crossmark access failed; CRISPR revised supplement text remained behind a browser check. Bounded primary-paper milestones are supported, but correction-history completeness is not established. Read the publisher update records and revised supplement; reconcile any material change with the narrow published claims using versioned sources. |
 | REV-11 | deferred | Current Brazilian archive access is restricted. Prior name/event association remains; no new rank, command title or expanded biography is asserted. Obtain a readable original investigation file or reliable archival biography supporting the precise role and name. |
-| REV-12 | deferred | Release prepared; publication not yet claimed. Commit, push, run PR checks, merge at expected head, observe Pages for the exact merged commit, verify live embedded data and interactive behavior, then record and deploy a truthful receipt. |
+| REV-12 | implemented | PR #67 passed both CI workflows and merged at expected head. GitHub Pages run 38109722671 succeeded for exact merge d6dc5b0. Fresh HTTP/assets/export equality and live-browser checks completed; truthful receipt now recorded through the normal follow-up process. |
 
 ## Developed candidate decisions
 
@@ -132,4 +132,8 @@ Final production gate: `npm test` (34 passing), `npm run build` (including 5 UFO
 
 ## Publication
 
-Prepared for normal PR publication. No publication success is claimed in this pre-release ledger. A receipt-only follow-up will preserve substantive-content timestamps and source identity after verified deployment.
+Verified live at 2026-10-11T03:57:41Z through [PR #67](https://github.com/drewcleaver17/drewcleaver.com/pull/67), merge `d6dc5b098f1d03efed4e995a156e0012a4eab564`. [GitHub Pages run 38109722671](https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38109722671) succeeded for that exact commit. Fresh embedded data and downloaded JSON equal the intended edition; all three assets match. All event/entity anchors, noindex/nofollow, sitemap exclusion, live public-page navigation exclusion and analytics absence passed.
+
+Live browser at 1363 × 936 CSS pixels (1348 content width): no horizontal overflow; combined filters, zero results/reset, oldest/newest/recent, people navigation, range-aware year selection, restored URL state, legacy aliases, hidden supporting anchors, related/correction/source panels, back/forward and JSON export passed. Targeted keyboard Enter/Tab behavior passed. Saved-consent analytics absence is a production-DOM check; exact four-size geometry and exhaustive keyboard traversal remain deferred.
+
+A normal receipt-only PR persists this verified content release. It does not advance the content update, source checks or broad research cutoff. Its deployment will be observed and freshly checked; the final delivery report identifies that resulting deployed commit. Scheduled-update status remains unchanged.

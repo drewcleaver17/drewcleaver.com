@@ -9,7 +9,18 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-10-11-landmark-history",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-10-11-landmark-history",
+      "verifiedAt": "2026-10-11T03:57:41Z",
+      "revision": "d6dc5b098f1d03efed4e995a156e0012a4eab564",
+      "contentDigest": "7b9743412269ef1eb1407f6144affba9e1b65185a1e3d27a2b528ea77923cc88",
+      "url": "https://drewcleaver.com/ufos/",
+      "workflowRun": 38109722671,
+      "pullRequest": 67,
+      "verificationScope": "Exact merged Pages run succeeded. Fresh live embedded data and downloaded JSON equal the intended release; all three CSS/JS assets match. All event/entity anchors, noindex/nofollow, sitemap exclusion and absence of analytics initialization verified. Live homepage, hello, about and contact links exclude /ufos; all 58 unrelated built HTML outputs match clean main after asset-name normalization. Live browser: 1363 by 936 CSS-pixel viewport (1348 content width), no horizontal overflow, combined filters, zero results/reset, oldest/newest/recent, contributor routes, range-year navigation, restored URL state, legacy name filter, filtered supporting deep-link reveal, related assessment and correction/source panels, back/forward, JSON export and targeted keyboard access passed. Exact 320/390/768/1440 geometry and exhaustive keyboard traversal remain unverified. Saved-consent analytics absence passed in production DOM tests, not live storage mutation.",
+      "researchScope": "Publication verification only. Substantive-content and source-check timestamps, broad September 19 cutoff and all source inspection boundaries are unchanged.",
+      "scheduledOperation": "Manual editorial release; scheduled configuration, cadence, threshold, permissions, activation/status and dataset-only boundary unchanged. This is not evidence of a successful scheduled run."
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
