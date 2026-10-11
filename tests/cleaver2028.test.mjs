@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { campaign, validateCampaign } from '../src/data/cleaver2028.mjs';
-import { cleanCampaignOutput } from '../scripts/prepare-cleaver2028-build.mjs';
+import { cleanCampaignOutput, assertCampaignBuildAuthorized } from '../scripts/prepare-cleaver2028-build.mjs';
 import { mkdtempSync, mkdirSync, writeFileSync, existsSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -22,6 +22,9 @@ test('rebuilding clears stale campaign output without removing unrelated files',
 test('campaign output follows explicit owner release approval or the local review flag', () => {
   const run = flag => execFileSync(process.execPath, ['--input-type=module', '-e', "import {includeCampaign} from './src/data/cleaver2028.mjs'; console.log(includeCampaign)"], {env:{...process.env, CLEAVER2028_REVIEW:flag}, encoding:'utf8'}).trim();
   assert.equal(run(''), String(campaign.releaseApproved)); assert.equal(run('1'), 'true'); assert.equal(run('true'), String(campaign.releaseApproved));
+  assert.throws(() => assertCampaignBuildAuthorized(false, false), /unapproved draft/);
+  assert.doesNotThrow(() => assertCampaignBuildAuthorized(false, true));
+  assert.doesNotThrow(() => assertCampaignBuildAuthorized(true, false));
 });
 test('filing and release claims require explicit evidence and compliance inputs', () => {
   const value = structuredClone(campaign);

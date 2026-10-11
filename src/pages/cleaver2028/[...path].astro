@@ -1,16 +1,20 @@
 ---
 import '../../styles/global.css';
+import { Image } from 'astro:assets';
+import photograph from '../../assets/about/IMG_6020.jpeg';
 import { profile } from '../../data/profile';
-import { campaign, includeCampaign } from '../../data/cleaver2028.mjs';
+import { campaign, includeCampaign, isLocalReview } from '../../data/cleaver2028.mjs';
+import revision from '../../data/cleaver2028-revisions.json';
 import dpcRevision from '../../data/dpc-revisions.json';
 import proofpathRevision from '../../data/proofpath-revisions.json';
+import { centralTimestamp } from '../../lib/dpc-revision.mjs';
 export function getStaticPaths() {
   return includeCampaign ? [{ params: { path: undefined } }] : [];
 }
 const canonical = new URL('/cleaver2028', profile.website).href;
 const contact = `mailto:${profile.email}`;
-const showLabLinks = campaign.labLinksApproved;
-const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.pageRevision };
+// This review previews only DPC and ProofPath exposure, never the Lab hub.
+const showProjectLinks = isLocalReview || campaign.labLinksApproved;
 ---
 <!doctype html>
 <html lang="en">
@@ -43,29 +47,70 @@ const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.
     <header class="campaign-header">
       <div class="campaign-shell masthead">
         <a class="wordmark" href="/" aria-label="Drew Cleaver home">Drew Cleaver<span aria-hidden="true">.</span></a>
-        <span class="edition">2028 / A possible campaign</span>
+        <div class="campaign-brand"><img src="/cleaver2028/logo.jpeg" width="1536" height="768" alt="Cleaver 2028 — Reinventing Our Future" loading="eager" decoding="async" /></div>
       </div>
     </header>
     <main id="main" tabindex="-1">
       <article class="campaign-shell" aria-labelledby="intro-title">
-        <section class="campaign-intro">
-          <div class="campaign-brand">
-            <img src="/cleaver2028/logo.jpeg" width="1536" height="768" alt="Cleaver 2028 — Reinventing Our Future" loading="eager" decoding="async" fetchpriority="high" />
+        <section class="campaign-intro" aria-labelledby="intro-title">
+          <div class="intro-heading">
+            <p class="eyebrow">Inventor. Founder. <span>{profile.location}.</span></p>
+            <h1 id="intro-title">Drew Cleaver<span aria-hidden="true">.</span></h1>
+            <p class="planning-status"><span class="status-marker" aria-hidden="true"></span>{campaign.status.label}</p>
           </div>
-          <p class="eyebrow">Inventor. Founder. {profile.location}.</p>
-          <h1 id="intro-title">Drew Cleaver<span aria-hidden="true">.</span></h1>
-          <p class="ambition">{campaign.status.detail}</p>
-          <p class="purpose">{campaign.purpose}</p>
-          <div class="actions">
-            <a class="button" href={contact}>Start a conversation <span aria-hidden="true">↗</span></a>
-            {showLabLinks && <a class="text-link" href="/lab/">Explore the Lab <span aria-hidden="true">↗</span></a>}
+          <figure class="intro-photo">
+            <div class="photo-window">
+              <Image src={photograph} alt="Drew Cleaver and his dad on the grid at Circuit of the Americas" widths={[576, 864, 1152]} sizes="(min-width: 768px) 740px, 280px" format="webp" quality={85} loading="eager" decoding="async" fetchpriority="high" />
+            </div>
+            <figcaption>With my dad at Circuit of the Americas. <span>Personal photograph; no endorsement implied.</span></figcaption>
+          </figure>
+          <div class="intro-copy">
+            <p class="ambition">{campaign.status.detail}</p>
+            <p class="purpose">{campaign.purpose}</p>
+            <div class="actions">
+              <a class="button" href={contact}>Email Drew</a>
+              <a class="text-link" href="/hello/">Save my contact</a>
+            </div>
+            {campaign.status.stage === 'filed' && <p class="filing-record"><time datetime={campaign.status.filingDate}>{campaign.status.filingDate}</time> · <a href={campaign.status.recordUrl}>Official FEC record</a></p>}
           </div>
-          <p class="planning-status"><span class="status-marker" aria-hidden="true"></span>{campaign.status.label}</p>
-          {campaign.status.stage === 'filed' && <p class="filing-record"><time datetime={campaign.status.filingDate}>{campaign.status.filingDate}</time> · <a href={campaign.status.recordUrl}>Official FEC record</a></p>}
+        </section>
+        <div class="background-note">
+          <p>{campaign.biography}</p>
+          <div class="background-links"><a class="text-link" href="/about/">Read my full background</a><a class="text-link" href="#background-sources">Background sources</a></div>
+        </div>
+        <nav class="page-nav" aria-label="On this page"><a href="#work">Inspect the work</a><a href="#futures">Seven visions</a><a href="#contact">Get in touch</a></nav>
+
+        <section class="editorial-section work-section" id="work" aria-labelledby="work-title">
+          <div class="section-index"><span>01</span><p>A starting point you can examine</p></div>
+          <div class="section-body">
+            <p class="eyebrow">Direct Primary Care / {dpcRevision.pageRevision} concept</p>
+            <h2 id="work-title">A doctor who knows you.<br />A model you can question.</h2>
+            <p class="section-lead">{campaign.workIntro}</p>
+            <p>{campaign.dpc.premise}</p>
+            <div class="model-feature">
+              <h3>Open the assumptions.</h3>
+              <p>{campaign.dpc.controls}</p>
+              {showProjectLinks ? <div class="actions"><a class="button" href={campaign.dpc.href}>Explore the DPC calculator</a><a class="text-link" href={campaign.dpc.contextHref}>Read the operating concept</a></div> : <p class="access-note">{campaign.accessByRequest} <a href={contact}>Email Drew for access</a>.</p>}
+              <p class="model-scope">{campaign.dpc.scope}</p>
+            </div>
+            <p class="scope-boundary">{campaign.dpc.extension}</p>
+            <aside class="open-question" aria-labelledby="question-title">
+              <p class="eyebrow">One question I’d welcome help with</p>
+              <h3 id="question-title">{campaign.dpc.question}</h3>
+              <p>{campaign.dpc.questionContext}</p>
+              <a class="text-link" href={contact}>Share experience with practice coverage</a>
+            </aside>
+            <section class="supporting-work" aria-labelledby="proofpath-title">
+              <p class="eyebrow">A second line of inquiry / {proofpathRevision.pageRevision} proposal</p>
+              <h3 id="proofpath-title">ProofPath: get paid to show your work.</h3>
+              <p>{campaign.proofpath.copy}</p>
+              {showProjectLinks && <a class="text-link" href={campaign.proofpath.href}>Examine the proposed ProofPath pilot</a>}
+            </section>
+          </div>
         </section>
 
         <section class="editorial-section" id="futures" aria-labelledby="futures-title">
-          <div class="section-index"><span>01</span><p>Visions under development</p></div>
+          <div class="section-index"><span>02</span><p>Seven visions under development</p></div>
           <div class="section-body">
             <h2 id="futures-title">Futures I want to explore.</h2>
             <p>{campaign.futuresIntro}</p>
@@ -73,59 +118,41 @@ const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.
               <h3 class="vision-category" id={`${group.id}-title`}>{group.category}</h3>
               <ul class="vision-list">{group.ideas.map(([title, copy]) => <li><h4>{title}</h4><p>{copy}</p></li>)}</ul>
             </section>)}
-          </div>
-        </section>
-
-        <section class="editorial-section" id="method" aria-labelledby="method-title">
-          <div class="section-index"><span>02</span><p>From vision to evidence</p></div>
-          <div class="section-body">
-            <h2 id="method-title">From a vision to something<br />we can learn from.</h2>
-            <ol class="method-list">
-              {campaign.method.map(([title, text], index) => <li><span aria-hidden="true">{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}
-            </ol>
-          </div>
-        </section>
-
-        <section class="editorial-section" id="work" aria-labelledby="work-title">
-          <div class="section-index"><span>03</span><p>Work people can inspect</p></div>
-          <div class="section-body">
-            <h2 id="work-title">Existing work. Open questions.</h2>
-            <p>{campaign.workIntro}</p>
-            <div class="examples">
-              {campaign.examples.map(example => <section class="example" aria-labelledby={`${example.revisionSource}-title`}>
-                <p class="eyebrow muted">Published concept / {revisions[example.revisionSource]}</p>
-                <h3 id={`${example.revisionSource}-title`}>{example.name}</h3>
-                <p>{example.copy}</p>
-                {showLabLinks && <a class="text-link" href={example.href}>Inspect the proposal <span aria-hidden="true">↗</span></a>}
-              </section>)}
-            </div>
             <p class="evidence-note">{campaign.workLimit}</p>
           </div>
         </section>
 
-        <section class="editorial-section" id="questions" aria-labelledby="faq-title">
-          <div class="section-index"><span>04</span><p>A few useful answers</p></div>
+        <section class="editorial-section" id="method" aria-labelledby="method-title">
+          <div class="section-index"><span>03</span><p>How the ideas develop</p></div>
           <div class="section-body">
-            <h2 id="faq-title">Before we talk.</h2>
-            <dl class="faq">
-              <div><dt>What stage is this at?</dt><dd>{campaign.status.faq}</dd></div>
-              <div><dt>How does AI support the work?</dt><dd>{campaign.ai}</dd></div>
-              <div><dt>Is this a complete platform?</dt><dd>{campaign.labFAQ}</dd></div>
-              <div><dt>How can I reach you?</dt><dd>Email <a href={contact}>{profile.email}</a>. It’s my existing direct contact.</dd></div>
-            </dl>
+            <h2 id="method-title">Build. Learn. Be accountable.</h2>
+            <ol class="method-list">{campaign.method.map(([title, text], index) => <li><span aria-hidden="true">{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
+            <details class="context-details" id="background-sources"><summary>Current status, scope and sources</summary>
+              <dl class="faq">
+                <div><dt>What stage is this at?</dt><dd>{campaign.status.faq}</dd></div>
+                <div><dt>Is this a complete platform?</dt><dd>{campaign.labFAQ}</dd></div>
+                <div><dt>How does AI support the work?</dt><dd>{campaign.ai}</dd></div>
+              </dl>
+              <div class="background-sources">
+                <h3>Background sources</h3>
+                <p>My career account is first-person. These links distinguish my account, the original product launch, and independent reporting.</p>
+                <ul>{campaign.biographySources.map(source => <li><a href={source.href}>{source.label}</a><span>{source.basis}</span></li>)}</ul>
+              </div>
+            </details>
           </div>
         </section>
-        <section class="contact-close" aria-labelledby="contact-title">
+        <section class="contact-close" id="contact" aria-labelledby="contact-title">
           <p class="eyebrow">An open conversation</p>
-          <h2 id="contact-title">What should I look at more closely?</h2>
+          <h2 id="contact-title">What am I missing?</h2>
           <p>{campaign.contact}</p>
-          <a class="button button-light" href={contact}>Email Drew <span aria-hidden="true">↗</span></a>
+          <div class="actions"><a class="button button-light" href={contact}>{profile.email}</a><a class="text-link" href="/hello/">Contact card</a></div>
         </section>
       </article>
     </main>
     <footer class="campaign-shell campaign-footer">
       <p>{profile.name} / {profile.location}</p>
-      <a href="/hello/">Contact card</a>
+      <a href="/about/">About Drew</a>
+      <p class="revision-stamp">{revision.pageRevision} · {revision.contentStatus} · {revision.publicationStatus}<br />Content updated <time datetime={revision.updatedAt}>{centralTimestamp(revision.updatedAt)}</time></p>
       {campaign.disclaimer && <p class="disclaimer">{campaign.disclaimer}</p>}
     </footer>
   </body>
@@ -134,56 +161,46 @@ const revisions = { dpc: dpcRevision.pageRevision, proofpath: proofpathRevision.
   .campaign-page{color:var(--color-ink);background:var(--paper)}
   .campaign-shell{width:min(1060px,calc(100% - 40px));margin-inline:auto}
   .campaign-header{border-bottom:1px solid var(--color-border)}
-  .masthead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.25rem 1.5rem;padding-block:1rem}
-  .wordmark{min-height:44px;display:inline-flex;align-items:center}
-  .edition{font-size:.8125rem;color:var(--color-muted)}
-  .campaign-intro{padding-block:clamp(2.5rem,6vw,5rem) 2.5rem;max-width:820px}
-  h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.04em;line-height:1.12}
-  .campaign-brand{width:min(100%,560px);margin-bottom:1.75rem;background:#fff;border:1px solid var(--color-border);border-radius:3px;overflow:hidden}
+  .masthead{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:.7rem}
+  .wordmark{min-height:44px;display:inline-flex;align-items:center;font-size:1.2rem}
+  .campaign-brand{width:154px;max-width:46%;flex-shrink:0;background:#fff;border:1px solid var(--color-border)}
   .campaign-brand img{display:block;width:100%;height:auto}
-  h1{font-size:clamp(2.5rem,6vw,3.6rem);margin:.8rem 0 1.25rem}
-  h1 span{color:#af6d2e}
-  .ambition{font-size:clamp(1.3rem,2.5vw,1.85rem);line-height:1.4;max-width:36ch}
-  .purpose{font-size:1.125rem;line-height:1.7;max-width:57ch;margin-top:1.2rem}
-  .planning-status{display:flex;align-items:center;gap:.6rem;color:var(--color-muted);font-size:.8125rem;margin-top:1.75rem}
+  .campaign-intro{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:1.5rem 1rem;padding-block:2rem 1.5rem;align-items:start}
+  .intro-heading{min-width:0}.intro-heading .eyebrow{font-size:.65rem;letter-spacing:.1em}.intro-heading .eyebrow span{display:block}
+  h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.04em;line-height:1.12}
+  h1{font-size:clamp(2.35rem,7.7vw,4.6rem);margin:.65rem 0 1rem}h1 span{color:#af6d2e}
+  .intro-copy{grid-column:1/-1;min-width:0}
+  .ambition{font-size:clamp(1.25rem,2.2vw,1.7rem);line-height:1.4;max-width:38ch}
+  .purpose{font-size:1.0625rem;line-height:1.75;max-width:57ch;margin-top:1rem}
+  .planning-status{display:flex;align-items:center;gap:.5rem;color:var(--color-muted);font-size:.75rem}
   .status-marker{width:.4rem;height:.4rem;border-radius:50%;background:var(--color-muted);flex-shrink:0}
-  .editorial-section{display:grid;gap:1.2rem;border-top:1px solid var(--color-border);padding-block:2.25rem;scroll-margin-top:1.5rem}
-  .section-index{color:var(--color-muted);font-size:.8125rem;display:flex;gap:.8rem;align-items:baseline}
-  .section-index span{color:#765027;font-variant-numeric:tabular-nums}
-  .section-index p{margin:0}
-  .section-body{min-width:0;max-width:66ch}
-  h2{font-size:clamp(1.85rem,3.5vw,2.65rem);margin:0 0 1.15rem}
-  .section-body>p{margin-block:1rem;line-height:1.75}
-  h3{font-size:1rem;font-weight:600;line-height:1.5;margin:0 0 .25rem}
-  .vision-group{margin-top:1.75rem}
-  .vision-category{font-size:.8125rem;letter-spacing:.06em;color:#765027;border-bottom:1px solid var(--color-border);padding-bottom:.6rem}
-  .vision-list{list-style:none;padding:0;margin:0}
-  .vision-list li{padding-block:1rem .25rem}
-  .vision-list h4{font-family:var(--serif);font-weight:400;font-size:1.5rem;letter-spacing:-.02em;line-height:1.25;margin:0 0 .5rem}
-  .vision-list p{margin:0;line-height:1.7}
-  .method-list{list-style:none;padding:0;margin:1.5rem 0 0}
-  .method-list li{display:grid;grid-template-columns:1.75rem 1fr;gap:.75rem;padding-block:.8rem;border-top:1px solid var(--color-border)}
-  .method-list li>span{color:#765027;font-size:.875rem;padding-top:.1rem}
-  .method-list p{margin:0;color:var(--color-muted);line-height:1.65}
-  .examples{margin-top:1.5rem;border-top:1px solid var(--color-border)}
-  .example{padding-block:1.25rem;border-bottom:1px solid var(--color-border)}
-  .example .eyebrow{font-size:.6875rem;margin-bottom:.5rem}
-  .example h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;letter-spacing:-.02em}
-  .example p{margin-block:.5rem;line-height:1.7}
-  .evidence-note{font-size:.9375rem;color:var(--color-muted)}
-  .faq{margin:1.5rem 0 0}
-  .faq>div{margin-bottom:1.3rem}
-  .faq dt{font-weight:600;margin-bottom:.35rem}
-  .faq dd{margin:0;line-height:1.7;color:var(--color-muted)}
-  .faq a{color:var(--green);overflow-wrap:anywhere}
-  .contact-close{background:var(--green);color:var(--paper);padding:clamp(1.5rem,5vw,3rem);margin-block:.5rem 2.5rem}
-  .contact-close h2{max-width:24ch;margin-top:.8rem}
-  .contact-close p:not(.eyebrow){max-width:58ch;line-height:1.75;margin-bottom:1.5rem}
-  .campaign-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;padding-bottom:1.5rem;font-size:.8125rem;color:var(--color-muted)}
-  .campaign-footer a{display:inline-flex;align-items:center;min-height:44px}
-  .campaign-footer p{align-self:center}
-  .disclaimer{width:100%;font-size:1rem;color:var(--color-ink);border:1px solid var(--color-border);padding:1rem}
-  @media(min-width:768px){.editorial-section{grid-template-columns:190px 1fr;gap:3rem;padding-block:3rem}.section-index{display:block}.section-index p{margin-top:.5rem;max-width:19ch}}
-  @media(max-width:389px){.campaign-shell{width:calc(100% - 32px)}.actions{align-items:stretch;gap:.5rem}.actions .button{width:100%}.contact-close{padding:1.3rem}.edition{font-size:.75rem}}
-  @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+  .intro-photo{margin:0;min-width:0}.photo-window{position:relative;aspect-ratio:1;overflow:hidden;background:#e5e8df}
+  /* Display crop of the existing family photograph: source rectangle x500,y420,520px square.
+     The original file and full-composition About page remain untouched. */
+  .photo-window :global(img){position:absolute;width:221.5385%;max-width:none;height:auto;left:-96.1538%;top:-80.7692%}
+  figcaption{font-size:.65rem;line-height:1.5;color:var(--color-muted);margin-top:.55rem}figcaption span{display:block;margin-top:.2rem}
+  .background-note{border-left:2px solid #9baa9a;padding-left:1rem;margin:0 0 1.75rem;max-width:72ch;color:var(--color-muted);font-size:.9375rem;line-height:1.7}
+  .background-links{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;margin-top:.5rem}.background-links a{font-size:.875rem;color:var(--green)}
+  .page-nav{display:flex;flex-wrap:wrap;gap:.3rem 1.5rem;border-top:1px solid var(--color-border);padding-block:.5rem;font-size:.875rem}
+  .page-nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline}
+  .editorial-section{display:grid;gap:1.1rem;border-top:1px solid var(--color-border);padding-block:2.25rem;scroll-margin-top:1rem}
+  .section-index{color:var(--color-muted);font-size:.8125rem;display:flex;gap:.8rem;align-items:baseline}.section-index span{color:#765027;font-variant-numeric:tabular-nums}.section-index p{margin:0}
+  .section-body{min-width:0;max-width:66ch}.section-body>.eyebrow{color:#765027;font-size:.6875rem;margin-bottom:.75rem}
+  h2{font-size:clamp(1.9rem,3.5vw,2.65rem);margin:0 0 1.15rem}.section-body>p{margin-block:1rem;line-height:1.75}.section-lead{font-size:1.125rem}
+  h3{font-size:1rem;font-weight:600;line-height:1.5;margin:0 0 .35rem}
+  .model-feature{background:#eaf0e5;border:1px solid #c4cebb;padding:1.3rem;margin-top:1.4rem}.model-feature p{line-height:1.7;margin-top:.6rem}.model-feature .actions{margin-top:1rem;gap:.5rem 1.2rem}.model-scope{font-size:.9rem;color:#485d50;padding-top:.7rem}
+  .scope-boundary{font-size:.9375rem;color:var(--color-muted)}
+  .open-question{border-left:3px solid #98622e;padding:.2rem 0 .2rem 1.15rem;margin-block:1.75rem}.open-question .eyebrow{font-size:.65rem;color:#765027;margin-bottom:.6rem}.open-question h3{font:400 1.5rem/1.25 var(--serif);letter-spacing:-.02em}.open-question p:not(.eyebrow){font-size:.9375rem;line-height:1.7;margin-top:.5rem}.open-question a{margin-top:.5rem}
+  .supporting-work{border-top:1px solid var(--color-border);padding-top:1.4rem}.supporting-work .eyebrow{font-size:.65rem;color:var(--color-muted);margin-bottom:.5rem}.supporting-work h3{font:400 1.5rem/1.3 var(--serif)}.supporting-work p:not(.eyebrow){font-size:.9375rem;line-height:1.7;margin-block:.6rem}
+  .vision-group{margin-top:1.75rem}.vision-category{font-size:.8125rem;letter-spacing:.04em;color:#765027;border-bottom:1px solid var(--color-border);padding-bottom:.6rem}.vision-list{list-style:none;padding:0;margin:0}.vision-list li{padding-block:1rem .25rem}.vision-list h4{font:400 1.5rem/1.25 var(--serif);letter-spacing:-.02em;margin:0 0 .5rem}.vision-list p{margin:0;line-height:1.7}.evidence-note{font-size:.9375rem;color:var(--color-muted)}
+  .method-list{list-style:none;padding:0;margin:1.5rem 0 0}.method-list li{display:grid;grid-template-columns:1.75rem 1fr;gap:.75rem;padding-block:.8rem;border-top:1px solid var(--color-border)}.method-list li>span{color:#765027;font-size:.875rem;padding-top:.1rem}.method-list p{margin:0;color:var(--color-muted);line-height:1.65}
+  .context-details{border-top:1px solid var(--color-border);margin-top:1.5rem}.context-details summary{min-height:48px;padding-block:.75rem;cursor:pointer;font-weight:600;font-size:.9375rem}.faq{margin:1rem 0}.faq>div{margin-bottom:1.25rem}.faq dt{font-weight:600;margin-bottom:.35rem}.faq dd{margin:0;line-height:1.7;color:var(--color-muted)}
+  .background-sources{scroll-margin-top:1.5rem;border-top:1px solid var(--color-border);padding-top:1.25rem}.background-sources p{font-size:.9rem;color:var(--color-muted)}.background-sources ul{list-style:none;padding:0;margin-top:.7rem}.background-sources a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline}.background-sources li span{display:block;font-size:.8rem;color:var(--color-muted);margin-bottom:.75rem}
+  .contact-close{background:var(--green);color:var(--paper);padding:clamp(1.5rem,5vw,3rem);margin-block:.5rem 2.5rem;scroll-margin-top:1rem}.contact-close h2{margin-top:.8rem}.contact-close p:not(.eyebrow){max-width:58ch;line-height:1.75}.contact-close a{overflow-wrap:anywhere}.contact-close .button{max-width:100%}.contact-close .text-link{color:var(--paper);text-decoration-color:var(--paper)}.contact-close :focus-visible{outline-color:#f7f5ee}
+  .campaign-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1rem;padding-bottom:1.5rem;font-size:.8125rem;color:var(--color-muted)}.campaign-footer a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline}.campaign-footer p{align-self:center}.revision-stamp{width:100%;line-height:1.75}.disclaimer{width:100%;font-size:1rem;color:var(--color-ink);border:1px solid var(--color-border);padding:1rem}
+  @media(min-width:768px){.wordmark{font-size:1.45rem}.campaign-brand{width:180px}.campaign-intro{grid-template-columns:minmax(0,1fr) 310px;gap:1rem 3.5rem;padding-block:3rem 2rem}.intro-heading .eyebrow{font-size:.72rem}.intro-heading .eyebrow span{display:inline}.intro-photo{grid-column:2;grid-row:1/3;margin-top:.3rem}.intro-copy{grid-column:1}.planning-status{font-size:.8125rem}figcaption{font-size:.75rem;max-width:36ch}.background-note{margin-bottom:2rem}.editorial-section{grid-template-columns:180px minmax(0,1fr);gap:3rem;padding-block:3rem}.section-index{display:block}.section-index p{margin-top:.5rem;max-width:19ch}.model-feature{padding:1.5rem}}
+  @media(min-width:768px) and (max-width:959px){.campaign-intro{grid-template-columns:minmax(0,1fr) 250px;gap:1rem 2rem}.editorial-section{grid-template-columns:130px minmax(0,1fr);gap:2rem}}
+  @media(max-width:359px){.campaign-shell{width:calc(100% - 28px)}.campaign-intro{grid-template-columns:minmax(0,1fr) 96px;gap:1.25rem .75rem}.campaign-brand{width:136px}.wordmark{font-size:1.05rem}.contact-close .button{font-size:.8125rem;padding-inline:.75rem}.model-feature{padding:1rem}.page-nav{gap:.25rem 1rem}}
+  @media(prefers-reduced-motion:reduce){.campaign-page :global(*){scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  @media print{.campaign-header,.page-nav,.skip-link{display:none}.campaign-shell{width:100%}.campaign-intro{display:block}.intro-photo{display:none}.contact-close{background:transparent;color:var(--green);border:1px solid var(--green)}.contact-close .button,.contact-close .text-link{color:var(--green)}.editorial-section{break-inside:avoid}}
 </style>

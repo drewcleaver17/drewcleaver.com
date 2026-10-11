@@ -1,13 +1,14 @@
-// R02 publication explicitly authorized by owner on October 10, 2026.
+// Drew explicitly approved the reviewed R03 release and three project links on October 10, 2026.
 // Status and filing evidence belong here, never in independent page/FAQ strings.
 export const campaign = {
   releaseApproved: true,
-  labLinksApproved: false,
+  labLinksApproved: true,
   disclaimer: 'Paid for by Drew Cleaver.',
   compliance: {
+    // This records documented scope-specific research, not election-counsel clearance.
     reviewed: true,
     disclaimerRequired: false,
-    reviewNote: 'R02 publication explicitly authorized October 10, 2026 after review of content, layout and public accessibility. Scope remains an organic, personally paid page on the existing personal website, with no committee represented, fundraising, solicitation or paid third-party placement. Official FEC disclaimer and testing-the-waters guidance was reassessed for the revised content. Retain the voluntary factual personal-payer line under this scope-specific research assessment; no additional committee-style wording is inferred. Reviewed means research reviewed, not election-counsel clearance. Actual intent, activities, financing and applicable obligations remain matters for case-specific assessment, not established by the pre-filing label. No filing or legal exemption is claimed. Reassess when those facts change; do not invent a committee or authorization statement.'
+    reviewNote: 'R03 scope-specific research completed October 10, 2026 using current 11 CFR 100.26 and 110.11 and FEC website/testing-the-waters guidance. On the stated personal-payer facts, this organic page on Drew\'s existing personal site introduces no political committee, solicitation, paid placement or promotion. No additional mandatory disclaimer was identified for that limited scope; retain Paid for by Drew Cleaver. This is a limited research assessment, not legal clearance or a determination of candidate/committee status. Actual decisions, activities and spending, including candidate-style branding, require qualified review; pre-filing and noindex are not exemptions. See the R03 release addendum in docs/cleaver2028/R03-REVIEW.md. Reassess before financing, committee, fundraising or promotion changes.'
   },
   status: {
     stage: 'pre-filing',
@@ -18,8 +19,14 @@ export const campaign = {
     recordUrl: null,
   },
   title: 'Drew Cleaver / 2028 — A possible presidential campaign',
-  description: 'Drew Cleaver explores possible futures for healthcare, public service, postal logistics, and paid hiring assessments. A possible 2028 campaign, in pre-filing planning.',
+  description: 'Meet Drew Cleaver, inventor and founder of Higher Hangers in Austin. Explore seven visions and examine the work behind a possible 2028 presidential campaign.',
   purpose: 'I’m an inventor and the founder of Higher Hangers in Austin. I want to bring that instinct to public life: imagine an alternative, build something we can learn from, and take responsibility for what happens next.',
+  biography: 'Higher Hangers grew from a space-saving hanger idea into a consumer-products business. I launched it on Kickstarter in 2016 and ran its sales and operations. Before that, I worked in technical sales in oil and gas.',
+  biographySources: [
+    { label: 'My background and career account', href: '/about/', basis: 'First-person biography' },
+    { label: 'The original Higher Hangers launch', href: 'https://www.kickstarter.com/projects/higherhangers/higher-hangers-space-saving-closet-organization-re', basis: '2016 Kickstarter campaign' },
+    { label: 'Reporting on Higher Hangers', href: 'https://www.washingtonpost.com/business/2025/05/12/trump-china-tariffs-prices-deal/', basis: 'The Washington Post · 2025' },
+  ],
   futuresIntro: 'These are futures I want to explore—not programs already underway. They connect care, public service, infrastructure, and the chance to do meaningful work.',
   futures: [
     { id: 'care', category: 'Healthcare', ideas: [
@@ -43,15 +50,26 @@ export const campaign = {
     ['Measure and listen', 'Publish outcomes and limitations, including harms. Gather input from affected people and invite public scrutiny.'],
     ['Scale, revise, or stop', 'Accountable people make and explain the decision. Public input informs it; AI assists the work but never takes responsibility.'],
   ],
-  workIntro: 'DPC and ProofPath have published concepts you can inspect. The community-care, defense, and postal visions above are newer directions for exploration.',
+  workIntro: 'Start with one practical question: what would it take to give people a doctor they can return to, with room in the schedule when something cannot wait?',
   workLimit: 'Published concepts are not implemented programs. No funded pilots, partnerships, staffing, or measured outcomes are claimed.',
-  examples: [
-    { name: 'Direct Primary Care', href: '/dpc/', revisionSource: 'dpc', copy: 'A proposed physician-owned primary-care operating model, with an editable calculator for staffing, capacity, and economics. Its assumptions still need clinical and operational validation.' },
-    { name: 'ProofPath', href: '/proofpath/', revisionSource: 'proofpath', copy: 'A proposed employer-funded hiring service using paid, bounded work assessments. The first experiment would be delivered manually; the broader platform remains a proposal.' },
-  ],
+  dpc: {
+    premise: 'My Direct Primary Care model explores a physician-owned practice: routine visits with an assigned doctor, plus protected time for short-notice care from the team.',
+    controls: 'Change membership prices, physician schedules, visit lengths, attendance and patient allocation. Examine the effects on capacity, operating finances and the opening cash plan.',
+    scope: 'The worksheet helps investigate whether a proposed practice can fit its workload and costs. Clinical assumptions and patient demand remain unvalidated; startup costs and required funding are incomplete.',
+    extension: 'Public funding is a separate proposal. This practice calculator does not establish the cost or feasibility of universal coverage or Medicare for All.',
+    question: 'Who covers the practice when a physician is away?',
+    questionContext: 'R09 budgets for coverage but does not schedule a relief roster or simulate dated leave. What staffing arrangement would preserve continuity and seven-day team access through real absences?',
+    href: '/dpc/#model',
+    contextHref: '/dpc/#concept',
+  },
+  proofpath: {
+    copy: 'An employer-funded hiring proposal built around paid work samples. Inspect the proposed one-employer, five-candidate pilot, its effort and payment terms, and what it would measure. The first experiment would be run manually; no funded pilot, partnership or results are claimed.',
+    href: '/proofpath/#pilot',
+  },
+  accessByRequest: 'For access to these unlisted concepts, email me and mention DPC or ProofPath.',
   ai: 'AI helps me research, draft, and build tools. I check the work and take responsibility for what I publish. Public decisions remain with accountable people acting within their authority.',
   labFAQ: 'No. These are proposals under development. Housing, Education, and Taxes remain “To explore” in my Lab; housing access here is part of the community-care vision.',
-  contact: 'Have a question, an interview request, relevant experience, or a better idea? Tell me what you see and what deserves a closer look.',
+  contact: 'Ask a question, challenge an assumption, or share relevant experience. If you know how a practice handles coverage, how public services work on the ground, or what a fair hiring trial needs, I’d like to hear what I’ve missed.',
 };
 
 export function validateCampaign(value = campaign) {
