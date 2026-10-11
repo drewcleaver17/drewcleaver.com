@@ -3,6 +3,8 @@ import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { JSDOM } from 'jsdom';
 import { campaign, includeCampaign, isLocalReview } from '../src/data/cleaver2028.mjs';
+import { centralTimestamp } from '../src/lib/dpc-revision.mjs';
+const revision = JSON.parse(readFileSync(new URL('../src/data/cleaver2028-revisions.json', import.meta.url)));
 const root = new URL('../dist/', import.meta.url).pathname;
 const file = join(root, 'cleaver2028/index.html');
 const logoFile = join(root, 'cleaver2028/logo.jpeg');
@@ -37,15 +39,36 @@ if (includeCampaign) {
   assert(document.querySelector('.ambition').textContent.includes(campaign.status.detail));
   assert(document.querySelector('.faq').textContent.includes(campaign.status.faq));
   if (campaign.status.stage === 'pre-filing') assert(!document.querySelector('.filing-record'));
-  assert.equal(!!document.querySelector('a[href="/lab/"]'), campaign.labLinksApproved);
+  assert(!document.querySelector('a[href^="/lab/"]'), 'Only the selected original projects are in this review; the Lab hub is not exposed.');
+  const projectLinks = isLocalReview || campaign.labLinksApproved;
+  for (const href of [campaign.dpc.href, campaign.dpc.contextHref, campaign.proofpath.href]) assert.equal(!!document.querySelector(`a[href="${href}"]`), projectLinks);
+  assert(document.querySelector('a[href="/about/"]'));
+  assert(document.querySelector('a[href="/hello/"]'));
+  assert.equal(document.querySelectorAll('.intro-photo img').length, 1);
+  assert(document.querySelector('.intro-photo img').getAttribute('alt').includes('Drew Cleaver and his dad'));
+  const stamp = document.querySelector('.revision-stamp');
+  assert(stamp.textContent.includes(revision.pageRevision));
+  assert(stamp.textContent.includes(centralTimestamp(revision.updatedAt)));
+  assert.equal(stamp.querySelector('time').getAttribute('datetime'), revision.updatedAt);
+  if (!campaign.releaseApproved) {
+    assert.equal(revision.contentStatus, 'draft');
+    assert.equal(revision.publicationStatus, 'unpublished');
+    assert.equal(revision.publishedAt, null);
+    assert.equal(revision.evidenceUrl, null);
+  }
+  const sourceUrls = new Set(campaign.biographySources.map(source => source.href));
   const ids = [...document.querySelectorAll('[id]')].map(n => n.id);
   assert.equal(ids.length, new Set(ids).size);
   for (const n of document.querySelectorAll('[aria-labelledby]')) for (const id of n.getAttribute('aria-labelledby').split(' ')) assert(document.getElementById(id));
   for (const a of document.querySelectorAll('a[href]')) {
     const href = a.getAttribute('href');
     if (href.startsWith('#')) assert(document.getElementById(href.slice(1)));
-    else if (href.startsWith('/')) assert(existsSync(join(root, href === '/' ? 'index.html' : href.endsWith('/') ? href + 'index.html' : href)), 'Broken local destination: ' + href);
-    else assert.equal(href, 'mailto:drew@drewcleaver.com');
+    else if (href.startsWith('/')) {
+      const url = new URL(href, 'https://drewcleaver.com');
+      const path = join(root, url.pathname.endsWith('/') ? url.pathname + 'index.html' : url.pathname);
+      assert(existsSync(path), 'Broken local destination: ' + href);
+      if (url.hash) assert(new JSDOM(readFileSync(path, 'utf8')).window.document.getElementById(url.hash.slice(1)), 'Broken project anchor: ' + href);
+    } else assert(href === 'mailto:drew@drewcleaver.com' || sourceUrls.has(href) || href === campaign.status.recordUrl, 'Unexpected external destination: '+href);
   }
   assert.equal(document.querySelectorAll('.method-list>li').length, 3);
   assert.equal(document.querySelectorAll('.vision-group').length, 4);

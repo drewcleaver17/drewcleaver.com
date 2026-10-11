@@ -1,3 +1,27 @@
+# Current release: R03 approved; deployment verification pending
+
+Read `R03-REVIEW.md` before making further changes. Drew explicitly approved the
+reviewed R03 copy/design, existing COTA photograph, unchanged original logo, and
+the three links to /dpc/#model, /dpc/#concept and /proofpath/#pilot on October 10,
+2026. This approval includes public branch/PR, merge and GitHub Pages deployment.
+Their increased discoverability is approved; no Lab hub link, navigation,
+indexing or sitemap change is authorized.
+
+Release and selected-link approval are enabled. Build with CLEAVER2028_REVIEW
+unset; never deploy a review build. The existing compliance gate is satisfied by
+fresh, documented scope-specific research, not counsel clearance. The factual
+payer line and pre-filing status are unchanged. See the R03 release addendum for
+the precise research basis and outstanding qualified-review question.
+
+The content timestamp remains fixed. Keep the draft/publication-pending label
+and null publication evidence until Pages deployment and the live route have
+actually been verified; then record the receipt and verify that deployment too.
+Earlier R01/R02 descriptions below are historical, including their photo/link
+state. The unapproved-build guard now refuses an ordinary build before cleanup
+rather than silently omitting a previously released route.
+
+---
+
 # Cleaver2028 — release and maintenance
 
 ## Authorized release

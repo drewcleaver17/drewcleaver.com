@@ -1,0 +1,38 @@
+{
+  "pageRevision": "R03",
+  "updatedAt": "2026-10-11T02:38:37Z",
+  "contentStatus": "draft",
+  "implementationStatus": "owner approved for release",
+  "publicationStatus": "pending verification",
+  "publishedAt": null,
+  "evidenceUrl": null,
+  "baseCommit": "0b7f3bb26121d6fbb75726f66980f4f9e6068827",
+  "timestampBasis": "Fixed content-finalization time, displayed in America/Chicago; publication is recorded separately only after verification.",
+  "history": [
+    {
+      "id": "R01",
+      "status": "published",
+      "publishedAt": "2026-10-10T16:54:18Z",
+      "title": "Personal landing page and original supplied logo",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38069447783",
+      "basis": "Successful Deploy job; original release source retained in git."
+    },
+    {
+      "id": "R02",
+      "status": "published",
+      "publishedAt": "2026-10-10T20:52:51Z",
+      "title": "Seven visions under development",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38085387106",
+      "basis": "Successful Deploy job; live R02 copy and seven visions verified before R03 work."
+    },
+    {
+      "id": "R03",
+      "status": "draft",
+      "finalizedAt": "2026-10-11T02:38:37Z",
+      "publishedAt": null,
+      "evidenceUrl": null,
+      "title": "Meet the person and inspect the work",
+      "summary": "Genuine existing photograph, concise founder biography, featured DPC model and coverage question, owner-approved selected project links, and preserved seven visions."
+    }
+  ]
+}
