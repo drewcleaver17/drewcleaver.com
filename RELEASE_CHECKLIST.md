@@ -290,3 +290,16 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] Live browser visual and interaction checks at 1348×936, including targeted keyboard disclosure/focus, passed without horizontal overflow. Exact JSON download matches the release.
 - [ ] Browser geometry at 320/390/768/1440 and exhaustive keyboard pass: local browser installation/preview access were unavailable; the live browser API has no viewport setter. Completed desktop and DOM tests do not establish these remaining checks.
 - [x] Content publication verified: PR #63, merged `a9b1825`, successful Pages `38101085902`, exact fresh live dataset/digest/assets and unlisted/analytics checks. Receipt-only follow-up uses the same PR/checks/deploy process; no scheduled-operation claim.
+
+
+## UFO landmark-history release checks
+
+- Reconcile current main and preserve unrelated releases before publication.
+- Count main milestones separately from supporting records, layers, sources, people, entities, relationships and selected videos.
+- Preserve all original anchors, correction histories, immutable sources, broad research cutoff and scheduled-reporter settings.
+- Validate BCE/age conventions, approximate/range dates, person aliases and legacy search labels, source inspection scopes, occurrence-level video limits and importer compatibility.
+- Exercise production DOM filters, empty/reset/order/recent behavior, people/relationship/source routes, restored URL state and filtered supporting anchors.
+- Inspect a concrete rendered preview; record static rendering separately from browser tests. Run the 320/390/768/1440 browser matrix only when viewport controls are actually available, and document any remaining limitation.
+- Confirm noindex/nofollow, sitemap and inbound navigation/search exclusion, and no analytics initialization even with saved consent. Compare unrelated content with a clean current-main build.
+- Observe Pages for the exact merged commit, compare fresh live embedded JSON/digest and assets, and exercise the live interface. A merge or HTTP 200 is insufficient.
+- Record a publication receipt only after live proof; publish any receipt follow-up through normal PR/check/deployment flow without changing substantive-content timestamps.

@@ -1,3 +1,17 @@
+# Model 4 editorial maintenance — October 11, 2026
+
+This is a manually authorized editorial release. **Scheduled-reporter configuration, cadence, alert threshold, permissions, activation/status and dataset-only publishing boundary are unchanged.** Manual publication is not evidence that a scheduled run succeeded. Existing commissioning/recovery records remain intact.
+
+The default URL preset is now `journey`: main milestones across all eras. Existing `story` (modern disclosure), `history` (all retained records), `recent` (site revision order), `core`, `context=1`, source/event IDs and deep links retain useful behavior. Explicit filters on an initial shared URL remain intact until the reader reveals a hidden target; intentional in-page links can open full history. Legacy entity names canonicalize before select controls synchronize. Erroneous historical search labels are separate from asserted biographical aliases.
+
+Model 4 adds `readingPath` (`main` / `supporting`), `supportingFor`, editorial `contextLinks`, featured-person contribution/role/limits and optional event check receipts. Dates permit qualified BCE years and archaeological `age` envelopes. The latter have null calendar dates, explicit estimate/uncertainty/convention and a disclosed reference year for ordering only. CE year/date controls use overlap; Era reaches BCE/deep-time entries. Approximate dates retain their display qualification. Metadata-only source inspection has a distinct verification value and catalogue scope.
+
+The importer defaults new legacy records to `main` and preserves omitted presentation fields on revisions. Unattended payloads cannot introduce editorial connections, change existing prominence/connections, alter canonical entities/relationships or publish BCE/age material without editorial review. Existing immutable source objects still require versioned replacements. JSON export includes the complete model. Full-document source searching is not advertised or implemented.
+
+Release gates remain `npm test`, `npm run ufos:validate`, `npm run build`, scoped diff review, current-main reconciliation and exact-commit Pages/live verification. The build exercises the production UFO DOM and all existing release/unlisted and unrelated-page suites. Browser interaction, static rendering and DOM checks are recorded separately in the [revision ledger](ufos-landmark-ledger-2026-10-11.json); the exact viewport matrix must not be inferred from other checks.
+
+## Earlier operating and release records — retained for provenance
+
 # UFO timeline: bounded update operations
 
 The durable source of truth is `src/data/ufos/timeline.json` in this repository. The existing GitHub Pages workflow publishes `main`. Do not create a second monitoring task, a new hosting service, a public write endpoint, a new token or a separate website. The scheduled reporter is called **UAP Disclosure Milestones**. Its existing weekly cadence and substantive-alert threshold must remain unchanged.

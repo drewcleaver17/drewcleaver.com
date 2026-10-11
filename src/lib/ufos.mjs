@@ -1,6 +1,6 @@
 export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history'];
-export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling'];
-export const sourceKindLabels = { primary: 'Primary record', 'archival-history': 'Institutional or archival history', 'participant-account': 'Participant / organizational account', 'primary-mirror': 'Archival copy of a primary record', scholarship: 'Scholarly analysis / reference', reprint: 'Reproduced announcement', 'original-reporting': 'Original reporting', reporting: 'Reporting' };
+export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling', 'Human origins & evolution', 'Mind & philosophy'];
+export const sourceKindLabels = { primary: 'Primary record', 'archival-history': 'Institutional or archival history', 'participant-account': 'Participant / organizational account', 'primary-mirror': 'Copy / translation of a primary record', scholarship: 'Scholarly analysis / reference', reprint: 'Reproduced announcement', 'original-reporting': 'Original reporting', reporting: 'Reporting' };
 export const evidenceDefinitions = {
   'Institutional record': 'A hearing, law, policy or release documented by the responsible institution. It verifies an action, not every claim within it.',
   'Institutional assessment': 'An agency’s stated analysis or conclusion, subject to its data and methods.',
@@ -16,8 +16,9 @@ export const evidenceDefinitions = {
   'Textual scholarship': 'Scholars study manuscripts, editions or textual history. Dating and interpretation can remain contested; this is not verification of a text’s religious claims.'
 };
 export const eras = [
-  { id: 'ancient-texts', label: 'Earlier / Texts and transmission', years: 'Ancient history', start: '0001', end: '1499', summary: 'Composition, copying and the later survival of religious texts are distinct questions. Estimated ranges are not exact dates.' },
-  { id: 'foundations', label: 'Earlier / Ideas and institutions', years: '1500–1939', start: '1500', end: '1939', summary: 'Selected scientific and financial context. Inclusion here does not imply a UFO connection.' },
+  { id: 'origins', label: 'Human origins / Evidence before writing', years: 'Deep time', start: '-1000000', end: '-1000', summary: 'Read fossil ages and traces of symbolic behavior as evidence with limits. Biological evolution and cultural change are different processes.' },
+  { id: 'ancient-texts', label: 'Ideas / Worlds, observation and texts', years: 'First millennium BCE–1499 CE', start: '-0999', end: '1499', summary: 'Compare arguments about the cosmos, mathematical astronomy, optical investigation and the transmission of texts. Shared questions do not establish direct influence.' },
+  { id: 'foundations', label: 'Foundations / New scales and instruments', years: '1500–1939', start: '1500', end: '1939', summary: 'Follow changes in observation, physical theory, biology and communication. Credit belongs to collaborators and predecessors as well as familiar names.' },
   { id: 'war', label: 'History / War and the national-security state', years: '1940–1951', start: '1940', end: '1951', summary: 'Nuclear weapons, intelligence structures and the first postwar UFO investigations develop on different tracks.' },
   { id: 'cold-war', label: 'History / The Cold War and the space age', years: '1952–1969', start: '1952', end: '1969', summary: 'Reconnaissance, civilian spaceflight and official UFO studies expand. Their responsibilities and findings differ.' },
   { id: 'experiments', label: 'History / Experiments and contested results', years: '1970–1995', start: '1970', end: '1995', summary: 'Remote-viewing research, consciousness claims and retrospective record searches generate documents and disagreement.' },
@@ -26,15 +27,33 @@ export const eras = [
   { id: 'oversight', label: '02 / Formal scrutiny', years: '2022–2024', start: '2022', end: '2024', summary: 'Hearings, scientific studies and legislation create distinct ways to ask for answers.' },
   { id: 'records', label: '03 / The expanding records trail', years: '2025 onward', start: '2025', end: '9999', summary: 'Records collections and disclosure channels grow. More material does not automatically mean more certainty.' }
 ];
-export const dateRoles = { milestone:'Milestone', incident:'Reported incident', publication:'Public publication', reporting:'Reporting date', composition:'Estimated composition', manuscript:'Estimated copying', session:'Attributed session dates', document:'Document date', research:'Research period', investigation:'Investigation period', 'field-campaign':'Field campaign', meeting:'Meeting dates', announcement:'Public announcement', statement:'Public statement', assessment:'Assessment date', release:'Public release', 'release-response':'Records-release response' };
+export const dateRoles = { milestone:'Milestone', incident:'Reported incident', publication:'Public publication', reporting:'Reporting date', composition:'Estimated composition', manuscript:'Estimated copying', session:'Attributed session dates', document:'Document date', research:'Research period', experiment:'Experiment', investigation:'Investigation period', 'field-campaign':'Field campaign', meeting:'Meeting dates', announcement:'Public announcement', statement:'Public statement', assessment:'Assessment date', release:'Public release', 'release-response':'Records-release response', 'evidence-age':'Estimated age of evidence', 'patent-grant':'Patent grant', demonstration:'Demonstration', submission:'Manuscript submission', presentation:'Presentation', foundation:'Institution founded', 'reported-wave-onset':'Reported wave begins', launch:'Launch', flight:'Flight', observation:'Observation', landing:'Landing' };
 export const layerOf = e => e.layer || (e.context ? 'contextual' : 'core');
-export const eraFor = e => eras.find(era => e.date.start.slice(0,4) >= era.start && e.date.start.slice(0,4) <= era.end);
+export const readingPathOf = e => e.readingPath || 'main';
+export const calendarYear = value => Number(value?.match(/^(-?\d{4,})(?:-|$)/)?.[1]);
+// Ordering coordinates only: these are not elapsed days or claimed incident precision.
+export function calendarCoordinate(value, upper = false) {
+  const match = String(value).match(/^(-?\d{4,})(?:-(\d{2})(?:-(\d{2}))?)?$/);
+  if (!match) return NaN;
+  return Number(match[1]) * 372 + Number(match[2] || (upper ? 12 : 1)) * 31 + Number(match[3] || (upper ? 31 : 1));
+}
+export function eventBounds(e) {
+  if (e.date.precision === 'age') {
+    const a=e.date.age;
+    return [(a.referenceYear-a.older)*372, (a.referenceYear-a.younger)*372];
+  }
+  return [calendarCoordinate(e.date.start),calendarCoordinate(e.date.end || e.date.start,true)];
+}
+export const eraFor = e => eras.find(era => eventBounds(e)[0] >= calendarCoordinate(era.start) && eventBounds(e)[0] <= calendarCoordinate(era.end,true));
 export function yearsCovered(events) {
   const years = new Set();
-  for (const e of events) for (let year=Number(e.date.start.slice(0,4)); year<=Number((e.date.end || e.date.start).slice(0,4)); year++) years.add(String(year).padStart(4,'0'));
+  for (const e of events) {
+    if(e.date.precision==='age') continue;
+    for (let year=Math.max(1,calendarYear(e.date.start)); year<=calendarYear(e.date.end || e.date.start); year++) years.add(String(year).padStart(4,'0'));
+  }
   return [...years].sort();
 }
-export const initialState = { layer: '', era: '', q: '', from: '', to: '', category: '', topic: '', entity: '', evidence: '', sort: 'oldest', view: 'story', context: false };
+export const initialState = { layer: '', era: '', q: '', from: '', to: '', category: '', topic: '', entity: '', evidence: '', sort: 'oldest', view: 'journey', context: false };
 export const normalizeSearch = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 export function dateBounds(value) {
   if (/^\d{4}$/.test(value)) return [value + '-01-01', value + '-12-31'];
@@ -46,33 +65,35 @@ export function dateBounds(value) {
 }
 export function formatDate(value) {
   if (!value) return 'Not established';
+  if (/^-\d{4,}$/.test(value)) return Math.abs(Number(value)).toLocaleString('en-US')+' BCE';
   const options = value.length === 4 ? { year: 'numeric' } : value.length === 7 ? { year: 'numeric', month: 'long' } : { year: 'numeric', month: 'short', day: 'numeric' };
   return new Intl.DateTimeFormat('en-US', { ...options, timeZone: 'UTC' }).format(new Date(dateBounds(value)[0] + 'T12:00:00Z'));
 }
 export const eventDateLabel = e => e.date.approximate ? e.date.label : formatDate(e.date.start) + (e.date.end ? ' – ' + formatDate(e.date.end) : '');
 export function searchText(e, sources, entities = []) {
   const names = entities.filter(entity => e.entityIds?.includes(entity.id) || entity.eventIds.includes(e.id));
-  return normalizeSearch([e.title, e.summary, e.significance, ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, n.description]), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
+  return normalizeSearch([e.title, e.summary, e.significance, ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, ...(n.legacySearchLabels || []), n.description]), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
 }
 export function filterEvents(data, state) {
   const s = { ...initialState, ...state };
   const terms = normalizeSearch(s.q.trim()).split(/\s+/).filter(Boolean);
   return data.events.filter(e => {
-    if (e.publicationStatus !== 'published' || (s.view === 'story' && !s.context && (e.context || e.date.start < '2017'))) return false;
+    if (e.publicationStatus !== 'published' || (s.view === 'story' && !s.context && (e.context || eventBounds(e)[0] < calendarCoordinate('2017')))) return false;
+    if (s.view === 'journey' && !s.context && readingPathOf(e) !== 'main') return false;
     if (s.view === 'core' && layerOf(e) !== 'core') return false;
     if (s.layer && layerOf(e) !== s.layer) return false;
-    if (s.era) { const era=eras.find(x=>x.id===s.era); if (!era || dateBounds(e.date.end || e.date.start)[1] < era.start+'-01-01' || dateBounds(e.date.start)[0] > era.end+'-12-31') return false; }
-    if (s.from && dateBounds(e.date.end || e.date.start)[1] < s.from) return false;
-    if (s.to && dateBounds(e.date.start)[0] > s.to) return false;
+    if (s.era) { const era=eras.find(x=>x.id===s.era); if (!era || eventBounds(e)[1] < calendarCoordinate(era.start) || eventBounds(e)[0] > calendarCoordinate(era.end,true)) return false; }
+    if (s.from && eventBounds(e)[1] < calendarCoordinate(s.from)) return false;
+    if (s.to && eventBounds(e)[0] > calendarCoordinate(s.to,true)) return false;
     if (s.category && !e.categories.includes(s.category)) return false;
     if (s.topic && !(e.topics || ['UFO reports & disclosure']).includes(s.topic)) return false;
-    if (s.entity && ![...e.people, ...e.institutions, ...(e.entityIds || [])].includes(s.entity) && !data.entities?.find(n => n.id === s.entity || n.name===s.entity || n.aliases.includes(s.entity))?.eventIds.includes(e.id)) return false;
+    if (s.entity && ![...e.people, ...e.institutions, ...(e.entityIds || [])].includes(s.entity) && !data.entities?.find(n => n.id === s.entity || n.name===s.entity || n.aliases.includes(s.entity) || n.legacySearchLabels?.includes(s.entity))?.eventIds.includes(e.id)) return false;
     if (s.evidence && !e.evidenceTypes.includes(s.evidence)) return false;
     const haystack = searchText(e, data.sources, data.entities);
     return terms.every(t => haystack.includes(t));
   }).sort((a, b) => {
     if (s.view === 'recent') return b.revisedAt.localeCompare(a.revisedAt) || b.addedAt.localeCompare(a.addedAt) || a.id.localeCompare(b.id);
-    const comparison = dateBounds(a.date.start)[0].localeCompare(dateBounds(b.date.start)[0]) || a.id.localeCompare(b.id);
+    const comparison = eventBounds(a)[0]-eventBounds(b)[0] || a.id.localeCompare(b.id);
     return s.sort === 'newest' ? -comparison : comparison;
   });
 }
@@ -83,7 +104,7 @@ export function stateFromParams(params) {
     else if (params.has(key)) s[key] = params.get(key).slice(0, 500);
   }
   if (!['oldest', 'newest'].includes(s.sort)) s.sort = 'oldest';
-  if (!['story', 'history', 'recent', 'core'].includes(s.view)) s.view = 'story';
+  if (!['journey', 'story', 'history', 'recent', 'core'].includes(s.view)) s.view = 'journey';
   if (!['', 'core', 'contextual'].includes(s.layer)) s.layer='';
   if (s.era && !eras.some(e=>e.id===s.era)) s.era='';
   for (const key of ['from', 'to']) if (!/^\d{4}-\d{2}-\d{2}$/.test(s[key])) s[key] = '';
@@ -99,13 +120,14 @@ export function validateDataset(data, now = new Date()) {
   const check = (test, message) => { if (!test) errors.push(message); };
   const string = v => typeof v === 'string' && v.trim().length > 0;
   const date = v => {
-    if (typeof v !== 'string' || !/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/.test(v)) return false;
+    if (typeof v === 'string' && /^-\d{4}$/.test(v)) return Number(v)<0;
+    if (typeof v !== 'string' || !/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/.test(v) || calendarYear(v)===0) return false;
     const [low] = dateBounds(v), d = new Date(low + 'T00:00:00Z');
     return !Number.isNaN(+d) && d.toISOString().slice(0, 10) === low && low <= now.toISOString().slice(0, 10);
   };
   const stamp = v => string(v) && /^\d{4}-\d{2}-\d{2}T/.test(v) && Number.isFinite(Date.parse(v)) && Date.parse(v) <= +now;
   check(data?.schemaVersion === 1, 'Unsupported schema version');
-  check(data.contentModelVersion === undefined || [1,2,3].includes(data.contentModelVersion), 'Unsupported content model version');
+  check(data.contentModelVersion === undefined || [1,2,3,4].includes(data.contentModelVersion), 'Unsupported content model version');
   if (!Array.isArray(data?.events) || !data?.sources || !data?.meta) return [...errors, 'Missing events, sources or meta'];
   for (const key of ['lastCheckedAt', 'contentUpdatedAt']) check(stamp(data.meta[key]), 'Invalid meta.' + key);
   check(date(data.meta.researchCutoff), 'Invalid research cutoff');
@@ -115,7 +137,7 @@ export function validateDataset(data, now = new Date()) {
     for (const k of ['title', 'publisher', 'url', 'locator']) check(string(s[k]), 'Missing source ' + id + '.' + k);
     let safe = false; try { const u = new URL(s.url); safe = u.protocol === 'https:' && !u.username && !u.password; } catch {}
     check(safe, 'Unsafe source URL: ' + id);
-    check(s.verification === 'supporting-text-read', 'Source text not verified: ' + id);
+    check(s.verification === 'supporting-text-read' || (data.contentModelVersion>=4 && s.verification==='metadata-and-preview-read' && data.sourceReviews?.[id]?.mode==='catalogue'), 'Source text not verified: ' + id);
     check(Boolean(sourceKindLabels[s.kind]), 'Invalid source kind: ' + id);
     check(date(s.accessedDate), 'Invalid source access date: ' + id);
     check(s.publicationDate === null || date(s.publicationDate), 'Invalid source publication date: ' + id);
@@ -128,12 +150,15 @@ export function validateDataset(data, now = new Date()) {
     for (const key of ['title', 'summary', 'significance']) check(string(e[key]), 'Missing ' + e.id + '.' + key);
     const fingerprint = e.date?.start + '|' + e.title?.toLowerCase().replace(/\W/g, '');
     check(!fingerprints.has(fingerprint), 'Duplicate milestone: ' + e.id); fingerprints.add(fingerprint);
-    check(date(e.date?.start), 'Invalid event date: ' + e.id);
-    check(e.date?.end === null || (date(e.date?.end) && e.date.end >= e.date.start), 'Invalid date range: ' + e.id);
-    const precision = e.date?.end ? 'range' : ({4:'year',7:'month',10:'day'})[e.date?.start?.length];
+    const age=e.date?.precision==='age';
+    const a=e.date?.age;
+    if(age) check(data.contentModelVersion>=4 && e.date.start===null && e.date.end===null && e.date.role==='evidence-age' && a && [a.older,a.younger,a.referenceYear,a.estimate,a.uncertainty].every(Number.isFinite) && a.older>=a.estimate && a.estimate>=a.younger && a.younger>0 && a.uncertainty>=0 && a.referenceYear>=1900 && a.referenceYear<=now.getUTCFullYear() && ['convention','uncertaintyConvention','confidence'].every(k=>string(a[k])), 'Invalid evidence age: '+e.id);
+    else check(date(e.date?.start), 'Invalid event date: ' + e.id);
+    check(e.date?.end === null || (date(e.date?.end) && calendarCoordinate(e.date.end,true) >= calendarCoordinate(e.date.start)), 'Invalid date range: ' + e.id);
+    const precision = age ? 'age' : e.date?.end ? 'range' : /^-\d{4}$/.test(e.date?.start) ? 'year' : ({4:'year',7:'month',10:'day'})[e.date?.start?.length];
     check(e.date?.precision === precision, 'False date precision: ' + e.id);
     check(Boolean(dateRoles[e.date?.role]), 'Invalid date role: ' + e.id);
-    if (e.date?.approximate !== undefined || e.date?.label !== undefined) check(e.date.approximate === true && precision === 'range' && e.date.start.length === 4 && e.date.end?.length === 4 && string(e.date.label) && string(e.dateNotes), 'Unqualified approximate date: ' + e.id);
+    if (age || e.date?.approximate !== undefined || e.date?.label !== undefined) check(e.date.approximate === true && (age || (precision === 'year' && /^-?\d{4}$/.test(e.date.start)) || (precision === 'range' && /^-?\d{4}$/.test(e.date.start) && /^-?\d{4}$/.test(e.date.end))) && string(e.date.label) && string(e.dateNotes), 'Unqualified approximate date: ' + e.id);
     for (const k of ['incidentDate', 'disclosureDate', 'publicationDate']) check(e[k] === null || date(e[k]), 'Invalid ' + k + ': ' + e.id);
     for (const k of ['addedAt', 'revisedAt', 'lastVerifiedAt']) check(stamp(e[k]), 'Invalid ' + k + ': ' + e.id);
     check(e.revisedAt >= e.addedAt, 'Revision predates addition: ' + e.id);
@@ -157,13 +182,22 @@ export function validateDataset(data, now = new Date()) {
     for (const c of e.correctionHistory || []) check(stamp(c.at) && string(c.reason) && string(c.previousSummary), 'Invalid correction history: ' + e.id);
   }
   for (const e of data.events) for (const id of e.relatedEventIds || []) check(ids.has(id) && id !== e.id, 'Unknown/self related event: ' + id);
+  if(data.contentModelVersion>=4) for(const e of data.events) {
+    check(['main','supporting'].includes(e.readingPath), 'Missing reading path: '+e.id);
+    if(e.supportingFor) check(e.readingPath==='supporting' && e.supportingFor.every(id=>ids.has(id) && id!==e.id), 'Invalid supporting record: '+e.id);
+    for(const link of e.contextLinks || []) check(ids.has(link.eventId) && link.eventId!==e.id && link.type==='editorial-context' && string(link.note), 'Invalid contextual connection: '+e.id);
+    if(e.checkReceipt) check(date(e.checkReceipt.checkedOn) && ['status','finding','limits'].every(k=>string(e.checkReceipt[k])) && e.checkReceipt.sourceIds?.length && e.checkReceipt.sourceIds.every(id=>data.sources[id]), 'Invalid event check receipt: '+e.id);
+    if(e.mediaHistory) check(['title','edition','inspection'].every(k=>string(e.mediaHistory[k])) && date(e.mediaHistory.date), 'Invalid media history: '+e.id);
+  }
   const entityIds = new Set();
   for (const n of data.entities || []) {
     check(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(n.id || '') && !entityIds.has(n.id), 'Invalid/duplicate entity: ' + n.id); entityIds.add(n.id);
     check(string(n.name) && string(n.description) && ['person','organization','program','place','claimed organization','work / collection'].includes(n.type), 'Invalid entity record: ' + n.id);
     check(Array.isArray(n.aliases) && n.aliases.every(string), 'Invalid aliases: ' + n.id);
+    if(n.legacySearchLabels)check(Array.isArray(n.legacySearchLabels) && n.legacySearchLabels.every(string), 'Invalid legacy search labels: '+n.id);
     check(n.eventIds?.length && n.eventIds.every(id => ids.has(id)), 'Unknown entity event: ' + n.id);
     check(n.sources?.length && n.sources.every(r => data.sources[r.sourceId] && r.supports?.length && r.supports.every(string)), 'Unsourced entity: ' + n.id);
+    if(n.featured) check(n.type==='person' && string(n.role) && string(n.contribution) && string(n.limitations), 'Incomplete featured person: '+n.id);
   }
   for (const e of data.events) if (e.entityIds) check(e.entityIds.every(id => entityIds.has(id)), 'Unknown event entity: ' + e.id);
   const relationIds = new Set();
@@ -171,7 +205,7 @@ export function validateDataset(data, now = new Date()) {
     check(string(r.id) && !relationIds.has(r.id), 'Duplicate/invalid relationship'); relationIds.add(r.id);
     check(entityIds.has(r.from) && entityIds.has(r.to) && r.from !== r.to, 'Unknown/self relationship entity: ' + r.id);
     check(['Documented','Attributed','Historical context'].includes(r.status) && string(r.description) && string(r.limitations), 'Missing relationship boundary: ' + r.id);
-    check(date(r.date?.start) && (r.date.end === null || (date(r.date.end) && r.date.end >= r.date.start)), 'Invalid relationship dates: ' + r.id);
+    check(date(r.date?.start) && (r.date.end === null || (date(r.date.end) && calendarCoordinate(r.date.end,true) >= calendarCoordinate(r.date.start))), 'Invalid relationship dates: ' + r.id);
     check(r.eventIds?.length && r.eventIds.every(id => ids.has(id)), 'Unknown relationship event: ' + r.id);
     check(r.sources?.length && r.sources.every(ref => data.sources[ref.sourceId] && ref.supports?.length && ref.supports.every(string)), 'Unsourced relationship: ' + r.id);
   }
@@ -209,7 +243,7 @@ export function validateDataset(data, now = new Date()) {
     occurrences.set(occurrence,videos);
   }
   for (const [occurrence,videos] of occurrences) check(videos.size<=1, 'Multiple YouTube videos for occurrence: '+occurrence);
-  const relationTypes=['listed-shareholder','described-role','represented-by-firm','authored','reported-collaboration','chaired','donated-to','succeeded','commissioned','assessed','responds-to','testified','planned-exchange'];
+  const relationTypes=['listed-shareholder','described-role','represented-by-firm','authored','reported-collaboration','chaired','donated-to','succeeded','commissioned','assessed','responds-to','testified','planned-exchange','co-authored-with','collaborated-with','acknowledged-assistance'];
   if(data.contentModelVersion>=3) for(const r of data.relationships || []) check(relationTypes.includes(r.type), 'Invalid factual relationship type: '+r.id);
   for(const receipt of data.meta.checkReceipts || []) check(stamp(receipt.checkedAt) && string(receipt.scope) && string(receipt.mode) && string(receipt.basis) && receipt.sourceIds?.length && receipt.sourceIds.every(id=>data.sources[id]), 'Invalid check receipt');
   check(data.meta.contentUpdatedAt.slice(0,10)>=data.meta.researchCutoff, 'Research cutoff exceeds content update');
