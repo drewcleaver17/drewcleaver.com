@@ -1,11 +1,11 @@
 {
   "pageRevision": "R03",
   "updatedAt": "2026-10-11T02:38:37Z",
-  "contentStatus": "draft",
-  "implementationStatus": "owner approved for release",
-  "publicationStatus": "pending verification",
-  "publishedAt": null,
-  "evidenceUrl": null,
+  "contentStatus": "final",
+  "implementationStatus": "deployed and live verified",
+  "publicationStatus": "published",
+  "publishedAt": "2026-10-11T02:55:24Z",
+  "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38106635307",
   "baseCommit": "0b7f3bb26121d6fbb75726f66980f4f9e6068827",
   "timestampBasis": "Fixed content-finalization time, displayed in America/Chicago; publication is recorded separately only after verification.",
   "history": [
@@ -27,10 +27,12 @@
     },
     {
       "id": "R03",
-      "status": "draft",
+      "status": "published",
       "finalizedAt": "2026-10-11T02:38:37Z",
-      "publishedAt": null,
-      "evidenceUrl": null,
+      "publishedAt": "2026-10-11T02:55:24Z",
+      "evidenceUrl": "https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38106635307",
+      "publicationCommit": "d077841842b7c5483c6c0cc2a97a9aa53706a3d4",
+      "basis": "Successful Pages Deploy job and exact live HTML/assets verified; desktop rendering and targeted keyboard checks passed. Exact mobile viewport/device checks remain unverified.",
       "title": "Meet the person and inspect the work",
       "summary": "Genuine existing photograph, concise founder biography, featured DPC model and coverage question, owner-approved selected project links, and preserved seven visions."
     }

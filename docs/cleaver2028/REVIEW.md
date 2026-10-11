@@ -1,4 +1,4 @@
-# Current release: R03 approved; deployment verification pending
+# Current release: R03 published and live verified
 
 Read `R03-REVIEW.md` before making further changes. Drew explicitly approved the
 reviewed R03 copy/design, existing COTA photograph, unchanged original logo, and
@@ -13,9 +13,12 @@ fresh, documented scope-specific research, not counsel clearance. The factual
 payer line and pre-filing status are unchanged. See the R03 release addendum for
 the precise research basis and outstanding qualified-review question.
 
-The content timestamp remains fixed. Keep the draft/publication-pending label
-and null publication evidence until Pages deployment and the live route have
-actually been verified; then record the receipt and verify that deployment too.
+R03 published through PR #65 and successful Pages run 38106635307, with its Deploy
+job completed October 10, 2026 at 9:55 PM CDT. The live page/assets matched the
+tested build; desktop visual and targeted keyboard checks passed. Exact mobile
+viewport/device checks remain unverified. The receipt records publication only
+after these checks; its content-finalization timestamp remains fixed. Verify
+the receipt-only deployment as well. Full evidence is in `R03-REVIEW.md`.
 Earlier R01/R02 descriptions below are historical, including their photo/link
 state. The unapproved-build guard now refuses an ordinary build before cleanup
 rather than silently omitting a previously released route.
