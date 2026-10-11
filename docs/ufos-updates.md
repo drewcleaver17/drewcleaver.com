@@ -115,3 +115,10 @@ YouTube links are normalized across selected videos and supplementary source fie
 Run `npm test`, `npm run ufos:validate`, and `npm run build`. The production build now also tests the actual rendered UFO HTML and bundled client with jsdom. This is DOM verification, not a browser geometry or keyboard audit. Record concrete browser limitations; never relabel static rendering as a full browser check.
 
 See `docs/ufos-completion-ledger-2026-10-11.{json,md}` for all 40 handoff items, baseline dispositions, watchlist, exclusions and release verification. No source corpus or private handoff archive is published.
+
+
+### Model-3 editorial publication receipt
+
+The 112-entry edition was verified live on 2026-10-11T01:19:11Z after PR #63 merged as `a9b18255cb3a791da4cab2a9e6bc2886c8a68c72` and Pages run `38101085902` succeeded. Fresh embedded data matched the intended release exactly; all production CSS/JS assets, stable event anchors, noindex/nofollow, sitemap/navigation exclusion and analytics absence were checked. Live desktop interactions and targeted keyboard/focus checks passed at 1348×936; exact requested responsive widths and exhaustive keyboard traversal remain documented in AF-07.
+
+The receipt-only follow-up records this observed content publication through the normal PR, validation and Pages process. It preserves `contentUpdatedAt`, `lastCheckedAt`, the broad research cutoff, content digest, previous publication history, and every scheduled reporter setting/status. This human editorial deployment is not an actual scheduled reporter run.

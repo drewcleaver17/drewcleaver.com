@@ -9,7 +9,17 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-10-11-audit-release",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-10-11-audit-release",
+      "verifiedAt": "2026-10-11T01:19:11Z",
+      "revision": "a9b18255cb3a791da4cab2a9e6bc2886c8a68c72",
+      "contentDigest": "a3355caca07b29d0f051bbcde2493b515a82ae651d52f6f78cbdc7258798d217",
+      "url": "https://drewcleaver.com/ufos/",
+      "workflowRun": 38101085902,
+      "verificationScope": "Exact merged Pages run succeeded; freshly fetched embedded dataset equals the intended release, content digest and all three CSS/JS assets match, all event anchors exist, noindex/nofollow and sitemap/navigation exclusion verified, analytics initialization absent from production HTML/assets. Live browser at 1348 by 936 CSS pixels: combined filters, empty search/reset, newest/oldest/recent, restored URL state, filtered deep-link reveal, source/correction panels, related anchors, targeted keyboard disclosure and visible tab focus, year navigation and exact JSON download verified. Saved-consent analytics absence verified in the built-DOM suite. Exact 320/390/768/1440 geometry and exhaustive keyboard testing remain unverified.",
+      "researchScope": "Publication verification only; source-check timestamps and broad research cutoff are unchanged.",
+      "scheduledOperation": "Manual editorial release; existing scheduled-update configuration and status are unchanged."
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],

@@ -287,5 +287,6 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] Validate occurrence-level YouTube selection, aliases, typed references, URL compatibility and scoped-check semantics.
 - [x] Run model tests and production built-DOM checks in the normal build; preserve unrelated release gates.
 - [x] Keep unlisted/noindex/nofollow, sitemap/navigation exclusion and analytics absence (including stored consent).
-- [ ] Browser geometry at 320/390/768/1440 and full keyboard pass: local browser installation failed and cloud local-file access is prohibited. Static rendered preview and DOM tests are separately recorded, not substitutes claimed as browser results.
-- [ ] Publication receipt: record only after the exact merged Pages commit and freshly fetched live digest are verified; receipt-only follow-up uses the same PR/checks/deploy process.
+- [x] Live browser visual and interaction checks at 1348×936, including targeted keyboard disclosure/focus, passed without horizontal overflow. Exact JSON download matches the release.
+- [ ] Browser geometry at 320/390/768/1440 and exhaustive keyboard pass: local browser installation/preview access were unavailable; the live browser API has no viewport setter. Completed desktop and DOM tests do not establish these remaining checks.
+- [x] Content publication verified: PR #63, merged `a9b1825`, successful Pages `38101085902`, exact fresh live dataset/digest/assets and unlisted/analytics checks. Receipt-only follow-up uses the same PR/checks/deploy process; no scheduled-operation claim.

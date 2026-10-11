@@ -14,8 +14,35 @@
   },
   "researchScope": "Baseline research cutoff: September 19, 2026. October 10 audit and October 11 UTC editorial checks cover selected supporting passages, historical additions and the September 23/25 records releases; this is not a comprehensive later-news sweep.",
   "publication": {
-    "status": "publication in progress after renewed GitHub authorization",
-    "resumedAt": "2026-10-11T01:09:44Z",
+    "status": "verified live",
+    "verifiedAt": "2026-10-11T01:19:11Z",
+    "url": "https://drewcleaver.com/ufos/",
+    "pullRequest": 63,
+    "mergedRevision": "a9b18255cb3a791da4cab2a9e6bc2886c8a68c72",
+    "workflowRun": 38101085902,
+    "workflowResult": "success",
+    "contentDigest": "a3355caca07b29d0f051bbcde2493b515a82ae651d52f6f78cbdc7258798d217",
+    "datasetExactMatch": true,
+    "counts": {
+      "events": 112,
+      "sources": 140,
+      "entities": 184,
+      "relationships": 19
+    },
+    "verificationScope": "Exact merged Pages run succeeded; freshly fetched embedded dataset equals the intended release, content digest and all three CSS/JS assets match, all event anchors exist, noindex/nofollow and sitemap/navigation exclusion verified, analytics initialization absent from production HTML/assets. Live browser at 1348 by 936 CSS pixels: combined filters, empty search/reset, newest/oldest/recent, restored URL state, filtered deep-link reveal, source/correction panels, related anchors, targeted keyboard disclosure and visible tab focus, year navigation and exact JSON download verified. Saved-consent analytics absence verified in the built-DOM suite. Exact 320/390/768/1440 geometry and exhaustive keyboard testing remain unverified.",
+    "receipt": {
+      "edition": "2026-10-11-audit-release",
+      "verifiedAt": "2026-10-11T01:19:11Z",
+      "revision": "a9b18255cb3a791da4cab2a9e6bc2886c8a68c72",
+      "contentDigest": "a3355caca07b29d0f051bbcde2493b515a82ae651d52f6f78cbdc7258798d217",
+      "url": "https://drewcleaver.com/ufos/",
+      "workflowRun": 38101085902,
+      "verificationScope": "Exact merged Pages run succeeded; freshly fetched embedded dataset equals the intended release, content digest and all three CSS/JS assets match, all event anchors exist, noindex/nofollow and sitemap/navigation exclusion verified, analytics initialization absent from production HTML/assets. Live browser at 1348 by 936 CSS pixels: combined filters, empty search/reset, newest/oldest/recent, restored URL state, filtered deep-link reveal, source/correction panels, related anchors, targeted keyboard disclosure and visible tab focus, year navigation and exact JSON download verified. Saved-consent analytics absence verified in the built-DOM suite. Exact 320/390/768/1440 geometry and exhaustive keyboard testing remain unverified.",
+      "researchScope": "Publication verification only; source-check timestamps and broad research cutoff are unchanged.",
+      "scheduledOperation": "Manual editorial release; existing scheduled-update configuration and status are unchanged."
+    },
+    "receiptPersistence": "Recorded through a normal receipt-only follow-up PR, validation and Pages deployment; the receipt identifies the content deployment already verified, not a self-referential future commit.",
+    "scheduledUpdateStatus": "Unchanged; manual deployment does not establish scheduled operation.",
     "priorAttempt": {
       "status": "blocked before branch publication",
       "recordedAt": "2026-10-11T01:05:10Z",
@@ -37,13 +64,7 @@
         "events": 84
       },
       "continuation": "Resolve or explicitly renew the rejected GitHub write permission; upload the exact reviewed data, verify the complete tree, open the feature PR, wait for all checks, merge with expected head SHA, verify Pages/live digest, then publish a receipt through the normal follow-up process."
-    },
-    "remoteBranchPublished": false,
-    "pullRequestCreated": false,
-    "merged": false,
-    "deploymentTriggered": false,
-    "publicationReceipt": null,
-    "continuation": "Publish the verified full tree, pass PR checks, merge the expected head, verify the exact Pages commit and live dataset, then publish a truthful receipt through the normal follow-up process."
+    }
   },
   "handoff": [
     {
@@ -3937,9 +3958,9 @@
     {
       "id": "AF-07",
       "status": "deferred",
-      "finding": "Responsive browser matrix and full browser keyboard pass",
-      "implementation": "Local browser binary unavailable; official download failed. Cloud browser cannot reach localhost and its policy blocks local-file URLs. Static rendered preview and DOM interaction checks are separate evidence.",
-      "continuation": "Use an available browser with the release checkout at 320, 390, 768 and 1440 px; check keyboard/focus and responsive layout. Live browser check follows deployment if accessible."
+      "finding": "Exact responsive viewport matrix and exhaustive keyboard audit",
+      "implementation": "Live HTTPS browser interaction, targeted keyboard/focus and visual checks passed at 1348x936, without horizontal overflow. The available API exposes no viewport setter; local Chromium installation failed and local preview access was unavailable. Exact requested widths and exhaustive keyboard traversal remain unverified.",
+      "continuation": "Use a browser with viewport controls at 320, 390, 768 and 1440 CSS pixels; perform the remaining responsive geometry and exhaustive keyboard traversal checks. Do not infer them from the completed DOM or desktop checks."
     }
   ],
   "validation": {
@@ -3947,10 +3968,12 @@
     "productionBuild": "npm run build passes existing site suites and release guard; UFO built-DOM suite adds 3 interaction checks.",
     "preview": "Inspected static PDF render of production HTML/CSS after real bundled-client filtering (core/Nimitz). Static pagination and form/font rendering differ from browsers; no responsive-browser claim.",
     "domInteraction": "Combined filters, no results, reset, reverse/recent sort, URL restoration, filtered deep-link reveal, source/correction links, anchors, year ranges, full JSON export, noindex and saved-consent analytics absence.",
-    "browserLimit": "No prepublication browser geometry or full keyboard claim. Cloud browser blocks local-file preview; local executable download failed.",
+    "browserLimit": "No exact 320/390/768/1440 geometry matrix or exhaustive keyboard audit. Live HTTPS browser is available at 1348x936; preview access and local browser installation were unavailable.",
     "unlisted": "Existing noindex/nofollow, sitemap, navigation, robots and analytics checks retained. Shared layout/navigation/analytics code untouched.",
     "sourceInspection": "Documented audit inspections reused with limited scopes, actual supporting-copy passages reopened; fresh NARA, NRAO, Nature and NASA mission passages identified separately. Link health never substitutes for content verification.",
-    "unrelatedOutput": "Built the exact baseline in an isolated worktree and compared 61 non-UFO HTML/robots/sitemap/domain outputs byte-for-byte; no differences."
+    "unrelatedOutput": "Built the exact baseline in an isolated worktree and compared 61 non-UFO HTML/robots/sitemap/domain outputs byte-for-byte; no differences.",
+    "liveHTTP": "Fresh embedded data exactly matches the intended release; edition/digest, 112 event anchors, three production CSS/JS assets, noindex/nofollow, robots, sitemap and homepage/hello/about/contact navigation exclusion verified.",
+    "liveBrowser": "1348x936 CSS-pixel viewport: 11 recorded interaction checks; no horizontal overflow. Combined filters, zero results/reset, newest/oldest/recent, URL restoration, filtered deep links, source/correction/related links, year navigation, targeted keyboard and exact JSON download passed. Inspected console errors were browser-extension metadata errors, not site-source errors."
   },
   "criticalReview": [
     {
