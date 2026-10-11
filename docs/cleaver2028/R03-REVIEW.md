@@ -1,4 +1,4 @@
-# Cleaver2028 R03 — approved release; verification pending
+# Cleaver2028 R03 — published and live verified
 
 ## Release authorization — October 10, 2026, America/Chicago
 
@@ -11,9 +11,10 @@ discover. No Lab hub link or navigation/sitemap/indexing changes are authorized.
 The original draft review below is retained as historical evidence, not a
 current approval prohibition. The source and content timestamp are preserved.
 
-Current release state: approved, production verification in progress. R03 remains
-draft with publication pending and null publication evidence until the actual
-successful Pages deployment and live checks. No filing or declaration is made.
+Current release state: published and live verified. Publication evidence below
+was recorded only after the successful Pages deployment and live checks. The
+original draft/pending state is retained in git history. No filing or declaration
+is made.
 
 ### Disclosure research for this release
 
@@ -76,7 +77,47 @@ campaign R02 and the existing Lab/DPC/ProofPath noindex settings were retained.
   physical-device checks are unverified; production build success is not visual QA.
   No test emails or live inquiry submissions were made.
 
-CI, deployment and live verification evidence will be recorded only after success.
+### Verified publication receipt
+
+- Release PR: https://github.com/drewcleaver17/drewcleaver.com/pull/65
+- Reviewed source commit: 3e9016dff7faa41a52a3d27927813a7bac7830d0.
+- Merge/publication commit: d077841842b7c5483c6c0cc2a97a9aa53706a3d4.
+- GitHub CI: https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38106554868
+  passed its Node 22 install, tests and full production build.
+- Pages: https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38106635307
+  Build and Deploy succeeded. Deploy completed 2026-10-11T02:55:24Z, displayed as
+  October 10, 2026 at 9:55 PM CDT (UTC-05:00).
+- Live URL: https://drewcleaver.com/cleaver2028/ . Both slash and nonslash routes
+  returned 200 and matched the tested production page. Initial live HTML SHA-256:
+  7860a675118a0077d8a3af4d94303c2aedcddc39d292a83e059cf732c0e9820d.
+- All 17 HTTP checks returned 200 and matched tested output: both campaign paths,
+  About, Hello, Lab, DPC, ProofPath, homepage, sitemap, robots, favicon, campaign
+  CSS, original logo and all three responsive portrait derivatives. Selected
+  #model/#concept/#pilot anchors, email/contact links, pre-filing status, payer
+  line, noindex/nofollow, and discovery exclusions passed. No Lab hub link added.
+- Live Chrome rendered the introduction, DPC section, method/disclosure and
+  contact/footer at a 1363 x 936 window (1348px content width). Both images loaded,
+  the crop shows Drew and his father, the original logo retains its proportions,
+  and document scroll width equals content width: no horizontal overflow.
+- Keyboard Tab reveals the skip link with a 3px focus outline; Enter followed by
+  Tab reaches Email Drew with the same visible outline. Enter opens the native
+  status/source disclosure and Space closes it; its focused outline was visually
+  inspected. In-page work/contact navigation and the readable payer line passed.
+  The first Playwright button-role locator did not match native summary; the
+  observed text locator exercised the actual control successfully.
+- Desktop screenshot: Cleaver2028-R03-Live-Desktop.jpg, captured from the live
+  page and delivered separately. Exact 320/390/768/1440px geometry, physical
+  devices, screen readers and reduced-motion emulation remain unverified because
+  this browser API has no viewport/emulation setter. No mail was sent, forms
+  submitted or calculator/saved-worksheet values changed.
+
+This receipt changes only revision metadata and campaign release documentation.
+The approved copy/design, release settings, fixed content timestamp, seven
+visions, status and disclaimer remain unchanged. Its ordinary production build
+passed all 121 build tests and release guards with the review flag unset; the
+built HTML differs from the verified release only in its publication-status
+stamp. Its CI and subsequent deployment must also be verified; it is not a new
+content revision. The qualified legal-review question above remains open.
 
 ---
 
