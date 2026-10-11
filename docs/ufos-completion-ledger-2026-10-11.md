@@ -6,7 +6,7 @@ Content model 3: 112 events, 140 source records (including preserved versions), 
 
 Baseline research cutoff: September 19, 2026. October 10 audit and October 11 UTC editorial checks cover selected supporting passages, historical additions and the September 23/25 records releases; this is not a comprehensive later-news sweep.
 
-Publication is in progress after renewed GitHub authorization. The rejected data upload has now succeeded; PR checks, merge and live verification are still pending. A manual release does not establish scheduled operation.
+Published and verified live at 2026-10-11T01:19:11Z: PR #63, merged commit `a9b18255cb3a791da4cab2a9e6bc2886c8a68c72`, successful Pages run `38101085902`. Fresh live embedded data and production assets match the intended 112-entry edition. A manual release does not establish scheduled operation.
 
 The companion JSON includes all 84 event dispositions, all 82 original source reviews, 70 original entities, relationship/connection reviews, 10 usability items, all 17 watchlist items and 10 exclusion decisions. Source passages and copyrighted collections are not bundled.
 
@@ -59,7 +59,7 @@ The companion JSON includes all 84 event dispositions, all 82 original source re
 - **productionBuild:** npm run build passes existing site suites and release guard; UFO built-DOM suite adds 3 interaction checks.
 - **preview:** Static production HTML/CSS render inspected after real bundled-client filtering. Static font/form/pagination differences are not presented as browser fidelity.
 - **domInteraction:** Combined filters, no results, reset, reverse/recent sort, URL restoration, filtered deep-link reveal, source/correction links, anchors, year ranges, full JSON export, noindex and saved-consent analytics absence.
-- **browserLimit:** No prepublication browser geometry or full keyboard claim. Cloud browser blocks local-file preview; local executable download failed.
+- **browserLimit:** Exact 320/390/768/1440 geometry and exhaustive keyboard testing remain unverified. Live desktop checks at 1348×936 passed; the browser API has no viewport setter.
 - **unlisted:** Existing noindex/nofollow, sitemap, navigation, robots and analytics checks retained. Shared layout/navigation/analytics code untouched.
 - **sourceInspection:** Documented audit inspections reused with limited scopes, actual supporting-copy passages reopened; fresh NARA, NRAO, Nature and NASA mission passages identified separately. Link health never substitutes for content verification.
 
@@ -104,12 +104,19 @@ The companion JSON includes all 84 event dispositions, all 82 original source re
 - **AF-04 — deferred.** Original NYT and AAWSAP/AATIP contractual boundaries: Original remains inaccessible/uninspected. Existing supported chronology retained without resolving contracts from snippets. Next: Read a legitimate original and contemporaneous contract records before expanding.
 - **AF-05 — deferred.** Arnold contemporary signed record / Tesla original technical review: Bounded historical cards retained; no technical expansion from unread originals. Next: Obtain and inspect earliest original account and the FBI/Alien Property Custodian technical file.
 - **AF-06 — implemented.** No duplicate NASA May 31 meeting, no fabricated FY2025 prior error: Existing meeting retained once. FY2025 article’s 25 error attributed to article, not old card. Existing Sensor material legend retained and local scopes added.
-- **AF-07 — deferred.** Responsive browser matrix and full browser keyboard pass: Local browser binary unavailable; official download failed. Cloud browser cannot reach localhost and its policy blocks local-file URLs. Static rendered preview and DOM interaction checks are separate evidence. Next: Use an available browser with the release checkout at 320, 390, 768 and 1440 px; check keyboard/focus and responsive layout. Live browser check follows deployment if accessible.
+- **AF-07 — deferred.** Exact responsive viewport matrix and exhaustive keyboard audit: live HTTPS interaction, targeted keyboard/focus and visual checks passed at 1348×936 with no horizontal overflow. The available API has no viewport setter; local browser installation and local preview access were unavailable. Next: check 320, 390, 768 and 1440 CSS pixels and complete keyboard traversal in a browser with viewport controls.
 
 - **Unrelated output:** Baseline built in an isolated worktree; all 61 non-UFO HTML/robots/sitemap/domain outputs compared byte-for-byte with no differences.
 
-## Publication progress
+## Verified publication
 
-The first attempt stopped before branch publication when the GitHub data upload was rejected. The owner renewed GitHub authorization; the same reviewed data upload then succeeded. Current main remains the audited baseline. The prior attempt and its 84-event live observation are preserved in the companion JSON.
+- Live URL: https://drewcleaver.com/ufos/
+- Content merge: `a9b18255cb3a791da4cab2a9e6bc2886c8a68c72` (PR #63).
+- Pages: successful [run 38101085902](https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38101085902).
+- Verified at: 2026-10-11T01:19:11Z.
+- Content digest: `a3355caca07b29d0f051bbcde2493b515a82ae651d52f6f78cbdc7258798d217`.
+- Exact embedded-data equality, all event anchors, three CSS/JS assets, noindex/nofollow, sitemap/robots and site-navigation exclusions passed. No analytics initialization is present; the built-DOM suite separately verifies saved-consent behavior.
+- Live browser at 1348×936: combined filters, zero results/reset, newest/oldest/recent, URL restoration, filtered incident links, source/correction/related links, year navigation, targeted keyboard/focus and exact JSON export passed. Hero and expanded Nimitz evidence panel visually inspected. No horizontal overflow observed.
+- Exact responsive widths and exhaustive keyboard audit remain the specific AF-07 continuation. Research/source inspection limits and watchlist dispositions above remain unchanged.
 
-Next: verify and publish the exact full tree, pass PR checks, merge the expected head, observe the exact Pages commit, verify live content and record the receipt through a normal follow-up release.
+This verification receipt is persisted through a separate normal PR/checks/Pages release. It identifies the already verified content deployment; operational receipt metadata does not change the content digest, source-check timestamp, substantive-update timestamp or broad research cutoff. The initial rejected upload and subsequent authorization are retained as prior-attempt history in the JSON. Scheduled operation/status/configuration remains unchanged.
