@@ -6,11 +6,14 @@ import { validateDataset } from '../src/lib/ufos.mjs';
 
 export const datasetPath = fileURLToPath(new URL('../src/data/ufos/timeline.json', import.meta.url));
 export const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-export const contentDigest = data => digest({ sources: data.sources, events: data.events, entities: data.entities || [], relationships: data.relationships || [], changeLog: data.changeLog });
+export const contentDigest = data => digest({ sources: data.sources, events: data.events, entities: data.entities || [], relationships: data.relationships || [], changeLog: data.changeLog, ...(data.contentModelVersion >= 3 ? {contentModelVersion:data.contentModelVersion,sourceReviews:data.sourceReviews || {}} : {}) });
 const fail = text => { throw new Error(text); };
 const equal = (a,b) => JSON.stringify(a) === JSON.stringify(b);
 export function assertPermittedPaths(paths) {
   if (!paths.length || paths.some(p => p !== 'src/data/ufos/timeline.json')) fail('Automated publication is restricted to the timeline dataset.');
+}
+function appendCheckReceipts(data,checks) {
+  data.meta.checkReceipts=[...(data.meta.checkReceipts || []),...checks.map(c=>({checkedAt:c.checkedAt,sourceIds:[c.sourceId],mode:'supporting-text',scope:c.supportedStatement+' Location: '+c.location,basis:'Updater source-reading attestation; limited to this statement and location.'}))];
 }
 export function prepareUpdate(current, batch, { reviewed = false, now = new Date() } = {}) {
   if (batch?.schemaVersion !== 1 || !Array.isArray(batch.changes) || (!batch.changes.length && batch.checkOnly !== true)) fail('Malformed update envelope');
@@ -30,6 +33,7 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     const checkedAt = new Date(Math.max(...batch.sourceChecks.map(s=>Date.parse(s.checkedAt)))).toISOString();
     if (Date.parse(checkedAt) <= Date.parse(current.meta.lastCheckedAt)) return { data:current, changed:false, reason:'Source check already recorded' };
     const next=structuredClone(current); next.meta.lastCheckedAt=checkedAt;
+    appendCheckReceipts(next,batch.sourceChecks);
     const errors=validateDataset(next,now); if(errors.length) fail(errors.join('\n'));
     return { data:next, changed:true, changedIds:[], checkOnly:true };
   }
@@ -71,6 +75,12 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
       if (!Number.isFinite(Date.parse(check.checkedAt)) || Date.parse(check.checkedAt) > +now || +now - Date.parse(check.checkedAt) > 7 * 86400000) fail('Stale source check: ' + ref.sourceId);
     }
     const record = structuredClone(e);
+    if (next.contentModelVersion >= 3) {
+      record.layer ??= existing?.layer || (record.context ? 'contextual' : 'core');
+      record.occurrenceKey ??= existing?.occurrenceKey || record.id;
+      record.claimStatus ??= existing?.claimStatus || 'Documented institutional action';
+      record.documentDate ??= null; record.publicReleasedAt ??= null;
+    }
     record.addedAt = existing?.addedAt || timestamp; record.revisedAt = timestamp; record.lastVerifiedAt = timestamp;
     record.correctionHistory = existing ? [...existing.correctionHistory, { at: timestamp, reason: change.reason, previousSummary: existing.summary, previousRecordDigest: digest(existing) }] : [];
     record.reviewStatus = reviewed ? 'editor-reviewed' : 'bounded-reviewed';
@@ -81,8 +91,12 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     changedIds.push(record.id);
   }
   if (!changedIds.length) return { data: current, changed: false, reason: 'No content change' };
-  next.meta.lastCheckedAt = timestamp; next.meta.contentUpdatedAt = timestamp; next.meta.researchCutoff = timestamp.slice(0,10);
-  next.meta.edition = batch.id; next.meta.publicationReceipt = null;
+  next.meta.lastCheckedAt = timestamp; next.meta.contentUpdatedAt = timestamp;
+  // Selected checks and additions do not establish comprehensive research coverage.
+  appendCheckReceipts(next,batch.sourceChecks);
+  next.meta.edition = batch.id;
+  if(next.meta.publicationReceipt) next.meta.publicationHistory=[...(next.meta.publicationHistory || []),next.meta.publicationReceipt];
+  next.meta.publicationReceipt = null;
   next.meta.appliedBatchIds = [...(current.meta.appliedBatchIds || []), batch.id];
   next.changeLog.push({ id: batch.id, date: timestamp.slice(0,10), title: batch.title || 'Source-checked update', detail: batch.changes.map(c => c.reason).join(' '), eventIds: changedIds });
   const errors = validateDataset(next, now); if (errors.length) fail(errors.join('\n'));

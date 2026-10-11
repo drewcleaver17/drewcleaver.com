@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { filterEvents, initialState, paramsFromState, stateFromParams, validateDataset, dateBounds, formatDate, eventDateLabel } from '../src/lib/ufos.mjs';
+import { filterEvents, initialState, paramsFromState, stateFromParams, validateDataset, dateBounds, formatDate, eventDateLabel, yearsCovered, normalizeYouTubeURL } from '../src/lib/ufos.mjs';
 import { datasetPath, digest, contentDigest, prepareUpdate, publishValidatedUpdate, assertPermittedPaths } from './ufos-update.mjs';
 const data=JSON.parse(readFileSync(datasetPath,'utf8'));
 const now=new Date();
@@ -117,15 +117,68 @@ test('unattended envelopes cannot revise relationship or entity definitions',()=
   const b=batch();b.relationships=[];assert.throws(()=>prepareUpdate(base,b,{now}),/Unsupported envelope/);
   const c=batch();c.changes[0].event={...event,claimDate:{start:'1933',attribution:'Unverified',note:'Claim'}};assert.throws(()=>prepareUpdate(base,c,{now}),/Hold for review/);
 });
-test('an unchanged source check is idempotent and changes only lastCheckedAt',()=>{
+test('an unchanged source check is idempotent, records its scope, and leaves content unchanged',()=>{
   const b=batch();b.changes=[];b.checkOnly=true;
   const before=structuredClone(data);before.meta.lastCheckedAt=new Date(+now-60000).toISOString();b.baseDigest=digest(before);
   const result=prepareUpdate(before,b,{now});assert.equal(result.changed,true);
-  const expected=structuredClone(before);expected.meta.lastCheckedAt=now.toISOString();assert.deepEqual(result.data,expected);assert.equal(contentDigest(result.data),contentDigest(before));
+  const expected=structuredClone(before);expected.meta.lastCheckedAt=now.toISOString();expected.meta.checkReceipts=result.data.meta.checkReceipts;assert.deepEqual(result.data,expected);assert.equal(result.data.meta.checkReceipts.length,before.meta.checkReceipts.length+b.sourceChecks.length);assert.deepEqual(result.data.meta.checkReceipts.slice(-b.sourceChecks.length).flatMap(r=>r.sourceIds),b.sourceChecks.map(s=>s.sourceId));assert.equal(contentDigest(result.data),contentDigest(before));
   b.baseDigest=digest(result.data);assert.equal(prepareUpdate(result.data,b,{now}).changed,false);
   b.sourceChecks[0].result='unavailable';assert.throws(()=>prepareUpdate(result.data,b,{now}),/failed source/);
 });
 test('paused publishing and stale check state stop unattended changes',()=>{
   const paused=structuredClone(base);paused.meta.updateStatus='paused';const b=batch();b.baseDigest=digest(paused);assert.throws(()=>prepareUpdate(paused,b,{now}),/Publication paused/);
   const c=batch();c.baseDigest='stale';assert.throws(()=>prepareUpdate(base,c,{now}),/Stale base/);
+});
+
+test('layer and era are independent, while legacy presets and names remain compatible',()=>{
+  assert.ok(filterEvents(data,{view:'core',era:'archives'}).some(e=>e.id==='nimitz-encounter'));
+  assert.ok(!filterEvents(data,{view:'core'}).some(e=>e.id==='gateway-assessment'));
+  assert.ok(filterEvents(data,{view:'history',layer:'contextual',era:'experiments'}).some(e=>e.id==='gateway-assessment'));
+  assert.deepEqual(filterEvents(data,{view:'history',entity:'david-fravor'}).map(e=>e.id),filterEvents(data,{view:'history',entity:'David Fravor'}).map(e=>e.id));
+  const state={...initialState,view:'core',era:'archives',layer:'core',q:'Nimitz'};
+  assert.deepEqual(stateFromParams(paramsFromState(state)),state);
+  assert.ok(filterEvents(data,{view:'story',context:true}).some(e=>e.id==='nimitz-encounter'));
+});
+test('year navigation includes intersecting ranges and post-cutoff releases',()=>{
+  assert.ok(yearsCovered(data.events).includes('1975'));
+  assert.ok(filterEvents(data,{view:'history',from:'1975-01-01',to:'1975-12-31'}).some(e=>e.id==='sri-perceptual-research'));
+  assert.ok(filterEvents(data,{view:'history',from:'2026-09-20',to:'2026-12-31'}).some(e=>e.id==='aaro-workshop-records-published-2026'));
+});
+test('document and assessment dates do not imply public release; false precision is rejected',()=>{
+  for(const id of ['gateway-assessment','maison-rouge-report','air-remote-viewing-review','gofast-analysis-2025']) {
+    const e=data.events.find(e=>e.id===id);assert.ok(e.documentDate);assert.equal(e.publicReleasedAt,null);
+  }
+  const d=structuredClone(data);d.events[0].date.precision='day';assert.ok(validateDataset(d).some(e=>e.includes('False date precision')));
+  const c=structuredClone(data);c.events[0].documentDate='2004-02-30';assert.ok(validateDataset(c).some(e=>e.includes('documentDate')));
+});
+test('inspection origins and typed references validate and affect the content digest',()=>{
+  const d=structuredClone(data);d.sourceReviews.unknown={...d.sourceReviews.fravor};assert.ok(validateDataset(d).some(e=>e.includes('Unknown reviewed source')));
+  const c=structuredClone(data);c.sourceReviews.fravor.originGroup+=' edited';assert.notEqual(contentDigest(c),contentDigest(data));
+  c.relationships[0].type='proves-nhi';assert.ok(validateDataset(c).some(e=>e.includes('relationship type')));
+  const b=structuredClone(data);b.events[0].relatedLinks=[{eventId:'missing',type:'assessment',note:'Test',sourceIds:['missing']}];assert.ok(validateDataset(b).some(e=>e.includes('typed event link')));
+});
+test('YouTube forms normalize and occurrence-level limits include supplementary sources',()=>{
+  const id='2GRjgBVw9Pk';
+  for(const url of [`https://youtu.be/${id}?t=36`,`https://m.youtube.com/watch?v=${id}`,`https://www.youtube.com/embed/${id}`,`https://www.youtube-nocookie.com/embed/${id}`,`https://www.youtube.com/shorts/${id}`]) assert.equal(normalizeYouTubeURL(url).id,id);
+  assert.equal(normalizeYouTubeURL(`https://youtube.com/watch?v=${id}&list=PL123`),null);
+  const d=structuredClone(data),lazar=d.events.find(e=>e.id==='lazar-klas-interview'),other=d.events.find(e=>e.id==='nimitz-encounter');
+  other.occurrenceKey=lazar.occurrenceKey;other.selectedVideo={...lazar.selectedVideo,url:'https://youtu.be/abcdefghijk'};
+  assert.ok(validateDataset(d).some(e=>e.includes('Multiple YouTube videos for occurrence')));
+  other.occurrenceKey=other.id;assert.ok(!validateDataset(d).some(e=>e.includes('Multiple YouTube videos for occurrence')));
+  lazar.supplementaryLinks=['https://www.youtube.com/watch?v=abcdefghijk'];assert.ok(validateDataset(d).some(e=>e.includes('Unannotated supplementary')));
+});
+test('partial updates preserve broad research coverage and prior publication receipts',()=>{
+  const before=structuredClone(base);before.meta.publicationReceipt=data.meta.publicationHistory.at(-1);
+  const b=batch();b.baseDigest=digest(before);const result=prepareUpdate(before,b,{now});
+  assert.equal(result.data.meta.researchCutoff,before.meta.researchCutoff);
+  assert.equal(result.data.meta.publicationReceipt,null);
+  assert.deepEqual(result.data.meta.publicationHistory.at(-1),before.meta.publicationReceipt);
+  assert.equal(result.data.meta.updateStatus,before.meta.updateStatus);
+  const check=structuredClone(data);check.meta.lastCheckedAt=now.toISOString();check.meta.checkReceipts.push({...check.meta.checkReceipts[0],checkedAt:now.toISOString()});assert.equal(contentDigest(check),contentDigest(data));
+});
+test('legacy event envelopes receive additive model defaults without changing IDs',()=>{
+  const b=batch();b.changes[0].event=structuredClone(event);
+  for(const key of ['layer','occurrenceKey','claimStatus','documentDate','publicReleasedAt']) delete b.changes[0].event[key];
+  const result=prepareUpdate(base,b,{now}),e=result.data.events.find(e=>e.id===event.id);
+  assert.equal(e.slug,event.slug);assert.equal(e.layer,'core');assert.equal(e.occurrenceKey,event.id);assert.deepEqual(validateDataset(result.data,now),[]);
 });

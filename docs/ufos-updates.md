@@ -99,3 +99,19 @@ This owner-authorized release adds the `Religious texts & channeling` strand and
 - Estimated ancient ranges may use `date.approximate: true` with a nonempty `date.label` and `dateNotes`. Both bounds must have year precision. The label displays the qualified period; numeric bounds exist only for overlap filtering and navigation. The importer’s existing review gate is not relaxed.
 
 All fifteen additions are `context: true`, `editor-reviewed`, and `review-required`. Do not turn a channeling assertion into a confirmed encounter or add new religious-origin interpretations unattended. Grouped Ra summaries cover selected inspected passages; they are not exhaustive session analyses. Preserve the accessible source provenance and original-audio/PDF access limitations.
+
+## October 2026 human editorial release (model 3)
+
+The October 10 audit was separately authorized for a one-time implementation and normal PR/Pages release. This does not change the unattended reporter's dataset-only path boundary, cadence, threshold, permissions, activation, or configuration. Keep `ufos-update/` automated branches dataset-only; use an ordinary editorial feature branch for code/schema/entity/relationship work.
+
+Content model 3 adds independent `layer`, `occurrenceKey`, `claimStatus`, optional `documentDate`/`publicReleasedAt`, geography, observed/reported domains and scientific stage. Source inspection/access/origin records are separate in `sourceReviews`; old source objects are immutable and corrected metadata uses `supersedes` records. Dates retain precision; document and assessment dates do not establish first public release.
+
+Legacy `story`, `history`, `recent`, `context=1` and name filters remain compatible. `view=core` provides an all-era core chronology; `layer` and overlapping `era` filters are independent refinements. Search covers entry text, aliases and source titles, not full documents. JSON export retains all new fields.
+
+The existing schema-1 importer accepts old event envelopes by adding safe model defaults. It still refuses entity/relationship definitions and consequential or unsupported automatic changes. A selected check does not advance the broad research cutoff. Check-only batches append scoped receipts and update `lastCheckedAt` without changing the content digest. Content updates preserve old publication receipts in history and clear the current receipt pending verification. The model-3 digest includes source inspection/origin records; operational receipts remain outside it.
+
+YouTube links are normalized across selected videos and supplementary source fields for each occurrence. A second video or unannotated supplementary clip is rejected. The sole selected KLAS retrospective has a transcript-only inspection note. No audiovisual review is claimed.
+
+Run `npm test`, `npm run ufos:validate`, and `npm run build`. The production build now also tests the actual rendered UFO HTML and bundled client with jsdom. This is DOM verification, not a browser geometry or keyboard audit. Record concrete browser limitations; never relabel static rendering as a full browser check.
+
+See `docs/ufos-completion-ledger-2026-10-11.{json,md}` for all 40 handoff items, baseline dispositions, watchlist, exclusions and release verification. No source corpus or private handoff archive is published.

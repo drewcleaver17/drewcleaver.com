@@ -77,3 +77,11 @@ The additions deliberately mix originals, institutional histories and attributed
 | Other Gnostic collections and broader reception | Not conflated with Nag Hammadi. Berlin Codex, Pistis Sophia, Gospel of Judas, Dead Sea Scrolls and a full reception history would require separate source audits. |
 
 See `ufos-research-audit.md` for inspected passages, access limitations and the precise book/session mapping. These are editorially reviewed historical additions, not newly occurring UAP milestones. Future channeling claims or interpretive revisions require review under the existing policy.
+
+## October 2026 reconciled inventory
+
+The October 10 audited baseline was 84 events / 82 sources / 70 entities / 9 relationships at `10d15a3db2a23edb5631039744a65651e55d86df`; fresh main and live data matched it. The editorial release implements all 28 developed additions (19 core and 9 contextual), preserving the 84 stable event anchors. Final counts and per-record dispositions are maintained in the completion ledger, including retained immutable source versions.
+
+International entries include Washington, Robertson, Shag Harbour, Colorado, Tehran, GEPAN/SEPRA/GEIPAN, Operation Prato, Kaikōura, Rendlesham, Hessdalen, Brazil 1986 and UK records releases. Scientific context includes Ozma, Alcubierre, 51 Pegasi, ALH84001, technosignatures, EmDrive, BLC1 and the Mars potential biosignature. Institutional/sensor additions include AOIMSG, Biden's statement, ORNL, GOFAST, Aguadilla and the reported council. September 23/25 records milestones remain scoped to inspected letters/planning records, not all released correspondence or established partnerships.
+
+The 17 watchlist items and 10 exclusion decisions remain documented in the ledger. They are not published as established events. The existing NASA May 31 meeting remains one event. Nimitz is core history. Ra editions and Nag Hammadi retain their anchors and compact guides in contextual history.

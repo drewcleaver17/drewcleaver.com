@@ -1,14 +1,16 @@
 ---
-import { eventDateLabel, formatDate, sourceKindLabels } from '../lib/ufos.mjs';
-const { event: e, sources, events, entities = [], relationships = [] } = Astro.props;
+import { eventDateLabel, formatDate, sourceKindLabels, dateRoles, layerOf } from '../lib/ufos.mjs';
+const { event: e, sources, sourceReviews = {}, events, entities = [], relationships = [] } = Astro.props;
 const names=entities.filter(n=>e.entityIds?.includes(n.id));
 const connections=relationships.filter(r=>r.eventIds.includes(e.id));
-const dateRoles={milestone:'Milestone',incident:'Reported incident',reporting:'Reporting date',publication:'Publication',composition:'Estimated composition',manuscript:'Estimated copying',session:'Session dates · archive attribution'};
+const fieldLabels={title:'Title',summary:'Summary',significance:'Significance',established:'Established facts',limitations:'Limitations',people:'People',institutions:'Institutions',dateNotes:'Date note',publicationDate:'Publication date',disclosureDate:'Disclosure date',documentDate:'Document date',publicReleasedAt:'Public release',layer:'Layer'};
+const readable=v=>v===null || v===undefined?'Not established':Array.isArray(v)?v.join(' '):String(v);
+const precision={day:'Day precision',month:'Month known; day unverified',year:'Year precision',range:'Date range'};
 ---
-<article class="ufo-event" id={e.slug} data-event-id={e.id} tabindex="-1">
-  <div class="event-date"><time datetime={e.date.start}>{eventDateLabel(e)}</time><span>{dateRoles[e.date.role]}</span>{e.date.precision === 'month' && <span>Month known; day unverified</span>}</div>
+<article class="ufo-event" id={e.slug} data-event-id={e.id} data-layer={layerOf(e)} tabindex="-1">
+  <div class="event-date"><time datetime={e.date.start}>{eventDateLabel(e)}</time><span>{dateRoles[e.date.role]}</span><span>{precision[e.date.precision]}</span><span class="layer-label">{layerOf(e)==='core'?'Core timeline':'Contextual history'}</span></div>
   <div class="event-body">
-    <div class="event-topline"><span class="event-category">{e.categories[0]}</span><span class:list={['source-status', { secondary: e.verificationLabel !== 'Primary source read' }]}>{e.verificationLabel}</span></div>
+    <div class="event-topline"><span class="event-category">{e.categories[0]}</span><span class="source-status secondary">{e.claimStatus}</span></div>
     <h3><a href={`#${e.slug}`}>{e.title}</a></h3>
     <p class="event-summary">{e.summary}</p>
     <p class="event-significance"><span>Why it matters</span> {e.significance}</p>
@@ -16,19 +18,35 @@ const dateRoles={milestone:'Milestone',incident:'Reported incident',reporting:'R
     <details class="event-detail"><summary>Evidence, limitations & sources <span aria-hidden="true">+</span></summary>
       <div class="detail-content">
         {e.topics?.length>0 && <p class="strand-label">Historical strand: {e.topics.join(' · ')}</p>}
+        {e.geography && <p>Place / region: {e.geography}</p>}
+        {e.scientificStage && <p>Research stage: {e.scientificStage}</p>}
+        {e.observedDomain?.length>0 && <p>Observed domain: {e.observedDomain.join(' · ')}</p>}
+        {e.reportedDomain?.length>0 && <p>Reported domain: {e.reportedDomain.join(' · ')}</p>}
         {e.claimDate && <p class="claim-date"><strong>Claimed earlier date: {formatDate(e.claimDate.start)}.</strong> {e.claimDate.attribution}. {e.claimDate.note}</p>}
         <h4>What this establishes</h4>{e.established.map(text => <p>{text}</p>)}
         <h4>What it does not establish</h4>{e.limitations.map(text => <p>{text}</p>)}
         {e.openQuestions.length > 0 && <><h4>Open questions</h4>{e.openQuestions.map(text => <p>{text}</p>)}</>}
         <p class="evidence-tags">{e.evidenceTypes.map(type => <a href="#evidence-key">{type}</a>)}</p>
         <h4>Read the supporting sources</h4>
-        <ol class="source-list">{e.sources.map(ref => { const source=sources[ref.sourceId]; return <li><a href={source.url} rel="noreferrer">{source.title} ↗</a><p>{source.publisher} · {sourceKindLabels[source.kind]}{source.publicationDate && ` · ${formatDate(source.publicationDate)}`}</p>{source.author && <p>Author: {source.author}{source.custodian && source.custodian!==source.author && ` · Host / custodian: ${source.custodian}`}</p>}<p>{source.locator}. Supports: {ref.supports.join(', ')}.</p>{source.note && <p>{source.note}</p>}<p>Supporting text read · accessed {formatDate(source.accessedDate)}</p></li> })}</ol>
-        <dl class="date-ledger"><div><dt>Incident</dt><dd>{formatDate(e.incidentDate)}</dd></div><div><dt>Disclosure</dt><dd>{formatDate(e.disclosureDate)}</dd></div><div><dt>Source publication</dt><dd>{formatDate(e.publicationDate)}</dd></div><div><dt>Added / revised</dt><dd>{formatDate(e.addedAt.slice(0,10))} / {formatDate(e.revisedAt.slice(0,10))}</dd></div><div><dt>Last verified</dt><dd>{formatDate(e.lastVerifiedAt.slice(0,10))}</dd></div></dl>
+        <p class="inspection-boundary">Reading a record establishes what it says. It does not validate every claim it contains.</p>
+        <ol class="source-list">{e.sources.map(ref => { const source=sources[ref.sourceId], review=sourceReviews[ref.sourceId]; return <li>
+          <a href={source.url} rel="noreferrer">{source.title} ↗</a>
+          <p>{source.publisher} · {sourceKindLabels[source.kind]}{source.publicationDate && ` · Published ${formatDate(source.publicationDate)}`}{source.documentDate && ` · Document dated ${formatDate(source.documentDate)}`}</p>
+          {source.author && <p>Author: {source.author}{source.custodian && source.custodian!==source.author && ` · Host / custodian: ${source.custodian}`}</p>}
+          <p><strong>Supporting passage:</strong> {ref.locator || source.locator}. {ref.supports.join(' ')}</p>
+          {source.note && <p>{source.note}</p>}
+          {review ? <><p><strong>Inspection:</strong> {review.scope} · {formatDate(review.inspectedOn)}. {review.basis}</p><p><strong>Access:</strong> {review.accessStatus}</p><p><strong>Source origin:</strong> {review.originGroup}. {review.note}</p></> : <p>Supporting text read · recorded access {formatDate(source.accessedDate)}. No newer full-source review is implied.</p>}
+          {source.supersedes && <p>Corrects the metadata of an earlier preserved source record.</p>}
+        </li> })}</ol>
+        {e.selectedVideo && <aside class="selected-video"><h4>Selected video / media history</h4><a href={e.selectedVideo.url} rel="noreferrer">{e.selectedVideo.title} ↗</a><p>{e.selectedVideo.channel} · Uploaded {formatDate(e.selectedVideo.uploadDate)}{e.selectedVideo.runtime && ` · ${e.selectedVideo.runtime}`}</p><p>Useful excerpt: {e.selectedVideo.usefulTimestamp}. {e.selectedVideo.selectionReason}</p><p><strong>Inspection:</strong> {e.selectedVideo.inspectionMode}</p><p>{e.selectedVideo.scopeNote}</p></aside>}
+        <dl class="date-ledger"><div><dt>Incident</dt><dd>{formatDate(e.incidentDate)}</dd></div><div><dt>Document / assessment</dt><dd>{formatDate(e.documentDate)}</dd></div><div><dt>Disclosure</dt><dd>{formatDate(e.disclosureDate)}</dd></div><div><dt>Public release</dt><dd>{formatDate(e.publicReleasedAt)}</dd></div><div><dt>Publication / reporting</dt><dd>{formatDate(e.publicationDate)}</dd></div><div><dt>Added / revised</dt><dd>{formatDate(e.addedAt.slice(0,10))} / {formatDate(e.revisedAt.slice(0,10))}</dd></div><div><dt>Entry review recorded</dt><dd>{formatDate(e.lastVerifiedAt.slice(0,10))}</dd></div></dl>
+        {e.verificationScope && <p>{e.verificationScope}</p>}
         {e.dateNotes && <p class="date-note"><strong>Date note:</strong> {e.dateNotes}</p>}
         {names.length>0 && <p class="index-links">Explore names: {names.map(n=><a href={`?view=history&entity=${encodeURIComponent(n.id)}#timeline`}>{n.name}</a>)}</p>}
-        {connections.length>0 && <><h4>Source-scoped relationships</h4>{connections.map(r=><p><strong>{r.status}:</strong> {r.description} {r.limitations} <a href="#relationships">View relationship sources →</a></p>)}</>}
+        {connections.length>0 && <><h4>Source-scoped relationships</h4>{connections.map(r=><p><strong>{r.status} · {r.type}:</strong> {r.description} {r.limitations} <a href="#relationships">View relationship sources →</a></p>)}</>}
+        {e.relatedLinks?.map(link=><p><strong>{link.type.replaceAll('-',' ')}:</strong> <a href={`#${link.eventId}`}>{events.find(x=>x.id===link.eventId)?.title}</a>. {link.note}</p>)}
         {e.relatedEventIds.length > 0 && <p class="related-events">Related records: {e.relatedEventIds.map(id => {const related=events.find(item=>item.id===id); return <a href={`#${id}`}>{related.title}</a>;})}</p>}
-        {e.correctionHistory.length > 0 && <><h4>Revision history</h4>{e.correctionHistory.map(c=><p>{formatDate(c.at.slice(0,10))}: {c.reason} Previous summary: {c.previousSummary}</p>)}</>}
+        {e.correctionHistory.length > 0 && <><h4>Revision history</h4>{e.correctionHistory.map(c=><div class="correction-record"><p>{formatDate(c.at.slice(0,10))}: {c.reason}</p><p>Previous summary: {c.previousSummary}</p>{c.changes && <details><summary>Compare previous and revised fields</summary><dl>{Object.entries(c.changes).filter(([field])=>fieldLabels[field]).map(([field,value])=><div><dt>{fieldLabels[field]}</dt><dd><strong>Before:</strong> {readable((value as any).previous)}<br/><strong>After:</strong> {readable((value as any).value)}</dd></div>)}</dl></details>}</div>)}</>}
       </div>
     </details>
   </div>

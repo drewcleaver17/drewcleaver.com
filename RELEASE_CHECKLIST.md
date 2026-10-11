@@ -279,3 +279,13 @@ The executed Buildmine implementation prompt authorizes public discovery and ind
 - [x] Live route and image verified after successful GitHub Pages deployment
   35476176931. Both path forms return HTTP 200; infographic matches the original;
   noindex, no analytics, no homepage link and sitemap exclusion confirmed.
+
+### UFO editorial model-3 supplement
+
+- [x] Reconcile the complete manifest-verified handoff against current main and live embedded data; account for CH-001–CH-040, all existing entries and developed additions.
+- [x] Preserve immutable sources, stable anchors and prior correction/publication history; distinguish dates, claim status, inspection scope and broad cutoff.
+- [x] Validate occurrence-level YouTube selection, aliases, typed references, URL compatibility and scoped-check semantics.
+- [x] Run model tests and production built-DOM checks in the normal build; preserve unrelated release gates.
+- [x] Keep unlisted/noindex/nofollow, sitemap/navigation exclusion and analytics absence (including stored consent).
+- [ ] Browser geometry at 320/390/768/1440 and full keyboard pass: local browser installation failed and cloud local-file access is prohibited. Static rendered preview and DOM tests are separately recorded, not substitutes claimed as browser results.
+- [ ] Publication receipt: record only after the exact merged Pages commit and freshly fetched live digest are verified; receipt-only follow-up uses the same PR/checks/deploy process.

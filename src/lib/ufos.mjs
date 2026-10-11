@@ -26,7 +26,15 @@ export const eras = [
   { id: 'oversight', label: '02 / Formal scrutiny', years: '2022–2024', start: '2022', end: '2024', summary: 'Hearings, scientific studies and legislation create distinct ways to ask for answers.' },
   { id: 'records', label: '03 / The expanding records trail', years: '2025 onward', start: '2025', end: '9999', summary: 'Records collections and disclosure channels grow. More material does not automatically mean more certainty.' }
 ];
-export const initialState = { q: '', from: '', to: '', category: '', topic: '', entity: '', evidence: '', sort: 'oldest', view: 'story', context: false };
+export const dateRoles = { milestone:'Milestone', incident:'Reported incident', publication:'Public publication', reporting:'Reporting date', composition:'Estimated composition', manuscript:'Estimated copying', session:'Attributed session dates', document:'Document date', research:'Research period', investigation:'Investigation period', 'field-campaign':'Field campaign', meeting:'Meeting dates', announcement:'Public announcement', statement:'Public statement', assessment:'Assessment date', release:'Public release', 'release-response':'Records-release response' };
+export const layerOf = e => e.layer || (e.context ? 'contextual' : 'core');
+export const eraFor = e => eras.find(era => e.date.start.slice(0,4) >= era.start && e.date.start.slice(0,4) <= era.end);
+export function yearsCovered(events) {
+  const years = new Set();
+  for (const e of events) for (let year=Number(e.date.start.slice(0,4)); year<=Number((e.date.end || e.date.start).slice(0,4)); year++) years.add(String(year).padStart(4,'0'));
+  return [...years].sort();
+}
+export const initialState = { layer: '', era: '', q: '', from: '', to: '', category: '', topic: '', entity: '', evidence: '', sort: 'oldest', view: 'story', context: false };
 export const normalizeSearch = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 export function dateBounds(value) {
   if (/^\d{4}$/.test(value)) return [value + '-01-01', value + '-12-31'];
@@ -51,11 +59,14 @@ export function filterEvents(data, state) {
   const terms = normalizeSearch(s.q.trim()).split(/\s+/).filter(Boolean);
   return data.events.filter(e => {
     if (e.publicationStatus !== 'published' || (s.view === 'story' && !s.context && (e.context || e.date.start < '2017'))) return false;
+    if (s.view === 'core' && layerOf(e) !== 'core') return false;
+    if (s.layer && layerOf(e) !== s.layer) return false;
+    if (s.era) { const era=eras.find(x=>x.id===s.era); if (!era || dateBounds(e.date.end || e.date.start)[1] < era.start+'-01-01' || dateBounds(e.date.start)[0] > era.end+'-12-31') return false; }
     if (s.from && dateBounds(e.date.end || e.date.start)[1] < s.from) return false;
     if (s.to && dateBounds(e.date.start)[0] > s.to) return false;
     if (s.category && !e.categories.includes(s.category)) return false;
     if (s.topic && !(e.topics || ['UFO reports & disclosure']).includes(s.topic)) return false;
-    if (s.entity && ![...e.people, ...e.institutions, ...(e.entityIds || [])].includes(s.entity) && !data.entities?.find(n => n.id === s.entity)?.eventIds.includes(e.id)) return false;
+    if (s.entity && ![...e.people, ...e.institutions, ...(e.entityIds || [])].includes(s.entity) && !data.entities?.find(n => n.id === s.entity || n.name===s.entity || n.aliases.includes(s.entity))?.eventIds.includes(e.id)) return false;
     if (s.evidence && !e.evidenceTypes.includes(s.evidence)) return false;
     const haystack = searchText(e, data.sources, data.entities);
     return terms.every(t => haystack.includes(t));
@@ -72,7 +83,9 @@ export function stateFromParams(params) {
     else if (params.has(key)) s[key] = params.get(key).slice(0, 500);
   }
   if (!['oldest', 'newest'].includes(s.sort)) s.sort = 'oldest';
-  if (!['story', 'history', 'recent'].includes(s.view)) s.view = 'story';
+  if (!['story', 'history', 'recent', 'core'].includes(s.view)) s.view = 'story';
+  if (!['', 'core', 'contextual'].includes(s.layer)) s.layer='';
+  if (s.era && !eras.some(e=>e.id===s.era)) s.era='';
   for (const key of ['from', 'to']) if (!/^\d{4}-\d{2}-\d{2}$/.test(s[key])) s[key] = '';
   return s;
 }
@@ -92,6 +105,7 @@ export function validateDataset(data, now = new Date()) {
   };
   const stamp = v => string(v) && /^\d{4}-\d{2}-\d{2}T/.test(v) && Number.isFinite(Date.parse(v)) && Date.parse(v) <= +now;
   check(data?.schemaVersion === 1, 'Unsupported schema version');
+  check(data.contentModelVersion === undefined || [1,2,3].includes(data.contentModelVersion), 'Unsupported content model version');
   if (!Array.isArray(data?.events) || !data?.sources || !data?.meta) return [...errors, 'Missing events, sources or meta'];
   for (const key of ['lastCheckedAt', 'contentUpdatedAt']) check(stamp(data.meta[key]), 'Invalid meta.' + key);
   check(date(data.meta.researchCutoff), 'Invalid research cutoff');
@@ -118,7 +132,7 @@ export function validateDataset(data, now = new Date()) {
     check(e.date?.end === null || (date(e.date?.end) && e.date.end >= e.date.start), 'Invalid date range: ' + e.id);
     const precision = e.date?.end ? 'range' : ({4:'year',7:'month',10:'day'})[e.date?.start?.length];
     check(e.date?.precision === precision, 'False date precision: ' + e.id);
-    check(['milestone', 'incident', 'publication', 'reporting', 'composition', 'manuscript', 'session'].includes(e.date?.role), 'Invalid date role: ' + e.id);
+    check(Boolean(dateRoles[e.date?.role]), 'Invalid date role: ' + e.id);
     if (e.date?.approximate !== undefined || e.date?.label !== undefined) check(e.date.approximate === true && precision === 'range' && e.date.start.length === 4 && e.date.end?.length === 4 && string(e.date.label) && string(e.dateNotes), 'Unqualified approximate date: ' + e.id);
     for (const k of ['incidentDate', 'disclosureDate', 'publicationDate']) check(e[k] === null || date(e[k]), 'Invalid ' + k + ': ' + e.id);
     for (const k of ['addedAt', 'revisedAt', 'lastVerifiedAt']) check(stamp(e[k]), 'Invalid ' + k + ': ' + e.id);
@@ -163,5 +177,57 @@ export function validateDataset(data, now = new Date()) {
   }
   check(Array.isArray(data.changeLog), 'Missing public change log');
   for (const c of data.changeLog || []) check(string(c.id) && date(c.date) && string(c.title) && string(c.detail) && c.eventIds?.every(id => ids.has(id)), 'Invalid change-log entry');
+  // Version 3 is additive: older importer payloads remain readable; a migrated dataset is strict.
+  for (const [id, source] of Object.entries(data.sources)) {
+    for (const field of ['documentDate','publicReleasedAt']) if (source[field] !== undefined) check(source[field] === null || date(source[field]), 'Invalid source '+field+': '+id);
+    if (source.supersedes) check(source.supersedes !== id && Boolean(data.sources[source.supersedes]), 'Invalid source version: '+id);
+  }
+  for (const [id, review] of Object.entries(data.sourceReviews || {})) {
+    check(Boolean(data.sources[id]), 'Unknown reviewed source: '+id);
+    check(date(review.inspectedOn) && ['supporting-text','automatic-transcript','audiovisual','catalogue'].includes(review.mode) && ['scope','basis','originGroup','accessStatus'].every(k=>string(review[k])), 'Incomplete inspection record: '+id);
+  }
+  const occurrences = new Map();
+  for (const e of data.events) {
+    if (data.contentModelVersion >= 3) check(['core','contextual'].includes(e.layer) && string(e.occurrenceKey) && string(e.claimStatus), 'Missing layer, occurrence or claim status: '+e.id);
+    for (const field of ['documentDate','publicReleasedAt']) if (e[field] !== undefined) check(e[field] === null || date(e[field]), 'Invalid '+field+': '+e.id);
+    for (const field of ['geography','scientificStage']) if (e[field] !== undefined && e[field] !== null) check(string(e[field]), 'Invalid '+field+': '+e.id);
+    for (const field of ['observedDomain','reportedDomain']) if (e[field] !== undefined && e[field] !== null) check(Array.isArray(e[field]) && e[field].every(x=>['air','space','water','ground','radio','laboratory'].includes(x)), 'Invalid '+field+': '+e.id);
+    for (const link of e.relatedLinks || []) check(ids.has(link.eventId) && link.eventId!==e.id && string(link.type) && string(link.note) && link.sourceIds?.length && link.sourceIds.every(id=>data.sources[id]), 'Invalid typed event link: '+e.id);
+    for (const c of e.correctionHistory || []) if(c.sourceIds) check(c.sourceIds.every(id=>data.sources[id]), 'Unknown correction source: '+e.id);
+    const videoURLs = eventYouTubeURLs(e, data.sources);
+    const selected=e.selectedVideo;
+    if (selected) {
+      check(['title','channel','url','inspectionMode','usefulTimestamp','selectionReason','scopeNote'].every(k=>string(selected[k])) && date(selected.uploadDate), 'Incomplete selected video: '+e.id);
+      if(selected.runtime) check(/^\d+:\d{2}(?::\d{2})?$/.test(selected.runtime), 'Invalid video runtime: '+e.id);
+    }
+    const occurrence=e.occurrenceKey || e.id, videos=occurrences.get(occurrence) || new Set();
+    for (const url of videoURLs) {
+      const video=normalizeYouTubeURL(url);
+      check(Boolean(video), 'Invalid YouTube selection or playlist: '+e.id);
+      if(video) {videos.add(video.id);check(selected && normalizeYouTubeURL(selected.url)?.id===video.id, 'Unannotated supplementary YouTube video: '+e.id);}
+    }
+    occurrences.set(occurrence,videos);
+  }
+  for (const [occurrence,videos] of occurrences) check(videos.size<=1, 'Multiple YouTube videos for occurrence: '+occurrence);
+  const relationTypes=['listed-shareholder','described-role','represented-by-firm','authored','reported-collaboration','chaired','donated-to','succeeded','commissioned','assessed','responds-to','testified','planned-exchange'];
+  if(data.contentModelVersion>=3) for(const r of data.relationships || []) check(relationTypes.includes(r.type), 'Invalid factual relationship type: '+r.id);
+  for(const receipt of data.meta.checkReceipts || []) check(stamp(receipt.checkedAt) && string(receipt.scope) && string(receipt.mode) && string(receipt.basis) && receipt.sourceIds?.length && receipt.sourceIds.every(id=>data.sources[id]), 'Invalid check receipt');
+  check(data.meta.contentUpdatedAt.slice(0,10)>=data.meta.researchCutoff, 'Research cutoff exceeds content update');
   return errors;
+}
+
+export function normalizeYouTubeURL(value) {
+  try {
+    const u=new URL(value), host=u.hostname.toLowerCase().replace(/^www\./,'');
+    if(!['youtube.com','m.youtube.com','youtu.be','youtube-nocookie.com'].includes(host) || u.searchParams.has('list')) return null;
+    const id=host==='youtu.be' ? u.pathname.slice(1) : u.pathname==='/watch' ? u.searchParams.get('v') : /^\/(embed|shorts|live)\//.test(u.pathname) ? u.pathname.split('/')[2] : null;
+    return /^[A-Za-z0-9_-]{11}$/.test(id || '') ? {id,url:'https://www.youtube.com/watch?v='+id} : null;
+  } catch {return null;}
+}
+export function eventYouTubeURLs(event, sources) {
+  const strings=[];
+  const walk=value=>{if(typeof value==='string') strings.push(value); else if(Array.isArray(value)) value.forEach(walk); else if(value && typeof value==='object') for(const [k,v] of Object.entries(value)) if(k!=='correctionHistory') walk(v);};
+  walk(event);
+  for(const ref of event.sources || []) if(sources[ref.sourceId]) walk(sources[ref.sourceId]);
+  return strings.flatMap(s=>s.match(/https?:\/\/(?:www\.|m\.)?(?:youtube(?:-nocookie)?\.com|youtu\.be)\/[^\s<>"']+/g) || []);
 }
