@@ -19,6 +19,7 @@ function init() {
   const cards = new Map(all.map(e => [e.id, document.getElementById(e.id)]));
   const eraFor = e => eras.find(era => e.date.start.slice(0, 4) >= era.start && e.date.start.slice(0, 4) <= era.end);
   const eraList = e => document.querySelector('[data-era="' + eraFor(e).id + '"] .era-events');
+  const reveal=document.getElementById('reveal-linked');
   const control = key => form.elements.namedItem(key);
   let state = stateFromParams(new URLSearchParams(location.search));
   let timer;
@@ -29,7 +30,7 @@ function init() {
       else { el.value = state[key]; if (el.tagName === 'SELECT' && !el.value) { state[key] = initialState[key]; el.value = state[key]; } }
     }
     const year = state.from.slice(0, 4);
-    document.getElementById('year-shortcut').value = state.from === year + '-01-01' && (state.to === year + '-12-31' || state.to === data.meta.researchCutoff) ? year : '';
+    document.getElementById('year-shortcut').value = state.from === year + '-01-01' && (state.to === year + '-12-31') ? year : '';
     control('sort').disabled = state.view === 'recent';
   };
   const writeURL = mode => {
@@ -39,22 +40,22 @@ function init() {
   };
   function render(mode) {
     syncControls();
-    const filtered = ['q','from','to','category','topic','entity','evidence'].some(k => state[k]);
+    const filtered = ['q','from','to','category','topic','entity','evidence','layer','era'].some(k => state[k]);
     const structured = !filtered && state.sort === 'oldest' && state.view !== 'recent';
     const results = filterEvents(data, state);
     // Return every existing server-rendered node to its home before changing views.
-    for (const e of all) { const card = cards.get(e.id); (e.context ? contextList : eraList(e)).append(card); card.hidden = false; }
+    for (const e of all) { const card = cards.get(e.id); (e.context ? contextList : eraList(e)).append(card); card.hidden = true; }
     flat.replaceChildren();
     story.hidden = !structured; context.hidden = true; flat.hidden = structured;
     if (structured) {
-      for (const e of results) eraList(e).append(cards.get(e.id));
-      for (const era of document.querySelectorAll('.timeline-era')) era.hidden = !era.querySelector('.era-events').children.length;
-    } else for (const e of results) flat.append(cards.get(e.id));
+      for (const e of results) {cards.get(e.id).hidden=false;eraList(e).append(cards.get(e.id));}
+      for (const era of document.querySelectorAll('.timeline-era')) era.hidden = !era.querySelector('.era-events .ufo-event:not([hidden])');
+    } else for (const e of results) {cards.get(e.id).hidden=false;flat.append(cards.get(e.id));}
     const total = filterEvents(data, { view: state.view, context: state.context }).length;
-    resultCount.textContent = results.length + ' of ' + total + ' entries' + (state.view === 'story' && !state.context ? ' · modern disclosure' : state.view === 'recent' ? ' · ordered by site revision' : ' · full history');
+    resultCount.textContent = results.length + ' of ' + total + ' entries' + (state.view === 'story' && !state.context ? ' · modern disclosure' : state.view === 'recent' ? ' · ordered by site revision' : state.view === 'core' ? ' · all-era core timeline' : ' · full history');
     document.getElementById('scope-note').textContent = state.view === 'story' && !state.context
-      ? 'Modern disclosure starts in December 2017. Choose full history to explore earlier investigations and the wider institutional context.'
-      : state.view === 'recent' ? 'Historical additions and corrections appear here by the date this site changed, while each entry keeps its historical date.'
+      ? 'Modern disclosure starts in December 2017. Core timeline includes earlier UFO cases; full history also includes contextual strands.'
+      : state.view === 'core' ? 'Core UFO records and investigations across all eras. Contextual history is available in full history; a historical date does not make a case contextual.' : state.view === 'recent' ? 'Historical additions and corrections appear here by the date this site changed, while each entry keeps its historical date.'
       : 'Selected historical context across distinct strands. Nearby dates, shared personnel and documented relationships do not by themselves establish a common cause.';
     for (const link of document.querySelectorAll('[data-view]')) {
       const selected = link.dataset.view === (state.context && state.view === 'story' ? 'history' : state.view);
@@ -66,7 +67,7 @@ function init() {
     warning.hidden = !(state.from && state.to && state.from > state.to);
     warning.textContent = warning.hidden ? '' : 'The start date is after the end date. Adjust the range to see results.';
     chips.replaceChildren();
-    const labels = { q:'Search', from:'From', to:'Through', category:'Category', topic:'Strand', entity:'Name / program', evidence:'Evidence', context:'Earlier context' };
+    const labels = { q:'Search', from:'From', to:'Through', category:'Category', topic:'Strand', entity:'Name / program', evidence:'Evidence', layer:'Layer', era:'Era', context:'Earlier context' };
     for (const [key,label] of Object.entries(labels)) if (state[key]) {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'filter-chip';
       const value = key === 'entity' ? data.entities.find(n=>n.id===state[key])?.name || state[key] : state[key];
@@ -74,6 +75,7 @@ function init() {
       button.textContent = text + ' ×'; button.setAttribute('aria-label','Remove ' + text);
       button.addEventListener('click',()=>{state[key]=initialState[key];render('push');(key==='context'?control('view'):control(key)).focus();}); chips.append(button);
     }
+    reveal.hidden=true;
     writeURL(mode);
   }
   function reset(mode='push') { clearTimeout(timer); state={...initialState}; render(mode); }
@@ -83,8 +85,8 @@ function init() {
       const e=all.find(item=>item.id===id);
       if (!filterEvents(data,state).some(item=>item.id===id)) {
         // Explicit shared filters win on initial load. An intentional in-page link can change scope.
-        if (location.search && !focus) {status.textContent='The linked entry is outside the current filters. Clear filters or select full history to see it.';return;}
-        state={...initialState,view:e.context?'history':'story'};render('replace');
+        if (location.search && !focus) {status.textContent='The linked entry is outside the current filters. Reveal it in full history, or keep these filters.';reveal.hidden=false;return;}
+        state={...initialState,view:'history'};render('replace');
       }
       const card=cards.get(id);card.querySelector('.event-detail').open=true;
       if (focus) card.focus({preventScroll:true});
@@ -96,12 +98,13 @@ function init() {
       if (target) { if(target.tagName==='DETAILS')target.open=true; for(let node=target.parentElement;node;node=node.parentElement)if(node.tagName==='DETAILS')node.open=true; }
     }
   }
+  reveal.addEventListener('click',()=>{state={...initialState,view:'history'};render('push');showHash(true);status.textContent='Full history opened for the linked entry.';});
   form.addEventListener('submit',e=>{e.preventDefault();clearTimeout(timer);render('push');});
   form.addEventListener('reset',e=>{e.preventDefault();reset();});
   form.addEventListener('input',e=>{if(e.target.name!=='q')return;clearTimeout(timer);state.q=e.target.value;timer=setTimeout(()=>render('replace'),150);});
   form.addEventListener('change',e=>{
     clearTimeout(timer);
-    if(e.target.id==='year-shortcut') {const year=e.target.value;state.from=year?year+'-01-01':'';state.to=year?(year===data.meta.researchCutoff.slice(0,4)?data.meta.researchCutoff:year+'-12-31'):'';}
+    if(e.target.id==='year-shortcut') {const year=e.target.value;state.from=year?year+'-01-01':'';state.to=year?year+'-12-31':'';}
     else if(e.target.name in initialState) {state[e.target.name]=e.target.type==='checkbox'?e.target.checked:e.target.value;if(e.target.name==='view')state.context=false;}
     render('push');
   });
@@ -121,7 +124,7 @@ function init() {
   const download=document.getElementById('download-data');download.hidden=false;
   download.addEventListener('click',()=>{
     const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'});
-    const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='ufos-timeline-'+data.meta.researchCutoff+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='ufos-timeline-'+data.meta.edition+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   });
   render();form.hidden=false;showHash();
 }
