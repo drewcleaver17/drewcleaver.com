@@ -60,11 +60,14 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     if (collision) fail('Possible duplicate milestone: review instead of adding');
     if (change.op === 'revise' && (e.id !== existing.id || e.slug !== existing.slug)) fail('Stable IDs cannot change');
     if (!reviewed) {
+      if (e.date?.precision==='age' || e.date?.start?.startsWith('-')) fail('Hold for review: archaeological ages and BCE chronology');
+      for(const field of ['readingPath','supportingFor','contextLinks']) if(existing && e[field]!==undefined && !equal(existing[field],e[field])) fail('Hold for review: editorial reading path or connections');
+      if(!existing && (e.contextLinks?.length || e.supportingFor?.length)) fail('Hold for review: new editorial connections');
       if (e.claimDate) fail('Hold for review: retrospective allegation provenance');
       if (existing && !equal(existing.entityIds || [],e.entityIds || [])) fail('Hold for review: changes to indexed relationships');
       if (!existing && (e.entityIds || []).some(id => !current.entities?.some(n => n.id === id))) fail('Hold for review: new entity requires editorial sourcing');
       if (e.automationClass !== 'institutional' || !['editor-reviewed','bounded-reviewed'].includes(e.reviewStatus)) fail('Hold for review: not a bounded institutional update');
-      if (!e.sources?.length || e.sources.some(s => next.sources[s.sourceId]?.kind !== 'primary')) fail('Hold for review: automatic entries require inspected primary sources');
+      if (!e.sources?.length || e.sources.some(s => next.sources[s.sourceId]?.kind !== 'primary' || next.sources[s.sourceId]?.verification !== 'supporting-text-read')) fail('Hold for review: automatic entries require inspected primary sources');
       if (e.evidenceTypes?.some(t => ['Firsthand account','Secondhand allegation','Sensor material','Original reporting','Reporting inspected','Attributed claim','Organizational account'].includes(t))) fail('Hold for review: testimony, sensor claims or reporting-only support');
       if (e.categories?.includes('Legislation and executive actions')) fail('Hold legal and executive scope interpretations for editorial review');
       if (!batch.riskReview || batch.riskReview.consequentialAllegation !== false || batch.riskReview.uncertainInterpretation !== false || batch.riskReview.physicalProofClaim !== false) fail('Hold for review: explicit risk review required');
@@ -80,6 +83,10 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
       record.occurrenceKey ??= existing?.occurrenceKey || record.id;
       record.claimStatus ??= existing?.claimStatus || 'Documented institutional action';
       record.documentDate ??= null; record.publicReleasedAt ??= null;
+    }
+    if (next.contentModelVersion >= 4) {
+      record.readingPath ??= existing?.readingPath || 'main';
+      for(const field of ['supportingFor','contextLinks']) if(existing?.[field] && record[field]===undefined) record[field]=structuredClone(existing[field]);
     }
     record.addedAt = existing?.addedAt || timestamp; record.revisedAt = timestamp; record.lastVerifiedAt = timestamp;
     record.correctionHistory = existing ? [...existing.correctionHistory, { at: timestamp, reason: change.reason, previousSummary: existing.summary, previousRecordDigest: digest(existing) }] : [];

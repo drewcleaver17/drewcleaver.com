@@ -1,3 +1,15 @@
+# Landmark-history edition — October 11, 2026
+
+The current editorial revision has **139 main reading milestones and 176 retained event records**: 67 core / 109 contextual, with 37 supporting records. Reading prominence, evidence layer and era are separate dimensions. All 112 prior records retain their IDs and anchors; 64 dated contributions and encounters are added. The former 84-event audit baseline is historical, not the current inventory.
+
+The dataset contains 256 source records, 100 featured people, 251 canonical people within 358 total entities, 34 sourced relationships and one selected YouTube video. Counts are derived from the dataset; they are not an importance ranking or an enforced quota.
+
+The default reading path now begins with African archaeological evidence, then moves through ideas, observation, mathematical and experimental science, human capability, encounters and the institutional record. Phoenix Lights distinguishes earlier moving formations from the later flare display. Socorro, Westall, JAL 1628, the Belgian wave and Ariel School remain qualified historical records. Named collaborations connect Leavitt and later distance work, the Curies and Bémont, Meitner and Frisch, the DNA papers, radio astronomy and other dated contributions.
+
+See the [revision ledger](ufos-landmark-ledger-2026-10-11.md) and [complete decisions](ufos-landmark-ledger-2026-10-11.json) for all 112 existing-event decisions, 65 developed candidates, original audit findings, sources, people, relationships and remaining research tasks.
+
+## Earlier audit-release inventory — retained for provenance
+
 # Historical expansion — editorial inventory
 
 Opened September 19, 2026 before dataset editing. This is a research and inclusion ledger, not evidence that a requested subject has a UFO connection. Final dispositions and inspected citations are recorded below as research proceeds. Existing 2017+ records and stable links remain intact.

@@ -3,17 +3,21 @@ import { eventDateLabel, formatDate, sourceKindLabels, dateRoles, layerOf } from
 const { event: e, sources, sourceReviews = {}, events, entities = [], relationships = [] } = Astro.props;
 const names=entities.filter(n=>e.entityIds?.includes(n.id));
 const connections=relationships.filter(r=>r.eventIds.includes(e.id));
-const fieldLabels={title:'Title',summary:'Summary',significance:'Significance',established:'Established facts',limitations:'Limitations',people:'People',institutions:'Institutions',dateNotes:'Date note',publicationDate:'Publication date',disclosureDate:'Disclosure date',documentDate:'Document date',publicReleasedAt:'Public release',layer:'Layer'};
+const fieldLabels={title:'Title',summary:'Summary',significance:'Significance',established:'Established facts',limitations:'Limitations',people:'People',institutions:'Institutions',dateNotes:'Date note',publicationDate:'Publication date',disclosureDate:'Disclosure date',documentDate:'Document date',publicReleasedAt:'Public release',layer:'Layer',readingPath:'Reading prominence'};
 const readable=v=>v===null || v===undefined?'Not established':Array.isArray(v)?v.join(' '):String(v);
-const precision={day:'Day precision',month:'Month known; day unverified',year:'Year precision',range:'Date range'};
+const precision={day:'Day precision',month:'Month known; day unverified',year:'Year precision',range:'Date range',age:'Age estimate; see dating note'};
 ---
 <article class="ufo-event" id={e.slug} data-event-id={e.id} data-layer={layerOf(e)} tabindex="-1">
-  <div class="event-date"><time datetime={e.date.start}>{eventDateLabel(e)}</time><span>{dateRoles[e.date.role]}</span><span>{precision[e.date.precision]}</span><span class="layer-label">{layerOf(e)==='core'?'Core timeline':'Contextual history'}</span></div>
+  <div class="event-date"><time datetime={e.date.approximate || e.date.start?.startsWith('-') ? undefined : e.date.start || undefined}>{eventDateLabel(e)}</time><span>{dateRoles[e.date.role]}</span><span>{e.date.approximate ? 'Approximate age / period' : precision[e.date.precision]}</span><span class="layer-label">{layerOf(e)==='core'?'Core UFO record':'Contextual history'}</span></div>
   <div class="event-body">
     <div class="event-topline"><span class="event-category">{e.categories[0]}</span><span class="source-status secondary">{e.claimStatus}</span></div>
     <h3><a href={`#${e.slug}`}>{e.title}</a></h3>
     <p class="event-summary">{e.summary}</p>
     <p class="event-significance"><span>Why it matters</span> {e.significance}</p>
+    {names.some(n=>n.type==='person') && <p class="contributor-links">People in this record: {names.filter(n=>n.type==='person').map(n=><a href={`#entity-${n.id}`}>{n.name}</a>)}</p>}
+    {e.contextLinks?.length>0 && <div class="narrative-links"><span>Read alongside · editorial context</span>{e.contextLinks.map(link=><p><a href={`#${link.eventId}`}>{events.find(x=>x.id===link.eventId)?.title}</a> — {link.note}</p>)}</div>}
+    {e.relatedLinks?.length>0 && <div class="narrative-links"><span>Source-supported connections</span>{e.relatedLinks.map(link=><p><strong>{link.type.replaceAll('-',' ')}:</strong> <a href={`#${link.eventId}`}>{events.find(x=>x.id===link.eventId)?.title}</a>. {link.note} {link.sourceIds.map(id=><a href={sources[id].url} rel="noreferrer">Source ↗</a>)}</p>)}</div>}
+    {e.supportingFor?.length>0 && <p class="related-events">Supporting record for: {e.supportingFor.map(id=><a href={`#${id}`}>{events.find(x=>x.id===id)?.title}</a>)}</p>}
     <div class="event-tools"><a href={`#${e.slug}`} class="permalink" aria-label={`Direct link: ${e.title}`}>Link ↗</a><button type="button" data-copy={e.id} hidden>Copy link</button><span class="recent-label" hidden>Added {formatDate(e.addedAt.slice(0,10))} · Revised {formatDate(e.revisedAt.slice(0,10))}</span></div>
     <details class="event-detail"><summary>Evidence, limitations & sources <span aria-hidden="true">+</span></summary>
       <div class="detail-content">
@@ -39,12 +43,14 @@ const precision={day:'Day precision',month:'Month known; day unverified',year:'Y
           {source.supersedes && <p>Corrects the metadata of an earlier preserved source record.</p>}
         </li> })}</ol>
         {e.selectedVideo && <aside class="selected-video"><h4>Selected video / media history</h4><a href={e.selectedVideo.url} rel="noreferrer">{e.selectedVideo.title} ↗</a><p>{e.selectedVideo.channel} · Uploaded {formatDate(e.selectedVideo.uploadDate)}{e.selectedVideo.runtime && ` · ${e.selectedVideo.runtime}`}</p><p>Useful excerpt: {e.selectedVideo.usefulTimestamp}. {e.selectedVideo.selectionReason}</p><p><strong>Inspection:</strong> {e.selectedVideo.inspectionMode}</p><p>{e.selectedVideo.scopeNote}</p></aside>}
+        {e.mediaHistory && <aside class="selected-video"><h4>Documentary / cultural history</h4><p>{e.mediaHistory.title} · {formatDate(e.mediaHistory.date)}</p><p>{e.mediaHistory.edition}</p><p>{e.mediaHistory.inspection}</p></aside>}
         <dl class="date-ledger"><div><dt>Incident</dt><dd>{formatDate(e.incidentDate)}</dd></div><div><dt>Document / assessment</dt><dd>{formatDate(e.documentDate)}</dd></div><div><dt>Disclosure</dt><dd>{formatDate(e.disclosureDate)}</dd></div><div><dt>Public release</dt><dd>{formatDate(e.publicReleasedAt)}</dd></div><div><dt>Publication / reporting</dt><dd>{formatDate(e.publicationDate)}</dd></div><div><dt>Added / revised</dt><dd>{formatDate(e.addedAt.slice(0,10))} / {formatDate(e.revisedAt.slice(0,10))}</dd></div><div><dt>Entry review recorded</dt><dd>{formatDate(e.lastVerifiedAt.slice(0,10))}</dd></div></dl>
         {e.verificationScope && <p>{e.verificationScope}</p>}
+        {e.checkReceipt && <aside class="scoped-check"><h4>Selected correction check · {formatDate(e.checkReceipt.checkedOn)}</h4><p>{e.checkReceipt.finding}</p><p>{e.checkReceipt.limits}</p>{e.checkReceipt.unresolvedCheck && <p>Open check: {e.checkReceipt.unresolvedCheck}</p>}</aside>}
+        {e.date.age && <p class="date-note"><strong>Age convention:</strong> {e.date.age.convention} Estimate: {e.date.age.estimate.toLocaleString('en-US')} ± {e.date.age.uncertainty.toLocaleString('en-US')} years. {e.date.age.uncertaintyConvention}. Navigation envelope: {e.date.age.younger.toLocaleString('en-US')}–{e.date.age.older.toLocaleString('en-US')} years; {e.date.age.confidence}.</p>}
         {e.dateNotes && <p class="date-note"><strong>Date note:</strong> {e.dateNotes}</p>}
         {names.length>0 && <p class="index-links">Explore names: {names.map(n=><a href={`?view=history&entity=${encodeURIComponent(n.id)}#timeline`}>{n.name}</a>)}</p>}
         {connections.length>0 && <><h4>Source-scoped relationships</h4>{connections.map(r=><p><strong>{r.status} · {r.type}:</strong> {r.description} {r.limitations} <a href="#relationships">View relationship sources →</a></p>)}</>}
-        {e.relatedLinks?.map(link=><p><strong>{link.type.replaceAll('-',' ')}:</strong> <a href={`#${link.eventId}`}>{events.find(x=>x.id===link.eventId)?.title}</a>. {link.note}</p>)}
         {e.relatedEventIds.length > 0 && <p class="related-events">Related records: {e.relatedEventIds.map(id => {const related=events.find(item=>item.id===id); return <a href={`#${id}`}>{related.title}</a>;})}</p>}
         {e.correctionHistory.length > 0 && <><h4>Revision history</h4>{e.correctionHistory.map(c=><div class="correction-record"><p>{formatDate(c.at.slice(0,10))}: {c.reason}</p><p>Previous summary: {c.previousSummary}</p>{c.changes && <details><summary>Compare previous and revised fields</summary><dl>{Object.entries(c.changes).filter(([field])=>fieldLabels[field]).map(([field,value])=><div><dt>{fieldLabels[field]}</dt><dd><strong>Before:</strong> {readable((value as any).previous)}<br/><strong>After:</strong> {readable((value as any).value)}</dd></div>)}</dl></details>}</div>)}</>}
       </div>

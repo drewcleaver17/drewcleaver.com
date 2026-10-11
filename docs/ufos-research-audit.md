@@ -1,3 +1,17 @@
+# Landmark-history source review — October 11, 2026
+
+This revision adds 64 supported milestones and 116 source records while preserving all 140 prior source objects and all 31 pre-existing correction-history records. The [complete revision ledger](ufos-landmark-ledger-2026-10-11.json) reconciles CH-001–CH-040, all 28 prior additions, 17 watchlist items, 10 exclusions and the other actionable audit categories. The original bundle’s five manifest entries were verified by size and SHA-256 before use.
+
+The comprehensive research cutoff stays **September 19, 2026**. New checks on October 11 cover specified historical-science and encounter passages, contributor roles, selected later assessments and correction-status records. Reused prior inspection is labelled as such. Reading a primary record is separate from accepting its claims; metadata, abridged reprints, translations, custodian descriptions and partial inspections are explicit.
+
+Phoenix uses original 1997/1998 reporting, the preliminary NUFORC compilation, a later attributed aircraft/flare assessment, a producer’s documentary history and an abstract-only 2026 questionnaire record. The early moving formations and later flare display are not given a universal verdict. The film’s 2005 premiere and expanded 2017 edition are separate from the 1997 incident; neither film nor transcript was inspected, and no video was selected.
+
+Archaeological ages retain reported uncertainty. Their publication years anchor navigation only, with no invented BP-1950 or exact BCE date. Ancient/philosophical texts record arguments and practices, not modern experimental confirmation. Nuclear attacks and failed or corrected interpretations keep consequence separate from endorsement.
+
+Specific open tasks remain: COGITATE publisher update status, the CRISPR revised supplement and publisher correction record, a precise Hollanda biography behind a currently restricted archive, the full Cocconi–Morrison mathematical original, the original audit’s residual evidence tasks, and the full 2026 Phoenix questionnaire. These holds limit those expansions rather than erase supported, bounded entries. The one KLAS Lazar selection retains the prior automatic-transcript scope; no audiovisual viewing is claimed.
+
+## Earlier audit and release findings — retained for provenance
+
 # UFO timeline — initial editorial audit
 
 Research cutoff: September 19, 2026. This file is an editorial audit, not a transcript or an additional evidence source. The dataset links inspected supporting passages, identifies publication precision and distinguishes originals from reporting.
