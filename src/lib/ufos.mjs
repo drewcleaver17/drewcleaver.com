@@ -1,3 +1,4 @@
+import { institutionMilestone, institutionDomains, institutionTypes, uapStatusLabels } from './ufo-institutions.mjs';
 export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history'];
 export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling', 'Human origins & evolution', 'Mind & philosophy'];
 export const sourceKindLabels = { primary: 'Primary record', 'archival-history': 'Institutional or archival history', 'participant-account': 'Participant / organizational account', 'primary-mirror': 'Copy / translation of a primary record', scholarship: 'Scholarly analysis / reference', reprint: 'Reproduced announcement', 'original-reporting': 'Original reporting', reporting: 'Reporting' };
@@ -27,7 +28,7 @@ export const eras = [
   { id: 'oversight', label: '02 / Formal scrutiny', years: '2022–2024', start: '2022', end: '2024', summary: 'Hearings, scientific studies and legislation create distinct ways to ask for answers.' },
   { id: 'records', label: '03 / The expanding records trail', years: '2025 onward', start: '2025', end: '9999', summary: 'Records collections and disclosure channels grow. More material does not automatically mean more certainty.' }
 ];
-export const dateRoles = { milestone:'Milestone', incident:'Reported incident', publication:'Public publication', reporting:'Reporting date', composition:'Estimated composition', manuscript:'Estimated copying', session:'Attributed session dates', document:'Document date', research:'Research period', experiment:'Experiment', investigation:'Investigation period', 'field-campaign':'Field campaign', meeting:'Meeting dates', announcement:'Public announcement', statement:'Public statement', assessment:'Assessment date', release:'Public release', 'release-response':'Records-release response', 'evidence-age':'Estimated age of evidence', 'patent-grant':'Patent grant', demonstration:'Demonstration', submission:'Manuscript submission', presentation:'Presentation', foundation:'Institution founded', 'reported-wave-onset':'Reported wave begins', launch:'Launch', flight:'Flight', observation:'Observation', landing:'Landing' };
+export const dateRoles = { formation:'Formation', authorization:'Authorization', 'operational-start':'Operations begin', rename:'Name changes', transfer:'Responsibility transfers', closure:'Closure', 'public-acknowledgment':'Public acknowledgment', declassification:'Declassification', 'public-reference':'Public reference', designation:'Designation', milestone:'Milestone', incident:'Reported incident', publication:'Public publication', reporting:'Reporting date', composition:'Estimated composition', manuscript:'Estimated copying', session:'Attributed session dates', document:'Document date', research:'Research period', experiment:'Experiment', investigation:'Investigation period', 'field-campaign':'Field campaign', meeting:'Meeting dates', announcement:'Public announcement', statement:'Public statement', assessment:'Assessment date', release:'Public release', 'release-response':'Records-release response', 'evidence-age':'Estimated age of evidence', 'patent-grant':'Patent grant', demonstration:'Demonstration', submission:'Manuscript submission', presentation:'Presentation', foundation:'Institution founded', 'reported-wave-onset':'Reported wave begins', launch:'Launch', flight:'Flight', observation:'Observation', landing:'Landing' };
 export const layerOf = e => e.layer || (e.context ? 'contextual' : 'core');
 export const readingPathOf = e => e.readingPath || 'main';
 export const calendarYear = value => Number(value?.match(/^(-?\d{4,})(?:-|$)/)?.[1]);
@@ -72,7 +73,7 @@ export function formatDate(value) {
 export const eventDateLabel = e => e.date.approximate ? e.date.label : formatDate(e.date.start) + (e.date.end ? ' – ' + formatDate(e.date.end) : '');
 export function searchText(e, sources, entities = []) {
   const names = entities.filter(entity => e.entityIds?.includes(entity.id) || entity.eventIds.includes(e.id));
-  return normalizeSearch([e.title, e.summary, e.significance, ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, ...(n.legacySearchLabels || []), n.description]), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
+  return normalizeSearch([e.title, e.summary, e.significance, ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, ...(n.legacySearchLabels || []), n.description,n.institutionalProfile?.acronym || '']), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
 }
 export function filterEvents(data, state) {
   const s = { ...initialState, ...state };
@@ -80,6 +81,7 @@ export function filterEvents(data, state) {
   return data.events.filter(e => {
     if (e.publicationStatus !== 'published' || (s.view === 'story' && !s.context && (e.context || eventBounds(e)[0] < calendarCoordinate('2017')))) return false;
     if (s.view === 'journey' && !s.context && readingPathOf(e) !== 'main') return false;
+    if (s.view === 'institutions' && !institutionMilestone(data,e)) return false;
     if (s.view === 'core' && layerOf(e) !== 'core') return false;
     if (s.layer && layerOf(e) !== s.layer) return false;
     if (s.era) { const era=eras.find(x=>x.id===s.era); if (!era || eventBounds(e)[1] < calendarCoordinate(era.start) || eventBounds(e)[0] > calendarCoordinate(era.end,true)) return false; }
@@ -89,6 +91,7 @@ export function filterEvents(data, state) {
     if (s.topic && !(e.topics || ['UFO reports & disclosure']).includes(s.topic)) return false;
     if (s.entity && ![...e.people, ...e.institutions, ...(e.entityIds || [])].includes(s.entity) && !data.entities?.find(n => n.id === s.entity || n.name===s.entity || n.aliases.includes(s.entity) || n.legacySearchLabels?.includes(s.entity))?.eventIds.includes(e.id)) return false;
     if (s.evidence && !e.evidenceTypes.includes(s.evidence)) return false;
+    if (!terms.length) return true;
     const haystack = searchText(e, data.sources, data.entities);
     return terms.every(t => haystack.includes(t));
   }).sort((a, b) => {
@@ -104,7 +107,7 @@ export function stateFromParams(params) {
     else if (params.has(key)) s[key] = params.get(key).slice(0, 500);
   }
   if (!['oldest', 'newest'].includes(s.sort)) s.sort = 'oldest';
-  if (!['journey', 'story', 'history', 'recent', 'core'].includes(s.view)) s.view = 'journey';
+  if (!['journey', 'story', 'history', 'recent', 'core', 'institutions'].includes(s.view)) s.view = 'journey';
   if (!['', 'core', 'contextual'].includes(s.layer)) s.layer='';
   if (s.era && !eras.some(e=>e.id===s.era)) s.era='';
   for (const key of ['from', 'to']) if (!/^\d{4}-\d{2}-\d{2}$/.test(s[key])) s[key] = '';
@@ -127,7 +130,7 @@ export function validateDataset(data, now = new Date()) {
   };
   const stamp = v => string(v) && /^\d{4}-\d{2}-\d{2}T/.test(v) && Number.isFinite(Date.parse(v)) && Date.parse(v) <= +now;
   check(data?.schemaVersion === 1, 'Unsupported schema version');
-  check(data.contentModelVersion === undefined || [1,2,3,4].includes(data.contentModelVersion), 'Unsupported content model version');
+  check(data.contentModelVersion === undefined || [1,2,3,4,5].includes(data.contentModelVersion), 'Unsupported content model version');
   if (!Array.isArray(data?.events) || !data?.sources || !data?.meta) return [...errors, 'Missing events, sources or meta'];
   for (const key of ['lastCheckedAt', 'contentUpdatedAt']) check(stamp(data.meta[key]), 'Invalid meta.' + key);
   check(date(data.meta.researchCutoff), 'Invalid research cutoff');
@@ -184,19 +187,34 @@ export function validateDataset(data, now = new Date()) {
   for (const e of data.events) for (const id of e.relatedEventIds || []) check(ids.has(id) && id !== e.id, 'Unknown/self related event: ' + id);
   if(data.contentModelVersion>=4) for(const e of data.events) {
     check(['main','supporting'].includes(e.readingPath), 'Missing reading path: '+e.id);
+    if(e.institutionalHistory!==undefined)check(data.contentModelVersion>=5 && typeof e.institutionalHistory==='boolean','Invalid institutional milestone flag: '+e.id);
     if(e.supportingFor) check(e.readingPath==='supporting' && e.supportingFor.every(id=>ids.has(id) && id!==e.id), 'Invalid supporting record: '+e.id);
     for(const link of e.contextLinks || []) check(ids.has(link.eventId) && link.eventId!==e.id && link.type==='editorial-context' && string(link.note), 'Invalid contextual connection: '+e.id);
     if(e.checkReceipt) check(date(e.checkReceipt.checkedOn) && ['status','finding','limits'].every(k=>string(e.checkReceipt[k])) && e.checkReceipt.sourceIds?.length && e.checkReceipt.sourceIds.every(id=>data.sources[id]), 'Invalid event check receipt: '+e.id);
     if(e.mediaHistory) check(['title','edition','inspection'].every(k=>string(e.mediaHistory[k])) && date(e.mediaHistory.date), 'Invalid media history: '+e.id);
   }
-  const entityIds = new Set();
+  const entityIds = new Set(), aliasOwners = new Map();
   for (const n of data.entities || []) {
     check(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(n.id || '') && !entityIds.has(n.id), 'Invalid/duplicate entity: ' + n.id); entityIds.add(n.id);
     check(string(n.name) && string(n.description) && ['person','organization','program','place','claimed organization','work / collection'].includes(n.type), 'Invalid entity record: ' + n.id);
     check(Array.isArray(n.aliases) && n.aliases.every(string), 'Invalid aliases: ' + n.id);
+    if(data.contentModelVersion>=5)for(const label of [n.id,n.name,...(n.aliases||[])]) {
+      const alias=normalizeSearch(label).trim(),owner=aliasOwners.get(alias);
+      check(!owner || owner===n.id,'Ambiguous canonical alias: '+label+' ('+owner+', '+n.id+')');aliasOwners.set(alias,n.id);
+    }
     if(n.legacySearchLabels)check(Array.isArray(n.legacySearchLabels) && n.legacySearchLabels.every(string), 'Invalid legacy search labels: '+n.id);
-    check(n.eventIds?.length && n.eventIds.every(id => ids.has(id)), 'Unknown entity event: ' + n.id);
+    check(Array.isArray(n.eventIds) && (n.eventIds.length || (data.contentModelVersion>=5 && n.institutionalProfile)) && n.eventIds.every(id => ids.has(id)), 'Unknown entity event: ' + n.id);
     check(n.sources?.length && n.sources.every(r => data.sources[r.sourceId] && r.supports?.length && r.supports.every(string)), 'Unsourced entity: ' + n.id);
+    if(n.institutionalProfile) {
+      const p=n.institutionalProfile;
+      check(data.contentModelVersion>=5 && ['entityType','mission','relevance','uapNote'].every(k=>string(p[k])), 'Incomplete institutional profile: '+n.id);
+      check(institutionTypes.includes(p.entityType) && Boolean(institutionDomains[p.domain]) && Boolean(uapStatusLabels[p.uapStatus]), 'Invalid institutional classification: '+n.id);
+      check(typeof p.acronym==='string' && Array.isArray(p.attributes) && p.attributes.every(string) && Array.isArray(p.questions) && p.questions.every(string), 'Invalid institutional attributes: '+n.id);
+      check(Array.isArray(p.milestoneIds) && p.milestoneIds.every(id=>ids.has(id) && n.eventIds.includes(id)), 'Unknown institutional milestone: '+n.id);
+      check(p.sourceIds?.length && p.sourceIds.every(id=>data.sources[id] && n.sources.some(ref=>ref.sourceId===id)), 'Unsourced institutional profile: '+n.id);
+      for(const period of p.attributePeriods || [])check(p.attributes.includes(period.attribute) && date(period.asOf) && (period.dateStart===null || date(period.dateStart)) && (period.dateEnd===null || date(period.dateEnd)) && period.sourceIds?.length && period.sourceIds.every(id=>p.sourceIds.includes(id)), 'Invalid institutional designation period: '+n.id);
+      if(p.rosterRecord)check(date(p.rosterRecord.asOf) && string(p.rosterRecord.sponsor) && string(p.rosterRecord.administrator),'Incomplete dated roster snapshot: '+n.id);
+    }
     if(n.featured) check(n.type==='person' && string(n.role) && string(n.contribution) && string(n.limitations), 'Incomplete featured person: '+n.id);
   }
   for (const e of data.events) if (e.entityIds) check(e.entityIds.every(id => entityIds.has(id)), 'Unknown event entity: ' + e.id);
@@ -205,8 +223,8 @@ export function validateDataset(data, now = new Date()) {
     check(string(r.id) && !relationIds.has(r.id), 'Duplicate/invalid relationship'); relationIds.add(r.id);
     check(entityIds.has(r.from) && entityIds.has(r.to) && r.from !== r.to, 'Unknown/self relationship entity: ' + r.id);
     check(['Documented','Attributed','Historical context'].includes(r.status) && string(r.description) && string(r.limitations), 'Missing relationship boundary: ' + r.id);
-    check(date(r.date?.start) && (r.date.end === null || (date(r.date.end) && calendarCoordinate(r.date.end,true) >= calendarCoordinate(r.date.start))), 'Invalid relationship dates: ' + r.id);
-    check(r.eventIds?.length && r.eventIds.every(id => ids.has(id)), 'Unknown relationship event: ' + r.id);
+    check((date(r.date?.start) || (data.contentModelVersion>=5 && r.date?.start===null && string(r.dateBasis))) && (r.date.end === null || (date(r.date.end) && (r.date.start===null || calendarCoordinate(r.date.end,true) >= calendarCoordinate(r.date.start)))), 'Invalid relationship dates: ' + r.id);
+    check(Array.isArray(r.eventIds) && (r.eventIds.length || (data.contentModelVersion>=5 && string(r.dateBasis))) && r.eventIds.every(id => ids.has(id)), 'Unknown relationship event: ' + r.id);
     check(r.sources?.length && r.sources.every(ref => data.sources[ref.sourceId] && ref.supports?.length && ref.supports.every(string)), 'Unsourced relationship: ' + r.id);
   }
   check(Array.isArray(data.changeLog), 'Missing public change log');
@@ -243,7 +261,7 @@ export function validateDataset(data, now = new Date()) {
     occurrences.set(occurrence,videos);
   }
   for (const [occurrence,videos] of occurrences) check(videos.size<=1, 'Multiple YouTube videos for occurrence: '+occurrence);
-  const relationTypes=['listed-shareholder','described-role','represented-by-firm','authored','reported-collaboration','chaired','donated-to','succeeded','commissioned','assessed','responds-to','testified','planned-exchange','co-authored-with','collaborated-with','acknowledged-assistance'];
+  const relationTypes=['listed-shareholder','described-role','represented-by-firm','authored','reported-collaboration','chaired','donated-to','succeeded','commissioned','assessed','responds-to','testified','planned-exchange','co-authored-with','collaborated-with','acknowledged-assistance','created','supervised','funded','sponsored','operated','absorbed','renamed','contracted','collaborated','integrated'];
   if(data.contentModelVersion>=3) for(const r of data.relationships || []) check(relationTypes.includes(r.type), 'Invalid factual relationship type: '+r.id);
   for(const receipt of data.meta.checkReceipts || []) check(stamp(receipt.checkedAt) && string(receipt.scope) && string(receipt.mode) && string(receipt.basis) && receipt.sourceIds?.length && receipt.sourceIds.every(id=>data.sources[id]), 'Invalid check receipt');
   check(data.meta.contentUpdatedAt.slice(0,10)>=data.meta.researchCutoff, 'Research cutoff exceeds content update');

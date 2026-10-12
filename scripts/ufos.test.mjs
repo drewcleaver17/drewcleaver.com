@@ -3,8 +3,15 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { filterEvents, initialState, paramsFromState, stateFromParams, validateDataset, dateBounds, formatDate, eventDateLabel, yearsCovered, eventBounds, eraFor, readingPathOf, normalizeYouTubeURL } from '../src/lib/ufos.mjs';
 import { datasetPath, digest, contentDigest, prepareUpdate, publishValidatedUpdate, assertPermittedPaths } from './ufos-update.mjs';
+import { filterInstitutions, institutionStateFromParams } from '../src/lib/ufo-institutions.mjs';
 const data=JSON.parse(readFileSync(datasetPath,'utf8'));
 const now=new Date();
+function withInstitution() {
+ const d=structuredClone(data);d.contentModelVersion=5;
+ const n=d.entities.find(n=>n.id==='nro');
+ n.institutionalProfile={acronym:'NRO',entityType:'Intelligence component',attributes:[],domain:'space',mission:'Satellite and aerial reconnaissance.',relevance:'Institutional history.',uapStatus:'context-only',uapNote:'Existence does not establish an alleged UAP role.',questions:[],milestoneIds:['nro-agreement'],sourceIds:n.sources.map(s=>s.sourceId)};
+ return d;
+}
 // A real, already-audited milestone is withheld only in memory to exercise addition.
 const event=structuredClone(data.events.find(e=>e.id==='senate-hearing-2024'));
 // The unattended addition fixture carries the audited hearing facts, without
@@ -254,4 +261,40 @@ test('unattended updates preserve omitted editorial fields and hold new connecti
  const result=prepareUpdate(data,next,{now}).data.events.find(e=>e.id===event.id);
  assert.equal(result.readingPath,existing.readingPath);assert.deepEqual(result.supportingFor,existing.supportingFor);
  revision.readingPath='main';assert.throws(()=>prepareUpdate(data,next,{now}),/editorial reading path/);
+});
+test('institutional profiles separate primary type, designations and UAP evidence',()=>{
+ const d=withInstitution(),n=d.entities.find(n=>n.id==='nro');
+ assert.deepEqual(validateDataset(d),[]);
+ n.institutionalProfile.attributes=['FFRDC'];n.institutionalProfile.entityType='Research center';
+ assert.deepEqual(validateDataset(d),[]);
+ n.institutionalProfile.entityType='FFRDC';assert.ok(validateDataset(d).some(x=>x.includes('Invalid institutional classification')));
+ n.institutionalProfile.entityType='Research center';n.institutionalProfile.uapStatus='verified-because-it-exists';assert.ok(validateDataset(d).some(x=>x.includes('Invalid institutional classification')));
+});
+test('institution filters combine acronym, primary type, domain and UAP boundary',()=>{
+ const d=withInstitution(),state=institutionStateFromParams(new URLSearchParams('iq=nro&itype=Intelligence+component&idomain=space&iuap=context-only'));
+ assert.deepEqual(filterInstitutions(d.entities,state).map(n=>n.id),['nro']);
+ assert.equal(filterInstitutions(d.entities,{...state,iq:'zz-no-such-organization'}).length,0);
+ assert.equal(filterInstitutions(d.entities,{...state,iuap:'documented-role'}).length,0);
+ assert.ok(filterEvents(d,{view:'institutions'}).some(e=>e.id==='nro-agreement'));
+ assert.ok(!filterEvents(d,{view:'institutions'}).some(e=>e.id==='jebel-irhoud'));
+ assert.equal(stateFromParams(new URLSearchParams('view=institutions')).view,'institutions');
+});
+test('unknown institutional dates remain outside chronology and aliases cannot merge identities',()=>{
+ const d=withInstitution(),n=d.entities.find(n=>n.id==='nro');n.eventIds=[];n.institutionalProfile.milestoneIds=[];
+ assert.deepEqual(validateDataset(d),[]);
+ const duplicate=structuredClone(n);duplicate.id='distinct-test-institution';duplicate.name='Distinct test institution';d.entities.push(duplicate);
+ assert.ok(validateDataset(d).some(x=>x.includes('Ambiguous canonical alias')));
+ d.entities.pop();n.institutionalProfile.milestoneIds=['unknown'];assert.ok(validateDataset(d).some(x=>x.includes('Unknown institutional milestone')));
+});
+test('dated sponsor/operator records and unresolved effective dates retain source scope',()=>{
+ const d=withInstitution(),r=structuredClone(d.relationships[0]);r.id='test-dated-sponsor';r.type='sponsored';r.date={start:'1961-09-06',end:'1992-09-18'};d.relationships.push(r);
+ assert.deepEqual(validateDataset(d),[]);
+ r.date={start:null,end:null};r.eventIds=[];assert.ok(validateDataset(d).some(x=>x.includes('Invalid relationship dates')));
+ r.dateBasis='Source describes an arrangement; its effective start and end were not established.';assert.deepEqual(validateDataset(d),[]);
+ r.date={start:'1992',end:'1961'};assert.ok(validateDataset(d).some(x=>x.includes('Invalid relationship dates')));
+});
+test('editorial institutional classification cannot be added through unattended imports',()=>{
+ const d=withInstitution(),b=batch();b.baseDigest=digest(d);const revision=structuredClone(d.events.find(e=>e.id==='senate-hearing-2024'));revision.institutionalHistory=true;b.changes=[{op:'revise',event:revision,reason:'New editorial classification'}];
+ assert.throws(()=>prepareUpdate(d,b,{now}),/institutional classification/);
+ const roundTrip=JSON.parse(JSON.stringify(d));assert.deepEqual(validateDataset(roundTrip),[]);assert.equal(contentDigest(roundTrip),contentDigest(d));
 });
