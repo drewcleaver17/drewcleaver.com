@@ -30,6 +30,7 @@ html[data-nhi] .nhi-theme-control{display:flex;align-items:center;flex-wrap:wrap
 /* The older input rule intentionally sized search/date fields; exclude native choices. */
 html[data-nhi] .ufo-page .filter-panel input[type=radio]{width:16px;height:16px;min-height:0;max-width:16px;padding:0;margin:0;border:0;background:transparent;color:inherit;accent-color:var(--nhi-selected);flex-shrink:0}
 /* R05: one scrollable desktop editor, inline mobile groups, and a small reading bar. */
+.reading-workspace{overflow-anchor:none}
 .ufo-page .reading-workspace>.filter-panel{display:block;overflow:auto;scrollbar-gutter:stable}
 .ufo-page .filter-options{overflow:visible;min-height:0;padding-right:0}
 .filter-essentials .search-field{margin-top:.5rem}
