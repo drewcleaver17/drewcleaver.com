@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "meta": {
-    "title": "UFOs: A Living Timeline",
+    "title": "NHI — New History Initiative",
     "researchCutoff": "2026-09-19",
     "lastCheckedAt": "2026-10-12T05:26:02Z",
     "contentUpdatedAt": "2026-10-12T08:45:45.380551Z",
     "updateStatus": "active",
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
-    "edition": "2026-10-12-people-directory-review",
+    "edition": "2026-10-12-nhi-migration",
     "publicationReceipt": null,
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
@@ -553,7 +553,7 @@
       "verifiedOn": "2026-10-12",
       "scope": "Canonical people directory; new biography and bibliography checks are scoped per profile and work. Earlier source inspection is reused where explicitly recorded. Portrait metadata inspected separately. No broad news cutoff or scheduled-operation change.",
       "people": 251,
-      "status": "Local editorial review; not published"
+      "status": "Published in PR #71; integrated baseline verified before the NHI migration"
     }
   },
   "sources": {
@@ -43898,6 +43898,13 @@
       "date": "2026-10-12",
       "title": "People directory, selected works and portraits",
       "detail": "Enriched the existing canonical people records, introduced a searchable directory and shared works registry, and added licensed local portraits with neutral fallbacks. Existing person anchors remain available. The broad research cutoff and scheduled reporting boundaries are unchanged. This revision is prepared for local review.",
+      "eventIds": []
+    },
+    {
+      "id": "2026-10-12-nhi-migration",
+      "date": "2026-10-12",
+      "title": "NHI — New History Initiative: a new home for the index",
+      "detail": "The existing resource moves from /ufos/ to /nhi/ with a broader introduction and searchable, off-menu visibility. Timeline records, sources, People profiles, selected works, portraits and institutional dossiers are preserved. Old routes remain compatibility links. This identity and route revision does not extend the research cutoff or source-review scope.",
       "eventIds": []
     }
   ],

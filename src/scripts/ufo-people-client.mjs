@@ -1,13 +1,14 @@
+import { canonicalNhiURL } from '../lib/nhi-routes.mjs';
 import { peopleStateFromParams,peopleParams,peopleInitialState,filterPeople,personURL } from '../lib/ufo-people.mjs';
 
 const getSaved=key=>{try{return sessionStorage.getItem(key);}catch{return null;}};
 const save=(key,value)=>{try{sessionStorage.setItem(key,value);}catch{}};
-const localPath=(value,prefix)=>{try {const u=new URL(value,location.origin);return u.origin===location.origin && u.pathname.startsWith(prefix)?u.pathname+u.search+u.hash:null;}catch{return null;}};
+const localPath=(value,prefix)=>{try {if(!value)return null;const u=canonicalNhiURL(value,location.origin);return u && u.pathname.startsWith(prefix)?u.pathname+u.search+u.hash:null;}catch{return null;}};
 
 function initialiseCommon() {
-  const previous=localPath(getSaved('ufos.timeline.return'),'/ufos/');
-  if(previous && !previous.startsWith('/ufos/people/'))for(const link of document.querySelectorAll('[data-return-timeline]')){const url=new URL(previous,location.origin);url.searchParams.set('resume','1');link.href=url.pathname+url.search+url.hash;}
-  const directory=localPath(getSaved('ufos.people.return'),'/ufos/people/');
+  const previous=localPath(getSaved('ufos.timeline.return'),'/nhi/');
+  if(previous && !previous.startsWith('/nhi/people/'))for(const link of document.querySelectorAll('[data-return-timeline]')){const url=new URL(previous,location.origin);url.searchParams.set('resume','1');link.href=url.pathname+url.search+url.hash;}
+  const directory=localPath(getSaved('ufos.people.return'),'/nhi/people/');
   if(directory)for(const link of document.querySelectorAll('[data-return-people]'))link.href=directory;
   const failed=image=>{image.hidden=true;image.parentElement.classList.add('portrait-unavailable');};
   document.addEventListener('error',event=>{if(event.target.matches?.('[data-portrait]'))failed(event.target);},true);

@@ -1,4 +1,8 @@
 ---
-import data from '../../data/ufos/timeline.json';
+import NhiRedirect from '../../components/NhiRedirect.astro';
+import UfoDataExport from '../../components/UfoDataExport.astro';
 ---
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content="noindex, nofollow"/><title>UFO timeline — complete data export</title></head><body><p><a href="/ufos/#methodology">Return to the timeline</a> · Complete public dataset, including profiles and selected works.</p><pre id="ufos-export">{JSON.stringify(data,null,2)+'\n'}</pre></body></html>
+<NhiRedirect destination="/nhi/data/">
+  <!-- Retain the export element for readers with a pre-migration tab still open. -->
+  <details><summary>Complete data for existing export links</summary><UfoDataExport /></details>
+</NhiRedirect>

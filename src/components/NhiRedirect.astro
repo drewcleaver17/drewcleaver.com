@@ -1,0 +1,48 @@
+---
+import { profile } from '../data/profile';
+import '../styles/global.css';
+interface Props { destination: string; }
+const { destination } = Astro.props;
+if (!destination.startsWith('/nhi/')) throw new Error('Invalid NHI migration destination');
+const canonical = new URL(destination, profile.website);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#173e35" />
+    <title>This resource has moved — NHI / New History Initiative</title>
+    <meta name="description" content="The historical index now lives at NHI — New History Initiative." />
+    <link rel="canonical" href={canonical} />
+  </head>
+  <body class="site-body">
+    <main class="shell migration-page">
+      <p class="eyebrow">New home · Same evolving record</p>
+      <h1>NHI — New History Initiative</h1>
+      <p>The historical index has moved. Its timeline, People directory, sources and institutional records are at the new address.</p>
+      <p><a class="button" id="nhi-destination" href={destination}>Continue to NHI →</a></p>
+      <noscript><p>JavaScript is off. Use the link above to continue. To keep filters or an anchor from an old link, replace only <code>/ufos/</code> with <code>/nhi/</code> in your browser’s address.</p></noscript>
+      <slot />
+    </main>
+    <script is:inline data-nhi-redirect>
+      (() => {
+        const link = document.getElementById('nhi-destination');
+        const destination = new URL(link.getAttribute('href'), window.location.origin);
+        // Only a build-generated local destination is used; query text is never a redirect target.
+        if (destination.origin !== window.location.origin || !destination.pathname.startsWith('/nhi/')) return;
+        destination.search = window.location.search;
+        destination.hash = window.location.hash;
+        link.href = destination.href;
+        window.location.replace(destination.href);
+      })();
+    </script>
+  </body>
+</html>
+<style>
+  .migration-page{max-width:48rem;padding-block:4rem}
+  h1{font:400 clamp(2rem,6vw,3.5rem)/1.15 var(--serif);margin-block:1rem}
+  p{margin-block:1.25rem;overflow-wrap:anywhere}
+  code{font-size:.9em}
+</style>

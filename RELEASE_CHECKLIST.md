@@ -1,3 +1,19 @@
+# Current NHI migration release contract — October 12, 2026
+
+For this release, `/nhi/` and its legitimate child pages are **searchable, off-menu**. This supersedes historical noindex rules below only for the migrated resource. Old `/ufos/` pages are noindex compatibility pages, outside the sitemap. All other visibility protections remain enforced.
+
+- Start from verified, deployed People PR #71; preserve every baseline record and prior revision.
+- Pass model/content validation, production build, original interaction suites and the targeted NHI migration suite.
+- Verify self-canonical metadata, indexability, sitemap inclusion, main-site discovery exclusion, every old profile route, queries/fragments, old saved state and complete export compatibility.
+- Compare unrelated build outputs and portrait/credit bytes against the integrated baseline.
+- Review static layouts where available. State browser/device limits explicitly; static/DOM checks do not verify browser geometry.
+- Refresh main immediately before merge; release through the existing PR/CI/Pages workflow; verify the exact deployed commit and fresh production content, assets and visibility.
+- Keep automation settings unchanged; `docs/ufos-updates.md` records the canonical live-verification path and the external reporter's old-URL reference.
+
+Historical checklists follow unchanged.
+
+---
+
 # Homepage and /hello release
 
 Status: Drew approved publication after removing public writing and focusing on contact and scheduling. Revised build is ready for deployment.
