@@ -90,6 +90,7 @@ const luminance=hex=>{const channels=hex.match(/[a-f\d]{2}/gi).map(v=>parseInt(v
 const contrast=(a,b)=>{const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);};
 test('palette pairs meet measured text/control thresholds and responsive/print branches remain explicit',()=>{
  for(const bg of ['082b24','103b31','17473a','0c3229'])for(const fg of ['f3efe5','c3d3c7'])assert.ok(contrast(bg,fg)>=4.5,`${bg}/${fg}`);
+ for(const bg of ['f7f5ee','e9ede2','f0f1e9','fffdf7']){assert.ok(contrast(bg,'203d34')>=4.5);assert.ok(contrast(bg,'536357')>=4.5);assert.ok(contrast(bg,'71846d')>=3);}
  assert.ok(contrast('082b24','c7d8a9')>=4.5);assert.ok(contrast('103b31','7c9e88')>=3);
  const css=readFileSync(new URL('../src/styles/nhi-reading.css',import.meta.url),'utf8');
  assert.match(css,/min-width:1100px.*min-height:760px/);assert.match(css,/max-height:500px/);assert.match(css,/@media print/);assert.ok(!css.includes('filter:invert'));
