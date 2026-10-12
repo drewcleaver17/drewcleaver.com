@@ -34,8 +34,8 @@ test('inclusive interval overlap, BCE ordering/transition, approximate and undat
  assert.deepEqual(select('1300','1300'),['span','year']);assert.deepEqual(select('1400','1200'),[]);
 });
 test('repeated URL parameters preserve result IDs, accents and legacy singleton/era/day links',()=>{
- const state={...initialState,view:'history',category:[a,b],entity:['carl-sagan','jacques-vallee'],from:'-0500',to:'2026',q:'',sort:'newest'};
- const params=paramsFromState(state);assert.equal(params.getAll('category').length,2);const restored=stateFromParams(params);assert.deepEqual(restored,state);assert.deepEqual(ids(restored),ids(state));
+ const state={...initialState,view:'history',category:['Scientific and technical context','Records releases'],entity:['sagan','vallee'],from:'-0500',to:'2026',q:'',sort:'newest'};
+ assert.ok(ids(state).length>0);const params=paramsFromState(state);assert.equal(params.getAll('category').length,2);const restored=stateFromParams(params);assert.deepEqual(restored,state);assert.deepEqual(ids(restored),ids(state));
  assert.deepEqual(stateFromParams(new URLSearchParams('category=Scientific+research')).category,[a]);
  assert.deepEqual(stateFromParams(new URLSearchParams('view=history&era=archives')).from,'1996');
  assert.equal(stateFromParams(new URLSearchParams('from=1947-06-01&to=1947-07-31')).from,'1947-06-01');
