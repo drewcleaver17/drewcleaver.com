@@ -80,6 +80,7 @@ function init() {
     return node ? {id:node.id,top:node.getBoundingClientRect().top} : null;
   };
   function render(mode) {
+    status.textContent='';
     const reference=mode ? currentReference() : null;
     const focused=document.activeElement;
     updatePeopleReturn();
@@ -128,7 +129,7 @@ function init() {
     warning.hidden = !(state.from && state.to && state.from > state.to);
     warning.textContent = warning.hidden ? '' : 'The start date is after the end date. Adjust the range to see results.';
     chips.replaceChildren();
-    const labels = { q:'Search', from:'From', to:'Through', category:'Category', topic:'Strand', entity:'Name / program', evidence:'Evidence', region:'Regional collection', layer:'Layer', era:'Era', context:'Earlier context' };
+    const labels = { q:'Search', from:'From', to:'Through', category:'Category', topic:'Strand', entity:'Name / program', evidence:'Evidence', region:'Regional collection', layer:'Layer', era:'Era', context:'Supporting / earlier context' };
     for (const [key,label] of Object.entries(labels)) if (state[key]) {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'filter-chip';
       const value = key === 'entity' ? data.entities.find(n=>n.id===state[key])?.name || state[key] : key === 'region' ? regions[state[key]] : state[key];
@@ -195,7 +196,7 @@ function init() {
   document.getElementById('empty-reset').addEventListener('click',()=>{reset();control('q').focus();});
   window.addEventListener('popstate',()=>{state=stateFromParams(new URLSearchParams(location.search));render();showHash();});
   window.addEventListener('hashchange',()=>showHash(true));
-  document.addEventListener('click',event=>{const link=event.target.closest?.('a[href^="#"]');if(link?.getAttribute('href')===location.hash)showHash(true);});
+  document.addEventListener('click',event=>{const link=event.target.closest?.('a[href^="#"]');if(!event.defaultPrevented && link?.getAttribute('href')===location.hash)showHash(true);});
   document.getElementById('jump-latest').addEventListener('click',()=>reset('replace'));
   for(const button of document.querySelectorAll('[data-copy]')) {
     button.hidden=false;

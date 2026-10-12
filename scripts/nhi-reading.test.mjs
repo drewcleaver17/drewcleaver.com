@@ -24,6 +24,9 @@ test('every timeline, People and institutional option is exposed with a native c
    assert.ok(radios.every(n=>n.closest('label').textContent.trim()));
  }
  assert.equal(d.querySelector('#timeline-filters .filter-details'),null);
+ assert.equal(d.querySelector('.filter-options').lastElementChild.id,'choices-year-shortcut');
+ assert.equal(d.querySelectorAll('.catalog-shortcuts a').length,2);
+ assert.ok(d.getElementById('choices-category').compareDocumentPosition(d.getElementById('choices-entity')) & w.Node.DOCUMENT_POSITION_FOLLOWING);
  assert.ok(d.querySelector('[name="context"]').closest('label'));
 });
 
@@ -42,7 +45,7 @@ test('persistent search, exact counts, empty recovery, and distinct search clear
  input.value='zzzz-no-match';input.dispatchEvent(new w.Event('input',{bubbles:true}));await new Promise(resolve=>setTimeout(resolve,190));
  assert.equal(visible().length,0);assert.equal(d.getElementById('empty-state').hidden,false);assert.equal(d.getElementById('persistent-count').textContent,'0 entries');
  assert.match(d.getElementById('persistent-state').textContent,/Maya world/);
- d.getElementById('clear-search').click();assert.equal(input.value,'');assert.equal(new URLSearchParams(w.location.search).get('region'),'maya-world');assert.ok(visible().length>0);
+ d.getElementById('clear-search').click();assert.equal(input.value,'');assert.equal(new URLSearchParams(w.location.search).get('region'),'maya-world');assert.ok(visible().length>0);assert.ok(!d.getElementById('link-status').textContent.includes('No entries match'));
  d.getElementById('persistent-reset').click();assert.deepEqual(visible(),filterEvents(data,initialState).map(n=>n.id));assert.equal(w.location.search,'');
 });
 
@@ -61,6 +64,7 @@ test('refinement preserves a visible event offset, its disclosure state and cont
 test('adjust-filters remembers an entry and provides an explicit return; excluded targets use chronological neighbors',()=>{
  navigate('?view=history');const card=d.getElementById('nimitz-encounter');card.getBoundingClientRect=()=>({top:120,bottom:420,height:300});
  d.getElementById('adjust-filters').click();assert.equal(d.getElementById('return-reading').hidden,false);delete card.getBoundingClientRect;
+ w.history.replaceState(null,'','/nhi/?view=history#timeline-filters');
  choose('region','egypt');d.getElementById('return-reading').click();assert.ok(visible().includes(w.lastScrolled));assert.equal(d.activeElement.id,w.lastScrolled);
 });
 

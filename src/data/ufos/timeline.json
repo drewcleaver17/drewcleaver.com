@@ -9,7 +9,18 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-10-12-index-r04",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-10-12-index-r04",
+      "verifiedAt": "2026-10-12T17:54:05.673500Z",
+      "revision": "547921bbb307bdc039e8beb68158247078075558",
+      "contentDigest": "b4bf3e6dbbe36825f6eb949595c0832e5bb28e19f1b0fbd900b0a3b16d02bb95",
+      "url": "https://drewcleaver.com/nhi/",
+      "workflowRun": 38286859706,
+      "pullRequest": 76,
+      "verificationScope": "Observed exact merged Pages workflow success. Nine fresh production routes, linked CSS/JavaScript assets, complete exported dataset, all 423 event and 528 entity anchors, all 261 NHI sitemap routes, canonical/indexing metadata, off-menu discovery and representative old compatibility routes matched the tested release. 196 model/DOM tests, production build and required release checks passed; responsive CSS review covered 320/390/768/1440 px, short landscape and zoom-equivalent narrow layout. Actual browser geometry, real browser zoom, touch, onscreen keyboard and screen-reader checks were unavailable.",
+      "researchScope": "Editorial/interface release only: zero new events and zero materially revised factual records. Individual record/source inspection dates and broad research cutoff are unchanged.",
+      "scheduledOperation": "Manual R04 editorial release. No automation configuration, cadence, permissions or dataset-only boundary changed."
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
