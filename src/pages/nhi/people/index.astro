@@ -1,4 +1,5 @@
 ---
+import NhiThemeControl from '../../../components/NhiThemeControl.astro';
 import Base from '../../../layouts/Base.astro';
 import UfoReadingPaths from '../../../components/UfoReadingPaths.astro';
 import UfoPortrait from '../../../components/UfoPortrait.astro';
@@ -10,9 +11,10 @@ const people=data.entities.filter(n=>n.type==='person').sort((a,b)=>a.name.local
 const index=directoryIndex(data);
 const roles=Object.entries(personRoles).filter(([key])=>index.some(n=>n.roles.includes(key)));
 ---
-<Base title="People — NHI / New History Initiative" description="The people behind the history: sourced profiles, contributions, selected works and primary records." compact>
+<Base title="People — NHI / New History Index" description="The people behind the history: sourced profiles, contributions, selected works and primary records." compact>
 <div class="ufo-page people-page shell" data-people-directory>
-  <header class="people-hero"><a href="/nhi/#timeline" class="underlined" data-return-timeline>← Return to the timeline</a><p class="eyebrow">NHI / New History Initiative</p><h1>The people<br/><em>behind the history.</em></h1><p>Meet the scientists, witnesses, journalists and investigators who shaped the record. Follow their work, then return to the events.</p><div class="edition-strip"><span>{people.length} people</span><span>{people.filter(n=>n.featured).length} featured contributors</span><span>Sources with every profile</span></div></header>
+  <header class="people-hero"><a href="/nhi/#timeline" class="underlined" data-return-timeline>← Return to the timeline</a><p class="eyebrow">NHI / New History Index</p><h1>The people<br/><em>behind the history.</em></h1><p>Meet the scientists, witnesses, journalists and investigators who shaped the record. Follow their work, then return to the events.</p><div class="edition-strip"><span>{people.length} people</span><span>{people.filter(n=>n.featured).length} featured contributors</span><span>Sources with every profile</span></div></header>
+  <NhiThemeControl />
   <UfoReadingPaths people />
   <section id="people" aria-labelledby="people-title"><div class="people-heading"><div><p class="eyebrow">Explore the directory</p><h2 id="people-title">People.</h2></div><p>Foundational ideas, direct accounts and public responsibility.</p></div>
   <form id="people-filters" class="filter-panel" role="search" aria-label="Search and filter people" hidden><div class="people-filter-grid"><label>Search people & works<input name="q" type="search" placeholder="Name, book, paper, institution…" autocomplete="off"/></label><label>Role<select name="role"><option value="">All roles</option>{roles.map(([key,label])=><option value={key}>{label}</option>)}</select></label><label>Order<select name="sort"><option value="az">Name · A–Z</option><option value="za">Name · Z–A</option></select></label></div><div class="filter-bottom"><label class="checkbox-label"><input type="checkbox" name="featured"/>Featured contributors</label><button type="reset">Reset directory</button></div></form>

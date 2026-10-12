@@ -19,7 +19,7 @@ test('every canonical NHI route is indexable, self-canonical and in the sitemap;
     const head = new JSDOM(html.slice(0,html.indexOf('</head>')+7)).window.document;
     assert.equal(head.querySelector('link[rel="canonical"]').href,origin+route);
     assert.equal(head.querySelector('meta[property="og:url"]').content,origin+route);
-    assert.match(head.title,/NHI.*New History Initiative/);
+    assert.match(head.title,/NHI.*New History Index/);
     assert.ok(!head.querySelector('meta[name="robots"]')?.content.match(/noindex|none/));
     assert.ok(sitemap.includes(`<loc>${origin+route}</loc>`));
     assert.ok(!/<a\b[^>]*href="(?:https:\/\/drewcleaver\.com)?\/ufos(?:\/|[?#"])/.test(html));

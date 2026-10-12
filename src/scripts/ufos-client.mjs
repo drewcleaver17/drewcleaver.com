@@ -1,3 +1,4 @@
+import { exposeChoices, syncChoices, focusChoice } from './nhi-controls.mjs';
 import { canonicalNhiURL } from '../lib/nhi-routes.mjs';
 import { eras, regions, eraFor, readingPathOf, filterEvents, initialState, paramsFromState, stateFromParams } from '../lib/ufos.mjs';
 import { institutionParamKeys } from '../lib/ufo-institutions.mjs';
@@ -8,6 +9,11 @@ function init() {
   const form = document.getElementById('timeline-filters');
   if (!dataNode || !form) return;
   const data = JSON.parse(dataNode.textContent);
+  exposeChoices(form);
+  const persistentSearch=document.getElementById('persistent-search');
+  const readerTools=document.getElementById('reading-tools');
+  const returnReading=document.getElementById('return-reading');
+  let readingReference=null;
   const rememberTimeline=()=>{try{sessionStorage.setItem('ufos.timeline.return',location.pathname+location.search+location.hash);sessionStorage.setItem('ufos.timeline.scroll',String(window.scrollY));}catch{}};
   document.addEventListener('click',event=>{if(event.target.closest?.('[data-people-entry]'))rememberTimeline();});
   const backToPeople=document.getElementById('people-return');
@@ -39,7 +45,8 @@ function init() {
   const eraLists = new Map([...document.querySelectorAll('[data-era]')].map(node=>[node.dataset.era,node.querySelector('.era-events')]));
   const eraList = e => eraLists.get(eraFor(e).id);
   const reveal=document.getElementById('reveal-linked');
-  const control = key => form.elements.namedItem(key);
+  const controls=new Map(Object.keys(initialState).map(key=>[key,form.querySelector(`[name="${key}"]`)]));
+  const control = key => controls.get(key);
   let state = stateFromParams(new URLSearchParams(location.search));
   let timer;
   const syncControls = () => {
@@ -55,6 +62,8 @@ function init() {
     const year = state.from.slice(0, 4);
     document.getElementById('year-shortcut').value = state.from === year + '-01-01' && (state.to === year + '-12-31') ? year : '';
     control('sort').disabled = state.view === 'recent';
+    persistentSearch.value=state.q;
+    syncChoices(form);
   };
   const writeURL = mode => {
     if (!mode) return;
@@ -64,7 +73,15 @@ function init() {
     url.search = params.toString();
     history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
   };
+  const currentReference = () => {
+    const offset=readerTools.getBoundingClientRect().height || 0;
+    const visible=[...cards.values()].filter(n=>!n.hidden && !n.closest('[hidden]'));
+    const node=visible.find(n=>{const r=n.getBoundingClientRect();return r.bottom>offset && r.top<window.innerHeight;});
+    return node ? {id:node.id,top:node.getBoundingClientRect().top} : null;
+  };
   function render(mode) {
+    const reference=mode ? currentReference() : null;
+    const focused=document.activeElement;
     updatePeopleReturn();
     syncControls();
     const filtered = ['q','from','to','category','topic','entity','evidence','region','layer','era'].some(k => state[k]);
@@ -73,14 +90,21 @@ function init() {
     // Reuse the server-rendered cards and move each node only to its final home.
     // Cached containers avoid hundreds of full-document selector scans per keystroke.
     const visibleIds = new Set(results.map(e=>e.id));
-    const groups = new Map([...eraLists.values(),contextList,flat].map(node=>[node,document.createDocumentFragment()]));
+    const groups = new Map([...eraLists.values(),contextList,flat].map(node=>[node,[]]));
     for (const e of all) {
       const card=cards.get(e.id), shown=visibleIds.has(e.id);
       card.hidden=!shown;
-      if(!shown)groups.get(readingPathOf(e)==='supporting'?contextList:eraList(e)).append(card);
+      if(!shown)groups.get(readingPathOf(e)==='supporting'?contextList:eraList(e)).push(card);
     }
-    for(const e of results)groups.get(structured?eraList(e):flat).append(cards.get(e.id));
-    for(const [container,fragment] of groups)container.replaceChildren(fragment);
+    for(const e of results)groups.get(structured?eraList(e):flat).push(cards.get(e.id));
+    // No replacement of the reading surface: only move nodes whose home/order changed.
+    for(const [container,nodes] of groups) {
+      let current=container.firstElementChild;
+      for(const node of nodes) {
+        if(current===node)current=current.nextElementSibling;
+        else container.insertBefore(node,current);
+      }
+    }
     story.hidden = !structured; context.hidden = true; flat.hidden = structured;
     if (structured) {
       for (const era of document.querySelectorAll('.timeline-era')) era.hidden = !era.querySelector('.era-events .ufo-event:not([hidden])');
@@ -110,10 +134,25 @@ function init() {
       const value = key === 'entity' ? data.entities.find(n=>n.id===state[key])?.name || state[key] : key === 'region' ? regions[state[key]] : state[key];
       const text = label + (key === 'context' ? '' : ': ' + value);
       button.textContent = text + ' ×'; button.setAttribute('aria-label','Remove ' + text);
-      button.addEventListener('click',()=>{state[key]=initialState[key];render('push');(key==='context'?control('view'):control(key)).focus();}); chips.append(button);
+      button.addEventListener('click',()=>{state[key]=initialState[key];render('push');focusChoice(form,key==='context'?'view':key);}); chips.append(button);
     }
+    document.getElementById('persistent-count').textContent=results.length+' entries';
+    const active=[...chips.children].map(n=>n.textContent.replace(/ ×$/,''));
+    document.getElementById('persistent-state').textContent=(control('view').selectedOptions[0]?.textContent || state.view)+' · '+(active.join(' · ') || 'no refinements')+' · '+(state.sort==='newest'?'newest first':'oldest first');
+    readerTools.hidden=false;
     reveal.hidden=true;
     writeURL(mode);
+    if(mode && focused && document.activeElement!==focused && focused.isConnected)focused.focus({preventScroll:true});
+    if(reference && results.length) {
+      const index=all.findIndex(n=>n.id===reference.id);
+      const nearest=visibleIds.has(reference.id)?reference.id:[...results].sort((a,b)=>Math.abs(all.findIndex(n=>n.id===a.id)-index)-Math.abs(all.findIndex(n=>n.id===b.id)-index))[0].id;
+      const node=cards.get(nearest);
+      const delta=node.getBoundingClientRect().top-reference.top;
+      if(delta && Number.isFinite(delta))window.scrollBy(0,delta);
+      if(!visibleIds.has(reference.id))status.textContent='The previous entry is outside these filters. Reading continues at the nearest remaining historical entry.';
+    }
+    if(!results.length)status.textContent='No entries match. The active constraints are listed in the filter workspace; clear search or remove a filter to broaden the view.';
+
   }
   function reset(mode='push') { clearTimeout(timer); state={...initialState}; render(mode); }
   function showHash(focus=false) {
@@ -123,13 +162,13 @@ function init() {
       if (!filterEvents(data,state).some(item=>item.id===id)) {
         // Explicit shared filters win on initial load. An intentional in-page link can change scope.
         if (location.search && !focus) {status.textContent='The linked entry is outside the current filters. Reveal it in full history, or keep these filters.';reveal.hidden=false;return;}
-        state={...initialState,view:'history'};render('replace');
+        state={...initialState,view:'history'};render('replace');status.textContent='Full history opened for this linked entry; previous filters were cleared.';
       }
       const card=cards.get(id);card.querySelector('.event-detail').open=true;
       if (focus) card.focus({preventScroll:true});
       card.scrollIntoView({block:'start'});
     } else if (id.startsWith('era-') && document.getElementById(id)) {
-      state={...initialState,view:'journey'};render('replace');document.getElementById(id).scrollIntoView({block:'start'});
+      state={...initialState,view:'journey'};render('replace');status.textContent='The main reading path opened for this chapter; previous filters were cleared.';document.getElementById(id).scrollIntoView({block:'start'});
     } else {
       const target=document.getElementById(id);
       if (target && institutionDirectory.reveal(target,focus)) { if(target.tagName==='DETAILS')target.open=true; for(let node=target.parentElement;node;node=node.parentElement)if(node.tagName==='DETAILS')node.open=true; if(focus && target.hasAttribute('tabindex'))target.focus({preventScroll:true}); target.scrollIntoView({block:'start'}); }
@@ -138,8 +177,15 @@ function init() {
   reveal.addEventListener('click',()=>{state={...initialState,view:'history'};render('push');showHash(true);status.textContent='Full history opened for the linked entry.';});
   form.addEventListener('submit',e=>{e.preventDefault();clearTimeout(timer);render('push');});
   form.addEventListener('reset',e=>{e.preventDefault();reset();});
+  persistentSearch.addEventListener('input',()=>{control('q').value=persistentSearch.value;control('q').dispatchEvent(new Event('input',{bubbles:true}));});
+  document.getElementById('clear-search').addEventListener('click',()=>{state.q='';render('push');control('q').focus({preventScroll:true});});
+  document.getElementById('persistent-reset').addEventListener('click',()=>reset());
+  document.getElementById('adjust-filters').addEventListener('click',()=>{readingReference=currentReference() || readingReference;returnReading.hidden=!readingReference;});
+  returnReading.addEventListener('click',e=>{e.preventDefault();let node=cards.get(readingReference?.id);if(node?.hidden){const index=all.findIndex(n=>n.id===readingReference.id);const remaining=filterEvents(data,state);const nearest=[...remaining].sort((a,b)=>Math.abs(all.findIndex(n=>n.id===a.id)-index)-Math.abs(all.findIndex(n=>n.id===b.id)-index))[0];node=cards.get(nearest?.id);}if(node && !node.hidden){node.scrollIntoView({block:'start'});node.focus({preventScroll:true});}else empty.scrollIntoView({block:'start'});});
+  for(const button of document.querySelectorAll('[data-copy-view]'))button.addEventListener('click',async()=>{const url=new URL(location.href);url.hash='timeline';try{await navigator.clipboard.writeText(url.href);status.textContent='Filtered view link copied.';button.textContent='View copied';}catch{status.textContent='Clipboard unavailable. Copy the browser address to share these filters.';}});
   form.addEventListener('input',e=>{if(e.target.name!=='q')return;clearTimeout(timer);state.q=e.target.value;timer=setTimeout(()=>render('replace'),150);});
   form.addEventListener('change',e=>{
+    if(e.target.dataset.choiceFor)return;
     clearTimeout(timer);
     if(e.target.id==='year-shortcut') {const year=e.target.value;state.from=year?year+'-01-01':'';state.to=year?year+'-12-31':'';}
     else if(e.target.name in initialState) {state[e.target.name]=e.target.type==='checkbox'?e.target.checked:e.target.value;if(e.target.name==='view')state.context=false;}

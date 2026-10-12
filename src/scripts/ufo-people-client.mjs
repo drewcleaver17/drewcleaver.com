@@ -1,3 +1,4 @@
+import { syncChoices } from './nhi-controls.mjs';
 import { canonicalNhiURL } from '../lib/nhi-routes.mjs';
 import { peopleStateFromParams,peopleParams,peopleInitialState,filterPeople,personURL } from '../lib/ufo-people.mjs';
 
@@ -90,7 +91,7 @@ function initialiseDirectory() {
     }
   }
   function render(mode,focusProfile=false) {
-    control('q').value=state.q;control('role').value=state.role;control('sort').value=state.sort;control('featured').checked=state.featured;
+    control('q').value=state.q;control('role').value=state.role;control('sort').value=state.sort;control('featured').checked=state.featured;syncChoices(form);
     const results=filterPeople(index,state),shown=new Set(results.map(n=>n.id));
     for(const card of cards.values())card.hidden=!shown.has(card.dataset.person);
     for(const entry of results)grid.append(cards.get(entry.id));

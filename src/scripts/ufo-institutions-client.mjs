@@ -1,3 +1,4 @@
+import { syncChoices } from './nhi-controls.mjs';
 import { filterInstitutions, institutionParamKeys, institutionStateFromParams } from '../lib/ufo-institutions.mjs';
 
 export function initInstitutionDirectory(data) {
@@ -18,6 +19,7 @@ export function initInstitutionDirectory(data) {
     const results=new Set(filterInstitutions(data.entities,state).map(n=>n.id));
     for(const [id,card] of cards)card.hidden=!results.has(id);
     count.textContent=results.size+' of '+cards.size+' institutional dossiers';
+    syncChoices(form);
     empty.hidden=results.size>0;reveal.hidden=true;status.textContent='';
     if(mode) {
       const url=new URL(location.href);
@@ -43,6 +45,6 @@ export function initInstitutionDirectory(data) {
   form.addEventListener('input',e=>{if(e.target.name!=='iq')return;clearTimeout(timer);state.iq=e.target.value;timer=setTimeout(()=>render('replace'),150);});
   form.addEventListener('reset',e=>{e.preventDefault();reset();form.elements.namedItem('iq').focus();});
   window.addEventListener('popstate',()=>{clearTimeout(timer);state=institutionStateFromParams(new URLSearchParams(location.search));render();});
-  render();form.hidden=false;
+  render();syncChoices(form);form.hidden=false;
   return {reveal:revealTarget};
 }
