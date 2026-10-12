@@ -120,3 +120,12 @@ The following inventory derives from the same canonical dataset. It is an editor
 | [Decoding the Great Pyramid: episode and transcript](https://www.pbs.org/video/decoding-the-great-pyramid-4eeiz9/) | PBS / NOVA | 2019-02-06 | supporting-text: Selected transcript sections: workers’ settlement, orientation hypotheses, Merer’s deliveries and void interpretations |
 | [Discovery of a big void in Khufu’s Pyramid by observation of cosmic-ray muons](https://arxiv.org/abs/1711.01576) | Morishima et al. / arXiv; related Nature paper | 2017-11-05 | supporting-text: Abstract, submission history and related DOI 10.1038/nature24647 |
 | [Time Line of Decipherment](https://www.pbs.org/wgbh/nova/mayacode/time-nf.html) | PBS / NOVA | 2008-03 | supporting-text: 1832 Counting section: dot/bar notation and a zero sign; 1952 and 1973 milestone sections |
+
+
+## Observed publication
+
+PR [#74](https://github.com/drewcleaver17/drewcleaver.com/pull/74) passed both CI workflows and merged as `5353116eb15c816aca6033f5904a0294c1f349e2`. [Pages run 38281164287](https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38281164287) succeeded. Live verification observed **2026-10-12T17:03:08.124260Z**. The remote release tree exactly matched the locally tested tree (`9f055380e7dafe7781ed60444eb6ab52aa76e76d`).
+
+Exact merged Pages run succeeded. Fresh HTTP/source checks of 21 routes and 7 served bundles/imports matched the tested build. Complete exported dataset, all 423 event and 528 entity anchors, all 261 NHI sitemap routes, all seven new canonical People profiles and representative legacy fallback routes passed. Canonicals, indexing policy, robots and off-menu navigation remained intact. 187 model/DOM tests and required build/release checks passed locally and both PR workflows passed. Static copy renders reviewed at 320/390/768/1440 px. Native browser geometry, touch and screen-reader checks were unavailable; no such verification is claimed.
+
+Content digest: `87e5e853ce91f794b3de0dda902d90e9f97cd6d20c81bfe0bc521215d9bf2a57`. This receipt-only follow-up changes no substantive content, source-check date, broad research cutoff, route policy or automation setting. It records the observed content release rather than predicting its own deployment.
