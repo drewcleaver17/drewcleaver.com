@@ -1,5 +1,5 @@
 import { canonicalNhiURL } from '../lib/nhi-routes.mjs';
-import { eras, eraFor, readingPathOf, filterEvents, initialState, paramsFromState, stateFromParams } from '../lib/ufos.mjs';
+import { eras, regions, eraFor, readingPathOf, filterEvents, initialState, paramsFromState, stateFromParams } from '../lib/ufos.mjs';
 import { institutionParamKeys } from '../lib/ufo-institutions.mjs';
 import { initInstitutionDirectory } from './ufo-institutions-client.mjs';
 
@@ -67,7 +67,7 @@ function init() {
   function render(mode) {
     updatePeopleReturn();
     syncControls();
-    const filtered = ['q','from','to','category','topic','entity','evidence','layer','era'].some(k => state[k]);
+    const filtered = ['q','from','to','category','topic','entity','evidence','region','layer','era'].some(k => state[k]);
     const structured = !filtered && state.sort === 'oldest' && state.view !== 'recent';
     const results = filterEvents(data, state);
     // Reuse the server-rendered cards and move each node only to its final home.
@@ -104,10 +104,10 @@ function init() {
     warning.hidden = !(state.from && state.to && state.from > state.to);
     warning.textContent = warning.hidden ? '' : 'The start date is after the end date. Adjust the range to see results.';
     chips.replaceChildren();
-    const labels = { q:'Search', from:'From', to:'Through', category:'Category', topic:'Strand', entity:'Name / program', evidence:'Evidence', layer:'Layer', era:'Era', context:'Earlier context' };
+    const labels = { q:'Search', from:'From', to:'Through', category:'Category', topic:'Strand', entity:'Name / program', evidence:'Evidence', region:'Regional collection', layer:'Layer', era:'Era', context:'Earlier context' };
     for (const [key,label] of Object.entries(labels)) if (state[key]) {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'filter-chip';
-      const value = key === 'entity' ? data.entities.find(n=>n.id===state[key])?.name || state[key] : state[key];
+      const value = key === 'entity' ? data.entities.find(n=>n.id===state[key])?.name || state[key] : key === 'region' ? regions[state[key]] : state[key];
       const text = label + (key === 'context' ? '' : ': ' + value);
       button.textContent = text + ' ×'; button.setAttribute('aria-label','Remove ' + text);
       button.addEventListener('click',()=>{state[key]=initialState[key];render('push');(key==='context'?control('view'):control(key)).focus();}); chips.append(button);

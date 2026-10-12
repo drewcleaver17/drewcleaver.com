@@ -26,6 +26,23 @@ function load(query='') {
 }
 function change(w,name,value){const el=w.document.querySelector(`[name="${name}"]`);el.value=value;el.dispatchEvent(new w.Event('change',{bubbles:true}));}
 const visible=doc=>[...doc.querySelectorAll('.ufo-event')].filter(n=>!n.hidden && !n.closest('[hidden]')).map(n=>n.id);
+test('regional filter combines with search, restores URL state, exposes an empty result and clears with keyboard focus',()=>{
+ const {w,doc,data}=load('?view=history&region=maya-world');
+ assert.deepEqual(visible(doc),filterEvents(data,{view:'history',region:'maya-world'}).map(e=>e.id));
+ assert.ok(doc.querySelector('[name="region"]').closest('label'));
+ change(w,'q','Pakal');
+ assert.deepEqual(visible(doc),filterEvents(data,{view:'history',region:'maya-world',q:'Pakal'}).map(e=>e.id));
+ const saved=w.location.search;
+ change(w,'region','egypt');assert.equal(visible(doc).length,0);assert.equal(doc.querySelector('#empty-state').hidden,false);
+ w.history.replaceState(null,'','/nhi/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));
+ assert.equal(doc.querySelector('[name="region"]').value,'maya-world');
+ const chip=[...doc.querySelectorAll('.filter-chip')].find(b=>b.textContent.includes('Regional collection'));
+ assert.match(chip.textContent,/Maya world/);chip.click();assert.equal(doc.activeElement,doc.querySelector('[name="region"]'));
+ doc.querySelector('#timeline-filters button[type="reset"]').click();assert.deepEqual(visible(doc),filterEvents(data,initialState).map(e=>e.id));
+ assert.equal(doc.querySelector('[name="region"]').value,'');
+ assert.ok(doc.querySelector('#regional-guide a[href*="region=brazil-amazon"]'));
+ assert.match(doc.getElementById('casarabe-bolivia-lidar-2022').textContent,/Bolivia/);
+});
 test('built interface combines filters, resets, reverses and restores URL state',()=>{
  const {dom,w,doc,data}=load('?view=core');
  assert.deepEqual(visible(doc).sort(),filterEvents(data,{view:'core'}).map(e=>e.id).sort());

@@ -1,7 +1,9 @@
 import { validatePeople } from './ufo-people.mjs';
 import { institutionMilestone, institutionDomains, institutionTypes, uapStatusLabels } from './ufo-institutions.mjs';
-export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history'];
-export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling', 'Human origins & evolution', 'Mind & philosophy'];
+export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history', 'Archaeology and cultural history'];
+export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling', 'Human origins & evolution', 'Mind & philosophy', 'Ancient societies & archaeology'];
+// Regional discovery groups are not evidence labels or claims of cultural identity.
+export const regions = {'maya-world':'Maya world & Yucatán','mesoamerica':'Mexica & broader Mesoamerica','brazil-amazon':'Brazil & Amazon region','egypt':'Egypt & later interpretations'};
 export const sourceKindLabels = { primary: 'Primary record', 'archival-history': 'Institutional or archival history', 'participant-account': 'Participant / organizational account', 'primary-mirror': 'Copy / translation of a primary record', scholarship: 'Scholarly analysis / reference', reprint: 'Reproduced announcement', 'original-reporting': 'Original reporting', reporting: 'Reporting' };
 export const evidenceDefinitions = {
   'Institutional record': 'A hearing, law, policy or release documented by the responsible institution. It verifies an action, not every claim within it.',
@@ -18,7 +20,7 @@ export const evidenceDefinitions = {
   'Textual scholarship': 'Scholars study manuscripts, editions or textual history. Dating and interpretation can remain contested; this is not verification of a text’s religious claims.'
 };
 export const eras = [
-  { id: 'origins', label: 'Human origins / Evidence before writing', years: 'Deep time', start: '-1000000', end: '-1000', summary: 'Read fossil ages and traces of symbolic behavior as evidence with limits. Biological evolution and cultural change are different processes.' },
+  { id: 'origins', label: 'Human origins / Early societies and material evidence', years: 'Deep time–1000 BCE', start: '-1000000', end: '-1000', summary: 'Read fossil ages, traces of symbolic behavior and early societies as evidence with limits. Biological evolution, cultural change and the recovery of written records are different processes.' },
   { id: 'ancient-texts', label: 'Ideas / Worlds, observation and texts', years: 'First millennium BCE–1499 CE', start: '-0999', end: '1499', summary: 'Compare arguments about the cosmos, mathematical astronomy, optical investigation and the transmission of texts. Shared questions do not establish direct influence.' },
   { id: 'foundations', label: 'Foundations / New scales and instruments', years: '1500–1939', start: '1500', end: '1939', summary: 'Follow changes in observation, physical theory, biology and communication. Credit belongs to collaborators and predecessors as well as familiar names.' },
   { id: 'war', label: 'History / War and the national-security state', years: '1940–1951', start: '1940', end: '1951', summary: 'Nuclear weapons, intelligence structures and the first postwar UFO investigations develop on different tracks.' },
@@ -55,7 +57,7 @@ export function yearsCovered(events) {
   }
   return [...years].sort();
 }
-export const initialState = { layer: '', era: '', q: '', from: '', to: '', category: '', topic: '', entity: '', evidence: '', sort: 'oldest', view: 'journey', context: false };
+export const initialState = { layer: '', era: '', q: '', from: '', to: '', category: '', topic: '', entity: '', evidence: '', region: '', sort: 'oldest', view: 'journey', context: false };
 export const normalizeSearch = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 export function dateBounds(value) {
   if (/^\d{4}$/.test(value)) return [value + '-01-01', value + '-12-31'];
@@ -74,7 +76,7 @@ export function formatDate(value) {
 export const eventDateLabel = e => e.date.approximate ? e.date.label : formatDate(e.date.start) + (e.date.end ? ' – ' + formatDate(e.date.end) : '');
 export function searchText(e, sources, entities = []) {
   const names = entities.filter(entity => e.entityIds?.includes(entity.id) || entity.eventIds.includes(e.id));
-  return normalizeSearch([e.title, e.summary, e.significance, ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, ...(n.legacySearchLabels || []), n.description,n.institutionalProfile?.acronym || '']), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
+  return normalizeSearch([e.title, e.summary, e.significance, e.geography || '', e.culture || '', regions[e.region] || '', ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, ...(n.legacySearchLabels || []), n.description,n.institutionalProfile?.acronym || '']), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
 }
 export function filterEvents(data, state) {
   const s = { ...initialState, ...state };
@@ -90,6 +92,7 @@ export function filterEvents(data, state) {
     if (s.to && eventBounds(e)[0] > calendarCoordinate(s.to,true)) return false;
     if (s.category && !e.categories.includes(s.category)) return false;
     if (s.topic && !(e.topics || ['UFO reports & disclosure']).includes(s.topic)) return false;
+    if (s.region && e.region !== s.region) return false;
     if (s.entity && ![...e.people, ...e.institutions, ...(e.entityIds || [])].includes(s.entity) && !data.entities?.find(n => n.id === s.entity || n.name===s.entity || n.aliases.includes(s.entity) || n.legacySearchLabels?.includes(s.entity))?.eventIds.includes(e.id)) return false;
     if (s.evidence && !e.evidenceTypes.includes(s.evidence)) return false;
     if (!terms.length) return true;
@@ -111,6 +114,7 @@ export function stateFromParams(params) {
   if (!['journey', 'story', 'history', 'recent', 'core', 'institutions'].includes(s.view)) s.view = 'journey';
   if (!['', 'core', 'contextual'].includes(s.layer)) s.layer='';
   if (s.era && !eras.some(e=>e.id===s.era)) s.era='';
+  if (s.region && !regions[s.region]) s.region='';
   for (const key of ['from', 'to']) if (!/^\d{4}-\d{2}-\d{2}$/.test(s[key])) s[key] = '';
   return s;
 }
@@ -244,6 +248,8 @@ export function validateDataset(data, now = new Date()) {
     if (data.contentModelVersion >= 3) check(['core','contextual'].includes(e.layer) && string(e.occurrenceKey) && string(e.claimStatus), 'Missing layer, occurrence or claim status: '+e.id);
     for (const field of ['documentDate','publicReleasedAt']) if (e[field] !== undefined) check(e[field] === null || date(e[field]), 'Invalid '+field+': '+e.id);
     for (const field of ['geography','scientificStage']) if (e[field] !== undefined && e[field] !== null) check(string(e[field]), 'Invalid '+field+': '+e.id);
+    if(e.region !== undefined) check(Boolean(regions[e.region]), 'Invalid regional group: '+e.id);
+    if(e.culture !== undefined) check(string(e.culture), 'Invalid culture: '+e.id);
     for (const field of ['observedDomain','reportedDomain']) if (e[field] !== undefined && e[field] !== null) check(Array.isArray(e[field]) && e[field].every(x=>['air','space','water','ground','radio','laboratory'].includes(x)), 'Invalid '+field+': '+e.id);
     for (const link of e.relatedLinks || []) check(ids.has(link.eventId) && link.eventId!==e.id && string(link.type) && string(link.note) && link.sourceIds?.length && link.sourceIds.every(id=>data.sources[id]), 'Invalid typed event link: '+e.id);
     for (const c of e.correctionHistory || []) if(c.sourceIds) check(c.sourceIds.every(id=>data.sources[id]), 'Unknown correction source: '+e.id);

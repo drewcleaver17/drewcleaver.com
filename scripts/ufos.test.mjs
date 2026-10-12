@@ -20,6 +20,31 @@ delete event.supportingFor;delete event.contextLinks;
 const base=structuredClone(data); base.events=base.events.filter(e=>e.id!==event.id);
 function batch() {return {schemaVersion:1,id:'validation-real-record',baseDigest:digest(base),title:'Validated institutional record',sources:[],changes:[{op:'add',event,reason:'Add the inspected Senate hearing record.'}],riskReview:{consequentialAllegation:false,uncertainInterpretation:false,physicalProofClaim:false},sourceChecks:event.sources.map(s=>({sourceId:s.sourceId,url:data.sources[s.sourceId].url,result:'supporting-text-read',supportedStatement:'The Senate hearing took place November 19, 2024.',location:data.sources[s.sourceId].locator,checkedAt:now.toISOString()}))};}
 test('published dataset validates',()=>assert.deepEqual(validateDataset(data),[]));
+test('regional collections combine independently with culture search, evidence and dates',()=>{
+ assert.deepEqual(filterEvents(data,{view:'history',region:'brazil-amazon',q:'Bolivia'}).map(e=>e.id),['casarabe-bolivia-lidar-2022']);
+ assert.deepEqual(filterEvents(data,{view:'history',region:'maya-world',q:'Kiche Popol'}).map(e=>e.id),['popol-vuh-surviving-manuscript']);
+ assert.equal(filterEvents(data,{view:'history',region:'egypt',q:'Guatemala'}).length,0);
+ assert.ok(filterEvents(data,{region:'egypt',era:'origins'}).every(e=>e.date.start.startsWith('-')));
+ const state={...initialState,view:'history',region:'maya-world',evidence:'Textual scholarship'};
+ assert.deepEqual(stateFromParams(paramsFromState(state)),state);
+ assert.equal(stateFromParams(new URLSearchParams('region=unknown')).region,'');
+ const bad=structuredClone(data);bad.events[0].region='made-up';assert.ok(validateDataset(bad).some(e=>e.includes('regional group')));
+});
+test('regional dates distinguish manuscript periods, fieldwork, publications and later interpretations',()=>{
+ const e=id=>data.events.find(e=>e.id===id);
+ assert.equal(e('pakal-palenque-tomb').date.start,'0683');
+ assert.equal(e('pakal-tomb-discovery-1952').date.start,'1952');
+ assert.equal(e('pakal-astronaut-interpretation').date.start,'1968');
+ assert.equal(e('pakal-astronaut-interpretation').readingPath,'supporting');
+ assert.equal(e('popol-vuh-surviving-manuscript').date.role,'manuscript');
+ assert.equal(e('dresden-codex-astronomy').date.end,'1521');
+ assert.equal(e('maya-calendar-2012').date.start,'2012-12-21');
+ assert.match(e('maya-guatemala-lidar-2018').dateNotes,/2016/);
+ assert.match(e('varginha-1996-reports').dateNotes,/1997.*2022/);
+ assert.match(e('brazil-amazon-lidar-2023').limitations.join(' '),/prediction/);
+ assert.equal(data.events.filter(e=>e.id==='operation-prato-1977').length,1);
+ assert.equal(data.events.filter(e=>e.id==='brazil-night-1986').length,1);
+});
 test('main reading prominence is independent of layer, era and retained records',()=>{
  const main=filterEvents(data,{}), all=filterEvents(data,{view:'history'});
  assert.ok(main.length>0); // Editorial depth is a guide, not a publishing quota.
@@ -40,7 +65,8 @@ test('deep-time ages retain their measurement uncertainty and navigation convent
  assert.ok(e.date.age.convention.includes('navigation'));
  assert.equal(eraFor(e).id,'origins');
  assert.ok(eventBounds(e)[1]<eventBounds(data.events.find(e=>e.id==='blombos-drawing'))[0]);
- assert.equal(filterEvents(data,{era:'origins'}).length,2);
+ assert.deepEqual(filterEvents(data,{era:'origins'}).filter(e=>e.date.precision==='age').map(e=>e.id),['jebel-irhoud','blombos-drawing']);
+ assert.ok(filterEvents(data,{era:'origins'}).some(e=>e.id==='djoser-step-pyramid'));
  assert.ok(!filterEvents(data,{from:'0001-01-01'}).some(e=>e.date.precision==='age'));
  assert.ok(!yearsCovered([e]).length);
  for(const mutate of [x=>x.date.start='2017',x=>x.date.age.younger=x.date.age.older+1,x=>delete x.date.age.convention,x=>delete x.date.age.estimate]){
