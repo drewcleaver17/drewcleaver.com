@@ -9,7 +9,18 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-10-12-essential-r06",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-10-12-essential-r06",
+      "verifiedAt": "2026-10-12T23:31:47.000Z",
+      "revision": "c74ace5d87ffececd59b52105005ef1c07256fb5",
+      "contentDigest": "d61e6d828490909a75862cb4761b2e8a786c26d0ae02d85b6e745e6240b3790e",
+      "url": "https://drewcleaver.com/nhi/",
+      "workflowRun": 38321465049,
+      "pullRequest": 81,
+      "verificationScope": "Exact merged Pages workflow succeeded. Fresh HTTP checks of nine production routes and six recursively served assets matched the final tested build and complete 443-entry export. The fixed 90-entry essential manifest, chronological first entry, dark default, full-history access, People routes, sitemap policy and legacy /ufos/ compatibility passed. Production HTML and production JavaScript were exercised in JSDOM: zero-result subject search, explicit broadening with filters retained, scope clearing/switching and saved Light/Dark choices passed. All 221 automated tests, production build and both PR checks passed. Actual browser geometry, touch, zoom, screen-reader and real participant research were unavailable and are not claimed.",
+      "researchScope": "Twenty bounded source-backed additions, 70 retained essential anchors, 90 fixed selections and explicit review metadata for all 443 records (221 scored; 222 null). All 423 original event records, significance prose, source records, entities, relationships and works are preserved. Existing source inspection dates, factual review dates and broad September 19 research cutoff are unchanged; new source-access/assessment scopes are disclosed.",
+      "scheduledOperation": "Manual R06 editorial/interface release. External automation settings, status, cadence, permissions and dataset-only publication boundary are unchanged. Selected essential-anchor revisions require editorial assessment review."
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
