@@ -1,3 +1,4 @@
+import { canonicalNhiURL } from '../lib/nhi-routes.mjs';
 import { eras, eraFor, readingPathOf, filterEvents, initialState, paramsFromState, stateFromParams } from '../lib/ufos.mjs';
 import { institutionParamKeys } from '../lib/ufo-institutions.mjs';
 import { initInstitutionDirectory } from './ufo-institutions-client.mjs';
@@ -14,8 +15,8 @@ function init() {
   backToPeople.hidden=true;
   if(new URLSearchParams(location.search).get('via')==='people') {
     try {
-      const back=new URL(sessionStorage.getItem('ufos.people.return') || '/ufos/people/',location.origin);
-      if(back.origin===location.origin && back.pathname.startsWith('/ufos/people/')) {
+      const back=canonicalNhiURL(sessionStorage.getItem('ufos.people.return') || '/nhi/people/',location.origin);
+      if(back && back.pathname.startsWith('/nhi/people/')) {
         backToPeople.hidden=false;backToPeople.querySelector('a').href=back.pathname+back.search+back.hash;
         backToPeople.querySelector('a').textContent='← Back to '+(sessionStorage.getItem('ufos.people.name') || 'people');
       }
@@ -162,11 +163,11 @@ function init() {
   download.addEventListener('click',async()=>{
     download.disabled=true;
     try {
-      const response=await fetch('/ufos/data/');if(!response.ok)throw new Error('Download failed');
+      const response=await fetch('/nhi/data/');if(!response.ok)throw new Error('Download failed');
       const exportedPage=new DOMParser().parseFromString(await response.text(),'text/html');
       const complete=exportedPage.getElementById('ufos-export')?.textContent;JSON.parse(complete);
       const blob=new Blob([complete],{type:'application/json'});
-      const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='ufos-timeline-'+data.meta.edition+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+      const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='nhi-index-'+data.meta.edition+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
       status.textContent='Complete dataset downloaded, including people and selected works.';
     }catch{status.textContent='Download unavailable. Please try again.';}
     finally{download.disabled=false;}

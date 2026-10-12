@@ -26,8 +26,8 @@ for (const file of files(root).filter(file => file.endsWith('.html'))) {
   assert(!/<a\b[^>]*href=["'][^"']*\/racingresume(?:[\/?#"'])/i.test(html), 'The racing resume must have no inbound site links: ' + file);
   assert(isLab || allowedCampaignLinks || !/<a\b[^>]*href=["'][^"']*\/proofpath(?:[\/?#"'])/i.test(html), 'The ProofPath brief must have no unapproved inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/tekmetric(?:[\/?#"'])/i.test(html), 'The Tekmetric pitch must have no inbound site links: ' + file);
-  assert(file.startsWith(join(root,'ufos') + '/') || !/<a\b[^>]*href=["'][^"']*\/ufos(?:[\/?#"'])/i.test(html), 'The UFO timeline must have no inbound site links: ' + file);
-  if(file.startsWith(join(root,'ufos') + '/'))assert(/name="robots" content="noindex, nofollow"/.test(html),'Every UFO child page must remain noindex/nofollow: '+file);
+  assert(file.startsWith(join(root,'ufos') + '/') || file.startsWith(join(root,'nhi') + '/') || !/<a\b[^>]*href=["'][^"']*\/(?:ufos|nhi)(?:[\/?#"'])/i.test(html), 'NHI must stay off all main-site discovery surfaces: ' + file);
+  if(file.startsWith(join(root,'ufos') + '/'))assert(/name="robots" content="noindex, follow"/.test(html),'Every legacy UFO page must prevent duplicate indexing: '+file);
   assert(isLab || allowedCampaignLinks || file.endsWith('/dpc/index.html') || file.endsWith('/metsicare/index.html') || !/<a\b[^>]*href=["'][^"']*\/dpc(?:[\/?#"'])/i.test(html), 'The DPC concept must have no unapproved inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/metsicare(?:[\/?#"'])/i.test(html), 'The METSI Care concept must have no inbound site links: ' + file);
   assert(file.startsWith(join(root, 'portfolio') + '/') || !/<a\b[^>]*href=["'][^"']*\/portfolio(?:[\/?#"'])/i.test(html), 'The portfolio review must have no inbound links from the rest of the site: ' + file);
@@ -46,20 +46,20 @@ const example=readFileSync(join(root, 'p/alex.rivera.example/index.html'), 'utf8
 assert(example.includes('Fictional example') && /noindex, nofollow/.test(example), 'Example must be visibly fictional and noindex.');
 assert.equal((pilot.match(/class="buildmine-question"/g) || []).length, 7, 'Expected seven pilot questions.');
 assert(!pilot.includes('maxlength='), 'Pilot answers must not have a character cap.');
-for (const page of ['preview/index.html', 'motorsport/index.html', 'racingresume/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'metsicare/index.html', 'dpc/index.html', 'ufos/index.html']) {
+for (const page of ['preview/index.html', 'motorsport/index.html', 'racingresume/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'metsicare/index.html', 'dpc/index.html']) {
   const html = readFileSync(join(root, page), 'utf8');
   assert(!html.includes('id="analytics-choice"'), 'Unlisted pages must not initialize analytics.');
   assert(/name="robots" content="noindex, nofollow"/.test(html), 'Unlisted pages must ask search engines not to index them: ' + page);
 }
 const sitemap = readFileSync(join(root, 'sitemap.xml'), 'utf8');
 assert(!/\/(preview|writing|motorsport|racingresume|proofpath|tekmetric|metsicare|dpc|ufos)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
-const ufoHtml = readFileSync(join(root, 'ufos/index.html'), 'utf8');
+const ufoHtml = readFileSync(join(root, 'nhi/index.html'), 'utf8');
 const ufoData = JSON.parse(readFileSync(new URL('../src/data/ufos/timeline.json', import.meta.url), 'utf8'));
 for (const event of ufoData.events.filter(e => e.publicationStatus === 'published')) {
   assert(ufoHtml.includes('id="' + event.id + '"'), 'Missing static event anchor: ' + event.id);
   assert(ufoHtml.includes(event.title.replaceAll('&', '&amp;')), 'Missing static event text: ' + event.id);
 }
-assert(!/Disallow:\s*\/ufos/i.test(readFileSync(join(root,'robots.txt'),'utf8')), 'Do not block noindex discovery.');
+assert(!/Disallow:\s*\/(?:ufos|nhi)/i.test(readFileSync(join(root,'robots.txt'),'utf8')), 'Do not block noindex discovery.');
 const youtube = readFileSync(join(root, 'youtube/index.html'), 'utf8');
 assert(/name="robots" content="noindex, nofollow"/.test(youtube), 'The initial YouTube collection should remain noindex.');
 assert(!youtube.includes('<iframe'), 'YouTube players must load only after a visitor clicks.');

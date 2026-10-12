@@ -1,13 +1,8 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import UfoPersonProfile from '../../../components/UfoPersonProfile.astro';
+import NhiRedirect from '../../../components/NhiRedirect.astro';
 import data from '../../../data/ufos/timeline.json';
-import '../../../styles/ufos.css';
-import '../../../styles/ufo-people.css';
+import { personURL } from '../../../lib/ufo-people.mjs';
 export function getStaticPaths() {return data.entities.filter(n=>n.type==='person').map(person=>({params:{id:person.id},props:{person}}));}
-const {person}=Astro.props;
+const { person } = Astro.props;
 ---
-<Base title={`${person.name} — People / UFOs`} description={person.description} compact noindex>
-<div class="ufo-page people-page standalone-profile shell"><nav class="profile-page-nav" aria-label="People navigation"><a href={`/ufos/people/?person=${person.id}#entity-${person.id}`} class="underlined" data-return-people>← People directory</a><a href="/ufos/#timeline" class="underlined" data-return-timeline>Return to the timeline →</a></nav><UfoPersonProfile person={person} data={data}/></div>
-<script>import '../../../scripts/ufo-people-client.mjs';</script>
-</Base>
+<NhiRedirect destination={personURL(person.id)} />

@@ -5,14 +5,15 @@ import {JSDOM} from 'jsdom';
 import {buildSync} from 'esbuild';
 const base=new URL('../dist/',import.meta.url);
 const data=JSON.parse(readFileSync(new URL('../src/data/ufos/timeline.json',import.meta.url)));
-const html=readFileSync(new URL('ufos/people/index.html',base),'utf8');
+const html=readFileSync(new URL('nhi/people/index.html',base),'utf8');
 const scriptPaths=[...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(m=>m[1]);
 const script=scriptPaths.map(s=>buildSync({entryPoints:[new URL(s.slice(1),base).pathname],bundle:true,format:'iife',write:false}).outputFiles[0].text).join('\n');
 const wait=()=>new Promise(resolve=>setTimeout(resolve,20));
-function load(query='') {
- const dom=new JSDOM(html,{url:'https://drewcleaver.com/ufos/people/'+query,runScripts:'outside-only',pretendToBeVisual:true});
+function load(query='',saved={}) {
+ const dom=new JSDOM(html,{url:'https://drewcleaver.com/nhi/people/'+query,runScripts:'outside-only',pretendToBeVisual:true});
  const w=dom.window;w.HTMLElement.prototype.scrollIntoView=function(){};w.scrollTo=()=>{};
  const requests=[];w.fetch=async url=>{requests.push(url);const path=new URL(url,w.location.href).pathname;return {ok:true,text:async()=>readFileSync(new URL(path.slice(1)+'index.html',base),'utf8')};};
+ for(const [key,value] of Object.entries(saved))w.sessionStorage.setItem(key,value);
  w.eval(script);return {dom,w,doc:w.document,requests};
 }
 const visible=doc=>[...doc.querySelectorAll('[data-person]')].filter(n=>!n.hidden);
@@ -53,14 +54,14 @@ test('a failed portrait exposes the designed fallback and retains the accessible
 });
 test('refresh/direct profile and out-of-filter target remain readable; errors have a full-page fallback',async()=>{
  const {dom,doc}=load('?q=xyzz&person=einstein#entity-einstein');await wait();assert.equal(doc.querySelector('[data-profile]').dataset.profile,'einstein');assert.match(doc.querySelector('#people-notice').textContent,/alongside/);dom.window.close();
- const f=load('?q=Einstein');f.w.fetch=async()=>{throw new Error('offline');};f.doc.querySelector('[data-person="einstein"] .person-open').click();await wait();assert.ok(f.doc.querySelector('#person-content a[href="/ufos/people/einstein/"]'));f.dom.window.close();
+ const f=load('?q=Einstein');f.w.fetch=async()=>{throw new Error('offline');};f.doc.querySelector('[data-person="einstein"] .person-open').click();await wait();assert.ok(f.doc.querySelector('#person-content a[href="/nhi/people/einstein/"]'));f.dom.window.close();
 });
-test('every static profile works without JavaScript, has sources and valid local destinations, and remains unlisted',()=>{
+test('every static profile works without JavaScript, has sources and valid local destinations, and is indexable with a canonical URL',()=>{
  for(const n of data.entities.filter(n=>n.type==='person')) {
-  const path=new URL(`ufos/people/${n.id}/index.html`,base);assert.ok(existsSync(path));
+  const path=new URL(`nhi/people/${n.id}/index.html`,base);assert.ok(existsSync(path));
   const doc=new JSDOM(readFileSync(path,'utf8')).window.document;
   assert.equal(doc.querySelectorAll('[data-profile]').length,1);assert.equal(doc.querySelector('[data-profile]').id,'entity-'+n.id);
-  assert.equal(doc.querySelectorAll('h1').length,1);assert.equal(doc.querySelector('meta[name="robots"]').content,'noindex, nofollow');
+  assert.equal(doc.querySelectorAll('h1').length,1);assert.ok(!doc.querySelector('meta[name="robots"]')?.content.includes('noindex'));
   assert.ok(doc.querySelector('.profile-sources a[href^="https:"]'));assert.ok(doc.querySelector('[data-person-timeline]'));
   assert.equal(new Set([...doc.querySelectorAll('[id]')].map(n=>n.id)).size,doc.querySelectorAll('[id]').length);
   for(const a of doc.querySelectorAll('a[href^="/"],img[src^="/"]')) {
@@ -70,9 +71,16 @@ test('every static profile works without JavaScript, has sources and valid local
   }
   doc.defaultView.close();
  }
- const timeline=readFileSync(new URL('ufos/index.html',base),'utf8');assert.equal((timeline.match(/<img\b/g)||[]).length,0);
- assert.equal(existsSync(new URL('ufos/data.json',base)),false,'Complete export must use the noindex HTML wrapper, with no unused raw JSON route.');
- assert.ok(!readFileSync(new URL('sitemap.xml',base),'utf8').includes('/ufos'));
- const exportDoc=new JSDOM(readFileSync(new URL('ufos/data/index.html',base),'utf8')).window.document;
- assert.equal(exportDoc.querySelector('meta[name="robots"]').content,'noindex, nofollow');assert.deepEqual(JSON.parse(exportDoc.querySelector('#ufos-export').textContent),data);exportDoc.defaultView.close();
+ const timeline=readFileSync(new URL('nhi/index.html',base),'utf8');assert.equal((timeline.match(/<img\b/g)||[]).length,0);
+ assert.equal(existsSync(new URL('nhi/data.json',base)),false,'Complete export must use the HTML wrapper, with no unused raw JSON route.');
+ assert.ok(readFileSync(new URL('sitemap.xml',base),'utf8').includes('/nhi/'));
+ const exportDoc=new JSDOM(readFileSync(new URL('nhi/data/index.html',base),'utf8')).window.document;
+ assert.ok(!exportDoc.querySelector('meta[name="robots"]')?.content.includes('noindex'));assert.deepEqual(JSON.parse(exportDoc.querySelector('#ufos-export').textContent),data);exportDoc.defaultView.close();
+});
+
+test('saved pre-migration timeline navigation keeps its filters and scroll-resume intent',()=>{
+ const {dom,doc}=load('',{'ufos.timeline.return':'/ufos/?view=history&q=NASA&from=2004-01-01#nasa-report'});
+ const url=new URL(doc.querySelector('[data-return-timeline]').href);
+ assert.equal(url.pathname,'/nhi/');assert.equal(url.searchParams.get('q'),'NASA');assert.equal(url.searchParams.get('from'),'2004-01-01');assert.equal(url.searchParams.get('resume'),'1');assert.equal(url.hash,'#nasa-report');
+ dom.window.close();
 });

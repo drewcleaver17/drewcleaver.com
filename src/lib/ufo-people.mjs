@@ -14,8 +14,8 @@ export const personRoles = {
 };
 export const workTypes = ['Book','Academic paper','Journalism','Report','Testimony','Patent','Archival document','Interview','Correspondence','Primary text'];
 export const accessLabels = ['Full text','Abstract','Preview','Publisher details','Bibliographic details','Subscription','Archival record'];
-export const personURL = id => `/ufos/people/${encodeURIComponent(id)}/`;
-export const personTimelineURL = id => `/ufos/?view=history&entity=${encodeURIComponent(id)}#timeline`;
+export const personURL = id => `/nhi/people/${encodeURIComponent(id)}/`;
+export const personTimelineURL = id => `/nhi/?view=history&entity=${encodeURIComponent(id)}#timeline`;
 export const normalisePersonSearch = value => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 export const shortDescription = text => {
   const words = text.split(/\s+/);

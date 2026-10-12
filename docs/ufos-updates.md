@@ -1,3 +1,22 @@
+# NHI identity and route migration — October 12, 2026
+
+The canonical resource is now **NHI — New History Initiative**, an evolving, sourced historical index at `https://drewcleaver.com/nhi/`. This owner-authorized release supersedes the earlier UFO-only identity and noindex/sitemap instructions **for this resource alone**. NHI, its People directory, all canonical profiles and its data-export page are public, indexable and in the XML sitemap, while absent from main-site navigation, galleries, search/discovery and cross-promotion. Search eligibility is not a claim of indexing.
+
+The integrated starting point is People PR #71, merged as `ee82cce0533d89d35886efa09bf77c640d9706d0`; Pages run `38232727708` succeeded. Fresh live timeline, full export and a representative person page were checked against that source before editing. The previous review handoffs below are historical records, not the current publication state. See [the NHI migration ledger](nhi-migration-2026-10-12.md).
+
+## Current maintenance paths
+
+- The only editorial dataset remains `src/data/ufos/timeline.json`. Stable IDs, schemas, portraits/credits in `public/images/ufos/people/`, importer/scope scripts, storage keys and historical records keep their existing names.
+- Use `/nhi/`, `/nhi/people/`, `/nhi/people/<canonical-id>/` and `/nhi/data/` for current product links and live verification. Publication checks must inspect `data-edition`, the digest and changed text on **the new destination**, not the old compatibility HTML.
+- GitHub Pages is the existing static host. Every actual old route has a `noindex, follow` compatibility page and a canonical link to its new destination. JavaScript uses `location.replace` and retains the complete query and fragment. With JavaScript off, the working destination link remains; its instructions explain how to retain URL filters/anchors manually. There is no competing timed refresh, loop or added redirect entry in the browser history. No server-side 301 is claimed.
+- `/ufos/data/` also retains the complete export element, generated from the same shared component and dataset, so already-open older timeline tabs can still download their data. It is not a second maintained collection.
+- `npm test`, `npm run ufos:validate` and `npm run build` remain release gates. The existing **Validate UFO timeline** workflow name is retained because the external reporter expects it; route/path triggers now include NHI and migration coverage. There is no new scheduled workflow.
+- The externally managed **UAP Disclosure Milestones** task was inspected read-only. Its current prompt still names `/ufos/` for publication checks and directs every run to read this document. Follow the canonical `/nhi/` destination for those checks. Its prompt, cadence, status, permissions and substantive-alert threshold were not edited in this repository-scoped release. A future external-prompt cleanup remains outside this scope; a successful manual release does not establish a successful reporter run after migration.
+
+Earlier source reviews, publication receipts, research cutoff and reporter state remain unchanged. The migration adds a descriptive edition and one public change-log entry, without changing historical events, sources, entities, relationships or works. Use the current dataset's operational fields; earlier commissioning prose below describes past states.
+
+---
+
 # Model 6 People directory review — October 12, 2026
 
 The canonical source remains `src/data/ufos/timeline.json`. Each existing person now has a `personProfile`; shared publications live once in `works`, with authorship, witness and subject roles on each person's `workRefs`. Profile check dates and inspection scopes apply to this bounded editorial pass. They do not advance `lastCheckedAt`, the broad research cutoff, or earlier source reviews. See [the People review ledger](ufos-people-ledger-2026-10-12.md) for coverage, identity exceptions, source inspection, image credits and verification limits.
@@ -76,7 +95,7 @@ The first import is a dry run. `--apply` writes only the dataset atomically; **i
 3. Read each new or corrected supporting source. Any source failure holds the change. Do not fill gaps from prior assistant reports. Run the importer, tests and full production build. Inspect the actual diff and the public correction note.
 4. Push the branch through the existing authorized connection and open a pull request to `main`. Wait for **Validate UFO timeline** to pass. If the branch is protected or approval is required, leave it for review. Otherwise merge only the source-reviewed eligible update using an expected head SHA; never force.
 5. Observe **Deploy to GitHub Pages** for the exact merged revision. A commit or merge is not publication. On failure retain the prior public page and report a failure requiring attention. Do not notify success before the job succeeds.
-6. Open `https://drewcleaver.com/ufos/` freshly and check its embedded `data-edition` and changed event text. Only then record a publication receipt with the actual verification time and deployed revision. `contentDigest` ignores operational metadata, so a receipt-only follow-up may refer to the same verified content edition. Do not change content timestamps merely for the receipt.
+6. Open `https://drewcleaver.com/nhi/` freshly and check its embedded `data-edition` and changed event text. Only then record a publication receipt with the actual verification time and deployed revision. `contentDigest` ignores operational metadata, so a receipt-only follow-up may refer to the same verified content edition. Do not change content timestamps merely for the receipt.
 7. `lastCheckedAt` is a completed source check, `contentUpdatedAt` is a material dataset change, and `publicationReceipt.verifiedAt` is observed live publication of that content edition. They are not interchangeable. A build timestamp is not a publication timestamp. Receipt-only updates need normal validation/deployment but no substantive alert.
 8. Set status **active** only after an actual reporter run completes this full path. Until then use **setup incomplete**; held substantive proposals may use **awaiting review**, and an explicitly stopped publishing path uses **paused**. Do not advertise live auto-updating before the end-to-end test.
 

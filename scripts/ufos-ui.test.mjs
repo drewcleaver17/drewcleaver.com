@@ -5,8 +5,8 @@ import {JSDOM} from 'jsdom';
 import {buildSync} from 'esbuild';
 import {filterEvents,initialState} from '../src/lib/ufos.mjs';
 import {filterInstitutions} from '../src/lib/ufo-institutions.mjs';
-const html=readFileSync(new URL('../dist/ufos/index.html',import.meta.url),'utf8');
-const scriptURL=[...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(m=>m[1]).find(s=>s.includes('ufos.astro'));
+const html=readFileSync(new URL('../dist/nhi/index.html',import.meta.url),'utf8');
+const scriptURL=[...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(m=>m[1]).find(s=>s.includes('nhi.astro'));
 const script=buildSync({entryPoints:[new URL('../dist'+scriptURL,import.meta.url).pathname],bundle:true,format:'iife',write:false}).outputFiles[0].text;
 // Exercise one built page through successive navigations, as a browser does.
 // Re-parsing this large archival document for every navigation wastes memory.
@@ -15,11 +15,11 @@ after(()=>fixture?.dom.window.close());
 function load(query='') {
   if(fixture){
     const {w}=fixture;
-    w.history.replaceState(null,'','/ufos/'+query);
+    w.history.replaceState(null,'','/nhi/'+query);
     w.dispatchEvent(new w.PopStateEvent('popstate'));
     return fixture;
   }
-  const dom=new JSDOM(html,{url:'https://drewcleaver.com/ufos/'+query,runScripts:'outside-only',pretendToBeVisual:true});
+  const dom=new JSDOM(html,{url:'https://drewcleaver.com/nhi/'+query,runScripts:'outside-only',pretendToBeVisual:true});
   const w=dom.window;w.HTMLElement.prototype.scrollIntoView=function(){};
   w.localStorage.setItem('analytics-consent','granted');w.localStorage.setItem('analytics-choice','accepted');
   w.eval(script);fixture={dom,w,doc:w.document,data:JSON.parse(w.document.querySelector('#ufos-data').textContent)};return fixture;
@@ -36,7 +36,7 @@ test('built interface combines filters, resets, reverses and restores URL state'
  doc.querySelector('#empty-reset').click();assert.deepEqual(visible(doc),filterEvents(data,initialState).map(e=>e.id));
  change(w,'sort','newest');assert.deepEqual(visible(doc),filterEvents(data,{sort:'newest'}).map(e=>e.id));
  change(w,'view','recent');assert.equal(doc.querySelector('[name="sort"]').disabled,true);assert.deepEqual(visible(doc),filterEvents(data,{view:'recent'}).map(e=>e.id));
- w.history.replaceState(null,'','/ufos/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));assert.deepEqual(visible(doc),['nimitz-encounter']);
+ w.history.replaceState(null,'','/nhi/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));assert.deepEqual(visible(doc),['nimitz-encounter']);
  assert.equal(w.gtag,undefined);assert.equal(w.dataLayer,undefined);
 });
 test('deep-linked filtered entries can be revealed and source/correction links remain intact',()=>{
@@ -48,7 +48,7 @@ test('deep-linked filtered entries can be revealed and source/correction links r
  assert.ok(card.querySelector('.correction-record').textContent.includes('Previous summary'));
  for(const link of doc.querySelectorAll('a[href^="#"]')) assert.ok(doc.getElementById(decodeURIComponent(link.getAttribute('href').slice(1))),link.getAttribute('href'));
  assert.equal(new Set([...doc.querySelectorAll('.ufo-event')].map(n=>n.id)).size,data.events.length);
- assert.equal(doc.querySelector('meta[name="robots"]').content,'noindex, nofollow');
+ assert.ok(!doc.querySelector('meta[name="robots"]')?.content.includes('noindex'));
 });
 test('range-aware year shortcut reaches post-cutoff records and exports complete model',()=>{
  const {dom,w,doc,data}=load('?view=history');const el=doc.querySelector('#year-shortcut');el.value='2026';el.dispatchEvent(new w.Event('change',{bubbles:true}));
@@ -65,10 +65,10 @@ test('main all-era path, people route and supporting anchors remain reachable',(
  assert.ok(doc.getElementById('jebel-irhoud').textContent.includes('anchors ordering only'));
  assert.ok(!doc.getElementById('epicurus-worlds').querySelector('.event-date').textContent.includes('Year precision'));
  change(w,'entity','alfred-russel-wallace');assert.deepEqual(visible(doc),['darwin-wallace-1858']);
- w.history.replaceState(null,'','/ufos/#entity-alfred-russel-wallace');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
- const person=doc.getElementById('entity-alfred-russel-wallace');assert.equal(doc.activeElement,person);assert.ok(person.querySelector('a[href="/ufos/people/alfred-russel-wallace/"]'));
- w.history.replaceState(null,'','/ufos/?view=history&entity=Alfred%20Russel%20Wallace');w.dispatchEvent(new w.PopStateEvent('popstate'));assert.deepEqual(visible(doc),['darwin-wallace-1858']);
- w.history.replaceState(null,'','/ufos/#ra-book-2-sessions');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
+ w.history.replaceState(null,'','/nhi/#entity-alfred-russel-wallace');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
+ const person=doc.getElementById('entity-alfred-russel-wallace');assert.equal(doc.activeElement,person);assert.ok(person.querySelector('a[href="/nhi/people/alfred-russel-wallace/"]'));
+ w.history.replaceState(null,'','/nhi/?view=history&entity=Alfred%20Russel%20Wallace');w.dispatchEvent(new w.PopStateEvent('popstate'));assert.deepEqual(visible(doc),['darwin-wallace-1858']);
+ w.history.replaceState(null,'','/nhi/#ra-book-2-sessions');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
  assert.equal(doc.querySelector('[name="view"]').value,'history');
  assert.ok(visible(doc).includes('ra-book-2-sessions'));assert.ok(doc.getElementById('ra-book-2-sessions').textContent.includes('Supporting record for'));
  assert.equal(new Set([...doc.querySelectorAll('[id]')].map(n=>n.id)).size,doc.querySelectorAll('[id]').length);
@@ -107,7 +107,7 @@ test('institutional chronology combines dates and search without losing director
  const saved=w.location.search;
  change(w,'iq','zz-no-such-institution');assert.equal(visibleInstitutions(doc).length,0);assert.equal(doc.querySelector('#institution-empty').hidden,false);
  doc.querySelector('#institution-filters button[type="reset"]').click();assert.equal(visibleInstitutions(doc).length,filterInstitutions(data.entities).length);assert.ok(w.location.search.includes('view=institutions'));
- w.history.replaceState(null,'','/ufos/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));
+ w.history.replaceState(null,'','/nhi/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));
  assert.equal(doc.querySelector('[name="iq"]').value,'NURO');assert.equal(doc.querySelector('[name="idomain"]').value,'naval');
  doc.querySelector('#institution-filters button[type="reset"]').click();
  change(w,'idesignation','FFRDC');change(w,'itype','Research center');
@@ -129,7 +129,7 @@ test('filtered dossier links reveal a canonical accessible detail and retain sou
  assert.match(dossier.querySelector('.institution-evidence').textContent,/UAP|Institutional context/);
  assert.ok(dossier.querySelector('a[href="#nro-agreement"]'));
  assert.equal(doc.querySelectorAll('#entity-nro').length,1);
- w.history.replaceState(null,'','/ufos/#nro-agreement');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
+ w.history.replaceState(null,'','/nhi/#nro-agreement');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
  assert.equal(doc.getElementById('nro-agreement').querySelector('.event-detail').open,true);
  assert.ok(visible(doc).includes('nro-agreement'));
 });
@@ -138,9 +138,16 @@ test('download contains the complete reviewed model and no analytics runs with s
  w.Blob=class {constructor(parts){exported=parts.join('');}};
  w.URL.createObjectURL=()=> 'blob:review';w.URL.revokeObjectURL=()=>{};
  w.HTMLAnchorElement.prototype.click=function(){downloadName=this.download;};
- w.fetch=async()=>({ok:true,text:async()=>readFileSync(new URL('../dist/ufos/data/index.html',import.meta.url),'utf8')});
- doc.querySelector('#download-data').click();await new Promise(resolve=>setTimeout(resolve,20));assert.deepEqual(JSON.parse(exported),JSON.parse(readFileSync(new URL('../src/data/ufos/timeline.json',import.meta.url),'utf8')));assert.match(downloadName,/ufos-timeline-.*\.json/);
+ w.fetch=async()=>({ok:true,text:async()=>readFileSync(new URL('../dist/nhi/data/index.html',import.meta.url),'utf8')});
+ doc.querySelector('#download-data').click();await new Promise(resolve=>setTimeout(resolve,20));assert.deepEqual(JSON.parse(exported),JSON.parse(readFileSync(new URL('../src/data/ufos/timeline.json',import.meta.url),'utf8')));assert.match(downloadName,/nhi-index-.*\.json/);
  assert.ok(data.entities.some(n=>n.institutionalProfile));assert.equal(w.gtag,undefined);assert.equal(w.dataLayer,undefined);
  assert.equal(doc.querySelector('script[src*="googletagmanager"],script[src*="google-analytics"]'),null);
 
+});
+
+test('copied event links use the canonical NHI path',async()=>{
+ const {w,doc}=load();let copied;
+ Object.defineProperty(w.navigator,'clipboard',{value:{writeText:async value=>{copied=value;}},configurable:true});
+ doc.querySelector('[data-copy="nimitz-encounter"]').click();await new Promise(resolve=>setTimeout(resolve,0));
+ assert.equal(copied,'https://drewcleaver.com/nhi/#nimitz-encounter');
 });
