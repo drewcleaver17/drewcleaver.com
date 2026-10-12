@@ -10,6 +10,9 @@ import { campaign, includeCampaign, isLocalReview } from '../src/data/cleaver202
 const root = new URL('../dist/', import.meta.url).pathname;
 const lab = join(root, 'lab');
 const read = path => readFileSync(path, 'utf8');
+const labDiscoveryPattern=/(?:^|[\s"'=>(]|&quot;|&#34;)(?:(?:https?:)?\/\/(?:www\.)?drewcleaver\.com)?\/lab\//i;
+for(const value of ['href="/lab/"','href="https://drewcleaver.com/lab/"','href="//drewcleaver.com/lab/"','&quot;/lab/healthcare/'])assert(labDiscoveryPattern.test(value));
+assert(!labDiscoveryPattern.test('href="https://qutech.nl/lab/hanson-lab/"'));
 const revision = JSON.parse(read(new URL('../src/data/lab-revisions.json', import.meta.url)));
 const current = revision.history.find(entry => entry.id === revision.pageRevision);
 assert(current, 'Current Lab revision must exist.');
@@ -113,7 +116,9 @@ for (const file of walk(root)) {
   // Only this local review or an explicitly approved landing page may expose Lab.
   if (includeCampaign && (isLocalReview || campaign.labLinksApproved) && file === join(root, 'cleaver2028/index.html')) continue;
   if (/\.(html|xml|json|webmanifest|txt)$/.test(file)) {
-    assert(!read(file).includes('/lab/'), 'Lab must be absent from public navigation, sitemap and discovery: ' + file);
+    // Institutional sources may legitimately use an external /lab/ pathname.
+    // Guard our own relative/absolute Lab routes, including HTML-escaped JSON.
+    assert(!labDiscoveryPattern.test(read(file)), 'Lab must be absent from public navigation, sitemap and discovery: ' + file);
   }
 }
 const manifest = JSON.parse(read(join(lab, 'manifest.webmanifest')));

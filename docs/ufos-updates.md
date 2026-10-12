@@ -1,3 +1,15 @@
+# Model 6 People directory review — October 12, 2026
+
+The canonical source remains `src/data/ufos/timeline.json`. Each existing person now has a `personProfile`; shared publications live once in `works`, with authorship, witness and subject roles on each person's `workRefs`. Profile check dates and inspection scopes apply to this bounded editorial pass. They do not advance `lastCheckedAt`, the broad research cutoff, or earlier source reviews. See [the People review ledger](ufos-people-ledger-2026-10-12.md) for coverage, identity exceptions, source inspection, image credits and verification limits.
+
+`/ufos/people/` is the directory entered through the People reading-path tile. It ships short cards and a compact search index. Opening a profile fetches only its build-generated static page; `/ufos/people/<canonical-id>/` also works without JavaScript. The URL stores directory search, role, featured subset, order and selected person. Legacy `/ufos/#entity-<id>` and `#featured-people` anchors lead into this single directory. Person-to-event links select full history and use `via=people` for return navigation; `from` remains exclusively the timeline's date filter.
+
+The default timeline embeds a projection without full person profiles or the works registry. Complete JSON export now fetches the same-origin `/ufos/data/` HTML wrapper only when requested. That wrapper and every person route have `noindex, nofollow`, stay outside the sitemap and are excluded from public navigation. The export contains the complete canonical model. It is not a write endpoint.
+
+Portrait WebPs are served from `public/images/ufos/people/`; `attribution.json` retains subject, creator, license, source and crop information. The canonical profile renders those credits. Missing or failed images use monogram fallbacks. A future portrait change requires a fresh file-specific identity and rights check.
+
+This feature uses a normal editorial branch and is prepared for owner review; no publication receipt is asserted. The scheduled reporter, its cadence, permissions, status and dataset-only publishing boundary are unchanged. Import envelopes cannot introduce or alter person profiles, works or portrait metadata. New People file paths trigger the existing PR validation workflow; no scheduled workflow was added or activated.
+
 # Model 4 editorial maintenance — October 11, 2026
 
 This is a manually authorized editorial release. **Scheduled-reporter configuration, cadence, alert threshold, permissions, activation/status and dataset-only publishing boundary are unchanged.** Manual publication is not evidence that a scheduled run succeeded. Existing commissioning/recovery records remain intact.

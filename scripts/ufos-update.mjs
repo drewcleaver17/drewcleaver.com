@@ -6,7 +6,7 @@ import { validateDataset } from '../src/lib/ufos.mjs';
 
 export const datasetPath = fileURLToPath(new URL('../src/data/ufos/timeline.json', import.meta.url));
 export const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-export const contentDigest = data => digest({ sources: data.sources, events: data.events, entities: data.entities || [], relationships: data.relationships || [], changeLog: data.changeLog, ...(data.contentModelVersion >= 3 ? {contentModelVersion:data.contentModelVersion,sourceReviews:data.sourceReviews || {}} : {}) });
+export const contentDigest = data => digest({ sources: data.sources, events: data.events, entities: data.entities || [], relationships: data.relationships || [], changeLog: data.changeLog, ...(data.contentModelVersion >= 6 ? {works:data.works || {}} : {}), ...(data.contentModelVersion >= 3 ? {contentModelVersion:data.contentModelVersion,sourceReviews:data.sourceReviews || {}} : {}) });
 const fail = text => { throw new Error(text); };
 const equal = (a,b) => JSON.stringify(a) === JSON.stringify(b);
 export function assertPermittedPaths(paths) {

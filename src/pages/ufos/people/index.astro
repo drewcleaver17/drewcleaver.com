@@ -1,0 +1,30 @@
+---
+import Base from '../../../layouts/Base.astro';
+import UfoReadingPaths from '../../../components/UfoReadingPaths.astro';
+import UfoPortrait from '../../../components/UfoPortrait.astro';
+import data from '../../../data/ufos/timeline.json';
+import { directoryIndex,personRoles,personURL,shortDescription } from '../../../lib/ufo-people.mjs';
+import '../../../styles/ufos.css';
+import '../../../styles/ufo-people.css';
+const people=data.entities.filter(n=>n.type==='person').sort((a,b)=>a.name.localeCompare(b.name,'en'));
+const index=directoryIndex(data);
+const roles=Object.entries(personRoles).filter(([key])=>index.some(n=>n.roles.includes(key)));
+---
+<Base title="People — UFOs: A Living Timeline" description="The people behind the history: sourced profiles, contributions, selected works and primary records." compact noindex>
+<div class="ufo-page people-page shell" data-people-directory>
+  <header class="people-hero"><a href="/ufos/#timeline" class="underlined" data-return-timeline>← Return to the timeline</a><p class="eyebrow">UFOs / A living timeline</p><h1>The people<br/><em>behind the history.</em></h1><p>Meet the scientists, witnesses, journalists and investigators who shaped the record. Follow their work, then return to the events.</p><div class="edition-strip"><span>{people.length} people</span><span>{people.filter(n=>n.featured).length} featured contributors</span><span>Sources with every profile</span></div></header>
+  <UfoReadingPaths people />
+  <section id="people" aria-labelledby="people-title"><div class="people-heading"><div><p class="eyebrow">Explore the directory</p><h2 id="people-title">People.</h2></div><p>Foundational ideas, direct accounts and public responsibility.</p></div>
+  <form id="people-filters" class="filter-panel" role="search" aria-label="Search and filter people" hidden><div class="people-filter-grid"><label>Search people & works<input name="q" type="search" placeholder="Name, book, paper, institution…" autocomplete="off"/></label><label>Role<select name="role"><option value="">All roles</option>{roles.map(([key,label])=><option value={key}>{label}</option>)}</select></label><label>Order<select name="sort"><option value="az">Name · A–Z</option><option value="za">Name · Z–A</option></select></label></div><div class="filter-bottom"><label class="checkbox-label"><input type="checkbox" name="featured"/>Featured contributors</label><button type="reset">Reset directory</button></div></form>
+  <p id="people-count" class="people-count" role="status" aria-live="polite">{people.length} people · alphabetical by name</p>
+  <noscript><p class="no-script">Browse the complete alphabetical directory below. Each profile opens on its own page; search and inline reading use JavaScript.</p></noscript>
+  <div id="people-empty" class="empty-state" hidden><h3>No people found.</h3><p>Try a name, an alternate spelling, a work title, or a broader role.</p><button type="button" class="button button-outline" id="people-empty-reset">Clear filters</button></div>
+  <p id="people-notice" class="link-status" role="status" aria-live="polite"></p>
+  <div class="people-grid" id="people-grid">{people.map(person=><article class="person-card" data-person={person.id}><a href={personURL(person.id)} class="person-open" aria-controls="people-profile-panel" aria-expanded="false"><UfoPortrait person={person} card/><div class="person-card-copy"><p class="person-card-role">{person.role || 'Timeline participant'}</p><h3>{person.name}</h3><p class="person-card-summary">{shortDescription(person.description)}</p><span class="person-read">Read profile <span aria-hidden="true">↗</span></span></div></a></article>)}</div>
+  <section id="people-profile-panel" class="people-profile-panel" hidden aria-label="Selected person"><div class="profile-toolbar"><button type="button" id="close-person" class="underlined">← Back to people</button><a id="person-permalink" class="underlined" href="/ufos/people/">Open profile page ↗</a></div><div id="person-content" aria-live="polite"></div></section>
+  <p class="people-footnote">Institution names are searchable when they appear in associated events. That association alone does not establish a person’s employment or participation in a program.</p>
+  </section>
+</div>
+<script type="application/json" id="people-index" set:html={JSON.stringify(index).replace(/</g,'\\u003c')}/>
+<script>import '../../../scripts/ufo-people-client.mjs';</script>
+</Base>

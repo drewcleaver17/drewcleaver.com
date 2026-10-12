@@ -26,7 +26,8 @@ for (const file of files(root).filter(file => file.endsWith('.html'))) {
   assert(!/<a\b[^>]*href=["'][^"']*\/racingresume(?:[\/?#"'])/i.test(html), 'The racing resume must have no inbound site links: ' + file);
   assert(isLab || allowedCampaignLinks || !/<a\b[^>]*href=["'][^"']*\/proofpath(?:[\/?#"'])/i.test(html), 'The ProofPath brief must have no unapproved inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/tekmetric(?:[\/?#"'])/i.test(html), 'The Tekmetric pitch must have no inbound site links: ' + file);
-  assert(file.endsWith('/ufos/index.html') || !/<a\b[^>]*href=["'][^"']*\/ufos(?:[\/?#"'])/i.test(html), 'The UFO timeline must have no inbound site links: ' + file);
+  assert(file.startsWith(join(root,'ufos') + '/') || !/<a\b[^>]*href=["'][^"']*\/ufos(?:[\/?#"'])/i.test(html), 'The UFO timeline must have no inbound site links: ' + file);
+  if(file.startsWith(join(root,'ufos') + '/'))assert(/name="robots" content="noindex, nofollow"/.test(html),'Every UFO child page must remain noindex/nofollow: '+file);
   assert(isLab || allowedCampaignLinks || file.endsWith('/dpc/index.html') || file.endsWith('/metsicare/index.html') || !/<a\b[^>]*href=["'][^"']*\/dpc(?:[\/?#"'])/i.test(html), 'The DPC concept must have no unapproved inbound site links: ' + file);
   assert(!/<a\b[^>]*href=["'][^"']*\/metsicare(?:[\/?#"'])/i.test(html), 'The METSI Care concept must have no inbound site links: ' + file);
   assert(file.startsWith(join(root, 'portfolio') + '/') || !/<a\b[^>]*href=["'][^"']*\/portfolio(?:[\/?#"'])/i.test(html), 'The portfolio review must have no inbound links from the rest of the site: ' + file);

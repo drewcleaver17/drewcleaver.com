@@ -1,3 +1,4 @@
+import { validatePeople } from './ufo-people.mjs';
 import { institutionMilestone, institutionDomains, institutionTypes, uapStatusLabels } from './ufo-institutions.mjs';
 export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history'];
 export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling', 'Human origins & evolution', 'Mind & philosophy'];
@@ -130,7 +131,7 @@ export function validateDataset(data, now = new Date()) {
   };
   const stamp = v => string(v) && /^\d{4}-\d{2}-\d{2}T/.test(v) && Number.isFinite(Date.parse(v)) && Date.parse(v) <= +now;
   check(data?.schemaVersion === 1, 'Unsupported schema version');
-  check(data.contentModelVersion === undefined || [1,2,3,4,5].includes(data.contentModelVersion), 'Unsupported content model version');
+  check(data.contentModelVersion === undefined || [1,2,3,4,5,6].includes(data.contentModelVersion), 'Unsupported content model version');
   if (!Array.isArray(data?.events) || !data?.sources || !data?.meta) return [...errors, 'Missing events, sources or meta'];
   for (const key of ['lastCheckedAt', 'contentUpdatedAt']) check(stamp(data.meta[key]), 'Invalid meta.' + key);
   check(date(data.meta.researchCutoff), 'Invalid research cutoff');
@@ -265,7 +266,7 @@ export function validateDataset(data, now = new Date()) {
   if(data.contentModelVersion>=3) for(const r of data.relationships || []) check(relationTypes.includes(r.type), 'Invalid factual relationship type: '+r.id);
   for(const receipt of data.meta.checkReceipts || []) check(stamp(receipt.checkedAt) && string(receipt.scope) && string(receipt.mode) && string(receipt.basis) && receipt.sourceIds?.length && receipt.sourceIds.every(id=>data.sources[id]), 'Invalid check receipt');
   check(data.meta.contentUpdatedAt.slice(0,10)>=data.meta.researchCutoff, 'Research cutoff exceeds content update');
-  return errors;
+  return [...errors,...validatePeople(data,now)];
 }
 
 export function normalizeYouTubeURL(value) {
