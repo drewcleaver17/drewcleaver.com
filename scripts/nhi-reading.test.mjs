@@ -62,11 +62,15 @@ test('adjust-filters remembers an entry and provides an explicit return; exclude
 });
 
 test('green appearance synchronizes both controls, persists, restores before paint, and tolerates blocked storage',()=>{
- d.querySelector('[data-nhi-theme="dark"]').click();assert.equal(d.documentElement.dataset.nhiTheme,'dark');assert.equal(w.localStorage.getItem('nhi.reading.appearance'),'dark');
+ assert.match(html,/<html[^>]*data-nhi-theme="dark"/);
+ d.querySelector('button[data-nhi-theme="dark"]').click();assert.equal(d.documentElement.dataset.nhiTheme,'dark');assert.equal(w.localStorage.getItem('nhi.reading.appearance'),'dark');
  assert.ok([...d.querySelectorAll('button[data-nhi-theme="dark"]')].every(n=>n.getAttribute('aria-pressed')==='true'));
  const early=[...d.querySelectorAll('head script:not([src])')].find(n=>n.textContent.includes('nhi.reading.appearance')).textContent;
- const doc={documentElement:{dataset:{}}};runInNewContext(early,{document:doc,localStorage:{getItem:()=> 'dark'}});assert.equal(doc.documentElement.dataset.nhiTheme,'dark');
- assert.doesNotThrow(()=>runInNewContext(early,{document:doc,localStorage:{getItem:()=>{throw Error('blocked');}}}));
+ for(const choice of [null,'unknown','dark','light']){
+  const doc={documentElement:{dataset:{nhiTheme:'dark'}}};runInNewContext(early,{document:doc,localStorage:{getItem:()=>choice}});
+  assert.equal(doc.documentElement.dataset.nhiTheme,choice==='light'?'light':'dark');
+ }
+ const doc={documentElement:{dataset:{nhiTheme:'dark'}}};assert.doesNotThrow(()=>runInNewContext(early,{document:doc,localStorage:{getItem:()=>{throw Error('blocked');}}}));assert.equal(doc.documentElement.dataset.nhiTheme,'dark');
  d.querySelector('button[data-nhi-theme="light"]').click();assert.equal(d.documentElement.dataset.nhiTheme,'light');
  const saved=new JSDOM('<html data-nhi data-nhi-theme="dark"><body><button data-nhi-theme="light">Light</button><button data-nhi-theme="dark">Dark green</button></body></html>',{url:'https://drewcleaver.com/nhi/',runScripts:'outside-only'});saved.window.eval(script);saved.window.document.querySelector('button[data-nhi-theme="light"]').click();assert.equal(saved.window.document.documentElement.dataset.nhiTheme,'light');saved.window.close();
 });
@@ -151,6 +155,6 @@ test('zero results preserve selected controls and clear all retains view, order 
  navigate('?view=history&sort=newest&category=Scientific+research&region=egypt&q=zzzzzz');
  assert.equal(visible().length,0);assert.equal(d.querySelector('[name="category"]:checked').value,'Scientific research');assert.equal(d.getElementById('empty-state').hidden,false);
  assert.ok(d.querySelector('[data-clear-facet="region"]'));assert.ok(d.querySelector('#active-filters [data-remove-facet="category"]'));
- d.querySelector('[data-nhi-theme="dark"]').click();d.getElementById('empty-reset').click();assert.equal(d.querySelector('[name="view"]').value,'history');assert.equal(d.querySelector('[name="sort"]').value,'newest');assert.equal(d.documentElement.dataset.nhiTheme,'dark');assert.equal(d.querySelectorAll('#timeline-filters [data-choice-for]:checked').length,0);
- assert.deepEqual(visible(),filterEvents(data,{view:'history',sort:'newest'}).map(e=>e.id));d.querySelector('[data-nhi-theme="light"]').click();
+ d.querySelector('button[data-nhi-theme="dark"]').click();d.getElementById('empty-reset').click();assert.equal(d.querySelector('[name="view"]').value,'history');assert.equal(d.querySelector('[name="sort"]').value,'newest');assert.equal(d.documentElement.dataset.nhiTheme,'dark');assert.equal(d.querySelectorAll('#timeline-filters [data-choice-for]:checked').length,0);
+ assert.deepEqual(visible(),filterEvents(data,{view:'history',sort:'newest'}).map(e=>e.id));d.querySelector('button[data-nhi-theme="light"]').click();
 });

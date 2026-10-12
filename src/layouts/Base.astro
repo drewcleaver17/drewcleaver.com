@@ -11,7 +11,7 @@ const portfolioLinks = [{ href: '/tesloco/', label: 'Tesloco' }, { href: '/spect
 const active = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
 ---
 <!doctype html>
-<html lang="en" data-nhi={isNhi ? 'true' : undefined}>
+<html lang="en" data-nhi={isNhi ? 'true' : undefined} data-nhi-theme={isNhi ? 'dark' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

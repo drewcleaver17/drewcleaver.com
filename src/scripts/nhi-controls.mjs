@@ -43,7 +43,7 @@ function setTheme(theme) {
   try{localStorage.setItem('nhi.reading.appearance',theme);}catch{}
 }
 for(const button of buttons)button.addEventListener('click',()=>setTheme(button.dataset.nhiTheme));
-for(const button of buttons)button.setAttribute('aria-pressed',String(button.dataset.nhiTheme===(document.documentElement.dataset.nhiTheme || 'light')));
+for(const button of buttons)button.setAttribute('aria-pressed',String(button.dataset.nhiTheme===(document.documentElement.dataset.nhiTheme || 'dark')));
 
 // Printing the current view includes its evidence/source trail without altering screen state.
 let printOpened=[];
