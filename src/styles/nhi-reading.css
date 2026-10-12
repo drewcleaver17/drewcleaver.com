@@ -63,3 +63,35 @@ html[data-nhi] :is(a,button,input,select,[tabindex]){scroll-margin-block:7rem 1r
 @media(min-width:1100px) and (min-height:760px){.ufo-page .reading-tools{display:none}.ufo-page .reading-workspace>.filter-panel{position:sticky;top:1rem;max-height:calc(100svh - 2rem);overflow:auto}.filter-group{scroll-margin-top:1rem}.ufo-page #results-summary{scroll-margin-top:1rem}html[data-nhi] :is(a,button,input,select,[tabindex]){scroll-margin-block:1rem}}
 @media(max-height:500px){.ufo-page .reading-tools{position:static}.ufo-page #timeline-filters{max-height:none;position:static}.ufo-page :is(#results-summary,.filter-group,.ufo-event){scroll-margin-top:1rem}}
 @media print{.ufo-page .reading-tools,#results-summary{display:none!important}}
+
+/* R06: begin reading before opening individual refinement groups. */
+.ufo-page .essential-hero{padding-block:1.2rem 0}
+.ufo-page .essential-hero .index-name{font-size:clamp(2.1rem,5vw,4rem);max-width:none}
+.essential-hero .hero-actions{margin:1rem 0}
+.essential-preview{margin:1.3rem 0 1rem;scroll-margin-top:7rem}
+.essential-preview h2{font-size:1.5rem;margin-bottom:.5rem}
+.essential-preview>p{max-width:65ch;font-size:.9rem}
+.essential-preview ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;list-style:none;padding:0;margin:1rem 0}
+.essential-preview li{border:1px solid var(--nhi-line);background:var(--nhi-surface);padding:1rem;min-width:0}
+.essential-preview li h3{font-size:1.25rem;line-height:1.35;margin:.4rem 0}
+.essential-preview li h3 a{text-decoration:underline;text-underline-offset:.2em}
+.essential-preview li p{font-size:.85rem;margin:.5rem 0}
+.preview-reason{color:var(--nhi-muted)}
+.filter-disclosure{border-top:1px solid var(--nhi-line);min-width:0}
+.filter-disclosure>summary{display:list-item;padding:.65rem 0;min-height:44px;font-size:.95rem;font-weight:650;cursor:pointer;overflow-wrap:anywhere}
+.filter-disclosure>summary>span{display:block;font-size:.76rem;font-weight:400;color:var(--nhi-muted);margin-top:.2rem}
+.filter-disclosure .filter-group{border:0;padding-top:.35rem}
+.ufo-page .reading-workspace>.filter-panel{overflow:visible;position:static;max-height:none;scrollbar-gutter:auto}
+.ufo-page .reading-tools{display:flex}
+.essential-reason{border-inline-start:2px solid var(--nhi-accent);padding-inline-start:.85rem;margin:1rem 0}
+.essential-reason p{font-size:.9rem}.essential-reason .inquiry{border:0;padding:0;margin:.5rem 0;color:var(--nhi-muted)}
+.entry-evidence{font-size:.85rem;color:var(--nhi-muted);margin:.65rem 0}
+.editorial-assessment{font-size:.85rem;margin:.65rem 0}
+.editorial-assessment>summary{cursor:pointer;min-height:44px;padding:.5rem 0;color:var(--nhi-muted)}
+.editorial-assessment>div{padding:1rem;background:var(--nhi-raised);border:1px solid var(--nhi-line)}
+.editorial-assessment p+p{margin-top:.7rem}.editorial-assessment ul{padding-inline-start:1.2rem;margin:.8rem 0}.editorial-assessment li{margin:.5rem 0}
+.era-related>summary{font-size:.8rem;cursor:pointer;min-height:44px;padding:.5rem 0}
+#assessment-method dl div{margin:.6rem 0}#assessment-method dt{font-weight:650}
+@media(max-width:767px){.essential-preview ol{grid-template-columns:1fr}.essential-preview li:not(:first-child){display:none}.essential-preview>p{font-size:.85rem}.ufo-page .essential-hero .index-name span{font-size:.62em}.essential-hero .edition-strip{font-size:.72rem}.filter-jumps{gap:0 .6rem}}
+@media(max-height:500px){.ufo-page .reading-tools{position:static}}
+@media print{.essential-preview,.editorial-assessment{display:none}.ufo-page .reading-tools{display:none!important}}

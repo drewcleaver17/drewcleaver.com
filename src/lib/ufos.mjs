@@ -1,8 +1,9 @@
 import { facetKeys, valuesOf, matchesAny, validBoundary, subjectCatalog } from './nhi-filtering.mjs';
 import { validatePeople } from './ufo-people.mjs';
 import { institutionMilestone, institutionDomains, institutionTypes, uapStatusLabels } from './ufo-institutions.mjs';
+import { essentialIDs, validateEditorial } from './nhi-editorial.mjs';
 export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history', 'Archaeology and cultural history'];
-export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling', 'Human origins & evolution', 'Mind & philosophy', 'Ancient societies & archaeology'];
+export const topics = ['UFO reports & disclosure', 'Remote viewing & consciousness', 'Intelligence & secrecy', 'Nuclear history', 'Space & SETI', 'Science & invention', 'Business & wartime finance', 'Religious texts & channeling', 'Human origins & evolution', 'Mind & philosophy', 'Ancient societies & archaeology', 'Food, work & exchange', 'Governance, rights & resistance', 'Health & public welfare', 'War & mass violence', 'Environment & climate', 'Cultural traditions & expression'];
 // Regional discovery groups are not evidence labels or claims of cultural identity.
 export const regions = {'maya-world':'Maya world & Yucatán','mesoamerica':'Mexica & broader Mesoamerica','brazil-amazon':'Brazil & Amazon region','egypt':'Egypt & later interpretations'};
 export const sourceKindLabels = { primary: 'Primary record', 'archival-history': 'Institutional or archival history', 'participant-account': 'Participant / organizational account', 'primary-mirror': 'Copy / translation of a primary record', scholarship: 'Scholarly analysis / reference', reprint: 'Reproduced announcement', 'original-reporting': 'Original reporting', reporting: 'Reporting' };
@@ -23,14 +24,14 @@ export const evidenceDefinitions = {
 export const eras = [
   { id: 'origins', label: 'Human origins / Early societies and material evidence', years: 'Deep time–1000 BCE', start: '-1000000', end: '-1000', summary: 'Read fossil ages, traces of symbolic behavior and early societies as evidence with limits. Biological evolution, cultural change and the recovery of written records are different processes.' },
   { id: 'ancient-texts', label: 'Ideas / Worlds, observation and texts', years: 'First millennium BCE–1499 CE', start: '-0999', end: '1499', summary: 'Compare arguments about the cosmos, mathematical astronomy, optical investigation and the transmission of texts. Shared questions do not establish direct influence.' },
-  { id: 'foundations', label: 'Foundations / New scales and instruments', years: '1500–1939', start: '1500', end: '1939', summary: 'Follow changes in observation, physical theory, biology and communication. Credit belongs to collaborators and predecessors as well as familiar names.' },
-  { id: 'war', label: 'History / War and the national-security state', years: '1940–1951', start: '1940', end: '1951', summary: 'Nuclear weapons, intelligence structures and the first postwar UFO investigations develop on different tracks.' },
-  { id: 'cold-war', label: 'History / The Cold War and the space age', years: '1952–1969', start: '1952', end: '1969', summary: 'Reconnaissance, civilian spaceflight and official UFO studies expand. Their responsibilities and findings differ.' },
-  { id: 'experiments', label: 'History / Experiments and contested results', years: '1970–1995', start: '1970', end: '1995', summary: 'Remote-viewing research, consciousness claims and retrospective record searches generate documents and disagreement.' },
-  { id: 'archives', label: 'History / Archives and renewed attention', years: '1996–2016', start: '1996', end: '2016', summary: 'Declassification, encounters and donated collections make parts of the historical record easier to investigate.' },
-  { id: 'attention', label: '01 / Renewed public attention', years: '2017–2021', start: '2017', end: '2021', summary: 'Reporting, released footage and an intelligence assessment put the question in public view.' },
-  { id: 'oversight', label: '02 / Formal scrutiny', years: '2022–2024', start: '2022', end: '2024', summary: 'Hearings, scientific studies and legislation create distinct ways to ask for answers.' },
-  { id: 'records', label: '03 / The expanding records trail', years: '2025 onward', start: '2025', end: '9999', summary: 'Records collections and disclosure channels grow. More material does not automatically mean more certainty.' }
+  { id: 'foundations', label: 'Connected worlds / New methods and changing power', years: '1500–1939', start: '1500', end: '1939', summary: 'Trade, colonialism, industrial work, rights and new scientific methods reshape lives. Examine gains, harms and the collective work behind familiar names.' },
+  { id: 'war', label: 'War / Destruction and new institutions', years: '1940–1951', start: '1940', end: '1951', summary: 'Wartime destruction, atomic weapons, human rights and new government institutions leave distinct records and human consequences.' },
+  { id: 'cold-war', label: 'History / The Cold War and the space age', years: '1952–1969', start: '1952', end: '1969', summary: 'Cold War competition accompanies civilian spaceflight, new scientific tools and official investigations. Their responsibilities and findings differ.' },
+  { id: 'experiments', label: 'Planetary systems / New evidence and contested questions', years: '1970–1995', start: '1970', end: '1995', summary: 'Astronomy, environmental assessment and investigations of mind or unusual reports open different questions. Assessments and recommendations are not the same as demonstrated outcomes.' },
+  { id: 'archives', label: 'Evidence / Genomes, instruments and archives', years: '1996–2016', start: '1996', end: '2016', summary: 'Ancient DNA, new measurement channels and opened collections expand what can be investigated. Later confirmations and access milestones keep their own dates.' },
+  { id: 'attention', label: 'Research / Landscapes and public questions', years: '2017–2021', start: '2017', end: '2021', summary: 'Archaeological studies and new public records open different kinds of inquiry. A research finding and a reported allegation have different evidence boundaries.' },
+  { id: 'oversight', label: 'Research / Wider maps and formal scrutiny', years: '2022–2024', start: '2022', end: '2024', summary: 'New instruments, landscape mapping, hearings and legislation create distinct ways to ask questions. Compare the supported finding with the scope of its evidence.' },
+  { id: 'records', label: 'Open questions / An expanding record', years: '2025 onward', start: '2025', end: '9999', summary: 'Scientific tests and records collections grow. A recent finding is assessed on established consequences, and more material does not automatically mean more certainty.' }
 ];
 export const dateRoles = { formation:'Formation', authorization:'Authorization', 'operational-start':'Operations begin', rename:'Name changes', transfer:'Responsibility transfers', closure:'Closure', 'public-acknowledgment':'Public acknowledgment', declassification:'Declassification', 'public-reference':'Public reference', designation:'Designation', milestone:'Milestone', incident:'Reported incident', publication:'Public publication', reporting:'Reporting date', composition:'Estimated composition', manuscript:'Estimated copying', session:'Attributed session dates', document:'Document date', research:'Research period', experiment:'Experiment', investigation:'Investigation period', 'field-campaign':'Field campaign', meeting:'Meeting dates', announcement:'Public announcement', statement:'Public statement', assessment:'Assessment date', release:'Public release', 'release-response':'Records-release response', 'evidence-age':'Estimated age of evidence', 'patent-grant':'Patent grant', demonstration:'Demonstration', submission:'Manuscript submission', presentation:'Presentation', foundation:'Institution founded', 'reported-wave-onset':'Reported wave begins', launch:'Launch', flight:'Flight', observation:'Observation', landing:'Landing' };
 export const layerOf = e => e.layer || (e.context ? 'contextual' : 'core');
@@ -50,7 +51,7 @@ export function eventBounds(e) {
   return [calendarCoordinate(e.date?.start),calendarCoordinate(e.date?.end || e.date?.start,true)];
 }
 export const eraFor = e => eras.find(era => eventBounds(e)[0] >= calendarCoordinate(era.start) && eventBounds(e)[0] <= calendarCoordinate(era.end,true));
-export const initialState = { q: '', from: '', to: '', category: [], topic: [], entity: [], evidence: [], region: [], layer: [], sort: 'oldest', view: 'journey', context: false };
+export const initialState = { q: '', from: '', to: '', category: [], topic: [], entity: [], evidence: [], region: [], layer: [], sort: 'oldest', view: 'essentials', context: false };
 export const normalizeSearch = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 export function dateBounds(value) {
   if (/^\d{4}$/.test(value)) return [value + '-01-01', value + '-12-31'];
@@ -76,7 +77,8 @@ export function filterIndex(data) {
   if(filterIndexes.has(data))return filterIndexes.get(data);
   const catalog=subjectCatalog(data),subjectIds=new Map(data.events.map(e=>[e.id,[]]));
   for(const n of catalog)for(const id of n.eventIds)subjectIds.get(id)?.push(n.id);
-  const records=data.events.map(e=>({event:e,bounds:eventBounds(e),text:searchText(e,data.sources,data.entities),institution:institutionMilestone(data,e),
+  const selected=essentialIDs(data);
+  const records=data.events.map(e=>({event:e,essential:selected.has(e.id),bounds:eventBounds(e),text:searchText(e,data.sources,data.entities),institution:institutionMilestone(data,e),
     facets:{category:e.categories,topic:e.topics || ['UFO reports & disclosure'],evidence:e.evidenceTypes,region:e.region?[e.region]:[],layer:[layerOf(e)],entity:subjectIds.get(e.id)}}));
   const index={catalog,records};filterIndexes.set(data,index);return index;
 }
@@ -92,6 +94,7 @@ export function eventMatcher(state,omitFacet='') {
   return record=>{
     const {event:e,bounds,facets}=record;
     if(e.publicationStatus!=='published')return false;
+    if(s.view==='essentials' && !record.essential)return false;
     if(s.view==='story' && !s.context && (e.context || bounds[0]<calendarCoordinate('2017')))return false;
     if(s.view==='journey' && !s.context && readingPathOf(e)!=='main')return false;
     if(s.view==='institutions' && !record.institution)return false;
@@ -129,7 +132,7 @@ export function stateFromParams(params) {
     else if(params.has(key))s[key]=params.get(key).slice(0,500);
   }
   if(!['oldest','newest'].includes(s.sort))s.sort='oldest';
-  if(!['journey','story','history','recent','core','institutions'].includes(s.view))s.view='journey';
+  if(!['essentials','journey','story','history','recent','core','institutions'].includes(s.view))s.view='essentials';
   const allowed={category:categories,topic:topics,evidence:Object.keys(evidenceDefinitions),region:Object.keys(regions),layer:['core','contextual']};
   for(const [key,values] of Object.entries(allowed))s[key]=s[key].filter(value=>values.includes(value));
   for(const key of ['from','to'])if(!validBoundary(s[key]))s[key]='';
@@ -151,7 +154,7 @@ export function validateDataset(data, now = new Date()) {
   const check = (test, message) => { if (!test) errors.push(message); };
   const string = v => typeof v === 'string' && v.trim().length > 0;
   const date = v => {
-    if (typeof v === 'string' && /^-\d{4}$/.test(v)) return Number(v)<0;
+    if (typeof v === 'string' && /^-\d{4,}$/.test(v)) return Number.isSafeInteger(Number(v)*372) && Number(v)<0;
     if (typeof v !== 'string' || !/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/.test(v) || calendarYear(v)===0) return false;
     const [low] = dateBounds(v), d = new Date(low + 'T00:00:00Z');
     return !Number.isNaN(+d) && d.toISOString().slice(0, 10) === low && low <= now.toISOString().slice(0, 10);
@@ -186,10 +189,10 @@ export function validateDataset(data, now = new Date()) {
     if(age) check(data.contentModelVersion>=4 && e.date.start===null && e.date.end===null && e.date.role==='evidence-age' && a && [a.older,a.younger,a.referenceYear,a.estimate,a.uncertainty].every(Number.isFinite) && a.older>=a.estimate && a.estimate>=a.younger && a.younger>0 && a.uncertainty>=0 && a.referenceYear>=1900 && a.referenceYear<=now.getUTCFullYear() && ['convention','uncertaintyConvention','confidence'].every(k=>string(a[k])), 'Invalid evidence age: '+e.id);
     else check(date(e.date?.start), 'Invalid event date: ' + e.id);
     check(e.date?.end === null || (date(e.date?.end) && calendarCoordinate(e.date.end,true) >= calendarCoordinate(e.date.start)), 'Invalid date range: ' + e.id);
-    const precision = age ? 'age' : e.date?.end ? 'range' : /^-\d{4}$/.test(e.date?.start) ? 'year' : ({4:'year',7:'month',10:'day'})[e.date?.start?.length];
+    const precision = age ? 'age' : e.date?.end ? 'range' : /^-\d{4,}$/.test(e.date?.start) ? 'year' : ({4:'year',7:'month',10:'day'})[e.date?.start?.length];
     check(e.date?.precision === precision, 'False date precision: ' + e.id);
     check(Boolean(dateRoles[e.date?.role]), 'Invalid date role: ' + e.id);
-    if (age || e.date?.approximate !== undefined || e.date?.label !== undefined) check(e.date.approximate === true && (age || (precision === 'year' && /^-?\d{4}$/.test(e.date.start)) || (precision === 'range' && /^-?\d{4}$/.test(e.date.start) && /^-?\d{4}$/.test(e.date.end))) && string(e.date.label) && string(e.dateNotes), 'Unqualified approximate date: ' + e.id);
+    if (age || e.date?.approximate !== undefined || e.date?.label !== undefined) check(e.date.approximate === true && (age || (precision === 'year' && /^-?\d{4,}$/.test(e.date.start)) || (precision === 'range' && /^-?\d{4,}$/.test(e.date.start) && /^-?\d{4,}$/.test(e.date.end))) && string(e.date.label) && string(e.dateNotes), 'Unqualified approximate date: ' + e.id);
     for (const k of ['incidentDate', 'disclosureDate', 'publicationDate']) check(e[k] === null || date(e[k]), 'Invalid ' + k + ': ' + e.id);
     for (const k of ['addedAt', 'revisedAt', 'lastVerifiedAt']) check(stamp(e[k]), 'Invalid ' + k + ': ' + e.id);
     check(e.revisedAt >= e.addedAt, 'Revision predates addition: ' + e.id);
@@ -295,7 +298,7 @@ export function validateDataset(data, now = new Date()) {
   if(data.contentModelVersion>=3) for(const r of data.relationships || []) check(relationTypes.includes(r.type), 'Invalid factual relationship type: '+r.id);
   for(const receipt of data.meta.checkReceipts || []) check(stamp(receipt.checkedAt) && string(receipt.scope) && string(receipt.mode) && string(receipt.basis) && receipt.sourceIds?.length && receipt.sourceIds.every(id=>data.sources[id]), 'Invalid check receipt');
   check(data.meta.contentUpdatedAt.slice(0,10)>=data.meta.researchCutoff, 'Research cutoff exceeds content update');
-  return [...errors,...validatePeople(data,now)];
+  return [...errors,...validatePeople(data,now),...validateEditorial(data,eventBounds,now)];
 }
 
 export function normalizeYouTubeURL(value) {

@@ -1,6 +1,6 @@
 ---
 const {people=false} = Astro.props;
-const paths=[['journey','Read from the beginning','Consequential milestones · all eras'],['story','Modern disclosure','2017 onward'],['core','Core timeline','All eras · UFO records & investigations'],['history','Explore full history','Every main & supporting record'],['institutions','Institutional history','Formation, research & disclosure'],['recent','Added or corrected','What changed on this site']];
+const paths=[['essentials','Essential history','A curated starting path'],['journey','Earlier main reading path','Consequential milestones · all eras'],['story','Modern disclosure','2017 onward'],['core','Core timeline','All eras · UFO records & investigations'],['history','Explore full history','Every main & supporting record'],['institutions','Institutional history','Formation, research & disclosure'],['recent','Added or corrected','What changed on this site']];
 ---
 <nav class="view-switch" aria-label="Reading paths">
   {paths.map(([key,label,note])=><a href={`${people?'/nhi/':''}?view=${key}#timeline`} data-view={people?undefined:key}>{label}<span>{note}</span></a>)}

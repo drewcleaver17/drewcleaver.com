@@ -138,7 +138,7 @@ test('institutional chronology combines dates and search without losing director
  assert.ok(visibleInstitutions(doc).length>0);assert.ok(!visibleInstitutions(doc).includes('mitre'));
  change(w,'sort','oldest');assert.ok(w.location.search.includes('idesignation=FFRDC'));
  doc.querySelector('.institution-heading [data-view="institutions"]').click();
- assert.equal(w.location.hash,'#timeline');assert.equal(doc.activeElement,doc.querySelector('[name="q"]'));
+ assert.equal(w.location.hash,'#timeline');assert.equal(doc.activeElement,doc.querySelector('#results-summary'));
  assert.ok(w.location.search.includes('idesignation=FFRDC'));
  for(const el of doc.querySelectorAll('#institution-filters input,#institution-filters select'))assert.ok(el.closest('label'));
 

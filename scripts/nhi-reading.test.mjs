@@ -76,8 +76,8 @@ test('green appearance synchronizes both controls, persists, restores before pai
 });
 
 test('source trails, original event anchors, chapter sharing, starter path and honest scope survive without filtering',()=>{
- assert.equal(d.querySelectorAll('.ufo-event').length,data.events.length);assert.equal(d.querySelectorAll('.chapter-link').length,10);assert.equal(d.querySelectorAll('.starter-path li').length,4);
- for(const a of d.querySelectorAll('.starter-path a,.chapter-link'))assert.ok(d.getElementById(a.hash.slice(1)));
+ assert.equal(d.querySelectorAll('.ufo-event').length,data.events.length);assert.equal(d.querySelectorAll('.chapter-link').length,10);assert.equal(d.querySelectorAll('.essential-preview li').length,3);
+ for(const a of d.querySelectorAll('.essential-preview h3 a,.chapter-link'))assert.ok(d.getElementById(a.hash.slice(1)));
  assert.match(d.querySelector('.index-method-note').textContent,/not independent corroboration/);
  assert.ok(d.querySelector('noscript'));assert.match(d.title,/New History Index/);
  assert.ok(data.events.every(n=>d.getElementById(n.id)?.querySelector('.source-list a')));
