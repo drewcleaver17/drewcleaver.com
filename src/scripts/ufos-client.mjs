@@ -62,6 +62,7 @@ function init() {
     for(const key of ['q','view','sort'])control(key).value=state[key];
     control('context').checked=state.context;
     control('sort').disabled=state.view==='recent';
+    control('context').disabled=!['journey','story'].includes(state.view);
   };
   const writeURL = mode => {
     if (!mode) return;
@@ -110,8 +111,8 @@ function init() {
       for (const era of document.querySelectorAll('.timeline-era')) era.hidden = !era.querySelector('.era-events .ufo-event:not([hidden])');
     }
     const total = filterEvents(data, { view: state.view, context: state.context }).length;
-    resultCount.textContent = results.length + ' of ' + total + ' entries' + (state.view === 'journey' && !state.context ? ' · main reading milestones' : state.view === 'story' && !state.context ? ' · modern disclosure' : state.view === 'recent' ? ' · ordered by site revision' : state.view === 'core' ? ' · all-era core timeline' : state.view === 'institutions' ? ' · institutional chronology' : ' · full history');
-    document.getElementById('scope-note').textContent = state.view === 'journey' && !state.context
+    resultCount.textContent = results.length + ' of ' + total + (state.view==='essentials'?' essential entries':' entries') + (state.view === 'essentials' ? ' · chronological starting path' : state.view === 'journey' && !state.context ? ' · main reading milestones' : state.view === 'story' && !state.context ? ' · modern disclosure' : state.view === 'recent' ? ' · ordered by site revision' : state.view === 'core' ? ' · all-era core timeline' : state.view === 'institutions' ? ' · institutional chronology' : ' · full history');
+    document.getElementById('scope-note').textContent = state.view==='essentials' ? 'A fixed, curated '+total+'-milestone starting path across both timeline layers. Filters show its matching subset without replacement entries. Switch to full history to explore beyond this selection.' : state.view === 'journey' && !state.context
       ? 'A chronological reading path through human origins, ideas, scientific discoveries, encounters and investigations. Supporting records remain in full history and at their original links.'
       : state.view === 'story' && !state.context
       ? 'Modern disclosure starts in December 2017. Core timeline includes earlier UFO cases; full history also includes contextual strands.'
@@ -119,10 +120,13 @@ function init() {
       : state.view === 'institutions' ? 'Formation, operational starts, transitions and disclosures retain separate dates. Institutional existence and mission do not establish an alleged UAP role. Searchable dossiers below explain the source boundaries.'
       : 'Selected historical context across distinct strands. Nearby dates, shared personnel and documented relationships do not by themselves establish a common cause.';
     for (const link of document.querySelectorAll('[data-view]')) {
+      const url=new URL(location.href);url.search=paramsFromState({...state,view:link.dataset.view,context:false}).toString();url.hash='timeline';link.href=url.pathname+url.search+url.hash;
       const selected = link.dataset.view === (state.context && ['story','journey'].includes(state.view) ? 'history' : state.view);
       if (selected) link.setAttribute('aria-current','true'); else link.removeAttribute('aria-current');
     }
     empty.hidden = results.length !== 0;
+    document.getElementById('empty-all').hidden=state.view!=='essentials';
+    document.getElementById('start-here').hidden=state.view!=='essentials' || filtered;
     recentNote.hidden = state.view !== 'recent';
     for (const el of document.querySelectorAll('.recent-label')) el.hidden = state.view !== 'recent';
     filterControls.sync();
@@ -146,6 +150,7 @@ function init() {
   function reset(mode='push') { clearTimeout(timer); state={...initialState,view:state.view,sort:state.sort};filterControls.clearLocalSearch();filterControls.resetDraft();render(mode); }
   function showHash(focus=false) {
     let id; try { id=decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    const openParents=node=>{for(let parent=node?.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;};
     if (cards.has(id)) {
       const e=all.find(item=>item.id===id);
       if (!filterEvents(data,state).some(item=>item.id===id)) {
@@ -160,6 +165,7 @@ function init() {
       state={...initialState,view:'journey'};render('replace');status.textContent='The main reading path opened for this chapter; previous filters were cleared.';document.getElementById(id).scrollIntoView({block:'start'});
     } else {
       const target=document.getElementById(id);
+      if (target)openParents(target);
       if (target && institutionDirectory.reveal(target,focus)) { if(target.tagName==='DETAILS')target.open=true; for(let node=target.parentElement;node;node=node.parentElement)if(node.tagName==='DETAILS')node.open=true; if(focus && target.hasAttribute('tabindex'))target.focus({preventScroll:true}); target.scrollIntoView({block:'start'}); }
     }
   }
@@ -180,7 +186,9 @@ function init() {
     if(e.target.name==='view')state.context=false;
     render('push');
   });
-  for(const link of document.querySelectorAll('[data-view]'))link.addEventListener('click',e=>{e.preventDefault();clearTimeout(timer);state={...initialState,view:link.dataset.view};filterControls.resetDraft();render('push');const url=new URL(location.href);url.hash='timeline';history.replaceState(null,'',url);control('q').focus({preventScroll:true});document.getElementById('timeline').scrollIntoView({block:'start'});});
+  for(const link of document.querySelectorAll('[data-view]'))link.addEventListener('click',e=>{e.preventDefault();clearTimeout(timer);state={...state,view:link.dataset.view,context:false};filterControls.resetDraft();render('push');const url=new URL(location.href);url.hash='timeline';history.replaceState(null,'',url);if(link.hasAttribute('data-start-reading')){const first=filterEvents(data,state)[0];const target=cards.get(first?.id) || resultCount.closest('section');target.scrollIntoView({block:'start'});target.focus({preventScroll:true});}else{resultCount.closest('section').scrollIntoView({block:'start'});resultCount.closest('section').focus({preventScroll:true});}});
+  document.getElementById('empty-all').addEventListener('click',()=>{state={...state,view:'history',context:false};render('push');resultCount.closest('section').focus({preventScroll:true});});
+  for(const link of form.querySelectorAll('.filter-jumps a'))link.addEventListener('click',()=>{const target=document.querySelector(link.getAttribute('href'));if(target?.closest('details'))target.closest('details').open=true;});
   document.getElementById('empty-reset').addEventListener('click',()=>{reset();control('q').focus();});
   window.addEventListener('popstate',()=>{clearTimeout(timer);state=restoredState();filterControls.resetDraft();render();showHash();});
   window.addEventListener('hashchange',()=>showHash(true));

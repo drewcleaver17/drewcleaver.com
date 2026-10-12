@@ -46,7 +46,7 @@ test('regional dates distinguish manuscript periods, fieldwork, publications and
  assert.equal(data.events.filter(e=>e.id==='brazil-night-1986').length,1);
 });
 test('main reading prominence is independent of layer, era and retained records',()=>{
- const main=filterEvents(data,{}), all=filterEvents(data,{view:'history'});
+ const main=filterEvents(data,{view:'journey'}), all=filterEvents(data,{view:'history'});
  assert.ok(main.length>0); // Editorial depth is a guide, not a publishing quota.
  assert.ok(all.length>main.length);
  assert.ok(main.some(e=>e.id==='phoenix-lights-1997' && e.layer==='core'));
@@ -55,8 +55,8 @@ test('main reading prominence is independent of layer, era and retained records'
  assert.ok(all.some(e=>e.id==='ra-book-2-sessions'));
  assert.ok(filterEvents(data,{view:'core'}).some(e=>e.id==='nimitz-encounter'));
  assert.ok(filterEvents(data,{view:'story'}).every(e=>!e.context && e.date.start>='2017'));
- assert.deepEqual(filterEvents(data,{context:true}).map(e=>e.id),all.map(e=>e.id));
- for(const e of main)assert.ok(e.contextLinks?.length || e.relatedLinks?.length,e.id);
+ assert.deepEqual(filterEvents(data,{view:'journey',context:true}).map(e=>e.id),all.map(e=>e.id));
+ for(const e of main.filter(e=>!data.editorial.essentialPath.additions.includes(e.id)))assert.ok(e.contextLinks?.length || e.relatedLinks?.length,e.id);
 });
 test('deep-time ages retain their measurement uncertainty and navigation convention',()=>{
  const e=data.events.find(e=>e.id==='jebel-irhoud');
@@ -65,8 +65,8 @@ test('deep-time ages retain their measurement uncertainty and navigation convent
  assert.ok(e.date.age.convention.includes('navigation'));
  assert.equal(eraFor(e).id,'origins');
  assert.ok(eventBounds(e)[1]<eventBounds(data.events.find(e=>e.id==='blombos-drawing'))[0]);
- assert.deepEqual(filterEvents(data,{era:'origins'}).filter(e=>e.date.precision==='age').map(e=>e.id),['jebel-irhoud','blombos-drawing']);
- assert.ok(filterEvents(data,{era:'origins'}).some(e=>e.id==='djoser-step-pyramid'));
+ assert.deepEqual(filterEvents(data,{view:'journey',era:'origins'}).filter(e=>e.date.precision==='age').map(e=>e.id),['jebel-irhoud','blombos-drawing','madjedbebe-occupation']);
+ assert.ok(filterEvents(data,{view:'journey',era:'origins'}).some(e=>e.id==='djoser-step-pyramid'));
  assert.ok(!filterEvents(data,{from:'0001-01-01'}).some(e=>e.date.precision==='age'));
  for(const mutate of [x=>x.date.start='2017',x=>x.date.age.younger=x.date.age.older+1,x=>delete x.date.age.convention,x=>delete x.date.age.estimate]){
   const bad=structuredClone(data);mutate(bad.events.find(x=>x.id===e.id));
@@ -107,21 +107,21 @@ test('metadata inspection remains distinct from supporting-text inspection',()=>
 });
 test('search includes people, institutions, source titles and combined filters',()=>{
   assert.ok(filterEvents(data,{view:'history',q:'Grusch'}).length>=3);
-  const result=filterEvents(data,{q:'Grusch',category:'Hearings and oversight',entity:'David Grusch',from:'2023-01-01',to:'2023-12-31',evidence:'Secondhand allegation'});
+  const result=filterEvents(data,{view:'history',q:'Grusch',category:'Hearings and oversight',entity:'David Grusch',from:'2023-01-01',to:'2023-12-31',evidence:'Secondhand allegation'});
   assert.deepEqual(result.map(e=>e.id),['house-hearing-2023']);
-  assert.ok(filterEvents(data,{q:'Preliminary Assessment'}).some(e=>e.id==='odni-assessment'));
+  assert.ok(filterEvents(data,{view:'history',q:'Preliminary Assessment'}).some(e=>e.id==='odni-assessment'));
 });
 test('chronology, reverse, context and empty results',()=>{
   const normal=filterEvents(data,{}); assert.equal(normal[0].id,'jebel-irhoud'); assert.equal(filterEvents(data,{view:'story'})[0].id,'nyt-2017');
   assert.deepEqual(filterEvents(data,{sort:'newest'}).map(e=>e.id),normal.map(e=>e.id).reverse());
   assert.equal(filterEvents(data,{view:'history'})[0].id,'jebel-irhoud');
-  assert.ok(filterEvents(data,{context:true}).some(e=>e.id==='nimitz-encounter'));
+  assert.ok(filterEvents(data,{view:'journey',context:true}).some(e=>e.id==='nimitz-encounter'));
   assert.equal(filterEvents(data,{q:'zz-no-such-event'}).length,0);
 });
 test('partial dates overlap a range without inventing a display day',()=>{
   assert.deepEqual(dateBounds('2020-02'),['2020-02-01','2020-02-29']);
   assert.equal(formatDate('2019-03'),'March 2019');
-  assert.ok(filterEvents(data,{from:'2019-03-20',to:'2019-03-21'}).some(e=>e.id==='navy-reporting'));
+  assert.ok(filterEvents(data,{view:'history',from:'2019-03-20',to:'2019-03-21'}).some(e=>e.id==='navy-reporting'));
 });
 test('ancient estimates keep their qualifications and overlap date filters',()=>{
   const e=data.events.find(e=>e.id==='nag-hammadi-codices');
@@ -197,7 +197,7 @@ test('historical aliases, strands and combined filters remain separate from mode
 test('full-history URL state and sorting preserve date uncertainty and claimed dates',()=>{
   const s={...initialState,view:'history',topic:['Business & wartime finance'],entity:['bbh'],sort:'newest'};
   assert.deepEqual(stateFromParams(paramsFromState(s)),s);
-  assert.equal(stateFromParams(new URLSearchParams('view=bogus')).view,'journey');
+  assert.equal(stateFromParams(new URLSearchParams('view=bogus')).view,'essentials');
   const e=data.events.find(e=>e.id==='magenta-claim-retelling');assert.equal(e.date.start,'2017-03-21');assert.equal(e.claimDate.start,'1933-06-13');
   assert.equal(formatDate('1931'),'1931');
   const history=filterEvents(data,{view:'history'});assert.deepEqual(filterEvents(data,{view:'history',sort:'newest'}).map(e=>e.id),history.map(e=>e.id).reverse());

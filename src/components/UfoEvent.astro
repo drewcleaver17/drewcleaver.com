@@ -1,7 +1,8 @@
 ---
 import { personURL } from '../lib/ufo-people.mjs';
 import { eventDateLabel, formatDate, sourceKindLabels, dateRoles, layerOf } from '../lib/ufos.mjs';
-const { event: e, sources, sourceReviews = {}, events, entities = [], relationships = [] } = Astro.props;
+const { event: e, sources, sourceReviews = {}, events, entities = [], relationships = [], assessments = {}, essentialReasons = {} } = Astro.props;
+const assessment=assessments[e.id], essential=essentialReasons[e.id];
 const names=entities.filter(n=>e.entityIds?.includes(n.id));
 const connections=relationships.filter(r=>r.eventIds.includes(e.id));
 const fieldLabels={title:'Title',summary:'Summary',significance:'Significance',established:'Established facts',limitations:'Limitations',people:'People',institutions:'Institutions',dateNotes:'Date note',publicationDate:'Publication date',disclosureDate:'Disclosure date',documentDate:'Document date',publicReleasedAt:'Public release',layer:'Layer',readingPath:'Reading prominence'};
@@ -15,6 +16,9 @@ const precision={day:'Day precision',month:'Month known; day unverified',year:'Y
     <h3><a href={`#${e.slug}`}>{e.title}</a></h3>
     <p class="event-summary">{e.summary}</p>
     <p class="event-significance"><span>Why it matters</span> {e.significance}</p>
+    {essential && <aside class="essential-reason"><p><strong>Why this is in the starting path:</strong> {essential.reason}</p><p class="inquiry"><strong>Ask:</strong> {essential.question}</p></aside>}
+    <p class="entry-evidence"><strong>Evidence boundary:</strong> {e.limitations[0]}</p>
+    {assessment && <details class="editorial-assessment"><summary>Editorial assessment · {assessment.status==='assessed'?`Impact ${assessment.historicalImpact}/10 · Learning ${assessment.learningValue}/5`:'Unassessed'}</summary><div><p>Historical impact estimates consequences; learning value estimates usefulness to a newcomer. Neither measures factual certainty, moral approval or human worth. <a href="#assessment-method">Read the rubric →</a></p><p>{assessment.rationale}</p><p><strong>Scope:</strong> {assessment.limitations}</p>{assessment.foundationalJustification && <p><strong>Why a rare 10:</strong> {assessment.foundationalJustification}</p>}<ul>{assessment.references.map(ref=><li><a href={sources[ref.sourceId].url}>{sources[ref.sourceId].title} ↗</a> — {ref.supports}</li>)}</ul><p>{assessment.assessor} Reviewed {assessment.reviewedOn} · {assessment.rubricVersion}.</p><p>{assessment.inspectionBasis} This editorial assessment does not reset the entry’s factual verification date.</p></div></details>}
     {names.some(n=>n.type==='person') && <p class="contributor-links">People in this record: {names.filter(n=>n.type==='person').map(n=><a href={personURL(n.id)} data-people-entry>{n.name}</a>)}</p>}
     {names.some(n=>n.institutionalProfile) && <p class="contributor-links">Institutions in this record: {names.filter(n=>n.institutionalProfile).map(n=><a href={`#entity-${n.id}`}>{n.institutionalProfile.acronym || n.name}</a>)}</p>}
     {e.contextLinks?.length>0 && <div class="narrative-links"><span>Read alongside · editorial context</span>{e.contextLinks.map(link=><p><a href={`#${link.eventId}`}>{events.find(x=>x.id===link.eventId)?.title}</a> — {link.note}</p>)}</div>}

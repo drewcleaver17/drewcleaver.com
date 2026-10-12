@@ -3,10 +3,11 @@ import { readFileSync, writeFileSync, renameSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { validateDataset } from '../src/lib/ufos.mjs';
+import { unassessedEntry } from '../src/lib/nhi-editorial.mjs';
 
 export const datasetPath = fileURLToPath(new URL('../src/data/ufos/timeline.json', import.meta.url));
 export const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-export const contentDigest = data => digest({ sources: data.sources, events: data.events, entities: data.entities || [], relationships: data.relationships || [], changeLog: data.changeLog, ...(data.contentModelVersion >= 6 ? {works:data.works || {}} : {}), ...(data.contentModelVersion >= 3 ? {contentModelVersion:data.contentModelVersion,sourceReviews:data.sourceReviews || {}} : {}) });
+export const contentDigest = data => digest({ sources: data.sources, events: data.events, entities: data.entities || [], relationships: data.relationships || [], changeLog: data.changeLog, ...(data.editorial ? {editorial:data.editorial} : {}), ...(data.contentModelVersion >= 6 ? {works:data.works || {}} : {}), ...(data.contentModelVersion >= 3 ? {contentModelVersion:data.contentModelVersion,sourceReviews:data.sourceReviews || {}} : {}) });
 const fail = text => { throw new Error(text); };
 const equal = (a,b) => JSON.stringify(a) === JSON.stringify(b);
 export function assertPermittedPaths(paths) {
@@ -94,6 +95,12 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     record.correctionHistory = existing ? [...existing.correctionHistory, { at: timestamp, reason: change.reason, previousSummary: existing.summary, previousRecordDigest: digest(existing) }] : [];
     record.reviewStatus = reviewed ? 'editor-reviewed' : 'bounded-reviewed';
     if (existing) next.events[next.events.indexOf(existing)] = record; else next.events.push(record);
+    if(next.editorial) {
+      // Updating a selected anchor needs an editorial release: an unattended
+      // importer cannot invalidate or quietly replace a fixed starting path.
+      if(next.editorial.essentialPath.items.some(item=>item.eventId===record.id)) fail('Selected essential entry requires editorial assessment review: '+record.id);
+      next.editorial.assessments[record.id]=unassessedEntry('Ingested record requires a new consequence and learning-value review; factual source checks do not supply editorial scores.',timestamp.slice(0,10));
+    }
     // Membership in an already sourced index is derived navigation metadata,
     // not permission to create or reinterpret an entity or relationship.
     for (const entity of next.entities || []) if (record.entityIds?.includes(entity.id) && !entity.eventIds.includes(record.id)) entity.eventIds.push(record.id);

@@ -10,7 +10,7 @@ export function initTimelineFilterControls(data,getState,update) {
   const ranges=quickRanges();
   for(const range of ranges){const option=document.createElement('option');option.value=range.id;option.textContent=range.label;preset.append(option);}
   const input=key=>form.elements.namedItem(key);
-  const focusFacet=key=>{const target=key==='entity'?subjectInput:key==='date'?input('from'):form.querySelector(`[name="${key}"]`);target?.focus({preventScroll:true});};
+  const focusFacet=key=>{const target=key==='entity'?subjectInput:key==='date'?input('from'):form.querySelector(`[name="${key}"]`);if(target?.closest('details'))target.closest('details').open=true;target?.focus({preventScroll:true});};
   function fillDates() {
     const state=getState();draftDirty=false;
     for(const key of ['from','to']){input(key).value=state[key]?Math.abs(boundaryYear(state[key])):'';input(key+'Era').value=state[key] && boundaryYear(state[key])<0?'BCE':'CE';input(key).removeAttribute('aria-invalid');document.getElementById(key+'-error').hidden=true;}
@@ -109,9 +109,12 @@ export function initTimelineFilterControls(data,getState,update) {
       for(const checkbox of form.querySelectorAll(`input[data-choice-for="${key}"]`))checkbox.checked=state[key].includes(checkbox.value);
       for(const node of form.querySelectorAll(`[data-count-for="${key}"]`)){node.textContent=String(count.get(node.dataset.value)||0);node.setAttribute('aria-label',node.textContent+' matching entries');}
       form.querySelector(`[data-selection-summary="${key}"]`).textContent=state[key].length?`${state[key].length} selected`:'Any choice';
+      const groupSummary=form.querySelector(`[data-group-summary="${key}"]`);
+      if(groupSummary)groupSummary.textContent=state[key].length?state[key].map(value=>key==='entity'?byId.get(value)?.name || value:key==='region'?regions[value]:value).join(' · '):'Any choice';
     }
     if(!draftDirty)fillDates();
     document.getElementById('date-summary').textContent='Applied: '+rangeLabel(state.from,state.to);
+    form.querySelector('[data-group-summary="date"]').textContent=rangeLabel(state.from,state.to);
     document.getElementById('empty-date').hidden=!state.from && !state.to;
     renderSubjects();syncChips();
   }

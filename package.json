@@ -8,8 +8,8 @@
   "scripts": {
     "prebuild": "node scripts/prepare-cleaver2028-build.mjs",
     "dev": "astro dev",
-    "build": "npm run test:dpc && npm run test:buildmine && node scripts/ufos-update.mjs --validate && astro build && node scripts/check-release.mjs && node --test scripts/ufos-ui.test.mjs scripts/ufo-people-ui.test.mjs scripts/nhi-migration.test.mjs scripts/nhi-reading.test.mjs && npm run test:buildmine-ui && npm run test:dpc-ui && npm run test:fkl",
-    "test": "node --test scripts/ufos.test.mjs scripts/ufo-people.test.mjs scripts/nhi-filtering.test.mjs",
+    "build": "npm run test:dpc && npm run test:buildmine && node scripts/ufos-update.mjs --validate && astro build && node scripts/check-release.mjs && node --test scripts/ufos-ui.test.mjs scripts/ufo-people-ui.test.mjs scripts/nhi-migration.test.mjs scripts/nhi-reading.test.mjs scripts/nhi-essential-ui.test.mjs && npm run test:buildmine-ui && npm run test:dpc-ui && npm run test:fkl",
+    "test": "node --test scripts/ufos.test.mjs scripts/ufo-people.test.mjs scripts/nhi-filtering.test.mjs scripts/nhi-essentials.test.mjs",
     "ufos:validate": "node scripts/ufos-update.mjs --validate",
     "preview": "astro preview",
     "astro": "astro",
