@@ -9,7 +9,18 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-10-12-nhi-migration",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-10-12-nhi-migration",
+      "verifiedAt": "2026-10-12T10:21:42.032323Z",
+      "revision": "53566cd99c5a00b7b39193d3ad8ad57b4ed777ed",
+      "contentDigest": "891591de1aeaa6498ae02ff07a36516ee74bda9715d69947046728c7ec97ddf0",
+      "url": "https://drewcleaver.com/nhi/",
+      "workflowRun": 38235422625,
+      "pullRequest": 72,
+      "verificationScope": "Exact merged Pages run succeeded. Fresh HTTP checks on 22 routes, complete exported dataset, all 399 event and 521 entity anchors, all 254 NHI sitemap entries, indexable metadata/canonicals and response headers, robots rules, old fallback routes and 10 production assets/representative portraits matched the validated build. Production-delivered compatibility scripts were executed in an isolated DOM/VM for old event, institution, People directory and profile URLs: query/fragment preservation and replace navigation passed. Main-site discovery remains unchanged. Full build and 184 model/DOM tests passed; static copy renders were reviewed at 320/390/768/1440 px. Actual browser/mobile geometry, screen-reader, touch, browser-console and network-waterfall checks remain unavailable.",
+      "researchScope": "Publication verification only. No historical records, source reviews, substantive-content/source-check timestamps or broad research cutoff changed.",
+      "scheduledOperation": "Manual identity and route migration. External automation prompt/settings, cadence, status, permissions and dataset-only boundary are unchanged; no post-migration scheduled run is claimed."
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
