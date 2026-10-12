@@ -1,26 +1,15 @@
 {
   "schemaVersion": 1,
   "meta": {
-    "title": "NHI — New History Initiative",
+    "title": "NHI — New History Index",
     "researchCutoff": "2026-09-19",
     "lastCheckedAt": "2026-10-12T16:39:32Z",
-    "contentUpdatedAt": "2026-10-12T16:39:32Z",
+    "contentUpdatedAt": "2026-10-12T17:26:39Z",
     "updateStatus": "active",
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
-    "edition": "2026-10-12-regional-history",
-    "publicationReceipt": {
-      "edition": "2026-10-12-regional-history",
-      "verifiedAt": "2026-10-12T17:03:08.124260Z",
-      "revision": "5353116eb15c816aca6033f5904a0294c1f349e2",
-      "contentDigest": "87e5e853ce91f794b3de0dda902d90e9f97cd6d20c81bfe0bc521215d9bf2a57",
-      "url": "https://drewcleaver.com/nhi/",
-      "workflowRun": 38281164287,
-      "pullRequest": 74,
-      "verificationScope": "Exact merged Pages run succeeded. Fresh HTTP/source checks of 21 routes and 7 served bundles/imports matched the tested build. Complete exported dataset, all 423 event and 528 entity anchors, all 261 NHI sitemap routes, all seven new canonical People profiles and representative legacy fallback routes passed. Canonicals, indexing policy, robots and off-menu navigation remained intact. 187 model/DOM tests and required build/release checks passed locally and both PR workflows passed. Static copy renders reviewed at 320/390/768/1440 px. Native browser geometry, touch and screen-reader checks were unavailable; no such verification is claimed.",
-      "researchScope": "Publication verification only. Historical records, source inspection scopes, substantive-content/source-check timestamps and the broad September 19 research cutoff are unchanged.",
-      "scheduledOperation": "Manual regional editorial release. External automation settings, cadence, status, permissions and dataset-only boundary are unchanged; this is not a scheduled run."
-    },
+    "edition": "2026-10-12-index-r04",
+    "publicationReceipt": null,
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
@@ -114,6 +103,18 @@
         "verificationScope": "Exact merged Pages run succeeded. Fresh HTTP checks on 22 routes, complete exported dataset, all 399 event and 521 entity anchors, all 254 NHI sitemap entries, indexable metadata/canonicals and response headers, robots rules, old fallback routes and 10 production assets/representative portraits matched the validated build. Production-delivered compatibility scripts were executed in an isolated DOM/VM for old event, institution, People directory and profile URLs: query/fragment preservation and replace navigation passed. Main-site discovery remains unchanged. Full build and 184 model/DOM tests passed; static copy renders were reviewed at 320/390/768/1440 px. Actual browser/mobile geometry, screen-reader, touch, browser-console and network-waterfall checks remain unavailable.",
         "researchScope": "Publication verification only. No historical records, source reviews, substantive-content/source-check timestamps or broad research cutoff changed.",
         "scheduledOperation": "Manual identity and route migration. External automation prompt/settings, cadence, status, permissions and dataset-only boundary are unchanged; no post-migration scheduled run is claimed."
+      },
+      {
+        "edition": "2026-10-12-regional-history",
+        "verifiedAt": "2026-10-12T17:03:08.124260Z",
+        "revision": "5353116eb15c816aca6033f5904a0294c1f349e2",
+        "contentDigest": "87e5e853ce91f794b3de0dda902d90e9f97cd6d20c81bfe0bc521215d9bf2a57",
+        "url": "https://drewcleaver.com/nhi/",
+        "workflowRun": 38281164287,
+        "pullRequest": 74,
+        "verificationScope": "Exact merged Pages run succeeded. Fresh HTTP/source checks of 21 routes and 7 served bundles/imports matched the tested build. Complete exported dataset, all 423 event and 528 entity anchors, all 261 NHI sitemap routes, all seven new canonical People profiles and representative legacy fallback routes passed. Canonicals, indexing policy, robots and off-menu navigation remained intact. 187 model/DOM tests and required build/release checks passed locally and both PR workflows passed. Static copy renders reviewed at 320/390/768/1440 px. Native browser geometry, touch and screen-reader checks were unavailable; no such verification is claimed.",
+        "researchScope": "Publication verification only. Historical records, source inspection scopes, substantive-content/source-check timestamps and the broad September 19 research cutoff are unchanged.",
+        "scheduledOperation": "Manual regional editorial release. External automation settings, cadence, status, permissions and dataset-only boundary are unchanged; this is not a scheduled run."
       }
     ],
     "researchCoverage": "Baseline research cutoff: September 19, 2026. October 10 audit and October 11 UTC editorial checks cover selected supporting passages, historical additions and the September 23/25 records releases; this is not a comprehensive later-news sweep. October 12 UTC institutional research adds a bounded roster and source review; it does not advance the comprehensive news cutoff or claim a census of classified organizations. The UAP Gerb corpus was cataloged separately and inspected only at the passages documented in the review manifest.",
@@ -626,7 +627,9 @@
       "scope": "Canonical people directory; new biography and bibliography checks are scoped per profile and work. Earlier source inspection is reused where explicitly recorded. Portrait metadata inspected separately. No broad news cutoff or scheduled-operation change.",
       "people": 251,
       "status": "Published in PR #71; integrated baseline verified before the NHI migration"
-    }
+    },
+    "editorialRevision": "R04",
+    "presentationUpdatedAt": "2026-10-12T17:26:39Z"
   },
   "sources": {
     "nyt-context": {
@@ -46594,6 +46597,13 @@
     }
   ],
   "changeLog": [
+    {
+      "date": "2026-10-12",
+      "title": "R04 — New History Index: shared historical grounding",
+      "detail": "Renamed the resource; added orientation, a small starter path, chapter questions and citation guidance. Exposed existing filtering choices, retained URL semantics, added persistent reading controls and an optional saved British racing green appearance. The 423 event records and their individual factual/source review dates are unchanged; this is an editorial and interface revision, not a fresh review of the whole collection.",
+      "eventIds": [],
+      "id": "2026-10-12-index-r04"
+    },
     {
       "id": "initial-audit",
       "date": "2026-09-19",

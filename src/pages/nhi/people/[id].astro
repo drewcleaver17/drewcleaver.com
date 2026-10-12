@@ -1,4 +1,5 @@
 ---
+import NhiThemeControl from '../../../components/NhiThemeControl.astro';
 import Base from '../../../layouts/Base.astro';
 import UfoPersonProfile from '../../../components/UfoPersonProfile.astro';
 import data from '../../../data/ufos/timeline.json';
@@ -7,7 +8,7 @@ import '../../../styles/ufo-people.css';
 export function getStaticPaths() {return data.entities.filter(n=>n.type==='person').map(person=>({params:{id:person.id},props:{person}}));}
 const {person}=Astro.props;
 ---
-<Base title={`${person.name} — People / NHI — New History Initiative`} description={person.description} compact>
-<div class="ufo-page people-page standalone-profile shell"><nav class="profile-page-nav" aria-label="People navigation"><a href={`/nhi/people/?person=${person.id}#entity-${person.id}`} class="underlined" data-return-people>← People directory</a><a href="/nhi/#timeline" class="underlined" data-return-timeline>Return to the timeline →</a></nav><UfoPersonProfile person={person} data={data}/></div>
+<Base title={`${person.name} — People / NHI — New History Index`} description={person.description} compact>
+<div class="ufo-page people-page standalone-profile shell"><nav class="profile-page-nav" aria-label="People navigation"><a href={`/nhi/people/?person=${person.id}#entity-${person.id}`} class="underlined" data-return-people>← People directory</a><a href="/nhi/#timeline" class="underlined" data-return-timeline>Return to the timeline →</a></nav><NhiThemeControl /><UfoPersonProfile person={person} data={data}/></div>
 <script>import '../../../scripts/ufo-people-client.mjs';</script>
 </Base>
