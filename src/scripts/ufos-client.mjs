@@ -79,8 +79,9 @@ function init() {
   };
   function render(mode) {
     status.textContent='';
-    const reference=mode && !form.contains(document.activeElement) ? currentReference() : null;
     const focused=document.activeElement;
+    const editing=focused?.closest('#timeline-filters, #results-summary, #empty-state, #reading-tools');
+    const reference=mode && !editing ? currentReference() : null;
     updatePeopleReturn();
     syncControls();
     const filtered = ['q','from','to'].some(k=>state[k]) || facetKeys.some(k=>state[k].length);

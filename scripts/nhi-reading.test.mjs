@@ -108,6 +108,20 @@ test('two checked categories yield their union, chips/counts agree, and clearing
  navigate(query);assert.equal(d.querySelectorAll('[name="category"]:checked').length,2);
 });
 
+test('removing result chips keeps focus beside the applied filters and does not relocate the reading surface',()=>{
+ navigate('?view=history&category=Scientific+research&category=Institutional+history');
+ const card=d.getElementById(visible()[0]);let measurements=0;
+ card.getBoundingClientRect=()=>{measurements++;return {top:120,bottom:420,height:300};};
+ w.lastDelta=undefined;
+ const chip=d.querySelector('#active-filters button');chip.focus();chip.click();
+ assert.equal(d.activeElement,d.querySelector('#active-filters button'));
+ assert.equal(d.activeElement.dataset.removeValue,'Institutional history');
+ assert.equal(measurements,0);assert.equal(w.lastDelta,undefined);
+ d.activeElement.click();assert.equal(d.activeElement.id,'results-summary');
+ delete card.getBoundingClientRect;
+ const count=d.querySelector('[data-count-for="category"]');assert.equal(count.getAttribute('aria-label'),count.textContent+' matching entries');
+});
+
 test('date edits stay pending and invalid dates retain last valid results; presets and clear use the same range',()=>{
  navigate('?view=history&from=1947&to=1947');const before=visible();
  const input=(key,value)=>{const n=d.querySelector(`[name="${key}"]`);n.value=value;n.dispatchEvent(new w.Event(n.tagName==='SELECT'?'change':'input',{bubbles:true}));};

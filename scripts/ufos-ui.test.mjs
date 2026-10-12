@@ -43,7 +43,7 @@ test('regional filter combines with search, restores URL state, exposes an empty
  w.history.replaceState(null,'','/nhi/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));
  assert.equal(doc.querySelector('[name="region"]:checked').value,'maya-world');
  const chip=[...doc.querySelectorAll('.filter-chip')].find(b=>b.textContent.includes('Regional collection'));
- assert.match(chip.textContent,/Maya world/);chip.click();assert.equal(doc.activeElement,doc.querySelector('[data-choice-for="region"]'));
+ assert.match(chip.textContent,/Maya world/);chip.click();assert.equal(doc.activeElement,doc.querySelector('#active-filters [data-remove-facet="q"]'));
  doc.querySelector('#timeline-filters button[type="reset"]').click();assert.deepEqual(visible(doc),filterEvents(data,{view:'history'}).map(e=>e.id));
  assert.equal(doc.querySelector('[name="region"]:checked'),null);
  assert.ok(doc.querySelector('#regional-guide a[href*="region=brazil-amazon"]'));

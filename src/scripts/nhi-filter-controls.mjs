@@ -45,7 +45,11 @@ export function initTimelineFilterControls(data,getState,update) {
   }
   for(const container of [chips,selected])container.addEventListener('click',event=>{
     const button=event.target.closest('[data-remove-facet]');if(!button)return;
-    const key=button.dataset.removeFacet;remove(key,button.dataset.removeValue);focusFacet(key);
+    const index=[...container.querySelectorAll('button:not([hidden])')].indexOf(button);
+    remove(button.dataset.removeFacet,button.dataset.removeValue);
+    const remaining=[...container.querySelectorAll('button:not([hidden])')];
+    const target=remaining[Math.min(index,remaining.length-1)] || (container===chips?document.getElementById('results-summary'):subjectInput);
+    target.focus({preventScroll:true});
   });
   for(const button of form.querySelectorAll('[data-clear-facet]'))button.addEventListener('click',()=>update({[button.dataset.clearFacet]:[]}));
   form.addEventListener('change',event=>{
@@ -71,7 +75,7 @@ export function initTimelineFilterControls(data,getState,update) {
       renderedIDs=signature;
     }
     for(const checkbox of list.querySelectorAll('input'))checkbox.checked=state.entity.includes(checkbox.value);
-    for(const count of list.querySelectorAll('[data-subject-count]'))count.textContent=String(counts.get(count.dataset.subjectCount)||0);
+    for(const count of list.querySelectorAll('[data-subject-count]')){count.textContent=String(counts.get(count.dataset.subjectCount)||0);count.setAttribute('aria-label',count.textContent+' matching entries');}
     document.getElementById('entity-match-count').textContent=matches.length?`Showing ${visible.length} of ${matches.length} names and subjects${subjectQuery?' matching your search':''}.`:'No matching names or subjects.';
     const more=document.getElementById('more-entities');more.hidden=visible.length>=matches.length;more.textContent=`Show ${Math.min(20,matches.length-visible.length)} more (${matches.length} total)`;
     selected.replaceChildren(...state.entity.map(id=>{const n=byId.get(id);return chip('entity',id,`${subjectType(n || {})}: ${n?.name || id}`);}));
@@ -79,7 +83,7 @@ export function initTimelineFilterControls(data,getState,update) {
   subjectInput.addEventListener('input',()=>{clearTimeout(subjectTimer);subjectTimer=setTimeout(()=>{subjectQuery=subjectInput.value;limit=10;renderSubjects();},150);});
   document.getElementById('clear-entity-search').addEventListener('click',()=>{clearTimeout(subjectTimer);subjectInput.value='';subjectQuery='';limit=10;renderSubjects();subjectInput.focus({preventScroll:true});});
   document.getElementById('more-entities').addEventListener('click',()=>{
-    const previous=limit;limit+=20;renderSubjects();list.querySelectorAll('input')[previous]?.focus({preventScroll:true});
+    const previous=limit;limit+=20;renderSubjects();list.querySelectorAll('input')[previous]?.focus();
   });
   moreChips.addEventListener('click',()=>{expandedChips=!expandedChips;syncChips();});
   function syncChips() {
@@ -103,7 +107,7 @@ export function initTimelineFilterControls(data,getState,update) {
     for(const key of facetKeys) {
       const count=facetCounts(data,state,key);if(key==='entity')counts=count;
       for(const checkbox of form.querySelectorAll(`input[data-choice-for="${key}"]`))checkbox.checked=state[key].includes(checkbox.value);
-      for(const node of form.querySelectorAll(`[data-count-for="${key}"]`))node.textContent=String(count.get(node.dataset.value)||0);
+      for(const node of form.querySelectorAll(`[data-count-for="${key}"]`)){node.textContent=String(count.get(node.dataset.value)||0);node.setAttribute('aria-label',node.textContent+' matching entries');}
       form.querySelector(`[data-selection-summary="${key}"]`).textContent=state[key].length?`${state[key].length} selected`:'Any choice';
     }
     if(!draftDirty)fillDates();
