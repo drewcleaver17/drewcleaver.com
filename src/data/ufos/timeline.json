@@ -9,7 +9,18 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-10-12-regional-history",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-10-12-regional-history",
+      "verifiedAt": "2026-10-12T17:03:08.124260Z",
+      "revision": "5353116eb15c816aca6033f5904a0294c1f349e2",
+      "contentDigest": "87e5e853ce91f794b3de0dda902d90e9f97cd6d20c81bfe0bc521215d9bf2a57",
+      "url": "https://drewcleaver.com/nhi/",
+      "workflowRun": 38281164287,
+      "pullRequest": 74,
+      "verificationScope": "Exact merged Pages run succeeded. Fresh HTTP/source checks of 21 routes and 7 served bundles/imports matched the tested build. Complete exported dataset, all 423 event and 528 entity anchors, all 261 NHI sitemap routes, all seven new canonical People profiles and representative legacy fallback routes passed. Canonicals, indexing policy, robots and off-menu navigation remained intact. 187 model/DOM tests and required build/release checks passed locally and both PR workflows passed. Static copy renders reviewed at 320/390/768/1440 px. Native browser geometry, touch and screen-reader checks were unavailable; no such verification is claimed.",
+      "researchScope": "Publication verification only. Historical records, source inspection scopes, substantive-content/source-check timestamps and the broad September 19 research cutoff are unchanged.",
+      "scheduledOperation": "Manual regional editorial release. External automation settings, cadence, status, permissions and dataset-only boundary are unchanged; this is not a scheduled run."
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],
