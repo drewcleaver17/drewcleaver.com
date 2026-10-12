@@ -7,6 +7,21 @@ function init() {
   const form = document.getElementById('timeline-filters');
   if (!dataNode || !form) return;
   const data = JSON.parse(dataNode.textContent);
+  const rememberTimeline=()=>{try{sessionStorage.setItem('ufos.timeline.return',location.pathname+location.search+location.hash);sessionStorage.setItem('ufos.timeline.scroll',String(window.scrollY));}catch{}};
+  document.addEventListener('click',event=>{if(event.target.closest?.('[data-people-entry]'))rememberTimeline();});
+  const backToPeople=document.getElementById('people-return');
+  const updatePeopleReturn=()=>{
+  backToPeople.hidden=true;
+  if(new URLSearchParams(location.search).get('via')==='people') {
+    try {
+      const back=new URL(sessionStorage.getItem('ufos.people.return') || '/ufos/people/',location.origin);
+      if(back.origin===location.origin && back.pathname.startsWith('/ufos/people/')) {
+        backToPeople.hidden=false;backToPeople.querySelector('a').href=back.pathname+back.search+back.hash;
+        backToPeople.querySelector('a').textContent='← Back to '+(sessionStorage.getItem('ufos.people.name') || 'people');
+      }
+    } catch {}
+  }
+  };
   const institutionDirectory=initInstitutionDirectory(data);
   const resultCount = document.getElementById('result-count');
   const chips = document.getElementById('active-filters');
@@ -44,10 +59,12 @@ function init() {
     if (!mode) return;
     const url = new URL(location.href), params=paramsFromState(state);
     for(const key of institutionParamKeys)if(url.searchParams.has(key))params.set(key,url.searchParams.get(key));
+    if(url.searchParams.get('via')==='people')params.set('via','people');
     url.search = params.toString();
     history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
   };
   function render(mode) {
+    updatePeopleReturn();
     syncControls();
     const filtered = ['q','from','to','category','topic','entity','evidence','layer','era'].some(k => state[k]);
     const structured = !filtered && state.sort === 'oldest' && state.view !== 'recent';
@@ -142,10 +159,22 @@ function init() {
     });
   }
   const download=document.getElementById('download-data');download.hidden=false;
-  download.addEventListener('click',()=>{
-    const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'});
-    const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='ufos-timeline-'+data.meta.edition+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  download.addEventListener('click',async()=>{
+    download.disabled=true;
+    try {
+      const response=await fetch('/ufos/data/');if(!response.ok)throw new Error('Download failed');
+      const exportedPage=new DOMParser().parseFromString(await response.text(),'text/html');
+      const complete=exportedPage.getElementById('ufos-export')?.textContent;JSON.parse(complete);
+      const blob=new Blob([complete],{type:'application/json'});
+      const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='ufos-timeline-'+data.meta.edition+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+      status.textContent='Complete dataset downloaded, including people and selected works.';
+    }catch{status.textContent='Download unavailable. Please try again.';}
+    finally{download.disabled=false;}
   });
   render();form.hidden=false;showHash();
+  if(new URLSearchParams(location.search).get('resume')==='1')try{
+    const position=sessionStorage.getItem('ufos.timeline.scroll');
+    if(position!==null && Number.isFinite(Number(position)))requestAnimationFrame(()=>window.scrollTo(0,Number(position)));
+  }catch{}
 }
 init();

@@ -1,0 +1,10 @@
+---
+const {person,card=false} = Astro.props;
+const portrait=person.personProfile?.portrait;
+const initials=person.name.split(/\s+/).filter(w=>!['da','de','van','von','al-'].includes(w.toLowerCase())).map(w=>w[0]).filter(Boolean);
+const monogram=initials.length>1?initials[0]+initials.at(-1):initials[0];
+---
+<div class:list={['person-portrait',{'portrait-card':card}]}>
+  <span class="portrait-fallback" aria-hidden="true"><span>{monogram}</span><small>People / the record</small></span>
+  {portrait && <img src={portrait.src} width={portrait.width} height={portrait.height} alt={card?'':portrait.alt} loading="lazy" decoding="async" data-portrait />}
+</div>

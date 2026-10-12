@@ -1,0 +1,22 @@
+---
+import UfoPortrait from './UfoPortrait.astro';
+import { personRoles,personTimelineURL } from '../lib/ufo-people.mjs';
+import { eventDateLabel } from '../lib/ufos.mjs';
+const {person,data}=Astro.props;
+const p=person.personProfile;
+const sources=[...new Set([...person.sources.map(r=>r.sourceId),...p.contributions.flatMap(c=>c.sourceIds)])].map(id=>data.sources[id]);
+const events=person.eventIds.map(id=>data.events.find(e=>e.id===id)).filter(Boolean);
+const relationships=data.relationships.filter(r=>r.from===person.id||r.to===person.id);
+const works=p.workRefs.map(ref=>({...ref,work:data.works[ref.workId]}));
+const groups=[{key:'by',title:'Selected works'},{key:'primary-record',title:'Primary records'},{key:'about',title:'Selected reading about this person'}];
+---
+<article class="person-profile" id={`entity-${person.id}`} tabindex="-1" data-profile={person.id} aria-labelledby={`profile-name-${person.id}`}>
+  <header class="profile-identity"><UfoPortrait person={person}/><div><p class="eyebrow">{p.roleGroups.map(r=>personRoles[r]).join(' · ')}</p><h1 id={`profile-name-${person.id}`} data-profile-heading>{person.name}</h1><p class="person-role">{person.role}</p>{person.aliases.length>0 && <p class="person-aliases">Also known as {person.aliases.join(' · ')}</p>}{p.portrait && <p class="portrait-kind">{p.portrait.kind} · <a href={`#portrait-credit-${person.id}`}>Image credit</a></p>}</div></header>
+  {p.identityStatus==='unresolved' && <p class="identity-note"><strong>Identity note.</strong> {p.identityNote}</p>}
+  <div class="profile-reading"><section><h2>Who they are</h2><p class="profile-bio">{person.description}</p><p class="profile-relevance">{p.relevance}</p></section>
+  <section><h2>Selected contributions</h2><ul class="contribution-list">{p.contributions.map(c=><li>{c.text}<span class="contribution-cites">{c.sourceIds.map((id,i)=><a href={data.sources[id].url} aria-label={`Supporting source: ${data.sources[id].title}`}>Source{i>0?` ${i+1}`:''} ↗</a>)}</span></li>)}</ul></section>
+  {groups.map(group=>works.some(w=>w.relation===group.key) && <section class="profile-works"><h2>{group.title}</h2><ul>{works.filter(w=>w.relation===group.key).map(({work,role})=><li><p class="work-kind">{work.type} · {work.year}{work.status && ` · ${work.status}`}</p><h3>{work.title}</h3><p class="work-byline">{role} · {work.publisher}</p><p>{work.blurb}</p>{work.editionNote && <p class="work-edition">{work.editionNote}</p>}<p class="work-links">{work.links.map(link=><a href={link.url}>{link.label}{link.note && ` · ${link.note}`} ↗</a>)}</p><details class="work-scope"><summary>Reading scope & citation</summary><p>{work.inspectionScope}</p>{work.doi && <p>DOI: {work.doi}</p>}{work.isbn && <p>ISBN: {work.isbn}</p>}</details></li>)}</ul></section>)}
+  <section class="profile-events"><h2>In the timeline</h2><p><a class="button button-outline" href={personTimelineURL(person.id)} data-person-timeline>View this person’s timeline →</a></p><ul>{events.map(e=><li><span>{eventDateLabel(e)}</span><a href={`/ufos/?view=history#${e.id}`} data-related-event>{e.title}</a></li>)}</ul></section>
+  {relationships.length>0 && <section class="profile-relationships"><h2>Documented connections</h2>{relationships.map(r=><div><p class="work-kind">{r.status} · {r.type.replaceAll('-',' ')}</p><p>{r.description}</p><p class="relationship-limit">{r.limitations}</p><a href={`/ufos/#relation-${r.id}`} data-related-event>Read the relationship record →</a></div>)}</section>}
+  <details class="profile-sources"><summary>Biography sources{p.portrait?' & portrait credit':''}</summary><ul>{sources.map(s=><li><a href={s.url}>{s.title} ↗</a><span>{s.publisher}</span></li>)}</ul>{p.portrait && <div id={`portrait-credit-${person.id}`} class="portrait-credit"><h2>Portrait credit</h2><p>{p.portrait.attribution}</p><p>{p.portrait.kind}. {p.portrait.modification}</p><p><a href={p.portrait.sourceUrl}>Image source & identification ↗</a> · <a href={p.portrait.licenseUrl}>{p.portrait.license} ↗</a></p></div>}</details></div>
+</article>

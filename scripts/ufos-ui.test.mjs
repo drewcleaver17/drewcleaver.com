@@ -2,11 +2,12 @@ import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {JSDOM} from 'jsdom';
+import {buildSync} from 'esbuild';
 import {filterEvents,initialState} from '../src/lib/ufos.mjs';
 import {filterInstitutions} from '../src/lib/ufo-institutions.mjs';
 const html=readFileSync(new URL('../dist/ufos/index.html',import.meta.url),'utf8');
 const scriptURL=[...html.matchAll(/<script[^>]*src="([^"]+)"/g)].map(m=>m[1]).find(s=>s.includes('ufos.astro'));
-const script=readFileSync(new URL('../dist'+scriptURL,import.meta.url),'utf8');
+const script=buildSync({entryPoints:[new URL('../dist'+scriptURL,import.meta.url).pathname],bundle:true,format:'iife',write:false}).outputFiles[0].text;
 // Exercise one built page through successive navigations, as a browser does.
 // Re-parsing this large archival document for every navigation wastes memory.
 let fixture;
@@ -52,7 +53,7 @@ test('deep-linked filtered entries can be revealed and source/correction links r
 test('range-aware year shortcut reaches post-cutoff records and exports complete model',()=>{
  const {dom,w,doc,data}=load('?view=history');const el=doc.querySelector('#year-shortcut');el.value='2026';el.dispatchEvent(new w.Event('change',{bubbles:true}));
  assert.ok(visible(doc).includes('aaro-workshop-records-published-2026'));assert.equal(doc.querySelector('[name="to"]').value,'2026-12-31');
- assert.equal(data.contentModelVersion,5);assert.ok(data.sourceReviews);assert.ok(data.meta.checkReceipts);assert.equal(doc.querySelector('#download-data').hidden,false);
+ assert.equal(data.contentModelVersion,6);assert.ok(data.sourceReviews);assert.ok(data.meta.checkReceipts);assert.equal(doc.querySelector('#download-data').hidden,false);
  for(const control of doc.querySelectorAll('#timeline-filters input:not([hidden]),#timeline-filters select'))assert.ok(control.closest('label'));
 
 });
@@ -65,7 +66,7 @@ test('main all-era path, people route and supporting anchors remain reachable',(
  assert.ok(!doc.getElementById('epicurus-worlds').querySelector('.event-date').textContent.includes('Year precision'));
  change(w,'entity','alfred-russel-wallace');assert.deepEqual(visible(doc),['darwin-wallace-1858']);
  w.history.replaceState(null,'','/ufos/#entity-alfred-russel-wallace');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
- const person=doc.getElementById('entity-alfred-russel-wallace');assert.equal(doc.activeElement,person);assert.ok(person.closest('details').open);
+ const person=doc.getElementById('entity-alfred-russel-wallace');assert.equal(doc.activeElement,person);assert.ok(person.querySelector('a[href="/ufos/people/alfred-russel-wallace/"]'));
  w.history.replaceState(null,'','/ufos/?view=history&entity=Alfred%20Russel%20Wallace');w.dispatchEvent(new w.PopStateEvent('popstate'));assert.deepEqual(visible(doc),['darwin-wallace-1858']);
  w.history.replaceState(null,'','/ufos/#ra-book-2-sessions');w.dispatchEvent(new w.HashChangeEvent('hashchange'));
  assert.equal(doc.querySelector('[name="view"]').value,'history');
@@ -81,6 +82,18 @@ test('selected correction scopes, documentary dates and one video are visible',(
  assert.equal(data.events.filter(e=>e.selectedVideo).length,1);
  assert.match(doc.getElementById('lazar-klas-interview').textContent,/2019/);
 
+});
+test('people return navigation reveals the event without colliding with the date filter',()=>{
+ const {w,doc}=load('?view=history&via=people#nimitz-encounter');
+ w.sessionStorage.setItem('ufos.people.return','/ufos/people/?q=Fravor&person=david-fravor#entity-david-fravor');
+ w.sessionStorage.setItem('ufos.people.name','David Fravor');
+ w.dispatchEvent(new w.PopStateEvent('popstate'));
+ assert.ok(visible(doc).includes('nimitz-encounter'));assert.equal(doc.querySelector('[name="from"]').value,'');
+ assert.equal(doc.querySelector('#nimitz-encounter .event-detail').open,true);
+ assert.equal(doc.querySelector('#people-return').hidden,false);assert.ok(doc.querySelector('#people-return a').href.includes('q=Fravor'));
+ change(w,'from','2004-01-01');assert.equal(new URLSearchParams(w.location.search).get('via'),'people');assert.equal(new URLSearchParams(w.location.search).get('from'),'2004-01-01');
+ const entry=doc.querySelector('[data-people-entry]');entry.addEventListener('click',e=>e.preventDefault(),{once:true});entry.click();
+ assert.ok(w.sessionStorage.getItem('ufos.timeline.return').includes('from=2004-01-01'));
 });
 const visibleInstitutions=doc=>[...doc.querySelectorAll('[data-institution]')].filter(n=>!n.hidden).map(n=>n.dataset.institution);
 test('institutional chronology combines dates and search without losing directory URL state',()=>{
@@ -120,12 +133,13 @@ test('filtered dossier links reveal a canonical accessible detail and retain sou
  assert.equal(doc.getElementById('nro-agreement').querySelector('.event-detail').open,true);
  assert.ok(visible(doc).includes('nro-agreement'));
 });
-test('download contains the complete reviewed institutional model and no analytics runs with saved consent',()=>{
+test('download contains the complete reviewed model and no analytics runs with saved consent',async()=>{
  const {dom,w,doc,data}=load('?view=institutions');let exported,downloadName;
  w.Blob=class {constructor(parts){exported=parts.join('');}};
  w.URL.createObjectURL=()=> 'blob:review';w.URL.revokeObjectURL=()=>{};
  w.HTMLAnchorElement.prototype.click=function(){downloadName=this.download;};
- doc.querySelector('#download-data').click();assert.deepEqual(JSON.parse(exported),data);assert.match(downloadName,/ufos-timeline-.*\.json/);
+ w.fetch=async()=>({ok:true,text:async()=>readFileSync(new URL('../dist/ufos/data/index.html',import.meta.url),'utf8')});
+ doc.querySelector('#download-data').click();await new Promise(resolve=>setTimeout(resolve,20));assert.deepEqual(JSON.parse(exported),JSON.parse(readFileSync(new URL('../src/data/ufos/timeline.json',import.meta.url),'utf8')));assert.match(downloadName,/ufos-timeline-.*\.json/);
  assert.ok(data.entities.some(n=>n.institutionalProfile));assert.equal(w.gtag,undefined);assert.equal(w.dataLayer,undefined);
  assert.equal(doc.querySelector('script[src*="googletagmanager"],script[src*="google-analytics"]'),null);
 
