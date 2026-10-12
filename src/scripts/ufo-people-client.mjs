@@ -91,7 +91,7 @@ function initialiseDirectory() {
     }
   }
   function render(mode,focusProfile=false) {
-    control('q').value=state.q;control('role').value=state.role;control('sort').value=state.sort;control('featured').checked=state.featured;syncChoices(form);
+    control('q').value=state.q;for(const option of control('role').options)option.selected=state.role.includes(option.value);control('sort').value=state.sort;control('featured').checked=state.featured;syncChoices(form);
     const results=filterPeople(index,state),shown=new Set(results.map(n=>n.id));
     for(const card of cards.values())card.hidden=!shown.has(card.dataset.person);
     for(const entry of results)grid.append(cards.get(entry.id));
@@ -99,7 +99,7 @@ function initialiseDirectory() {
     document.getElementById('people-empty').hidden=results.length!==0;
     notice.textContent='';writeURL(mode);void showProfile(focusProfile);
   }
-  function reset() {clearTimeout(timer);state={...peopleInitialState};render('push');control('q').focus();}
+  function reset() {clearTimeout(timer);state={...peopleInitialState,sort:state.sort};render('push');control('q').focus();}
   form.addEventListener('submit',event=>{event.preventDefault();clearTimeout(timer);state.person='';render('push');});
   form.addEventListener('reset',event=>{event.preventDefault();reset();});
   form.addEventListener('input',event=>{
@@ -107,7 +107,7 @@ function initialiseDirectory() {
   });
   form.addEventListener('change',event=>{
     if(!['q','role','sort','featured'].includes(event.target.name))return;clearTimeout(timer);
-    state[event.target.name]=event.target.type==='checkbox'?event.target.checked:event.target.value;state.person='';render('push');
+    state[event.target.name]=event.target.multiple?[...event.target.selectedOptions].map(o=>o.value):event.target.type==='checkbox'?event.target.checked:event.target.value;state.person='';render('push');
   });
   grid.addEventListener('click',event=>{
     const link=event.target.closest?.('.person-open');if(!link || event.button!==0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)return;

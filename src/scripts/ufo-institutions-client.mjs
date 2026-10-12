@@ -13,8 +13,8 @@ export function initInstitutionDirectory(data) {
   let timer;
   function render(mode) {
     for(const key of institutionParamKeys) {
-      const el=form.elements.namedItem(key);el.value=state[key];
-      if(el.tagName==='SELECT' && !el.value)state[key]='';
+      const el=form.elements.namedItem(key);
+      if(el.multiple){for(const option of el.options)option.selected=state[key].includes(option.value);}else el.value=state[key];
     }
     const results=new Set(filterInstitutions(data.entities,state).map(n=>n.id));
     for(const [id,card] of cards)card.hidden=!results.has(id);
@@ -23,7 +23,7 @@ export function initInstitutionDirectory(data) {
     empty.hidden=results.size>0;reveal.hidden=true;status.textContent='';
     if(mode) {
       const url=new URL(location.href);
-      for(const key of institutionParamKeys){url.searchParams.delete(key);if(state[key])url.searchParams.set(key,state[key]);}
+      for(const key of institutionParamKeys){url.searchParams.delete(key);if(Array.isArray(state[key])){for(const value of state[key])url.searchParams.append(key,value);}else if(state[key])url.searchParams.set(key,state[key]);}
       history[mode==='push'?'pushState':'replaceState'](null,'',url);
     }
   }
@@ -41,7 +41,7 @@ export function initInstitutionDirectory(data) {
     if(target?.dataset.institution){reset();target.open=true;target.focus({preventScroll:true});target.scrollIntoView({block:'start'});status.textContent='Institution filters cleared for the linked dossier.';}
   });
   form.addEventListener('submit',e=>{e.preventDefault();clearTimeout(timer);render('push');});
-  form.addEventListener('change',e=>{if(!institutionParamKeys.includes(e.target.name))return;clearTimeout(timer);state[e.target.name]=e.target.value;render('push');});
+  form.addEventListener('change',e=>{if(!institutionParamKeys.includes(e.target.name))return;clearTimeout(timer);state[e.target.name]=e.target.multiple?[...e.target.selectedOptions].map(o=>o.value):e.target.value;render('push');});
   form.addEventListener('input',e=>{if(e.target.name!=='iq')return;clearTimeout(timer);state.iq=e.target.value;timer=setTimeout(()=>render('replace'),150);});
   form.addEventListener('reset',e=>{e.preventDefault();reset();form.elements.namedItem('iq').focus();});
   window.addEventListener('popstate',()=>{clearTimeout(timer);state=institutionStateFromParams(new URLSearchParams(location.search));render();});

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { filterEvents, initialState, paramsFromState, stateFromParams, validateDataset, dateBounds, formatDate, eventDateLabel, yearsCovered, eventBounds, eraFor, readingPathOf, normalizeYouTubeURL } from '../src/lib/ufos.mjs';
+import { filterEvents, initialState, paramsFromState, stateFromParams, validateDataset, dateBounds, formatDate, eventDateLabel, eventBounds, eraFor, readingPathOf, normalizeYouTubeURL } from '../src/lib/ufos.mjs';
 import { datasetPath, digest, contentDigest, prepareUpdate, publishValidatedUpdate, assertPermittedPaths } from './ufos-update.mjs';
 import { filterInstitutions, institutionStateFromParams } from '../src/lib/ufo-institutions.mjs';
 const data=JSON.parse(readFileSync(datasetPath,'utf8'));
@@ -25,9 +25,9 @@ test('regional collections combine independently with culture search, evidence a
  assert.deepEqual(filterEvents(data,{view:'history',region:'maya-world',q:'Kiche Popol'}).map(e=>e.id),['popol-vuh-surviving-manuscript']);
  assert.equal(filterEvents(data,{view:'history',region:'egypt',q:'Guatemala'}).length,0);
  assert.ok(filterEvents(data,{region:'egypt',era:'origins'}).every(e=>e.date.start.startsWith('-')));
- const state={...initialState,view:'history',region:'maya-world',evidence:'Textual scholarship'};
+ const state={...initialState,view:'history',region:['maya-world'],evidence:['Textual scholarship']};
  assert.deepEqual(stateFromParams(paramsFromState(state)),state);
- assert.equal(stateFromParams(new URLSearchParams('region=unknown')).region,'');
+ assert.deepEqual(stateFromParams(new URLSearchParams('region=unknown')).region,[]);
  const bad=structuredClone(data);bad.events[0].region='made-up';assert.ok(validateDataset(bad).some(e=>e.includes('regional group')));
 });
 test('regional dates distinguish manuscript periods, fieldwork, publications and later interpretations',()=>{
@@ -68,7 +68,6 @@ test('deep-time ages retain their measurement uncertainty and navigation convent
  assert.deepEqual(filterEvents(data,{era:'origins'}).filter(e=>e.date.precision==='age').map(e=>e.id),['jebel-irhoud','blombos-drawing']);
  assert.ok(filterEvents(data,{era:'origins'}).some(e=>e.id==='djoser-step-pyramid'));
  assert.ok(!filterEvents(data,{from:'0001-01-01'}).some(e=>e.date.precision==='age'));
- assert.ok(!yearsCovered([e]).length);
  for(const mutate of [x=>x.date.start='2017',x=>x.date.age.younger=x.date.age.older+1,x=>delete x.date.age.convention,x=>delete x.date.age.estimate]){
   const bad=structuredClone(data);mutate(bad.events.find(x=>x.id===e.id));
   assert.ok(validateDataset(bad).some(x=>x.includes('Invalid evidence age')));
@@ -133,7 +132,7 @@ test('ancient estimates keep their qualifications and overlap date filters',()=>
   assert.ok(validateDataset(invalid).some(e=>e.includes('Unqualified approximate date')));
 });
 test('religious texts are searchable historical context with attributed session dates',()=>{
-  const state={...initialState,view:'history',topic:'Religious texts & channeling',entity:'law-of-one',q:'archetypes'};
+  const state={...initialState,view:'history',topic:['Religious texts & channeling'],entity:['law-of-one'],q:'archetypes'};
   assert.deepEqual(stateFromParams(paramsFromState(state)),state);
   assert.deepEqual(filterEvents(data,state).map(e=>e.id),['ra-book-4-sessions']);
   assert.equal(filterEvents(data,{view:'story',topic:'Religious texts & channeling'}).length,0);
@@ -144,7 +143,7 @@ test('religious texts are searchable historical context with attributed session 
   assert.equal(data.events.find(e=>e.id==='ra-book-v-1998').date.start,'1998');
 });
 test('URL state round trip and reset',()=>{
-  const s={...initialState,q:'NASA & UAP',category:'Scientific research',context:true,view:'recent'};
+  const s={...initialState,q:'NASA & UAP',category:['Scientific research'],context:true,view:'recent'};
   assert.deepEqual(stateFromParams(paramsFromState(s)),s);
   assert.equal(paramsFromState(initialState).toString(),'');
 });
@@ -196,7 +195,7 @@ test('historical aliases, strands and combined filters remain separate from mode
   assert.ok(filterEvents(data,{view:'history',from:'1506-01-01',to:'1506-12-31'}).some(e=>e.id==='leonardo-flight-notebook'));
 });
 test('full-history URL state and sorting preserve date uncertainty and claimed dates',()=>{
-  const s={...initialState,view:'history',topic:'Business & wartime finance',entity:'bbh',sort:'newest'};
+  const s={...initialState,view:'history',topic:['Business & wartime finance'],entity:['bbh'],sort:'newest'};
   assert.deepEqual(stateFromParams(paramsFromState(s)),s);
   assert.equal(stateFromParams(new URLSearchParams('view=bogus')).view,'journey');
   const e=data.events.find(e=>e.id==='magenta-claim-retelling');assert.equal(e.date.start,'2017-03-21');assert.equal(e.claimDate.start,'1933-06-13');
@@ -231,12 +230,11 @@ test('layer and era are independent, while legacy presets and names remain compa
   assert.ok(!filterEvents(data,{view:'core'}).some(e=>e.id==='gateway-assessment'));
   assert.ok(filterEvents(data,{view:'history',layer:'contextual',era:'experiments'}).some(e=>e.id==='gateway-assessment'));
   assert.deepEqual(filterEvents(data,{view:'history',entity:'david-fravor'}).map(e=>e.id),filterEvents(data,{view:'history',entity:'David Fravor'}).map(e=>e.id));
-  const state={...initialState,view:'core',era:'archives',layer:'core',q:'Nimitz'};
+  const state={...initialState,view:'core',from:'1996',to:'2016',layer:['core'],q:'Nimitz'};
   assert.deepEqual(stateFromParams(paramsFromState(state)),state);
   assert.ok(filterEvents(data,{view:'story',context:true}).some(e=>e.id==='nimitz-encounter'));
 });
 test('year navigation includes intersecting ranges and post-cutoff releases',()=>{
-  assert.ok(yearsCovered(data.events).includes('1975'));
   assert.ok(filterEvents(data,{view:'history',from:'1975-01-01',to:'1975-12-31'}).some(e=>e.id==='sri-perceptual-research'));
   assert.ok(filterEvents(data,{view:'history',from:'2026-09-20',to:'2026-12-31'}).some(e=>e.id==='aaro-workshop-records-published-2026'));
 });

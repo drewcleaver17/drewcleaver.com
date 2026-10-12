@@ -1,3 +1,4 @@
+import { facetKeys, valuesOf, matchesAny, validBoundary, subjectCatalog } from './nhi-filtering.mjs';
 import { validatePeople } from './ufo-people.mjs';
 import { institutionMilestone, institutionDomains, institutionTypes, uapStatusLabels } from './ufo-institutions.mjs';
 export const categories = ['Encounters and observations', 'Reporting and disclosures', 'Hearings and oversight', 'Legislation and executive actions', 'Scientific research', 'Records releases', 'Corrections and case resolutions', 'Institutional history', 'Scientific and technical context', 'Business and financial history', 'Religious and esoteric history', 'Archaeology and cultural history'];
@@ -42,22 +43,14 @@ export function calendarCoordinate(value, upper = false) {
   return Number(match[1]) * 372 + Number(match[2] || (upper ? 12 : 1)) * 31 + Number(match[3] || (upper ? 31 : 1));
 }
 export function eventBounds(e) {
-  if (e.date.precision === 'age') {
+  if (e.date?.precision === 'age') {
     const a=e.date.age;
     return [(a.referenceYear-a.older)*372, (a.referenceYear-a.younger)*372];
   }
-  return [calendarCoordinate(e.date.start),calendarCoordinate(e.date.end || e.date.start,true)];
+  return [calendarCoordinate(e.date?.start),calendarCoordinate(e.date?.end || e.date?.start,true)];
 }
 export const eraFor = e => eras.find(era => eventBounds(e)[0] >= calendarCoordinate(era.start) && eventBounds(e)[0] <= calendarCoordinate(era.end,true));
-export function yearsCovered(events) {
-  const years = new Set();
-  for (const e of events) {
-    if(e.date.precision==='age') continue;
-    for (let year=Math.max(1,calendarYear(e.date.start)); year<=calendarYear(e.date.end || e.date.start); year++) years.add(String(year).padStart(4,'0'));
-  }
-  return [...years].sort();
-}
-export const initialState = { layer: '', era: '', q: '', from: '', to: '', category: '', topic: '', entity: '', evidence: '', region: '', sort: 'oldest', view: 'journey', context: false };
+export const initialState = { q: '', from: '', to: '', category: [], topic: [], entity: [], evidence: [], region: [], layer: [], sort: 'oldest', view: 'journey', context: false };
 export const normalizeSearch = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 export function dateBounds(value) {
   if (/^\d{4}$/.test(value)) return [value + '-01-01', value + '-12-31'];
@@ -78,49 +71,79 @@ export function searchText(e, sources, entities = []) {
   const names = entities.filter(entity => e.entityIds?.includes(entity.id) || entity.eventIds.includes(e.id));
   return normalizeSearch([e.title, e.summary, e.significance, e.geography || '', e.culture || '', regions[e.region] || '', ...e.established, ...e.limitations, ...e.openQuestions, ...e.people, ...e.institutions, ...e.tags, ...e.categories, ...(e.topics || []), ...e.evidenceTypes, ...names.flatMap(n => [n.name, ...n.aliases, ...(n.legacySearchLabels || []), n.description,n.institutionalProfile?.acronym || '']), ...e.sources.map(s => sources[s.sourceId]?.title || '')].join(' '));
 }
-export function filterEvents(data, state) {
-  const s = { ...initialState, ...state };
-  const terms = normalizeSearch(s.q.trim()).split(/\s+/).filter(Boolean);
-  return data.events.filter(e => {
-    if (e.publicationStatus !== 'published' || (s.view === 'story' && !s.context && (e.context || eventBounds(e)[0] < calendarCoordinate('2017')))) return false;
-    if (s.view === 'journey' && !s.context && readingPathOf(e) !== 'main') return false;
-    if (s.view === 'institutions' && !institutionMilestone(data,e)) return false;
-    if (s.view === 'core' && layerOf(e) !== 'core') return false;
-    if (s.layer && layerOf(e) !== s.layer) return false;
-    if (s.era) { const era=eras.find(x=>x.id===s.era); if (!era || eventBounds(e)[1] < calendarCoordinate(era.start) || eventBounds(e)[0] > calendarCoordinate(era.end,true)) return false; }
-    if (s.from && eventBounds(e)[1] < calendarCoordinate(s.from)) return false;
-    if (s.to && eventBounds(e)[0] > calendarCoordinate(s.to,true)) return false;
-    if (s.category && !e.categories.includes(s.category)) return false;
-    if (s.topic && !(e.topics || ['UFO reports & disclosure']).includes(s.topic)) return false;
-    if (s.region && e.region !== s.region) return false;
-    if (s.entity && ![...e.people, ...e.institutions, ...(e.entityIds || [])].includes(s.entity) && !data.entities?.find(n => n.id === s.entity || n.name===s.entity || n.aliases.includes(s.entity) || n.legacySearchLabels?.includes(s.entity))?.eventIds.includes(e.id)) return false;
-    if (s.evidence && !e.evidenceTypes.includes(s.evidence)) return false;
-    if (!terms.length) return true;
-    const haystack = searchText(e, data.sources, data.entities);
-    return terms.every(t => haystack.includes(t));
-  }).sort((a, b) => {
-    if (s.view === 'recent') return b.revisedAt.localeCompare(a.revisedAt) || b.addedAt.localeCompare(a.addedAt) || a.id.localeCompare(b.id);
-    const comparison = eventBounds(a)[0]-eventBounds(b)[0] || a.id.localeCompare(b.id);
-    return s.sort === 'newest' ? -comparison : comparison;
+const filterIndexes=new WeakMap();
+export function filterIndex(data) {
+  if(filterIndexes.has(data))return filterIndexes.get(data);
+  const catalog=subjectCatalog(data),subjectIds=new Map(data.events.map(e=>[e.id,[]]));
+  for(const n of catalog)for(const id of n.eventIds)subjectIds.get(id)?.push(n.id);
+  const records=data.events.map(e=>({event:e,bounds:eventBounds(e),text:searchText(e,data.sources,data.entities),institution:institutionMilestone(data,e),
+    facets:{category:e.categories,topic:e.topics || ['UFO reports & disclosure'],evidence:e.evidenceTypes,region:e.region?[e.region]:[],layer:[layerOf(e)],entity:subjectIds.get(e.id)}}));
+  const index={catalog,records};filterIndexes.set(data,index);return index;
+}
+function legacyEra(state) {
+  const era=eras.find(e=>e.id===state.era);
+  return era && !state.from && !state.to ? {...state,from:era.start,to:era.end==='9999'?'':era.end} : state;
+}
+export function eventMatcher(state,omitFacet='') {
+  const s={...initialState,...legacyEra(state)};
+  const terms=normalizeSearch(s.q.trim()).split(/\s+/).filter(Boolean);
+  const selected=Object.fromEntries(facetKeys.map(key=>[key,valuesOf(s[key])]));
+  const from=s.from?calendarCoordinate(s.from):-Infinity,to=s.to?calendarCoordinate(s.to,true):Infinity;
+  return record=>{
+    const {event:e,bounds,facets}=record;
+    if(e.publicationStatus!=='published')return false;
+    if(s.view==='story' && !s.context && (e.context || bounds[0]<calendarCoordinate('2017')))return false;
+    if(s.view==='journey' && !s.context && readingPathOf(e)!=='main')return false;
+    if(s.view==='institutions' && !record.institution)return false;
+    if(s.view==='core' && layerOf(e)!=='core')return false;
+    if((s.from && !validBoundary(s.from)) || (s.to && !validBoundary(s.to)))return false;
+    if((s.from || s.to) && (!bounds.every(Number.isFinite) || !Number.isFinite(from) && s.from || !Number.isFinite(to) && s.to || from>to || bounds[1]<from || bounds[0]>to))return false;
+    for(const key of facetKeys)if(key!==omitFacet && !matchesAny(selected[key],facets[key]))return false;
+    return terms.every(term=>record.text.includes(term));
+  };
+}
+export function filterEvents(data,state={}) {
+  const index=filterIndex(data),s={...initialState,...state};
+  // Accept previously shared exact names/aliases, but match through stable relationship IDs.
+  s.entity=valuesOf(s.entity).map(value=>index.catalog.find(n=>n.id===value)?.id || index.catalog.find(n=>n.name===value || n.aliases.includes(value))?.id || value);
+  return index.records.filter(eventMatcher(s)).map(r=>r.event).sort((a,b)=>{
+    if(s.view==='recent')return b.revisedAt.localeCompare(a.revisedAt) || b.addedAt.localeCompare(a.addedAt) || a.id.localeCompare(b.id);
+    const aDate=eventBounds(a)[0],bDate=eventBounds(b)[0];
+    if(!Number.isFinite(aDate))return Number.isFinite(bDate)?1:a.id.localeCompare(b.id);
+    if(!Number.isFinite(bDate))return -1;
+    const comparison=aDate-bDate || a.id.localeCompare(b.id);
+    return s.sort==='newest'?-comparison:comparison;
   });
 }
+// Each option count omits this facet's selected values; it is not an incremental count.
+export function facetCounts(data,state,key) {
+  const counts=new Map();
+  for(const r of filterIndex(data).records.filter(eventMatcher(state,key)))for(const value of new Set(r.facets[key]))counts.set(value,(counts.get(value)||0)+1);
+  return counts;
+}
 export function stateFromParams(params) {
-  const s = { ...initialState };
-  for (const key of Object.keys(s)) {
-    if (key === 'context') s.context = params.get(key) === '1';
-    else if (params.has(key)) s[key] = params.get(key).slice(0, 500);
+  let s={...initialState};
+  for(const key of Object.keys(s)) {
+    if(facetKeys.includes(key))s[key]=valuesOf(params.getAll(key).map(v=>v.slice(0,500)));
+    else if(key==='context')s.context=params.get(key)==='1';
+    else if(params.has(key))s[key]=params.get(key).slice(0,500);
   }
-  if (!['oldest', 'newest'].includes(s.sort)) s.sort = 'oldest';
-  if (!['journey', 'story', 'history', 'recent', 'core', 'institutions'].includes(s.view)) s.view = 'journey';
-  if (!['', 'core', 'contextual'].includes(s.layer)) s.layer='';
-  if (s.era && !eras.some(e=>e.id===s.era)) s.era='';
-  if (s.region && !regions[s.region]) s.region='';
-  for (const key of ['from', 'to']) if (!/^\d{4}-\d{2}-\d{2}$/.test(s[key])) s[key] = '';
+  if(!['oldest','newest'].includes(s.sort))s.sort='oldest';
+  if(!['journey','story','history','recent','core','institutions'].includes(s.view))s.view='journey';
+  const allowed={category:categories,topic:topics,evidence:Object.keys(evidenceDefinitions),region:Object.keys(regions),layer:['core','contextual']};
+  for(const [key,values] of Object.entries(allowed))s[key]=s[key].filter(value=>values.includes(value));
+  for(const key of ['from','to'])if(!validBoundary(s[key]))s[key]='';
+  s=legacyEra({...s,era:params.get('era')});delete s.era;
+  // Invalid shared ranges must never be applied. The client displays an explanation.
+  if(s.from && s.to && calendarCoordinate(s.from)>calendarCoordinate(s.to,true)){s.from='';s.to='';}
   return s;
 }
 export function paramsFromState(state) {
-  const p = new URLSearchParams();
-  for (const key of Object.keys(initialState)) if (state[key] !== initialState[key] && state[key]) p.set(key, key === 'context' ? '1' : state[key]);
+  const p=new URLSearchParams();
+  for(const key of Object.keys(initialState)) {
+    if(facetKeys.includes(key)){for(const value of valuesOf(state[key]))p.append(key,value);}
+    else if(state[key] && state[key]!==initialState[key])p.set(key,key==='context'?'1':state[key]);
+  }
   return p;
 }
 export function validateDataset(data, now = new Date()) {

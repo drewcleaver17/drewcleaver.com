@@ -13,21 +13,14 @@ const w=dom.window,d=w.document;w.HTMLElement.prototype.scrollIntoView=function(
 w.eval(script);const data=JSON.parse(d.querySelector('#ufos-data').textContent);
 after(()=>w.close());
 const navigate=query=>{w.history.replaceState(null,'','/nhi/'+query);w.dispatchEvent(new w.PopStateEvent('popstate'));};
-const choose=(key,value)=>{const radio=[...d.querySelectorAll(`[data-choice-for="${key}"]`)].find(n=>n.value===value);assert.ok(radio);radio.checked=true;radio.focus();radio.dispatchEvent(new w.Event('change',{bubbles:true}));return radio;};
+const choose=(key,value)=>{const input=[...d.querySelectorAll(`[data-choice-for="${key}"]`)].find(n=>n.value===value);assert.ok(input);input.checked=true;input.focus();input.dispatchEvent(new w.Event('change',{bubbles:true}));return input;};
 const visible=()=>[...d.querySelectorAll('.ufo-event')].filter(n=>!n.hidden && !n.closest('[hidden]')).map(n=>n.id);
 
-test('every timeline, People and institutional option is exposed with a native choice and matching labels',()=>{
- for(const form of d.querySelectorAll('[data-choices-ready]'))for(const select of form.querySelectorAll('select')) {
-   const radios=[...form.querySelectorAll('[data-choice-for]')].filter(n=>n.dataset.choiceFor===(select.name || select.id));
-   assert.deepEqual(radios.map(n=>n.value),[...select.options].map(n=>n.value));
-   assert.ok(select.closest('label').hidden);assert.ok(!radios[0].closest('details'));
-   assert.ok(radios.every(n=>n.closest('label').textContent.trim()));
- }
- assert.equal(d.querySelector('#timeline-filters .filter-details'),null);
- assert.equal(d.querySelector('.filter-options').lastElementChild.id,'choices-year-shortcut');
- assert.equal(d.querySelectorAll('.catalog-shortcuts a').length,2);
- assert.ok(d.getElementById('choices-category').compareDocumentPosition(d.getElementById('choices-entity')) & w.Node.DOCUMENT_POSITION_FOLLOWING);
- assert.ok(d.querySelector('[name="context"]').closest('label'));
+test('timeline filters use native multiple choices, visible labels and no year catalog',()=>{
+ assert.equal(d.querySelector('#year-shortcut'),null);assert.equal(d.querySelector('#timeline-filters input[type=radio]'),null);
+ assert.ok(d.querySelector('[name="q"]').compareDocumentPosition(d.querySelector('#date-range')) & w.Node.DOCUMENT_POSITION_FOLLOWING);
+ for(const key of ['topic','category','evidence','region','layer'])assert.ok(d.querySelector(`#choices-${key} input[type=checkbox]`));
+ assert.ok(d.querySelector('#choices-entity input[type=search]'));assert.ok(d.querySelector('[data-results-jump]'));assert.equal(d.querySelector('#timeline-filters input[type=date]'),null);
 });
 
 test('visible choices narrow results, retain focus, serialize once and synchronize on back/forward',()=>{
@@ -37,19 +30,19 @@ test('visible choices narrow results, retain focus, serialize once and synchroni
  choose('topic','Ancient societies & archaeology');
  assert.deepEqual(visible(),filterEvents(data,{view:'history',region:'maya-world',topic:'Ancient societies & archaeology'}).map(n=>n.id));
  navigate('?view=history&region=egypt');assert.equal(d.querySelector('[data-choice-for="region"]:checked').value,'egypt');
- navigate('?view=history&region=unknown&sort=wrong');assert.equal(d.querySelector('[data-choice-for="region"]:checked').value,'');assert.equal(d.querySelector('[data-choice-for="sort"]:checked').value,'oldest');
+ navigate('?view=history&region=unknown&sort=wrong');assert.equal(d.querySelector('[data-choice-for="region"]:checked'),null);assert.equal(d.querySelector('[name="sort"]').value,'oldest');
 });
 
 test('persistent search, exact counts, empty recovery, and distinct search clear preserve intentional state',async()=>{
- navigate('?view=history&region=maya-world');const input=d.getElementById('persistent-search');
+ navigate('?view=history&region=maya-world');const input=d.querySelector('[name="q"]');
  input.value='zzzz-no-match';input.dispatchEvent(new w.Event('input',{bubbles:true}));await new Promise(resolve=>setTimeout(resolve,190));
  assert.equal(visible().length,0);assert.equal(d.getElementById('empty-state').hidden,false);assert.equal(d.getElementById('persistent-count').textContent,'0 entries');
- assert.match(d.getElementById('persistent-state').textContent,/Maya world/);
+ assert.match(d.getElementById('active-filters').textContent,/Maya world/);
  d.getElementById('clear-search').click();assert.equal(input.value,'');assert.equal(new URLSearchParams(w.location.search).get('region'),'maya-world');assert.ok(visible().length>0);assert.ok(!d.getElementById('link-status').textContent.includes('No entries match'));
- d.getElementById('persistent-reset').click();assert.deepEqual(visible(),filterEvents(data,initialState).map(n=>n.id));assert.equal(w.location.search,'');
+ d.getElementById('persistent-reset').click();assert.deepEqual(visible(),filterEvents(data,{view:'history'}).map(n=>n.id));assert.equal(w.location.search,'?view=history');
 });
 
-test('refinement preserves a visible event offset, its disclosure state and control focus; geometry is simulated',()=>{
+test('editing a filter retains focus and disclosure state without auto-scrolling; geometry is simulated',()=>{
  navigate('?view=history');const card=d.getElementById('nimitz-encounter');card.querySelector('details').open=true;
  let y=120;card.getBoundingClientRect=()=>({top:y,bottom:y+300,height:300});
  const input=d.querySelector('[name="q"]');input.value='Nimitz';input.focus();y=170;
@@ -57,7 +50,7 @@ test('refinement preserves a visible event offset, its disclosure state and cont
  const descriptor=Object.getOwnPropertyDescriptor(w.HTMLElement.prototype,'hidden');
  Object.defineProperty(card,'getBoundingClientRect',{value:()=>({top:y,bottom:y+300,height:300}),configurable:true});
  const other=d.getElementById('gutenberg-printing');Object.defineProperty(other,'hidden',{get(){return descriptor.get.call(this);},set(value){descriptor.set.call(this,value);if(value)y=80;},configurable:true});
- input.dispatchEvent(new w.Event('change',{bubbles:true}));assert.equal(d.activeElement,input);assert.equal(card.querySelector('details').open,true);assert.equal(w.lastDelta,-90);
+ input.dispatchEvent(new w.Event('change',{bubbles:true}));assert.equal(d.activeElement,input);assert.equal(card.querySelector('details').open,true);assert.notEqual(w.lastDelta,-90);
  delete other.hidden;delete card.getBoundingClientRect;
 });
 
@@ -102,4 +95,48 @@ test('filtered sharing has clipboard success/fallback, and printing restores dis
  d.querySelector('[data-copy-view]').click();await new Promise(resolve=>setTimeout(resolve,0));assert.equal(copied,'https://drewcleaver.com/nhi/?view=history&region=egypt#timeline');
  Object.defineProperty(w.navigator,'clipboard',{value:{writeText:async()=>{throw Error('unavailable');}},configurable:true});d.querySelector('[data-copy-view]').click();await new Promise(resolve=>setTimeout(resolve,0));assert.match(d.getElementById('link-status').textContent,/Copy the browser address/);
  const detail=d.getElementById('khufu-giza-engineering').querySelector('.event-detail');detail.open=false;w.dispatchEvent(new w.Event('beforeprint'));assert.ok(detail.open);w.dispatchEvent(new w.Event('afterprint'));assert.equal(detail.open,false);
+});
+
+test('two checked categories yield their union, chips/counts agree, and clearing a group preserves region',()=>{
+ navigate('?view=history');choose('category','Scientific research');choose('category','Institutional history');
+ assert.equal(d.querySelectorAll('[name="category"]:checked').length,2);
+ assert.deepEqual(visible(),filterEvents(data,{view:'history',category:['Scientific research','Institutional history']}).map(e=>e.id));
+ assert.equal(new URLSearchParams(w.location.search).getAll('category').length,2);
+ choose('region','brazil-amazon');const query=w.location.search;
+ assert.equal(d.querySelectorAll('#active-filters [data-remove-facet="category"]').length,2);
+ d.querySelector('[data-clear-facet="category"]').click();assert.equal(d.querySelectorAll('[name="category"]:checked').length,0);assert.equal(new URLSearchParams(w.location.search).get('region'),'brazil-amazon');
+ navigate(query);assert.equal(d.querySelectorAll('[name="category"]:checked').length,2);
+});
+
+test('date edits stay pending and invalid dates retain last valid results; presets and clear use the same range',()=>{
+ navigate('?view=history&from=1947&to=1947');const before=visible();
+ const input=(key,value)=>{const n=d.querySelector(`[name="${key}"]`);n.value=value;n.dispatchEvent(new w.Event(n.tagName==='SELECT'?'change':'input',{bubbles:true}));};
+ input('from','0');assert.deepEqual(visible(),before);d.getElementById('apply-date').click();assert.deepEqual(visible(),before);assert.equal(d.querySelector('[name="from"]').getAttribute('aria-invalid'),'true');assert.match(d.getElementById('from-error').textContent,/year zero/);
+ input('from','500');input('fromEra','BCE');input('to','500');input('toEra','CE');assert.deepEqual(visible(),before);d.getElementById('apply-date').click();assert.deepEqual(visible(),filterEvents(data,{view:'history',from:'-0500',to:'0500'}).map(e=>e.id));
+ assert.match(d.getElementById('date-summary').textContent,/500 BCE–500 CE/);
+ input('from','600');input('fromEra','CE');d.getElementById('apply-date').click();assert.match(d.getElementById('to-error').textContent,/later/);assert.equal(new URLSearchParams(w.location.search).get('from'),'-0500');
+ const preset=d.getElementById('date-preset');preset.value='2000';preset.dispatchEvent(new w.Event('change',{bubbles:true}));assert.equal(d.querySelector('[name="from"]').value,'2000');assert.equal(d.querySelector('[name="to"]').value,String(new Date().getUTCFullYear()));
+ input('from','2013');assert.equal(preset.value,'');choose('category','Scientific research');assert.equal(d.querySelector('[name="from"]').value,'2013');assert.match(d.getElementById('date-status').textContent,/not applied/);
+ d.getElementById('clear-date').click();assert.equal(d.querySelector('[name="from"]').value,'');assert.equal(new URLSearchParams(w.location.search).get('category'),'Scientific research');
+});
+
+test('subject searching reaches the entire catalog, retains selected chips when query clears, and opens profiles separately',async()=>{
+ navigate('?view=history');const {subjectCatalog}=await import('../src/lib/nhi-filtering.mjs');const catalog=subjectCatalog(data),last=catalog.at(-1),input=d.getElementById('entity-search');
+ const search=async text=>{input.value=text;input.dispatchEvent(new w.Event('input',{bubbles:true}));await new Promise(resolve=>setTimeout(resolve,180));};
+ d.getElementById('clear-entity-search').click();assert.equal(d.querySelectorAll('#entity-choices input').length,10);d.getElementById('more-entities').click();assert.equal(d.querySelectorAll('#entity-choices input').length,30);
+ await search(last.name);choose('entity',last.id);assert.ok(d.getElementById('selected-entities').textContent.includes(last.name));const selectedIds=visible();
+ d.getElementById('clear-entity-search').click();assert.deepEqual(visible(),selectedIds);assert.ok(d.getElementById('selected-entities').textContent.includes(last.name));assert.equal(d.querySelector('[name="q"]').value,'');
+ d.querySelector('#selected-entities button').click();assert.equal(new URLSearchParams(w.location.search).get('entity'),null);
+ await search('Jean-Francois Champollion');assert.equal(d.querySelector('#entity-choices input').value,'jean-francois-champollion');assert.ok(d.querySelector('#entity-choices a[href="/nhi/people/jean-francois-champollion/"]'));
+ await search('Champollion');assert.ok(d.querySelector('#entity-choices input[value="jean-francois-champollion"]'));
+ await search('ALH84001');assert.match(d.getElementById('entity-choices').textContent,/Subject/);assert.ok(!d.querySelector('#entity-choices a'));
+ await search('zzzz-no-such-name');assert.match(d.getElementById('entity-match-count').textContent,/No matching names or subjects/);
+});
+
+test('zero results preserve selected controls and clear all retains view, order and appearance',()=>{
+ navigate('?view=history&sort=newest&category=Scientific+research&region=egypt&q=zzzzzz');
+ assert.equal(visible().length,0);assert.equal(d.querySelector('[name="category"]:checked').value,'Scientific research');assert.equal(d.getElementById('empty-state').hidden,false);
+ assert.ok(d.querySelector('[data-clear-facet="region"]'));assert.ok(d.querySelector('#active-filters [data-remove-facet="category"]'));
+ d.querySelector('[data-nhi-theme="dark"]').click();d.getElementById('empty-reset').click();assert.equal(d.querySelector('[name="view"]').value,'history');assert.equal(d.querySelector('[name="sort"]').value,'newest');assert.equal(d.documentElement.dataset.nhiTheme,'dark');assert.equal(d.querySelectorAll('#timeline-filters [data-choice-for]:checked').length,0);
+ assert.deepEqual(visible(),filterEvents(data,{view:'history',sort:'newest'}).map(e=>e.id));d.querySelector('[data-nhi-theme="light"]').click();
 });
