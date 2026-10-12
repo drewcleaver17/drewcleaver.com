@@ -1,10 +1,13 @@
 import { eras, eraFor, readingPathOf, filterEvents, initialState, paramsFromState, stateFromParams } from '../lib/ufos.mjs';
+import { institutionParamKeys } from '../lib/ufo-institutions.mjs';
+import { initInstitutionDirectory } from './ufo-institutions-client.mjs';
 
 function init() {
   const dataNode = document.getElementById('ufos-data');
   const form = document.getElementById('timeline-filters');
   if (!dataNode || !form) return;
   const data = JSON.parse(dataNode.textContent);
+  const institutionDirectory=initInstitutionDirectory(data);
   const resultCount = document.getElementById('result-count');
   const chips = document.getElementById('active-filters');
   const story = document.getElementById('timeline-results');
@@ -17,7 +20,8 @@ function init() {
   const status = document.getElementById('link-status');
   const all = filterEvents(data, { view: 'history' });
   const cards = new Map(all.map(e => [e.id, document.getElementById(e.id)]));
-  const eraList = e => document.querySelector('[data-era="' + eraFor(e).id + '"] .era-events');
+  const eraLists = new Map([...document.querySelectorAll('[data-era]')].map(node=>[node.dataset.era,node.querySelector('.era-events')]));
+  const eraList = e => eraLists.get(eraFor(e).id);
   const reveal=document.getElementById('reveal-linked');
   const control = key => form.elements.namedItem(key);
   let state = stateFromParams(new URLSearchParams(location.search));
@@ -38,7 +42,9 @@ function init() {
   };
   const writeURL = mode => {
     if (!mode) return;
-    const url = new URL(location.href); url.search = paramsFromState(state).toString();
+    const url = new URL(location.href), params=paramsFromState(state);
+    for(const key of institutionParamKeys)if(url.searchParams.has(key))params.set(key,url.searchParams.get(key));
+    url.search = params.toString();
     history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
   };
   function render(mode) {
@@ -46,21 +52,29 @@ function init() {
     const filtered = ['q','from','to','category','topic','entity','evidence','layer','era'].some(k => state[k]);
     const structured = !filtered && state.sort === 'oldest' && state.view !== 'recent';
     const results = filterEvents(data, state);
-    // Return every existing server-rendered node to its home before changing views.
-    for (const e of all) { const card = cards.get(e.id); (readingPathOf(e)==='supporting' ? contextList : eraList(e)).append(card); card.hidden = true; }
-    flat.replaceChildren();
+    // Reuse the server-rendered cards and move each node only to its final home.
+    // Cached containers avoid hundreds of full-document selector scans per keystroke.
+    const visibleIds = new Set(results.map(e=>e.id));
+    const groups = new Map([...eraLists.values(),contextList,flat].map(node=>[node,document.createDocumentFragment()]));
+    for (const e of all) {
+      const card=cards.get(e.id), shown=visibleIds.has(e.id);
+      card.hidden=!shown;
+      if(!shown)groups.get(readingPathOf(e)==='supporting'?contextList:eraList(e)).append(card);
+    }
+    for(const e of results)groups.get(structured?eraList(e):flat).append(cards.get(e.id));
+    for(const [container,fragment] of groups)container.replaceChildren(fragment);
     story.hidden = !structured; context.hidden = true; flat.hidden = structured;
     if (structured) {
-      for (const e of results) {cards.get(e.id).hidden=false;eraList(e).append(cards.get(e.id));}
       for (const era of document.querySelectorAll('.timeline-era')) era.hidden = !era.querySelector('.era-events .ufo-event:not([hidden])');
-    } else for (const e of results) {cards.get(e.id).hidden=false;flat.append(cards.get(e.id));}
+    }
     const total = filterEvents(data, { view: state.view, context: state.context }).length;
-    resultCount.textContent = results.length + ' of ' + total + ' entries' + (state.view === 'journey' && !state.context ? ' · main reading milestones' : state.view === 'story' && !state.context ? ' · modern disclosure' : state.view === 'recent' ? ' · ordered by site revision' : state.view === 'core' ? ' · all-era core timeline' : ' · full history');
+    resultCount.textContent = results.length + ' of ' + total + ' entries' + (state.view === 'journey' && !state.context ? ' · main reading milestones' : state.view === 'story' && !state.context ? ' · modern disclosure' : state.view === 'recent' ? ' · ordered by site revision' : state.view === 'core' ? ' · all-era core timeline' : state.view === 'institutions' ? ' · institutional chronology' : ' · full history');
     document.getElementById('scope-note').textContent = state.view === 'journey' && !state.context
       ? 'A chronological reading path through human origins, ideas, scientific discoveries, encounters and investigations. Supporting records remain in full history and at their original links.'
       : state.view === 'story' && !state.context
       ? 'Modern disclosure starts in December 2017. Core timeline includes earlier UFO cases; full history also includes contextual strands.'
       : state.view === 'core' ? 'Core UFO records and investigations across all eras. Contextual history is available in full history; a historical date does not make a case contextual.' : state.view === 'recent' ? 'Historical additions and corrections appear here by the date this site changed, while each entry keeps its historical date.'
+      : state.view === 'institutions' ? 'Formation, operational starts, transitions and disclosures retain separate dates. Institutional existence and mission do not establish an alleged UAP role. Searchable dossiers below explain the source boundaries.'
       : 'Selected historical context across distinct strands. Nearby dates, shared personnel and documented relationships do not by themselves establish a common cause.';
     for (const link of document.querySelectorAll('[data-view]')) {
       const selected = link.dataset.view === (state.context && ['story','journey'].includes(state.view) ? 'history' : state.view);
@@ -100,7 +114,7 @@ function init() {
       state={...initialState,view:'journey'};render('replace');document.getElementById(id).scrollIntoView({block:'start'});
     } else {
       const target=document.getElementById(id);
-      if (target) { if(target.tagName==='DETAILS')target.open=true; for(let node=target.parentElement;node;node=node.parentElement)if(node.tagName==='DETAILS')node.open=true; if(focus && target.hasAttribute('tabindex'))target.focus({preventScroll:true}); target.scrollIntoView({block:'start'}); }
+      if (target && institutionDirectory.reveal(target,focus)) { if(target.tagName==='DETAILS')target.open=true; for(let node=target.parentElement;node;node=node.parentElement)if(node.tagName==='DETAILS')node.open=true; if(focus && target.hasAttribute('tabindex'))target.focus({preventScroll:true}); target.scrollIntoView({block:'start'}); }
     }
   }
   reveal.addEventListener('click',()=>{state={...initialState,view:'history'};render('push');showHash(true);status.textContent='Full history opened for the linked entry.';});
@@ -113,7 +127,7 @@ function init() {
     else if(e.target.name in initialState) {state[e.target.name]=e.target.type==='checkbox'?e.target.checked:e.target.value;if(e.target.name==='view')state.context=false;}
     render('push');
   });
-  for(const link of document.querySelectorAll('[data-view]'))link.addEventListener('click',e=>{e.preventDefault();clearTimeout(timer);state={...initialState,view:link.dataset.view};render('push');control('q').focus({preventScroll:true});});
+  for(const link of document.querySelectorAll('[data-view]'))link.addEventListener('click',e=>{e.preventDefault();clearTimeout(timer);state={...initialState,view:link.dataset.view};render('push');const url=new URL(location.href);url.hash='timeline';history.replaceState(null,'',url);control('q').focus({preventScroll:true});document.getElementById('timeline').scrollIntoView({block:'start'});});
   document.getElementById('empty-reset').addEventListener('click',()=>{reset();control('q').focus();});
   window.addEventListener('popstate',()=>{state=stateFromParams(new URLSearchParams(location.search));render();showHash();});
   window.addEventListener('hashchange',()=>showHash(true));

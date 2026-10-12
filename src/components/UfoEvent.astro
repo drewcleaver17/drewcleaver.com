@@ -15,6 +15,7 @@ const precision={day:'Day precision',month:'Month known; day unverified',year:'Y
     <p class="event-summary">{e.summary}</p>
     <p class="event-significance"><span>Why it matters</span> {e.significance}</p>
     {names.some(n=>n.type==='person') && <p class="contributor-links">People in this record: {names.filter(n=>n.type==='person').map(n=><a href={`#entity-${n.id}`}>{n.name}</a>)}</p>}
+    {names.some(n=>n.institutionalProfile) && <p class="contributor-links">Institutions in this record: {names.filter(n=>n.institutionalProfile).map(n=><a href={`#entity-${n.id}`}>{n.institutionalProfile.acronym || n.name}</a>)}</p>}
     {e.contextLinks?.length>0 && <div class="narrative-links"><span>Read alongside · editorial context</span>{e.contextLinks.map(link=><p><a href={`#${link.eventId}`}>{events.find(x=>x.id===link.eventId)?.title}</a> — {link.note}</p>)}</div>}
     {e.relatedLinks?.length>0 && <div class="narrative-links"><span>Source-supported connections</span>{e.relatedLinks.map(link=><p><strong>{link.type.replaceAll('-',' ')}:</strong> <a href={`#${link.eventId}`}>{events.find(x=>x.id===link.eventId)?.title}</a>. {link.note} {link.sourceIds.map(id=><a href={sources[id].url} rel="noreferrer">Source ↗</a>)}</p>)}</div>}
     {e.supportingFor?.length>0 && <p class="related-events">Supporting record for: {e.supportingFor.map(id=><a href={`#${id}`}>{events.find(x=>x.id===id)?.title}</a>)}</p>}

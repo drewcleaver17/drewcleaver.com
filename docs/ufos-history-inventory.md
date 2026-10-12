@@ -1,3 +1,9 @@
+# Institutional-history local review — October 12, 2026
+
+The current local review has **154 main milestones and 399 retained event records**, with 245 supporting records, 191 institutional dossiers in 521 canonical entities, 426 sources and 123 relationships. It retains the one existing selected video. All 176 original event anchors survive; 175 event objects are unchanged and AARO’s report-access note receives a sourced correction.
+
+See [the institutional ledger](ufos-institutional-ledger-2026-10-12.md) and [baseline coverage matrix](ufos-institutional-ledger-2026-10-12.json). This revision is local and awaits explicit approval before public push, PR, merge or deployment. The older inventory below remains for provenance.
+
 # Landmark-history edition — October 11, 2026
 
 The current editorial revision has **139 main reading milestones and 176 retained event records**: 67 core / 109 contextual, with 37 supporting records. Reading prominence, evidence layer and era are separate dimensions. All 112 prior records retain their IDs and anchors; 64 dated contributions and encounters are added. The former 84-event audit baseline is historical, not the current inventory.

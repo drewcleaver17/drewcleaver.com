@@ -136,3 +136,14 @@ See `docs/ufos-completion-ledger-2026-10-11.{json,md}` for all 40 handoff items,
 The 112-entry edition was verified live on 2026-10-11T01:19:11Z after PR #63 merged as `a9b18255cb3a791da4cab2a9e6bc2886c8a68c72` and Pages run `38101085902` succeeded. Fresh embedded data matched the intended release exactly; all production CSS/JS assets, stable event anchors, noindex/nofollow, sitemap/navigation exclusion and analytics absence were checked. Live desktop interactions and targeted keyboard/focus checks passed at 1348×936; exact requested responsive widths and exhaustive keyboard traversal remain documented in AF-07.
 
 The receipt-only follow-up records this observed content publication through the normal PR, validation and Pages process. It preserves `contentUpdatedAt`, `lastCheckedAt`, the broad research cutoff, content digest, previous publication history, and every scheduled reporter setting/status. This human editorial deployment is not an actual scheduled reporter run.
+
+
+## October 12 institutional editorial review (model 5)
+
+This revision was prepared locally and reviewed before publication. Drew explicitly approved its live deployment on October 12, 2026. Use the existing scoped PR, CI, Pages and observed-receipt process; keep the disclosed browser-verification limits explicit.
+
+Model 5 adds source-scoped canonical institutional profiles, period-specific designation/roster attributes, unknown relationship dates with an explicit basis, distinct formation/disclosure date roles and an institutions view. The existing schema-1 envelope remains compatible. New or changed `institutionalHistory` classifications require editorial review; unattended entity/relationship writes remain prohibited.
+
+`iq`, `itype`, `idomain`, `iuap` and `idesignation` filter the canonical institution directory independently of timeline state. Export preserves the complete model. Exact aliases remain unique; ambiguous generic laboratory labels are text-searchable rather than identity joins.
+
+Scheduler cadence, status, activation, permissions, thresholds, configuration and dataset-only scope are unchanged. Scoped source-check receipts do not advance the comprehensive cutoff. The prior publication receipt is preserved in history, and current publication remains unverified until an explicitly approved release. See [the institutional handoff](ufos-institutional-ledger-2026-10-12.md).

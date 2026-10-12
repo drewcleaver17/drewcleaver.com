@@ -1,3 +1,11 @@
+# Institutional source review — October 12, 2026 UTC
+
+The local institutional revision adds 170 immutable source versions from a bounded review of public and declassified records. It covers the official FFRDC/UARC and Intelligence Community rosters, Navy/undersea and space institutions, nuclear/research-center lineages, and separately attributed UAP claims. Source dates, publication containers, release dates and inspection scope remain distinct.
+
+The UAP Gerb screen includes 70 returned catalog cards, 14 descriptions and portions of 13 third-party transcripts, with no full-transcript or audiovisual review. The private owner package contains the exact corpus, all 886 candidate dispositions and source/claim crosswalks. No copyrighted transcripts or public workaround playlist are included.
+
+See [the institutional review and limitations](ufos-institutional-ledger-2026-10-12.md). The broad research cutoff remains September 19, 2026. NURO’s charter/acknowledgment dates, seven precise Air Force lineage dates and other source conflicts remain explicit holds. This is a local revision, not a publication receipt.
+
 # Landmark-history source review — October 11, 2026
 
 This revision adds 64 supported milestones and 116 source records while preserving all 140 prior source objects and all 31 pre-existing correction-history records. The [complete revision ledger](ufos-landmark-ledger-2026-10-11.json) reconciles CH-001–CH-040, all 28 prior additions, 17 watchlist items, 10 exclusions and the other actionable audit categories. The original bundle’s five manifest entries were verified by size and SHA-256 before use.

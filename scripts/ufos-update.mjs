@@ -61,6 +61,8 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     if (change.op === 'revise' && (e.id !== existing.id || e.slug !== existing.slug)) fail('Stable IDs cannot change');
     if (!reviewed) {
       if (e.date?.precision==='age' || e.date?.start?.startsWith('-')) fail('Hold for review: archaeological ages and BCE chronology');
+      for(const field of ['institutionalHistory']) if(existing && e[field]!==undefined && !equal(existing[field],e[field])) fail('Hold for review: institutional classification changes');
+      if(!existing && e.institutionalHistory) fail('Hold for review: institutional chronology classification');
       for(const field of ['readingPath','supportingFor','contextLinks']) if(existing && e[field]!==undefined && !equal(existing[field],e[field])) fail('Hold for review: editorial reading path or connections');
       if(!existing && (e.contextLinks?.length || e.supportingFor?.length)) fail('Hold for review: new editorial connections');
       if (e.claimDate) fail('Hold for review: retrospective allegation provenance');
@@ -86,7 +88,7 @@ export function prepareUpdate(current, batch, { reviewed = false, now = new Date
     }
     if (next.contentModelVersion >= 4) {
       record.readingPath ??= existing?.readingPath || 'main';
-      for(const field of ['supportingFor','contextLinks']) if(existing?.[field] && record[field]===undefined) record[field]=structuredClone(existing[field]);
+      for(const field of ['supportingFor','contextLinks','institutionalHistory']) if(existing?.[field] && record[field]===undefined) record[field]=structuredClone(existing[field]);
     }
     record.addedAt = existing?.addedAt || timestamp; record.revisedAt = timestamp; record.lastVerifiedAt = timestamp;
     record.correctionHistory = existing ? [...existing.correctionHistory, { at: timestamp, reason: change.reason, previousSummary: existing.summary, previousRecordDigest: digest(existing) }] : [];
