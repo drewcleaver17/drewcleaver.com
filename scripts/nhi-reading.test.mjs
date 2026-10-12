@@ -24,6 +24,9 @@ test('every timeline, People and institutional option is exposed with a native c
    assert.ok(radios.every(n=>n.closest('label').textContent.trim()));
  }
  assert.equal(d.querySelector('#timeline-filters .filter-details'),null);
+ assert.equal(d.querySelector('.filter-options').lastElementChild.id,'choices-year-shortcut');
+ assert.equal(d.querySelectorAll('.catalog-shortcuts a').length,2);
+ assert.ok(d.getElementById('choices-category').compareDocumentPosition(d.getElementById('choices-entity')) & w.Node.DOCUMENT_POSITION_FOLLOWING);
  assert.ok(d.querySelector('[name="context"]').closest('label'));
 });
 
@@ -42,7 +45,7 @@ test('persistent search, exact counts, empty recovery, and distinct search clear
  input.value='zzzz-no-match';input.dispatchEvent(new w.Event('input',{bubbles:true}));await new Promise(resolve=>setTimeout(resolve,190));
  assert.equal(visible().length,0);assert.equal(d.getElementById('empty-state').hidden,false);assert.equal(d.getElementById('persistent-count').textContent,'0 entries');
  assert.match(d.getElementById('persistent-state').textContent,/Maya world/);
- d.getElementById('clear-search').click();assert.equal(input.value,'');assert.equal(new URLSearchParams(w.location.search).get('region'),'maya-world');assert.ok(visible().length>0);
+ d.getElementById('clear-search').click();assert.equal(input.value,'');assert.equal(new URLSearchParams(w.location.search).get('region'),'maya-world');assert.ok(visible().length>0);assert.ok(!d.getElementById('link-status').textContent.includes('No entries match'));
  d.getElementById('persistent-reset').click();assert.deepEqual(visible(),filterEvents(data,initialState).map(n=>n.id));assert.equal(w.location.search,'');
 });
 
@@ -61,6 +64,7 @@ test('refinement preserves a visible event offset, its disclosure state and cont
 test('adjust-filters remembers an entry and provides an explicit return; excluded targets use chronological neighbors',()=>{
  navigate('?view=history');const card=d.getElementById('nimitz-encounter');card.getBoundingClientRect=()=>({top:120,bottom:420,height:300});
  d.getElementById('adjust-filters').click();assert.equal(d.getElementById('return-reading').hidden,false);delete card.getBoundingClientRect;
+ w.history.replaceState(null,'','/nhi/?view=history#timeline-filters');
  choose('region','egypt');d.getElementById('return-reading').click();assert.ok(visible().includes(w.lastScrolled));assert.equal(d.activeElement.id,w.lastScrolled);
 });
 
@@ -86,6 +90,7 @@ const luminance=hex=>{const channels=hex.match(/[a-f\d]{2}/gi).map(v=>parseInt(v
 const contrast=(a,b)=>{const x=luminance(a),y=luminance(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);};
 test('palette pairs meet measured text/control thresholds and responsive/print branches remain explicit',()=>{
  for(const bg of ['082b24','103b31','17473a','0c3229'])for(const fg of ['f3efe5','c3d3c7'])assert.ok(contrast(bg,fg)>=4.5,`${bg}/${fg}`);
+ for(const bg of ['f7f5ee','e9ede2','f0f1e9','fffdf7']){assert.ok(contrast(bg,'203d34')>=4.5);assert.ok(contrast(bg,'536357')>=4.5);assert.ok(contrast(bg,'71846d')>=3);}
  assert.ok(contrast('082b24','c7d8a9')>=4.5);assert.ok(contrast('103b31','7c9e88')>=3);
  const css=readFileSync(new URL('../src/styles/nhi-reading.css',import.meta.url),'utf8');
  assert.match(css,/min-width:1100px.*min-height:760px/);assert.match(css,/max-height:500px/);assert.match(css,/@media print/);assert.ok(!css.includes('filter:invert'));

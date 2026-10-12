@@ -7,7 +7,7 @@ export function exposeChoices(form) {
   const bindings=[];choiceBindings.set(form,bindings);
   for(const select of form.querySelectorAll('select')) {
     const label=select.closest('label');
-    const group=document.createElement('fieldset');group.className='visible-choices';
+    const group=document.createElement('fieldset');group.className='visible-choices';group.id='choices-'+(select.name || select.id);
     const legend=document.createElement('legend');legend.textContent=label.firstChild.textContent.trim();group.append(legend);
     const choices=document.createElement('div');choices.className='choice-list';
     if(select.options.length>40) {
@@ -25,6 +25,17 @@ export function exposeChoices(form) {
       radio.addEventListener('change',()=>{select.value=radio.value;select.dispatchEvent(new Event('change',{bubbles:true}));});
     }
     group.append(choices);label.after(group);label.hidden=true;select.dataset.choiceAdapter='true';
+  }
+  if(form.id==='timeline-filters') {
+    const options=form.querySelector('.filter-options');
+    const shortcuts=document.createElement('nav');shortcuts.className='catalog-shortcuts';shortcuts.setAttribute('aria-label','Long choice catalogs');
+    // Keep daily refinement ahead of the exceptionally long names/year catalogs.
+    for(const key of ['entity','year-shortcut']) {
+      const group=form.querySelector('#choices-'+key);if(!group)continue;
+      options.append(group);const link=document.createElement('a');link.href='#'+group.id;
+      link.textContent=key==='entity'?'Jump to name / work choices':'Jump to CE year choices';link.className='underlined';shortcuts.append(link);
+    }
+    form.querySelector('.filter-essentials').append(shortcuts);
   }
   syncChoices(form);
 }

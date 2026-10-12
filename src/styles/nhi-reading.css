@@ -1,5 +1,5 @@
 /* NHI uses one local preference. Unrelated routes retain the site palette. */
-html[data-nhi]{--nhi-bg:#f7f5ee;--nhi-surface:#e9ede2;--nhi-raised:#f0f1e9;--nhi-text:#203d34;--nhi-muted:#536357;--nhi-line:#a5b39f;--nhi-accent:#735020;--nhi-selected:#173e35;--nhi-selected-text:#f3efe5;--nhi-focus:#7a5024;--nhi-control:#fffdf7;--nhi-note:#715223;color-scheme:light}
+html[data-nhi]{--nhi-bg:#f7f5ee;--nhi-surface:#e9ede2;--nhi-raised:#f0f1e9;--nhi-text:#203d34;--nhi-muted:#536357;--nhi-line:#71846d;--nhi-accent:#735020;--nhi-selected:#173e35;--nhi-selected-text:#f3efe5;--nhi-focus:#7a5024;--nhi-control:#fffdf7;--nhi-note:#715223;color-scheme:light}
 html[data-nhi][data-nhi-theme=dark]{--nhi-bg:#082b24;--nhi-surface:#103b31;--nhi-raised:#17473a;--nhi-text:#f3efe5;--nhi-muted:#c3d3c7;--nhi-line:#7c9e88;--nhi-accent:#edc68b;--nhi-selected:#c7d8a9;--nhi-selected-text:#082b24;--nhi-focus:#f1c982;--nhi-control:#0c3229;--nhi-note:#f0c58d;--green:#f3efe5;--paper:#082b24;--color-ink:#f3efe5;--color-muted:#c3d3c7;--color-border:#7c9e88;color-scheme:dark}
 html[data-nhi]{background:var(--nhi-bg);color:var(--nhi-text)}
 html[data-nhi] .ufo-page{--ufo-muted:var(--nhi-muted);--ufo-line:var(--nhi-line)}
