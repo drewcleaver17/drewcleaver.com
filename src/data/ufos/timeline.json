@@ -9,7 +9,18 @@
     "updateDescription": "Weekly source checks can publish verified institutional milestones and straightforward corrections after validation and review gates. New allegations, legal interpretations and relationship claims require editorial review. The publishing path passed a live recovery check on September 19, 2026.",
     "cadence": "Weekly",
     "edition": "2026-10-12-institutional-history-review",
-    "publicationReceipt": null,
+    "publicationReceipt": {
+      "edition": "2026-10-12-institutional-history-review",
+      "verifiedAt": "2026-10-12T07:21:55.922983Z",
+      "revision": "7049761479b93fcf913ca7a5aed5e8431a1af659",
+      "contentDigest": "16c703662dfbd8974d621f52ffa455dece6b8f50d8f89620b19279f690de2e2f",
+      "url": "https://drewcleaver.com/ufos/",
+      "workflowRun": 38217088855,
+      "pullRequest": 69,
+      "verificationScope": "Exact merged Pages run succeeded. Fresh live embedded data equals the approved release; all three production CSS/JS assets match the checked build byte for byte. All 399 event and 521 canonical entity anchors, 191 institutional dossiers, noindex/nofollow, unchanged sitemap/robots, analytics absence and lack of inbound links from homepage, hello, about and contact verified. Local production DOM tests cover search, combined institutional/timeline filters, zero results/reset, sorting, source disclosures, related links, URL restoration, legacy anchors, exports and saved-consent analytics absence. No live browser interaction, exact 320/390/768/1440 layout, screen-reader or exhaustive keyboard verification is claimed because the supported browser control is unavailable.",
+      "researchScope": "Publication verification only. Source/content timestamps, source inspection limits and the broad September 19 research cutoff are unchanged.",
+      "scheduledOperation": "Manual editorial release. Scheduled configuration, cadence, threshold, permissions, activation/status and dataset-only boundary are unchanged; this is not a scheduled reporter run."
+    },
     "appliedBatchIds": [
       "2026-09-19-nasa-public-meeting"
     ],

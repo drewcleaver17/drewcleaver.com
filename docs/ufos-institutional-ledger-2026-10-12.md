@@ -57,10 +57,16 @@ Importer schema-1 compatibility remains. Unattended changes to institutional cla
 - `npm run ufos:validate`: 399 records pass schema/editorial validation.
 - `npm run build`: production Astro build, release controls, eight built-DOM UFO tests and all 118 additional repository tests pass.
 - `git diff --check`: pass.
-- All 58 unrelated built HTML outputs match baseline after asset-name normalization. Sitemap and robots bytes match. Prior ledgers and workflow files are untouched. Existing operational metadata and publication history are retained; the current publication receipt is cleared pending a future authorized release.
+- All 58 unrelated built HTML outputs match baseline after asset-name normalization. Sitemap and robots bytes match. Prior ledgers and workflow files are untouched. Existing operational metadata and publication history are retained; the initial review cleared the current receipt pending observed publication, now recorded below.
 - Noindex/nofollow, sitemap/inbound-discovery exclusions and analytics absence pass release checks. Analytics remains absent with saved consent in DOM tests.
 - The owner package provides the complete offline HTML, searchable review/evidence HTML, machine-readable ledgers and a static PDF of selected production markup.
 
 The managed Sites browser-control skill/tools were unavailable. No server or public preview was started. Static PDF rendering and jsdom do not establish real browser layout, screen-reader behavior, exact 320/390/768/1440 widths or full keyboard traversal. These checks remain unverified; this limit was disclosed in the review before Drew authorized deployment. The authorization does not convert unavailable checks into passes. No scheduled reporter run is claimed.
 
 Release sequence: rerun required gates, publish the scoped branch, merge only after CI passes, verify the exact merged Pages deployment and fresh live content, then record the observed publication receipt. Preserve all unlisted/discovery protections. Noindex is not access control.
+
+## Observed publication
+
+Drew approved deployment on October 12, 2026. PR [#69](https://github.com/drewcleaver17/drewcleaver.com/pull/69) merged as `7049761479b93fcf913ca7a5aed5e8431a1af659` after both CI workflows passed. [GitHub Pages run 38217088855](https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38217088855) succeeded. Fresh live verification at `2026-10-12T07:21:55.922983Z` matched the approved embedded dataset and all three production CSS/JS assets. All 399 event and 521 entity anchors, 191 dossiers, noindex/nofollow, sitemap/robots preservation and public-route inbound-link exclusions passed. Content digest: `16c703662dfbd8974d621f52ffa455dece6b8f50d8f89620b19279f690de2e2f`.
+
+The release reran all 165 tests, dataset validation and the full production build. The publication receipt records HTTP/source verification and the prior production DOM checks separately from unavailable browser/device checks. Only the receipt and release documentation change in the follow-up; content/source timestamps, broad cutoff, substantive data and every reporter setting remain unchanged.
