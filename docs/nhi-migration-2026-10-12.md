@@ -53,4 +53,10 @@ The existing external **UAP Disclosure Milestones** task was inspected read-only
 
 ## Publication
 
-Local implementation and validation are complete. Production publication must be established by the exact merged Pages run and fresh deployed content/asset checks; append the observed receipt after those checks, without changing historical/source timestamps.
+PR [#72](https://github.com/drewcleaver17/drewcleaver.com/pull/72) passed both existing CI workflows. Main was refreshed immediately before merge and remained the integrated People baseline. The remote source tree exactly matched the locally validated tree (`09ff76913d50c1ba8ca0e4b8c9c7ea42047f5834`). The PR merged as `53566cd99c5a00b7b39193d3ad8ad57b4ed777ed`; [Pages run 38235422625](https://github.com/drewcleaver17/drewcleaver.com/actions/runs/38235422625) completed successfully.
+
+Observed production verification: `2026-10-12T10:21:42.032323Z`. Fresh checks of 22 routes and 10 served bundles/imports/representative portraits matched the validated build. The full live dataset matched source exactly; all 399 event and 521 entity anchors were present. All 254 canonical NHI routes were in the production sitemap, with old routes excluded. Canonical/title/sharing metadata, robots.txt, absence of NHI noindex headers, legacy noindex/fallback destinations and main-site discovery exclusions passed. Production-delivered redirect scripts were executed in isolated DOM/VM checks for query-bearing event, institution, directory and person links. This is HTTP/source and DOM verification, not a native-browser check.
+
+Content digest: `891591de1aeaa6498ae02ff07a36516ee74bda9715d69947046728c7ec97ddf0`.
+
+The receipt-only follow-up records this observed publication in dataset metadata and this ledger through the normal PR/check/deployment process. It does not change the edition, content digest, historical records, source-check or substantive-content dates, research cutoff, previous publication history, or any automation setting. The receipt references the verified content release rather than predicting its own follow-up commit.
