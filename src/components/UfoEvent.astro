@@ -25,6 +25,7 @@ const precision={day:'Day precision',month:'Month known; day unverified',year:'Y
       <div class="detail-content">
         {e.topics?.length>0 && <p class="strand-label">Historical strand: {e.topics.join(' · ')}</p>}
         {e.geography && <p>Place / region: {e.geography}</p>}
+        {e.culture && <p>Culture / tradition: {e.culture}</p>}
         {e.scientificStage && <p>Research stage: {e.scientificStage}</p>}
         {e.observedDomain?.length>0 && <p>Observed domain: {e.observedDomain.join(' · ')}</p>}
         {e.reportedDomain?.length>0 && <p>Reported domain: {e.reportedDomain.join(' · ')}</p>}
