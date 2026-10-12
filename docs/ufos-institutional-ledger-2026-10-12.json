@@ -2,7 +2,7 @@
   "edition": "2026-10-12-institutional-history-review",
   "reviewedAt": "2026-10-12T05:26:02Z",
   "baselineCommit": "5053f6242004d514a9f33453087f50e91d1e5754",
-  "publicationStatus": "Owner approved live deployment on 2026-10-12; normal PR, CI, Pages and live-verification gates apply",
+  "publicationStatus": "Verified live after owner-approved PR #69 and successful GitHub Pages deployment; receipt follow-up uses normal validation/deployment",
   "counts": {
     "newEvents": 223,
     "newSources": 170,
@@ -7078,5 +7078,45 @@
     }
   ],
   "researchCutoff": "2026-09-19",
-  "browserCheckStatus": "Unavailable: managed Sites browser-control skill/tools not exposed. Static PDF and jsdom are not browser/device or complete keyboard checks."
+  "browserCheckStatus": "Unavailable: managed Sites browser-control skill/tools not exposed. Static PDF and jsdom are not browser/device or complete keyboard checks.",
+  "publicationVerification": {
+    "verifiedAt": "2026-10-12T07:21:55.922983Z",
+    "revision": "7049761479b93fcf913ca7a5aed5e8431a1af659",
+    "workflowRun": 38217088855,
+    "url": "https://drewcleaver.com/ufos/",
+    "edition": "2026-10-12-institutional-history-review",
+    "contentDigest": "16c703662dfbd8974d621f52ffa455dece6b8f50d8f89620b19279f690de2e2f",
+    "embeddedDatasetMatches": true,
+    "eventAnchors": 399,
+    "entityAnchors": 521,
+    "institutionalDossiers": 191,
+    "noindexNofollow": true,
+    "analyticsAbsent": true,
+    "discoveryFilesMatch": true,
+    "publicRoutesWithoutInboundLinks": [
+      "/",
+      "/hello/",
+      "/about/",
+      "/contact/"
+    ],
+    "assets": [
+      {
+        "path": "/_astro/global.DCFwFqIt.css",
+        "bytes": 36473,
+        "sha256": "cf86f973129a226c83153ee5c54c6df4fabbf013198f94e4b9fb3f8045aa5b1c"
+      },
+      {
+        "path": "/_astro/ufos.astro_astro_type_script_index_0_lang.CQa7WxR9.js",
+        "bytes": 16328,
+        "sha256": "ed8e8124cfc546dc024e6ba35954f283c11248928cba0e4bb7a4403e6e157910"
+      },
+      {
+        "path": "/_astro/ufos@_@astro.C4X0cKtq.css",
+        "bytes": 19430,
+        "sha256": "3347a82a138f6264bf955abcb5a8941bc4a40cffc1a7c780168f579ad209d294"
+      }
+    ],
+    "browserLimit": "HTTP/source verification plus prior production DOM tests; no live browser layout, screen-reader or full keyboard claims.",
+    "scheduledOperation": false
+  }
 }
