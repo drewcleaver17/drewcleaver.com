@@ -1,52 +1,35 @@
-// Preserve the existing single-choice state model and URL serialization.
-// Selects remain private adapters; native radios expose every labeled choice.
+// Directory facets remain independent of the timeline. Native selects adapt existing forms.
 const choiceBindings=new WeakMap();
 export function exposeChoices(form) {
   if(!form || form.dataset.choicesReady)return;
-  form.dataset.choicesReady='true';
-  const bindings=[];choiceBindings.set(form,bindings);
-  for(const select of form.querySelectorAll('select')) {
-    const label=select.closest('label');
-    const group=document.createElement('fieldset');group.className='visible-choices';group.id='choices-'+(select.name || select.id);
+  form.dataset.choicesReady='true';const bindings=[];choiceBindings.set(form,bindings);
+  for(const select of form.querySelectorAll('select[multiple]')) {
+    const label=select.closest('label'),group=document.createElement('fieldset');group.className='visible-choices filter-group';group.id='choices-'+select.name;
     const legend=document.createElement('legend');legend.textContent=label.firstChild.textContent.trim();group.append(legend);
-    const choices=document.createElement('div');choices.className='choice-list';
-    if(select.options.length>40) {
-      group.classList.add('long-choices');
-      const note=document.createElement('p');note.className='catalog-note';
-      note.textContent=`${select.options.length-1} named choices. All remain available. On a small screen this long catalog scrolls; Tab into it, then use arrow keys or scroll. Browser Find can locate a label.`;
-      group.append(note);choices.setAttribute('tabindex','0');choices.setAttribute('role','region');choices.setAttribute('aria-label',legend.textContent+' — complete choice catalog');
-    }
-    const name='choice-'+(select.name || select.id);
+    const hint=document.createElement('p');hint.className='search-scope';hint.textContent='Choose one or more. Results can match any choice in this group.';group.append(hint);
+    const clear=document.createElement('button');clear.type='button';clear.className='underlined';clear.textContent='Clear '+legend.textContent.toLowerCase();
+    clear.addEventListener('click',()=>{for(const option of select.options)option.selected=false;select.dispatchEvent(new Event('change',{bubbles:true}));});group.append(clear);
+    const choices=document.createElement('div');choices.className='choice-list';let expanded=false;const rows=[];
     for(const option of select.options) {
-      const item=document.createElement('label');item.className='choice';
-      const radio=document.createElement('input');radio.type='radio';radio.name=name;radio.value=option.value;
-      radio.dataset.choiceFor=select.name || select.id;radio.checked=option.value===select.value;bindings.push({radio,select});
-      const text=document.createElement('span');text.textContent=option.textContent;item.append(radio,text);choices.append(item);
-      radio.addEventListener('change',()=>{select.value=radio.value;select.dispatchEvent(new Event('change',{bubbles:true}));});
+      if(!option.value)continue;
+      const item=document.createElement('label');item.className='choice';const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.value=option.value;checkbox.dataset.choiceFor=select.name;
+      const text=document.createElement('span');text.textContent=option.textContent;item.append(checkbox,text);choices.append(item);rows.push(item);bindings.push({checkbox,option,select});
+      checkbox.addEventListener('change',()=>{option.selected=checkbox.checked;select.dispatchEvent(new Event('change',{bubbles:true}));});
     }
-    group.append(choices);label.after(group);label.hidden=true;select.dataset.choiceAdapter='true';
-  }
-  if(form.id==='timeline-filters') {
-    const options=form.querySelector('.filter-options');
-    const shortcuts=document.createElement('nav');shortcuts.className='catalog-shortcuts';shortcuts.setAttribute('aria-label','Long choice catalogs');
-    // Keep daily refinement ahead of the exceptionally long names/year catalogs.
-    for(const key of ['entity','year-shortcut']) {
-      const group=form.querySelector('#choices-'+key);if(!group)continue;
-      options.append(group);const link=document.createElement('a');link.href='#'+group.id;
-      link.textContent=key==='entity'?'Jump to name / work choices':'Jump to CE year choices';link.className='underlined';shortcuts.append(link);
-    }
-    form.querySelector('.filter-essentials').append(shortcuts);
+    group.append(choices);
+    const refresh=()=>rows.forEach((row,i)=>row.hidden=!expanded && rows.length>12 && i>=8 && !row.querySelector('input').checked);
+    if(rows.length>12){const more=document.createElement('button');more.type='button';more.className='underlined';more.textContent='Show all '+rows.length;more.setAttribute('aria-expanded','false');more.addEventListener('click',()=>{expanded=!expanded;more.textContent=expanded?'Show fewer':'Show all '+rows.length;more.setAttribute('aria-expanded',String(expanded));refresh();});group.append(more);}
+    select.addEventListener('change',refresh);group.refreshChoices=refresh;label.after(group);label.hidden=true;select.dataset.choiceAdapter='true';
   }
   syncChoices(form);
 }
 export function syncChoices(form) {
-  for(const {radio,select} of choiceBindings.get(form) || []) {
-    radio.checked=radio.value===select.value;radio.disabled=select.disabled;
-  }
+  for(const {checkbox,option,select} of choiceBindings.get(form) || []){checkbox.checked=option.selected;checkbox.disabled=select.disabled;}
+  for(const group of form?.querySelectorAll('.visible-choices') || [])group.refreshChoices?.();
 }
 export function focusChoice(form,key) {
-  const radios=[...form.querySelectorAll('[data-choice-for]')].filter(n=>n.dataset.choiceFor===key);
-  (radios.find(n=>n.checked) || radios[0] || form.elements.namedItem(key))?.focus({preventScroll:true});
+  const options=[...form.querySelectorAll('[data-choice-for]')].filter(n=>n.dataset.choiceFor===key);
+  (options.find(n=>n.checked) || options[0] || form.elements.namedItem(key))?.focus({preventScroll:true});
 }
 for(const form of document.querySelectorAll('#people-filters,#institution-filters'))exposeChoices(form);
 for(const form of document.querySelectorAll('#people-filters,#institution-filters')) {

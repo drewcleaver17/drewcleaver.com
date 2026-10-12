@@ -24,7 +24,13 @@ function load(query='') {
   w.localStorage.setItem('analytics-consent','granted');w.localStorage.setItem('analytics-choice','accepted');
   w.eval(script);fixture={dom,w,doc:w.document,data:JSON.parse(w.document.querySelector('#ufos-data').textContent)};return fixture;
 }
-function change(w,name,value){const el=w.document.querySelector(`[name="${name}"]`);el.value=value;el.dispatchEvent(new w.Event('change',{bubbles:true}));}
+function change(w,name,value){
+ const doc=w.document;
+ if(['entity','era'].includes(name)){const url=new URL(w.location.href);url.searchParams.set(name,value);w.history.replaceState(null,'',url);w.dispatchEvent(new w.PopStateEvent('popstate'));return;}
+ if(['region','topic','category','evidence','layer'].includes(name)){for(const checkbox of doc.querySelectorAll(`[name="${name}"]`)){const checked=checkbox.value===value;if(checkbox.checked!==checked){checkbox.checked=checked;checkbox.dispatchEvent(new w.Event('change',{bubbles:true}));}}return;}
+ const el=doc.querySelector(`[name="${name}"]`);el.value=value;el.dispatchEvent(new w.Event(name==='from'||name==='to'?'input':'change',{bubbles:true}));
+ if(name==='from'||name==='to')doc.getElementById('apply-date').click();
+}
 const visible=doc=>[...doc.querySelectorAll('.ufo-event')].filter(n=>!n.hidden && !n.closest('[hidden]')).map(n=>n.id);
 test('regional filter combines with search, restores URL state, exposes an empty result and clears with keyboard focus',()=>{
  const {w,doc,data}=load('?view=history&region=maya-world');
@@ -35,11 +41,11 @@ test('regional filter combines with search, restores URL state, exposes an empty
  const saved=w.location.search;
  change(w,'region','egypt');assert.equal(visible(doc).length,0);assert.equal(doc.querySelector('#empty-state').hidden,false);
  w.history.replaceState(null,'','/nhi/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));
- assert.equal(doc.querySelector('[name="region"]').value,'maya-world');
+ assert.equal(doc.querySelector('[name="region"]:checked').value,'maya-world');
  const chip=[...doc.querySelectorAll('.filter-chip')].find(b=>b.textContent.includes('Regional collection'));
- assert.match(chip.textContent,/Maya world/);chip.click();assert.equal(doc.activeElement,doc.querySelector('[data-choice-for="region"]:checked'));
- doc.querySelector('#timeline-filters button[type="reset"]').click();assert.deepEqual(visible(doc),filterEvents(data,initialState).map(e=>e.id));
- assert.equal(doc.querySelector('[name="region"]').value,'');
+ assert.match(chip.textContent,/Maya world/);chip.click();assert.equal(doc.activeElement,doc.querySelector('[data-choice-for="region"]'));
+ doc.querySelector('#timeline-filters button[type="reset"]').click();assert.deepEqual(visible(doc),filterEvents(data,{view:'history'}).map(e=>e.id));
+ assert.equal(doc.querySelector('[name="region"]:checked'),null);
  assert.ok(doc.querySelector('#regional-guide a[href*="region=brazil-amazon"]'));
  assert.match(doc.getElementById('casarabe-bolivia-lidar-2022').textContent,/Bolivia/);
 });
@@ -50,8 +56,8 @@ test('built interface combines filters, resets, reverses and restores URL state'
  assert.deepEqual(visible(doc),['nimitz-encounter']);
  const saved=w.location.search;assert.ok(saved.includes('entity=david-fravor'));
  change(w,'q','zz-no-such-event');assert.equal(visible(doc).length,0);assert.equal(doc.querySelector('#empty-state').hidden,false);
- doc.querySelector('#empty-reset').click();assert.deepEqual(visible(doc),filterEvents(data,initialState).map(e=>e.id));
- change(w,'sort','newest');assert.deepEqual(visible(doc),filterEvents(data,{sort:'newest'}).map(e=>e.id));
+ doc.querySelector('#empty-reset').click();assert.deepEqual(visible(doc),filterEvents(data,{view:'core'}).map(e=>e.id));
+ change(w,'sort','newest');assert.deepEqual(visible(doc),filterEvents(data,{view:'core',sort:'newest'}).map(e=>e.id));
  change(w,'view','recent');assert.equal(doc.querySelector('[name="sort"]').disabled,true);assert.deepEqual(visible(doc),filterEvents(data,{view:'recent'}).map(e=>e.id));
  w.history.replaceState(null,'','/nhi/'+saved);w.dispatchEvent(new w.PopStateEvent('popstate'));assert.deepEqual(visible(doc),['nimitz-encounter']);
  assert.equal(w.gtag,undefined);assert.equal(w.dataLayer,undefined);
@@ -68,8 +74,8 @@ test('deep-linked filtered entries can be revealed and source/correction links r
  assert.ok(!doc.querySelector('meta[name="robots"]')?.content.includes('noindex'));
 });
 test('range-aware year shortcut reaches post-cutoff records and exports complete model',()=>{
- const {dom,w,doc,data}=load('?view=history');const el=doc.querySelector('#year-shortcut');el.value='2026';el.dispatchEvent(new w.Event('change',{bubbles:true}));
- assert.ok(visible(doc).includes('aaro-workshop-records-published-2026'));assert.equal(doc.querySelector('[name="to"]').value,'2026-12-31');
+ const {dom,w,doc,data}=load('?view=history');change(w,'from','2026');change(w,'to','2026');
+ assert.ok(visible(doc).includes('aaro-workshop-records-published-2026'));assert.equal(doc.querySelector('[name="to"]').value,'2026');
  assert.equal(data.contentModelVersion,6);assert.ok(data.sourceReviews);assert.ok(data.meta.checkReceipts);assert.equal(doc.querySelector('#download-data').hidden,false);
  for(const control of doc.querySelectorAll('#timeline-filters input:not([hidden]),#timeline-filters select'))assert.ok(control.closest('label'));
 
@@ -108,9 +114,9 @@ test('people return navigation reveals the event without colliding with the date
  assert.ok(visible(doc).includes('nimitz-encounter'));assert.equal(doc.querySelector('[name="from"]').value,'');
  assert.equal(doc.querySelector('#nimitz-encounter .event-detail').open,true);
  assert.equal(doc.querySelector('#people-return').hidden,false);assert.ok(doc.querySelector('#people-return a').href.includes('q=Fravor'));
- change(w,'from','2004-01-01');assert.equal(new URLSearchParams(w.location.search).get('via'),'people');assert.equal(new URLSearchParams(w.location.search).get('from'),'2004-01-01');
+ change(w,'from','2004');assert.equal(new URLSearchParams(w.location.search).get('via'),'people');assert.equal(new URLSearchParams(w.location.search).get('from'),'2004');
  const entry=doc.querySelector('[data-people-entry]');entry.addEventListener('click',e=>e.preventDefault(),{once:true});entry.click();
- assert.ok(w.sessionStorage.getItem('ufos.timeline.return').includes('from=2004-01-01'));
+ assert.ok(w.sessionStorage.getItem('ufos.timeline.return').includes('from=2004'));
 });
 const visibleInstitutions=doc=>[...doc.querySelectorAll('[data-institution]')].filter(n=>!n.hidden).map(n=>n.dataset.institution);
 test('institutional chronology combines dates and search without losing directory URL state',()=>{

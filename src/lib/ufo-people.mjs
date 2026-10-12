@@ -1,3 +1,4 @@
+import { valuesOf, matchesAny } from './nhi-filtering.mjs';
 /**
  * The canonical people and shared works live in timeline.json.
  * These projections are build products, never a second editorial database.
@@ -36,19 +37,20 @@ export function directoryIndex(data) {
         ...(n.personProfile?.workRefs || []).map(r=>data.works?.[r.workId]?.title || ''),
         ...personInstitutions(n,data)].join(' '))}));
 }
-export const peopleInitialState = {q:'',role:'',featured:false,sort:'az',person:''};
+export const peopleInitialState = {q:'',role:[],featured:false,sort:'az',person:''};
 export function peopleStateFromParams(params) {
-  return {q:(params.get('q') || '').slice(0,500),role:personRoles[params.get('role')]?params.get('role'):'',
+  return {q:(params.get('q') || '').slice(0,500),role:valuesOf(params.getAll('role')).filter(role=>personRoles[role]),
     featured:params.get('featured')==='1',sort:params.get('sort')==='za'?'za':'az',person:params.get('person') || ''};
 }
 export function peopleParams(state) {
   const params = new URLSearchParams();
-  for(const key of ['q','role','person'])if(state[key])params.set(key,state[key]);
+  for(const key of ['q','person'])if(state[key])params.set(key,state[key]);
+  for(const role of valuesOf(state.role))params.append('role',role);
   if(state.featured)params.set('featured','1');if(state.sort==='za')params.set('sort','za');return params;
 }
 export function filterPeople(index,state={}) {
   const terms=normalisePersonSearch(state.q || '').trim().split(/\s+/).filter(Boolean);
-  const result=index.filter(n=>(!state.featured || n.featured) && (!state.role || n.roles.includes(state.role)) && terms.every(t=>n.search.includes(t)));
+  const result=index.filter(n=>(!state.featured || n.featured) && matchesAny(state.role,n.roles) && terms.every(t=>n.search.includes(t)));
   return state.sort==='za'?[...result].reverse():result;
 }
 export function timelineProjection(data) {

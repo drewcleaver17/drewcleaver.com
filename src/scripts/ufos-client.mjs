@@ -1,6 +1,8 @@
-import { exposeChoices, syncChoices, focusChoice } from './nhi-controls.mjs';
+import './nhi-controls.mjs';
+import { initTimelineFilterControls } from './nhi-filter-controls.mjs';
+import { facetKeys, valuesOf, subjectCatalog } from '../lib/nhi-filtering.mjs';
 import { canonicalNhiURL } from '../lib/nhi-routes.mjs';
-import { eras, regions, eraFor, readingPathOf, filterEvents, initialState, paramsFromState, stateFromParams } from '../lib/ufos.mjs';
+import { eras, eraFor, readingPathOf, filterEvents, initialState, paramsFromState, stateFromParams } from '../lib/ufos.mjs';
 import { institutionParamKeys } from '../lib/ufo-institutions.mjs';
 import { initInstitutionDirectory } from './ufo-institutions-client.mjs';
 
@@ -9,8 +11,7 @@ function init() {
   const form = document.getElementById('timeline-filters');
   if (!dataNode || !form) return;
   const data = JSON.parse(dataNode.textContent);
-  exposeChoices(form);
-  const persistentSearch=document.getElementById('persistent-search');
+
   const readerTools=document.getElementById('reading-tools');
   const returnReading=document.getElementById('return-reading');
   let readingReference=null;
@@ -31,14 +32,12 @@ function init() {
   };
   const institutionDirectory=initInstitutionDirectory(data);
   const resultCount = document.getElementById('result-count');
-  const chips = document.getElementById('active-filters');
   const story = document.getElementById('timeline-results');
   const flat = document.getElementById('filtered-results');
   const context = document.getElementById('context-records');
   const contextList = document.getElementById('context-list');
   const empty = document.getElementById('empty-state');
   const recentNote = document.getElementById('recent-note');
-  const warning = document.getElementById('filter-warning');
   const status = document.getElementById('link-status');
   const all = filterEvents(data, { view: 'history' });
   const cards = new Map(all.map(e => [e.id, document.getElementById(e.id)]));
@@ -47,28 +46,27 @@ function init() {
   const reveal=document.getElementById('reveal-linked');
   const controls=new Map(Object.keys(initialState).map(key=>[key,form.querySelector(`[name="${key}"]`)]));
   const control = key => controls.get(key);
-  let state = stateFromParams(new URLSearchParams(location.search));
-  let timer;
+  const catalog=subjectCatalog(data);
+  function restoredState() {
+    const params=new URLSearchParams(location.search),next=stateFromParams(params),ignored=[];
+    next.entity=valuesOf(next.entity.map(value=>catalog.find(n=>n.id===value)?.id || catalog.find(n=>n.name===value || n.aliases.includes(value))?.id || ''));
+    for(const key of facetKeys)if(params.getAll(key).some(value=>key==='entity'?!catalog.some(n=>n.id===value || n.name===value || n.aliases.includes(value)):!next[key].includes(value)))ignored.push(key);
+    if((params.has('from') && !next.from) || (params.has('to') && !next.to))ignored.push('invalid date range');
+    const notice=document.getElementById('url-notice');notice.hidden=!ignored.length;notice.textContent=ignored.length?'This link contained unavailable or invalid filters ('+ignored.join(', ')+'). Those restrictions were ignored.':'';
+    return next;
+  }
+  let state = restoredState();
+  let timer,announceTimer;
+  const filterControls=initTimelineFilterControls(data,()=>state,patch=>{clearTimeout(timer);state={...state,...patch};render('push');});
   const syncControls = () => {
-    if(state.entity) {
-      const canonical=data.entities.find(n=>n.id===state.entity || n.name===state.entity || n.aliases.includes(state.entity) || n.legacySearchLabels?.includes(state.entity));
-      if(canonical)state.entity=canonical.id;
-    }
-    for (const key of Object.keys(initialState)) {
-      const el = control(key);
-      if (key === 'context') el.checked = state.context;
-      else { el.value = state[key]; if (el.tagName === 'SELECT' && !el.value) { state[key] = initialState[key]; el.value = state[key]; } }
-    }
-    const year = state.from.slice(0, 4);
-    document.getElementById('year-shortcut').value = state.from === year + '-01-01' && (state.to === year + '-12-31') ? year : '';
-    control('sort').disabled = state.view === 'recent';
-    persistentSearch.value=state.q;
-    syncChoices(form);
+    for(const key of ['q','view','sort'])control(key).value=state[key];
+    control('context').checked=state.context;
+    control('sort').disabled=state.view==='recent';
   };
   const writeURL = mode => {
     if (!mode) return;
     const url = new URL(location.href), params=paramsFromState(state);
-    for(const key of institutionParamKeys)if(url.searchParams.has(key))params.set(key,url.searchParams.get(key));
+    for(const key of institutionParamKeys)for(const value of url.searchParams.getAll(key))params.append(key,value);
     if(url.searchParams.get('via')==='people')params.set('via','people');
     url.search = params.toString();
     history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
@@ -81,11 +79,11 @@ function init() {
   };
   function render(mode) {
     status.textContent='';
-    const reference=mode ? currentReference() : null;
+    const reference=mode && !form.contains(document.activeElement) ? currentReference() : null;
     const focused=document.activeElement;
     updatePeopleReturn();
     syncControls();
-    const filtered = ['q','from','to','category','topic','entity','evidence','region','layer','era'].some(k => state[k]);
+    const filtered = ['q','from','to'].some(k=>state[k]) || facetKeys.some(k=>state[k].length);
     const structured = !filtered && state.sort === 'oldest' && state.view !== 'recent';
     const results = filterEvents(data, state);
     // Reuse the server-rendered cards and move each node only to its final home.
@@ -126,20 +124,9 @@ function init() {
     empty.hidden = results.length !== 0;
     recentNote.hidden = state.view !== 'recent';
     for (const el of document.querySelectorAll('.recent-label')) el.hidden = state.view !== 'recent';
-    warning.hidden = !(state.from && state.to && state.from > state.to);
-    warning.textContent = warning.hidden ? '' : 'The start date is after the end date. Adjust the range to see results.';
-    chips.replaceChildren();
-    const labels = { q:'Search', from:'From', to:'Through', category:'Category', topic:'Strand', entity:'Name / program', evidence:'Evidence', region:'Regional collection', layer:'Layer', era:'Era', context:'Supporting / earlier context' };
-    for (const [key,label] of Object.entries(labels)) if (state[key]) {
-      const button = document.createElement('button'); button.type = 'button'; button.className = 'filter-chip';
-      const value = key === 'entity' ? data.entities.find(n=>n.id===state[key])?.name || state[key] : key === 'region' ? regions[state[key]] : state[key];
-      const text = label + (key === 'context' ? '' : ': ' + value);
-      button.textContent = text + ' ×'; button.setAttribute('aria-label','Remove ' + text);
-      button.addEventListener('click',()=>{state[key]=initialState[key];render('push');focusChoice(form,key==='context'?'view':key);}); chips.append(button);
-    }
+    filterControls.sync();
     document.getElementById('persistent-count').textContent=results.length+' entries';
-    const active=[...chips.children].map(n=>n.textContent.replace(/ ×$/,''));
-    document.getElementById('persistent-state').textContent=(control('view').selectedOptions[0]?.textContent || state.view)+' · '+(active.join(' · ') || 'no refinements')+' · '+(state.sort==='newest'?'newest first':'oldest first');
+    clearTimeout(announceTimer);announceTimer=setTimeout(()=>{document.getElementById('result-announcement').textContent=resultCount.textContent;},250);
     readerTools.hidden=false;
     reveal.hidden=true;
     writeURL(mode);
@@ -155,7 +142,7 @@ function init() {
     if(!results.length)status.textContent='No entries match. The active constraints are listed in the filter workspace; clear search or remove a filter to broaden the view.';
 
   }
-  function reset(mode='push') { clearTimeout(timer); state={...initialState}; render(mode); }
+  function reset(mode='push') { clearTimeout(timer); state={...initialState,view:state.view,sort:state.sort};filterControls.clearLocalSearch();filterControls.resetDraft();render(mode); }
   function showHash(focus=false) {
     let id; try { id=decodeURIComponent(location.hash.slice(1)); } catch { return; }
     if (cards.has(id)) {
@@ -178,23 +165,23 @@ function init() {
   reveal.addEventListener('click',()=>{state={...initialState,view:'history'};render('push');showHash(true);status.textContent='Full history opened for the linked entry.';});
   form.addEventListener('submit',e=>{e.preventDefault();clearTimeout(timer);render('push');});
   form.addEventListener('reset',e=>{e.preventDefault();reset();});
-  persistentSearch.addEventListener('input',()=>{control('q').value=persistentSearch.value;control('q').dispatchEvent(new Event('input',{bubbles:true}));});
   document.getElementById('clear-search').addEventListener('click',()=>{state.q='';render('push');control('q').focus({preventScroll:true});});
   document.getElementById('persistent-reset').addEventListener('click',()=>reset());
-  document.getElementById('adjust-filters').addEventListener('click',()=>{readingReference=currentReference() || readingReference;returnReading.hidden=!readingReference;});
+  document.getElementById('adjust-filters').addEventListener('click',event=>{event.preventDefault();readingReference=currentReference() || readingReference;returnReading.hidden=!readingReference;form.scrollIntoView({block:'start'});control('q').focus({preventScroll:true});});
+  for(const link of document.querySelectorAll('[data-results-jump]'))link.addEventListener('click',event=>{event.preventDefault();const target=document.getElementById('results-summary');target.scrollIntoView({block:'start'});target.focus({preventScroll:true});});
   returnReading.addEventListener('click',e=>{e.preventDefault();let node=cards.get(readingReference?.id);if(node?.hidden){const index=all.findIndex(n=>n.id===readingReference.id);const remaining=filterEvents(data,state);const nearest=[...remaining].sort((a,b)=>Math.abs(all.findIndex(n=>n.id===a.id)-index)-Math.abs(all.findIndex(n=>n.id===b.id)-index))[0];node=cards.get(nearest?.id);}if(node && !node.hidden){node.scrollIntoView({block:'start'});node.focus({preventScroll:true});}else empty.scrollIntoView({block:'start'});});
   for(const button of document.querySelectorAll('[data-copy-view]'))button.addEventListener('click',async()=>{const url=new URL(location.href);url.hash='timeline';try{await navigator.clipboard.writeText(url.href);status.textContent='Filtered view link copied.';button.textContent='View copied';}catch{status.textContent='Clipboard unavailable. Copy the browser address to share these filters.';}});
   form.addEventListener('input',e=>{if(e.target.name!=='q')return;clearTimeout(timer);state.q=e.target.value;timer=setTimeout(()=>render('replace'),150);});
   form.addEventListener('change',e=>{
-    if(e.target.dataset.choiceFor)return;
+    if(!['q','view','sort','context'].includes(e.target.name))return;
     clearTimeout(timer);
-    if(e.target.id==='year-shortcut') {const year=e.target.value;state.from=year?year+'-01-01':'';state.to=year?year+'-12-31':'';}
-    else if(e.target.name in initialState) {state[e.target.name]=e.target.type==='checkbox'?e.target.checked:e.target.value;if(e.target.name==='view')state.context=false;}
+    state[e.target.name]=e.target.type==='checkbox'?e.target.checked:e.target.value;
+    if(e.target.name==='view')state.context=false;
     render('push');
   });
-  for(const link of document.querySelectorAll('[data-view]'))link.addEventListener('click',e=>{e.preventDefault();clearTimeout(timer);state={...initialState,view:link.dataset.view};render('push');const url=new URL(location.href);url.hash='timeline';history.replaceState(null,'',url);control('q').focus({preventScroll:true});document.getElementById('timeline').scrollIntoView({block:'start'});});
+  for(const link of document.querySelectorAll('[data-view]'))link.addEventListener('click',e=>{e.preventDefault();clearTimeout(timer);state={...initialState,view:link.dataset.view};filterControls.resetDraft();render('push');const url=new URL(location.href);url.hash='timeline';history.replaceState(null,'',url);control('q').focus({preventScroll:true});document.getElementById('timeline').scrollIntoView({block:'start'});});
   document.getElementById('empty-reset').addEventListener('click',()=>{reset();control('q').focus();});
-  window.addEventListener('popstate',()=>{state=stateFromParams(new URLSearchParams(location.search));render();showHash();});
+  window.addEventListener('popstate',()=>{clearTimeout(timer);state=restoredState();filterControls.resetDraft();render();showHash();});
   window.addEventListener('hashchange',()=>showHash(true));
   document.addEventListener('click',event=>{const link=event.target.closest?.('a[href^="#"]');if(!event.defaultPrevented && link?.getAttribute('href')===location.hash)showHash(true);});
   document.getElementById('jump-latest').addEventListener('click',()=>reset('replace'));

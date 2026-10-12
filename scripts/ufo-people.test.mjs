@@ -24,7 +24,7 @@ test('search reaches names, aliases, works and associated institutions and combi
  assert.equal(filterPeople(index,{q:'xyzz-nothing-found'}).length,0);
  for(const n of filterPeople(index,{featured:true,role:'science'}))assert.ok(n.featured&&n.roles.includes('science'));
  assert.deepEqual(filterPeople(index,{sort:'za'}),[...index].reverse());
- const state={q:'Vallée',role:'research',featured:true,sort:'za',person:'vallee'};assert.deepEqual(peopleStateFromParams(peopleParams(state)),state);
+ const state={q:'Vallée',role:['research'],featured:true,sort:'za',person:'vallee'};assert.deepEqual(peopleStateFromParams(peopleParams(state)),state);
 });
 test('profile/work content is excluded from the initial timeline projection but included in its edition digest',()=>{
  const projected=timelineProjection(data);assert.equal(projected.works,undefined);
