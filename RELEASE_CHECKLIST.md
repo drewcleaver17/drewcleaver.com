@@ -1,3 +1,18 @@
+# About and résumé refresh — October 15, 2026
+
+- [x] Owner authorized implementation, PR/merge, and live release using the exact attached October 2026 PDF. This supersedes the older phone-redaction instruction for this file.
+- [x] About narrative, selected professional experience, education, and brief homepage and /hello summaries align with the supplied résumé. Motorsport stories and design remain intact.
+- [x] About and /hello download buttons, the shared footer, and Higher Hangers portfolio evidence use one shared, SHA-256-versioned résumé URL. The stable unversioned PDF path is retained.
+- [x] Production output contains the exact attached PDF (SHA-256 `ace60b033894ac90d081a7ac969c361a0a0a37e1582b2570dec139623ed9669f`). An output-wide audit found 286 résumé anchors across 283 non-archive HTML routes, all pointing to the versioned URL.
+- [x] `npm test` passes (61 tests); seven existing public contact/download/vCard checks pass. Main page headings, unique IDs, and local link destinations pass structural inspection.
+- [x] Complete production build and its required interaction suites pass.
+- [ ] PR checks, Pages deployment, and live page/PDF verification; record evidence in the release PR.
+- [ ] Actual browser rendering at 320, 390, 768, and 1440 px. No supported browser-control skill is available in this session; source and DOM checks do not establish browser geometry or physical-device behavior.
+
+Historical checklists follow.
+
+---
+
 # Current NHI migration release contract — October 12, 2026
 
 For this release, `/nhi/` and its legitimate child pages are **searchable, off-menu**. This supersedes historical noindex rules below only for the migrated resource. Old `/ufos/` pages are noindex compatibility pages, outside the sitemap. All other visibility protections remain enforced.

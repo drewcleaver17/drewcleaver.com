@@ -180,3 +180,9 @@ See `docs/RACING_RESUME.md` for the source ledger and verification.
 ## NHI — New History Initiative migration — October 12, 2026
 
 Drew authorizes the focused migration of the completed UFO/People resource to `/nhi/`, with public indexing eligibility and sitemap inclusion while remaining outside all main-site navigation and discovery. Preserve the historical collection, classifications, source and image provenance, institutional dossiers, stable IDs and browser preferences. The project is an independent evolving index, not a formal institute or a claim of proven non-human explanations. Old `/ufos/` routes remain query/fragment-preserving static compatibility pages. This supersedes earlier visibility instructions for this resource only; unrelated route visibility, licensing, hosting and automations are unchanged. The request explicitly authorizes branch, PR, merge and deployment after normal checks. See `docs/nhi-migration-2026-10-12.md`.
+
+## About and résumé refresh — October 15, 2026
+
+Drew explicitly authorized implementation and public release using his attached October 2026 résumé. Publish the exact supplied PDF without alteration, superseding the earlier phone-redaction instruction for this asset. Keep the saved contact and unrelated contact settings unchanged.
+
+Align the About introduction, selected experience and education with that source, keeping the personal tone and motorsport chapters. Refresh brief homepage and /hello summaries without making the site application-specific. Centralize all active résumé destinations in the shared profile with a content-derived cache version, retain the stable legacy PDF path, and verify the deployed PDF byte-for-byte. Use the existing feature-branch, PR, checks and GitHub Pages workflow; this request provides publication approval.

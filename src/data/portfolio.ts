@@ -1,3 +1,5 @@
+import { profile } from './profile';
+
 export interface PortfolioProject {
   slug: string;
   number: string;
@@ -41,7 +43,7 @@ export const portfolio: PortfolioProject[] = [
     record: 'My published résumé records 30,000+ customers across 40+ countries. Those are career figures from my own record; the website archive will provide a separate view of the product presentation and storefront.',
     evidence: [
       { title: 'Published career history', href: '/about/', note: 'Role, dates, scope and reported business results.' },
-      { title: 'Résumé · PDF', href: '/Drew-Cleaver-Resume.pdf', note: 'The current public record supporting this case study.' },
+      { title: 'Résumé · PDF', href: profile.resumeFile, note: 'The current public record supporting this case study.' },
     ],
     reviewNote: 'A preserved Higher Hangers storefront is not included in this preview yet. An original export or recoverable historical capture can be added here without recreating the past from memory.',
     takeaway: 'A product portfolio is stronger when it shows the business behind the object: distribution, customer experience and operating responsibility.',

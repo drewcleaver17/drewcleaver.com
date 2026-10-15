@@ -18,8 +18,9 @@ export const profile = {
   githubUrl: 'https://github.com/drewcleaver17',
   inquiryEndpoint: 'https://formspree.io/f/xqabokqn',
   contactFile: '/drew-cleaver.vcf',
-  resumeFile: '/Drew-Cleaver-Resume.pdf',
-  description: 'Drew Cleaver is a founder, inventor, and racing driver. Explore his background, ask about founder advisory, send an inquiry, or schedule a conversation.',
+  // First 12 characters of the PDF's SHA-256; refresh whenever the file changes.
+  resumeFile: '/Drew-Cleaver-Resume.pdf?v=ace60b033894',
+  description: 'Drew Cleaver is a founder and operator with experience in omnichannel commerce, enterprise technical account management, and motorsport. Explore his work or start a conversation.',
 } as const;
 
 // Saved contact links. The résumé remains on the website, outside this card.
