@@ -34,7 +34,7 @@ The build generates static files in `dist/`. Work on a feature branch and review
 
 - `src/data/profile.ts`: public identity, contact email, booking URL, and inquiry endpoint.
 - `src/data/experience.ts`: career highlights and dates, aligned with Drew's latest supplied résumé.
-- `public/Drew-Cleaver-Resume.pdf`: public résumé download. The original supplied file contains a private phone number; only the public copy belongs in this repository.
+- `public/Drew-Cleaver-Resume.pdf`: current public résumé download, published byte-for-byte from the October 2026 PDF at Drew’s explicit direction.
 - `src/pages/index.astro`: personal introduction, background, founder advisory, contact, scheduling, and open inquiry.
 - `src/pages/hello.astro`: mobile calling card for the permanent QR destination.
 - `src/pages/drew-cleaver.vcf.ts`: generated contact download from the shared profile.
@@ -73,7 +73,7 @@ When Drew explicitly approves publishing his own writing: copy only approved fin
 
 ## Updating the résumé
 
-Use the latest file supplied by Drew as the source for role titles, dates, employers, and figures. Keep the original in private storage. Prepare and inspect a public PDF copy that removes the phone number from visible text, embedded text, and contact links while retaining the résumé's career content. Replace the stable public PDF, update the shared experience data, build, and check every download link. The current public résumé reflects the September 2026 source; its contact header uses `drew@drewcleaver.com`.
+Use the latest file supplied by Drew as the source for role titles, dates, employers, and figures. The October 15, 2026 instruction explicitly authorizes publishing that exact PDF, including its existing contact header, and supersedes the earlier phone-redaction requirement for this file. Do not regenerate or modify the supplied PDF. Replace `public/Drew-Cleaver-Resume.pdf`, update the SHA-256 prefix in `profile.resumeFile` to refresh cached downloads, and update the shared experience data. All active résumé links must use `profile.resumeFile`, including portfolio evidence. Build and check all links, then compare the live PDF’s full SHA-256 with the attachment. The unversioned URL remains a working legacy address; GitHub Pages currently serves assets with a ten-minute cache lifetime.
 
 SMS contact exchange is deferred: Drew requested free-only implementation, and the checked SMS verification services require paid usage or a billing-enabled plan. Do not add a paid service without authorization.
 
