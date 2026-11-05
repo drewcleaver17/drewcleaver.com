@@ -1,0 +1,20 @@
+.match-help :is(.ticket, .buildcard, .service-grid > aside) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.match-help .ticket .specs dt {
+  max-width: 42%;
+}
+.match-help .success .buttons {
+  margin-top: 12px;
+}
+@media (max-width: 680px) {
+  .match-help .ticket .specs > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+    gap: 10px;
+  }
+  .match-help .ticket .specs dt {
+    max-width: none;
+  }
+}
