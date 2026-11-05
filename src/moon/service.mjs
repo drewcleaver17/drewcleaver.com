@@ -1,3 +1,4 @@
+import { esc } from './matcher/view.mjs'
 import {
   root,
   paths,
@@ -99,7 +100,12 @@ export function quoteView(b) {
 export function presenter(open, request) {
   return `<div class="wrap single">${cap('Presenter controls / Local demo')}<h1>Workshop <em>controls.</em></h1><section class="buildcard"><h2>Sample staffing</h2><p>Mon–Fri, 10 am–6 pm Eastern Time. This switch changes the sample desk in this browser.</p><div class="switch"><button data-roster="open" aria-pressed="${open}">Desk open</button><button data-roster="closed" aria-pressed="${!open}">After hours</button></div><div class="channel"><h3>Latest fit request</h3>${request ? `<p>Build ${buildCode(request)} · ${families[request.family].name}</p>${btn(paths.advisor + pack(request, 'request'), 'Open local advisor view →')}` : '<p>Try a sample call, photo review or callback to create a request.</p>'}</div><div class="buttons">${btn(root, 'Enter shopper experience ' + arrow, 'outline')}${btn(paths.fit, 'Open Audio Concierge ' + arrow, 'textlink')}</div></section></div>`
 }
-export function cartView(lines, review = false, broken = false) {
+export function cartView(
+  lines,
+  review = false,
+  broken = false,
+  matches = new Map(),
+) {
   const heading = review
     ? 'Guest order <em>review.</em>'
     : 'Your workshop <em>bag.</em>'
@@ -114,11 +120,25 @@ export function cartView(lines, review = false, broken = false) {
       title +
       `<div class="buildcard"><h2>Your bag is empty.</h2><p>Start with the names on your gear. Your finished build will appear here.</p>${btn(root, 'Find my cable →')}</div></div>`
     )
-  const total = lines.reduce((v, l) => v + linePrice(l), 0)
+  const total = lines.reduce(
+    (v, l) => v + (l.kind === 'match' ? matches.get(l.id).price : linePrice(l)),
+    0,
+  )
   return (
     title +
     `<div class="bag-grid"><div>${lines
       .map((l) => {
+        if (l.kind === 'match') {
+          const m = matches.get(l.id)
+          return `<article class="bag-item"><div class="bag-item-head"><span class="mono">Matched Dragon cable</span><span class="code">MF-${l.id}</span></div><div class="bag-name"><h2>${esc(m.title)}</h2><strong>${money(m.price)}</strong></div>
+<dl class="specs">${m.lines
+            .filter(([name]) => !['Merchandise', 'Dragon cable'].includes(name))
+            .map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`)
+            .join('')}</dl>
+${m.parts?.length > 1 ? m.parts.map((p) => `<div class="row"><span>${esc(p.label)}</span><strong>${money(p.usd)}</strong></div>`).join('') : ''}
+<p class="fine">U.S. catalog price checked November 5, 2026 · Retail variant ${esc(m.variant)}</p>
+<div class="buttons">${btn(esc(m.edit), 'Edit matched cable', 'textlink')}${review ? '' : `<button class="linkbutton" data-remove="${l.id}">Remove</button>`}</div></article>`
+        }
         const b = l.kind === 'cable' ? l.build : null,
           h = b ? null : hardware[l.sku]
         const url = b
@@ -128,7 +148,7 @@ export function cartView(lines, review = false, broken = false) {
  <div class="buttons">${btn(url, b ? 'Edit cable build' : 'Edit headphone setup', 'textlink')}${!review ? `<button class="linkbutton" data-remove="${l.id}">Remove</button>` : ''}</div></article>`
       })
       .join('')}</div>
- <aside class="buildcard bag-total">${cap(review ? 'Guest review' : 'Merchandise summary')}<div class="sumline"><h3>Subtotal</h3><strong>${money(total)}</strong></div><p class="small">USD merchandise before tax and shipping. Prices dated ${catalogDate}.</p>
+ <aside class="buildcard bag-total">${cap(review ? 'Guest review' : 'Merchandise summary')}<div class="sumline"><h3>Subtotal</h3><strong>${money(total)}</strong></div><p class="small">USD merchandise before tax and shipping. ${matches.size ? 'Catalog matches show their price date on each line. Workshop fixtures use ' + catalogDate + '.' : 'Prices dated ' + catalogDate + '.'}</p>
  ${review ? `<p class="fit-note">✓ Local guest review reached. No payment or shipping information is collected and no order is placed.</p>${btn(paths.cart, 'Back to bag', 'outline')}` : btn(paths.review, 'Continue to guest review →')}
  </aside></div></div>`
   )

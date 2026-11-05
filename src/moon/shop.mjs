@@ -45,12 +45,12 @@ export function landing() {
   return `
 <div class="home-top wrap"><div class="sectionline"><span>FIELD GUIDE &nbsp; / &nbsp; 01</span><span>CARY, NORTH CAROLINA</span></div>
 <div class="home-hero"><div class="home-copy">${cap('The cable workshop')}<h1>A Dragon Cable<br>for the gear<br><em>you own.</em></h1>
-<p class="intro">Start with the names on your headphones and amp. We’ll match the plugs at both ends.</p>
-<form id="search-form" class="finder" role="search"><label for="model">What headphones are you connecting?</label><div class="searchbar">${searchIcon}<input id="model" type="search" placeholder="Try Focal Utopia 2022" autocomplete="off" aria-controls="matches"><button aria-label="Search models" type="submit">→</button></div><div id="matches" aria-label="Model matches" hidden></div><span class="sr" id="search-status" role="status"></span></form>
-<div class="hero-actions">${btn(cableUrl('blue') + '?mode=expert', 'I know my connectors ' + arrow, 'textlink')} ${btn(cableUrl('blue'), 'Explore Blue Dragon →', 'textlink mutedlink')}</div></div>
+<p class="intro">Look up your headphones, amp or player. Find Dragon cables with documented connections at both ends.</p>
+<form id="search-form" class="finder" role="search"><label for="model">What headphones or gear are you connecting?</label><div class="searchbar">${searchIcon}<input id="model" type="search" placeholder="Try Focal Utopia 2022" autocomplete="off" aria-controls="matches"><button aria-label="Search models" type="submit">→</button></div><div id="matches" aria-label="Model matches" hidden></div><span class="sr" id="search-status" role="status"></span></form>
+<div class="hero-actions">${btn(cableUrl('blue') + '?mode=expert', 'I know my connectors ' + arrow, 'textlink')} ${btn(paths.match, 'Browse the cable finder →', 'textlink')}</div></div>
 <div class="hero-art">${plate('hero-cable.svg', 'Illustration of a blue headphone cable, two keyed earcup plugs and a straight 4.4 mm balanced plug.', 'BLUE DRAGON &nbsp; / &nbsp; 4.4 MM', '01', 880, 500, true)}
 <div class="art-legend"><span><i class="dot blue"></i> Two earcup plugs</span><span><i class="dot brass"></i> One amplifier plug</span></div></div></div></div>
-<section class="shelf"><div class="wrap"><div class="sectionline"><span>LISTENING NOTES</span><span>02 GUIDES &nbsp; / &nbsp; 01 HEADPHONE</span></div><h2>Where do you listen?</h2><div class="tiles">
+<section class="shelf"><div class="wrap"><div class="sectionline"><span>LISTENING NOTES</span><span>ROOMS &amp; SETUPS</span></div><h2>Where do you listen?</h2><div class="tiles">
 ${tile('01', 'At your desk', 'Build a MacBook desk setup', 'Headphones, cable and USB-C audio in one box.', paths.desk, 'meze-99.svg')}
 ${tile('02', 'Around the house', 'Find headphones for listening at home', 'Choose how much of the room you want to hear.', paths.home, 'meze-109.svg')}
 ${tile('03', 'On the sales floor', 'Meet Focal Utopia 2022', 'See the included cables and a fitted Dragon option.', productUrl(utopia), 'utopia.svg')}
@@ -170,15 +170,21 @@ export function builderPanel(b) {
           b.jack,
         )
       : ''
+  const q = new URLSearchParams()
+  if (b.hp === 'utopia') q.set('h', 'focal-utopia-2022')
+  if (b.amp === 'zen') q.set('a', 'ifi-zen-dac-3')
+  if (b.jack === 'front44' || b.jack === 'front63')
+    q.set('port', b.jack === 'front44' ? '4.4' : '6.35')
+  const finder = paths.match + (q.size ? '#m1?' + q : '')
   const warn =
     b.jack === 'rear44'
       ? 'This is a line output for another amplifier or active speakers. For headphones, use a front headphone jack.'
       : b.jack === 'front63'
-        ? 'This headphone output is valid. Its plug price needs an advisor check.'
+        ? 'This headphone output is valid. Its plug price needs an advisor check in this workshop build. The full finder lists catalog options for this jack.'
         : ''
   return `<div class="panel-head">${cap('01 / Fit the ends')}<h2 id="configuration" tabindex="-1">Configure your cable.</h2></div>
 <div class="switch" aria-label="Configuration method"><button id="model-mode" data-mode="model" aria-pressed="${!b.expert}">By gear model</button><button id="expert-mode" data-mode="expert" aria-pressed="${b.expert}">I know my connectors</button></div>
-${hpField}${b.hp === 'utopia' ? '<p class="fit-note"><span aria-hidden="true">✓</span> Matched to Utopia · two keyed 2-pin LEMO plugs, one for each earcup.</p>' : ''}
+${hpField}<a class="textlink" href="${finder}">Search the full equipment catalog →</a>${b.hp === 'utopia' ? '<p class="fit-note"><span aria-hidden="true">✓</span> Matched to Utopia · two keyed 2-pin LEMO plugs, one for each earcup.</p>' : ''}
 ${ampField}<a class="inline-help" data-help href="${paths.fit}">Not sure which jack? Ask a cable advisor ${arrow}</a>${jackField}
 ${b.amp === 'zen' ? `<figure class="diagram">${art('zen-front.svg', 'Front panel of the iFi ZEN DAC 3. The far-right jack is the 4.4 mm balanced headphone output. The larger 6.35 mm jack sits immediately to its left.', 660, 235)}<figcaption>Front panel · Plug into the far-right 4.4 mm headphone jack. The rear 4.4 mm socket is a line output for other audio equipment.</figcaption></figure>` : ''}
 ${warn ? `<p class="notice">${warn}</p>` : ''}
@@ -234,7 +240,7 @@ export function productPage(sku) {
       ? '<li>Detachable 3.5 mm cable</li><li>USB-C DAC/amp for a compatible MacBook or phone</li>'
       : '<li>Two supplied cables, each ending in a 3.5 mm plug</li><li>Plug straight into a compatible 3.5 mm headphone jack</li>'
   return `<div class="wrap">${crumb('Headphones')}<div class="product-intro hardware"><div>${cap(isUt ? 'Focal / New headphones' : 'Meze Audio / New headphones')}<h1>${h.name}<em>.</em></h1><p class="intro">${copy}</p><div class="hero-price"><strong>${money(h.price)}</strong><span>New · ${h.profile}</span></div><a class="textlink" data-jump="purchase" href="#purchase">Choose your setup ↓</a></div>${plate(h.image, h.name + ' original product illustration.', h.profile, '03', 640, 440, true)}</div>
-<div class="builder-grid"><section class="buildcard" id="purchase" tabindex="-1">${cap('On the sales floor')}<h2>Your ${isUt ? 'Utopia' : 'listening setup'}.</h2><h3>In the box</h3><ul class="box-list">${box}</ul>${hardwareChoices(sku)}<div id="attachment-confirm"></div>
+<div class="builder-grid"><section class="buildcard" id="purchase" tabindex="-1">${cap('On the sales floor')}<h2>Your ${isUt ? 'Utopia' : 'listening setup'}.</h2><h3>In the box</h3><ul class="box-list">${box}</ul>${hardwareChoices(sku)}<a class="inline-help" href="${paths.match}#m1?h=${classic ? 'meze-99-classics-2nd-gen' : sku}">Find Dragon cables for these headphones →</a><div id="attachment-confirm"></div>
 <div class="sumline"><h3>Moon Audio merchandise</h3><strong id="hardware-total">${money(h.price)}</strong></div><p id="product-error" role="alert" class="error" hidden></p><div class="buttons"><button class="button" id="buy-hardware">Guest order review →</button><button class="outline" id="add-hardware">Add to bag</button></div><p class="fine">Demo checkout · before tax and shipping.</p></section>
 <aside class="bench">${cap('Listening notes')}<h2>${isUt ? 'A cable for<br><em>your chair.</em>' : classic ? 'No separate<br><em>amp needed.</em>' : 'What’s your<br><em>phone port?</em>'}</h2><p>${isUt ? 'If you want a 4.4 mm plug and more room to move, explore Blue Premium with the correct Utopia earcup fitting already selected.' : classic ? 'The included USB-C DAC/amp converts your MacBook’s digital audio and supplies power to these 16-ohm headphones. The supplied cable finishes the connection.' : 'A compatible headphone jack accepts the supplied cable. A USB-C iPhone needs an adapter unless you already own one.'}</p>
 ${isUt ? btn(cableUrl('blue-premium') + '?fit=utopia', 'Explore Blue Premium for Utopia ' + arrow, 'textlink') : btn(classic ? paths.desk : paths.home, classic ? 'Read the desk guide ' + arrow : 'Compare complete setup prices ' + arrow, 'textlink')}</aside></div></div>`

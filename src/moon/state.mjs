@@ -53,3 +53,16 @@ export function header(build) {
     })
   }
 }
+
+export async function updateBag(fn) {
+  const update = () => {
+    const old = readBag()
+    if (!old) throw Error('Invalid bag')
+    const next = fn(old)
+    if (!next.every(validLine)) throw Error('Invalid item')
+    localStorage.setItem(keys.bag, JSON.stringify(next))
+  }
+  if (navigator.locks?.request)
+    await navigator.locks.request('moon.bag.1', update)
+  else update()
+}

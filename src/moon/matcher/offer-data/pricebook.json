@@ -1,0 +1,1712 @@
+{
+  "checked": "2026-11-05",
+  "products": {
+    "black-dragon-cable-abyss-headphones": {
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51605749727546", "length": "5 ft", "usd": 460},
+        {"id": "51605749760314", "length": "10 ft", "usd": 510},
+        {"id": "53951230705978", "length": "15 ft", "usd": 560},
+        {"id": "53951230738746", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "black-dragon-cable-audeze-headphones-v2": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478526558522", "length": "5 ft", "usd": 560},
+        {"id": "51478526591290", "length": "10 ft", "usd": 610},
+        {"id": "51478526624058", "length": "15 ft", "usd": 660},
+        {"id": "51478526656826", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-cable-for-ultimate-ears-triple-fi-universal-iems-v1": {
+      "policy": "Sale cable · final sale",
+      "variants": [
+        {"id": "51605448982842", "length": "48 in", "usd": 150, "amp": "3.5mm TRS Form Fit Right Angle Male (Gold)", "plug": "3.5"},
+        {"id": "51605449015610", "length": "48 in", "usd": 175, "amp": "2.5mm TRRS Moon Audio Male (Gold)", "plug": "2.5"},
+        {"id": "51605449048378", "length": "48 in", "usd": 180, "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605449081146", "length": "48 in", "usd": 160, "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"}
+      ]
+    },
+    "black-dragon-cable-meze-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482501382458", "length": "5 ft", "usd": 560},
+        {"id": "51482501415226", "length": "10 ft", "usd": 610},
+        {"id": "51482501447994", "length": "15 ft", "usd": 660},
+        {"id": "51482501480762", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-cable-sennheiser-hd700-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478469214522", "length": "5 ft", "usd": 460},
+        {"id": "51478469247290", "length": "10 ft", "usd": 510},
+        {"id": "53951173984570", "length": "15 ft", "usd": 560},
+        {"id": "53951174017338", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "black-dragon-cable-sennheiser-hd800-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51601390698810", "length": "5 ft", "usd": 650, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51601390731578", "length": "5 ft", "usd": 650, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51605547450682", "length": "10 ft", "usd": 700, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51605547581754", "length": "10 ft", "usd": 700, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51605547483450", "length": "15 ft", "usd": 750, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51605547614522", "length": "15 ft", "usd": 750, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51605547516218", "length": "20 ft", "usd": 800, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51605547647290", "length": "20 ft", "usd": 800, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51605547548986", "length": "25 ft", "usd": 850, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51605547680058", "length": "25 ft", "usd": 850, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"}
+      ]
+    },
+    "black-dragon-cable-sennheiser-hd820-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482589462842", "length": "5 ft", "usd": 650},
+        {"id": "51482589495610", "length": "10 ft", "usd": 700},
+        {"id": "51482589528378", "length": "15 ft", "usd": 750},
+        {"id": "51482589561146", "length": "20 ft", "usd": 800}
+      ]
+    },
+    "black-dragon-cable-single-3pin-mini-xlr": {
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "3.5mm TRS Moon Audio Straight Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "3.5mm TRS Oyaide Right Angled Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "1/4\" TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 45}
+        }
+      },
+      "variants": [
+        {"id": "51478275883322", "length": "5 ft", "usd": 460},
+        {"id": "51478275916090", "length": "10 ft", "usd": 510},
+        {"id": "51478275948858", "length": "15 ft", "usd": 560},
+        {"id": "51478275981626", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "black-dragon-cable-ultrasone-headphones-v2": {
+      "ear": {
+        "label": "Headphone Connection",
+        "choices": {
+          "Edition 8 EX, Edition 15, Jubilee 25": 250,
+          "Tribute 7": 160,
+          "Signature Pro, Signature DJ": 0,
+          "Performance 880, 860, 840": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478418096442", "length": "5 ft", "usd": 300},
+        {"id": "51478418129210", "length": "10 ft", "usd": 350},
+        {"id": "51478418161978", "length": "15 ft", "usd": 400},
+        {"id": "51478418194746", "length": "20 ft", "usd": 450}
+      ]
+    },
+    "black-dragon-headphone-cable-for-meze-109-pro": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478388769082", "length": "5 ft", "usd": 460},
+        {"id": "51478388801850", "length": "10 ft", "usd": 510},
+        {"id": "51478388834618", "length": "15 ft", "usd": 560},
+        {"id": "51478388867386", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "black-dragon-headphone-cable-v2": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection Type",
+        "choices": {
+          "Abyss Diana (2.5 mm)": 0,
+          "Audeze (LCD and MM series) Mini XLR": 0,
+          "Audio Technica A2DC": 0,
+          "Beyerdynamic T1, T5p (2nd or 3rd Gen) & Amiron": 0,
+          "Dan Clark Audio Aeon, Ether, Expanse, Noire or Stealth": 0,
+          "Denon AH-D9200, AH-D7200, AH-D5200 (3.5mm)": 0,
+          "Focal Celestee, Clear MG, Elear, Radiance, Stellia": 0,
+          "Focal Utopia": 100,
+          "Fostex TH900 Mkii, TH610, TH616": 0,
+          "Grado HP100 SE and S950 (Mini 4 pin XLR)": 0,
+          "Grell OAE1 and OAE2 (2.5mm)": 0,
+          "HEDD HEDDphone D1 (3.5mm)": 0,
+          "HiFiMan (Mini 3.5mm plug)": 0,
+          "HiFiMan (Mini 2.5mm plug)": 0,
+          "Meze 109 Pro": 0,
+          "Meze 105 AER, Liric or Liric II (3.5mm), Poet": 0,
+          "Meze Elite or Empyrean (mini XLR)": 0,
+          "Sennheiser HD580, 600, 650, 660, 660S2": 0,
+          "Sennheiser HD800, HD800S, HD820": 90,
+          "Sony MDR-Z7 & MDR-Z1R (Screw Type Locking)": 0,
+          "ZMF headphones (Mini 4 pin XLR)": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "50713556713786", "length": "5 ft", "usd": 460},
+        {"id": "50713556746554", "length": "10 ft", "usd": 510},
+        {"id": "50713556779322", "length": "15 ft", "usd": 560},
+        {"id": "50713556812090", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "black-dragon-iem-cable-for-qdc-v2": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605122449722", "length": "48 in", "usd": 275, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53577322660154", "length": "48 in", "usd": 275, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53577322692922", "length": "48 in", "usd": 275, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53577322725690", "length": "48 in", "usd": 305, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53577322758458", "length": "48 in", "usd": 305, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53577322791226", "length": "48 in", "usd": 305, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53577322823994", "length": "48 in", "usd": 335, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"},
+        {"id": "51605122482490", "length": "64 in", "usd": 310, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53577322889530", "length": "64 in", "usd": 310, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53577322922298", "length": "64 in", "usd": 310, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53577322955066", "length": "64 in", "usd": 340, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53577322987834", "length": "64 in", "usd": 340, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53577323020602", "length": "64 in", "usd": 340, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53577323053370", "length": "64 in", "usd": 370, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"}
+      ]
+    },
+    "black-dragon-iem-cable-for-sennheiser-earphones-v1-by-moon-audio": {
+      "policy": "Sale cable · final sale",
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605466972474", "length": "48 in", "usd": 150, "amp": "3.5mm TRS Form Fit Right Angle Male (Gold)", "plug": "3.5"},
+        {"id": "51605467005242", "length": "48 in", "usd": 175, "amp": "2.5mm TRRS Moon Audio Male (Gold)", "plug": "2.5"},
+        {"id": "51605467038010", "length": "48 in", "usd": 180, "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605467070778", "length": "48 in", "usd": 160, "amp": "4 pin XLR Neutrk Male (Gold)", "plug": "xlr4"}
+      ]
+    },
+    "black-dragon-iem-cable-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "52012586991930", "length": "48 in", "usd": 295, "amp": "2.5mm TRRS Moon Audio Straight Male [Gold]", "plug": "2.5"},
+        {"id": "52012126241082", "length": "48 in", "usd": 295, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "52012126404922", "length": "48 in", "usd": 310, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "52012126568762", "length": "48 in", "usd": 345, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Rhodium]", "plug": "4.4"},
+        {"id": "52012587155770", "length": "58 in", "usd": 330, "amp": "2.5mm TRRS Moon Audio Straight Male [Gold]", "plug": "2.5"},
+        {"id": "52012127224122", "length": "58 in", "usd": 330, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "52012127387962", "length": "58 in", "usd": 345, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "52012127551802", "length": "58 in", "usd": 375, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "black-dragon-iem-headphone-cable-v1": {
+      "policy": "Sale cable · final sale",
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605481357626", "length": "48 in", "usd": 150, "amp": "2.5mm TRRS Form Fit Right Angle Male (Gold)", "plug": "2.5"},
+        {"id": "51605487255866", "length": "48 in", "usd": 160, "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"}
+      ]
+    },
+    "black-dragon-iem-headphone-cable-v2": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "49052606497082", "length": "48 in", "usd": 275, "ear": "2 Pin IEM", "amp": "Premolded 2.5mm TRRS Straight [Gold]", "plug": "2.5"},
+        {"id": "50207891226938", "length": "48 in", "usd": 275, "ear": "2 Pin IEM", "amp": "Premolded 3.5mm TRS Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891259706", "length": "48 in", "usd": 275, "ear": "2 Pin IEM", "amp": "Premolded 4.4mm TRRRS Straight [Gold]", "plug": "4.4"},
+        {"id": "50207891292474", "length": "48 in", "usd": 295, "ear": "2 Pin IEM", "amp": "2.5mm TRRS Moon Audio Balanced Straight [Gold]", "plug": "2.5"},
+        {"id": "50207891325242", "length": "48 in", "usd": 295, "ear": "2 Pin IEM", "amp": "3.5mm TRS Moon Audio Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891358010", "length": "48 in", "usd": 295, "ear": "2 Pin IEM", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "50207842337082", "length": "48 in", "usd": 275, "ear": "4 Pin IEM", "amp": "Premolded 2.5mm TRRS Straight [Gold]", "plug": "2.5"},
+        {"id": "53581125681466", "length": "48 in", "usd": 275, "ear": "4 Pin IEM", "amp": "Premolded 3.5mm TRS Right Angled [Gold]", "plug": "3.5"},
+        {"id": "50207891423546", "length": "48 in", "usd": 275, "ear": "4 Pin IEM", "amp": "Premolded 3.5mm TRS Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891489082", "length": "48 in", "usd": 295, "ear": "4 Pin IEM", "amp": "2.5mm TRRS Moon Audio Balanced Straight [Gold]", "plug": "2.5"},
+        {"id": "50207891521850", "length": "48 in", "usd": 295, "ear": "4 Pin IEM", "amp": "3.5mm TRS Moon Audio Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891554618", "length": "48 in", "usd": 295, "ear": "4 Pin IEM", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "49052606529850", "length": "64 in", "usd": 305, "ear": "2 Pin IEM", "amp": "Premolded 2.5mm TRRS Straight [Gold]", "plug": "2.5"},
+        {"id": "50207891620154", "length": "64 in", "usd": 305, "ear": "2 Pin IEM", "amp": "Premolded 3.5mm TRS Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891652922", "length": "64 in", "usd": 305, "ear": "2 Pin IEM", "amp": "Premolded 4.4mm TRRRS Straight [Gold]", "plug": "4.4"},
+        {"id": "50207891685690", "length": "64 in", "usd": 335, "ear": "2 Pin IEM", "amp": "2.5mm TRRS Moon Audio Balanced Straight [Gold]", "plug": "2.5"},
+        {"id": "50207891718458", "length": "64 in", "usd": 335, "ear": "2 Pin IEM", "amp": "3.5mm TRS Moon Audio Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891751226", "length": "64 in", "usd": 335, "ear": "2 Pin IEM", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "50207806456122", "length": "64 in", "usd": 325, "ear": "4 Pin IEM", "amp": "Premolded 2.5mm TRRS Straight [Gold]", "plug": "2.5"},
+        {"id": "53581125747002", "length": "64 in", "usd": 275, "ear": "4 Pin IEM", "amp": "Premolded 3.5mm TRS Right Angled [Gold]", "plug": "3.5"},
+        {"id": "50207891816762", "length": "64 in", "usd": 325, "ear": "4 Pin IEM", "amp": "Premolded 3.5mm TRS Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891882298", "length": "64 in", "usd": 355, "ear": "4 Pin IEM", "amp": "2.5mm TRRS Moon Audio Balanced Straight [Gold]", "plug": "2.5"},
+        {"id": "50207891915066", "length": "64 in", "usd": 355, "ear": "4 Pin IEM", "amp": "3.5mm TRS Moon Audio Straight [Gold]", "plug": "3.5"},
+        {"id": "50207891947834", "length": "64 in", "usd": 335, "ear": "4 Pin IEM", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"}
+      ]
+    },
+    "black-dragon-premium-cable-for-abyss-ab-1266-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478510567738", "length": "5 ft", "usd": 560},
+        {"id": "51478510600506", "length": "10 ft", "usd": 610},
+        {"id": "51478510633274", "length": "15 ft", "usd": 660},
+        {"id": "51478510666042", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-premium-cable-for-denon-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478571745594", "length": "5 ft", "usd": 560},
+        {"id": "51478571778362", "length": "10 ft", "usd": 610},
+        {"id": "51478571811130", "length": "15 ft", "usd": 660},
+        {"id": "51478571843898", "length": "20 ft", "usd": 710},
+        {"id": "51478571876666", "length": "25 ft", "usd": 760}
+      ]
+    },
+    "black-dragon-premium-cable-for-focal-celestee-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478609002810", "length": "5 ft", "usd": 560},
+        {"id": "51478609035578", "length": "10 ft", "usd": 610},
+        {"id": "51478609068346", "length": "15 ft", "usd": 660},
+        {"id": "51478609101114", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-premium-cable-for-focal-clear-headphones-v2": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482413596986", "length": "5 ft", "usd": 560},
+        {"id": "51482413629754", "length": "10 ft", "usd": 610},
+        {"id": "51482413662522", "length": "15 ft", "usd": 660},
+        {"id": "51482413695290", "length": "20 ft", "usd": 710},
+        {"id": "51482413728058", "length": "25 ft", "usd": 760}
+      ]
+    },
+    "black-dragon-premium-cable-for-focal-stellia": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478323593530", "length": "5 ft", "usd": 560},
+        {"id": "51478323626298", "length": "10 ft", "usd": 610},
+        {"id": "51478323659066", "length": "15 ft", "usd": 660},
+        {"id": "51478323691834", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-premium-cable-for-focal-utopia-headphones-v2": {
+      "rushUsd": 45,
+      "variants": [
+        {"id": "51478333587770", "length": "5 ft", "usd": 650, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium]", "plug": "2.5"},
+        {"id": "52025621512506", "length": "5 ft", "usd": 650, "amp": "3.5mm TRS Furutech Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "52025621578042", "length": "5 ft", "usd": 670, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "52025621610810", "length": "5 ft", "usd": 650, "amp": "1/4-in TRS Furutech Carbon Fiber Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "52025621643578", "length": "5 ft", "usd": 650, "amp": "4-pin Moon Audio Premium XLR [Rhodium] ($0.00)", "plug": "xlr4"},
+        {"id": "51478333620538", "length": "10 ft", "usd": 700, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium]", "plug": "2.5"},
+        {"id": "52025621741882", "length": "10 ft", "usd": 700, "amp": "3.5mm TRS Furutech Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "52025621807418", "length": "10 ft", "usd": 720, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "52025621840186", "length": "10 ft", "usd": 700, "amp": "1/4-in TRS Furutech Carbon Fiber Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "52025621872954", "length": "10 ft", "usd": 700, "amp": "4-pin Moon Audio Premium XLR [Rhodium] ($0.00)", "plug": "xlr4"},
+        {"id": "51478333653306", "length": "15 ft", "usd": 750, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium]", "plug": "2.5"},
+        {"id": "52025621971258", "length": "15 ft", "usd": 750, "amp": "3.5mm TRS Furutech Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "52025622036794", "length": "15 ft", "usd": 770, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "52025622069562", "length": "15 ft", "usd": 750, "amp": "1/4-in TRS Furutech Carbon Fiber Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "52025622102330", "length": "15 ft", "usd": 750, "amp": "4-pin Moon Audio Premium XLR [Rhodium] ($0.00)", "plug": "xlr4"},
+        {"id": "51478333686074", "length": "20 ft", "usd": 800, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium]", "plug": "2.5"},
+        {"id": "52025622200634", "length": "20 ft", "usd": 800, "amp": "3.5mm TRS Furutech Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "52025622266170", "length": "20 ft", "usd": 820, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "52025622298938", "length": "20 ft", "usd": 800, "amp": "1/4-in TRS Furutech Carbon Fiber Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "52025622331706", "length": "20 ft", "usd": 800, "amp": "4-pin Moon Audio Premium XLR [Rhodium] ($0.00)", "plug": "xlr4"}
+      ]
+    },
+    "black-dragon-premium-cable-for-fostex-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482468057402", "length": "5 ft", "usd": 560},
+        {"id": "51482468090170", "length": "10 ft", "usd": 610},
+        {"id": "51482468122938", "length": "15 ft", "usd": 660},
+        {"id": "51482468155706", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-premium-cable-for-grado-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482478903610", "length": "5 ft", "usd": 560},
+        {"id": "51482478936378", "length": "10 ft", "usd": 610},
+        {"id": "51482478969146", "length": "15 ft", "usd": 660},
+        {"id": "51482479001914", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-premium-cable-for-hifiman-headphones": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection",
+        "choices": {
+          "3.5mm (newer models)": 0,
+          "2.5mm": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482487390522", "length": "5 ft", "usd": 560},
+        {"id": "51482487423290", "length": "10 ft", "usd": 610},
+        {"id": "51482487456058", "length": "15 ft", "usd": 660},
+        {"id": "51482487488826", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-premium-cable-for-zmf-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482655162682", "length": "5 ft", "usd": 560},
+        {"id": "51482655195450", "length": "10 ft", "usd": 610},
+        {"id": "51482655228218", "length": "15 ft", "usd": 660},
+        {"id": "51482655260986", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "black-dragon-premium-cable-sony-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482627506490", "length": "5 ft", "usd": 560, "ear": "3.5mm Furutech [Rhodium]"},
+        {"id": "51606162440506", "length": "5 ft", "usd": 560, "ear": "3.5mm Switchcraft Stereo Threaded [Gold]"},
+        {"id": "51482627539258", "length": "10 ft", "usd": 610, "ear": "3.5mm Furutech [Rhodium]"},
+        {"id": "51606162473274", "length": "10 ft", "usd": 610, "ear": "3.5mm Switchcraft Stereo Threaded [Gold]"},
+        {"id": "51482627572026", "length": "15 ft", "usd": 660, "ear": "3.5mm Furutech [Rhodium]"},
+        {"id": "51606162506042", "length": "15 ft", "usd": 660, "ear": "3.5mm Switchcraft Stereo Threaded [Gold]"},
+        {"id": "51482627604794", "length": "20 ft", "usd": 710, "ear": "3.5mm Furutech [Rhodium]"},
+        {"id": "51606162538810", "length": "20 ft", "usd": 710, "ear": "3.5mm Switchcraft Stereo Threaded [Gold]"}
+      ]
+    },
+    "black-dragon-premium-dan-clark-audio": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51478553395514", "length": "5 ft", "usd": 560},
+        {"id": "51478553428282", "length": "10 ft", "usd": 610},
+        {"id": "51478553461050", "length": "15 ft", "usd": 660},
+        {"id": "51478553493818", "length": "20 ft", "usd": 710}
+      ]
+    },
+    "blue-dragon-cable-akg-headphones-v3": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "3.5mm TRS Moon Audio Straight Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "3.5mm TRS Oyaide Right Angled Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "1/4\" TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 45}
+        }
+      },
+      "variants": [
+        {"id": "51494897549626", "length": "5 ft", "usd": 360},
+        {"id": "51494897582394", "length": "10 ft", "usd": 410},
+        {"id": "51494897615162", "length": "15 ft", "usd": 460},
+        {"id": "51494897647930", "length": "20 ft", "usd": 510}
+      ]
+    },
+    "blue-dragon-headphone-cable-v3": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection Type",
+        "choices": {
+          "Abyss Diana (2.5 mm)": 0,
+          "Audeze (LCD and MM series) Mini XLR": 0,
+          "Audio Technica A2DC": 0,
+          "Beyerdynamic T1, T5p (2nd or 3rd Gen) & Amiron": 0,
+          "Dan Clark Audio Aeon, Ether, Expanse, Noire or Stealth": 0,
+          "Denon AH-D9200, AH-D7200, AH-D5200 (3.5mm)": 0,
+          "Focal Celestee, Clear MG, Elear, Radiance, Stellia": 0,
+          "Focal Utopia": 100,
+          "Fostex TH900 Mkii, TH610, TH616": 0,
+          "Grado HP100 SE and S950 (Mini 4 pin XLR)": 0,
+          "Grell OAE1 and OAE2 (2.5mm)": 0,
+          "HEDD HEDDphone D1 (3.5mm)": 0,
+          "HiFiMan (Mini 3.5mm plug)": 0,
+          "HiFiMan (Mini 2.5mm plug)": 0,
+          "Meze 109 Pro": 0,
+          "Meze 105 AER, Liric or Liric II (3.5mm), Poet": 0,
+          "Meze Elite or Empyrean (mini XLR)": 0,
+          "Sennheiser HD580, 600, 650, 660, 660S2": 0,
+          "Sennheiser HD800, HD800S, HD820": 90,
+          "Sony MDR-Z7 & MDR-Z1R (Screw Type Locking)": 0,
+          "ZMF headphones (Mini 4 pin XLR)": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "50713666093370", "length": "5 ft", "usd": 360},
+        {"id": "50713666126138", "length": "10 ft", "usd": 410},
+        {"id": "50713666158906", "length": "15 ft", "usd": 460},
+        {"id": "50713666191674", "length": "20 ft", "usd": 510}
+      ]
+    },
+    "blue-dragon-premium-cable-for-audeze-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51494929596730", "length": "5 ft", "usd": 460},
+        {"id": "51494929629498", "length": "10 ft", "usd": 510},
+        {"id": "51494929662266", "length": "15 ft", "usd": 560},
+        {"id": "51494929695034", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "blue-dragon-premium-cable-for-dan-clark-audio-headphones": {
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51494954729786", "length": "5 ft", "usd": 460},
+        {"id": "51494954762554", "length": "10 ft", "usd": 510},
+        {"id": "51494954795322", "length": "15 ft", "usd": 560},
+        {"id": "51494954828090", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "blue-dragon-premium-cable-for-denon-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51494970589498", "length": "5 ft", "usd": 460},
+        {"id": "51494970622266", "length": "10 ft", "usd": 510},
+        {"id": "51494970655034", "length": "15 ft", "usd": 560},
+        {"id": "51494970687802", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "blue-dragon-premium-cable-for-focal-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51495044448570", "length": "5 ft", "usd": 460, "ear": "Celestee Clear Elear Elegia Radiance or Stellia"},
+        {"id": "51610371064122", "length": "5 ft", "usd": 560, "ear": "Utopia"},
+        {"id": "51495044481338", "length": "10 ft", "usd": 510, "ear": "Celestee Clear Elear Elegia Radiance or Stellia"},
+        {"id": "51610371096890", "length": "10 ft", "usd": 610, "ear": "Utopia"},
+        {"id": "51495044514106", "length": "15 ft", "usd": 560, "ear": "Celestee Clear Elear Elegia Radiance or Stellia"},
+        {"id": "51610371129658", "length": "15 ft", "usd": 660, "ear": "Utopia"},
+        {"id": "51495044546874", "length": "20 ft", "usd": 610, "ear": "Celestee Clear Elear Elegia Radiance or Stellia"},
+        {"id": "51610371162426", "length": "20 ft", "usd": 710, "ear": "Utopia"}
+      ]
+    },
+    "blue-dragon-premium-cable-for-fostex-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51495060799802", "length": "5 ft", "usd": 460},
+        {"id": "51495060832570", "length": "10 ft", "usd": 510},
+        {"id": "51495060865338", "length": "15 ft", "usd": 560},
+        {"id": "51495060898106", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "blue-dragon-premium-cable-for-hifiman-headphones": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection",
+        "choices": {
+          "3.5mm (newer models)": 0,
+          "2.5mm": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51495071285562", "length": "5 ft", "usd": 460},
+        {"id": "51495071318330", "length": "10 ft", "usd": 510},
+        {"id": "51495071351098", "length": "15 ft", "usd": 560},
+        {"id": "51495071383866", "length": "20 ft", "usd": 610}
+      ]
+    },
+    "blue-dragon-premium-cable-for-sennheiser-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51495096320314", "length": "5 ft", "usd": 460, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51601393484090", "length": "5 ft", "usd": 460, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51495096353082", "length": "10 ft", "usd": 510, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51601393516858", "length": "10 ft", "usd": 510, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51495096385850", "length": "15 ft", "usd": 560, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51601393549626", "length": "15 ft", "usd": 560, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51495096418618", "length": "20 ft", "usd": 610, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD 820 Series)"},
+        {"id": "51601393582394", "length": "20 ft", "usd": 610, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"}
+      ]
+    },
+    "blue-dragon-v3-for-dan-clark-audio": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51482901250362", "length": "5 ft", "usd": 360},
+        {"id": "51482901283130", "length": "10 ft", "usd": 410},
+        {"id": "51482901315898", "length": "15 ft", "usd": 460},
+        {"id": "51482901348666", "length": "20 ft", "usd": 510}
+      ]
+    },
+    "bronze-dragon-headphone-cable-for-audiotechnica": {
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold]": {"plug": "2.5", "usd": 5},
+          "3.5mm TRS Moon Audio Straight Mini [Gold]": {"plug": "3.5", "usd": 5},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 30},
+          "3.5mm TRS Oyaide Mini RT Angle [Rhodium] (DAPs, iDevices, Phones)": {"plug": "3.5", "usd": 10},
+          "1/4\" TRS Furutech Stereo [Gold]": {"plug": "6.35", "usd": 15},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51495784546618", "length": "4 ft", "usd": 325},
+        {"id": "51495784579386", "length": "6 ft", "usd": 345},
+        {"id": "51495784612154", "length": "8 ft", "usd": 365},
+        {"id": "51495784644922", "length": "10 ft", "usd": 385}
+      ]
+    },
+    "bronze-dragon-headphone-cable": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection Type",
+        "choices": {
+          "Abyss Diana (2.5 mm)": 0,
+          "Audeze (LCD and MM series) Mini XLR": 0,
+          "Audio Technica A2DC": 0,
+          "Beyerdynamic T1, T5p (2nd or 3rd Gen) & Amiron": 0,
+          "Dan Clark Audio Aeon, Ether, Expanse, Noire or Stealth": 0,
+          "Denon AH-D9200, AH-D7200, AH-D5200 (3.5mm)": 0,
+          "Focal Celestee, Clear MG, Elear, Radiance, Stellia": 0,
+          "Focal Utopia": 100,
+          "Fostex TH900 Mkii, TH610, TH616": 0,
+          "Grado HP100 SE and S950 (Mini 4 pin XLR)": 0,
+          "Grell OAE1 and OAE2 (2.5mm)": 0,
+          "HEDD HEDDphone D1 (3.5mm)": 0,
+          "HiFiMan (Mini 3.5mm plug)": 0,
+          "HiFiMan (Mini 2.5mm plug)": 0,
+          "Meze 109 Pro": 0,
+          "Meze 105 AER, Liric or Liric II (3.5mm), Poet": 0,
+          "Meze Elite or Empyrean (mini XLR)": 0,
+          "Sennheiser HD580, 600, 650, 660, 660S2": 0,
+          "Sennheiser HD800, HD800S, HD820": 90,
+          "Sony MDR-Z7 & MDR-Z1R (Screw Type Locking)": 0,
+          "ZMF headphones (Mini 4 pin XLR)": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51208470757690", "length": "5 ft", "usd": 525},
+        {"id": "51208470790458", "length": "10 ft", "usd": 575},
+        {"id": "51208470823226", "length": "15 ft", "usd": 625},
+        {"id": "51208470855994", "length": "20 ft", "usd": 675},
+        {"id": "53532524446010", "length": "25 ft", "usd": 725}
+      ]
+    },
+    "bronze-dragon-iem-cable-for-astell-kern-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51557412602170", "length": "48 in", "usd": 400, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51557412634938", "length": "48 in", "usd": 400, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557412667706", "length": "48 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557412700474", "length": "48 in", "usd": 430, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557412733242", "length": "48 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"},
+        {"id": "51557412798778", "length": "64 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51557412831546", "length": "64 in", "usd": 430, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557412864314", "length": "64 in", "usd": 460, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557412897082", "length": "64 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557412929850", "length": "64 in", "usd": 490, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-cable-for-campfire-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51557389697338", "length": "48 in", "usd": 400, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51557389730106", "length": "48 in", "usd": 400, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557389762874", "length": "48 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557389795642", "length": "48 in", "usd": 430, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557389828410", "length": "48 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"},
+        {"id": "51557389893946", "length": "64 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51557389926714", "length": "64 in", "usd": 430, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557389959482", "length": "64 in", "usd": 460, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557389992250", "length": "64 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557390025018", "length": "64 in", "usd": 490, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-cable-for-meze-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51557363777850", "length": "48 in", "usd": 400, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51557363810618", "length": "48 in", "usd": 400, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557363843386", "length": "48 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557363876154", "length": "48 in", "usd": 430, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557363908922", "length": "48 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"},
+        {"id": "51557363974458", "length": "64 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51557364007226", "length": "64 in", "usd": 430, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557364039994", "length": "64 in", "usd": 460, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557364072762", "length": "64 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557364105530", "length": "64 in", "usd": 490, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-cable-for-qdc-v2": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605119172922", "length": "48 in", "usd": 400, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53577250210106", "length": "48 in", "usd": 400, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53577250242874", "length": "48 in", "usd": 400, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53577250275642", "length": "48 in", "usd": 430, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53577250308410", "length": "48 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53577250341178", "length": "48 in", "usd": 430, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53577250373946", "length": "48 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"},
+        {"id": "51605119205690", "length": "64 in", "usd": 430, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53577250439482", "length": "64 in", "usd": 430, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53577250472250", "length": "64 in", "usd": 430, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53577250505018", "length": "64 in", "usd": 460, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53577250537786", "length": "64 in", "usd": 460, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53577250570554", "length": "64 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53577250603322", "length": "64 in", "usd": 490, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-cable-for-sennheiser-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "50036116685114", "length": "48 in", "usd": 400, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded) ($0.0)", "plug": "2.5"},
+        {"id": "50036187529530", "length": "48 in", "usd": 400, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded) ($0.0)", "plug": "3.5"},
+        {"id": "50036136575290", "length": "48 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "50036147159354", "length": "48 in", "usd": 430, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "50036147192122", "length": "48 in", "usd": 460, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($60.0)", "plug": "4.4"},
+        {"id": "50036116717882", "length": "64 in", "usd": 430, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded) ($0.0)", "plug": "2.5"},
+        {"id": "50036187562298", "length": "64 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded) ($0.0)", "plug": "3.5"},
+        {"id": "50036136608058", "length": "64 in", "usd": 460, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "50036147257658", "length": "64 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "50036147290426", "length": "64 in", "usd": 490, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($60.0)", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-cable-for-shure-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51556389781818", "length": "48 in", "usd": 400, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51556739612986", "length": "48 in", "usd": 400, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51556739645754", "length": "48 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51556739678522", "length": "48 in", "usd": 430, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51556739711290", "length": "48 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"},
+        {"id": "51556389814586", "length": "64 in", "usd": 430, "amp": "3.5mm TRS Moon Audio Straight Gold (Premolded)", "plug": "3.5"},
+        {"id": "51556739776826", "length": "64 in", "usd": 430, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51556739809594", "length": "64 in", "usd": 460, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51556739842362", "length": "64 in", "usd": 460, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51556739875130", "length": "64 in", "usd": 490, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-cable-v2-for-64-audio": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605102199098", "length": "48 in", "usd": 375, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53353000337722", "length": "48 in", "usd": 375, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53353000370490", "length": "48 in", "usd": 375, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53353000403258", "length": "48 in", "usd": 405, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30.0)", "plug": "2.5"},
+        {"id": "53353000436026", "length": "48 in", "usd": 405, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "53353000468794", "length": "48 in", "usd": 405, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "53353000501562", "length": "48 in", "usd": 435, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60.0)", "plug": "4.4"},
+        {"id": "51605102231866", "length": "64 in", "usd": 405, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53353000567098", "length": "64 in", "usd": 405, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53353000599866", "length": "64 in", "usd": 405, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53353000632634", "length": "64 in", "usd": 435, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30.0)", "plug": "2.5"},
+        {"id": "53353000665402", "length": "64 in", "usd": 435, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "53353000698170", "length": "64 in", "usd": 435, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "53353000730938", "length": "64 in", "usd": 465, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60.0)", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-cable-v2-for-empire-ears": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605127889210", "length": "48 in", "usd": 375, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53577262268730", "length": "48 in", "usd": 375, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53577262301498", "length": "48 in", "usd": 375, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53577262334266", "length": "48 in", "usd": 405, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53577262367034", "length": "48 in", "usd": 405, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53577262399802", "length": "48 in", "usd": 405, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53577262432570", "length": "48 in", "usd": 435, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"},
+        {"id": "51605127921978", "length": "64 in", "usd": 405, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53577262498106", "length": "64 in", "usd": 405, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53577262530874", "length": "64 in", "usd": 405, "amp": "4.4mm TRRRS Balanced Straight [Gold] PM", "plug": "4.4"},
+        {"id": "53577262563642", "length": "64 in", "usd": 435, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53577262596410", "length": "64 in", "usd": 435, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53577262629178", "length": "64 in", "usd": 435, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53577262661946", "length": "64 in", "usd": 465, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-iem-headphone-cable": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "49271343776058", "length": "48 in", "usd": 375, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "50036060324154", "length": "48 in", "usd": 375, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53419131666746", "length": "48 in", "usd": 405, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "50607996731706", "length": "48 in", "usd": 405, "amp": "4.4mm TRRRS Balanced Straight [Gold] ($30.0) PM", "plug": "4.4"},
+        {"id": "50351390916922", "length": "48 in", "usd": 435, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($60.0)", "plug": "4.4"},
+        {"id": "49052636414266", "length": "64 in", "usd": 405, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "50036060422458", "length": "64 in", "usd": 405, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53419131732282", "length": "64 in", "usd": 435, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "50607996764474", "length": "64 in", "usd": 435, "amp": "4.4mm TRRRS Balanced Straight [Gold] ($30.0) PM", "plug": "4.4"},
+        {"id": "50351390949690", "length": "64 in", "usd": 465, "amp": "4.4mm TRRRS Furutech Balanced Male [Rhodium] ($60.0)", "plug": "4.4"}
+      ]
+    },
+    "bronze-dragon-portable-cable-for-sennheiser-momentum-headphones": {
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "3.5mm TRS Moon Audio Straight Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "3.5mm TRS Oyaide Right Angled Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "1/4\" TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 45}
+        }
+      },
+      "variants": [
+        {"id": "51495806599482", "length": "4 ft", "usd": 325, "ear": "Sennheiser Momentum 1-3 (Locking 2.5mm TRRS)"},
+        {"id": "51610047906106", "length": "4 ft", "usd": 325, "ear": "Sennheiser Momentum 4"},
+        {"id": "51495806632250", "length": "6 ft", "usd": 345, "ear": "Sennheiser Momentum 1-3 (Locking 2.5mm TRRS)"},
+        {"id": "51610047938874", "length": "6 ft", "usd": 345, "ear": "Sennheiser Momentum 4"},
+        {"id": "51495806665018", "length": "8 ft", "usd": 365, "ear": "Sennheiser Momentum 1-3 (Locking 2.5mm TRRS)"},
+        {"id": "51610047971642", "length": "8 ft", "usd": 365, "ear": "Sennheiser Momentum 4"},
+        {"id": "51495806697786", "length": "10 ft", "usd": 385, "ear": "Sennheiser Momentum 1-3 (Locking 2.5mm TRRS)"},
+        {"id": "51610048004410", "length": "10 ft", "usd": 385, "ear": "Sennheiser Momentum 4"}
+      ]
+    },
+    "bronze-dragon-portable-cable-for-sony-wh-1000xm5": {
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "3.5mm TRS Moon Audio Straight Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "3.5mm TRS Oyaide Right Angled Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "1/4\" TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 45}
+        }
+      },
+      "variants": [
+        {"id": "51597968802106", "length": "4 ft", "usd": 325},
+        {"id": "51597968834874", "length": "6 ft", "usd": 345},
+        {"id": "51597968867642", "length": "8 ft", "usd": 365},
+        {"id": "51597968900410", "length": "10 ft", "usd": 385}
+      ]
+    },
+    "bronze-dragon-portable-headphone-cable-for-focal-bathys": {
+      "variants": [
+        {"id": "49118333600058", "length": "4 ft", "usd": 325, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855017274", "length": "4 ft", "usd": 325, "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855050042", "length": "4 ft", "usd": 345, "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "49118333632826", "length": "6 ft", "usd": 345, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855082810", "length": "6 ft", "usd": 345, "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855115578", "length": "6 ft", "usd": 365, "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "49118333665594", "length": "8 ft", "usd": 365, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855148346", "length": "8 ft", "usd": 365, "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855181114", "length": "8 ft", "usd": 385, "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "49118333698362", "length": "10 ft", "usd": 385, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855213882", "length": "10 ft", "usd": 385, "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52025855246650", "length": "10 ft", "usd": 405, "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"}
+      ]
+    },
+    "bronze-dragon-portable-headphone-cable": {
+      "variants": [
+        {"id": "52419393945914", "length": "4 ft", "usd": 325, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419748856122", "length": "4 ft", "usd": 325, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419748888890", "length": "4 ft", "usd": 345, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "49049012142394", "length": "4 ft", "usd": 325, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419748921658", "length": "4 ft", "usd": 325, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419748954426", "length": "4 ft", "usd": 345, "ear": "AKG (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419393782074", "length": "4 ft", "usd": 325, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419748987194", "length": "4 ft", "usd": 325, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749019962", "length": "4 ft", "usd": 345, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419393814842", "length": "4 ft", "usd": 325, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749052730", "length": "4 ft", "usd": 325, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749085498", "length": "4 ft", "usd": 345, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419393847610", "length": "4 ft", "usd": 325, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749118266", "length": "4 ft", "usd": 325, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749151034", "length": "4 ft", "usd": 345, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419393880378", "length": "4 ft", "usd": 325, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749183802", "length": "4 ft", "usd": 325, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749216570", "length": "4 ft", "usd": 345, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419393913146", "length": "4 ft", "usd": 325, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749249338", "length": "4 ft", "usd": 325, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749282106", "length": "4 ft", "usd": 345, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419393978682", "length": "4 ft", "usd": 325, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749314874", "length": "4 ft", "usd": 325, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749347642", "length": "4 ft", "usd": 345, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394011450", "length": "4 ft", "usd": 325, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749380410", "length": "4 ft", "usd": 325, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749413178", "length": "4 ft", "usd": 345, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394044218", "length": "4 ft", "usd": 325, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749445946", "length": "4 ft", "usd": 325, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749478714", "length": "4 ft", "usd": 345, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394076986", "length": "4 ft", "usd": 325, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749511482", "length": "4 ft", "usd": 325, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749544250", "length": "4 ft", "usd": 345, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394109754", "length": "4 ft", "usd": 325, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749577018", "length": "4 ft", "usd": 325, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749609786", "length": "4 ft", "usd": 345, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394142522", "length": "4 ft", "usd": 325, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749642554", "length": "4 ft", "usd": 325, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749675322", "length": "4 ft", "usd": 345, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394339130", "length": "6 ft", "usd": 345, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749708090", "length": "6 ft", "usd": 345, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749740858", "length": "6 ft", "usd": 365, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "49049012175162", "length": "6 ft", "usd": 345, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749773626", "length": "6 ft", "usd": 345, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749806394", "length": "6 ft", "usd": 365, "ear": "AKG (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394175290", "length": "6 ft", "usd": 345, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749839162", "length": "6 ft", "usd": 345, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749871930", "length": "6 ft", "usd": 365, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394208058", "length": "6 ft", "usd": 345, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749904698", "length": "6 ft", "usd": 345, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749937466", "length": "6 ft", "usd": 365, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394240826", "length": "6 ft", "usd": 345, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419749970234", "length": "6 ft", "usd": 345, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750003002", "length": "6 ft", "usd": 365, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394273594", "length": "6 ft", "usd": 345, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750035770", "length": "6 ft", "usd": 345, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750068538", "length": "6 ft", "usd": 365, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394306362", "length": "6 ft", "usd": 345, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750101306", "length": "6 ft", "usd": 345, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750134074", "length": "6 ft", "usd": 365, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394371898", "length": "6 ft", "usd": 345, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750166842", "length": "6 ft", "usd": 345, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750199610", "length": "6 ft", "usd": 365, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394404666", "length": "6 ft", "usd": 345, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750232378", "length": "6 ft", "usd": 345, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750265146", "length": "6 ft", "usd": 365, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394437434", "length": "6 ft", "usd": 345, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750297914", "length": "6 ft", "usd": 345, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750330682", "length": "6 ft", "usd": 365, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394470202", "length": "6 ft", "usd": 345, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750363450", "length": "6 ft", "usd": 345, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750396218", "length": "6 ft", "usd": 365, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394502970", "length": "6 ft", "usd": 345, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750428986", "length": "6 ft", "usd": 345, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750461754", "length": "6 ft", "usd": 365, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394535738", "length": "6 ft", "usd": 345, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750494522", "length": "6 ft", "usd": 345, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750527290", "length": "6 ft", "usd": 365, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394732346", "length": "8 ft", "usd": 365, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750560058", "length": "8 ft", "usd": 365, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750592826", "length": "8 ft", "usd": 385, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "49049012207930", "length": "8 ft", "usd": 365, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750625594", "length": "8 ft", "usd": 365, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750658362", "length": "8 ft", "usd": 385, "ear": "AKG (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394568506", "length": "8 ft", "usd": 365, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750691130", "length": "8 ft", "usd": 365, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750723898", "length": "8 ft", "usd": 385, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394601274", "length": "8 ft", "usd": 365, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750756666", "length": "8 ft", "usd": 365, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750789434", "length": "8 ft", "usd": 385, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394634042", "length": "8 ft", "usd": 365, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750822202", "length": "8 ft", "usd": 365, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750854970", "length": "8 ft", "usd": 385, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394666810", "length": "8 ft", "usd": 365, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750887738", "length": "8 ft", "usd": 365, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750920506", "length": "8 ft", "usd": 385, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394699578", "length": "8 ft", "usd": 365, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750953274", "length": "8 ft", "usd": 365, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419750986042", "length": "8 ft", "usd": 385, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394765114", "length": "8 ft", "usd": 365, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751018810", "length": "8 ft", "usd": 365, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751051578", "length": "8 ft", "usd": 385, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394797882", "length": "8 ft", "usd": 365, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751084346", "length": "8 ft", "usd": 365, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751117114", "length": "8 ft", "usd": 385, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394830650", "length": "8 ft", "usd": 365, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751149882", "length": "8 ft", "usd": 365, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751182650", "length": "8 ft", "usd": 385, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394863418", "length": "8 ft", "usd": 365, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751215418", "length": "8 ft", "usd": 365, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751248186", "length": "8 ft", "usd": 385, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394896186", "length": "8 ft", "usd": 365, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751280954", "length": "8 ft", "usd": 365, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751313722", "length": "8 ft", "usd": 385, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394928954", "length": "8 ft", "usd": 365, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751346490", "length": "8 ft", "usd": 365, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751379258", "length": "8 ft", "usd": 385, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395125562", "length": "10 ft", "usd": 385, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751412026", "length": "10 ft", "usd": 385, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751444794", "length": "10 ft", "usd": 405, "ear": "Focal Bathys & Bathys MG (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "49049012240698", "length": "10 ft", "usd": 385, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751477562", "length": "10 ft", "usd": 385, "ear": "AKG (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751510330", "length": "10 ft", "usd": 405, "ear": "AKG (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394961722", "length": "10 ft", "usd": 385, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751543098", "length": "10 ft", "usd": 385, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751575866", "length": "10 ft", "usd": 405, "ear": "Audio Technica ATH-M50x ATH M40x (Locking 2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419394994490", "length": "10 ft", "usd": 385, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751608634", "length": "10 ft", "usd": 385, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751641402", "length": "10 ft", "usd": 405, "ear": "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395027258", "length": "10 ft", "usd": 385, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751674170", "length": "10 ft", "usd": 385, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751706938", "length": "10 ft", "usd": 405, "ear": "Beyerdynamic DT1770 PRO DT1990 PRO (3-pin Mini XLR)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395060026", "length": "10 ft", "usd": 385, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751739706", "length": "10 ft", "usd": 385, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751772474", "length": "10 ft", "usd": 405, "ear": "Bose Noise Cancelling 700 (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395092794", "length": "10 ft", "usd": 385, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751805242", "length": "10 ft", "usd": 385, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751838010", "length": "10 ft", "usd": 405, "ear": "Bose QuietComfort 35 and Ultra (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395158330", "length": "10 ft", "usd": 385, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751870778", "length": "10 ft", "usd": 385, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751903546", "length": "10 ft", "usd": 405, "ear": "Sennheiser HD 599 598 560 558 518 (Locking 2.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395191098", "length": "10 ft", "usd": 385, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751936314", "length": "10 ft", "usd": 385, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419751969082", "length": "10 ft", "usd": 405, "ear": "Sennheiser HDB 630 Wireless Headphones", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395223866", "length": "10 ft", "usd": 385, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752001850", "length": "10 ft", "usd": 385, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752034618", "length": "10 ft", "usd": 405, "ear": "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395256634", "length": "10 ft", "usd": 385, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752067386", "length": "10 ft", "usd": 385, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752100154", "length": "10 ft", "usd": 405, "ear": "Sony MDR-1A MDR-1AM2 or MDR-MV1 (3.5mm TRRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395289402", "length": "10 ft", "usd": 385, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752132922", "length": "10 ft", "usd": 385, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752165690", "length": "10 ft", "usd": 405, "ear": "Sony WH-1000XM5 or XM6 (3.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"},
+        {"id": "52419395322170", "length": "10 ft", "usd": 385, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752198458", "length": "10 ft", "usd": 385, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "3.5mm TRS Oyaide Right Angled Male Mini [Gold] ($25.0)", "plug": "3.5"},
+        {"id": "52419752231226", "length": "10 ft", "usd": 405, "ear": "T+A Solitaire T (2.5mm TRS)", "amp": "1/4\" TRS Furutech Male [Gold] ($45.0)", "plug": "6.35"}
+      ]
+    },
+    "bronze-dragon-premium-headphone-cable": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection Type",
+        "choices": {
+          "Audeze (LCD and MM series) Mini XLR": 45,
+          "Audio Technica A2DC": 45,
+          "Beyerdynamic T1, T5p (2nd or 3rd Gen) & Amiron": 45,
+          "Dan Clark Audio Aeon, Ether, Expanse, Noire or Stealth": 45,
+          "Denon AH-D9200, AH-D7200, AH-D5200 (3.5mm)": 45,
+          "Focal Celestee, Clear MG, Elear, Radiance, Stellia": 45,
+          "Focal Utopia": 100,
+          "Fostex TH900 Mkii, TH610, TH616": 45,
+          "Grado HP100 SE and S950 (Mini 4 pin XLR)": 45,
+          "HiFiMan (Mini 3.5mm plug)": 45,
+          "HiFiMan (Mini 2.5mm plug)": 45,
+          "Meze 109 Pro": 45,
+          "Meze 105 AER, Liric or Liric II (3.5mm), Poet": 45,
+          "Meze Elite or Empyrean (mini XLR)": 45,
+          "Sennheiser HD580, 600, 650, 660, 660S2": 45,
+          "Sennheiser HD800, HD800S, HD820": 85,
+          "Sony MDR-Z7 & MDR-Z1R (Screw Type Locking)": 45,
+          "ZMF headphones (Mini 4 pin XLR)": 45
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51477819982138", "length": "5 ft", "usd": 640},
+        {"id": "51477820014906", "length": "10 ft", "usd": 690},
+        {"id": "51477820047674", "length": "15 ft", "usd": 740},
+        {"id": "51477820080442", "length": "20 ft", "usd": 790}
+      ]
+    },
+    "silver-dragon-cable-audeze-headphones": {
+      "rushUsd": 45,
+      "variants": [
+        {"id": "51496124645690", "length": "5 ft", "usd": 925, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium] ($0.0)", "plug": "2.5"},
+        {"id": "53134843904314", "length": "5 ft", "usd": 925, "amp": "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53134843969850", "length": "5 ft", "usd": 945, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53134844002618", "length": "5 ft", "usd": 925, "amp": "1/4-in TRS Moon Audio Premium Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "53134844035386", "length": "5 ft", "usd": 925, "amp": "4-pinMoon Audio Premium Male XLR [Rhodium] ($0.0)", "plug": "xlr4"},
+        {"id": "51496124678458", "length": "10 ft", "usd": 1025, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium] ($0.0)", "plug": "2.5"},
+        {"id": "53134844133690", "length": "10 ft", "usd": 1025, "amp": "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53134844199226", "length": "10 ft", "usd": 1045, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53134844231994", "length": "10 ft", "usd": 1025, "amp": "1/4-in TRS Moon Audio Premium Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "53134844264762", "length": "10 ft", "usd": 1025, "amp": "4-pinMoon Audio Premium Male XLR [Rhodium] ($0.0)", "plug": "xlr4"},
+        {"id": "51496124711226", "length": "15 ft", "usd": 1125, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium] ($0.0)", "plug": "2.5"},
+        {"id": "53134844363066", "length": "15 ft", "usd": 1125, "amp": "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53134844428602", "length": "15 ft", "usd": 1145, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53134844461370", "length": "15 ft", "usd": 1125, "amp": "1/4-in TRS Moon Audio Premium Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "53134844494138", "length": "15 ft", "usd": 1125, "amp": "4-pinMoon Audio Premium Male XLR [Rhodium] ($0.0)", "plug": "xlr4"}
+      ]
+    },
+    "silver-dragon-cable-for-hifiman-headphones": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection",
+        "choices": {
+          "3.5mm (newer models)": 0,
+          "2.5mm": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51496275804474", "length": "5 ft", "usd": 925},
+        {"id": "51496275837242", "length": "10 ft", "usd": 1025},
+        {"id": "51496275870010", "length": "15 ft", "usd": 1125}
+      ]
+    },
+    "silver-dragon-cable-meze-headphones": {
+      "rushUsd": 45,
+      "variants": [
+        {"id": "51496282390842", "length": "5 ft", "usd": 925, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium] ($0.0)", "plug": "2.5"},
+        {"id": "53332555202874", "length": "5 ft", "usd": 925, "amp": "3.5mm TRS Furutech Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53332555268410", "length": "5 ft", "usd": 945, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53332555301178", "length": "5 ft", "usd": 945, "amp": "1/4-in TRS Furutech Carbon Fiber Stereo [Rhodium] ($20.0)", "plug": "6.35"},
+        {"id": "53332555333946", "length": "5 ft", "usd": 945, "amp": "4-pin Furutech Male XLR [Rhodium] ($20.0)", "plug": "xlr4"},
+        {"id": "51496282423610", "length": "10 ft", "usd": 1025, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium] ($0.0)", "plug": "2.5"},
+        {"id": "53332555432250", "length": "10 ft", "usd": 1025, "amp": "3.5mm TRS Furutech Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53332555497786", "length": "10 ft", "usd": 1045, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53332555530554", "length": "10 ft", "usd": 1045, "amp": "1/4-in TRS Furutech Carbon Fiber Stereo [Rhodium] ($20.0)", "plug": "6.35"},
+        {"id": "53332555563322", "length": "10 ft", "usd": 1045, "amp": "4-pin Furutech Male XLR [Rhodium] ($20.0)", "plug": "xlr4"},
+        {"id": "51496282456378", "length": "15 ft", "usd": 1125, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium] ($0.0)", "plug": "2.5"},
+        {"id": "53332555661626", "length": "15 ft", "usd": 1125, "amp": "3.5mm TRS Furutech Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53332555727162", "length": "15 ft", "usd": 1125, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53332555759930", "length": "15 ft", "usd": 1145, "amp": "1/4-in TRS Furutech Carbon Fiber Stereo [Rhodium] ($20.0)", "plug": "6.35"},
+        {"id": "53332555792698", "length": "15 ft", "usd": 1145, "amp": "4-pin Furutech Male XLR [Rhodium] ($20.0)", "plug": "xlr4"}
+      ]
+    },
+    "silver-dragon-cable-ultimate-ears-iems-v1": {
+      "policy": "Sale cable · final sale",
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605361557818", "length": "48 in", "usd": 175, "amp": "3.5mm TRS Form Fit Right Angle Male (Gold)", "plug": "3.5"},
+        {"id": "51605375811898", "length": "48 in", "usd": 175, "amp": "2.5mm TRRS Moon Audio Male (Gold)", "plug": "2.5"},
+        {"id": "51605361590586", "length": "48 in", "usd": 205, "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605361623354", "length": "48 in", "usd": 185, "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"}
+      ]
+    },
+    "silver-dragon-headphone-cable-v3": {
+      "rushUsd": 45,
+      "ear": {
+        "label": "Headphone Connection Type",
+        "choices": {
+          "Abyss Diana (2.5 mm)": 0,
+          "Audeze (LCD and MM series) Mini XLR": 0,
+          "Audio Technica A2DC": 0,
+          "Beyerdynamic T1, T5p (2nd or 3rd Gen) & Amiron": 0,
+          "Dan Clark Audio Aeon, Ether, Expanse, Noire or Stealth": 0,
+          "Denon AH-D9200, AH-D7200, AH-D5200 (3.5mm)": 0,
+          "Focal Celestee, Clear MG, Elear, Radiance, Stellia": 0,
+          "Focal Utopia": 100,
+          "Fostex TH900 Mkii, TH610, TH616": 0,
+          "Grado HP100 SE and S950 (Mini 4 pin XLR)": 0,
+          "Grell OAE1 and OAE2 (2.5mm)": 0,
+          "HEDD HEDDphone D1 (3.5mm)": 0,
+          "HiFiMan (Mini 3.5mm plug)": 0,
+          "HiFiMan (Mini 2.5mm plug)": 0,
+          "Meze 109 Pro": 0,
+          "Meze 105 AER, Liric or Liric II (3.5mm), Poet": 0,
+          "Meze Elite or Empyrean (mini XLR)": 0,
+          "Sennheiser HD580, 600, 650, 660, 660S2": 0,
+          "Sennheiser HD800, HD800S, HD820": 90,
+          "Sony MDR-Z7 & MDR-Z1R (Screw Type Locking)": 0,
+          "ZMF headphones (Mini 4 pin XLR)": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Moon Audio Balanced Straight [Gold]": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Straight [Gold]": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Balanced Straight [Gold]": {"plug": "4.4", "usd": 0},
+          "1/4-in TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 0},
+          "4-pin Neutrik Male XLR [Gold]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "49049028034874", "length": "5 ft", "usd": 825},
+        {"id": "49049028067642", "length": "10 ft", "usd": 925},
+        {"id": "49049028100410", "length": "15 ft", "usd": 1025}
+      ]
+    },
+    "silver-dragon-iem-cable-for-astell-kern-mmcx": {
+      "variants": [
+        {"id": "51557306204474", "length": "48 in", "usd": 675, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557306237242", "length": "48 in", "usd": 705, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557306270010", "length": "48 in", "usd": 705, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557306302778", "length": "48 in", "usd": 735, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-for-campfire-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "50576830529850", "length": "48 in", "usd": 675, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded) ($0.0)", "plug": "2.5"},
+        {"id": "50576830562618", "length": "48 in", "usd": 705, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "50576830595386", "length": "48 in", "usd": 705, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "50576806478138", "length": "48 in", "usd": 735, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60.0)", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-for-empire-ears-v2": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "50437498634554", "length": "48 in", "usd": 650, "amp": "2.5mm TRRS Balanced Straight [Gold] PM ($0.0)", "plug": "2.5"},
+        {"id": "50437498667322", "length": "48 in", "usd": 650, "amp": "3.5mm TRS Straight [Gold] PM ($0.0)", "plug": "3.5"},
+        {"id": "53581087146298", "length": "48 in", "usd": 680, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53581087179066", "length": "48 in", "usd": 680, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "50437515608378", "length": "48 in", "usd": 680, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "53581087211834", "length": "48 in", "usd": 710, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-for-jh-audio-v2": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51597684769082", "length": "48 in", "usd": 650, "ear": "2 pin", "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53581146194234", "length": "48 in", "usd": 650, "ear": "2 pin", "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53581146259770", "length": "48 in", "usd": 680, "ear": "2 pin", "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53581146292538", "length": "48 in", "usd": 680, "ear": "2 pin", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53581146325306", "length": "48 in", "usd": 680, "ear": "2 pin", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53581146358074", "length": "48 in", "usd": 710, "ear": "2 pin", "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"},
+        {"id": "53581146423610", "length": "48 in", "usd": 650, "ear": "4 pin w/ Bass Pod", "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53581146456378", "length": "48 in", "usd": 650, "ear": "4 pin w/ Bass Pod", "amp": "3.5mm TRS Right Angled [Gold] PM", "plug": "3.5"},
+        {"id": "53581146489146", "length": "48 in", "usd": 680, "ear": "4 pin w/ Bass Pod", "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53581146521914", "length": "48 in", "usd": 680, "ear": "4 pin w/ Bass Pod", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53581146554682", "length": "48 in", "usd": 680, "ear": "4 pin w/ Bass Pod", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53581146587450", "length": "48 in", "usd": 710, "ear": "4 pin w/ Bass Pod", "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"},
+        {"id": "53581146947898", "length": "64 in", "usd": 705, "ear": "4 pin w/ Bass Pod", "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53581146980666", "length": "64 in", "usd": 705, "ear": "4 pin w/ Bass Pod", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53581147013434", "length": "64 in", "usd": 705, "ear": "4 pin w/ Bass Pod", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53581147046202", "length": "64 in", "usd": 735, "ear": "4 pin w/ Bass Pod", "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-for-meze-audio": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51557257118010", "length": "48 in", "usd": 675, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557257150778", "length": "48 in", "usd": 705, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557257183546", "length": "48 in", "usd": 705, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557257216314", "length": "48 in", "usd": 735, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-for-qdc-v2": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51597690339642", "length": "48 in", "usd": 650, "amp": "2.5mm TRRS Balanced Straight [Gold] PM", "plug": "2.5"},
+        {"id": "53581057163578", "length": "48 in", "usd": 650, "amp": "3.5mm TRS Straight [Gold] PM", "plug": "3.5"},
+        {"id": "53581057196346", "length": "48 in", "usd": 680, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30)", "plug": "2.5"},
+        {"id": "53581057229114", "length": "48 in", "usd": 680, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30)", "plug": "3.5"},
+        {"id": "53581057261882", "length": "48 in", "usd": 680, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30)", "plug": "4.4"},
+        {"id": "53581057294650", "length": "48 in", "usd": 710, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60)", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-for-sennheiser-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51557285658938", "length": "48 in", "usd": 675, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557285691706", "length": "48 in", "usd": 705, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557285724474", "length": "48 in", "usd": 705, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557285757242", "length": "48 in", "usd": 735, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-for-shure-mmcx": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51557212913978", "length": "48 in", "usd": 675, "amp": "2.5mm TRRS Moon Audio Straight Gold (Premolded)", "plug": "2.5"},
+        {"id": "51557212946746", "length": "48 in", "usd": 705, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold]", "plug": "3.5"},
+        {"id": "51557212979514", "length": "48 in", "usd": 705, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold]", "plug": "4.4"},
+        {"id": "51557213012282", "length": "48 in", "usd": 735, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable-v2-for-64-audio": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51597669630266", "length": "48 in", "usd": 650, "amp": "2.5mm TRRS Balanced Straight [Gold] (Pre)", "plug": "2.5"},
+        {"id": "53277696229690", "length": "48 in", "usd": 680, "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30.0)", "plug": "2.5"},
+        {"id": "53277696262458", "length": "48 in", "usd": 650, "amp": "3.5mm TRS Straight [Gold] ($0.0) (Pre)", "plug": "3.5"},
+        {"id": "53277696295226", "length": "48 in", "usd": 680, "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "53277696327994", "length": "48 in", "usd": 680, "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "53277696360762", "length": "48 in", "usd": 710, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60.0)", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-iem-cable": {
+      "policy": "Sale cable · final sale",
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51597954351418", "length": "48 in", "usd": 175, "ear": "2-pin IEM with Memory Wire", "amp": "2.5mm TRRS Form Fit Right Angle Male (Gold)", "plug": "2.5"},
+        {"id": "53473991393594", "length": "48 in", "usd": 200, "ear": "2-pin IEM with Memory Wire", "amp": "3.5mm TRS Oyaide Right Angle (Gold)", "plug": "3.5"},
+        {"id": "51605410414906", "length": "48 in", "usd": 205, "ear": "2-pin IEM with Memory Wire", "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605410447674", "length": "48 in", "usd": 185, "ear": "2-pin IEM with Memory Wire", "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"},
+        {"id": "51600317743418", "length": "48 in", "usd": 175, "ear": "Obravo ERIB or EAMT IEMs", "amp": "2.5mm TRRS Form Fit Right Angle Male (Gold)", "plug": "2.5"},
+        {"id": "53473991426362", "length": "48 in", "usd": 200, "ear": "Obravo ERIB or EAMT IEMs", "amp": "3.5mm TRS Oyaide Right Angle (Gold)", "plug": "3.5"},
+        {"id": "51605410513210", "length": "48 in", "usd": 205, "ear": "Obravo ERIB or EAMT IEMs", "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605410545978", "length": "48 in", "usd": 185, "ear": "Obravo ERIB or EAMT IEMs", "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"},
+        {"id": "51597954384186", "length": "64 in", "usd": 200, "ear": "2-pin IEM with Memory Wire", "amp": "2.5mm TRRS Form Fit Right Angle Male (Gold)", "plug": "2.5"},
+        {"id": "53473991459130", "length": "64 in", "usd": 210, "ear": "2-pin IEM with Memory Wire", "amp": "3.5mm TRS Oyaide Right Angle (Gold)", "plug": "3.5"},
+        {"id": "51605410611514", "length": "64 in", "usd": 230, "ear": "2-pin IEM with Memory Wire", "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605410644282", "length": "64 in", "usd": 210, "ear": "2-pin IEM with Memory Wire", "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"},
+        {"id": "51600317776186", "length": "64 in", "usd": 200, "ear": "Obravo ERIB or EAMT IEMs", "amp": "2.5mm TRRS Form Fit Right Angle Male (Gold)", "plug": "2.5"},
+        {"id": "53473991491898", "length": "64 in", "usd": 210, "ear": "Obravo ERIB or EAMT IEMs", "amp": "3.5mm TRS Oyaide Right Angle (Gold)", "plug": "3.5"},
+        {"id": "51605410709818", "length": "64 in", "usd": 230, "ear": "Obravo ERIB or EAMT IEMs", "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605410742586", "length": "64 in", "usd": 210, "ear": "Obravo ERIB or EAMT IEMs", "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"}
+      ]
+    },
+    "silver-dragon-iem-fitear-headphone-cable-v1": {
+      "policy": "Sale cable · final sale",
+      "rushUsd": 25,
+      "variants": [
+        {"id": "51605381579066", "length": "48 in", "usd": 175, "amp": "2.5mm TRRS Form Fit Right Angle Male (Gold)", "plug": "2.5"},
+        {"id": "51605387149626", "length": "48 in", "usd": 175, "amp": "3.5mm TRS Form Fit Right Angle Male (Gold)", "plug": "3.5"},
+        {"id": "51605387182394", "length": "48 in", "usd": 205, "amp": "4.4mm TRRRS Moon Audio Male (Gold)", "plug": "4.4"},
+        {"id": "51605387215162", "length": "48 in", "usd": 185, "amp": "4 pin XLR Neutrik Male (Gold)", "plug": "xlr4"}
+      ]
+    },
+    "silver-dragon-iem-headphone-cable-v2": {
+      "rushUsd": 25,
+      "variants": [
+        {"id": "49052579692858", "length": "48 in", "usd": 650, "ear": "2 pin IEM", "amp": "2.5mm TRRS Balanced Straight [Gold] (Pre)", "plug": "2.5"},
+        {"id": "49798620807482", "length": "48 in", "usd": 650, "ear": "2 pin IEM", "amp": "3.5mm TRS Straight [Gold] ($0.0) (Pre)", "plug": "3.5"},
+        {"id": "49798620873018", "length": "48 in", "usd": 680, "ear": "2 pin IEM", "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30.0)", "plug": "2.5"},
+        {"id": "49798620905786", "length": "48 in", "usd": 680, "ear": "2 pin IEM", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "49798620938554", "length": "48 in", "usd": 680, "ear": "2 pin IEM", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "49798626902330", "length": "48 in", "usd": 710, "ear": "2 pin IEM", "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60.0)", "plug": "4.4"},
+        {"id": "49798620971322", "length": "48 in", "usd": 650, "ear": "4 pin IEM", "amp": "3.5mm TRS Straight [Gold] ($0.0) (Pre)", "plug": "3.5"},
+        {"id": "49798621004090", "length": "48 in", "usd": 650, "ear": "4 pin IEM", "amp": "3.5mm TRS RT Angle [Gold] (Pre)", "plug": "3.5"},
+        {"id": "49798621036858", "length": "48 in", "usd": 680, "ear": "4 pin IEM", "amp": "2.5mm TRRS Moon Audio Balanced Straight Mini [Gold] ($30.0)", "plug": "2.5"},
+        {"id": "49798621069626", "length": "48 in", "usd": 680, "ear": "4 pin IEM", "amp": "3.5mm TRS Moon Audio Straight Male Mini [Gold] ($30.0)", "plug": "3.5"},
+        {"id": "49798621102394", "length": "48 in", "usd": 680, "ear": "4 pin IEM", "amp": "4.4mm TRRRS Moon Audio Balanced Straight [Gold] ($30.0)", "plug": "4.4"},
+        {"id": "49798626967866", "length": "48 in", "usd": 710, "ear": "4 pin IEM", "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($60.0)", "plug": "4.4"}
+      ]
+    },
+    "silver-dragon-portable-headphone-cable": {
+      "ear": {
+        "label": "Headphone Connection",
+        "choices": {
+          "AKG (3-pin Mini XLR)": 0,
+          "Audio Technica ATH-M50x, ATH M40x (Locking 2.5mm TRS)": 0,
+          "Beyerdynamic Amiron Wireless (Slender Gold 3.5mm TRS)": 0,
+          "Beyerdynamic DT 1770 PRO, DT 1990 PRO (3-pin Mini XLR)": 0,
+          "Bose Noise Cancelling 700 (2.5mm TRS)": 0,
+          "Bose QuietComfort 35 and Ultra (2.5mm TRS)": 0,
+          "Focal Bathys & Bathys MG (3.5mm TRS)": 0,
+          "Sennheiser HD 599, 598, 560, 558, 518 (Locking 2.5mm TRRS)": 0,
+          "Sennheiser Momentum 4 (all models) Locking 2.5mm TRRS": 0,
+          "Sennheiser HDB 630 Wireless Headphones": 0,
+          "Sony MDR-1A & MDR-1AM2 (3.5mm TRRS)": 0,
+          "Sony WH-1000XM3, XM4, XM5 or XM6 (3.5mm TRS)": 0,
+          "T+A Solitaire T (2.5mm TRS)": 0
+        }
+      },
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "3.5mm TRS Moon Audio Straight Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "3.5mm TRS Oyaide Right Angled Male Mini [Gold]": {"plug": "3.5", "usd": 25},
+          "1/4\" TRS Furutech Male [Gold]": {"plug": "6.35", "usd": 45}
+        }
+      },
+      "variants": [
+        {"id": "49036955353402", "length": "4 ft", "usd": 235},
+        {"id": "49036955386170", "length": "6 ft", "usd": 255},
+        {"id": "49036955418938", "length": "8 ft", "usd": 275},
+        {"id": "51508560724282", "length": "10 ft", "usd": 295}
+      ]
+    },
+    "silver-dragon-premium-cable-for-denon-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51496238481722", "length": "5 ft", "usd": 925},
+        {"id": "51496238514490", "length": "10 ft", "usd": 1025},
+        {"id": "51496238547258", "length": "15 ft", "usd": 1125}
+      ]
+    },
+    "silver-dragon-premium-cable-for-focal-clear-headphones-v3": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51496251425082", "length": "5 ft", "usd": 925},
+        {"id": "51496251457850", "length": "10 ft", "usd": 1025},
+        {"id": "51496251490618", "length": "15 ft", "usd": 1125}
+      ]
+    },
+    "silver-dragon-premium-cable-for-focal-stellia-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51496256995642", "length": "5 ft", "usd": 925},
+        {"id": "51496257028410", "length": "10 ft", "usd": 1025},
+        {"id": "51496257061178", "length": "15 ft", "usd": 1125}
+      ]
+    },
+    "silver-dragon-premium-cable-for-focal-utopia-headphones-v3": {
+      "rushUsd": 45,
+      "variants": [
+        {"id": "51496261910842", "length": "5 ft", "usd": 980, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium]", "plug": "2.5"},
+        {"id": "53032575271226", "length": "5 ft", "usd": 980, "amp": "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53032575336762", "length": "5 ft", "usd": 1000, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53032575369530", "length": "5 ft", "usd": 980, "amp": "1/4-in TRS Moon Audio Premium Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "53032575402298", "length": "5 ft", "usd": 980, "amp": "4-pin Moon Audio Premium Male XLR [Rhodium] ($0.0)", "plug": "xlr4"},
+        {"id": "51496261943610", "length": "10 ft", "usd": 1080, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium]", "plug": "2.5"},
+        {"id": "53032575500602", "length": "10 ft", "usd": 1080, "amp": "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53032575566138", "length": "10 ft", "usd": 1100, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53032575598906", "length": "10 ft", "usd": 1080, "amp": "1/4-in TRS Moon Audio Premium Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "53032575631674", "length": "10 ft", "usd": 1080, "amp": "4-pin Moon Audio Premium Male XLR [Rhodium] ($0.0)", "plug": "xlr4"},
+        {"id": "51496261976378", "length": "15 ft", "usd": 1180, "amp": "2.5mm TRRS Furutech Balanced Mini [Rhodium]", "plug": "2.5"},
+        {"id": "53032575729978", "length": "15 ft", "usd": 1180, "amp": "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter ($0.0)", "plug": "3.5"},
+        {"id": "53032575795514", "length": "15 ft", "usd": 1200, "amp": "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium] ($20.0)", "plug": "4.4"},
+        {"id": "53032575828282", "length": "15 ft", "usd": 1180, "amp": "1/4-in TRS Moon Audio Premium Stereo [Rhodium] ($0.0)", "plug": "6.35"},
+        {"id": "53032575861050", "length": "15 ft", "usd": 1180, "amp": "4-pin Moon Audio Premium Male XLR [Rhodium] ($0.0)", "plug": "xlr4"}
+      ]
+    },
+    "silver-dragon-premium-cable-for-sennheiser-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51496368832826", "length": "5 ft", "usd": 980, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD820 Series)"},
+        {"id": "51606149529914", "length": "5 ft", "usd": 980, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51496368865594", "length": "10 ft", "usd": 1080, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD820 Series)"},
+        {"id": "51606149562682", "length": "10 ft", "usd": 1080, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"},
+        {"id": "51496368898362", "length": "15 ft", "usd": 1180, "ear": "Recessed 2-Pin Barrel (HD800 HD800S and HD820 Series)"},
+        {"id": "51606149595450", "length": "15 ft", "usd": 1180, "ear": "2-Pin (Furutech FT-2PS for HD6** Series)"}
+      ]
+    },
+    "silver-dragon-premium-cable-for-sony-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "50437295374650", "length": "5 ft", "usd": 950, "ear": "3.5mm Furutech [Rhodium] ($0.0)"},
+        {"id": "50437309890874", "length": "5 ft", "usd": 950, "ear": "3.5mm Switchcraft Stereo Locking ($0.0)"},
+        {"id": "50437295407418", "length": "10 ft", "usd": 1050, "ear": "3.5mm Furutech [Rhodium] ($0.0)"},
+        {"id": "50437309923642", "length": "10 ft", "usd": 1050, "ear": "3.5mm Switchcraft Stereo Locking ($0.0)"},
+        {"id": "50437295440186", "length": "15 ft", "usd": 1150, "ear": "3.5mm Furutech [Rhodium] ($0.0)"},
+        {"id": "50437309956410", "length": "15 ft", "usd": 1150, "ear": "3.5mm Switchcraft Stereo Locking ($0.0)"}
+      ]
+    },
+    "silver-dragon-premium-cable-for-zmf-headphones": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51496419459386", "length": "5 ft", "usd": 825},
+        {"id": "51496419492154", "length": "10 ft", "usd": 925},
+        {"id": "51496419524922", "length": "15 ft", "usd": 1025}
+      ]
+    },
+    "silver-dragon-premium-dan-clark-audio": {
+      "rushUsd": 45,
+      "amp": {
+        "label": "Amplifier Connection Options",
+        "choices": {
+          "2.5mm TRRS Furutech Balanced Mini [Rhodium] (AK, RAL, ALO, etc.)": {"plug": "2.5", "usd": 0},
+          "3.5mm TRS Moon Audio Premium Male Mini [Rhodium] w/ Furutech 1/4 in Adapter": {"plug": "3.5", "usd": 0},
+          "4.4mm TRRRS Moon Audio Premium Balanced Male [Rhodium]": {"plug": "4.4", "usd": 20},
+          "1/4-in TRS Moon Audio Premium Stereo [Rhodium]": {"plug": "6.35", "usd": 0},
+          "4-pin Moon Audio Premium Male XLR [Rhodium]": {"plug": "xlr4", "usd": 0}
+        }
+      },
+      "variants": [
+        {"id": "51496225177914", "length": "5 ft", "usd": 925},
+        {"id": "51496225210682", "length": "10 ft", "usd": 1025},
+        {"id": "51496225243450", "length": "15 ft", "usd": 1125}
+      ]
+    }
+  }
+}

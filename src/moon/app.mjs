@@ -1,6 +1,7 @@
 import {
   keys,
   readBag,
+  updateBag,
   getLocal,
   getSession,
   saveSession,
@@ -141,18 +142,6 @@ function seedBuild(family) {
     history.replaceState(null, '', location.pathname + pack(b))
   paintBuilder()
 }
-async function updateBag(fn) {
-  const update = () => {
-    const old = readBag()
-    if (!old) throw Error('Invalid bag')
-    const next = fn(old)
-    if (!next.every(validLine)) throw Error('Invalid item')
-    localStorage.setItem(keys.bag, JSON.stringify(next))
-  }
-  if (navigator.locks?.request)
-    await navigator.locks.request('moon.bag.1', update)
-  else update()
-}
 async function putLine(line, target, errorId) {
   if (busy) return
   busy = true
@@ -207,7 +196,8 @@ function hardwarePage() {
     hardwareSelection()
   }
 }
-function init() {
+let bagPaint = 0
+async function init() {
   if (route.startsWith('cables/')) seedBuild(route.split('/')[1])
   else if (route.startsWith('products/')) hardwarePage()
   else if (route === 'fit') {
@@ -235,7 +225,31 @@ function init() {
     paint(presenter(deskOpen(), readRequest()?.b))
   else if (['cart', 'review'].includes(route)) {
     const l = readBag()
-    paint(cartView(l || [], route === 'review', !l))
+    const paintId = ++bagPaint
+    const matches = new Map()
+    let invalid = !l
+    if (l?.some((x) => x.kind === 'match')) {
+      // Older bags and ordinary build pages do not need to download the model database.
+      try {
+        const { matchLineDetails } = await import('./matcher/engine.mjs')
+        for (const line of l.filter((x) => x.kind === 'match')) {
+          const details = matchLineDetails(line)
+          if (!details) invalid = true
+          else matches.set(line.id, details)
+        }
+      } catch {
+        if (paintId === bagPaint) {
+          paint(
+            '<section class="wrap single"><h1>Reconnect to open your bag.</h1><p>The fit catalog could not load. Refresh to check your selections and their prices.</p></section>',
+          )
+          page.inert = false
+          delete document.documentElement.dataset.restoring
+        }
+        return
+      }
+    }
+    if (paintId !== bagPaint) return
+    paint(cartView(l || [], route === 'review', invalid, matches))
   } else if (route === 'guides/home') {
     cup = params.get('room') === 'closed' ? 'closed' : 'open'
     port = ['usb', 'jack', 'owned'].includes(params.get('port'))

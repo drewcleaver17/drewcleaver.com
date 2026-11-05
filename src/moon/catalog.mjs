@@ -5,7 +5,8 @@ export const money = (value) =>
   new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-    maximumFractionDigits: 0,
+    minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+    maximumFractionDigits: 2,
   }).format(value)
 export const fees = { rush: 45, usbAdapter: 9 }
 export const families = {
@@ -76,6 +77,7 @@ export const productUrl = (sku) => root + 'products/' + sku + '/'
 export const cableUrl = (family) => root + 'cables/' + family + '/'
 export const paths = {
   entry: root,
+  match: root + 'match/',
   desk: root + 'guides/desk/',
   home: root + 'guides/home/',
   fit: root + 'fit/',
@@ -87,6 +89,9 @@ export const paths = {
 }
 export const routes = [
   '',
+  'match',
+  'match/directory',
+  'match/help',
   ...Object.keys(families).map((x) => 'cables/' + x),
   ...Object.keys(hardware).map((x) => 'products/' + x),
   'guides/desk',
@@ -271,6 +276,14 @@ export function silverAttachment(id) {
 }
 export function validLine(line) {
   if (!line || !validId(line.id)) return false
+  // Match lines carry only an allowlisted fit link. The bag resolves both ends
+  // and the price again before it renders merchandise or guest review.
+  if (line.kind === 'match')
+    return (
+      typeof line.hash === 'string' &&
+      line.hash.startsWith('#m1?') &&
+      line.hash.length <= 2400
+    )
   if (line.kind === 'cable')
     return (
       validBuild(line.build) &&

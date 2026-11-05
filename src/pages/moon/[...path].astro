@@ -18,7 +18,10 @@ import {
   roomGuide,
 } from '../../moon/shop.mjs'
 import { presenter, cartView, advisorView } from '../../moon/service.mjs'
+import { matcherShell } from '../../moon/matcher/view.mjs'
 import '../../moon/workshop.css'
+import '../../moon/matcher/fit.css'
+import '../../moon/matcher/help.css'
 
 export function getStaticPaths() {
   return routes.map((route) => ({
@@ -35,6 +38,9 @@ const title =
       ? hardware[key].name
       : {
           '': 'The cable workshop',
+          match: 'Dragon Cable finder',
+          'match/directory': 'Equipment directory',
+          'match/help': 'Cable finder fit desk',
           'guides/desk': 'A first premium MacBook desk',
           'guides/home': 'Listening at home',
           cart: 'Your workshop bag',
@@ -47,23 +53,27 @@ const title =
 const opening =
   '<div class="wrap single"><p class="eyebrow">Cary cable desk</p><h1>Opening your <em>build card.</em></h1></div>'
 const html =
-  group === 'cables'
-    ? cablePage(blank(key))
-    : group === 'products'
-      ? productPage(key)
-      : route === 'guides/desk'
-        ? deskGuide()
-        : route === 'guides/home'
-          ? roomGuide()
-          : route === 'presenter'
-            ? presenter(true, null)
-            : route === 'advisor'
-              ? advisorView(null, '')
-              : route === 'cart' || route === 'review'
-                ? cartView([], route === 'review')
-                : route === ''
-                  ? landing()
-                  : opening
+  route === 'match' || route === 'match/directory'
+    ? matcherShell(route === 'match/directory')
+    : route === 'match/help'
+      ? '<section class="wrap single"><h1>Your cable <em>fit card.</em></h1><p>Opening your equipment choices…</p></section>'
+      : group === 'cables'
+        ? cablePage(blank(key))
+        : group === 'products'
+          ? productPage(key)
+          : route === 'guides/desk'
+            ? deskGuide()
+            : route === 'guides/home'
+              ? roomGuide()
+              : route === 'presenter'
+                ? presenter(true, null)
+                : route === 'advisor'
+                  ? advisorView(null, '')
+                  : route === 'cart' || route === 'review'
+                    ? cartView([], route === 'review')
+                    : route === ''
+                      ? landing()
+                      : opening
 ---
 
 <!doctype html>
@@ -136,7 +146,7 @@ const html =
           </span>
         </a>
         <nav class="desktop" aria-label="Workshop navigation">
-          <a href={cableUrl('blue')}>Dragon cables</a>
+          <a href={paths.match}>Cable finder</a>
           <a href={productUrl(utopia)}>Headphones</a>
           <a href={paths.desk}>Listening guides</a>
           <a data-help href={paths.fit}>
@@ -176,7 +186,8 @@ const html =
               </svg>
             </summary>
             <nav aria-label="All workshop routes">
-              <a href={root}>Find by gear model</a>
+              <a href={paths.match}>Find by gear model</a>
+              <a href={paths.match + 'directory/'}>Equipment directory</a>
               <a data-expert href={cableUrl('blue') + '?mode=expert'}>
                 I know my connectors
               </a>
@@ -207,7 +218,7 @@ const html =
           <p>Independent concept by Drew Cleaver · Demo checkout</p>
         </div>
         <nav aria-label="Workshop footer">
-          <a href={root}>Shop by model</a>
+          <a href={paths.match}>Shop by model</a>
           <a data-expert href={cableUrl('blue') + '?mode=expert'}>
             I know my connectors
           </a>
@@ -217,7 +228,7 @@ const html =
         </nav>
       </div>
       <div class="wrap footer-fine">
-        Example U.S. merchandise prices · November 4, 2026
+        U.S. merchandise · Price dates appear with each build
       </div>
     </footer>
     <script>
