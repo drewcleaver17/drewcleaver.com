@@ -217,12 +217,14 @@ function start(root) {
     if (suggestSearch) text(suggestSearch,'Suggest this issue');
 
     const protect = !explicit && activeInteraction() && !q;
-    let anchored = pinned ?? Number(document.activeElement?.closest?.('article[data-id]')?.dataset.id);
-    if (protect && anchored && rows.has(anchored)) eligible.add(anchored);
+    const anchored = pinned ?? Number(document.activeElement?.closest?.('article[data-id]')?.dataset.id);
+    const anchor = protect ? rows.get(anchored) : null;
+    const before = anchor && anchor.isConnected && !anchor.hidden ? anchor.getBoundingClientRect() : null;
+    if (anchor) eligible.add(anchored);
     for (const [id,row] of rows) {
       if (!row.parentNode) list.append(row);
-      // A change to the shortlist must not hide/remove an item above the reader’s active control.
-      if (!protect || !anchored) visible(row,eligible.has(id));
+      // Always reconcile membership, even when a linked outsider is focused during the first live refresh.
+      visible(row,eligible.has(id));
     }
     if (!protect) {
       let ids = order.filter(id=>rows.has(id));
@@ -242,6 +244,11 @@ function start(root) {
       }
     }
     results?.syncRows();
+    // Reconcile new or retired rows without moving the focused element in the reader’s viewport.
+    if (before && before.bottom > 0 && before.top < window.innerHeight) {
+      const shift = anchor.getBoundingClientRect().top - before.top;
+      if (Math.abs(shift) > 1) window.scrollBy(0,shift);
+    }
   }
 
   function reportCatalog(v) {
