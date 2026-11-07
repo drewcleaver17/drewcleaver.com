@@ -16,7 +16,7 @@ const titleId = code ? 'title-' + code : undefined;
 <article class="issue-row" id={code ? 'idea-' + code : undefined} data-id={idea?.id} aria-labelledby={titleId}>
   <div class="issue-copy">
     <p class="issue-topic" data-role="topic">{idea?.topic}</p>
-    <h2 class="issue-title" data-role="title" id={titleId} tabindex="-1">{idea?.title}</h2>
+    <h3 class="issue-title" data-role="title" id={titleId} tabindex="-1">{idea?.title}</h3>
     <p class="issue-description" data-role="action">{idea?.action}</p>
     <p class="archive-notice" data-role="archive-notice" hidden>This issue is archived and closed to ratings.</p>
   </div>

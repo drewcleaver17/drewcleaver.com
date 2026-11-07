@@ -1,0 +1,80 @@
+/* The group heading marks the start of a complete comparison set, with a shortcut past its five scales. */
+.grouped-list { border-top: 0; }
+.priority-group, .other-group, .matching-issues { min-width: 0; margin: 0 0 clamp(24px, 5vw, 56px); }
+.group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+  padding: 0 clamp(.45rem, 1.4vw, 1rem);
+  border-top: 2px solid var(--pine);
+  background: #e8eee3;
+}
+.group-heading h2 {
+  min-width: 0;
+  margin: 0;
+  padding: .45rem 0;
+  color: var(--pine);
+  font-size: clamp(1rem, 1.9vw, 1.2rem);
+  line-height: 1.18;
+  font-weight: 710;
+  letter-spacing: -.012em;
+}
+.group-heading a, .back-to-groups {
+  display: inline-flex;
+  min-height: 44px;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: .23em;
+  background: transparent;
+  border: 0;
+  padding: .2em 0;
+  color: var(--pine);
+  font: inherit;
+  font-size: .84rem;
+  font-weight: 640;
+  line-height: 1.2;
+  text-align: end;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.group-heading a span { text-decoration: none; }
+[data-group-rows] .issue-topic { display: none; }
+[data-group-rows] .issue-title { margin-top: 0; }
+[data-group-editor] { min-width: 0; scroll-margin-top: .75rem; }
+.initial-rank-note { margin: .85rem 0; font-size: .95rem; color: var(--quiet); }
+#group-results-tools { margin-bottom: .4rem; }
+#group-results-tools:empty { display: none; }
+@media (max-width:389px) {
+  .group-heading { gap: .25rem .48rem; padding-inline: .45rem; }
+  .group-heading h2 { font-size: .94rem; }
+  .group-heading a, .back-to-groups { font-size: .76rem; }
+  .grouped-list .issue-row { padding-top: 8px; }
+  .list-status { padding-block: .14rem .32rem; }
+  .intro { padding-block: 9px 7px; }
+}
+@media (forced-colors: active) {
+  .group-heading { border-block: 2px solid CanvasText; }
+}
+.topic-jump { display: block; margin-inline-start: auto; min-width: 0; }
+.topic-jump select {
+  width: 8.15em;
+  max-width: 100%;
+  min-height: 44px;
+  border: 0;
+  border-radius: 0;
+  padding: 0 .18em;
+  background: var(--pine);
+  color: #fffdf2;
+  cursor: pointer;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+}
+.topic-jump select:focus-visible { outline-color: #f4dca7; }
+.masthead .topic-jump + .suggest-panel { margin-inline-start: 0; }
+#north-app:has(#status-view:not([hidden])) .topic-jump { display: none; }
+@media (max-width:389px) {
+  .masthead .suggest-object { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .topic-jump select { font-size: .8rem; }
+}
