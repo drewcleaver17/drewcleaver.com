@@ -213,7 +213,13 @@ export function mountResults(container, { api = '', request, credentials = 'omit
   const ratedLabel = el('label', 'pr-filter-check');
   const rated = el('input'); rated.type = 'checkbox'; rated.dataset.ratedOnly = ''; rated.disabled = true;
   ratedLabel.append(rated, document.createTextNode('Rated issues only'));
-  bar.append(searchLabel, ratedLabel);
+  const sortLabel=el('label','pr-sort-label','Order issues by');
+  const sort=el('select','pr-sort');
+  for(const [value,label] of [['name','Issue name (A–Z)'],['median','Highest median priority'],['count','Most ratings']]){
+    const option=el('option','',label);option.value=value;sort.append(option);
+  }
+  sort.disabled=true;sortLabel.append(sort);
+  bar.append(searchLabel, sortLabel, ratedLabel);
   const serviceState = el('p', 'pr-service-state', 'Loading live results…');
   const retry = control('Retry results', 'pr-retry'); retry.hidden = true;
   const countState = el('p', 'pr-search-state'); countState.setAttribute('role', 'status');
@@ -254,19 +260,26 @@ export function mountResults(container, { api = '', request, credentials = 'omit
       : 'No 1–10 ratings yet · ' + plural(total, 'active issue');
     methods.update(report);
     download.disabled = exporting; historic.disabled = exporting; historic.hidden = !hasDate(report.snapshotAt);
-    search.disabled = false; rated.disabled = false;
+    search.disabled = false; rated.disabled = false; sort.disabled = false;
     const ids = new Set(report.ideas.map(i => i.id));
     for (const [id, record] of records) {
       if (!ids.has(id)) { record.row.remove(); records.delete(id); }
     }
-    order = [...report.ideas].sort((a,b) => alphabetical.compare(a.title, b.title) || a.id - b.id);
+    order = [...report.ideas].sort((a,b) => {
+      const nameOrder=alphabetical.compare(a.title,b.title)||a.id-b.id;
+      if(sort.value==='median')return (b.median??-1)-(a.median??-1)||nameOrder;
+      if(sort.value==='count')return b.n-a.n||nameOrder;
+      return nameOrder;
+    });
     keys = new Map(order.map(i => [i.id, normal([i.title, i.topic, ...(i.aliases || [])].join(' '))]));
+    const protectReading=rows.contains(document.activeElement);
     let cursor = rows.firstElementChild;
     for (const i of order) {
       let record = records.get(i.id);
       if (!record) { record = resultRow(i, onRate); records.set(i.id, record); }
       else record.update(i);
-      if (record.row !== cursor) rows.insertBefore(record.row, cursor);
+      if (!record.row.isConnected) rows.append(record.row);
+      if (!protectReading && record.row !== cursor) rows.insertBefore(record.row, cursor);
       cursor = record.row.nextElementSibling;
     }
     filter();
@@ -332,6 +345,7 @@ export function mountResults(container, { api = '', request, credentials = 'omit
   }
   const visibility = () => { if (document.hidden) clearTimeout(timer); else refresh(); };
   document.addEventListener('visibilitychange', visibility);
+  sort.addEventListener('change', () => { if(current)display(current); });
   search.addEventListener('input', filter); rated.addEventListener('change', () => { choseFilter=true; filter(); });
   download.addEventListener('click', () => exportCsv(download, '/survey/export.csv', '45-north-priority-ratings'));
   historic.addEventListener('click', () => exportCsv(historic, '/survey/snapshots.csv', '45-north-friday-snapshots'));
