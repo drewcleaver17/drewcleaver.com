@@ -18,6 +18,7 @@ for (const file of files(root).filter(file => file.endsWith('.html'))) {
   const html = readFileSync(file, 'utf8');
   // Drew authorized proposal links within the unlisted Lab only. Preserve the
   // original inbound-link protections for every other site route.
+  if (!file.startsWith(join(root, '45north') + '/')) assert(!/<a\b[^>]*href=["'][^"']*\/45north(?:[\/?#"'])/i.test(html), '45 North must remain unlisted: ' + file);
   const isLab = file.startsWith(join(root, 'lab') + '/');
   const allowedCampaignLinks = includeCampaign && (isLocalReview || campaign.labLinksApproved) && file === join(root, 'cleaver2028/index.html');
   assert(!/analytics-choice|analytics-settings|googletagmanager\.com|google-analytics\.com|G-N55MYYB3SG/.test(html), 'Analytics must not be present: ' + file);
@@ -46,13 +47,13 @@ const example=readFileSync(join(root, 'p/alex.rivera.example/index.html'), 'utf8
 assert(example.includes('Fictional example') && /noindex, nofollow/.test(example), 'Example must be visibly fictional and noindex.');
 assert.equal((pilot.match(/class="buildmine-question"/g) || []).length, 7, 'Expected seven pilot questions.');
 assert(!pilot.includes('maxlength='), 'Pilot answers must not have a character cap.');
-for (const page of ['preview/index.html', 'motorsport/index.html', 'racingresume/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'metsicare/index.html', 'dpc/index.html']) {
+for (const page of ['45north/index.html', 'preview/index.html', 'motorsport/index.html', 'racingresume/index.html', 'proofpath/index.html', 'tekmetric/index.html', 'metsicare/index.html', 'dpc/index.html']) {
   const html = readFileSync(join(root, page), 'utf8');
   assert(!html.includes('id="analytics-choice"'), 'Unlisted pages must not initialize analytics.');
   assert(/name="robots" content="noindex, nofollow"/.test(html), 'Unlisted pages must ask search engines not to index them: ' + page);
 }
 const sitemap = readFileSync(join(root, 'sitemap.xml'), 'utf8');
-assert(!/\/(preview|writing|motorsport|racingresume|proofpath|tekmetric|metsicare|dpc|ufos)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
+assert(!/\/(45north|preview|writing|motorsport|racingresume|proofpath|tekmetric|metsicare|dpc|ufos)(?:\/|<)/.test(sitemap), 'Private/unlisted routes must stay out of the sitemap.');
 const ufoHtml = readFileSync(join(root, 'nhi/index.html'), 'utf8');
 const ufoData = JSON.parse(readFileSync(new URL('../src/data/ufos/timeline.json', import.meta.url), 'utf8'));
 for (const event of ufoData.events.filter(e => e.publicationStatus === 'published')) {
