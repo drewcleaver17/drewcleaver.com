@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "title": "Work schedules two weeks in advance",
+    "action": "Employers would post hourly shifts 14 days in advance and let workers swap shifts voluntarily."
+  },
+  {
+    "id": 2,
+    "title": "Childcare fees based on family income",
+    "action": "A state would fund licensed childcare places where families pay an income-based share and the state pays providers the balance of an agreed rate."
+  },
+  {
+    "id": 3,
+    "title": "Duplexes and small apartments near jobs and transit",
+    "action": "Cities would allow duplexes and small apartment buildings on suitable lots with existing services near jobs and transit, using a predictable approval process."
+  },
+  {
+    "id": 4,
+    "title": "Paid sick time for hourly workers",
+    "action": "An employer or state program would let hourly workers earn paid sick time for hours worked, including part-time hours."
+  },
+  {
+    "id": 5,
+    "title": "Evening and Saturday primary care",
+    "action": "Community clinics would test evening and Saturday appointments and give patients the visit price or sliding fee when they book."
+  },
+  {
+    "id": 6,
+    "title": "Review of unpaid wage claims",
+    "action": "State labor agencies would assign each wage claim to one person and speed up cases with documented underpayments, giving workers and employers a chance to respond."
+  },
+  {
+    "id": 7,
+    "title": "Bus service for early and late shifts",
+    "action": "A transit agency and major employers would test a bus route that runs in both directions at the start of early shifts and the end of late shifts."
+  },
+  {
+    "id": 8,
+    "title": "Emergency rent payments before eviction",
+    "action": "A county would make small emergency rent payments in time for eligible households to cover a shortfall before eviction."
+  },
+  {
+    "id": 9,
+    "title": "Annual minimum wage adjustments for inflation",
+    "action": "A state would publish and apply an annual inflation adjustment to its minimum wage."
+  },
+  {
+    "id": 10,
+    "title": "Rent listings that include mandatory fees",
+    "action": "Housing agencies and landlords would test listings that include all mandatory monthly fees in the rent shown and list required move-in charges separately."
+  },
+  {
+    "id": 11,
+    "title": "Pay and credentials for apprentices",
+    "action": "Employers and training providers would offer apprenticeships with pay from the first day, published pay steps and a recognized credential."
+  },
+  {
+    "id": 12,
+    "title": "Pay during family or medical leave",
+    "action": "A state insurance program would replace pay during qualifying illness, new parenthood or family caregiving, with a higher percentage of pay replaced for lower earners."
+  },
+  {
+    "id": 13,
+    "title": "School breakfast and lunch for every student",
+    "action": "A state and a school district would cover breakfast and lunch for every student, with no family application or charge at the register."
+  },
+  {
+    "id": 14,
+    "title": "Hospital bill assistance before collections",
+    "action": "Hospitals would help patients check whether they qualify for financial assistance and decide the application before sending a bill to collections."
+  },
+  {
+    "id": 15,
+    "title": "Phone review of delayed unemployment claims",
+    "action": "When a first unemployment payment is delayed, a state agency would flag the claim for a trained examiner who could resolve missing information by phone."
+  },
+  {
+    "id": 16,
+    "title": "Childcare on nights and weekends",
+    "action": "Counties and employers with shift workers would buy reserved places from licensed childcare providers on nights and weekends and pay for staffing those hours."
+  },
+  {
+    "id": 17,
+    "title": "Base pay ranges in job listings",
+    "action": "Before asking people to apply, employers would publish the range of base pay they expect to offer and list tips, bonuses or commissions separately."
+  },
+  {
+    "id": 18,
+    "title": "Car repairs needed to get to work",
+    "action": "When a car breakdown threatens someone’s job and transit is unavailable, a local workforce agency would pay for essential repairs up to a limit, based on an independent quote."
+  },
+  {
+    "id": 19,
+    "title": "Reusable rental screening reports",
+    "action": "Participating landlords would accept the same screening report for 30 days if the renter authorizes it and can correct errors."
+  },
+  {
+    "id": 20,
+    "title": "Insulation and air sealing in homes",
+    "action": "Utilities and local housing programs would pay to insulate eligible homes and seal air leaks, including in rentals where tenants pay the energy bills."
+  },
+  {
+    "id": 21,
+    "title": "Later pickup for after-school care",
+    "action": "School districts and local providers would extend affordable after-school care to cover the time it takes families to get back from work."
+  },
+  {
+    "id": 22,
+    "title": "Cash and insurance prices for prescriptions",
+    "action": "Before checkout, participating pharmacies would show patients both the cash price and their insurance copay for the same drug and quantity."
+  },
+  {
+    "id": 23,
+    "title": "Temporary payments when a raise ends a benefit",
+    "action": "A state would test a payment that decreases over time for people whose modest pay raise would otherwise end a qualifying subsidy all at once."
+  },
+  {
+    "id": 24,
+    "title": "Legal representation after an eviction notice",
+    "action": "Counties would fund legal representation for eligible tenants as soon as they receive an eviction notice."
+  },
+  {
+    "id": 25,
+    "title": "Daily and monthly caps on transit fares",
+    "action": "Transit agencies would cap trip-by-trip charges at the price of the corresponding daily or monthly pass, including for riders who add cash to a fare card."
+  },
+  {
+    "id": 26,
+    "title": "Counseling appointments with sliding fees",
+    "action": "County clinics would contract for counseling appointments that people could book directly at a sliding fee, with some appointments outside work hours."
+  },
+  {
+    "id": 27,
+    "title": "Matching grocery benefits spent on produce",
+    "action": "Local food programs and grocers would match eligible grocery-benefit spending on fruits and vegetables up to a posted limit."
+  },
+  {
+    "id": 28,
+    "title": "Respite care for family caregivers",
+    "action": "Counties would buy hours of respite care that people could book to take a break from caring for an older or disabled relative."
+  },
+  {
+    "id": 29,
+    "title": "Degree requirements in public-sector hiring",
+    "action": "Public employers would remove degree requirements where the job does not need one, assess applicants against published job skills and keep required licenses in place."
+  },
+  {
+    "id": 30,
+    "title": "Pedestrian crossings on routes to work",
+    "action": "Cities would choose a crossing with people who use it and test a change suited to the site, such as adjusting signal timing, changing lighting or adding a pedestrian island."
+  },
+  {
+    "id": 31,
+    "title": "Utility shutoffs during extreme heat or cold",
+    "action": "Utilities and regulators would set heat and cold thresholds for pausing shutoffs and offer a way to repay overdue bills after the extreme weather passes."
+  },
+  {
+    "id": 32,
+    "title": "Short-term premium help after job coverage ends",
+    "action": "States would test short-term help with premiums for eligible people who lose job-based health coverage and are moving to another plan."
+  },
+  {
+    "id": 33,
+    "title": "Paid heat breaks for outdoor workers",
+    "action": "Employers and public contractors would test paid rest breaks, drinking water and accessible shade for outdoor workers based on heat conditions at the worksite."
+  },
+  {
+    "id": 34,
+    "title": "Exam fees and starter tools for trades",
+    "action": "Workforce boards would pay eligible exam fees and starter-tool costs before a worker’s first paycheck, while keeping employers’ existing obligations in place."
+  },
+  {
+    "id": 35,
+    "title": "Deadlines for urgent rental repairs",
+    "action": "City inspectors would prioritize urgent problems such as lost heat or water, set a repair deadline and verify with tenants that the work was done."
+  },
+  {
+    "id": 36,
+    "title": "Vanpools for rural shift workers",
+    "action": "Regional employers and transit providers would test vanpools timed to rural work shifts on routes without practical bus service."
+  },
+  {
+    "id": 37,
+    "title": "Payroll savings without a workplace retirement plan",
+    "action": "States would offer workers without a workplace plan a portable, low-fee retirement savings option through payroll, with fees clearly shown and an easy way to opt out."
+  },
+  {
+    "id": 38,
+    "title": "Hearings on retaliation claims over worker organizing",
+    "action": "Federal lawmakers would fund faster independent hearings for workers who report retaliation for organizing, with time for employers to respond."
+  },
+  {
+    "id": 39,
+    "title": "Reusing documents for benefit applications",
+    "action": "Benefits agencies would let applicants choose to reuse verified documents across programs where permitted, with phone and paper alternatives available."
+  },
+  {
+    "id": 40,
+    "title": "Basic home internet with equipment included",
+    "action": "Local governments would negotiate a low-cost home internet plan with providers that includes equipment and states the ongoing monthly price."
+  },
+  {
+    "id": 41,
+    "title": "Urgent dental appointments for uninsured adults",
+    "action": "Counties would buy urgent appointments at community dental clinics for uninsured adults, with a published sliding fee."
+  },
+  {
+    "id": 42,
+    "title": "Evening and weekend tax filing help",
+    "action": "Libraries and qualified tax-help providers would offer free filing appointments on evenings and weekends for eligible households."
+  },
+  {
+    "id": 43,
+    "title": "Resale prices for land-trust starter homes",
+    "action": "Local land trusts would keep ownership of the land and sell homes under a resale price formula that buyers can review before purchase."
+  },
+  {
+    "id": 44,
+    "title": "Monthly child tax credit payments",
+    "action": "A state would test an optional monthly payment of a refundable child tax credit, with an easy way to update income and a hardship process for overpayments."
+  },
+  {
+    "id": 45,
+    "title": "Employee profit sharing",
+    "action": "Employers would test a published formula for sharing profits on top of agreed base wages, include hourly staff and explain any period without a payout."
+  }
+]
