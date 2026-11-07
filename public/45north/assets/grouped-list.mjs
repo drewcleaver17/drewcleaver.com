@@ -173,7 +173,9 @@ function groupedLayout({root, list, rows, order, request, onStale}) {
     const match = hash.match(/^#(group|order)-([a-z][a-z0-9-]*)$/);
     if (!match) return false;
     const section = sections.get(match[2]);
-    if (!section || section.section.hidden) return false;
+    if (!section) return false;
+    if (section.section.hidden) restoreGroups();
+    if (section.section.hidden) return false;
     requestAnimationFrame(() => {
       if (match[1] === 'group') {
         const heading = section.section.querySelector('[data-group-title]');
