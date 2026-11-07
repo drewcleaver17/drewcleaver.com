@@ -1,14 +1,15 @@
 ---
 import catalog from '../../data/45north.json';
+import instrument from '../../data/45north-survey.json';
 import { profile } from '../../data/profile';
-import NorthIdeaRow from '../../components/NorthIdeaRow.astro';
 
-const title = '45 North · The Idea 250 — Drew Cleaver';
-const description = 'Which changes would make the biggest difference in your week? Vote on practical ideas, suggest one of your own, or share a place to try one.';
+const title = '45 North · Community priorities — Drew Cleaver';
+const description = 'How much of a priority should each change be in your community? Rate issues from 1 to 10 and explore the responses.';
 const canonical = new URL('/45north/', profile.website).href;
 const api = import.meta.env.PUBLIC_45NORTH_API ?? 'https://forty-five-north-api.drewcleaver.chatgpt.site';
 const preview = ['1', 'true'].includes(import.meta.env.PUBLIC_45NORTH_PREVIEW ?? '');
-const previewNotice = import.meta.env.PUBLIC_45NORTH_PREVIEW_NOTICE || 'Owner-only rehearsal · test votes use one shared connection.';
+const wording = new Map(instrument.map(item => [item.id, item]));
+const seed = catalog.map(idea => ({...idea, ...wording.get(idea.id)})).sort((a,b) => a.title.localeCompare(b.title, 'en'));
 ---
 <!doctype html>
 <html lang="en">
@@ -22,111 +23,139 @@ const previewNotice = import.meta.env.PUBLIC_45NORTH_PREVIEW_NOTICE || 'Owner-on
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="45 North · The Idea 250" />
+    <meta property="og:title" content="45 North · Community priorities" />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/45north/assets/chart.css" />
+    <link rel="stylesheet" href="/45north/assets/survey.css" />
+    <link rel="stylesheet" href="/45north/assets/survey-results.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="masthead">
-      <div class="wrap masthead-inner">
-        <a class="north-mark" href="/45north/" aria-label="45 North, see the chart">
-          <span class="direction" aria-hidden="true"></span><span><strong>45</strong> North</span>
-        </a>
-        <a class="owner" href="/">{profile.name}<span aria-hidden="true">↗</span></a>
-      </div>
-    </header>
-    <main id="main" tabindex="-1">
-      <div id="north-app" data-north data-api={api} data-email={profile.email} data-preview={preview ? 'true' : undefined}>
-        {preview && <p class="preview-note wrap">{previewNotice}</p>}
-        <section id="north-intro" class="intro">
-          <div class="wrap intro-layout">
-            <div class="intro-copy">
-              <h1>Which of these would make the biggest difference in <em>your week?</em></h1>
-              <p>Vote higher or lower priority on as many or as few ideas as you like. You can change your vote.</p>
+    <div id="north-app" data-north data-api={api} data-email={profile.email} data-preview={preview ? 'true' : undefined}>
+      <header class="masthead">
+        <div class="wrap masthead-inner">
+          <a class="north-mark" href="#rate" aria-label="45 North, rate issues"><span class="direction" aria-hidden="true"></span><span><strong>45</strong> North</span></a>
+          <nav class="view-nav" aria-label="Survey navigation">
+            <a class="view-link" href="#rate" aria-current="page">Rate issues</a>
+            <a class="view-link" href="#browse">Browse</a>
+            <a class="view-link" href="#results">Results</a>
+          </nav>
+        </div>
+      </header>
+      {preview && <p class="wrap preview-note">Owner-only rehearsal. Ratings and suggestions here use one shared test connection.</p>}
+      <main class="wrap survey-main" id="main" tabindex="-1">
+        <div class="survey-layout">
+          <section id="rate-view" aria-labelledby="rate-heading">
+            <div class="survey-intro">
+              <h1 id="rate-heading" tabindex="-1">Community priorities</h1>
+              <p class="intro-copy">Tap a number to save your rating. Issues appear in random order. Stop whenever you like.</p>
             </div>
-            <div class="intro-tools">
-              <button id="rate-three" type="button" class="rate-action" disabled={!api}><span class="deck-icon" aria-hidden="true"><i></i><i></i><i></i></span>Rate 3 ideas</button>
-              <details id="suggest-view" class="suggest-box">
-                <summary><span class="plus-icon" aria-hidden="true"></span>Suggest an idea</summary>
-                <form id="suggest-form">
-                  <label for="suggest-text">What would you change?</label>
-                  <p class="form-hint" id="suggest-hint">One sentence is enough. Please leave out personal details.</p>
-                  <textarea id="suggest-text" name="text" required maxlength="500" rows="3" aria-describedby="suggest-hint"></textarea>
-                  <div data-role="matches"></div>
-                  <button type="submit" class="submit-action" disabled>Send suggestion</button>
-                  <div data-role="form-result" aria-live="polite"></div>
-                </form>
+            <p id="survey-loading" role="status">Choosing an issue…</p>
+            <p id="catalog-notice" role="status" hidden></p>
+            <article id="issue-card" class="issue-card" aria-labelledby="issue-title" hidden>
+              <div class="issue-meta"><p class="topic" id="issue-topic"></p><span class="session-progress" id="session-progress"></span></div>
+              <h2 id="issue-title" tabindex="-1"></h2>
+              <p id="issue-action" class="issue-action"></p>
+              <fieldset id="priority-scale" class="scale" aria-describedby="scale-anchors" disabled>
+                <legend id="rating-question">How much of a priority should this change be in your community?</legend>
+                <div class="scale-buttons">
+                  {Array.from({ length: 10 }, (_, i) => i + 1).map(score => <button type="button" class="score" data-score={score} aria-pressed="false" aria-label={score === 1 ? '1, lowest priority' : score === 10 ? '10, highest priority' : String(score)}>{score}</button>)}
+                </div>
+                <div id="scale-anchors" class="scale-anchors"><span>1 · Lowest priority</span><span>10 · Highest priority</span></div>
+              </fieldset>
+              <div id="rating-receipt" class="survey-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+              <div class="card-actions">
+                <button type="button" data-action="next" class="primary-action" hidden>Next issue</button>
+                <button type="button" data-action="skip" class="secondary-action">Not sure / skip</button>
+                <button type="button" data-action="previous" class="text-action" hidden>Previous issue</button>
+                <button type="button" data-action="finish" class="text-action" hidden>Finish for now</button>
+              </div>
+              <p id="issue-notice" class="issue-notice" hidden></p>
+              <details id="issue-details" class="issue-details">
+                <summary>What would trying this involve?</summary>
+                <dl class="detail-list">
+                  <div data-example hidden><dt>Example</dt><dd id="issue-example"></dd></div>
+                  <div><dt>A question to work out</dt><dd id="issue-question"></dd></div>
+                  <div><dt>How to judge a pilot</dt><dd id="issue-measure"></dd></div>
+                </dl>
               </details>
-            </div>
-          </div>
-        </section>
-        <section id="shared-view" class="wrap mode-view" hidden></section>
-        <section id="deck-view" class="wrap mode-view" hidden></section>
-        <section id="status-view" class="wrap mode-view" hidden></section>
-        <section id="chart-view" class="wrap chart" aria-labelledby="chart-title">
-          <div class="chart-top">
-            <div class="chart-names">
-              <h2 id="chart-title">The Idea <em>250</em></h2>
-              <span class="window">Past 30 days</span>
-            </div>
-            <div class="search-box">
-              <label for="search"><span class="visually-hidden">Search ideas by number, topic or your own words</span><span class="search-icon" aria-hidden="true"></span></label>
-              <input id="search" type="search" placeholder="Search ideas by topic, words or #" autocomplete="off" spellcheck="false" />
-            </div>
-          </div>
-          <div class="chart-notes">
-            <p id="chart-state">{api ? 'Checking live standings…' : 'Reading the launch catalog. Live standings and voting are unavailable.'}</p>
-            <p class="privacy-short">{preview ? 'Public chart on drewcleaver.com · No cookies. No Google or ad tracking. No account needed.' : 'No cookies. No Google or ad tracking. No account needed.'}</p>
-          </div>
-          <noscript><p class="preview-note">You can read the launch ideas and open their details. Enable JavaScript to load live standings, vote or send a suggestion.</p></noscript>
-          <p class="search-summary" id="search-summary" aria-live="polite"></p>
-          <button class="inline-action" id="search-suggest" type="button" hidden>Suggest this idea</button>
-          <div class="chart-legend" aria-hidden="true"><span>Rank</span><span>Proposal</span><span>Your priority</span></div>
-          <div id="chart-list">{catalog.map(idea => <NorthIdeaRow idea={idea} />)}</div>
-          <button id="more-ideas" type="button" class="inline-action" hidden>More ideas</button>
-          <p data-role="snapshot" class="snapshot" hidden></p>
-        </section>
-        <section class="wrap guide" aria-label="About 45 North" data-chart-only>
-          <details id="how-it-works">
-            <summary>How it works</summary>
-            <div>
-              <p>Upvote an idea to put it higher on the list. Downvote it if other issues should come first. Skipping or feeling unsure says nothing about your support. You can vote on one idea, all of them or any number in between.</p>
-              <p>#1 has the highest net score over the past 30 days. Each upvote adds one and each downvote subtracts one. A tie goes in permanent idea-number order. Up to 250 ideas have chart positions. Every approved idea can appear in search and Rate 3.</p>
-              <p>Each connection gets one active vote per idea. Switching direction starts a fresh 30 days. Repeating the same choice leaves its original expiry intact. “Remove vote” clears your choice on that idea. The chart takes a snapshot each Friday at 6 p.m. Chicago time. A move can reflect votes expiring or other ideas changing position.</p>
-              <p>Participation is voluntary. The chart helps Drew choose what to investigate. A chance to try an idea can come at any rank. Open an idea to see its dated updates when there is something to report. Upvotes on Reddit stay on Reddit.</p>
-            </div>
+              <div id="issue-updates" class="issue-updates" hidden></div>
+              <div class="issue-tools">
+                <button type="button" data-action="share" class="text-action">Share this issue</button>
+                <button type="button" data-action="opportunity" class="text-action">Know a place to try this?</button>
+              </div>
+              <div data-role="share-result" class="share-result" role="status"></div>
+              <div data-role="opportunity-form" class="opportunity-form" hidden></div>
+              <details id="rating-management" class="rating-management">
+                <summary>Change or remove a rating</summary>
+                <p>Pick another number to change this connection’s rating for this issue. People using the same public IP share that rating.</p>
+                <button type="button" data-action="remove" class="text-action">Remove rating</button>
+              </details>
+            </article>
+            <section id="survey-finished" class="issue-card finished-card" aria-labelledby="finished-heading" hidden>
+              <h2 id="finished-heading" tabindex="-1">Finished for now</h2>
+              <p id="finished-message"></p>
+              <div class="card-actions"><button type="button" data-action="resume" class="primary-action">Keep rating</button><a href="#results" class="secondary-action">View results</a><a href="#browse" class="text-action">Browse issues</a></div>
+            </section>
+            <p class="privacy-short">{preview ? 'Public survey on drewcleaver.com · ' : ''}No cookies. No Google or ad tracking. No account needed.</p>
+            <p class="suggest-invite"><a href="#suggest">Suggest an issue</a></p>
+          </section>
+          <section id="browse-view" aria-labelledby="browse-heading" hidden>
+            <div class="survey-intro"><h1 id="browse-heading" tabindex="-1">Browse issues</h1><p class="intro-copy">Find a proposal in your own words, or browse by title.</p></div>
+            <label class="search-box" for="search"><span class="sr-only">Search by words, topic or idea number</span><input id="search" type="search" placeholder="Search issues or topics" autocomplete="off" /></label>
+            <div class="browse-tools"><p id="search-summary" role="status"></p><a href="#suggest" id="search-suggest">Suggest an issue</a></div>
+            <ul id="browse-list" class="browse-list">{seed.map(idea => <li><a class="issue-link" href={'#idea-' + String(idea.id).padStart(3, '0')}><span class="browse-title">{idea.title}</span><span class="browse-topic">{idea.topic}</span></a></li>)}</ul>
+          </section>
+          <section id="suggest-view" aria-labelledby="suggest-heading" hidden>
+            <div class="survey-intro"><h1 id="suggest-heading" tabindex="-1">Suggest an issue</h1><p class="intro-copy">What change is missing from this survey?</p></div>
+            <form id="suggest-form" class="suggest-form">
+              <label for="suggest-text">What would you change?</label>
+              <p class="form-hint" id="suggest-hint">One sentence is enough. Leave out personal details.</p>
+              <textarea id="suggest-text" name="text" required maxlength="500" rows="4" aria-describedby="suggest-hint"></textarea>
+              <div data-role="matches" class="form-matches"></div>
+              <button type="submit" class="primary-action" disabled>Send suggestion</button>
+              <div data-role="form-result" class="form-result" aria-live="polite"></div>
+            </form>
+          </section>
+          <section id="status-view" class="status-view" hidden></section>
+          <section id="results-view" hidden></section>
+        </div>
+        <section class="guide" aria-label="About the survey">
+          <details id="survey-method"><summary>How ratings work</summary>
+            <p>Give each change its own number from 1 to 10. A low number means you would give this change less priority in your community. You can support a proposal and still put other needs ahead of it. You can give different issues the same score.</p>
+            <p>The survey draws one issue at a time from all active proposals, without repeating in this visit. Browsing and shared links let you choose a specific issue. You can skip as many as you want. Skips never enter the results.</p>
+            <p>Each public connection has one active rating per issue. A new rating or a change counts for 30 days. Repeating the same number keeps its expiry. You can remove your rating from that issue at any time.</p>
+            <p>Drew Cleaver runs this voluntary, unweighted online survey to choose what to investigate. Results describe participating connections. An open link and self-selected questions cannot establish what a representative community or national sample thinks. Public results include the scale, distribution and number of ratings per issue. The earlier up/down chart is a separate instrument.</p>
           </details>
-          <details id="north-privacy">
-            <summary>Privacy and shared connections</summary>
-            <div>
-              <p>{preview && 'Public chart on drewcleaver.com · '}No cookies. No Google or ad tracking. No account needed. Search and drafts stay in this page until you choose to send something. Public share links contain only the idea’s permanent address.</p>
-              <p>For each idea, the vote service turns the connection’s public IP address into a private code specific to that idea. The voting database stores the code and choice without the raw IP. People on the same public IP can replace each other’s vote on that idea. A new address can count as a different connection. Totals describe voluntary feedback and cannot tell us how many different people participated across ideas or what all workers think.</p>
-              <p>GitHub Pages logs visitor IP addresses for security. OpenAI Sites and Cloudflare process connection information to deliver and protect the vote service. Their infrastructure logs may include IP, time, route and status. The application writes no request-body or choice logs. Cloudflare can return a security-cookie header. The public chart disables credentials on every service request, so the browser neither accepts nor sends that cookie.</p>
-              {preview && <p>This owner-only rehearsal uses your signed-in session for access. It stores test activity separately and uses one shared test connection.</p>}
-              <p>Suggestions and pilot leads go to private review. An optional private status link lets its holder see the decision and any resulting public idea. Your text and the reviewer’s notes stay private. The expiry date appears with your link.</p>
-            </div>
+          <details id="north-privacy"><summary>Privacy and shared connections</summary>
+            <p>The public survey turns a connection’s public IP into a private, issue-specific code. The rating database stores the code and score without the raw IP. People sharing an address can replace each other’s rating on an issue. A changed address can count as another connection. There is no cross-issue respondent count.</p>
+            <p>GitHub Pages logs IP addresses for security. OpenAI Sites and Cloudflare process connection details to deliver and protect the service. Infrastructure logs may include IP, time, route and status. The application writes no request-body or choice logs. Cloudflare can offer a security cookie. The public survey makes service requests with credentials omitted, so browsers neither store nor send it.</p>
+            <p>Searches stay in your browser. Sending a suggestion or pilot lead puts it in Drew’s private review queue. You can keep a private status link for the outcome. Your text and reviewer notes stay private.</p>
+            {preview && <p>The owner-only rehearsal uses its existing sign-in for access. Its data is separate from public responses.</p>}
           </details>
-          <details>
-            <summary>Why 45 North?</summary>
-            <div><p>The name borrows from Houston’s I‑45 and gives a nod to 85 South. Trump’s first term raised a question for Drew. Which changes would people living with these decisions put first?</p></div>
-          </details>
+          <details><summary>Why 45 North?</summary><p>The name borrows from Houston’s I‑45 and gives a nod to 85 South. Trump’s first term raised a question for Drew. Which changes would people living with these decisions put first?</p></details>
         </section>
-        <template id="north-card"><NorthIdeaRow /></template>
-        <script is:inline type="application/json" id="north-catalog" set:html={JSON.stringify(catalog).replaceAll('<', '\\u003c')} />
-      </div>
-    </main>
-    <footer class="wrap site-credit"><span>45 North</span><a href="/">Drew Cleaver <span aria-hidden="true">↗</span></a></footer>
+        <noscript><section class="no-script"><h2>Read the launch proposals</h2><p>Enable JavaScript to rate an issue, send a suggestion or view current results.</p>{seed.map(idea => <details id={'idea-' + String(idea.id).padStart(3, '0')}><summary>{idea.title}</summary><p>{idea.action}</p><p>{idea.question}</p><p>{idea.measure}</p></details>)}</section></noscript>
+      </main>
+      <footer class="wrap site-credit"><a href="#rate">45 North</a><a href="/">{profile.name} <span aria-hidden="true">↗</span></a></footer>
+      <script is:inline type="application/json" id="north-catalog" set:html={JSON.stringify(seed).replaceAll('<', '\\u003c')} />
+    </div>
     <script is:inline>
-      // The native fragment brings a shared launch proposal into view even while the full client is still downloading.
-      if (/^#idea-\d+$/.test(location.hash)) {
-        const target = document.getElementById(location.hash.slice(1));
-        const detail = target && target.querySelector('details');
-        if (detail) detail.open = true;
+      // A shared launch issue is readable while the service confirms the current catalog.
+      const sharedId = /^#idea-(\d+)$/.exec(location.hash);
+      if (sharedId) {
+        const seed = JSON.parse(document.getElementById('north-catalog').textContent);
+        const issue = seed.find(item => item.id === Number(sharedId[1]));
+        if (issue) {
+          document.getElementById('issue-title').textContent = issue.title;
+          document.getElementById('issue-action').textContent = issue.action;
+          document.getElementById('issue-topic').textContent = issue.topic;
+          document.getElementById('issue-card').hidden = false;
+          document.getElementById('survey-loading').hidden = true;
+        }
       }
     </script>
-    <script is:inline type="module" src="/45north/assets/client.mjs"></script>
+    <script is:inline type="module" src="/45north/assets/survey.mjs"></script>
   </body>
 </html>
