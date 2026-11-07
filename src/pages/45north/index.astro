@@ -38,7 +38,17 @@ const seed = catalog.map(issue => ({...issue, ...wording.get(issue.id)}))
       <header class="masthead">
         <div class="wrap masthead-inner">
           <a class="north-mark" href="/45north/" aria-label="45 North home"><span class="direction" aria-hidden="true"></span><span><strong>45</strong> North</span></a>
-          <a class="owner" href="/">{profile.name}<span aria-hidden="true">↗</span></a>
+          <details class="suggest-panel" id="suggest-panel">
+            <summary><span class="add" aria-hidden="true">+</span> Suggest an issue</summary>
+            <form id="suggest-form" class="suggest-form">
+              <label for="suggest-text">What would you change?</label>
+              <p class="form-hint" id="suggest-hint">One sentence is enough. Leave out personal details.</p>
+              <textarea id="suggest-text" name="text" required maxlength="500" rows="3" aria-describedby="suggest-hint"></textarea>
+              <div data-role="matches" class="form-matches"></div>
+              <button type="submit" class="primary-action" disabled>Send suggestion</button>
+              <div data-role="form-result" aria-live="polite" class="form-result"></div>
+            </form>
+          </details>
         </div>
       </header>
       {preview && <p class="wrap preview-note">Owner-only rehearsal. Everyone here shares one test connection.</p>}
@@ -48,25 +58,14 @@ const seed = catalog.map(issue => ({...issue, ...wording.get(issue.id)}))
             <div class="intro-copy">
               <h1 id="list-title" tabindex="-1">Rate the Top <em id="list-count">{Math.min(45, seed.length)}</em></h1>
               <p class="priority-question" id="rating-question">How much of a priority should this change be in your community?</p>
-              <p class="intro-hint">Tap a number to save. Rate as many issues as you like.</p>
+              <p class="intro-hint">Tap a number to save. Skip any issue.</p>
             </div>
             <p class="scale-key" id="scale-anchors"><span><strong>1</strong> Lowest priority</span><span class="scale-line" aria-hidden="true"></span><span><strong>10</strong> Highest priority</span></p>
             <span id="rating-label" class="sr-only">Priority rating for</span>
           </div>
           <div class="list-toolbar">
-            <label class="search-box" for="search"><span class="search-glyph" aria-hidden="true"></span><span class="sr-only">Find an issue by words, topic or issue number</span><input id="search" type="search" placeholder="Find an issue or topic" autocomplete="off" /></label>
+            <label class="search-box" for="search"><span class="search-glyph" aria-hidden="true"></span><span class="sr-only">Find an issue by words, topic or issue number</span><input id="search" type="search" placeholder="Find an issue" autocomplete="off" /></label>
             <label class="result-switch"><input id="show-results" type="checkbox" aria-controls="results-tools issue-list" /> <span>Show community results</span></label>
-            <details class="suggest-panel" id="suggest-panel">
-              <summary><span class="add" aria-hidden="true">+</span> Suggest an issue</summary>
-              <form id="suggest-form" class="suggest-form">
-                <label for="suggest-text">What would you change?</label>
-                <p class="form-hint" id="suggest-hint">One sentence is enough. Leave out personal details.</p>
-                <textarea id="suggest-text" name="text" required maxlength="500" rows="3" aria-describedby="suggest-hint"></textarea>
-                <div data-role="matches" class="form-matches"></div>
-                <button type="submit" class="primary-action" disabled>Send suggestion</button>
-                <div data-role="form-result" aria-live="polite" class="form-result"></div>
-              </form>
-            </details>
           </div>
           <div id="results-tools" hidden></div>
           <div class="list-status">

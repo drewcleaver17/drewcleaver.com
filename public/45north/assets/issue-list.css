@@ -236,3 +236,29 @@ h1 em { font-weight: 400; color: #56775b; }
   *, ::before, ::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }
 .archive-notice { margin-top: .4rem; color: #775324; font-size: .87rem; font-weight: 630; }
+
+/* The contribution form opens in place in the masthead, leaving the whole reading surface for rating. */
+.masthead .suggest-panel { margin-inline-start: auto; }
+.masthead .suggest-panel > summary { min-height: 44px; color: #fffdf2; font-size: .84rem; }
+.masthead .suggest-panel > summary:focus-visible { outline-color: #f4dca7; }
+.masthead .suggest-panel[open] { flex: 1 0 100%; margin: 0 0 .6rem; }
+.masthead .suggest-panel[open] > summary { justify-content: flex-start; }
+.masthead .suggest-form { max-width: 45rem; padding: .75rem; color: var(--ink); background: var(--paper); border-radius: 5px; }
+.masthead .suggest-form a { color: var(--pine); text-decoration: underline; }
+#north-app:has(#status-view:not([hidden])) .masthead .suggest-panel { display: none; }
+.list-toolbar { grid-template-columns: minmax(0, 1fr) auto; }
+@media (max-width: 720px) {
+  .scale-key { width: 100%; }
+  .list-toolbar { display: flex; flex-wrap: wrap; align-items: center; column-gap: .65rem; }
+  .search-box { flex: 1 1 8em; }
+  .result-switch { flex: 0 1 auto; max-width: 100%; }
+  .result-switch span { min-width: 0; }
+  .list-status { padding-top: .4rem; }
+}
+@media (max-width: 389px) {
+  .list-toolbar { column-gap: .5rem; }
+  .result-switch { max-width: 41%; }
+  .scale-line { flex-basis: .85rem; }
+  .intro { gap: .2rem; }
+  .list-status { padding-block: .3rem .45rem; }
+}

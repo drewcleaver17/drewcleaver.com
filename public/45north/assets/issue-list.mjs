@@ -130,6 +130,7 @@ function start(root) {
     let row = rows.get(idea.id);
     if (!row) {
       row = template.content.querySelector('article').cloneNode(true);
+      row.hidden = true;
       rows.set(idea.id,row); rememberOrder(idea.id);
     }
     const code = ideaCode(idea.id), titleId = 'title-'+code;
@@ -145,7 +146,7 @@ function start(root) {
       for (const field of ['topic','title','action','example','question','measure']) text(role(row,field),idea[field]);
       visible(row.querySelector('[data-example]'),Boolean(idea.example));
       visible(row.querySelector('[data-action=opportunity]'),!closed);
-      visible(row.querySelector('[data-action=remove]'),!closed);
+      for (const remove of row.querySelectorAll('[data-action=remove]')) visible(remove,!closed);
       visible(role(row,'archive-notice'),closed);
     }
     paintNote(role(row,'updates'),idea.note);
@@ -170,18 +171,20 @@ function start(root) {
       b.setAttribute('aria-disabled',String(unavailable || busy));
     }
     setTabStop(row,Number(row.dataset.tabScore) || selected?.score || 1);
-    const remove = row.querySelector('[data-action=remove]');
-    if (remove) { remove.disabled = unavailable; remove.setAttribute('aria-disabled',String(unavailable||busy)); }
+    for (const remove of row.querySelectorAll('[data-action=remove]')) {
+      remove.disabled = unavailable; remove.setAttribute('aria-disabled',String(unavailable||busy));
+    }
     const out = role(row,'receipt'), confirmation = feedback.get(id);
-    const key = busy ? 'pending' : JSON.stringify(confirmation || null);
+    const key = busy ? 'pending' : JSON.stringify([confirmation || null,unavailable]);
     if (out.dataset.state === key) return;
+    if (out.contains(document.activeElement)) focus(scale.querySelector('[data-score="'+row.dataset.tabScore+'"]'));
     out.dataset.state = key; out.replaceChildren();
     if (busy) { out.append(document.createTextNode('Saving your rating…')); return; }
     if (!confirmation) return;
     out.append(element('span',confirmation.message,confirmation.error ? 'status-error' : ''));
     if (confirmation.error) out.append(' ',button('retry-rating','Retry'));
     else if (selected) {
-      out.append(' ',button('remove','Remove rating','text-action receipt-remove'));
+      if (!unavailable) out.append(' ',button('remove','Remove rating','text-action receipt-remove'));
       const detail = element('details',null,'rating-expiry');
       detail.append(element('summary','Rating expiry'),element('p','This rating counts through '+when(selected.expiresAt)+'.'));
       out.append(detail);
@@ -219,11 +222,18 @@ function start(root) {
     for (const [id,row] of rows) {
       if (!row.parentNode) list.append(row);
       // A change to the shortlist must not hide/remove an item above the reader’s active control.
-      if (!protect || row.hidden || !anchored) visible(row,eligible.has(id));
+      if (!protect || !anchored) visible(row,eligible.has(id));
     }
     if (!protect) {
-      const ids = order.filter(id=>rows.has(id));
+      let ids = order.filter(id=>rows.has(id));
       if (compare) ids.sort(compare);
+      else if (q) {
+        const relevance = new Map(found.map((idea,index)=>[idea.id,index]));
+        ids.sort((a,b)=>(relevance.get(a)??Number.MAX_SAFE_INTEGER)-(relevance.get(b)??Number.MAX_SAFE_INTEGER));
+      } else {
+        // Expanding the list leaves the original 45 in place and adds contenders below.
+        ids = [...ids.filter(id=>shortlist.has(id)), ...ids.filter(id=>!shortlist.has(id))];
+      }
       let cursor = list.firstElementChild;
       for (const id of ids) {
         const row = rows.get(id);
@@ -245,11 +255,15 @@ function start(root) {
     catalogReady = true; offline = false; catalogError = '';
     for (const i of items) bindRow(i);
     for (const [id,row] of rows) if (!byId.has(id)) {
-      row.dataset.archived = 'true'; paintChoice(row,id);
+      row.dataset.archived = 'true';
+      visible(role(row,'archive-notice'),true);
+      visible(row.querySelector('[data-action=opportunity]'),false);
+      for(const remove of row.querySelectorAll('[data-action=remove]'))visible(remove,false);
+      paintChoice(row,id);
     }
     if (!privateToken) display();
     if (target!=null && !byId.has(target)) lookupTarget(target,routeSeq);
-    if (target!=null && byId.has(target) && !jumped) jump(target);
+    if (target!=null && byId.has(target)) { routeNote=''; if(!jumped) jump(target); }
     paintNotice();
   }
 
@@ -535,7 +549,7 @@ function start(root) {
     const hash=location.hash,match=hash.match(/^#idea-(\d+)$/),status=hash.match(/^#status-(.*)$/);
     jumped=false;routeNote='';target=match?Number(match[1]):null;
     privateToken=status?status[1]:null;
-    landing.hidden=Boolean(status);statusView.hidden=!status;
+    landing.hidden=Boolean(status);suggest.hidden=Boolean(status);statusView.hidden=!status;
     if(status){
       pinned=null;hideResults();clearTimeout(pollTimer);checkStatus(status[1],version);
       statusView.scrollIntoView({block:'start'});return;
@@ -610,7 +624,7 @@ function start(root) {
   document.addEventListener('pointerdown',e=>pinFrom(e.target),{passive:true});
 
   search.addEventListener('input',()=>{
-    pinned=null;target=null;
+    pinned=null;target=null;routeNote='';paintNotice();
     if(/^#idea-\d+$/.test(location.hash)){
       history.replaceState(null,'',location.pathname+location.search);lastLocation=location.href;
     }
@@ -621,7 +635,7 @@ function start(root) {
     allShown=!allShown;pinned=null;display({explicit:true});
     if(allShown&&!search.value.trim()){
       const first=order.find(id=>!shortlist.has(id)&&byId.has(id));
-      if(first!=null)focus(role(rows.get(first),'title'));
+      if(first!=null){ const row=rows.get(first);focus(role(row,'title'));row.scrollIntoView({block:'start'}); }
     }
   });
 
@@ -653,6 +667,12 @@ function start(root) {
     }
   });
 
+  // The skip link sits outside the app root; it must not rewrite a private status fragment.
+  document.querySelector('a.skip-link')?.addEventListener('click',e=>{
+    e.preventDefault();
+    const node=privateToken===null ? $('#main') : statusView.querySelector('h1');
+    focus(node);node?.scrollIntoView({block:'start'});
+  });
   wireForm($('#suggest-form'),'idea');
   window.addEventListener('hashchange',()=>{if(lastLocation!==location.href)route();});
   window.addEventListener('popstate',()=>{if(lastLocation!==location.href)route();});
