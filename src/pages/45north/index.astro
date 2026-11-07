@@ -45,7 +45,7 @@ const groups = makeGroups(seed, seed.map(idea => idea.id)).sort((a,b) => a.label
           <label class="topic-jump" id="topic-jump-label">
             <span class="sr-only">Jump to a topic</span>
             <select id="topic-jump" disabled>
-              <option value="">Jump to topic</option>
+              <option value="">Topics</option>
               {groups.map(group => <option value={group.id}>{group.label}</option>)}
             </select>
           </label>

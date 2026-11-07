@@ -78,3 +78,37 @@
   .masthead .suggest-object { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .topic-jump select { font-size: .8rem; }
 }
+.topic-jump { position: relative; }
+.topic-jump select {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5.7em;
+  padding-inline: .25rem 1.15rem;
+  background: transparent;
+  color: #fffdf2;
+}
+.topic-jump select option { background: #fffdf5; color: #193f35; }
+.topic-jump::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 50% .35rem auto auto;
+  width: .38rem;
+  height: .38rem;
+  border: solid #fffdf2;
+  border-width: 0 1.5px 1.5px 0;
+  transform: translateY(-65%) rotate(45deg);
+}
+@media (max-width: 640px) {
+  .masthead-inner:has(.suggest-panel:not([open])) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .6fr) minmax(0, .85fr);
+    column-gap: .4rem;
+  }
+  .masthead-inner:has(.suggest-panel:not([open])) .topic-jump { justify-self: end; max-width: 100%; }
+  .masthead .suggest-panel:not([open]) { min-width: 0; width: 100%; }
+  .masthead .suggest-panel:not([open]) > summary { justify-content: flex-end; }
+}
+@media (max-width:389px) {
+  .masthead-inner:has(.suggest-panel:not([open])) { grid-template-columns: minmax(0, 1fr) minmax(0, .64fr) minmax(0, .62fr); }
+}

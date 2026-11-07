@@ -181,7 +181,8 @@ function groupedLayout({root, list, rows, order, request, onStale}) {
         heading.scrollIntoView({block:'start'});
         return;
       }
-      const control = section.mount.querySelector('button:not(:disabled),select:not(:disabled),input:not(:disabled)');
+      const control = [...section.mount.querySelectorAll('button:not(:disabled),select:not(:disabled),input:not(:disabled)')]
+        .find(node => !node.closest('[hidden]') && node.getClientRects().length);
       (control || section.mount).focus({preventScroll:true});
       section.mount.scrollIntoView({block:'start'});
     });

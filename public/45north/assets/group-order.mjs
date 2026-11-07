@@ -59,7 +59,7 @@ function groupView(entry, props, handleAction) {
   }
   const progress = element(doc, 'p', 'go-progress');
   progress.dataset.orderProgress = '';
-  progress.setAttribute('aria-live', 'polite');
+  progress.setAttribute('aria-live', 'off');
   progress.setAttribute('aria-atomic', 'true');
   const actions = element(doc, 'div', 'go-actions');
   const buttons = {};
@@ -74,6 +74,7 @@ function groupView(entry, props, handleAction) {
   const feedback = element(doc, 'p', 'go-feedback');
   feedback.dataset.orderStatus = '';
   feedback.setAttribute('role', 'status');
+  feedback.setAttribute('aria-live', 'off');
   const stats = element(doc, 'div', 'go-results');
   stats.dataset.orderResults = '';
   stats.hidden = true;
@@ -82,6 +83,8 @@ function groupView(entry, props, handleAction) {
   root.addEventListener('click', event => {
     const button = event.target.closest?.('button');
     if (!button || button.disabled || !root.contains(button)) return;
+    progress.setAttribute('aria-live', 'polite');
+    feedback.setAttribute('aria-live', 'polite');
     const id = Number(button.closest('[data-order-item]')?.dataset.orderItem);
     handleAction(entry, button.dataset.orderPick ? 'pick' : button.dataset.orderAction, id, button);
   });
@@ -126,23 +129,24 @@ function updateView(entry, status) {
       : 'Choose ' + item.title);
     item.pick.disabled = !editing || locked;
     item.moves.hidden = !editing || !complete;
-    item.up.disabled = locked || position === 0;
-    item.down.disabled = locked || position === 4;
+    item.up.disabled = locked || item.moves.hidden || position === 0;
+    item.down.disabled = locked || item.moves.hidden || position === 4;
   }
   progress.hidden = !editing;
   setText(progress, complete ? 'All five are ordered. Review and save.' :
     (order.length ? order.length + ' of 5 chosen. ' : '') + 'Choose your ' + places[order.length] + ' priority.');
   buttons.save.hidden = !editing;
-  buttons.save.disabled = locked || !complete || !status.ownReady;
+  buttons.save.disabled = locked || !editing || !complete || !status.ownReady;
   buttons.undo.hidden = !editing || !entry.history.length;
   buttons.clear.hidden = !editing || !order.length;
   buttons.cancel.hidden = !editing || !saved;
   buttons.edit.hidden = editing || !saved;
   buttons.remove.hidden = editing || !saved;
-  for (const name of ['undo', 'clear', 'cancel', 'edit', 'remove']) buttons[name].disabled = locked;
+  for (const name of ['undo', 'clear', 'cancel', 'edit', 'remove']) buttons[name].disabled = locked || buttons[name].hidden;
   buttons['retry-own'].hidden = !status.ownFailed || !status.available;
+  buttons['retry-own'].disabled = buttons['retry-own'].hidden;
   buttons.retry.hidden = !retry;
-  buttons.retry.disabled = busy || !status.ready || !status.available || entry.stale;
+  buttons.retry.disabled = buttons.retry.hidden || busy || !status.ready || !status.available || entry.stale;
   const message = entry.message || (!status.available
     ? 'Ordering is unavailable while the survey is offline.'
     : !status.ready ? 'Checking the current five issues…'
@@ -281,7 +285,7 @@ export function createGroupOrders({request, onStale = () => {}}) {
       ownFailed = false;
       ownReadAt = performance.now();
     } catch {
-      if (generation === ownGeneration && !destroyed) ownFailed = true;
+      if (generation === ownGeneration && !destroyed) { ownFailed = true; ownReadAt = performance.now(); }
     } finally {
       if (generation === ownGeneration && !destroyed) { ownPending = false; drawAll(); }
     }
@@ -337,6 +341,7 @@ export function createGroupOrders({request, onStale = () => {}}) {
     draw(entry);
     if (name === 'edit' || name === 'clear') safeFocus(entry.view.byId.get(entry.draft[0] || entry.neutral[0])?.pick);
     if (name === 'cancel') safeFocus(entry.view.buttons.edit);
+    if (name === 'undo' && entry.view.buttons.undo.hidden) safeFocus(entry.view.byId.get(entry.neutral[0])?.pick);
     if (origin.disabled && (name === 'up' || name === 'down')) safeFocus(entry.view.byId.get(id)?.pick);
   }
   async function submit(entry, attempt, origin) {
@@ -371,11 +376,12 @@ export function createGroupOrders({request, onStale = () => {}}) {
       if (destroyed || entries.get(entry.group.id) !== entry) return;
       if (e.status === 409) {
         entry.stale = true;
-        entry.message = 'These five issues have changed. The current group is being loaded.';
+        entry.message = 'The service requested a fresh comparison. Checking whether these five issues changed…';
         onStale();
       } else {
         entry.retry = attempt;
-        entry.message = 'Your change could not be confirmed. Retry to check it.';
+        entry.message = e.status === 429 ? 'This connection reached its request limit. Retry in ten minutes.'
+          : 'Your change could not be confirmed. Retry to check it.';
       }
     } finally {
       entry.busy = false;
@@ -523,6 +529,10 @@ export function createGroupOrders({request, onStale = () => {}}) {
             busy: false, stale: false, retry: null, history: [], revision: 0, lastWrite: 0,
             message: replacement ? 'This group changed. Choose an order for the current five issues.' : ''};
           entries.set(group.id, entry);
+        } else if (ready && entry.stale) {
+          // The server can also reject a day-old operation while the exact five remain eligible.
+          entry.stale = false;
+          entry.message = 'The current five are confirmed. Review your order and save again.';
         }
         if (group.ids.length !== 5) {
           if (mount.dataset.orderIncomplete !== group.key) {
