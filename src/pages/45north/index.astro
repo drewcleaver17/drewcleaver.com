@@ -1,0 +1,132 @@
+---
+import catalog from '../../data/45north.json';
+import { profile } from '../../data/profile';
+import NorthIdeaRow from '../../components/NorthIdeaRow.astro';
+
+const title = '45 North · The Idea 250 — Drew Cleaver';
+const description = 'Which changes would make the biggest difference in your week? Vote on practical ideas, suggest one of your own, or share a place to try one.';
+const canonical = new URL('/45north/', profile.website).href;
+const api = import.meta.env.PUBLIC_45NORTH_API ?? 'https://forty-five-north-api.drewcleaver.chatgpt.site';
+const preview = ['1', 'true'].includes(import.meta.env.PUBLIC_45NORTH_PREVIEW ?? '');
+const previewNotice = import.meta.env.PUBLIC_45NORTH_PREVIEW_NOTICE || 'Owner-only rehearsal · test votes use one shared connection.';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#193f35" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="45 North · The Idea 250" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/45north/assets/chart.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead">
+      <div class="wrap masthead-inner">
+        <a class="north-mark" href="/45north/" aria-label="45 North, see the chart">
+          <span class="direction" aria-hidden="true"></span><span><strong>45</strong> North</span>
+        </a>
+        <a class="owner" href="/">{profile.name}<span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <div id="north-app" data-north data-api={api} data-email={profile.email} data-preview={preview ? 'true' : undefined}>
+        {preview && <p class="preview-note wrap">{previewNotice}</p>}
+        <section id="north-intro" class="intro">
+          <div class="wrap intro-layout">
+            <div class="intro-copy">
+              <h1>Which of these would make the biggest difference in <em>your week?</em></h1>
+              <p>Vote higher or lower priority on as many or as few ideas as you like. You can change your vote.</p>
+            </div>
+            <div class="intro-tools">
+              <button id="rate-three" type="button" class="rate-action" disabled={!api}><span class="deck-icon" aria-hidden="true"><i></i><i></i><i></i></span>Rate 3 ideas</button>
+              <details id="suggest-view" class="suggest-box">
+                <summary><span class="plus-icon" aria-hidden="true"></span>Suggest an idea</summary>
+                <form id="suggest-form">
+                  <label for="suggest-text">What would you change?</label>
+                  <p class="form-hint" id="suggest-hint">One sentence is enough. Please leave out personal details.</p>
+                  <textarea id="suggest-text" name="text" required maxlength="500" rows="3" aria-describedby="suggest-hint"></textarea>
+                  <div data-role="matches"></div>
+                  <button type="submit" class="submit-action" disabled>Send suggestion</button>
+                  <div data-role="form-result" aria-live="polite"></div>
+                </form>
+              </details>
+            </div>
+          </div>
+        </section>
+        <section id="shared-view" class="wrap mode-view" hidden></section>
+        <section id="deck-view" class="wrap mode-view" hidden></section>
+        <section id="status-view" class="wrap mode-view" hidden></section>
+        <section id="chart-view" class="wrap chart" aria-labelledby="chart-title">
+          <div class="chart-top">
+            <div class="chart-names">
+              <h2 id="chart-title">The Idea <em>250</em></h2>
+              <span class="window">Past 30 days</span>
+            </div>
+            <div class="search-box">
+              <label for="search"><span class="visually-hidden">Search ideas by number, topic or your own words</span><span class="search-icon" aria-hidden="true"></span></label>
+              <input id="search" type="search" placeholder="Search ideas by topic, words or #" autocomplete="off" spellcheck="false" />
+            </div>
+          </div>
+          <div class="chart-notes">
+            <p id="chart-state">{api ? 'Checking live standings…' : 'Reading the launch catalog. Live standings and voting are unavailable.'}</p>
+            <p class="privacy-short">{preview ? 'Public chart on drewcleaver.com · No cookies. No Google or ad tracking. No account needed.' : 'No cookies. No Google or ad tracking. No account needed.'}</p>
+          </div>
+          <noscript><p class="preview-note">You can read the launch ideas and open their details. Enable JavaScript to load live standings, vote or send a suggestion.</p></noscript>
+          <p class="search-summary" id="search-summary" aria-live="polite"></p>
+          <button class="inline-action" id="search-suggest" type="button" hidden>Suggest this idea</button>
+          <div class="chart-legend" aria-hidden="true"><span>Rank</span><span>Proposal</span><span>Your priority</span></div>
+          <div id="chart-list">{catalog.map(idea => <NorthIdeaRow idea={idea} />)}</div>
+          <button id="more-ideas" type="button" class="inline-action" hidden>More ideas</button>
+          <p data-role="snapshot" class="snapshot" hidden></p>
+        </section>
+        <section class="wrap guide" aria-label="About 45 North" data-chart-only>
+          <details id="how-it-works">
+            <summary>How it works</summary>
+            <div>
+              <p>Upvote an idea to put it higher on the list. Downvote it if other issues should come first. Skipping or feeling unsure says nothing about your support. You can vote on one idea, all of them or any number in between.</p>
+              <p>#1 has the highest net score over the past 30 days. Each upvote adds one and each downvote subtracts one. A tie goes in permanent idea-number order. Up to 250 ideas have chart positions. Every approved idea can appear in search and Rate 3.</p>
+              <p>Each connection gets one active vote per idea. Switching direction starts a fresh 30 days. Repeating the same choice leaves its original expiry intact. “Remove vote” clears your choice on that idea. The chart takes a snapshot each Friday at 6 p.m. Chicago time. A move can reflect votes expiring or other ideas changing position.</p>
+              <p>Participation is voluntary. The chart helps Drew choose what to investigate. A chance to try an idea can come at any rank. Open an idea to see its dated updates when there is something to report. Upvotes on Reddit stay on Reddit.</p>
+            </div>
+          </details>
+          <details id="north-privacy">
+            <summary>Privacy and shared connections</summary>
+            <div>
+              <p>{preview && 'Public chart on drewcleaver.com · '}No cookies. No Google or ad tracking. No account needed. Search and drafts stay in this page until you choose to send something. Public share links contain only the idea’s permanent address.</p>
+              <p>For each idea, the vote service turns the connection’s public IP address into a private code specific to that idea. The voting database stores the code and choice without the raw IP. People on the same public IP can replace each other’s vote on that idea. A new address can count as a different connection. Totals describe voluntary feedback and cannot tell us how many different people participated across ideas or what all workers think.</p>
+              <p>GitHub Pages logs visitor IP addresses for security. OpenAI Sites and Cloudflare process connection information to deliver and protect the vote service. Their infrastructure logs may include IP, time, route and status. The application writes no request-body or choice logs. Cloudflare can return a security-cookie header. The public chart disables credentials on every service request, so the browser neither accepts nor sends that cookie.</p>
+              {preview && <p>This owner-only rehearsal uses your signed-in session for access. It stores test activity separately and uses one shared test connection.</p>}
+              <p>Suggestions and pilot leads go to private review. An optional private status link lets its holder see the decision and any resulting public idea. Your text and the reviewer’s notes stay private. The expiry date appears with your link.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Why 45 North?</summary>
+            <div><p>The name borrows from Houston’s I‑45 and gives a nod to 85 South. Trump’s first term raised a question for Drew. Which changes would people living with these decisions put first?</p></div>
+          </details>
+        </section>
+        <template id="north-card"><NorthIdeaRow /></template>
+        <script is:inline type="application/json" id="north-catalog" set:html={JSON.stringify(catalog).replaceAll('<', '\\u003c')} />
+      </div>
+    </main>
+    <footer class="wrap site-credit"><span>45 North</span><a href="/">Drew Cleaver <span aria-hidden="true">↗</span></a></footer>
+    <script is:inline>
+      // The native fragment brings a shared launch proposal into view even while the full client is still downloading.
+      if (/^#idea-\d+$/.test(location.hash)) {
+        const target = document.getElementById(location.hash.slice(1));
+        const detail = target && target.querySelector('details');
+        if (detail) detail.open = true;
+      }
+    </script>
+    <script is:inline type="module" src="/45north/assets/client.mjs"></script>
+  </body>
+</html>

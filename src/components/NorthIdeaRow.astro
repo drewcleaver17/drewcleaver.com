@@ -1,0 +1,46 @@
+---
+interface Proposal {
+  id: number;
+  title: string;
+  topic: string;
+  action: string;
+  measure: string;
+  question: string;
+  example?: string;
+}
+interface Props { idea?: Proposal; }
+const { idea } = Astro.props;
+const number = idea ? String(idea.id).padStart(3, '0') : '';
+---
+<article class="idea-row" data-id={idea?.id} id={idea ? 'idea-' + number : undefined}>
+  <span class="idea-rank" data-role="rank" aria-label="Rank unavailable">—</span>
+  <div class="idea-heading">
+    <p class="idea-meta"><span class="idea-topic" data-role="topic">{idea?.topic}</span><span class="idea-number" data-role="id">{idea ? 'Idea ' + number : ''}</span></p>
+    <h3 class="idea-title" data-role="title">{idea?.title}</h3>
+  </div>
+  <div class="vote-pair" data-role="vote-actions">
+    <button class="vote" type="button" data-vote="1" title="Give this idea higher priority" aria-pressed="false" disabled><span class="vote-arrow" aria-hidden="true"></span>Upvote</button>
+    <button class="vote" type="button" data-vote="-1" title="Give this idea lower priority" aria-pressed="false" disabled><span class="vote-arrow" aria-hidden="true"></span>Downvote</button>
+  </div>
+  <div class="idea-receipt" data-role="receipt" role="status" aria-live="polite" aria-atomic="true"></div>
+  <details class="idea-details" data-role="details">
+    <summary><span class="details-label">Idea details</span><span class="idea-tally" data-role="tally">Totals unavailable</span><span data-role="movement" hidden></span></summary>
+    <div class="details-body">
+      <p class="idea-example" data-role="example" hidden={!idea?.example}>{idea?.example}</p>
+      <dl class="idea-fields">
+        <div><dt>What would change</dt><dd data-role="action">{idea?.action}</dd></div>
+        <div><dt>A question to work out</dt><dd data-role="question">{idea?.question}</dd></div>
+        <div><dt>How to judge a pilot</dt><dd data-role="measure">{idea?.measure}</dd></div>
+      </dl>
+      <p class="idea-breakdown" data-role="breakdown">Live vote breakdown unavailable.</p>
+      <div class="idea-updates" data-role="updates"></div>
+      <div class="row-tools">
+        <button type="button" data-action="share">Share this idea</button>
+        <button type="button" data-action="opportunity">Know a place to try this?</button>
+        <button type="button" data-action="remove" disabled>Remove vote</button>
+      </div>
+      <div data-role="share-result"></div>
+      <div data-role="opportunity-form"></div>
+    </div>
+  </details>
+</article>
