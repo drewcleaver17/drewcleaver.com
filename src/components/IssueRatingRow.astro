@@ -1,0 +1,55 @@
+---
+interface Proposal {
+  id: number;
+  title: string;
+  topic: string;
+  action: string;
+  measure: string;
+  question: string;
+  example?: string;
+}
+interface Props { idea?: Proposal; }
+const { idea } = Astro.props;
+const code = idea && String(idea.id).padStart(3, '0');
+const titleId = code ? 'title-' + code : undefined;
+---
+<article class="issue-row" id={code ? 'idea-' + code : undefined} data-id={idea?.id} aria-labelledby={titleId}>
+  <div class="issue-copy">
+    <p class="issue-topic" data-role="topic">{idea?.topic}</p>
+    <h2 class="issue-title" data-role="title" id={titleId} tabindex="-1">{idea?.title}</h2>
+    <p class="issue-description" data-role="action">{idea?.action}</p>
+    <p class="archive-notice" data-role="archive-notice" hidden>This issue is archived and closed to ratings.</p>
+  </div>
+  <div class="issue-rating">
+    <fieldset class="rating-scale" data-role="scale" disabled aria-labelledby={titleId ? 'rating-label ' + titleId : undefined} aria-describedby="scale-anchors">
+      <div class="score-grid">
+        {Array.from({length: 10}, (_, i) => i + 1).map(score => (
+          <button type="button" class="score" data-score={score} tabindex={score === 1 ? 0 : -1}
+            aria-pressed="false" aria-label={score === 1 ? '1, lowest priority' : score === 10 ? '10, highest priority' : String(score)}>{score}</button>
+        ))}
+      </div>
+    </fieldset>
+    <div class="rating-receipt" data-role="receipt" role="status" aria-live="polite" aria-atomic="true"></div>
+  </div>
+  <div class="issue-followup">
+    <details class="issue-details" data-role="details">
+      <summary>Details &amp; sharing</summary>
+      <div class="details-section">
+        <dl class="issue-fields">
+          <div data-example hidden={!idea?.example}><dt>Example</dt><dd data-role="example">{idea?.example}</dd></div>
+          <div><dt>A question to work out</dt><dd data-role="question">{idea?.question}</dd></div>
+          <div><dt>How to judge a pilot</dt><dd data-role="measure">{idea?.measure}</dd></div>
+        </dl>
+        <div class="issue-updates" data-role="updates" hidden></div>
+        <div class="issue-tools">
+          <button type="button" class="text-action" data-action="share">Share this issue</button>
+          <button type="button" class="text-action" data-action="opportunity">Know a place to try this?</button>
+          <button type="button" class="text-action" data-action="remove">Remove rating</button>
+        </div>
+        <div class="share-result" data-role="share-result" role="status"></div>
+        <div class="opportunity-form" data-role="opportunity-form" hidden></div>
+      </div>
+    </details>
+    <div data-role="results" data-community-result hidden></div>
+  </div>
+</article>
