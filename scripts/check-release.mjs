@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import './check-lab.mjs';
+import './check-45north-list.mjs';
 import './check-cleaver2028.mjs';
 import { campaign, isLocalReview, includeCampaign } from '../src/data/cleaver2028.mjs';
 
